@@ -1,0 +1,131 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+    <link rel="shortcut icon" href="http://www.easyicon.net/api/resize_png_new.php?id=1103381&size=24">
+
+    
+    <title>Spl:handle data like object</title>
+</head>
+<body>
+
+<h4 id="SPL:_handle_data_like_object">SPL: handle data like object</h4><p>@(php内核)</p>
+<p>数据可以方便的通过循环遍历来方便的获取到每一条详细的数据，数组也成了php非常好的数据容器，数组为什么能实现这样的功能？循环和遍历，是因为他集成了来自ArrayIterator对象，这个对象使他拥有了访问每个元素的本领。</p>
+<h3 id="所有spl">所有spl</h3><p>先来看一个方法：<code>spl_classes</code>，输出所有spl 类名：</p>
+<pre><code>[AppendIterator] =&gt; AppendIterator
+[ArrayIterator] =&gt; ArrayIterator
+[ArrayObject] =&gt; ArrayObject
+[BadFunctionCallException] =&gt; BadFunctionCallException
+[BadMethodCallException] =&gt; BadMethodCallException
+[CachingIterator] =&gt; CachingIterator
+[CallbackFilterIterator] =&gt; CallbackFilterIterator
+[Countable] =&gt; Countable
+[DirectoryIterator] =&gt; DirectoryIterator
+[DomainException] =&gt; DomainException
+[EmptyIterator] =&gt; EmptyIterator
+[FilesystemIterator] =&gt; FilesystemIterator
+[FilterIterator] =&gt; FilterIterator
+[GlobIterator] =&gt; GlobIterator
+[InfiniteIterator] =&gt; InfiniteIterator
+[InvalidArgumentException] =&gt; InvalidArgumentException
+[IteratorIterator] =&gt; IteratorIterator
+[LengthException] =&gt; LengthException
+[LimitIterator] =&gt; LimitIterator
+[LogicException] =&gt; LogicException
+[MultipleIterator] =&gt; MultipleIterator
+[NoRewindIterator] =&gt; NoRewindIterator
+[OuterIterator] =&gt; OuterIterator
+[OutOfBoundsException] =&gt; OutOfBoundsException
+[OutOfRangeException] =&gt; OutOfRangeException
+[OverflowException] =&gt; OverflowException
+[ParentIterator] =&gt; ParentIterator
+[RangeException] =&gt; RangeException
+[RecursiveArrayIterator] =&gt; RecursiveArrayIterator
+[RecursiveCachingIterator] =&gt; RecursiveCachingIterator
+[RecursiveCallbackFilterIterator] =&gt; RecursiveCallbackFilterIterator
+[RecursiveDirectoryIterator] =&gt; RecursiveDirectoryIterator
+[RecursiveFilterIterator] =&gt; RecursiveFilterIterator
+[RecursiveIterator] =&gt; RecursiveIterator
+[RecursiveIteratorIterator] =&gt; RecursiveIteratorIterator
+[RecursiveRegexIterator] =&gt; RecursiveRegexIterator
+[RecursiveTreeIterator] =&gt; RecursiveTreeIterator
+[RegexIterator] =&gt; RegexIterator
+[RuntimeException] =&gt; RuntimeException
+[SeekableIterator] =&gt; SeekableIterator
+[SplDoublyLinkedList] =&gt; SplDoublyLinkedList
+[SplFileInfo] =&gt; SplFileInfo
+[SplFileObject] =&gt; SplFileObject
+[SplFixedArray] =&gt; SplFixedArray
+[SplHeap] =&gt; SplHeap
+[SplMinHeap] =&gt; SplMinHeap
+[SplMaxHeap] =&gt; SplMaxHeap
+[SplObjectStorage] =&gt; SplObjectStorage
+[SplObserver] =&gt; SplObserver
+[SplPriorityQueue] =&gt; SplPriorityQueue
+[SplQueue] =&gt; SplQueue
+[SplStack] =&gt; SplStack
+[SplSubject] =&gt; SplSubject
+[SplTempFileObject] =&gt; SplTempFileObject
+[UnderflowException] =&gt; UnderflowException
+[UnexpectedValueException] =&gt; UnexpectedValueException
+</code></pre><h4 id="same_result_different_progressing">same result different progressing</h4><blockquote>
+<p>异曲同工</p>
+</blockquote>
+<p>假设这样的情况，我们在一个数组中保存了需要处理的数据，接下来我们需要在这个数组的结尾或者开头补充些数据，已让他更加丰富，如果是一般操作，没问题 很简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$data = array(&#39;alibaba.com&#39;, &#39;baidu.com&#39;);&#10;&#10;// &#21521;&#25968;&#32452;&#22836;&#37096;&#22686;&#21152;&#19968;&#20010;&#20803;&#32032;&#10;array_unshift($data, &#39;whoisthenext.com&#39;);&#10;// &#21521;&#25968;&#25454;&#23614;&#37096;&#22686;&#21152;&#19968;&#20010;&#20803;&#32032;&#10;array_push($data, &#39;tencent.com&#39;);</span><br></pre></td></tr></table></figure></p>
+<p>另外一种解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$data = array(&#39;alibaba.com&#39;, &#39;baidu.com&#39;);&#10;$dataObject = new ArrayObject($data);&#10;&#10;// &#25968;&#32452;&#38468;&#21152;&#20803;&#32032;&#10;$dataObject-&#62;append(&#39;last.com&#39;);</span><br></pre></td></tr></table></figure>
+<p>而且，促使我们使用各种迭代器的另外一个原因是任何一个programer都不能抗拒的：速度。<br>在处理如下的数据时，通过ab测试结果表明，使用迭代器之后请求处理速度明显快于没使用迭代器的情况。</p>
+<h4 id="目标">目标</h4><p>将下面的xml数据做成一个可以循环的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$xmlstring = &#60;&#60;&#60;XML&#10;&#60;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&#62;&#10;&#60;root&#62;&#10;  &#60;input_charset&#62;UTF-8&#60;/input_charset&#62;&#10;  &#60;out_refund_no /&#62;&#10;  &#60;out_trade_no /&#62;&#10;  &#60;partner&#62;1226251301&#60;/partner&#62;&#10;  &#60;reccv_user_name /&#62;&#10;  &#60;recv_user_id /&#62;&#10;  &#60;refund_channel /&#62;&#10;  &#60;refund_fee /&#62;&#10;  &#60;refund_id /&#62;&#10;  &#60;refund_status&#62;-1&#60;/refund_status&#62;&#10;  &#60;retcode&#62;88222013&#60;/retcode&#62;&#10;  &#60;retmsg&#62;[20921191]&#36864;&#27454;&#24635;&#37329;&#39069;&#36229;&#20986;&#20132;&#26131;&#37329;&#39069;[20150313174732-183]&#60;/retmsg&#62;&#10;  &#60;sign&#62;010651C7B3906F2863B3B1D2FB63A571&#60;/sign&#62;&#10;  &#60;sign_key_index&#62;1&#60;/sign_key_index&#62;&#10;  &#60;sign_type&#62;MD5&#60;/sign_type&#62;&#10;  &#60;transaction_id /&#62;&#10;&#60;/root&#62;&#10;XML;</span><br></pre></td></tr></table></figure></p>
+<p>First method:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;?php&#10;try &#123;&#10;/*** a new simpleXML iterator object ***/&#10;$sxi =new SimpleXMLIterator($xmlstring);&#10;&#10;foreach ( $sxi as $node )&#10;&#123;&#10;foreach($node as $k=&#62;$v)&#10;&#123;&#10;echo $v-&#62;species.&#39;&#60;br /&#62;&#39;;&#10;&#125;&#10;&#125;&#10;&#125;&#10;catch(Exception $e)&#10;&#123;&#10;echo $e-&#62;getMessage();&#10;&#125;&#10;?&#62;</span><br></pre></td></tr></table></figure>
+<p>Second method:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;try &#123;&#10;$sxe = simplexml_load_string($xmlstring, &#39;SimpleXMLIterator&#39;);&#10;&#10;for ($sxe-&#62;rewind(); $sxe-&#62;valid(); $sxe-&#62;next())&#10;&#123;&#10;if($sxe-&#62;hasChildren())&#10;&#123;&#10;foreach($sxe-&#62;getChildren() as $element=&#62;$value)&#10;&#123;&#10;echo $value-&#62;species.&#39;&#60;br /&#62;&#39;;&#10;&#125;&#10;&#125;&#10; &#125;&#10; &#125;&#10;catch(Exception $e)&#10; &#123;&#10; echo $e-&#62;getMessage();&#10; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>第一种方法的比第二种方法有明显的速度优势。尽管<code>simplexml_load_string</code>和<code>SimpleXMLIterator</code>是来自同一个扩展<code>simplexml</code>.</p>
+<h4 id="by_the_way">by the way</h4><p>看到官方的Iterator大部分的中文手册还未翻译，顺手先将arrayObject部分先提交了下翻译，都是些简单易懂的句子或词，剩下的看审核通过了再说，也算是对社区的一点贡献了。</p>
+<h4 id="附-spl函数">附.spl函数</h4><pre><code>class_​implements 返回指定的类实现的所有接口
+class_​parents 返回指定类的父类
+class_​uses Return the traits used by the given class
+iterator_​apply 为迭代器中每个元素调用一个用户自定义函数
+iterator_​count 计算迭代器中元素的个数
+iterator_​to_​array 将迭代器中的元素拷贝到数组
+spl_​<span class="built_in">autoload</span>_​call 尝试调用所有已注册的__<span class="built_in">autoload</span>()函数来装载请求类
+spl_​<span class="built_in">autoload</span>_​extensions 注册并返回spl_<span class="built_in">autoload</span>函数使用的默认文件扩展名
+spl_​<span class="built_in">autoload</span>_​<span class="built_in">functions</span> 返回所有已注册的__<span class="built_in">autoload</span>()函数
+spl_​<span class="built_in">autoload</span>_​register 注册给定的函数作为 __<span class="built_in">autoload</span> 的实现
+spl_​<span class="built_in">autoload</span>_​unregister 注销已注册的__<span class="built_in">autoload</span>()函数
+spl_​<span class="built_in">autoload</span>  __<span class="built_in">autoload</span>()函数的默认实现
+spl_​classes 返回所有可用的SPL类
+spl_​object_​<span class="built_in">hash</span> 返回指定对象的<span class="built_in">hash</span> id
+</code></pre><h4 id="参考">参考</h4><blockquote>
+<p><a href="http://www.4wei.cn/archives/1002433" target="_blank" rel="external">http://www.4wei.cn/archives/1002433</a><br><a href="http://www.phpro.org/tutorials/Introduction-to-SPL.html" target="_blank" rel="external">http://www.phpro.org/tutorials/Introduction-to-SPL.html</a></p>
+</blockquote>
+
+
+<!--<a href="http://yoursite.com/2015/06/01/spl-handle-data-like-object/#disqus_thread" class="article-comment-link">Comments</a>-->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+</body>
+</html>

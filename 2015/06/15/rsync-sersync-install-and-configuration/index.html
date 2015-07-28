@@ -1,0 +1,161 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+    <link rel="shortcut icon" href="http://www.easyicon.net/api/resize_png_new.php?id=1103381&size=24">
+
+    
+    <title>Rsync + sersync实时同步服务器文件</title>
+</head>
+<body>
+
+<h3 id="Rsync_+_sersync实时同步服务器文件">Rsync + sersync实时同步服务器文件</h3><h4 id="Rsync介绍">Rsync介绍</h4><p>rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync。</p>
+<p>Rsync（remote synchronize）是一个远程数据同步工具，可通过LAN/WAN快速同步多台主机间的文件。Rsync使用所谓的“Rsync算法”来使本地和远程两个主机之间的文件达到同步，这个算法只传送两个文件的不同部分，而不是每次都整份传送，因此速度相当快。</p>
+<p>Rsync本来是用于替代rcp的一个工具，目前由rsync.samba.org维护，所以rsync.conf文件的格式类似于samba的主配置文件。Rsync可以通过rsh或ssh使用，也能以daemon模式去运行，在以daemon方式运行时Rsync server会打开一个873端口，等待客户端去连接。连接时，Rsync server会检查口令是否相符，若通过口令查核，则可以开始进行文件传输。第一次连通完成时，会把整份文件传输一次，以后则就只需进行增量备份。</p>
+<p>Rsync支持大多数的类Unix系统，无论是Linux、Solaris还是BSD上都经过了良好的测试。此外，它在windows平台下也有相应的版本，如cwRsync和Sync2NAS等工具。</p>
+<h4 id="sersync的介绍">sersync的介绍</h4><p>sersync主要用于服务器同步，web镜像等功能。基于boost1.43.0,inotify api,rsync command.开发。目前使用的比较多的同步解决方案是inotify-tools+rsync ，另外一个是google开源项目Openduckbill（依赖于inotify- tools），这两个都是基于脚本语言编写的。相比较上面两个项目，本项目优点是：<br>sersync是使用c++编写，而且对linux系统文件系统产生的临时文件和重复的文件操作进行过滤（详细见附录，这个过滤脚本程序没有实现），所以在结合rsync同步的时候，节省了运行时耗和网络资源。因此更快。</p>
+<blockquote>
+<p>因为在墙外，我把它放在了百度网盘上：<a href="http://pan.baidu.com/s/1bndfcvX" target="_blank" rel="external">http://pan.baidu.com/s/1bndfcvX</a></p>
+</blockquote>
+<h4 id="安装Rsync">安装Rsync</h4><p>在使用sersync之前，我们必须安装配置好rsync服务器。这里我们需要注意的是，纯粹的使用rsync做单向同步时，rsync的守护进程是运行在文件推送的服务器上，而接收的服务器是运行rsync客户端。使用sersync做文件实时同步刚好相反，用于接收文件的服务器运行rsync守护进程。</p>
+<p>一.安装rsync<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install rsync -y&#10;# yum install xinetd -y</span><br></pre></td></tr></table></figure></p>
+<p>二.启动rsync依赖服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># /etc/init.d/xinetd start&#10;# chkconfig xinetd on</span><br></pre></td></tr></table></figure></p>
+<p>编辑配置文件<code>/etc/rsyncd.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uid=root&#10;gid=root&#10;use chroot=no&#10;max connections=10&#10;strict modes=yes&#10;port=873&#10;address=192.168.1.205  #&#26381;&#21153;&#22120;&#31471;ip&#10;&#10;[data]&#10;path=/data/Upload/product&#10;comment=mirror for test&#10;ignore errors&#10;read only=no&#10;list=no&#10;auth users=root&#10;secrets file=/etc/rsync.pas&#10;hosts.allow=*&#10;pid file=/var/run/rsyncd.pid&#10;lock file = /var/run/rsync.lock&#10;log file = /var/log/rsyncd.log</span><br></pre></td></tr></table></figure></p>
+<h5 id="rsyncd-conf服务器的配置详解：">rsyncd.conf服务器的配置详解：</h5><p>A、全局定义</p>
+<p>在rsync 服务器中，全局定义有几个比较关健的，根据我们前面所给的配置文件 rsyncd.conf 文件；</p>
+<ul>
+<li>pid file = /var/run/rsyncd.pid              注：告诉进程写到 /var/run/rsyncd.pid 文件中；</li>
+<li>port = 873                                       注：指定运行端口，默认是873，您可以自己指定；</li>
+<li>address = 192.168.1.171               注：指定服务器IP地址</li>
+<li>uid = nobody   </li>
+<li>gid = nobdoy                                注：服务器端传输文件时，要发哪个用户和用户组来执行，默认是nobody。 如果用nobody 用户和用户组，可能遇到权限问题，有些文件从服务器上拉不下来。所以我就偷懒，为了方便，用了root 。不过您可以在定义要同步的目录时定义的模块中指定用户来解决权限的问题。</li>
+</ul>
+<p>　　</p>
+<ul>
+<li>use chroot = yes </li>
+</ul>
+<p>　　 注：用chroot，在传输文件之前，服务器守护程序在将chroot 到文件系统中的目录中，这样做的好处是可能保护系统被安装漏洞侵袭的可能。缺点是需要超级用户权限。另外对符号链接文件，将会排除在外。也就是说，你在 rsync服务器上，如果有符号链接，你在备份服务器上运行客户端的同步数据时，只会把符号链接名同步下来，并不会同步符号链接的内容；这个需要自己来尝试。</p>
+<ul>
+<li>read only = yes </li>
+</ul>
+<p>　　注：read only 是只读选择，也就是说，不让客户端上传文件到服务器上。还有一个 write only选项，自己尝试是做什么用的吧；</p>
+<ul>
+<li>limit access to private LANs</li>
+<li>hosts allow=192.168.1.0/255.255.255.0 10.0.1.0/255.255.255.0 </li>
+</ul>
+<p>　　注：在您可以指定单个IP，也可以指定整个网段，能提高安全性。格式是ip 与ip 之间、ip和网段之间、网段和网段之间要用空格隔开；</p>
+<ul>
+<li>max connections = 5      注：客户端最多连接数</li>
+</ul>
+<ul>
+<li>motd file = /etc/rsyncd.motd</li>
+</ul>
+<p>　　注：motd file 是定义服务器信息的，要自己写 rsyncd.motd 文件内容。当用户登录时会看到这个信息。比如我写的是：</p>
+<p>　　++++++++++++++++++++++++++++++++++++++++++++++<br>　　Welcome to use the mike.org.cn rsync services!<br>           2002———2009<br>　　++++++++++++++++++++++++++++++++++++++++++++++</p>
+<p>　　log file = /var/log/rsync.log       注：rsync 服务器的日志；</p>
+<p>　　transfer logging = yes   注：这是传输文件的日志</p>
+<p>　　log format = %t %a %m %f %b<br>　　syslog facility = local3<br>　　timeout = 300</p>
+<p>B、模块定义</p>
+<p>　 　模块定义什么呢？主要是定义服务器哪个目录要被同步。每个模块都要以[name]形式。这个名字就是在rsync 客户端看到的名字，其实有点象Samba服务器提供的共享名。而服务器真正同步的数据是通过path 指定的。我们可以根据自己的需要，来指定多个模块。每个模块要指定认证用户，密码文件、但排除并不是必须的</p>
+<p>　　下面是前面配置文件模块的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rhel4home]          #&#27169;&#22359;&#23427;&#20026;&#25105;&#20204;&#25552;&#20379;&#20102;&#19968;&#20010;&#38142;&#25509;&#30340;&#21517;&#23383;&#65292;&#22312;&#26412;&#27169;&#22359;&#20013;&#38142;&#25509;&#21040;&#20102;/home&#30446;&#24405;&#65307;&#35201;&#29992;[name] &#24418;&#24335;&#10;&#12288;&#12288;path = /home         #&#25351;&#23450;&#25991;&#20214;&#30446;&#24405;&#25152;&#22312;&#20301;&#32622;&#65292;&#36825;&#26159;&#24517;&#39035;&#25351;&#23450;&#30340; &#10;&#12288;&#12288;auth users = root    #&#35748;&#35777;&#29992;&#25143;&#26159;root  &#65292;&#26159;&#24517;&#39035;&#22312;&#26381;&#21153;&#22120;&#19978;&#23384;&#22312;&#30340;&#29992;&#25143;&#10;&#12288;&#12288;list=yes             #list &#24847;&#24605;&#26159;&#25226;rsync &#26381;&#21153;&#22120;&#19978;&#25552;&#20379;&#21516;&#27493;&#25968;&#25454;&#30340;&#30446;&#24405;&#22312;&#26381;&#21153;&#22120;&#19978;&#27169;&#22359;&#26159;&#21542;&#26174;&#31034;&#21015;&#20986;&#26469;&#12290;&#40664;&#35748;&#26159;yes &#12290;&#22914;&#26524;&#20320;&#19981;&#24819;&#21015;&#20986;&#26469;&#65292;&#23601;no &#65307;&#22914;&#26524;&#26159;no&#26159;&#27604;&#36739;&#23433;&#20840;&#30340;&#65292;&#33267;&#23569;&#21035;&#20154;&#19981;&#30693;&#36947;&#20320;&#30340;&#26381;&#21153;&#22120;&#19978;&#25552;&#20379;&#20102;&#21738;&#20123;&#30446;&#24405;&#12290;&#20320;&#33258;&#24049;&#30693;&#36947;&#23601;&#34892;&#20102;&#65307;&#10;&#12288;&#12288;ignore errors        #&#24573;&#30053;IO&#38169;&#35823;&#10;&#12288;&#12288;secrets file = /etc/rsyncd.secrets   #&#23494;&#30721;&#23384;&#22312;&#21738;&#20010;&#25991;&#20214;&#10;&#12288;&#12288;comment = linuxsir home  data        #&#27880;&#37322;&#21487;&#20197;&#33258;&#24049;&#23450;&#20041;&#10;&#12288;&#12288;exclude = beinan/ samba/</span><br></pre></td></tr></table></figure>
+<p>注：exclude是排除的意思，也就是说，要把/home目录下的easylife和samba排除在外； easylife/和samba/目录之间有空格分开</p>
+<p>请确认要同步的目录是否存在</p>
+<p>配置密码认证文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># echo &#34;root:haha1029**&#34; &#62; /etc/rsync.pas&#10;# chmod 600 /etc/rsync.pas&#10;# rsync --daemon --config=/etc/rsyncd.conf</span><br></pre></td></tr></table></figure>
+<p>重启xinetd使其配置生效 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># /etc/init.d/xinetd restart</span><br></pre></td></tr></table></figure>
+<p>设置开机自启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># echo &#34;rsync --daemon --config=/etc/rsyncd.conf&#34; &#62;&#62; /etc/rc.local</span><br></pre></td></tr></table></figure>
+<h4 id="sersync_安装与配置">sersync 安装与配置</h4><p>下载安装：<a href="http://pan.baidu.com/s/1bndfcvX" target="_blank" rel="external">sersync in pan.baidu.com</a></p>
+<p>创建sersync目录结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkdir /usr/local/sersync&#10;# mkdir /usr/local/sersync/conf&#10;# mkdir /usr/local/sersync/bin&#10;# mkdir /usr/local/sersync/log&#10;# tar zxvf sersync2.5_32bit_binary_stable_final.tar.gz&#10;# cd GNU-Linux-x86/&#10;# cp confxml.xml /usr/local/sersync/conf&#10;# cp sersync2 /usr/local/sersync/bin</span><br></pre></td></tr></table></figure></p>
+<p>配置sersync</p>
+<p>1.首先创建连接rsyncd的密码文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># echo &#34;123456&#34; &#62;/etc/rsync.pas&#10;# chmod 600 /etc/rsync.pas&#10;``` &#10;&#10;2.&#37197;&#32622;`confxml.xml`</span><br></pre></td></tr></table></figure>
+<h1 id="cd_/usr/local/sersync/conf">cd /usr/local/sersync/conf</h1><h1 id="vi_confxml-xml">vi confxml.xml</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#37197;&#32622;&#25991;&#20214;&#65306;</span><br></pre></td></tr></table></figure>
+<p>&lt;?xml version=”1.0” encoding=”ISO-8859-1”?&gt;</p>
+<p><head version="2.5"><br>    <host hostip="localhost" port="8008"></host><br>    <debug start="true"><br>    <filesystem xfs="false"><br>    <filter start="false"><br>        <exclude expression="(.*)\.svn"></exclude><br>        <exclude expression="(.*)\.gz"></exclude><br>        <exclude expression="^info/*"></exclude><br>        <exclude expression="^static/*"></exclude><br>    </filter><br>    <inotify><br>        <delete start="true"><br>        <createfolder start="true"><br>        <createfile start="true"><br>        <closewrite start="true"><br>        <movefrom start="true"><br>        <moveto start="true"><br>        <attrib start="true"><br>        <modify start="true"><br>    </modify></attrib></moveto></movefrom></closewrite></createfile></createfolder></delete></inotify></filesystem></debug></head></p>
+<pre><code><span class="tag">&lt;<span class="title">sersync</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">localpath</span> <span class="attribute">watch</span>=<span class="value">"/data/Upload/product"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">remote</span> <span class="attribute">ip</span>=<span class="value">"192.168.1.205"</span> <span class="attribute">name</span>=<span class="value">"data"</span>/&gt;</span>
+        <span class="comment">&lt;!--&lt;remote ip="192.168.8.39" name="tongbu"/&gt;--&gt;</span>
+        <span class="comment">&lt;!--&lt;remote ip="192.168.8.40" name="tongbu"/&gt;--&gt;</span>
+    <span class="tag">&lt;/<span class="title">localpath</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">rsync</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">commonParams</span> <span class="attribute">params</span>=<span class="value">"-artuz"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">auth</span> <span class="attribute">start</span>=<span class="value">"true"</span> <span class="attribute">users</span>=<span class="value">"root"</span> <span class="attribute">passwordfile</span>=<span class="value">"/etc/rsync.pas"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">userDefinedPort</span> <span class="attribute">start</span>=<span class="value">"false"</span> <span class="attribute">port</span>=<span class="value">"874"</span>/&gt;</span><span class="comment">&lt;!-- port=874 --&gt;</span>
+        <span class="tag">&lt;<span class="title">timeout</span> <span class="attribute">start</span>=<span class="value">"false"</span> <span class="attribute">time</span>=<span class="value">"100"</span>/&gt;</span><span class="comment">&lt;!-- timeout=100 --&gt;</span>
+        <span class="tag">&lt;<span class="title">ssh</span> <span class="attribute">start</span>=<span class="value">"false"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">rsync</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">failLog</span> <span class="attribute">path</span>=<span class="value">"/usr/local/sersync/log/rsync_fail_log.sh"</span> <span class="attribute">timeToExecute</span>=<span class="value">"60"</span>/&gt;</span><span class="comment">&lt;!--default every 60mins execute once--&gt;</span>
+    <span class="tag">&lt;<span class="title">crontab</span> <span class="attribute">start</span>=<span class="value">"false"</span> <span class="attribute">schedule</span>=<span class="value">"600"</span>&gt;</span><span class="comment">&lt;!--600mins--&gt;</span>
+        <span class="tag">&lt;<span class="title">crontabfilter</span> <span class="attribute">start</span>=<span class="value">"false"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">exclude</span> <span class="attribute">expression</span>=<span class="value">"*.php"</span>&gt;</span><span class="tag">&lt;/<span class="title">exclude</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">exclude</span> <span class="attribute">expression</span>=<span class="value">"info/*"</span>&gt;</span><span class="tag">&lt;/<span class="title">exclude</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">crontabfilter</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">crontab</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">plugin</span> <span class="attribute">start</span>=<span class="value">"true"</span> <span class="attribute">name</span>=<span class="value">"command"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">sersync</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">plugin</span> <span class="attribute">name</span>=<span class="value">"command"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">param</span> <span class="attribute">prefix</span>=<span class="value">"/opt/install/php/bin/php /path/to/php script "</span> <span class="attribute">suffix</span>=<span class="value">""</span> <span class="attribute">ignoreError</span>=<span class="value">"true"</span>/&gt;</span>  <span class="comment">&lt;!--prefix /opt/tongbu/mmm.sh suffix--&gt;</span>
+    <span class="tag">&lt;<span class="title">filter</span> <span class="attribute">start</span>=<span class="value">"false"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">include</span> <span class="attribute">expression</span>=<span class="value">"(.*)\.php"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">include</span> <span class="attribute">expression</span>=<span class="value">"(.*)\.sh"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">filter</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">plugin</span> <span class="attribute">name</span>=<span class="value">"socket"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">localpath</span> <span class="attribute">watch</span>=<span class="value">"/opt/tongbu"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">deshost</span> <span class="attribute">ip</span>=<span class="value">"192.168.138.20"</span> <span class="attribute">port</span>=<span class="value">"8009"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">localpath</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span>
+<span class="tag">&lt;<span class="title">plugin</span> <span class="attribute">name</span>=<span class="value">"refreshCDN"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">localpath</span> <span class="attribute">watch</span>=<span class="value">"/data/Upload/product/"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">cdninfo</span> <span class="attribute">domainname</span>=<span class="value">"ccms.fastweb.com"</span> <span class="attribute">port</span>=<span class="value">"80"</span> <span class="attribute">username</span>=<span class="value">"xxxx"</span> <span class="attribute">passwd</span>=<span class="value">"xxxx"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">sendurl</span> <span class="attribute">base</span>=<span class="value">"http://jinritemai.com/product"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">regexurl</span> <span class="attribute">regex</span>=<span class="value">"false"</span> <span class="attribute">match</span>=<span class="value">"*.html"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">localpath</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span>
+</code></pre><p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#27880;&#24847;&#65292;&#25105;&#20351;&#29992;&#20102;command &#25554;&#20214;&#65292;&#29992;&#26469;&#21578;&#30693;cdn&#26381;&#21153;&#25552;&#20379;&#21830;&#20869;&#23481;&#26356;&#26032;&#12290;&#10;&#20182;&#30340;&#36755;&#20986;&#26159;&#36825;&#26679;&#30340;&#65306;</span><br></pre></td></tr></table></figure></p>
+<p>/opt/install/php/bin/php /opt/install/tools/refreshcdn.php /data/web/product/<em>**</em>.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20854;&#20013;&#31532;&#19977;&#20010;&#21442;&#25968;&#26159;inotify&#36890;&#30693;&#30340;&#21464;&#21270;&#30340;&#25991;&#20214;&#12290;&#36825;&#37324;&#20316;&#20026;&#21442;&#25968;&#20256;&#36882;&#32473;&#33050;&#26412;&#22788;&#29702;&#12290;&#36825;&#26679;&#23601;&#31616;&#21333;&#23454;&#29616;&#20102;&#22312;&#26356;&#26032;&#38745;&#24577;&#25991;&#20214;&#26102;&#21516;&#26102;&#21047;&#26032;&#20102;cdn&#26381;&#21153;&#22120;&#30340;&#20219;&#21153;&#12290;&#10;&#10;&#10;3.&#21019;&#24314;&#25512;&#36865;&#31471;sersync&#21516;&#27493;&#30446;&#24405;&#10;`# mkdir /data/Upload/product`&#10;&#10;4.&#35774;&#32622;&#29615;&#22659;&#21464;&#37327;&#65306;</span><br></pre></td></tr></table></figure>
+<h1 id="echo_“export_PATH=$PATH:/usr/local/sersync/bin/“_&gt;&gt;_/etc/profile">echo “export PATH=$PATH:/usr/local/sersync/bin/“ &gt;&gt; /etc/profile</h1><h1 id="source_/etc/profile">source /etc/profile</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;5.&#21551;&#21160;sersync&#10;`# sersync2 -r -d -o /usr/local/sersync/conf/confxml.xml`&#10;&#27880;&#65306;&#37325;&#21551;&#25805;&#20316;&#22914;&#19979;&#65306;&#10;`# killall sersync2 &#38;&#38; sersync2 -r -d -o /usr/local/sersync/conf/confxml.xml`&#10;&#10;6.&#35774;&#32622;&#24320;&#26426;&#21551;&#21160;&#10;`# echo &#34;sersync2 -r -d -o /usr/local/sersync/conf/confxml.xml&#34; &#62;&#62; /etc/rc.local`&#10;&#10;&#10;####&#39564;&#35777;&#65306;&#10;&#22312;192.168.1.217&#36825;&#21488;&#26426;&#22120;`/data/Upload/product/`&#30446;&#24405;&#19979;&#38754;&#26032;&#22686;&#25991;&#20214;&#65292;&#28982;&#21518;&#22312;192.168.1.205&#26426;&#22120;&#30340;&#37197;&#32622;&#27169;&#22359;&#30446;&#24405;&#19979;&#26597;&#30475;&#12290;&#10;&#10;####&#38169;&#35823;&#21442;&#32771;&#65306;&#10;&#10;#####&#21516;&#27493;&#27169;&#22359;&#26435;&#38480;&#39564;&#35777;&#22833;&#36133;&#65306;&#10;&#21333;&#29420;&#25191;&#34892;&#19979;&#38754;&#36825;&#26465;&#25351;&#20196;&#65292;</span><br></pre></td></tr></table></figure>
+<p>[jrtm@fzb ~]$ cd /data/Upload/product &amp;&amp; rsync -artuz -R —delete ./ 192.168.1.205::data<br>Password:<br>@ERROR: auth failed on module data<br>rsync error: error starting client-server protocol (code 5) at main.c(1503) [sender=3.0.6]</p>
+<p>```</p>
+<p>遇到这种情况可以单独执行上面的<code>rsync -artuz -R --delete ./ 192.168.1.205::data</code> 测试下在单独输入密码的情况下能否过去到达相应的模块。</p>
+<h4 id="参考文章">参考文章</h4><blockquote>
+<p><a href="http://showerlee.blog.51cto.com/2047005/1248429" target="_blank" rel="external">http://showerlee.blog.51cto.com/2047005/1248429</a><br><a href="http://blog.csdn.net/cymm_liu/article/details/31347531" target="_blank" rel="external">http://blog.csdn.net/cymm_liu/article/details/31347531</a></p>
+</blockquote>
+
+
+<!--<a href="http://yoursite.com/2015/06/15/rsync-sersync-install-and-configuration/#disqus_thread" class="article-comment-link">Comments</a>-->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+</body>
+</html>

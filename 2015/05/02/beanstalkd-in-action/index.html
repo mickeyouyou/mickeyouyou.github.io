@@ -1,0 +1,97 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+    <link rel="shortcut icon" href="http://www.easyicon.net/api/resize_png_new.php?id=1103381&size=24">
+
+    
+    <title>基于Beanstalkd的消息队列实践</title>
+</head>
+<body>
+
+<h1 id="基于beanstalkd的消息队列实践">基于beanstalkd的消息队列实践</h1><h2 id="beanstalk">beanstalk</h2><p><code>beanstalk</code>中文<code>魔豆</code>，是一个轻量级消息中间件，他的最大特点是将自己定位为基于管道  (tube) 和任务 (job) 的工作队列 (work-queue)：</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/beanstalk.png" alt="enter image description here"></p>
+<p>Beanstalkd设计里面的核心概念：</p>
+<h3 id="job">job</h3><p>一个需要异步处理的任务，是Beanstalkd中的基本单元，需要放在一个tube中。</p>
+<h3 id="tube">tube</h3><p>一个有名的任务队列，用来存储统一类型的job，是producer和consumer操作的对象。</p>
+<h3 id="producer">producer</h3><p>Job的生产者，通过put命令来将一个job放到一个tube中。</p>
+<h3 id="consumer">consumer</h3><p>Job的消费者，通过reserve/release/bury/delete命令来获取job或改变job的状态。<br><img src="" alt="enter image description here"><br><img src="http://7tsys1.com1.z0.glb.clouddn.com/producer-consumer%20%281%29.png" width="92%"></p>
+<h3 id="任务优先级_(priority):">任务优先级 (priority):</h3><p>任务 (job) 可以有 0~2^32 个优先级, 0 代表最高优先级。 beanstalkd 采用最大最小堆 (Min-max heap) 处理任务优先级排序, 任何时刻调用 reserve 命令的消费者总是能拿到当前优先级最高的任务, 时间复杂度为 O(logn). </p>
+<h3 id="延时任务_(delay):">延时任务 (delay):</h3><p>有两种方式可以延时执行任务 (job): 生产者发布任务时指定延时；或者当任务处理完毕后, 消费者再次将任务放入队列延时执行 (RELEASE with <delay>)。这种机制可以实现分布式的 java.util.Timer，这种分布式定时任务的优势是：如果某个消费者节点故障，任务超时重发 (time-to-run) 能够保证任务转移到另外的节点执行。</delay></p>
+<h3 id="任务超时重发_(time-to-run):">任务超时重发 (time-to-run):</h3><p>Beanstalkd 把任务返回给消费者以后：消费者必须在预设的 TTR (time-to-run) 时间内发送 delete / release/ bury 改变任务状态；否则 Beanstalkd 会认为消息处理失败，然后把任务交给另外的消费者节点执行。如果消费者预计在 TTR (time-to-run) 时间内无法完成任务, 也可以发送 touch 命令, 它的作用是让 Beanstalkd 从系统时间重新计算 TTR (time-to-run).</p>
+<h3 id="任务预留_(buried):">任务预留 (buried):</h3><p>如果任务因为某些原因无法执行, 消费者可以把任务置为 buried 状态让 Beanstalkd 保留这些任务。管理员可以通过 peek buried 命令查询被保留的任务，并且进行人工干预。简单的, kick <n> 能够一次性把 n 条被保留的任务踢回队列。</n></p>
+<h3 id="Beanstalkd协议中文版">Beanstalkd协议中文版</h3><p>本博也在之前将师兄翻译的beanstalkd中文协议搬了过来做备用，现在涉及的队列方面的东西越多，就觉得这些资料着实重要。<br><a href="http://www.fzb.me/2015/03/21/beanstalkd-protocol-chinese-version/" target="_blank" rel="external">http://www.fzb.me/2015/03/21/beanstalkd-protocol-chinese-version/</a></p>
+<h3 id="性能">性能</h3><p>参考数据：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th>入队列</th>
+<th>worker处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">delayed job</td>
+<td>200 jobs/sec</td>
+<td>120 jobs/sec</td>
+</tr>
+<tr>
+<td style="text-align:left">resque</td>
+<td>3800 jobs/sec</td>
+<td>300 jobs/sec</td>
+</tr>
+<tr>
+<td style="text-align:left">rabbitmq</td>
+<td>2500 jobs/sec</td>
+<td>1300 jobs/sec</td>
+</tr>
+<tr>
+<td style="text-align:left">beanstalk</td>
+<td>9000 jobs/sec</td>
+<td>5200 jobs/sec</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装">安装</h3><p>源码下载：<a href="https://github.com/kr/beanstalkd/archive/v1.10.tar.gz" target="_blank" rel="external">https://github.com/kr/beanstalkd/archive/v1.10.tar.gz</a></p>
+<p>启动参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10140;  ~  beanstalkd --help&#10;Options:&#10; -b DIR   wal directory&#10; -f MS    fsync at most once every MS milliseconds (use -f0 for &#34;always fsync&#34;)&#10; -F       never fsync (default)&#10; -l ADDR  listen on address (default is 0.0.0.0)&#10; -p PORT  listen on port (default is 11300)&#10; -u USER  become user and group&#10; -z BYTES set the maximum job size in bytes (default is 65535)&#10; -s BYTES set the size of each wal file (default is 10485760)&#10;            (will be rounded up to a multiple of 512 bytes)&#10; -c       compact the binlog (default)&#10; -n       do not compact the binlog&#10; -v       show version information&#10; -V       increase verbosity&#10; -h       show this help&#10;&#10;&#10140;  ~  beanstalkd -l 0.0.0.0 -p 11300 -f 300</span><br></pre></td></tr></table></figure>
+<h3 id="client队列投放">client队列投放</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use Pheanstalk\Pheanstalk;&#10;// &#25237;&#25918;&#30701;&#20449;&#21457;&#36865;&#23450;&#26102;&#22120;&#10;&#10;$beanstalk = new Pheanstalk(&#39;127.0.0.1&#39;, &#39;11300&#39;, &#39;2&#39;);&#10;  &#10;$data = array(&#10;    &#39;mobile&#39; =&#62; &#39;13051662435&#39;,&#10;    &#39;id&#39;     =&#62; &#39;11&#39;,&#10;    &#39;time&#39;   =&#62; &#39;2015-05-01 10:30:00&#39;&#10;);&#10;$delay = (int) strtotime($data[&#39;time&#39;]) - time();&#10;  &#10;$beanstalkd-&#62;useTube(&#39;Sms&#39;)&#10;    -&#62;put(json_encode($data), 1024, $delay, 2);</span><br></pre></td></tr></table></figure>
+<h3 id="worker：处理出队列的数据">worker：处理出队列的数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Worker &#123;&#10;&#10;  private $path;&#10;&#10;  public function __construct($path) &#123;&#10;    $this-&#62;setBasePath($path);&#10;    $this-&#62;log(&#39;starting&#39;);&#10;    $this-&#62;pheanstalk = new Pheanstalk(&#39;127.0.0.1:11300&#39;);&#10;  &#125;&#10;&#10;  public function __destruct() &#123;&#10;    $this-&#62;log(&#39;ending&#39;);&#10;  &#125;&#10;&#10;  private function setBasePath($path) &#123;&#10;    $this-&#62;path = $path;&#10;  &#125;&#10;&#10;  public function run() &#123;&#10;    $this-&#62;log(&#39;starting to run&#39;);&#10;    $cnt = 0;&#10;    $done_jobs = array();&#10;&#10;    while(1) &#123;&#10;      $job = $this-&#62;pheanstalk-&#62;watch(&#39;test&#39;)-&#62;ignore(&#39;default&#39;)-&#62;reserve();&#10;      $job_encoded = json_decode($job-&#62;getData(), false);&#10;      $done_jobs[] = $job_encoded;&#10;      $this-&#62;log(&#39;job:&#39;.print_r($job_encoded, 1));&#10;      $this-&#62;pheanstalk-&#62;delete($job);&#10;      $cnt++;&#10;&#10;      $memory = memory_get_usage();&#10;&#10;      $this-&#62;log(&#39;memory:&#39; . $memory);&#10;&#10;      if($memory &#62; 1000000) &#123;&#10;        $this-&#62;log(&#39;exiting run due to memory limit&#39;);&#10;        exit;&#10;      &#125;&#10;&#10;      usleep(10);&#10;    &#125;&#10;  &#125;&#10;&#10;  private function log($txt) &#123;&#10;    file_put_contents($this-&#62;path . &#39;/log/worker.txt&#39;, $txt . &#34;\n&#34;, FILE_APPEND);&#10;  &#125;&#10;&#125;&#10;&#10;Picking up things from the queue&#10;$worker = new Worker(dirname($argv[0]));&#10;$worker-&#62;run();</span><br></pre></td></tr></table></figure>
+<h3 id="result">result</h3><pre><code>{"<span class="attribute">mobile</span>":<span class="value"><span class="string">"13051662435"</span></span>,"<span class="attribute">id</span>":<span class="value"><span class="string">"11"</span></span>,"<span class="attribute">time</span>":<span class="value"><span class="string">"2015-05-01 10:30:00"</span></span>}
+</code></pre><p> 具体实践图示：<br> <img src="http://7tsys1.com1.z0.glb.clouddn.com/68c3cad3jw1dpsqepwqnxj.jpg" alt="enter image description here"></p>
+<p>PS:<br>1）可使用supervisor或deamontools等将php worker.php变为守护进程.<br>2）其它语言类库参考：<a href="https://github.com/kr/beanstalkd/wiki/client-libraries" target="_blank" rel="external">https://github.com/kr/beanstalkd/wiki/client-libraries</a><br>3）根据不同业务需求，还可以在失败时设定reverse的时间做成轮询的方式。</p>
+<h2 id="参考文章">参考文章</h2><blockquote>
+<p><a href="http://ccvita.com/395.html" target="_blank" rel="external">http://ccvita.com/395.html</a><br><a href="http://adam.herokuapp.com/past/2010/4/24/beanstalk_a_simple_and_fast_queueing_backend/" target="_blank" rel="external">http://adam.herokuapp.com/past/2010/4/24/beanstalk_a_simple_and_fast_queueing_backend/</a><br><a href="http://my.oschina.net/u/698121/blog/157092" target="_blank" rel="external">http://my.oschina.net/u/698121/blog/157092</a><br><a href="http://in355hz.iteye.com/blog/1395727" target="_blank" rel="external">http://in355hz.iteye.com/blog/1395727</a></p>
+</blockquote>
+
+
+<!--<a href="http://yoursite.com/2015/05/02/beanstalkd-in-action/#disqus_thread" class="article-comment-link">Comments</a>-->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+</body>
+</html>
