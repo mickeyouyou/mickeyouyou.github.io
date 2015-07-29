@@ -21,7 +21,8 @@
 <h3 id="job">job</h3><p>一个需要异步处理的任务，是Beanstalkd中的基本单元，需要放在一个tube中。</p>
 <h3 id="tube">tube</h3><p>一个有名的任务队列，用来存储统一类型的job，是producer和consumer操作的对象。</p>
 <h3 id="producer">producer</h3><p>Job的生产者，通过put命令来将一个job放到一个tube中。</p>
-<h3 id="consumer">consumer</h3><p>Job的消费者，通过reserve/release/bury/delete命令来获取job或改变job的状态。<br><img src="" alt="enter image description here"><br><img src="http://7tsys1.com1.z0.glb.clouddn.com/producer-consumer%20%281%29.png" width="92%"></p>
+<h3 id="consumer">consumer</h3><p>Job的消费者，通过reserve/release/bury/delete命令来获取job或改变job的状态。</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/producer-consumer%20%281%29.png" width="92%"></p>
 <h3 id="任务优先级_(priority):">任务优先级 (priority):</h3><p>任务 (job) 可以有 0~2^32 个优先级, 0 代表最高优先级。 beanstalkd 采用最大最小堆 (Min-max heap) 处理任务优先级排序, 任何时刻调用 reserve 命令的消费者总是能拿到当前优先级最高的任务, 时间复杂度为 O(logn). </p>
 <h3 id="延时任务_(delay):">延时任务 (delay):</h3><p>有两种方式可以延时执行任务 (job): 生产者发布任务时指定延时；或者当任务处理完毕后, 消费者再次将任务放入队列延时执行 (RELEASE with <delay>)。这种机制可以实现分布式的 java.util.Timer，这种分布式定时任务的优势是：如果某个消费者节点故障，任务超时重发 (time-to-run) 能够保证任务转移到另外的节点执行。</delay></p>
 <h3 id="任务超时重发_(time-to-run):">任务超时重发 (time-to-run):</h3><p>Beanstalkd 把任务返回给消费者以后：消费者必须在预设的 TTR (time-to-run) 时间内发送 delete / release/ bury 改变任务状态；否则 Beanstalkd 会认为消息处理失败，然后把任务交给另外的消费者节点执行。如果消费者预计在 TTR (time-to-run) 时间内无法完成任务, 也可以发送 touch 命令, 它的作用是让 Beanstalkd 从系统时间重新计算 TTR (time-to-run).</p>
