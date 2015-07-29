@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h1 id="Websocket_Protocol_Abstract">Websocket Protocol Abstract</h1><p><code>WebSocket</code>协议使在控制环境下运行不受信任代码的客户端和能够选择与那些代码通信的远程主机之间能够双向通信。用于这个的安全模型是以origin为基础的安全模型，一般被浏览器使用。协议包含打开握手，其次是基本消息框架，在TCP之上。这项技术的目的是为基于浏览器的、需要与服务器双向通信的应用程序提供一种不依赖于打开多个HTTP连接的机制（例如，使用XMLHttpRequest或<code>&lt;iframe&gt;</code> 和长轮询）。</p>
+<h3 id="Websocket_Protocol_Abstract">Websocket Protocol Abstract</h3><p><code>WebSocket</code>协议使在控制环境下运行不受信任代码的客户端和能够选择与那些代码通信的远程主机之间能够双向通信。用于这个的安全模型是以origin为基础的安全模型，一般被浏览器使用。协议包含打开握手，其次是基本消息框架，在TCP之上。这项技术的目的是为基于浏览器的、需要与服务器双向通信的应用程序提供一种不依赖于打开多个HTTP连接的机制（例如，使用XMLHttpRequest或<code>&lt;iframe&gt;</code> 和长轮询）。</p>
 <h1 id="1-_介绍">1.        介绍</h1><h2 id="1-1-_背景">1.1.       背景</h2><p>历史上，创建需要在客户端和服务器间双向通信的网络应用程序（如即时消息和游戏程序）要求滥用HTTP来轮询服务器来获得更新，通过不同HTTP请求来发送上行通知。</p>
 <p>这导致各种问题：</p>
 <ul>
