@@ -45,7 +45,7 @@
 <li><a href="https://github.com/schickling/beanstalkd-cli" target="_blank" rel="external">beanstalkd-cli</a> Beanstalkd CLI tool</li>
 <li><a href="https://github.com/dustin/beanstalk-tools" target="_blank" rel="external">beanstalk-tools</a> CLI to Dump various stats, and nagios plugin</li>
 <li><a href="https://github.com/chexov/queueit/" target="_blank" rel="external">Queueit</a> CLI interface to integrate beanstalkd into shell scripts.</li>
-<li><a href="https://github.com/tyba/beanstool" target="_blank" rel="external">beanstool</a> Dependency free beanstalkd admin tool, written in Go<br>``</li>
+<li><a href="https://github.com/tyba/beanstool" target="_blank" rel="external">beanstool</a> Dependency free beanstalkd admin tool, written in Go</li>
 </ul>
 <h4 id="TTR(job的最大处理时间)是怎样工作的?"><code>TTR(job的最大处理时间)</code>是怎样工作的?</h4><p><code>TTR</code>只是应用在一个任务将要变成预订状态的瞬间。在这种情况下，一个定时器（任务统计中称作<code>time-left</code>）开始从任务的<code>TTR</code>开始倒计时。<br>如果定时器到达0，该任务放回就绪队列。<br>如果任务在定时器跑完之前被置为等待唤醒，删除，或者释放，定时器将不再存在。<br>如果任务在定时器到达0之前被取到，定时器从<code>TTR</code>新开始倒计时。<br>一个没有被预订的任务的统计信息将继续包含<code>time-left</code>入口 ，但是它的值是没有意义的。</p>
 <h4 id="DEADLINE_SOON响应如何理解?"><code>DEADLINE_SOON</code>响应如何理解?</h4><p>在reserve的失败的情况下有可能响应<code>DEADLINE_SOON</code>，说明你已经有一个预订的任务它的期限真的到了。（安全隔离接近1秒）。</p>
