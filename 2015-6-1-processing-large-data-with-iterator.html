@@ -16,11 +16,14 @@
 
 <body>
 
-<h4 id="大数据量脚本基于迭代器的一个改造">大数据量脚本基于迭代器的一个改造</h4><p>@(php)</p>
-<p>之前优化过一个操作大数据量的脚本，在开发环境数据量少，cengceng就跑完了，结果在线上跑了半天没反应，还要设置运行时间，还要设置最大使用内存等。</p>
+<h4 id="大数据量脚本基于迭代器的一个改造">大数据量脚本基于迭代器的一个改造</h4><p>之前优化过一个操作大数据量的脚本，在开发环境数据量少，cengceng就跑完了，结果在线上跑了半天没反应，还要设置运行时间，还要设置最大使用内存等。</p>
 <p>其实处理大数据量脚本也是有技巧的，比如实现一个迭代器或者使用<code>yield</code>等。因为开发环境还是php5.4，有时间切换到5.5的时候再试试<code>yield</code>.</p>
 <p>下面是基于<code>Iterator</code>接口，并实现了其中的5个方法的情况，</p>
-<p>运行时数据：<br>每个表id中的大数量订单号；<br>批量订单详细数据（真正数据量大的 正是这个数据）；</p>
+<p>运行时数据：</p>
+<ul>
+<li>每个表id中的大数量订单号；</li>
+<li>批量订单详细数据（真正数据量大的 正是这个数据）；</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class OrderLogistics implements Iterator&#10;&#123;&#10;    private $key;&#10;    public $data;&#10;    public $orders = array();&#10;    public $orderInfo = array();&#10;&#10;    /**&#10;     *&#10;     *&#10;     * @var array &#19994;&#21153;&#23646;&#24615;&#10;     */&#10;    private $header&#65307;&#10;&#10;&#10;    function __construct($month = &#39;05&#39;)&#10;    &#123;&#10;        $this-&#62;generatorOrders($month);&#10;    &#125;&#10;&#10;   // &#20854;&#20182;&#30340;&#19994;&#21153;&#26041;&#27861;&#10;&#10;&#10;    public function rewind()&#10;    &#123;&#10;        reset($this-&#62;orders);&#10;    &#125;&#10;&#10;    function current()&#10;    &#123;&#10;        return current($this-&#62;orders);&#10;    &#125;&#10;&#10;    function next()&#10;    &#123;&#10;        return next($this-&#62;orders);&#10;    &#125;&#10;&#10;    function key()&#10;    &#123;&#10;        return key($this-&#62;orders);&#10;&#10;    &#125;&#10;&#10;    function valid()&#10;    &#123;&#10;        return !next($this-&#62;orders);&#10;    &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="疑问">疑问</h4><p>基于以上的实现，可以遍历对象的公共属性，既然在外部可以访问，随意访问随意操作。</p>
 <h4 id="result">result</h4><p>下面和之前的原生的情况效率比一比：</p>
