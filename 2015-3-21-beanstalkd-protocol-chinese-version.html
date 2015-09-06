@@ -17,7 +17,7 @@
 <body>
 
 <h2 id="Beanstalkd中文协议解读">Beanstalkd中文协议解读</h2><blockquote>
-<p>这篇精彩的翻译转自 PHPBoy <a href="http://www.phpboy.net/2014-09/45-benstalkd-protocol.html" target="_blank" rel="external">http://www.phpboy.net/2014-09/45-benstalkd-protocol.html</a> </p>
+<p>此版本已经合并到了<code>Beanstalkd</code>主仓库，你再也不用担心语言障碍了：<a href="https://github.com/kr/beanstalkd/blob/master/doc/protocol.zh-CN.md" target="_blank" rel="external">https://github.com/kr/beanstalkd/blob/master/doc/protocol.zh-CN.md</a><br>这篇精彩的翻译转自 PHPBoy <a href="http://www.phpboy.net/2014-09/45-benstalkd-protocol.html" target="_blank" rel="external">http://www.phpboy.net/2014-09/45-benstalkd-protocol.html</a> </p>
 </blockquote>
 <p>最近有需求做全平台的定时器，业务复杂，性能要求高，<code>linux crontab</code>的方式不适用，调研一些支持定时执行的内存队列系统，其中<code>beanstalkd</code>较适合。先将其协议研究一遍，使用就不是问题了。</p>
 <h3 id="总括">总括</h3><p><code>beanstalkd</code>协议基于ASCII编码运行在tcp上。客户端连接服务器并发送指令和数据，然后等待响应并关闭连接。对于每个连接，服务器按照接收命令的序列依次处理并响应。所有整型值都非负的十进制数，除非有特别声明。</p>
