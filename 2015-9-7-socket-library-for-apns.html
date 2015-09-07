@@ -35,7 +35,7 @@
 <h4 id="链接管理的最佳实践">链接管理的最佳实践</h4><p>你可以建立多个连接到同一个网关或多个网关实例。如果你需要发送大量远程通知，把他们分散到几个不同网关的连接。这样相比使用一个单独的连接，可以提高性能：它可以让你发送远程通知更快，它可以让的APNs更快的发送通知到设备。</p>
 <p>在多个通知的情况下，保持和APNs的连接打开；不要反复打开和关闭连接。APNs对快速连接和断开的视为拒绝服务攻击。你应该留下一个连接打开，除非你知道这接下来将是空闲时间，如果是每天发送通知给用户，每天使用一个新的连接也是可以的。</p>
 <h4 id="二进制接口和通知格式">二进制接口和通知格式</h4><p>此二进制接口为二进制内容自然采用普通的TCP 套接字， 为了获得最佳性能，批量多个通知在通过接口单个传输，明确或使用TCP/ IP的Nagle算法。消息格式如下图：</p>
-<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/aps_binary_provider_3_2x.png" alt="推送消息格式"></p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/aps_binary_provider_3_2x.png" width="95%" alt="推送消息格式"></p>
 <blockquote>
 <p>注意：所有数据都被指定了顺序，即大端（Big Endian 具体查看最下面的参考文档）</p>
 </blockquote>
@@ -44,25 +44,25 @@
 <thead>
 <tr>
 <th style="text-align:left">字段</th>
-<th style="text-align:right">长度</th>
-<th style="text-align:center">备注</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">备注</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">Command</td>
-<td style="text-align:right">1 byte</td>
-<td style="text-align:center">2</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left">2</td>
 </tr>
 <tr>
 <td style="text-align:left">Frame length</td>
-<td style="text-align:right">4 bytes</td>
-<td style="text-align:center">frame data 的长度</td>
+<td style="text-align:left">4 bytes</td>
+<td style="text-align:left">frame data 的长度</td>
 </tr>
 <tr>
 <td style="text-align:left">Frame data</td>
-<td style="text-align:right">variable length</td>
-<td style="text-align:center">该帧包含体，构造为一系列项目</td>
+<td style="text-align:left">variable length</td>
+<td style="text-align:left">该帧包含体，构造为一系列项目</td>
 </tr>
 </tbody>
 </table>
@@ -71,25 +71,25 @@
 <thead>
 <tr>
 <th style="text-align:left">字段</th>
-<th style="text-align:right">长度</th>
-<th style="text-align:center">备注</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">备注</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">Item ID</td>
-<td style="text-align:right">1 byte</td>
-<td style="text-align:center">该项目标识符。例如，有效负载的项目数为2</td>
+<td style="text-align:left">1 byte</td>
+<td style="text-align:left">该项目标识符。例如，有效负载的项目数为2</td>
 </tr>
 <tr>
 <td style="text-align:left">Item data length</td>
-<td style="text-align:right">2 bytes</td>
-<td style="text-align:center">项目数据的大小</td>
+<td style="text-align:left">2 bytes</td>
+<td style="text-align:left">项目数据的大小</td>
 </tr>
 <tr>
 <td style="text-align:left">Item data</td>
-<td style="text-align:right">自定义长度</td>
-<td style="text-align:center">项目内容</td>
+<td style="text-align:left">自定义长度</td>
+<td style="text-align:left">项目内容</td>
 </tr>
 </tbody>
 </table>
@@ -98,40 +98,40 @@
 <thead>
 <tr>
 <th style="text-align:left">项目ID</th>
-<th style="text-align:right">项目名称</th>
-<th style="text-align:center">长度</th>
-<th style="text-align:center">数据</th>
+<th style="text-align:left">项目名称</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">数据</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">1</td>
-<td style="text-align:right">Device token</td>
-<td style="text-align:center">32 bytes</td>
-<td style="text-align:center">设备的二进制格式，有设备注册</td>
+<td style="text-align:left">Device token</td>
+<td style="text-align:left">32 bytes</td>
+<td style="text-align:left">设备的二进制格式，有设备注册</td>
 </tr>
 <tr>
 <td style="text-align:left">2</td>
-<td style="text-align:right">Payload</td>
-<td style="text-align:center">自定义长度，小于或等于2kb</td>
-<td style="text-align:center">json格式的荷载数据；不能以null填充</td>
+<td style="text-align:left">Payload</td>
+<td style="text-align:left">自定义长度，小于或等于2kb</td>
+<td style="text-align:left">json格式的荷载数据；不能以null填充</td>
 </tr>
 <tr>
 <td style="text-align:left">3</td>
-<td style="text-align:right">Notification identifier</td>
-<td style="text-align:center">4 bytes</td>
-<td style="text-align:center"></td>
+<td style="text-align:left">Notification identifier</td>
+<td style="text-align:left">4 bytes</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left">4</td>
-<td style="text-align:right">Expiration date</td>
-<td style="text-align:center">4 bytes</td>
-<td style="text-align:center"></td>
+<td style="text-align:left">Expiration date</td>
+<td style="text-align:left">4 bytes</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left">5</td>
-<td style="text-align:right">Priority</td>
-<td style="text-align:center">1 byte</td>
+<td style="text-align:left">Priority</td>
+<td style="text-align:left">1 byte</td>
 </tr>
 </tbody>
 </table>
@@ -143,53 +143,53 @@
 <thead>
 <tr>
 <th style="text-align:left">状态码</th>
-<th style="text-align:right">描述</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">0</td>
-<td style="text-align:right">没有错误发生</td>
+<td style="text-align:left">没有错误发生</td>
 </tr>
 <tr>
 <td style="text-align:left">1</td>
-<td style="text-align:right">处理错误</td>
+<td style="text-align:left">处理错误</td>
 </tr>
 <tr>
 <td style="text-align:left">2</td>
-<td style="text-align:right">缺失DiviceToken</td>
+<td style="text-align:left">缺失DiviceToken</td>
 </tr>
 <tr>
 <td style="text-align:left">3</td>
-<td style="text-align:right">缺少topic</td>
+<td style="text-align:left">缺少topic</td>
 </tr>
 <tr>
 <td style="text-align:left">4</td>
-<td style="text-align:right">缺少荷载数据</td>
+<td style="text-align:left">缺少荷载数据</td>
 </tr>
 <tr>
 <td style="text-align:left">5</td>
-<td style="text-align:right">无效的token大小</td>
+<td style="text-align:left">无效的token大小</td>
 </tr>
 <tr>
 <td style="text-align:left">6</td>
-<td style="text-align:right">无效的topic大小</td>
+<td style="text-align:left">无效的topic大小</td>
 </tr>
 <tr>
 <td style="text-align:left">7</td>
-<td style="text-align:right">无效的荷载数据大小</td>
+<td style="text-align:left">无效的荷载数据大小</td>
 </tr>
 <tr>
 <td style="text-align:left">8</td>
-<td style="text-align:right">无效的token</td>
+<td style="text-align:left">无效的token</td>
 </tr>
 <tr>
 <td style="text-align:left">10</td>
-<td style="text-align:right">连接关闭</td>
+<td style="text-align:left">连接关闭</td>
 </tr>
 <tr>
 <td style="text-align:left">255</td>
-<td style="text-align:right">未知错误</td>
+<td style="text-align:left">未知错误</td>
 </tr>
 </tbody>
 </table>
@@ -207,15 +207,15 @@
 <thead>
 <tr>
 <th style="text-align:left">时间戳</th>
-<th style="text-align:right">token长度</th>
-<th style="text-align:center">device token</th>
+<th style="text-align:left">token长度</th>
+<th style="text-align:left">device token</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">一个四字节长的时间戳，表示当APNs确定应用不再设备上。</td>
-<td style="text-align:right">两个字节长的设备标识符整形长度</td>
-<td style="text-align:center">设备标识符的二进制格式</td>
+<td style="text-align:left">两个字节长的设备标识符整形长度</td>
+<td style="text-align:left">设备标识符的二进制格式</td>
 </tr>
 </tbody>
 </table>
