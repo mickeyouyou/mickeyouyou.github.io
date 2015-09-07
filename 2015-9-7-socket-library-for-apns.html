@@ -1,0 +1,276 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+    <link rel="shortcut icon" href="/images/icon.png">
+
+    
+    <title>PHP基于socket的ios 推送的类库的实现 The Implement of iOS Divice Push Library</title>
+</head>
+
+<body>
+
+<h4 id="PHP基于socket的ios_推送的类库的实现_The_Implement_of_iOS_Divice_Push_Library">PHP基于socket的ios 推送的类库的实现 The Implement of iOS Divice Push Library</h4><p>本类库的目的是用于iOS客户端推送的，因为苹果的推送服务（APNS）是建立在推送服务跟设备之间的，类库的作用就是将要推送给客户端的数据，提交到苹果的推送服务器。这些设备包括iPhone, iPad and the iPod Touch。</p>
+<p>类库的实现本身没什么说的，因为这里面牵扯到一些socket的东西，拿出来捋一捋。</p>
+<p>TU CAO ME AT GITHUB : <a href="https://github.com/mickeyouyou" target="_blank" rel="external">https://github.com/mickeyouyou</a></p>
+<h2 id="预备知识">预备知识</h2><p>关于<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html" target="_blank" rel="external">Apple Push Notification Service</a>。</p>
+<p>本文只涉及Provider和苹果推送服务器之间的交互。</p>
+<p>本文主要依据服务器与苹果推送服务的通讯：<a href="https://developer.apple.com/library/prerelease/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW3" target="_blank" rel="external">Provider Communication with Apple Push Notification Service</a>。</p>
+<h4 id="通用提供者要求">通用提供者要求</h4><p>服务器与苹果推送服务通过二进制接口通讯，这对服务器来说是一个高速、高容量的接口，它采用与二进制内容相结合的流媒体TCP套接字设计，二进制接口是异步的。</p>
+<p>该二进制接口线上环境地址为<code>gateway.push.apple.com</code>，端口为<code>2195</code>；开发环境为<code>ssl://gateway.sandbox.push.apple.com</code>，端口为<code>2195</code>。</p>
+<p>对于每个接口，使用TLS（或SSL）建立安全通信通道。 SSL需要来自会员在中心生成的证书，要建立一个值得信赖的供应商的身份，在连接时使用APNs提供的证书使用对等验证。</p>
+<p>作为一个通知的提供商，你负责远程通知的以下方面：</p>
+<ul>
+<li>必须组织通知消息数据</li>
+<li>你需要提供显示在应用图标右上角的消息数量</li>
+<li>定期与反馈服务连接，并获取那些多次发送失败，尝试发送的当前设备列表，然后停止向该应用关联的设备发送通知。</li>
+</ul>
+<h4 id="多语言支持_客户端">多语言支持 客户端</h4><p>如果你想支持多种语言的通知，但又不使用aps字典中的<code>loc-key</code> 和<code>loc-args</code>属性，你需要本地化来自服务器的消息文本，要做到这一点，你需要找出从客户端应用程序的当前语言首选项。注册，调度，并处理用户通知提示获取这些信息的方法。</p>
+<h4 id="链接管理的最佳实践">链接管理的最佳实践</h4><p>你可以建立多个连接到同一个网关或多个网关实例。如果你需要发送大量远程通知，把他们分散到几个不同网关的连接。这样相比使用一个单独的连接，可以提高性能：它可以让你发送远程通知更快，它可以让的APNs更快的发送通知到设备。</p>
+<p>在多个通知的情况下，保持和APNs的连接打开；不要反复打开和关闭连接。APNs对快速连接和断开的视为拒绝服务攻击。你应该留下一个连接打开，除非你知道这接下来将是空闲时间，如果是每天发送通知给用户，每天使用一个新的连接也是可以的。</p>
+<h4 id="二进制接口和通知格式">二进制接口和通知格式</h4><p>此二进制接口为二进制内容自然采用普通的TCP 套接字， 为了获得最佳性能，批量多个通知在通过接口单个传输，明确或使用TCP/ IP的Nagle算法。消息格式如下图：</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/aps_binary_provider_3_2x.png" alt="推送消息格式"></p>
+<blockquote>
+<p>注意：所有数据都被指定了顺序，即大端（Big Endian 具体查看最下面的参考文档）</p>
+</blockquote>
+<p>通知格式的顶层是由以下部分组成，依次是：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段</th>
+<th style="text-align:right">长度</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Command</td>
+<td style="text-align:right">1 byte</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:left">Frame length</td>
+<td style="text-align:right">4 bytes</td>
+<td style="text-align:center">frame data 的长度</td>
+</tr>
+<tr>
+<td style="text-align:left">Frame data</td>
+<td style="text-align:right">variable length</td>
+<td style="text-align:center">该帧包含体，构造为一系列项目</td>
+</tr>
+</tbody>
+</table>
+<p>该帧数据是由一系列的项目组成。每个项目由以下部分组成，依次是：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段</th>
+<th style="text-align:right">长度</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Item ID</td>
+<td style="text-align:right">1 byte</td>
+<td style="text-align:center">该项目标识符。例如，有效负载的项目数为2</td>
+</tr>
+<tr>
+<td style="text-align:left">Item data length</td>
+<td style="text-align:right">2 bytes</td>
+<td style="text-align:center">项目数据的大小</td>
+</tr>
+<tr>
+<td style="text-align:left">Item data</td>
+<td style="text-align:right">自定义长度</td>
+<td style="text-align:center">项目内容</td>
+</tr>
+</tbody>
+</table>
+<p>项目和它们的标识符如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">项目ID</th>
+<th style="text-align:right">项目名称</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:right">Device token</td>
+<td style="text-align:center">32 bytes</td>
+<td style="text-align:center">设备的二进制格式，有设备注册</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:right">Payload</td>
+<td style="text-align:center">自定义长度，小于或等于2kb</td>
+<td style="text-align:center">json格式的荷载数据；不能以null填充</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:right">Notification identifier</td>
+<td style="text-align:center">4 bytes</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:right">Expiration date</td>
+<td style="text-align:center">4 bytes</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:right">Priority</td>
+<td style="text-align:center">1 byte</td>
+</tr>
+</tbody>
+</table>
+<p>如果服务器发送的通知被苹果推送服务正确接收，此情况不会有任何返回。</p>
+<p>如果你发送的通知格式不正确或者不能理解， APNs将会发送一个错误响应包，并关闭连接。在使用相同的连接格式错误的通知后发出的任何通知将被丢弃，并且必须重新发送。错误响应包格式如下图：</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/aps_binary_error_2x.png" alt="错误响应包数据结构"></p>
+<p>该包含有一个值为<code>8</code>的命令，之后跟一字节长的状态码和错误格式的通知标识符。<br>下表列出了可能返回的状态码和对应的含义：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:right">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:right">没有错误发生</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:right">处理错误</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:right">缺失DiviceToken</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:right">缺少topic</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:right">缺少荷载数据</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:right">无效的token大小</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:right">无效的topic大小</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:right">无效的荷载数据大小</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:right">无效的token</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:right">连接关闭</td>
+</tr>
+<tr>
+<td style="text-align:left">255</td>
+<td style="text-align:right">未知错误</td>
+</tr>
+</tbody>
+</table>
+<p>状态码为<code>10</code>表示苹果推送服务器关闭了连接（比如维护）。错误响应包中的通知标识符表示上一次同事被成功发送，之后发送的通知将会被丢弃，必须重新发送，一旦你收到状态码，应该停止使用当前连接，重新开启一个连接。</p>
+<p>值得注意的是，正式环境和开发环境的device token值是不一样的。</p>
+<h2 id="反馈服务">反馈服务</h2><p>苹果推送服务包含一个反馈服务，能将失败的远程通知反馈给你。当应用在设备上不存在时，该通知肯定不会被发送，反馈服务将该设备的标识符添加到它的列表中。通知在发送之前过期的情况不会被视为发送失败，也不会影响反馈服务。通过使用该反馈信息，以停止发送那些无法发送的远程通知，减少不必要的消息开销，并提高整个系统的性能。</p>
+<p>每天查询反馈服务，获取设备标识符列表 。使用时间戳来验证该设备令牌没有被重新注册，因为被产生的反馈项。对于尚未重新登记的设备，停止发送通知。APN监控供应商为他们检查发送远程通知，以不存在的应用程序在设备上的反馈服务并避免勤奋。</p>
+<blockquote>
+<p>注意：反馈服务为每个推送主题维护一个单独列表。如果你有多个应用程序，你必须为每一个应用连接反馈服务一次，使用相应的证书，以获得所有的反馈。</p>
+</blockquote>
+<p>反馈服务也有一个和发送通知相似的二进制接口，你可以通过下面的地址和端口连接到反馈服务，<code>feedback.push.apple.com</code> ，端口<code>2196</code>；开发环境的反馈服务可以通过下面的连接：<code>feedback.sandbox.push.apple.com</code>，端口<code>2196</code>。就像发送服务的二进制接口一样，使用SSL/TLS建立安全的通讯通道。使用相同的证书验证。要建立一个值得信赖的供应商的身份，在连接APNs时用此证书使用对等验证。</p>
+<p>一旦你建立连接，传送立即开始，你不用发送任何指令给APNs，从反馈服务接口读取流数据直到没有数据可读为止。接收到的数据格式如下图：</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/aps_feedback_binary_2x.png" alt="反馈的二进制格式"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">时间戳</th>
+<th style="text-align:right">token长度</th>
+<th style="text-align:center">device token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">一个四字节长的时间戳，表示当APNs确定应用不再设备上。</td>
+<td style="text-align:right">两个字节长的设备标识符整形长度</td>
+<td style="text-align:center">设备标识符的二进制格式</td>
+</tr>
+</tbody>
+</table>
+<p>反馈列表内容将在你读完之后清除，每次连接到反馈服务，它将返回自上次连接之后发送的失败列表。</p>
+<h4 id="Question">Question</h4><p>使用的是SSL/TLS安全协议跟apns苹果的推送服务器通讯。所以，其中的关键就是php对socket方式的实现，当然从php的角度，有两种实现方式，一种是<code>fsockopen</code>,另一种就是我用到的<code>stream_socket_client</code>，再设置些参数。</p>
+<p>比如测试环境的APNS地址：<code>ssl://gateway.sandbox.push.apple.com:2195</code>，我们指定了基于TCP的SSL协议，当然，也可以指定为TLS，因为是他的升级版。</p>
+<p>但这其中有个问题，也是我在过程中思考过的一个问题，因为本人之前做过微信退款相关的功能接口，在请求的时候<code>https://mch.tenpay.com/refundapi/gateway/refund.xml</code><br>其实在之前的<a href="http://www.fzb.me/2015-3-14-curl-ssl-certificate-to-https.html" target="_blank" rel="external">博文</a>中也提到过，</p>
+<p>比如微信退款的一个接口，其实他用到的也是<code>https</code>，其实就是上面说的SSL/TLS协议，他们的方式虽然不同，但是在请求的时候设置证书，设置密码参数等方式还是一样的，但为什么微信退款可以直接用curl 使用证书和密码就可以访问，而苹果服务器却需要使用socket的方式呢？</p>
+<p>因为他们所处的协议层不一样，HTTPS（微信退款）是应用层的实现，而苹果的实现方式基于传输层，基于分别不同的协议，导致他们比如以下的区别点：</p>
+<ul>
+<li>APNS的实现方式不仅限于网络语言的实现，可以包括任何可以创建网络客户端的语言。而微信的实现方式与此相比，狭隘地停留在HTTPS的层次</li>
+<li>APNS连接是有连接状态的（之后的批量请求就建立在此基础上），为微信退款的方式是没有状态的。</li>
+</ul>
+<h3 id="实现">实现</h3><h4 id="连接">连接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public function connect()&#10;&#123;&#10;    $ctx = stream_context_create();&#10;    stream_context_set_option($ctx, &#39;ssl&#39;, &#39;local_cert&#39;, $this-&#62;certificate);&#10;    stream_context_set_option($ctx, &#39;ssl&#39;, &#39;passphrase&#39;, $this-&#62;passphrase);&#10;&#10;    $this-&#62;socket = @stream_socket_client($this-&#62;url, $errno, $errstr, 60, STREAM_CLIENT_CONNECT, $ctx);&#10;    if (!$this-&#62;socket) &#123;&#10;        throw new ApnException(&#34;ERROR: &#39;&#123;$errno&#125;&#39; - &#123;$errstr&#125;&#34;);&#10;    &#125;&#10;&#10;    stream_set_blocking($this-&#62;socket, 0);&#10;    stream_set_write_buffer($this-&#62;socket, 0);&#10;&#10;    return true;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="向APNs发送通知">向APNs发送通知</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">    public function send($deviceToken, $message)&#10;    &#123;&#10;        $payload = json_encode($message);&#10;        $msg = chr(0) .&#10;            pack(&#39;n&#39;, 32) .&#10;            pack(&#39;H*&#39;, $deviceToken) .&#10;            pack(&#39;n&#39;, strlen($payload)) .&#10;            $payload;&#10;&#10;        $result = fwrite($this-&#62;socket, $msg, strlen($msg));&#10;        if (!$result)&#123;&#10;            // todo log&#10;//            echo &#39;Message not Delivered&#39; . PHP_EOL;&#10;        &#125; else &#123;&#10;//            echo &#34;Message successfully delivered&#34; . PHP_EOL;&#10;        &#125;&#10;    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="构造推送消息">构造推送消息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// the payload message body&#10;      $message = array(&#10;          &#39;aps&#39; =&#62; array(&#10;              &#39;alert&#39; =&#62; $title,&#10;              &#39;sound&#39; =&#62; &#39;default&#39;,&#10;              &#39;badge&#39; =&#62; 1,&#10;          ),&#10;          &#39;content&#39; =&#62; $content,&#10;          &#39;url&#39;     =&#62; C(&#39;jpush.url_type.&#39; . $url),&#10;          &#39;extra&#39;   =&#62; $extra,&#10;      );</span><br></pre></td></tr></table></figure>
+<p>经过处理之后待请求APNS的数据格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string(233) &#34; 6&#65533;K)&#65533;[&#65533;&#65533;:&#65533;&#65533;U&#65533;&#65533;&#34;L&#65533;&#65533;&#65533;.&#65533;&#65533;9&#65533;g&#65533;&#65533;&#65533;&#123;&#34;aps&#34;:&#123;&#34;alert&#34;:&#34;MY_ORDER_ACTIVITY_UNRECEIVE title1441592096&#34;,&#34;sound&#34;:&#34;default&#34;&#125;,&#34;content&#34;:&#34;SEARCH_ACTIVITY content&#34;,&#34;url&#34;:&#34;MY_ORDER_ACTIVITY_UNRECEIVE&#34;,&#34;extra&#34;:[&#34;http:\/\/www.baidu.com&#34;],&#34;id&#34;:45&#125;&#34;</span><br></pre></td></tr></table></figure></p>
+<h4 id="批量的推送处理——长连接">批量的推送处理——长连接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$push = new Push($environment, $certificate, C(&#39;jpush.apns.password&#39;));&#10;      $push-&#62;connect();&#10;&#10;      foreach($app_uid_relations as  $app_uid_relation) &#123;&#10;          // insert table&#10;          $push-&#62;send($app_uid_relation[&#39;device_token&#39;], $message);&#10;      &#125;&#10;&#10;      $push-&#62;disconnect();</span><br></pre></td></tr></table></figure>
+<h4 id="推送反馈">推送反馈</h4><p><code>ssl://feedback.sandbox.push.apple.com:2196</code></p>
+<h4 id="TODO">TODO</h4><ul>
+<li>链接超时重试逻辑</li>
+<li>错误、调试日志记录，将控制权交给用户</li>
+<li>Feedback的实现，用来接收因多次发送失败尝试而纪录的设备列表</li>
+<li>日志，每个类库为了方便自己的调试，肯定需要自己的日志记录，也是为了方便使用者调试，我们需要在用的时候将日志流交给使用者，或者有使用者进行配置就能方便的开始调试，这就是本类库日志的设计思路，而并不是其他的直接输出到流的方法。</li>
+</ul>
+<h4 id="参考，也许对你也有用">参考，也许对你也有用</h4><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW3" target="_blank" rel="external">The Feedback Service</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html" target="_blank" rel="external">SSL/TLS协议运行机制的概述</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E5%BA%8F" target="_blank" rel="external">字节序</a></p>
+<p><a href="http://www.cnblogs.com/luxiaoxun/archive/2012/09/05/2671697.html" target="_blank" rel="external">大端和小端（Big endian and Little endian ）</a></p>
+
+
+<!--<a href="http://yoursite.com/2015-9-7-socket-library-for-apns.html#disqus_thread" class="article-comment-link">Comments</a>-->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = mickeyouyou; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
