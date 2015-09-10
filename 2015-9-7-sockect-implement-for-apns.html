@@ -19,9 +19,14 @@
 <h4 id="PHP基于socket的ios_推送的实现_The_Implement_of_iOS_Push">PHP基于socket的ios 推送的实现 The Implement of iOS Push</h4><p>本类库的目的是为iOS客户端提供内容推送的，苹果的推送服务（APNS）是建立在推送服务跟设备之间的，类库的作用就是将要推送给客户端的数据，提交到苹果的推送服务器。这些设备包括iPhone, iPad and the iPod Touch。</p>
 <p>实现本身没什么说的，因为这里面牵扯到一些socket的东西，拿出来捋一捋。</p>
 <p>TU CAO ME AT GITHUB : <a href="https://github.com/mickeyouyou/AppleNotificationPush" target="_blank" rel="external">https://github.com/mickeyouyou/AppleNotificationPush</a></p>
-<p>-关于<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html" target="_blank" rel="external">Apple Push Notification Service</a>。</p>
-<p>-本文只涉及Provider和苹果推送服务器之间的交互。</p>
-<p>-本文主要依据服务器与苹果推送服务的通讯：<a href="https://developer.apple.com/library/prerelease/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW3" target="_blank" rel="external">Provider Communication with Apple Push Notification Service</a>。</p>
+<ul>
+<li><p>关于<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html" target="_blank" rel="external">Apple Push Notification Service</a>。</p>
+</li>
+<li><p>本文只涉及Provider和苹果推送服务器之间的交互。</p>
+</li>
+<li><p>本文主要依据服务器与苹果推送服务的通讯：<a href="https://developer.apple.com/library/prerelease/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW3" target="_blank" rel="external">Provider Communication with Apple Push Notification Service</a>。</p>
+</li>
+</ul>
 <h3 id="预备知识">预备知识</h3><h4 id="通用提供者要求">通用提供者要求</h4><p>服务器与苹果推送服务通过二进制接口通讯，这对服务器来说是一个高速、高容量的接口，它采用与二进制内容相结合的流媒体TCP套接字设计，二进制接口是异步的。</p>
 <p>该二进制接口线上环境地址为<code>gateway.push.apple.com</code>，端口为<code>2195</code>；开发环境为<code>ssl://gateway.sandbox.push.apple.com</code>，端口为<code>2195</code>。</p>
 <p>对于每个接口，使用TLS（或SSL）建立安全通信通道。 SSL需要来自会员在中心生成的证书，要建立一个值得信赖的供应商的身份，在连接时使用APNs提供的证书使用对等验证。</p>
