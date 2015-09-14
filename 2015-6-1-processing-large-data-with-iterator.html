@@ -11,12 +11,12 @@
     <link rel="shortcut icon" href="/images/icon.png">
 
     
-    <title>Processing large data with iterator 基于迭代器的大数据量处理的一次改造</title>
+    <title>Processing large data with iterator 基于迭代器的大数据量处理改造</title>
 </head>
 
 <body>
 
-<h4 id="基于迭代器的大数据量处理的一次改造">基于迭代器的大数据量处理的一次改造</h4><p>之前优化过一个操作大数据量的脚本，在开发环境数据量少，cengceng就跑完了，结果在线上跑了半天没反应，还要设置运行时间，还要设置最大使用内存等。</p>
+<h4 id="基于迭代器的大数据量处理改造">基于迭代器的大数据量处理改造</h4><p>之前优化过一个操作大数据量的脚本，在开发环境数据量少，cengceng就跑完了，结果在线上跑了半天没反应，还要设置运行时间，还要设置最大使用内存等。</p>
 <p>其实处理大数据量脚本也是有技巧的，比如实现一个迭代器或者使用<code>yield</code>等。因为开发环境还是php5.4，有时间切换到5.5的时候再试试<code>yield</code>.</p>
 <p>下面是基于<code>Iterator</code>接口，并实现了其中的5个方法的情况，</p>
 <p>运行时数据：</p>
