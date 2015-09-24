@@ -1,0 +1,114 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+    <link href="http://download.easyicon.net/icns/1097218/32/" rel="shortcut icon" type="image/x-icon"/>
+
+    
+    <title>Symbol table and Arrray API 符号表和数组API</title>
+</head>
+
+<body>
+
+<h1 id="Symbol_table_and_Arrray_API_符号表和数组API">Symbol table and Arrray API 符号表和数组API</h1><p>@(php内核)</p>
+<p>Zend哈希表API允许你使用任何类型的值，但绝大多数情况下是变量容器（<code>zval</code>）。使用<code>zend_hash</code>API和变量容器往往是有点麻烦，因为要处理zval的分配和初始化。这就是为什么PHP提供了第二套专门针对这个用例的API。在介绍这些简化的API前，我们先看看一种特殊的哈希表，PHP数组的使用。</p>
+<p>说白了，PHP的数组实现中，相同值的字符串键和整型键存储同一个值的实现就基于此。</p>
+<h3 id="符号表">符号表</h3><p>PHP的设计背后的核心概念是包含整数整数和字符串应该是可以相互转换的。这也就是说有键名为<code>42</code>和<code>“42”</code>应该被认为是相同的数组。当然在哈希表的实现中是完全相反的：他们严格区分键的类型，在表中可以同时存在键<code>42</code>和<code>“42”</code>，值也不同。</p>
+<p>这就是为什么有一个额外的symtable（符号表）API，这是一层围绕哈希表字符串键转换为整数键核心功能的包装。例如，<code>zend_symtable_find()</code>函数定义：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">zend_symtable_find</span><span class="params">(</span><br><span class="line">	HashTable *ht, <span class="keyword">const</span> <span class="keyword">char</span> *arKey, uint nKeyLength, <span class="keyword">void</span> **pData</span><br><span class="line">	)</span> </span>&#123;</span><br><span class="line">    ZEND_HANDLE_NUMERIC(arKey, nKeyLength, zend_hash_index_find(ht, idx, pData));</span><br><span class="line">    <span class="keyword">return</span> zend_hash_find(ht, arKey, nKeyLength, pData);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此处不考虑<code>ZEND_HANDLE_NUMERIC()</code>宏的实现细节，只关注它背后的功能是非常重要的：如果arKey包含<code>LONG_MIN</code>和<code>LONG_MAX</code>之间的十进制整数，则该整数写入<code>idx</code>，<code>zend_hash_index_find()</code>调用它。在其他情况下，代码将继续执行下一行，其中<code>zend_hash_find()</code>被调用。</p>
+<p>除了<code>zend_symtable_find()</code>下功能是symtable API的一部分，再以相同的行为作为自己的哈希表的同行，但包括字符串到整数规范化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">zend_symtable_exists</span><span class="params">(HashTable *ht, <span class="keyword">const</span> <span class="keyword">char</span> *arKey, uint nKeyLength)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">zend_symtable_del</span><span class="params">(HashTable *ht, <span class="keyword">const</span> <span class="keyword">char</span> *arKey, uint nKeyLength)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">zend_symtable_update</span><span class="params">(</span><br><span class="line">    HashTable *ht, <span class="keyword">const</span> <span class="keyword">char</span> *arKey, uint nKeyLength, <span class="keyword">void</span> *pData, uint nDataSize, <span class="keyword">void</span> **pDest</span><br><span class="line">)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">zend_symtable_update_current_key_ex</span><span class="params">(</span><br><span class="line">    HashTable *ht, <span class="keyword">const</span> <span class="keyword">char</span> *arKey, uint nKeyLength, <span class="keyword">int</span> mode, HashPosition *pos</span><br><span class="line">)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>此外，还有两个用来创建符号表的宏：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> ZEND_INIT_SYMTABLE_EX(ht, n, persistent) \</span><br><span class="line">    zend_hash_init(ht, n, NULL, ZVAL_PTR_DTOR, persistent)</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> ZEND_INIT_SYMTABLE(ht) \</span><br><span class="line">    ZEND_INIT_SYMTABLE_EX(ht, 2, 0)</span></span><br></pre></td></tr></table></figure></p>
+<p>你可以看到，这些宏只是在<code>zend_hash_init()</code>中被调用，<code>ZVAL_PTR_DTOR</code>在析构函数中被用到。所以这些宏跟整型字符串的转换行为没有直接关系。</p>
+<p>让我们来个尝试：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">HashTable *myht;</span><br><span class="line">zval *zv1, *zv2;</span><br><span class="line">zval **zv_dest;</span><br><span class="line"></span><br><span class="line">ALLOC_HASHTABLE(myht);</span><br><span class="line">ZEND_INIT_SYMTABLE(myht);</span><br><span class="line"></span><br><span class="line">MAKE_STD_ZVAL(zv1);</span><br><span class="line">ZVAL_STRING(zv1, <span class="string">"zv1"</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">MAKE_STD_ZVAL(zv2);</span><br><span class="line">ZVAL_STRING(zv2, <span class="string">"zv2"</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">zend_hash_index_update(myht, <span class="number">42</span>, &amp;zv1, <span class="keyword">sizeof</span>(zval *), NULL);</span><br><span class="line">zend_symtable_update(myht, <span class="string">"42"</span>, <span class="keyword">sizeof</span>(<span class="string">"42"</span>), &amp;zv2, <span class="keyword">sizeof</span>(zval *), NULL);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (zend_hash_index_find(myht, <span class="number">42</span>, (<span class="keyword">void</span> **) &amp;zv_dest) == SUCCESS) &#123;</span><br><span class="line">    php_printf(<span class="string">"Value at key 42 is %Z\n"</span>, *zv_dest);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (zend_symtable_find(myht, <span class="string">"42"</span>, <span class="keyword">sizeof</span>(<span class="string">"42"</span>), (<span class="keyword">void</span> **) &amp;zv_dest) == SUCCESS) &#123;</span><br><span class="line">    php_printf(<span class="string">"Value at key \"42\" is %Z\n"</span>, *zv_dest);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">zend_hash_destroy(myht);</span><br><span class="line">FREE_HASHTABLE(myht);</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码将会输出：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Value at key <span class="number">42</span> is zv2</span><br><span class="line">Value at key <span class="string">"42"</span> is zv2</span><br></pre></td></tr></table></figure>
+<p>两次<code>update</code>的调用写入了相同的元素（第二次复写了第一次），两次<code>find</code>的调用也找到了相同的元素。</p>
+<h3 id="Array_API">Array API</h3><p>现在，我们看数组API。这个API不直接作用于哈希表，而是通过<code>Z_ARRVAL_P</code>提取的哈希表接受zvals。</p>
+<p>API前两个函数：<code>array_init()</code>,<code>array_init_size()</code>，它们的作用是初始化一个哈希表成为zval。前者只需要目标的zval，而后者则额外需要一个大小参数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Create empty array into return_value */</span></span><br><span class="line">array_init(return_value);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Create empty array with expected size 1000000 into return_value */</span></span><br><span class="line">array_init_size(return_value, <span class="number">1000000</span>);</span><br></pre></td></tr></table></figure>
+<p>剩下的函数全都是处理插入值到一个数组的这种。有四组相似操作的函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Insert at next index */</span></span><br><span class="line"><span class="keyword">int</span> add_next_index_*(zval *arg, ...);</span><br><span class="line"><span class="comment">/* Insert at specific index */</span></span><br><span class="line"><span class="keyword">int</span> add_index_*(zval *arg, ulong idx, ...);</span><br><span class="line"><span class="comment">/* Insert at specific key */</span></span><br><span class="line"><span class="keyword">int</span> add_assoc_*(zval *arg, <span class="keyword">const</span> <span class="keyword">char</span> *key, ...);</span><br><span class="line"><span class="comment">/* Insert at specific key of length key_len (for binary safety) */</span></span><br><span class="line"><span class="keyword">int</span> add_assoc_*_ex(zval *arg, <span class="keyword">const</span> <span class="keyword">char</span> *key, uint key_len, ...);</span><br></pre></td></tr></table></figure>
+<p>这里<code>*</code>和<code>...</code>是占位符类型参数。他们的有效值列在下表中：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type    Additional</th>
+<th style="text-align:left">arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">null</td>
+<td style="text-align:left">none</td>
+</tr>
+<tr>
+<td style="text-align:left">long</td>
+<td style="text-align:left">long n</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:left">double d</td>
+</tr>
+<tr>
+<td style="text-align:left">string</td>
+<td style="text-align:left">const char *str, int duplicate</td>
+</tr>
+<tr>
+<td style="text-align:left">stringl</td>
+<td style="text-align:left">const char *str, uint length, int duplicate</td>
+</tr>
+<tr>
+<td style="text-align:left">resourse</td>
+<td style="text-align:left">int r</td>
+</tr>
+<tr>
+<td style="text-align:left">zval</td>
+<td style="text-align:left">zval *value</td>
+</tr>
+</tbody>
+</table>
+<p>让我们来一个例子介绍这些函数的使用方法，让我们创建一个有不同类型键的数组：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">PHP_FUNCTION(make_array) &#123;</span><br><span class="line">    zval *zv;</span><br><span class="line"></span><br><span class="line">    array_init(return_value);</span><br><span class="line"></span><br><span class="line">    add_index_long(return_value, <span class="number">10</span>, <span class="number">100</span>);</span><br><span class="line">    add_index_double(return_value, <span class="number">20</span>, <span class="number">3.141</span>);</span><br><span class="line">    add_index_string(return_value, <span class="number">30</span>, <span class="string">"foo"</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    add_next_index_bool(return_value, <span class="number">1</span>);</span><br><span class="line">    add_next_index_stringl(return_value, <span class="string">"\0bar"</span>, <span class="keyword">sizeof</span>(<span class="string">"\0bar"</span>)-<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    add_assoc_null(return_value, <span class="string">"foo"</span>);</span><br><span class="line">    add_assoc_long(return_value, <span class="string">"bar"</span>, <span class="number">42</span>);</span><br><span class="line"></span><br><span class="line">    add_assoc_double_ex(return_value, <span class="string">"\0bar"</span>, <span class="keyword">sizeof</span>(<span class="string">"\0bar"</span>), <span class="number">1.61</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* For some things you still have to manually create a zval... */</span></span><br><span class="line">    MAKE_STD_ZVAL(zv);</span><br><span class="line">    object_init(zv);</span><br><span class="line">    add_next_index_zval(return_value, zv);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>var_dump()</code>输出这个数组如下（NUL字节由\0替换）：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>(<span class="number">9</span>) &#123;</span><br><span class="line">  [<span class="number">10</span>]=&gt;</span><br><span class="line">  int(<span class="number">100</span>)</span><br><span class="line">  [<span class="number">20</span>]=&gt;</span><br><span class="line">  float(<span class="number">3.141</span>)</span><br><span class="line">  [<span class="number">30</span>]=&gt;</span><br><span class="line">  string(<span class="number">3</span>) <span class="string">"foo"</span></span><br><span class="line">  [<span class="number">31</span>]=&gt;</span><br><span class="line">  bool(<span class="keyword">true</span>)</span><br><span class="line">  [<span class="number">32</span>]=&gt;</span><br><span class="line">  string(<span class="number">4</span>) <span class="string">"\0bar"</span></span><br><span class="line">  [<span class="string">"foo"</span>]=&gt;</span><br><span class="line">  <span class="keyword">NULL</span></span><br><span class="line">  [<span class="string">"bar"</span>]=&gt;</span><br><span class="line">  int(<span class="number">42</span>)</span><br><span class="line">  [<span class="string">"\0bar"</span>]=&gt;</span><br><span class="line">  float(<span class="number">1.61</span>)</span><br><span class="line">  [<span class="number">33</span>]=&gt;</span><br><span class="line">  object(stdClass)<span class="comment">#1 (0) &#123;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>看上面的代码，你可能会注意到数组 API 是字符串长度更相矛盾: 传递给 _ex 函数的键长度，包括终止的 NUL 字节，而传递给 stringl 函数的字符串长度不包括 NUL 字节。</p>
+<p>此外应指出的是，虽然这些函数以<code>add</code>开头，但他们更像更新功能，因为他们会覆盖以前现有键。</p>
+<p>有几个额外的 add_get 函数都插入一个值并再次获取 (类似于 <code>zend_hash_update</code> 函数的最后一个参数)。几乎从不使用它们，也不会在这里讨论出于完整性的考虑。</p>
+<p>哈希表、 符号表和数组 的Api 之旅就此结束。</p>
+<h4 id="英文部分">英文部分</h4><p><a href="http://www.phpinternalsbook.com/hashtables/array_api.html" target="_blank" rel="external">SYMTABLE AND ARRAY API——PHP Internals Book</a></p>
+
+
+<!--<a href="http://yoursite.com/2015-9-24-symtable-array-api.html#disqus_thread" class="article-comment-link">Comments</a>-->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = mickeyouyou; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
