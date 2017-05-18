@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<title>API 符号表和数组API</title>
+	<title>Symbol table and Array API 符号表和数组API</title>
 	<meta name="keywords" content="My Blog, Spider Bitch!" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -23,7 +23,8 @@
 
 <body>
 
-<h2 id="Symbol_table_and_Array_API_符号表和数组API">Symbol table and Array API 符号表和数组API</h2><p>Zend哈希表API允许你使用任何类型的值，但绝大多数情况下是变量容器（<code>zval</code>）。使用<code>zend_hash</code>API和变量容器往往是有点麻烦，因为要处理zval的分配和初始化。这就是为什么PHP提供了第二套专门针对这个用例的API。在介绍这些简化的API前，我们先看看一种特殊的哈希表，PHP数组的使用。</p>
+<h2 class="title">Symbol table and Array API 符号表和数组API</h2>
+<p>Zend哈希表API允许你使用任何类型的值，但绝大多数情况下是变量容器（<code>zval</code>）。使用<code>zend_hash</code>API和变量容器往往是有点麻烦，因为要处理zval的分配和初始化。这就是为什么PHP提供了第二套专门针对这个用例的API。在介绍这些简化的API前，我们先看看一种特殊的哈希表，PHP数组的使用。</p>
 <p>说白了，PHP的数组实现中，相同值的字符串键和整型键存储同一个值的实现就基于此。</p>
 <h3 id="符号表">符号表</h3><p>PHP的设计背后的核心概念是包含整数整数和字符串应该是可以相互转换的。这也就是说有键名为<code>42</code>和<code>“42”</code>应该被认为是相同的数组。当然在哈希表的实现中是完全相反的：他们严格区分键的类型，在表中可以同时存在键<code>42</code>和<code>“42”</code>，值也不同。</p>
 <p>这就是为什么有一个额外的symtable（符号表）API，这是一层围绕哈希表字符串键转换为整数键核心功能的包装。例如，<code>zend_symtable_find()</code>函数定义：</p>

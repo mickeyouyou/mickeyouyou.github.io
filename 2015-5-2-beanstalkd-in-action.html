@@ -23,7 +23,8 @@
 
 <body>
 
-<h3 id="基于beanstalkd的消息队列实践">基于beanstalkd的消息队列实践</h3><h4 id="beanstalk">beanstalk</h4><p><code>beanstalk</code>中文<code>魔豆</code>，是一个轻量级消息中间件，他的最大特点是将自己定位为基于管道  (tube) 和任务 (job) 的工作队列 (work-queue)：</p>
+<h2 class="title">基于Beanstalkd的消息队列实践</h2>
+<h4 id="beanstalk">beanstalk</h4><p><code>beanstalk</code>中文<code>魔豆</code>，是一个轻量级消息中间件，他的最大特点是将自己定位为基于管道  (tube) 和任务 (job) 的工作队列 (work-queue)：</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/beanstalk.png" alt="enter image description here"></p>
 <p>Beanstalkd设计里面的核心概念：</p>
 <h3 id="job">job</h3><p>一个需要异步处理的任务，是Beanstalkd中的基本单元，需要放在一个tube中。</p>

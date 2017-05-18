@@ -23,7 +23,8 @@
 
 <body>
 
-<h1 id="openssl_生成rsa私钥、公钥和证书">openssl 生成rsa私钥、公钥和证书</h1><h4 id="SSL">SSL</h4><p>SSL 是一个缩写，代表的是 Secure Sockets Layer。它是支持在 Internet 上进行安全通信的 标准，并且将数据密码术集成到了协议之中。数据在离开您的计算机之前就已经被加密，然后只有 到达它预定的目标后才被解密。证书和密码学算法支持了这一切的运转，使用 OpenSSL，您将 有机会切身体会它们。<br>理论上，如果加密的数据在到达目标之前被截取或窃听，那些数据是不可能被破解的。不过， 由于计算机的变化一年比一年快，而且密码翻译方法有了新的发展，因此，SSL 中使用的加密协议 被破解的可能性也在增大。<br>可以将 SSL 和安全连接用于 Internet 上任何类型的协议，不管是 HTTP、POP3，还是 FTP。还可以用 SSL 来保护 Telnet 会话。虽然可以用 SSL 保护任何连接，但是不必对每一类连接都使用 SSL。 如果连接传输敏感信息，则应使用 SSL。</p>
+<h2 class="title">Openssl 生成rsa私钥、公钥和证书</h2>
+<h4 id="SSL">SSL</h4><p>SSL 是一个缩写，代表的是 Secure Sockets Layer。它是支持在 Internet 上进行安全通信的 标准，并且将数据密码术集成到了协议之中。数据在离开您的计算机之前就已经被加密，然后只有 到达它预定的目标后才被解密。证书和密码学算法支持了这一切的运转，使用 OpenSSL，您将 有机会切身体会它们。<br>理论上，如果加密的数据在到达目标之前被截取或窃听，那些数据是不可能被破解的。不过， 由于计算机的变化一年比一年快，而且密码翻译方法有了新的发展，因此，SSL 中使用的加密协议 被破解的可能性也在增大。<br>可以将 SSL 和安全连接用于 Internet 上任何类型的协议，不管是 HTTP、POP3，还是 FTP。还可以用 SSL 来保护 Telnet 会话。虽然可以用 SSL 保护任何连接，但是不必对每一类连接都使用 SSL。 如果连接传输敏感信息，则应使用 SSL。</p>
 <h4 id="OpenSSL">OpenSSL</h4><p>OpenSSL 不仅仅是 SSL。它可以实现消息摘要、文件的加密和解密、数字证书、数字签名 和随机数字。关于 OpenSSL 库的内容非常多，远不是一篇文章可以容纳的。<br>OpenSSL 不只是 API，它还是一个命令行工具。命令行工具可以完成与 API 同样的工作， 而且更进一步，可以测试 SSL 服务器和客户机。它还让开发人员对 OpenSSL 的能力有一个 认识。要获得关于如何使用 OpenSSL 命令行工具的资料，请参阅 <a href="https://www.openssl.org/docs/apps/openssl.html" target="_blank" rel="external">官方手册</a>。</p>
 <h4 id="openssl_的编译安装">openssl 的编译安装</h4><p>下载：<a href="https://www.openssl.org/source/" target="_blank" rel="external">https://www.openssl.org/source/</a></p>
 <p>安装 OpenSSL, 请确保你已安装以下组件:</p>

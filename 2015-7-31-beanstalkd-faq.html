@@ -23,7 +23,8 @@
 
 <body>
 
-<h3 id="Beanstalkd_FAQ_中文版">Beanstalkd FAQ 中文版</h3><p>在团队分享关于<code>Beanstalkd</code>的PPT ：<a href="http://pan.baidu.com/s/1dDg2edF" target="_blank" rel="external">http://pan.baidu.com/s/1dDg2edF</a></p>
+<h2 class="title">Beanstalkd FAQ 中文版</h2>
+<p>在团队分享关于<code>Beanstalkd</code>的PPT ：<a href="http://pan.baidu.com/s/1dDg2edF" target="_blank" rel="external">http://pan.baidu.com/s/1dDg2edF</a></p>
 <h4 id="它是怎样工作的，高层次的？">它是怎样工作的，高层次的？</h4><p><code>Beanstalkd</code>分布式应用程序是一个很大的待办事项清单。</p>
 <p>如果有一个工作单元,你想推迟到之后进行（比如,发送电子邮件，向处理很慢的外部服务推送数据，从一个处理很慢的外部服务拉数据，生成高质量的图像缩略图 ），你投放该类的工作到<code>beanstalkd</code>，也就是“任务”。有些流程（比如web请求处理程序），“producers” ，将向队列投放任务。另外一些流程，“worker”，将从队列中取任务并运行。</p>
 <h4 id="任务支持持久化吗？万一断电了怎么办？">任务支持持久化吗？万一断电了怎么办？</h4><p>支持，你可以在启动的时候指定<code>-b /dir/</code>参数，beanstalkd会将所有的任务写入<code>binlog</code>文件。在断电的情况下，你可以用同样的参数指定重启beanstalkd 它将会恢复log中的内容。</p>

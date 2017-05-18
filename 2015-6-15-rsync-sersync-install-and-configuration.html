@@ -23,7 +23,8 @@
 
 <body>
 
-<h3 id="Rsync_+_sersync实时同步服务器文件">Rsync + sersync实时同步服务器文件</h3><h4 id="Rsync介绍">Rsync介绍</h4><p>rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync。</p>
+<h2 class="title">Rsync + sersync实时同步服务器文件</h2>
+<h4 id="Rsync介绍">Rsync介绍</h4><p>rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync。</p>
 <p>Rsync（remote synchronize）是一个远程数据同步工具，可通过LAN/WAN快速同步多台主机间的文件。Rsync使用所谓的“Rsync算法”来使本地和远程两个主机之间的文件达到同步，这个算法只传送两个文件的不同部分，而不是每次都整份传送，因此速度相当快。</p>
 <p>Rsync本来是用于替代rcp的一个工具，目前由rsync.samba.org维护，所以rsync.conf文件的格式类似于samba的主配置文件。Rsync可以通过rsh或ssh使用，也能以daemon模式去运行，在以daemon方式运行时Rsync server会打开一个873端口，等待客户端去连接。连接时，Rsync server会检查口令是否相符，若通过口令查核，则可以开始进行文件传输。第一次连通完成时，会把整份文件传输一次，以后则就只需进行增量备份。</p>
 <p>Rsync支持大多数的类Unix系统，无论是Linux、Solaris还是BSD上都经过了良好的测试。此外，它在windows平台下也有相应的版本，如cwRsync和Sync2NAS等工具。</p>

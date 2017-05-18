@@ -23,7 +23,8 @@
 
 <body>
 
-<h3 id="Beanstalkd_的一种分布式方案">Beanstalkd 的一种分布式方案</h3><blockquote>
+<h2 class="title">Beanstalkd 的一种分布式方案</h2>
+<blockquote>
 <p>本文特指的是Beanstalkd与分布式结合的一种方案。</p>
 </blockquote>
 <p>在Beanstalkd的文档中，其实是支持分布式的，其设计思想和Memcached类似，Beanstalkd各个server之间并不知道彼此的存在，是通过client实现分布式以及根据tube名称去特定server获取job。</p>
