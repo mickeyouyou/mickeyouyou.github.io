@@ -31,7 +31,7 @@
 <p>做成分布式服务时，客户端对于Beanstalkd服务来说，只管做好消费者的消息投放工作，而对于处理该服务的各个服务器，只需要各自消耗自己待取出的消息数据即可。那么相对应的，其实就是需要一个pool的东西，将消息从客户端到服务器的投放过程隐藏起来，达到资源的合理分配。</p>
 <p>封装的部分，有两个通道组成，一个是消息的入口通道，主要指的是消费者的投放操作。客户端从已经配置好的Beanstalkd服务中使用自己关注的管道（tube）,并针对业务投放有一定延时或非延时、指定优先级等消息。</p>
 <p>另外一个自然是出口通道，消费者从配置文件中获取到所有Beanstalkd服务器，这些服务器中监听自己所关注的管道（tube），将符合条件的消息处理后删除，将不符合条件的消息继续投放到待取出状态，完成轮询的思想。</p>
-<p>而封装本身，可以通过PHP扩展来完成。此处提到的就是：<a href="https://github.com/nil-zhang/php-beanstalk。" target="_blank" rel="external">https://github.com/nil-zhang/php-beanstalk。</a></p>
+<p>而封装本身，可以通过PHP扩展来完成。此处提到的就是：<a href="https://github.com/nil-zhang/php-beanstalk" target="_blank" rel="external">https://github.com/nil-zhang/php-beanstalk</a> 。</p>
 <h4 id="分布式实现">分布式实现</h4><p>该方案的分布式算法借助于两个Beanstalkd的客户端类库，分别是：</p>
 <ul>
 <li><code>libbeanstalkclient</code> 基于Beanstalkd非阻塞的C语言实现类库</li>
