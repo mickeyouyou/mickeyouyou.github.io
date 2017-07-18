@@ -1,0 +1,99 @@
+<html>
+<head>
+	
+	<title>Phan:PHP 静态分析器</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <!--<link rel="stylesheet" href="/css/main.css" type="text/css">-->
+	<link href="/css/main.css?v=2" rel="stylesheet" type="text/css" />
+    <!--<link rel="stylesheet" href="/css/style.css" type="text/css">-->
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2"/>
+    
+
+</head>
+
+<body>
+
+<h2 class="title">Phan:PHP 静态分析器</h2>
+<blockquote>
+<p>Phan倾向于避免假阳性，试图证明不正确性，而不是正确性。</p>
+</blockquote>
+<p>php7推出了语法树(php-ast extension)，于是静态语法分析更为方便。</p>
+<p>看过<code>Rasmus Lerdorf</code>在上海的一次演讲PPT，感觉注释作为代码的一部分，从之前的code review ，到现在的静态分析，越来越重要，自动化依赖注释，代码写作也需要在注释的前提下完成。比如AI智能公司<code>www.ai.codes</code>根据注释写出对应的代码。</p>
+<p>Phan能够执行如下类型的特性分析：</p>
+<ul>
+<li>所有已定义和可以访问的的方法、函数，类，<code>traits</code>, 接口，常量，属性，变量；</li>
+<li>检查针对方法、函数、闭包调用的类型安全和参数数量问题方法/函数/关闭电话</li>
+<li>PHP7、PHP5的向后兼容性</li>
+<li>使用阵列访问检查是否合格</li>
+<li>检查二进制操作的类型安全</li>
+<li>检查方法，函数和闭包的有效和类型安全返回值</li>
+<li>检查数组，闭包，常量，属性，变量上的无操作</li>
+<li>检查未使用(unused)、弃用（deprecated）代码</li>
+<li>检查重新定义的类，功能和方法</li>
+<li>用类继承检查（例如检查方法签名兼容性）。截至0.9.3，Phan还检查被覆盖的final类/方法，并且实现的接口真的是一个接口</li>
+<li>支持命名空间，<code>traits</code>和可变参数</li>
+<li>支持<a href="https://github.com/etsy/phan/wiki/About-Union-Types" target="_blank" rel="external">联合类型</a></li>
+<li>支持泛型数组，如int []，UserObject []等</li>
+<li>支持phpdoc、继承phpdoc类型注释（0.9.3）</li>
+<li>支持检查phpdoc类型注释是真实类型签名的收窄形式（例如子类/子类型）（0.9.3）</li>
+<li>支持从<code>assert（）</code>语句推断类型，如果是element、loops，则支持条件</li>
+<li>支持<a href="https://github.com/etsy/phan/wiki/Annotating-Your-Source-Code#deprecated" target="_blank" rel="external">@deprecated</a>注释以弃用类，方法和函数</li>
+<li>支持元素的<a href="https://github.com/etsy/phan/wiki/Annotating-Your-Source-Code#internal" target="_blank" rel="external">内部注释</a>（如常量，函数，类，类常量，属性或方法），作为其定义的包的内部</li>
+<li>支持@suppress <issue_type>用于抑制问题的注释</issue_type></li>
+<li>支持<a href="https://github.com/etsy/phan/wiki/Annotating-Your-Source-Code#property" target="_blank" rel="external">魔法属性注释</a>（部分）（@property <union_type> <variable_name>）</variable_name></union_type></li>
+<li>支持class_alias注释（实验，默认关闭），0.9.3开始</li>
+<li>支持通过@ phan-closure-scope指示封装将绑定到的类 <a href="https://github.com/etsy/phan/blob/master/tests/files/src/0264_closure_override_context.php" target="_blank" rel="external">示例</a></li>
+<li>提供广泛的配置，以削弱分析，使其在大型代码库中有用</li>
+<li>可以在许多内核上运行。（需要pcntl）</li>
+<li>可以在<a href="https://github.com/etsy/phan/wiki/Using-Phan-Daemon-Mode" target="_blank" rel="external">后台运行</a>（守护进程模式），然后快速响应请求分析文件的最新版本。（需要pcntl）</li>
+<li>输出以<code>text</code>，<code>checkstyle</code>，<code>json</code>或<code>codeclimate</code>格式发出</li>
+<li>可以在源代码上运行用户插件，用于代码的检查</li>
+</ul>
+<h3 id="可以捕获基本的错误">可以捕获基本的错误</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">if</span>(count(<span class="variable">$a</span> &gt; <span class="number">1</span>)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Test"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">% phan test.php&#10;test.php:2 PhanTypeComparisonFromArray array to int comparison</span><br></pre></td></tr></table></figure>
+<h3 id="检查phpdoc注释">检查phpdoc注释</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** <span class="doctag">@var</span> int $prop */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$prop</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> string $arg</span><br><span class="line">     * <span class="doctag">@return</span> int</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">(<span class="variable">$arg</span>)</span> </span>&#123;</span><br><span class="line">        <span class="variable">$this</span>-&gt;prop = <span class="variable">$arg</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$arg</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">% phan test.php&#10;test.php:10 PhanTypeMismatchProperty Assigning string to property but \C::prop is int&#10;test.php:11 PhanTypeMismatchReturn Returning type string but test() is declared to return int</span><br></pre></td></tr></table></figure>
+<h3 id="重构旧代码">重构旧代码</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@deprecated</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">legacy_function</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">C::legacy_function();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">% phan test.php&#10;test.php:8 PhanDeprecatedFunction Call to deprecated function \C::legacy_function() defined at test.php:5</span><br></pre></td></tr></table></figure>
+<h2 id="参考">参考</h2><p><a href="http://talks.php.net/china17#/php7perfdetail1" target="_blank" rel="external">http://talks.php.net/china17#/php7perfdetail1</a><br><a href="http://www.laruence.com/2015/12/04/3086.html" target="_blank" rel="external">http://www.laruence.com/2015/12/04/3086.html</a><br><a href="https://www.ai.codes/" target="_blank" rel="external">https://www.ai.codes/</a></p>
+<h2 id="代码库">代码库</h2><p><a href="https://github.com/etsy/phan" target="_blank" rel="external">https://github.com/etsy/phan</a></p>
+<p><a href="https://github.com/nikic/php-ast" target="_blank" rel="external">https://github.com/nikic/php-ast</a></p>
+
+
+<!--<a href="http://yoursite.com/2017-7-18-static-analysis-in-php.html#disqus_thread" class="article-comment-link">Comments</a>-->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
