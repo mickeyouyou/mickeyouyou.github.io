@@ -30,11 +30,22 @@
 
 
 <h2 class="title">跨域资源(接口)共享</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2016年4月21日
 
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#同源政策"><span class="toc-text">同源政策</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同源与非同源"><span class="toc-text">同源与非同源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Access-Control-Allow-Origin"><span class="toc-text">Access-Control-Allow-Origin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSONP"><span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WebSocket"><span class="toc-text">WebSocket</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a>
-<h4 id="同源政策">同源政策</h4><p>1995年，同源政策由 Netscape 公司引入浏览器。目前，所有浏览器都实行这个政策。</p>
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#同源政策"><span class="toc-text">同源政策</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同源与非同源"><span class="toc-text">同源与非同源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Access-Control-Allow-Origin"><span class="toc-text">Access-Control-Allow-Origin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSONP"><span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebSocket"><span class="toc-text">WebSocket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+<h3 id="同源政策">同源政策</h3><p>1995年，同源政策由 Netscape 公司引入浏览器。目前，所有浏览器都实行这个政策。</p>
 <p>最初，它的含义是指，A网页设置的 Cookie，B网页不能打开，除非这两个网页”同源”。</p>
-<h4 id="同源与非同源">同源与非同源</h4><p>所谓”同源”指的是”三个相同”。</p>
+<h3 id="同源与非同源">同源与非同源</h3><p>所谓”同源”指的是”三个相同”。</p>
 <ul>
 <li>协议相同</li>
 <li>域名相同</li>
@@ -63,26 +74,28 @@
 <li>WebSocket</li>
 <li>CORS</li>
 </ul>
-<h4 id="Access-Control-Allow-Origin">Access-Control-Allow-Origin</h4><p>Access-Control-Allow-Origin是HTML5中定义的一种服务器端返回Response header，用来解决资源（比如字体、ajax请求）的跨域权限问题。</p>
+<h3 id="Access-Control-Allow-Origin">Access-Control-Allow-Origin</h3><p>Access-Control-Allow-Origin是HTML5中定义的一种服务器端返回Response header，用来解决资源（比如字体、ajax请求）的跨域权限问题。</p>
 <p>它定义了该资源允许被哪个域引用，或者被所有域引用。google字体使用<code>*</code>表示字体资源允许被所有域引用，也就是说你为了让你的接口、资源在二级域名下面的所有子站使用，你就可以在响应的header中设置该值为<code>*</code>:</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Access-Control-Allow-Origin:*"</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/header.jpg" width="90%"></p>
 <p>但是，该域值却不能使用正则。这是比较坑的地方。所以我们需要另外一种思路，就是根据<code>Request Headers</code>的内容，决定一些需要的<code>Response Headers</code>的内容，这里定义规则如下：</p>
 <p>根据Request的Origin: 进行决策，在Origin来自<code>*.example.com</code>（包括<code>www.example.com; example.com;</code>）时,<code>Response Header</code>中增加<code>Access-Control-Allow-Origin:</code>头的内容保持和<code>Requset Headers</code>中的<code>Origin:</code> 头URI中的protocol, domain, port内容，并一致。</p>
-<h4 id="JSONP">JSONP</h4><p>JSONP是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小。</p>
+<h3 id="JSONP">JSONP</h3><p>JSONP是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小。</p>
 <p>它的基本思想是，网页通过添加一个<code>&lt;script&gt;</code>元素，向服务器请求JSON数据，这种做法不受同源政策限制；服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。</p>
 <p>首先，网页动态插入<code>&lt;script&gt;</code>元素，由它向跨源网址发出请求。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addScriptTag</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">  script.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</span><br><span class="line">  script.src = src;</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  addScriptTag(<span class="string">'http://example.com/ip?callback=foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Your public IP address is: '</span> + data.ip);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>上面代码通过动态添加<code>&lt;script&gt;</code>元素，向服务器example.com发出请求。注意，该请求的查询字符串有一个callback参数，用来指定回调函数的名字，这对于JSONP是必需的。<br>服务器收到这个请求以后，会将数据放在回调函数的参数位置返回。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo(&#123;</span><br><span class="line">  <span class="string">"ip"</span>: <span class="string">"8.8.8.8"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>由于<code>&lt;script&gt;</code>元素请求的脚本，直接作为代码运行。这时，只要浏览器定义了foo函数，该函数就会立即调用。作为参数的JSON数据被视为JavaScript对象，而不是字符串，因此避免了使用JSON.parse的步骤。</p>
-<h4 id="WebSocket">WebSocket</h4><p>WebSocket是一种通信协议，使用ws://（非加密）和wss://（加密）作为协议前缀。该协议不实行同源政策，只要服务器支持，就可以通过它进行跨源通信。</p>
+<h3 id="WebSocket">WebSocket</h3><p>WebSocket是一种通信协议，使用ws://（非加密）和wss://（加密）作为协议前缀。该协议不实行同源政策，只要服务器支持，就可以通过它进行跨源通信。</p>
 <p>下面是一个例子，浏览器发出的WebSocket请求的头信息（摘自维基百科）。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /chat HTTP/<span class="number">1.1</span></span><br><span class="line">Host: server.example.com</span><br><span class="line">Upgrade: websocket</span><br><span class="line">Connection: Upgrade</span><br><span class="line">Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==</span><br><span class="line">Sec-WebSocket-Protocol: chat, superchat</span><br><span class="line">Sec-WebSocket-Version: <span class="number">13</span></span><br><span class="line">Origin: http://example.com</span><br></pre></td></tr></table></figure></p>
 <p>上面代码中，有一个字段是Origin，表示该请求的请求源（origin），即发自哪个域名。<br>正是因为有了Origin这个字段，所以WebSocket才没有实行同源政策。因为服务器可以根据这个字段，判断是否许可本次通信。如果该域名在白名单内，服务器就会做出如下回应。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">101</span> Switching Protocols</span><br><span class="line">Upgrade: websocket</span><br><span class="line">Connection: Upgrade</span><br><span class="line">Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=</span><br><span class="line">Sec-WebSocket-Protocol: chat</span><br></pre></td></tr></table></figure>
-<h3 id="参考">参考</h3><blockquote>
-<p><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html</a><br><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/04/cors.html</a><br><a href="https://yuguo.us/weblog/access-control-allow-origin/" target="_blank" rel="external">https://yuguo.us/weblog/access-control-allow-origin/</a></p>
-</blockquote>
+<h3 id="参考">参考</h3><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></li>
+<li><a href="https://yuguo.us/weblog/access-control-allow-origin/" target="_blank" rel="external">https://yuguo.us/weblog/access-control-allow-origin/</a></li>
+</ul>
 
 
 <!--<a href="http://yoursite.com/2016-4-21-access-control-allow-origin.html#disqus_thread" class="article-comment-link">Comments</a>-->

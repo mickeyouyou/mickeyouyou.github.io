@@ -30,9 +30,20 @@
 
 
 <h2 class="title">Processing large data with iterator 基于迭代器的大数据量处理改造</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2015年6月1日
 
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#疑问"><span class="toc-text">疑问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#result"><span class="toc-text">result</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
-<p>之前优化过一个操作大数据量的脚本，在开发环境数据量少，cengceng就跑完了，结果在线上跑了半天没反应，还要设置运行时间，还要设置最大使用内存等。</p>
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#疑问"><span class="toc-text">疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#result"><span class="toc-text">result</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+<h3 id="问题描述">问题描述</h3><p>之前优化过一个操作大数据量的脚本，在开发环境数据量少，cengceng就跑完了，结果在线上跑了半天没反应，还要设置运行时间，还要设置最大使用内存等。</p>
 <p>其实处理大数据量脚本也是有技巧的，比如实现一个迭代器或者使用<code>yield</code>等。因为开发环境还是php5.4，有时间切换到5.5的时候再试试<code>yield</code>.</p>
 <p>下面是基于<code>Iterator</code>接口，并实现了其中的5个方法的情况，</p>
 <p>运行时数据：</p>
@@ -41,14 +52,14 @@
 <li>批量订单详细数据（真正数据量大的 正是这个数据）；</li>
 </ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OrderLogistics</span> <span class="keyword">implements</span> <span class="title">Iterator</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$key</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$data</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$orders</span> = <span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$orderInfo</span> = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     *</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@var</span> array 业务属性</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$header</span>；</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(<span class="variable">$month</span> = <span class="string">'05'</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="variable">$this</span>-&gt;generatorOrders(<span class="variable">$month</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 其他的业务方法</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rewind</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        reset(<span class="variable">$this</span>-&gt;orders);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">current</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> current(<span class="variable">$this</span>-&gt;orders);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">next</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> next(<span class="variable">$this</span>-&gt;orders);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">key</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> key(<span class="variable">$this</span>-&gt;orders);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">valid</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> !next(<span class="variable">$this</span>-&gt;orders);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="疑问">疑问</h4><p>基于以上的实现，可以遍历对象的公共属性，既然在外部可以访问，随意访问随意操作。</p>
-<h4 id="result">result</h4><p>下面和之前的原生的情况效率比一比：</p>
+<h3 id="疑问">疑问</h3><p>基于以上的实现，可以遍历对象的公共属性，既然在外部可以访问，随意访问随意操作。</p>
+<h3 id="result">result</h3><p>下面和之前的原生的情况效率比一比：</p>
 <p>before:</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/0528-1048.png" width="90%" alt="before"></p>
 <p>after:</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/0601_order_logistics_callgraph.png" width="90%" alt="after"></p>
 <p>此前为了能让脚本运行出个结果来，既调整运行时间，还要设置最大内存，现在想来，就是用内存来换取时间的做法，那现在的情况就是用时间来换取内存了，仔细想来，这个内存和运行时间，好像还真是没有办法来追求一个平衡点。</p>
-<h4 id="参考">参考</h4><blockquote>
+<h3 id="参考">参考</h3><blockquote>
 <p><a href="http://www.laruence.com/2012/08/30/2738.html" target="_blank" rel="external">http://www.laruence.com/2012/08/30/2738.html</a></p>
 </blockquote>
 

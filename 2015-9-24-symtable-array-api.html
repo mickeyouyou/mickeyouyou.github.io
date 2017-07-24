@@ -30,8 +30,19 @@
 
 
 <h2 class="title">Symbol table and Array API 符号表和数组API</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2015年9月24日
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#符号表"><span class="toc-text">符号表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array_API"><span class="toc-text">Array API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考部分"><span class="toc-text">参考部分</span></a></li></ol></li></ol>
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#符号表"><span class="toc-text">符号表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array_API"><span class="toc-text">Array API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考部分"><span class="toc-text">参考部分</span></a></li></ol>
 <p>Zend哈希表API允许你使用任何类型的值，但绝大多数情况下是变量容器（<code>zval</code>）。使用<code>zend_hash</code>API和变量容器往往是有点麻烦，因为要处理zval的分配和初始化。这就是为什么PHP提供了第二套专门针对这个用例的API。在介绍这些简化的API前，我们先看看一种特殊的哈希表，PHP数组的使用。</p>
 <p>说白了，PHP的数组实现中，相同值的字符串键和整型键存储同一个值的实现就基于此。</p>
 <h3 id="符号表">符号表</h3><p>PHP的设计背后的核心概念是包含整数整数和字符串应该是可以相互转换的。这也就是说有键名为<code>42</code>和<code>“42”</code>应该被认为是相同的数组。当然在哈希表的实现中是完全相反的：他们严格区分键的类型，在表中可以同时存在键<code>42</code>和<code>“42”</code>，值也不同。</p>
@@ -97,7 +108,7 @@
 <p>此外应指出的是，虽然这些函数以<code>add</code>开头，但他们更像更新功能，因为他们会覆盖以前现有键。</p>
 <p>有几个额外的 add_get 函数都插入一个值并再次获取 (类似于 <code>zend_hash_update</code> 函数的最后一个参数)。几乎从不使用它们，也不会在这里讨论出于完整性的考虑。</p>
 <p>哈希表、 符号表和数组 的Api 之旅就此结束。</p>
-<h4 id="参考部分">参考部分</h4><p><a href="http://www.phpinternalsbook.com/hashtables/array_api.html" target="_blank" rel="external">SYMTABLE AND ARRAY API——PHP Internals Book</a></p>
+<h3 id="参考部分">参考部分</h3><p><a href="http://www.phpinternalsbook.com/hashtables/array_api.html" target="_blank" rel="external">SYMTABLE AND ARRAY API——PHP Internals Book</a></p>
 <p><a href="https://zh.wikipedia.org/wiki/%E7%AC%A6%E5%8F%B7%E8%A1%A8" target="_blank" rel="external">符号表</a></p>
 <p><a href="http://www.levijackson.net/php-zvals-and-symbol-tables/" target="_blank" rel="external">PHP ZVALS AND SYMBOL TABLE(S)</a></p>
 

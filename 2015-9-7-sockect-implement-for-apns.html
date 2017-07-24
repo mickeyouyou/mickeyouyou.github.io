@@ -30,6 +30,17 @@
 
 
 <h2 class="title">PHP基于socket的ios 推送的实现 The Implement of iOS Push</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2015年9月7日
+
+
+
+
+ </div>
+--->
+</div>
 
 <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#预备知识"><span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通用提供者要求"><span class="toc-text">通用提供者要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端的多语言支持"><span class="toc-text">客户端的多语言支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接管理的最佳实践"><span class="toc-text">链接管理的最佳实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二进制接口和通知格式"><span class="toc-text">二进制接口和通知格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反馈服务"><span class="toc-text">反馈服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#stream_select"><span class="toc-text">stream_select</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#new_static"><span class="toc-text">new static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#响应错误包直接响应为异常对象"><span class="toc-text">响应错误包直接响应为异常对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不同等级的日志"><span class="toc-text">不同等级的日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#连接"><span class="toc-text">连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造推送消息"><span class="toc-text">构造推送消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#向APNs发送通知"><span class="toc-text">向APNs发送通知</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量的推送处理——长连接"><span class="toc-text">批量的推送处理——长连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TODO"><span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考，也许对你有用"><span class="toc-text">参考，也许对你有用</span></a></li></ol></li></ol>
 <p>本类库的目的是为iOS客户端提供内容推送。苹果的推送服务（APNS）是建立在推送服务跟设备之间的，类库的作用就是将要推送给客户端的数据，提交到苹果的推送服务器。这些设备包括iPhone, iPad and the iPod Touch。</p>
@@ -263,12 +274,14 @@
 <h4 id="TODO">TODO</h4><ul>
 <li>链接超时重试逻辑</li>
 </ul>
-<h4 id="参考，也许对你有用">参考，也许对你有用</h4><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW3" target="_blank" rel="external">The Feedback Service</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html" target="_blank" rel="external">SSL/TLS协议运行机制的概述</a></p>
-<p><a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E5%BA%8F" target="_blank" rel="external">字节序</a></p>
-<p><a href="http://www.cnblogs.com/luxiaoxun/archive/2012/09/05/2671697.html" target="_blank" rel="external">大端和小端（Big endian and Little endian ）</a></p>
-<p><a href="http://www.xuebuyuan.com/1615987.html" target="_blank" rel="external">php fsockopen 与 stream_select</a></p>
-<p><a href="http://wezfurlong.org/blog/2005/may/guru-multiplexing/" target="_blank" rel="external">Guru - Multiplexing</a></p>
+<h4 id="参考，也许对你有用">参考，也许对你有用</h4><ul>
+<li><a href="https://developer.apple.com/library/prerelease/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW3" target="_blank" rel="external">The Feedback Service</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html" target="_blank" rel="external">SSL/TLS协议运行机制的概述</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E5%BA%8F" target="_blank" rel="external">字节序</a></li>
+<li><a href="http://www.cnblogs.com/luxiaoxun/archive/2012/09/05/2671697.html" target="_blank" rel="external">大端和小端（Big endian and Little endian ）</a></li>
+<li><a href="http://www.xuebuyuan.com/1615987.html" target="_blank" rel="external">php fsockopen 与 stream_select</a></li>
+<li><a href="http://wezfurlong.org/blog/2005/may/guru-multiplexing/" target="_blank" rel="external">Guru - Multiplexing</a></li>
+</ul>
 
 
 <!--<a href="http://yoursite.com/2015-9-7-sockect-implement-for-apns.html#disqus_thread" class="article-comment-link">Comments</a>-->

@@ -30,8 +30,19 @@
 
 
 <h2 class="title">队列处理的一次优化实践 (Yaf Worker Manager)</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2015年5月7日
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#workermanager的一些优化"><span class="toc-text">workermanager的一些优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行参数=>配置文件"><span class="toc-text">命令行参数=>配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#还有什么疑惑?"><span class="toc-text">还有什么疑惑?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考，希望对你也有帮助："><span class="toc-text">参考，希望对你也有帮助：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最后"><span class="toc-text">最后</span></a></li></ol></li></ol>
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#workermanager的一些优化"><span class="toc-text">workermanager的一些优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行参数=>配置文件"><span class="toc-text">命令行参数=>配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#还有什么疑惑?"><span class="toc-text">还有什么疑惑?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考，希望对你也有帮助："><span class="toc-text">参考，希望对你也有帮助：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后"><span class="toc-text">最后</span></a></li></ol>
 <blockquote>
 <p>队列处理的一次优化实践－－让队列给我们带来更多性能提升(Yaf Worker Manager)</p>
 </blockquote>
@@ -100,13 +111,13 @@
 <blockquote>
 <p>现在先实现能在本地中将worker加载出来的情况，如果可以的话，可以考虑将抽象的WorkerＭanager和扩展的workerManager两个类文件移到全局类库(yaf).</p>
 </blockquote>
-<h4 id="还有什么疑惑?">还有什么疑惑?</h4><p>同时需要考虑的其他问题有：一台机器上面实例化了两个相同的Yaf Application，这个时候会不会有影响。</p>
+<h3 id="还有什么疑惑?">还有什么疑惑?</h3><p>同时需要考虑的其他问题有：一台机器上面实例化了两个相同的Yaf Application，这个时候会不会有影响。</p>
 <p>最后，无论如何我们现在始终在应用的使用阶段，但是相信离自己的基础组件已经不远了。</p>
 <p>echarts代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">option = &#123;&#10;    title : &#123;&#10;        text: &#39;&#38431;&#21015;&#22788;&#29702;&#30701;&#20449;&#21457;&#36865;&#27979;&#35797;&#22270;&#39;,&#10;      subtext: &#39;&#27178;&#36724;&#20026;&#36827;&#31243;&#25968;&#65292;job&#24635;&#25968;:5366&#39;&#10;    &#125;,&#10;    tooltip : &#123;&#10;        trigger: &#39;axis&#39;&#10;    &#125;,&#10;    legend: &#123;&#10;        data:[&#39;&#32791;&#26102;&#39;,&#39;&#25928;&#29575;&#39;]&#10;    &#125;,&#10;    toolbox: &#123;&#10;        show : true,&#10;        feature : &#123;&#10;            mark : &#123;show: true&#125;,&#10;            dataView : &#123;show: true, readOnly: false&#125;,&#10;            magicType : &#123;show: true, type: [&#39;line&#39;, &#39;bar&#39;]&#125;,&#10;            restore : &#123;show: true&#125;,&#10;            saveAsImage : &#123;show: true&#125;&#10;        &#125;&#10;    &#125;,&#10;    calculable : true,&#10;    xAxis : [&#10;        &#123;&#10;            type : &#39;category&#39;,&#10;            data : [&#39;1&#39;,&#39;10&#39;,&#39;50&#39;]&#10;        &#125;&#10;    ],&#10;    yAxis : [&#10;        &#123;&#10;            type : &#39;value&#39;&#10;        &#125;&#10;    ],&#10;    series : [&#10;        &#123;&#10;            name:&#39;&#32791;&#26102;&#39;,&#10;            type:&#39;bar&#39;,&#10;            data:[359, 45, 19],&#10;        &#125;,&#10;        &#123;&#10;            name:&#39;&#25928;&#29575;&#39;,&#10;            type:&#39;bar&#39;,&#10;            data:[14, 119, 383],&#10;        &#125;&#10;    ]&#10;&#125;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="参考，希望对你也有帮助：">参考，希望对你也有帮助：</h4><blockquote>
+<h3 id="参考，希望对你也有帮助：">参考，希望对你也有帮助：</h3><blockquote>
 <p><a href="https://github.com/brianlmoon/GearmanManager" target="_blank" rel="external">https://github.com/brianlmoon/GearmanManager</a></p>
 </blockquote>
-<h4 id="最后">最后</h4><p>为了看今晚的欧冠半决赛巴萨对阵拜仁的比赛，彻夜编码也是拼了。。。</p>
+<h3 id="最后">最后</h3><p>为了看今晚的欧冠半决赛巴萨对阵拜仁的比赛，彻夜编码也是拼了。。。</p>
 
 
 <!--<a href="http://yoursite.com/2015-5-7-make-worker-better.html#disqus_thread" class="article-comment-link">Comments</a>-->

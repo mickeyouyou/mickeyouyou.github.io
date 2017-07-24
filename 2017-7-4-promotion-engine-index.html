@@ -30,6 +30,17 @@
 
 
 <h2 class="title">糯米促销引擎系统中的正排索引与倒排索引</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年7月4日
+
+
+
+
+ </div>
+--->
+</div>
 
 <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正排索引"><span class="toc-text">正排索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倒排索引"><span class="toc-text">倒排索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#活动与团单的对应关系"><span class="toc-text">活动与团单的对应关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#活动的规则配置"><span class="toc-text">活动的规则配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动倒排索引"><span class="toc-text">活动倒排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动正排索引"><span class="toc-text">活动正排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动在促销引擎的匹配"><span class="toc-text">活动在促销引擎的匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求来源"><span class="toc-text">请求来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全国活动"><span class="toc-text">全国活动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动类型"><span class="toc-text">活动类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeline"><span class="toc-text">pipeline</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附"><span class="toc-text">附</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
 <h2 id="背景">背景</h2><p>糯米使用的一个促销引擎，为糯米的各个端与组件提供团单、城市、端类型维度的促销信息，还可以完成对用户设备类型、手机号码、百度账号级别的购买次数限制，之所以叫做促销引擎也是因为其中与搜索引擎在排序方面有一部分相关性吧。</p>
