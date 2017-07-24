@@ -96,6 +96,21 @@ table tr.alt td {
 table tr:nth-child(odd) {
   background: #f4f4f4;
 }
+.toc a {
+  color: #d3d3d3;
+  border-bottom: none;
+}
+.toc a:hover {
+  color: #000;
+  border-bottom: none;
+}
+.toc-item {
+  color: #d3d3d3;
+  border-bottom: none;
+}
+.toc-item a:hover {
+  border-bottom: none;
+}
 pre,
 .highlight {
   background: #f7f7f7;

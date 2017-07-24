@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js" type="text/javascript"></script>
         <script>
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
     
 
 </head>
@@ -30,6 +30,7 @@
 
 
 <h2 class="title">PHP基于socket的ios 推送的实现 The Implement of iOS Push</h2>
+
 <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#预备知识"><span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通用提供者要求"><span class="toc-text">通用提供者要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端的多语言支持"><span class="toc-text">客户端的多语言支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接管理的最佳实践"><span class="toc-text">链接管理的最佳实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二进制接口和通知格式"><span class="toc-text">二进制接口和通知格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反馈服务"><span class="toc-text">反馈服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#stream_select"><span class="toc-text">stream_select</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#new_static"><span class="toc-text">new static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#响应错误包直接响应为异常对象"><span class="toc-text">响应错误包直接响应为异常对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不同等级的日志"><span class="toc-text">不同等级的日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#连接"><span class="toc-text">连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造推送消息"><span class="toc-text">构造推送消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#向APNs发送通知"><span class="toc-text">向APNs发送通知</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量的推送处理——长连接"><span class="toc-text">批量的推送处理——长连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TODO"><span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考，也许对你有用"><span class="toc-text">参考，也许对你有用</span></a></li></ol></li></ol>
 <p>本类库的目的是为iOS客户端提供内容推送。苹果的推送服务（APNS）是建立在推送服务跟设备之间的，类库的作用就是将要推送给客户端的数据，提交到苹果的推送服务器。这些设备包括iPhone, iPad and the iPod Touch。</p>
 <p>实现本身没什么说的，因为这里面牵扯到一些socket的东西，拿出来捋一捋。</p>
@@ -288,7 +289,6 @@
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
 </div>
-
 
 
 

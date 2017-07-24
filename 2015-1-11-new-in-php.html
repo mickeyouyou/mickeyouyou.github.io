@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js" type="text/javascript"></script>
         <script>
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
     
 
 </head>
@@ -30,6 +30,7 @@
 
 
 <h2 class="title">New Features from PHP5.2 to 5.6</h2>
+
 <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP5-6_2014-8"><span class="toc-text">PHP5.6 2014.8</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#常量表达式"><span class="toc-text">常量表达式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#可变参数函数"><span class="toc-text">可变参数函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#参数解包功能"><span class="toc-text">参数解包功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#其他修改"><span class="toc-text">其他修改</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP5-4_2012"><span class="toc-text">PHP5.4  2012</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Short_Open_Tag"><span class="toc-text">Short Open Tag</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组简写形式"><span class="toc-text">数组简写形式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Traits"><span class="toc-text">Traits</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#内置_Web_服务器"><span class="toc-text">内置 Web 服务器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#细节修改"><span class="toc-text">细节修改</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP5-3_2009-2012"><span class="toc-text">PHP5.3 2009-2012</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#匿名函数"><span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#魔术方法:_invoke(),_callStatic()"><span class="toc-text">魔术方法: invoke(), callStatic()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#命名空间"><span class="toc-text">命名空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#延迟静态绑定"><span class="toc-text">延迟静态绑定</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Heredoc_和_Nowdoc"><span class="toc-text">Heredoc 和 Nowdoc</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用const定义常量"><span class="toc-text">用const定义常量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三元运算符的简写形式"><span class="toc-text">三元运算符的简写形式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Phar"><span class="toc-text">Phar</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP5-2"><span class="toc-text">PHP5.2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#autoload"><span class="toc-text">autoload</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PDO和MySQLi"><span class="toc-text">PDO和MySQLi</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类型约束"><span class="toc-text">类型约束</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP5-2_2006年_~_2011年"><span class="toc-text">PHP5.2 2006年 ~ 2011年</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#JSON支持"><span class="toc-text">JSON支持</span></a></li></ol></li></ol></li></ol>
 <p>自10年开始php，自己在改变，PHP本身也在发生着变化。截至目前( 2015.01 )，PHP的最新稳定版本是PHP5.6.4，但有差不多一半的用户仍然在使用已经不在维护的PHP5.2，其余的一半用户在使用PHP5.3 ( PHP5.3也于2014年9月停止支持 )。因为PHP那 “ 集百家之长 ”的蛋疼语法，加上社区氛围不太好，许多人对新版本，新特性并无兴趣。</p>
 <p>本文会介绍自PHP5.2起，直到PHP5.6中增加的新特性。</p>
@@ -148,7 +149,6 @@
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
 </div>
-
 
 
 

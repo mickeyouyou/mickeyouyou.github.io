@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js" type="text/javascript"></script>
         <script>
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
     
 
 </head>
@@ -30,6 +30,7 @@
 
 
 <h2 class="title">Websocket Protocol摘要</h2>
+
 <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-_介绍"><span class="toc-text">1.        介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-_背景"><span class="toc-text">1.1.       背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-_协议概览"><span class="toc-text">1.2.       协议概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-_打开握手"><span class="toc-text">1.3.       打开握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-_关闭握手"><span class="toc-text">1.4.       关闭握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-_设计哲学"><span class="toc-text">1.5.       设计哲学</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-_安全模型"><span class="toc-text">1.6.       安全模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-_与TCP和HTTP的关系"><span class="toc-text">1.7.       与TCP和HTTP的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-_建立连接"><span class="toc-text">1.8.       建立连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-_使用WebSocket协议的子协议"><span class="toc-text">1.9.       使用WebSocket协议的子协议</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-_一致性要求"><span class="toc-text">2.        一致性要求</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1_术语和其他公约"><span class="toc-text">2.1 术语和其他公约</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-_WebSocket_URI"><span class="toc-text">3.        WebSocket URI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-_打开握手"><span class="toc-text">4.        打开握手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-_客户端要求"><span class="toc-text">4.1.       客户端要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-_服务器端要求"><span class="toc-text">4.2.       服务器端要求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-_读取客户端打开握手"><span class="toc-text">4.2.1.      读取客户端打开握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-_发送服务器打开握手"><span class="toc-text">4.2.2.      发送服务器打开握手</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-_数据成帧"><span class="toc-text">5.        数据成帧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-_概述"><span class="toc-text">5.1.       概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-_基本的帧协议"><span class="toc-text">5.2.       基本的帧协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-_客户端到服务器标记"><span class="toc-text">5.3.       客户端到服务器标记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-_分帧"><span class="toc-text">5.4.       分帧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-_控制帧"><span class="toc-text">5.5.       控制帧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-1-_关闭"><span class="toc-text">5.5.1.      关闭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-2-_Ping"><span class="toc-text">5.5.2.      Ping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-3-_Pong"><span class="toc-text">5.5.3.      Pong</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-_数据帧"><span class="toc-text">5.6.       数据帧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-_举例"><span class="toc-text">5.7.       举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-8-_扩展"><span class="toc-text">5.8.       扩展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-_发送和接收数据"><span class="toc-text">6.        发送和接收数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-_发送数据"><span class="toc-text">6.1.       发送数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-_接收数据"><span class="toc-text">6.2.       接收数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
 <p><code>WebSocket</code>协议使在控制环境下运行不受信任代码的客户端和能够选择与那些代码通信的远程主机之间能够双向通信。用于这个的安全模型是以origin为基础的安全模型，一般被浏览器使用。协议包含打开握手，其次是基本消息框架，在TCP之上。这项技术的目的是为基于浏览器的、需要与服务器双向通信的应用程序提供一种不依赖于打开多个HTTP连接的机制（例如，使用XMLHttpRequest或<code>&lt;iframe&gt;</code> 和长轮询）。</p>
 <h1 id="1-_介绍">1.        介绍</h1><h2 id="1-1-_背景">1.1.       背景</h2><p>历史上，创建需要在客户端和服务器间双向通信的网络应用程序（如即时消息和游戏程序）要求滥用HTTP来轮询服务器来获得更新，通过不同HTTP请求来发送上行通知。</p>
@@ -302,7 +303,6 @@
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
 </div>
-
 
 
 
