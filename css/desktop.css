@@ -1,0 +1,9 @@
+body {
+  font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
+  font-size: 18px;
+  padding: 2% 5% 5% 5%;
+  line-height: 150%;
+  border: 1px solid LightGrey; 
+  margin: 5% 20% 5% 20%;
+  width: 50%; 
+}
