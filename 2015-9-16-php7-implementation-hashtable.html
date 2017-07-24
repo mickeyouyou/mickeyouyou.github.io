@@ -28,7 +28,9 @@
 
 <body>
 
+
 <h2 class="title">PHP7内核的HashTable的数据结构与实现</h2>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashTable"><span class="toc-text">HashTable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据结构"><span class="toc-text">数据结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashTable操作"><span class="toc-text">HashTable操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashTable初始化"><span class="toc-text">HashTable初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新HashTable"><span class="toc-text">更新HashTable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新元素"><span class="toc-text">更新元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除元素"><span class="toc-text">删除元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清空HashTable"><span class="toc-text">清空HashTable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#销毁HashTable"><span class="toc-text">销毁HashTable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清空和销毁的区别"><span class="toc-text">清空和销毁的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他高级操作函数"><span class="toc-text">其他高级操作函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
 <p>PHP7的中的HashTable变了，是的，进一步带来的就是相关操作方法在细节上的实现的不同，追其细节，就不得不对底层的方法逐个击破参透，从一个版本切换到另一个版本真是要伤透脑筋的活啊。</p>
 <h4 id="HashTable">HashTable</h4><p>即哈希表，又名散列表，是根据关键字（key value)直接访问在内存存储位置的数据结构。是一种将随机访问的数据结构转换为有序储存的数据结构。它通过把键值通过一个函数的计算，映射到表中一个位置来访问，此函数称为散列函数。现在很多高级程序语言中都有实现HashTable，而C语言中最常用的是uthashtable。</p>
 <blockquote>

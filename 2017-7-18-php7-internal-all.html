@@ -28,8 +28,10 @@
 
 <body>
 
+
 <h2 class="title">php7-internal</h2>
-<p>针对本文内容，最好带着几个问题去探寻：</p>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#php-fpm的实现"><span class="toc-text">php-fpm的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个php脚本的整体的执行流程"><span class="toc-text">一个php脚本的整体的执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP代码的编译"><span class="toc-text">PHP代码的编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词法解析、语法解析"><span class="toc-text">词法解析、语法解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AST(abstract_sytax_tree)抽象语法树编译流程"><span class="toc-text">AST(abstract sytax tree)抽象语法树编译流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#handler"><span class="toc-text">handler</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+<p>针对本文内容，主要是基于下面几个问题去探寻记录整理的：</p>
 <ul>
 <li>请求从nginx传递到php-fpm后，它的运行流程？</li>
 <li>php脚本被编译执行流程？</li>

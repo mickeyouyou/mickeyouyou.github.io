@@ -28,7 +28,9 @@
 
 <body>
 
+
 <h2 class="title">Linux 账户密码策略</h2>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#加密算法"><span class="toc-text">加密算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#salt"><span class="toc-text">salt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密文安全性"><span class="toc-text">密文安全性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考文档"><span class="toc-text">参考文档</span></a></li></ol>
 <p>在现在的linux和unix系统中，用户的密码都保存在shadow文件中，因为密码关系到系统的安全，所以只有root用户才有读shadow文件的权限。<br>/etc/passwd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#10140;  cat /etc/passwd&#10;root:x:0:0:root:/root:/bin/bash&#10;daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin&#10;bin:x:2:2:bin:/bin:/usr/sbin/nologin&#10;sys:x:3:3:sys:/dev:/usr/sbin/nologin&#10;sync:x:4:65534:sync:/bin:/bin/sync&#10;zongbao:x:1000:1000:fengzongbao,,,:/home/zongbao:/bin/zsh</span><br></pre></td></tr></table></figure></p>
 <p>shadow中存放的内容是有着一定的格式的，如下：<br>/etc/shadow<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10140;  sudo cat /etc/shadow &#10;root:!:16398:0:99999:7:::&#10;daemon:*:16273:0:99999:7:::&#10;bin:*:16273:0:99999:7:::&#10;sys:*:16273:0:99999:7:::&#10;sync:*:16273:0:99999:7:::&#10;zongbao:$6$NOOoCLdzq4JKnxF.$Cdz0/CbZQRjVJ1vfxMJBlloK1wVEa/czY/63WLBqKWFGjtHk2TPfhveu.ErfDF1gV2YahACNQ/UgEwVOT4qkC/:16569:0:99999:7:::</span><br></pre></td></tr></table></figure></p>
 <p>用冒号分割后的具体意义如下：</p>
