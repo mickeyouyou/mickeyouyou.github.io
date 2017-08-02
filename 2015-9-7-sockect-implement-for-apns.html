@@ -42,7 +42,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#预备知识"><span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通用提供者要求"><span class="toc-text">通用提供者要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端的多语言支持"><span class="toc-text">客户端的多语言支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接管理的最佳实践"><span class="toc-text">链接管理的最佳实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二进制接口和通知格式"><span class="toc-text">二进制接口和通知格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反馈服务"><span class="toc-text">反馈服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#stream_select"><span class="toc-text">stream_select</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#new_static"><span class="toc-text">new static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#响应错误包直接响应为异常对象"><span class="toc-text">响应错误包直接响应为异常对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不同等级的日志"><span class="toc-text">不同等级的日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#连接"><span class="toc-text">连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造推送消息"><span class="toc-text">构造推送消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#向APNs发送通知"><span class="toc-text">向APNs发送通知</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量的推送处理——长连接"><span class="toc-text">批量的推送处理——长连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TODO"><span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考，也许对你有用"><span class="toc-text">参考，也许对你有用</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#预备知识"><span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通用提供者要求"><span class="toc-text">通用提供者要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端的多语言支持"><span class="toc-text">客户端的多语言支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接管理的最佳实践"><span class="toc-text">链接管理的最佳实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二进制接口和通知格式"><span class="toc-text">二进制接口和通知格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反馈服务"><span class="toc-text">反馈服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#stream-select"><span class="toc-text">stream_select</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#new-static"><span class="toc-text">new static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#响应错误包直接响应为异常对象"><span class="toc-text">响应错误包直接响应为异常对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不同等级的日志"><span class="toc-text">不同等级的日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#连接"><span class="toc-text">连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造推送消息"><span class="toc-text">构造推送消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#向APNs发送通知"><span class="toc-text">向APNs发送通知</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量的推送处理——长连接"><span class="toc-text">批量的推送处理——长连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TODO"><span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考，也许对你有用"><span class="toc-text">参考，也许对你有用</span></a></li></ol></li></ol>
 <p>本类库的目的是为iOS客户端提供内容推送。苹果的推送服务（APNS）是建立在推送服务跟设备之间的，类库的作用就是将要推送给客户端的数据，提交到苹果的推送服务器。这些设备包括iPhone, iPad and the iPod Touch。</p>
 <p>实现本身没什么说的，因为这里面牵扯到一些socket的东西，拿出来捋一捋。</p>
 <p>TU CAO ME AT GITHUB : <a href="https://github.com/mickeyouyou/AppleNotificationPush" target="_blank" rel="external">https://github.com/mickeyouyou/AppleNotificationPush</a></p>
@@ -54,7 +54,7 @@
 <li><p>本文主要依据服务器与苹果推送服务的通讯：<a href="https://developer.apple.com/library/prerelease/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW3" target="_blank" rel="external">Provider Communication with Apple Push Notification Service</a>。</p>
 </li>
 </ul>
-<h3 id="预备知识">预备知识</h3><h4 id="通用提供者要求">通用提供者要求</h4><p>服务器与苹果推送服务通过二进制接口通讯，这对服务器来说是一个高速、高容量的接口，它采用与二进制内容相结合的流媒体TCP套接字设计，二进制接口是异步的。</p>
+<h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><h4 id="通用提供者要求"><a href="#通用提供者要求" class="headerlink" title="通用提供者要求"></a>通用提供者要求</h4><p>服务器与苹果推送服务通过二进制接口通讯，这对服务器来说是一个高速、高容量的接口，它采用与二进制内容相结合的流媒体TCP套接字设计，二进制接口是异步的。</p>
 <p>该二进制接口线上环境地址为<code>gateway.push.apple.com</code>，端口为<code>2195</code>；开发环境为<code>ssl://gateway.sandbox.push.apple.com</code>，端口为<code>2195</code>。</p>
 <p>对于每个接口，使用TLS（或SSL）建立安全通信通道。 SSL需要来自会员在中心生成的证书，要建立一个值得信赖的供应商的身份，在连接时使用APNs提供的证书使用对等验证。</p>
 <p>作为一个通知的提供商，你负责远程通知的以下方面：</p>
@@ -63,15 +63,16 @@
 <li>你需要提供显示在应用图标右上角的消息数量</li>
 <li>定期与反馈服务连接，并获取那些多次发送失败，尝试发送的当前设备列表，然后停止向该应用关联的设备发送通知。</li>
 </ul>
-<h4 id="客户端的多语言支持">客户端的多语言支持</h4><p>如果你想支持多种语言的通知，但又不使用aps字典中的<code>loc-key</code> 和<code>loc-args</code>属性，你需要本地化来自服务器的消息文本，要做到这一点，你需要找出从客户端应用程序的当前语言首选项。注册，调度，并处理用户通知提示获取这些信息的方法。</p>
-<h4 id="链接管理的最佳实践">链接管理的最佳实践</h4><p>你可以建立多个连接到同一个网关或多个网关实例。如果你需要发送大量远程通知，把他们分散到几个不同网关的连接。这样相比使用一个单独的连接，可以提高性能：它可以让你发送远程通知更快，它可以让的APNs更快的发送通知到设备。</p>
+<h4 id="客户端的多语言支持"><a href="#客户端的多语言支持" class="headerlink" title="客户端的多语言支持"></a>客户端的多语言支持</h4><p>如果你想支持多种语言的通知，但又不使用aps字典中的<code>loc-key</code> 和<code>loc-args</code>属性，你需要本地化来自服务器的消息文本，要做到这一点，你需要找出从客户端应用程序的当前语言首选项。注册，调度，并处理用户通知提示获取这些信息的方法。</p>
+<h4 id="链接管理的最佳实践"><a href="#链接管理的最佳实践" class="headerlink" title="链接管理的最佳实践"></a>链接管理的最佳实践</h4><p>你可以建立多个连接到同一个网关或多个网关实例。如果你需要发送大量远程通知，把他们分散到几个不同网关的连接。这样相比使用一个单独的连接，可以提高性能：它可以让你发送远程通知更快，它可以让的APNs更快的发送通知到设备。</p>
 <p>在多个通知的情况下，保持和APNs的连接打开；不要反复打开和关闭连接。APNs对快速连接和断开的视为拒绝服务攻击。你应该留下一个连接打开，除非你知道这接下来将是空闲时间，如果是每天发送通知给用户，每天使用一个新的连接也是可以的。</p>
-<h4 id="二进制接口和通知格式">二进制接口和通知格式</h4><p>此二进制接口为二进制内容自然采用普通的TCP 套接字， 为了获得最佳性能，批量多个通知在通过接口单个传输，明确或使用TCP/ IP的Nagle算法。消息格式如下图：</p>
+<h4 id="二进制接口和通知格式"><a href="#二进制接口和通知格式" class="headerlink" title="二进制接口和通知格式"></a>二进制接口和通知格式</h4><p>此二进制接口为二进制内容自然采用普通的TCP 套接字， 为了获得最佳性能，批量多个通知在通过接口单个传输，明确或使用TCP/ IP的Nagle算法。消息格式如下图：</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/aps_binary_provider_3_2x.png" width="95%" alt="推送消息格式"></p>
 <blockquote>
 <p>注意：所有数据都被指定了顺序，即大端（Big Endian 具体查看最下面的参考文档）</p>
 </blockquote>
 <p>通知格式的顶层是由以下部分组成，依次是：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -98,7 +99,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>该帧数据是由一系列的项目组成。每个项目由以下部分组成，依次是：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -125,7 +128,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>项目和它们的标识符如下：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -167,10 +172,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>如果服务器发送的通知被苹果推送服务正确接收，此情况不会有任何返回。</p>
 <p>如果你发送的通知格式不正确或者不能理解， APNs将会发送一个错误响应包，并关闭连接。在使用相同的连接格式错误的通知后发出的任何通知将被丢弃，并且必须重新发送。错误响应包格式如下图：</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/aps_binary_error_2x.png" alt="错误响应包数据结构"></p>
 <p>该包含有一个值为<code>8</code>的命令，之后跟一字节长的状态码和错误格式的通知标识符。<br>下表列出了可能返回的状态码和对应的含义：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -225,9 +232,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>状态码为<code>10</code>表示苹果推送服务器关闭了连接（比如维护）。错误响应包中的通知标识符表示上一次同事被成功发送，之后发送的通知将会被丢弃，必须重新发送，一旦你收到状态码，应该停止使用当前连接，重新开启一个连接。</p>
 <p>值得注意的是，正式环境和开发环境的device token值是不一样的。</p>
-<h3 id="反馈服务">反馈服务</h3><p>苹果推送服务包含一个反馈服务，能将失败的远程通知反馈给你。当应用在设备上不存在时，该通知肯定不会被发送，反馈服务将该设备的标识符添加到它的列表中。通知在发送之前过期的情况不会被视为发送失败，也不会影响反馈服务。通过使用该反馈信息，以停止发送那些无法发送的远程通知，减少不必要的消息开销，并提高整个系统的性能。</p>
+<h3 id="反馈服务"><a href="#反馈服务" class="headerlink" title="反馈服务"></a>反馈服务</h3><p>苹果推送服务包含一个反馈服务，能将失败的远程通知反馈给你。当应用在设备上不存在时，该通知肯定不会被发送，反馈服务将该设备的标识符添加到它的列表中。通知在发送之前过期的情况不会被视为发送失败，也不会影响反馈服务。通过使用该反馈信息，以停止发送那些无法发送的远程通知，减少不必要的消息开销，并提高整个系统的性能。</p>
 <p>每天查询反馈服务，获取设备标识符列表 。使用时间戳来验证该设备令牌没有被重新注册，因为被产生的反馈项。对于尚未重新登记的设备，停止发送通知。APN监控供应商为他们检查发送远程通知，以不存在的应用程序在设备上的反馈服务并避免勤奋。</p>
 <blockquote>
 <p>注意：反馈服务为每个推送主题维护一个单独列表。如果你有多个应用程序，你必须为每一个应用连接反馈服务一次，使用相应的证书，以获得所有的反馈。</p>
@@ -235,6 +243,7 @@
 <p>反馈服务也有一个和发送通知相似的二进制接口，你可以通过下面的地址和端口连接到反馈服务，<code>feedback.push.apple.com</code> ，端口<code>2196</code>；开发环境的反馈服务可以通过下面的连接：<code>feedback.sandbox.push.apple.com</code>，端口<code>2196</code>。就像发送服务的二进制接口一样，使用SSL/TLS建立安全的通讯通道。使用相同的证书验证。要建立一个值得信赖的供应商的身份，在连接APNs时用此证书使用对等验证。</p>
 <p>一旦你建立连接，传送立即开始，你不用发送任何指令给APNs，从反馈服务接口读取流数据直到没有数据可读为止。接收到的数据格式如下图：</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/aps_feedback_binary_2x.png" width="95%" alt="反馈的二进制格式"></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -251,18 +260,19 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>反馈列表内容将在你读完之后清除，每次连接到反馈服务，它将返回自上次连接之后发送的失败列表。</p>
-<h3 id="实现">实现</h3><h4 id="stream_select">stream_select</h4><p>因为使用socket，在恰当的时候要从socket中拿数据，用stream_select()等待sockets打开的连接事件。stream_select()调用系统的select(2)函数来工作：前面三个参数是你要使用的streams的数组；你可以对其读取，写入和获取异常（分别针对三个参数）。stream_select()可以通过设置$timeout（秒）参数来等待事件发生-事件发生时，相应的sockets数据将写入你传入的参数。</p>
-<h4 id="new_static">new static</h4><h4 id="响应错误包直接响应为异常对象">响应错误包直接响应为异常对象</h4><p>因为你在处理推送数据出错的情况下，苹果推送服务器会返回一个错误响应包（error-Response Packet），此处的设计将此对象化之后作为异常返回。</p>
-<h4 id="不同等级的日志">不同等级的日志</h4><p>在设计的时候我就考虑了要将日志按不同等级保存，既方便开发，又方便排查问题。<br>日志，每个类库为了方便自己的调试，肯定需要自己的日志记录，也是为了方便使用者调试，我们需要在用的时候将日志流交给使用者，或者有使用者进行配置就能方便的开始调试，这就是本类库日志的设计思路，而并不是其他的直接输出到流的方法。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="stream-select"><a href="#stream-select" class="headerlink" title="stream_select"></a>stream_select</h4><p>因为使用socket，在恰当的时候要从socket中拿数据，用stream_select()等待sockets打开的连接事件。stream_select()调用系统的select(2)函数来工作：前面三个参数是你要使用的streams的数组；你可以对其读取，写入和获取异常（分别针对三个参数）。stream_select()可以通过设置$timeout（秒）参数来等待事件发生-事件发生时，相应的sockets数据将写入你传入的参数。</p>
+<h4 id="new-static"><a href="#new-static" class="headerlink" title="new static"></a>new static</h4><h4 id="响应错误包直接响应为异常对象"><a href="#响应错误包直接响应为异常对象" class="headerlink" title="响应错误包直接响应为异常对象"></a>响应错误包直接响应为异常对象</h4><p>因为你在处理推送数据出错的情况下，苹果推送服务器会返回一个错误响应包（error-Response Packet），此处的设计将此对象化之后作为异常返回。</p>
+<h4 id="不同等级的日志"><a href="#不同等级的日志" class="headerlink" title="不同等级的日志"></a>不同等级的日志</h4><p>在设计的时候我就考虑了要将日志按不同等级保存，既方便开发，又方便排查问题。<br>日志，每个类库为了方便自己的调试，肯定需要自己的日志记录，也是为了方便使用者调试，我们需要在用的时候将日志流交给使用者，或者有使用者进行配置就能方便的开始调试，这就是本类库日志的设计思路，而并不是其他的直接输出到流的方法。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/屏幕快照%202015-09-10%20下午1.22.08.png" width="95%"></p>
-<h4 id="连接">连接</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="variable">$ctx</span> = stream_context_create();</span><br><span class="line">    stream_context_set_option(<span class="variable">$ctx</span>, <span class="string">'ssl'</span>, <span class="string">'local_cert'</span>, <span class="variable">$this</span>-&gt;certificate);</span><br><span class="line">    stream_context_set_option(<span class="variable">$ctx</span>, <span class="string">'ssl'</span>, <span class="string">'passphrase'</span>, <span class="variable">$this</span>-&gt;passphrase);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$this</span>-&gt;socket = @stream_socket_client(<span class="variable">$this</span>-&gt;url, <span class="variable">$errno</span>, <span class="variable">$errstr</span>, <span class="number">60</span>, STREAM_CLIENT_CONNECT, <span class="variable">$ctx</span>);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="variable">$this</span>-&gt;socket) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ApnException(<span class="string">"ERROR: '&#123;$errno&#125;' - &#123;$errstr&#125;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stream_set_blocking(<span class="variable">$this</span>-&gt;socket, <span class="number">0</span>);</span><br><span class="line">    stream_set_write_buffer(<span class="variable">$this</span>-&gt;socket, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="构造推送消息">构造推送消息</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$message</span> = <span class="keyword">new</span> \AppleNotificationPush\Message\Message();</span><br><span class="line"></span><br><span class="line"><span class="variable">$message</span>-&gt;setAlert(<span class="string">'SEARCH_ACTIVITY title '</span>);</span><br><span class="line"><span class="variable">$message</span>-&gt;setSound(<span class="string">'default'</span>);</span><br><span class="line"><span class="variable">$message</span>-&gt;setIdentifier(mt_rand(<span class="number">10</span>, <span class="number">1000</span>));</span><br><span class="line"><span class="variable">$message</span>-&gt;setDeviceToken(<span class="string">'f83f0f2fc1efc0a549601437128bf2d94fea83b4c31b0750d3d9f8f98d5e7a87'</span>);</span><br><span class="line"><span class="variable">$message</span>-&gt;setPriority(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$message</span>-&gt;setCustomerData(<span class="keyword">array</span>(<span class="string">'id'</span>=&gt; <span class="number">123</span>));</span><br><span class="line"><span class="variable">$message</span>-&gt;setCustomerData(<span class="keyword">array</span>(<span class="string">'url'</span> =&gt; <span class="string">'sdfd'</span>));</span><br></pre></td></tr></table></figure>
-<p>不管是消息的正文部分还是自定义部分，都支持链式操作：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable">$message</span>-&gt;setAlert(<span class="string">'SEARCH_ACTIVITY title '</span>)-&gt;setSound(<span class="string">'default'</span>)-&gt;setIdentifier(mt_rand(<span class="number">10</span>, <span class="number">1000</span>))-&gt;setPriority(<span class="number">10</span>);</span><br><span class="line"><span class="variable">$message</span>-&gt;setDeviceToken(<span class="string">'f83f0f2fc1efc0a549601437128bf2d94fea83b4c31b0750d3d9f8f98d5e7a87'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$message</span>-&gt;setCustomerData(<span class="keyword">array</span>(</span><br><span class="line">            <span class="string">'id'</span> =&gt; mt_rand(<span class="number">10</span>, <span class="number">2000</span>),</span><br><span class="line">            <span class="string">'content'</span> =&gt; <span class="string">'SEARCH_ACTIVITY content'</span>,</span><br><span class="line">            <span class="string">'url'</span> =&gt; <span class="string">'MY_ORDER_ACTIVITY_UNRECEIVE'</span>,</span><br><span class="line">            <span class="string">'extra'</span> =&gt; <span class="string">'[]'</span></span><br><span class="line">        ));</span><br></pre></td></tr></table></figure></p>
-<h4 id="向APNs发送通知">向APNs发送通知</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$certificate</span> = <span class="string">"path/to/cetificate.pem"</span>;</span><br><span class="line"><span class="variable">$connection</span> = <span class="keyword">new</span> Connection(<span class="number">1</span>, <span class="variable">$certificate</span>, C(<span class="string">'jpush.apns.password'</span>));</span><br><span class="line"><span class="variable">$notification</span> = <span class="keyword">new</span> Notification(<span class="variable">$connection</span>);</span><br><span class="line"><span class="variable">$notification</span>-&gt;sendMessage(<span class="variable">$message</span>);</span><br></pre></td></tr></table></figure>
-<p>经过处理之后待请求APNS的数据格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string(233) &#34; 6&#65533;K)&#65533;[&#65533;&#65533;:&#65533;&#65533;U&#65533;&#65533;&#34;L&#65533;&#65533;&#65533;.&#65533;&#65533;9&#65533;g&#65533;&#65533;&#65533;&#123;&#34;aps&#34;:&#123;&#34;alert&#34;:&#34;MY_ORDER_ACTIVITY_UNRECEIVE title1441592096&#34;,&#34;sound&#34;:&#34;default&#34;&#125;,&#34;content&#34;:&#34;SEARCH_ACTIVITY content&#34;,&#34;url&#34;:&#34;MY_ORDER_ACTIVITY_UNRECEIVE&#34;,&#34;extra&#34;:[&#34;http:\/\/www.baidu.com&#34;],&#34;id&#34;:45&#125;&#34;</span><br></pre></td></tr></table></figure></p>
-<h4 id="批量的推送处理——长连接">批量的推送处理——长连接</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$push</span> = <span class="keyword">new</span> Push(<span class="variable">$environment</span>, <span class="variable">$certificate</span>, C(<span class="string">'jpush.apns.password'</span>));</span><br><span class="line">      <span class="variable">$push</span>-&gt;connect();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">foreach</span>(<span class="variable">$app_uid_relations</span> <span class="keyword">as</span>  <span class="variable">$app_uid_relation</span>) &#123;</span><br><span class="line">          <span class="comment">// insert table</span></span><br><span class="line">          <span class="variable">$push</span>-&gt;send(<span class="variable">$app_uid_relation</span>[<span class="string">'device_token'</span>], <span class="variable">$message</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="variable">$push</span>-&gt;disconnect();</span><br></pre></td></tr></table></figure>
-<h4 id="Question">Question</h4><p>使用的是SSL/TLS安全协议跟apns苹果的推送服务器通讯。所以，其中的关键就是php对socket方式的实现，当然从php的角度，有两种实现方式，一种是<code>fsockopen</code>,另一种就是我用到的<code>stream_socket_client</code>，再设置些参数。</p>
+<h4 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="variable">$ctx</span> = stream_context_create();</span><br><span class="line">    stream_context_set_option(<span class="variable">$ctx</span>, <span class="string">'ssl'</span>, <span class="string">'local_cert'</span>, <span class="variable">$this</span>-&gt;certificate);</span><br><span class="line">    stream_context_set_option(<span class="variable">$ctx</span>, <span class="string">'ssl'</span>, <span class="string">'passphrase'</span>, <span class="variable">$this</span>-&gt;passphrase);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$this</span>-&gt;socket = @stream_socket_client(<span class="variable">$this</span>-&gt;url, <span class="variable">$errno</span>, <span class="variable">$errstr</span>, <span class="number">60</span>, STREAM_CLIENT_CONNECT, <span class="variable">$ctx</span>);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="variable">$this</span>-&gt;socket) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ApnException(<span class="string">"ERROR: '&#123;$errno&#125;' - &#123;$errstr&#125;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stream_set_blocking(<span class="variable">$this</span>-&gt;socket, <span class="number">0</span>);</span><br><span class="line">    stream_set_write_buffer(<span class="variable">$this</span>-&gt;socket, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="构造推送消息"><a href="#构造推送消息" class="headerlink" title="构造推送消息"></a>构造推送消息</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$message</span> = <span class="keyword">new</span> \AppleNotificationPush\Message\Message();</span><br><span class="line"></span><br><span class="line"><span class="variable">$message</span>-&gt;setAlert(<span class="string">'SEARCH_ACTIVITY title '</span>);</span><br><span class="line"><span class="variable">$message</span>-&gt;setSound(<span class="string">'default'</span>);</span><br><span class="line"><span class="variable">$message</span>-&gt;setIdentifier(mt_rand(<span class="number">10</span>, <span class="number">1000</span>));</span><br><span class="line"><span class="variable">$message</span>-&gt;setDeviceToken(<span class="string">'f83f0f2fc1efc0a549601437128bf2d94fea83b4c31b0750d3d9f8f98d5e7a87'</span>);</span><br><span class="line"><span class="variable">$message</span>-&gt;setPriority(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$message</span>-&gt;setCustomerData(<span class="keyword">array</span>(<span class="string">'id'</span>=&gt; <span class="number">123</span>));</span><br><span class="line"><span class="variable">$message</span>-&gt;setCustomerData(<span class="keyword">array</span>(<span class="string">'url'</span> =&gt; <span class="string">'sdfd'</span>));</span><br></pre></td></tr></table></figure>
+<p>不管是消息的正文部分还是自定义部分，都支持链式操作：<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable">$message</span>-&gt;setAlert(<span class="string">'SEARCH_ACTIVITY title '</span>)-&gt;setSound(<span class="string">'default'</span>)-&gt;setIdentifier(mt_rand(<span class="number">10</span>, <span class="number">1000</span>))-&gt;setPriority(<span class="number">10</span>);</span><br><span class="line"><span class="variable">$message</span>-&gt;setDeviceToken(<span class="string">'f83f0f2fc1efc0a549601437128bf2d94fea83b4c31b0750d3d9f8f98d5e7a87'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$message</span>-&gt;setCustomerData(<span class="keyword">array</span>(</span><br><span class="line">            <span class="string">'id'</span> =&gt; mt_rand(<span class="number">10</span>, <span class="number">2000</span>),</span><br><span class="line">            <span class="string">'content'</span> =&gt; <span class="string">'SEARCH_ACTIVITY content'</span>,</span><br><span class="line">            <span class="string">'url'</span> =&gt; <span class="string">'MY_ORDER_ACTIVITY_UNRECEIVE'</span>,</span><br><span class="line">            <span class="string">'extra'</span> =&gt; <span class="string">'[]'</span></span><br><span class="line">        ));</span><br></pre></td></tr></table></figure></p>
+<h4 id="向APNs发送通知"><a href="#向APNs发送通知" class="headerlink" title="向APNs发送通知"></a>向APNs发送通知</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$certificate</span> = <span class="string">"path/to/cetificate.pem"</span>;</span><br><span class="line"><span class="variable">$connection</span> = <span class="keyword">new</span> Connection(<span class="number">1</span>, <span class="variable">$certificate</span>, C(<span class="string">'jpush.apns.password'</span>));</span><br><span class="line"><span class="variable">$notification</span> = <span class="keyword">new</span> Notification(<span class="variable">$connection</span>);</span><br><span class="line"><span class="variable">$notification</span>-&gt;sendMessage(<span class="variable">$message</span>);</span><br></pre></td></tr></table></figure>
+<p>经过处理之后待请求APNS的数据格式：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">string(233) &#34; 6&#65533;K)&#65533;[&#65533;&#65533;:&#65533;&#65533;U&#65533;&#65533;&#34;L&#65533;&#65533;&#65533;.&#65533;&#65533;9&#65533;g&#65533;&#65533;&#65533;&#123;&#34;aps&#34;:&#123;&#34;alert&#34;:&#34;MY_ORDER_ACTIVITY_UNRECEIVE title1441592096&#34;,&#34;sound&#34;:&#34;default&#34;&#125;,&#34;content&#34;:&#34;SEARCH_ACTIVITY content&#34;,&#34;url&#34;:&#34;MY_ORDER_ACTIVITY_UNRECEIVE&#34;,&#34;extra&#34;:[&#34;http:\/\/www.baidu.com&#34;],&#34;id&#34;:45&#125;&#34;</span><br></pre></td></tr></table></figure></p>
+<h4 id="批量的推送处理——长连接"><a href="#批量的推送处理——长连接" class="headerlink" title="批量的推送处理——长连接"></a>批量的推送处理——长连接</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$push</span> = <span class="keyword">new</span> Push(<span class="variable">$environment</span>, <span class="variable">$certificate</span>, C(<span class="string">'jpush.apns.password'</span>));</span><br><span class="line">      <span class="variable">$push</span>-&gt;connect();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">foreach</span>(<span class="variable">$app_uid_relations</span> <span class="keyword">as</span>  <span class="variable">$app_uid_relation</span>) &#123;</span><br><span class="line">          <span class="comment">// insert table</span></span><br><span class="line">          <span class="variable">$push</span>-&gt;send(<span class="variable">$app_uid_relation</span>[<span class="string">'device_token'</span>], <span class="variable">$message</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="variable">$push</span>-&gt;disconnect();</span><br></pre></td></tr></table></figure>
+<h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>使用的是SSL/TLS安全协议跟apns苹果的推送服务器通讯。所以，其中的关键就是php对socket方式的实现，当然从php的角度，有两种实现方式，一种是<code>fsockopen</code>,另一种就是我用到的<code>stream_socket_client</code>，再设置些参数。</p>
 <p>比如测试环境的APNS地址：<code>ssl://gateway.sandbox.push.apple.com:2195</code>，我们指定了基于TCP的SSL协议，当然，也可以指定为TLS，因为是他的升级版。</p>
 <p>但这其中有个问题，也是我在过程中思考过的一个问题，因为本人之前做过微信退款相关的功能接口，在请求的时候<code>https://mch.tenpay.com/refundapi/gateway/refund.xml</code><br>其实在之前的<a href="http://www.fzb.me/2015-3-14-curl-ssl-certificate-to-https.html" target="_blank" rel="external">博文</a>中也提到过，</p>
 <p>比如微信退款的一个接口，其实他用到的也是<code>https</code>，其实就是上面说的SSL/TLS协议，他们的方式虽然不同，但是在请求的时候设置证书，设置密码参数等方式还是一样的，但为什么微信退款可以直接用curl 使用证书和密码就可以访问，而苹果服务器却需要使用socket的方式呢？</p>
@@ -271,10 +281,10 @@
 <li>APNS的实现方式不仅限于网络语言的实现，可以包括任何可以创建网络客户端的语言。而微信的实现方式与此相比，狭隘地停留在HTTPS的层次</li>
 <li>APNS连接是有连接状态的（之后的批量请求就建立在此基础上），为微信退款的方式是没有状态的。</li>
 </ul>
-<h4 id="TODO">TODO</h4><ul>
+<h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><ul>
 <li>链接超时重试逻辑</li>
 </ul>
-<h4 id="参考，也许对你有用">参考，也许对你有用</h4><ul>
+<h4 id="参考，也许对你有用"><a href="#参考，也许对你有用" class="headerlink" title="参考，也许对你有用"></a>参考，也许对你有用</h4><ul>
 <li><a href="https://developer.apple.com/library/prerelease/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW3" target="_blank" rel="external">The Feedback Service</a></li>
 <li><a href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html" target="_blank" rel="external">SSL/TLS协议运行机制的概述</a></li>
 <li><a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E5%BA%8F" target="_blank" rel="external">字节序</a></li>
@@ -302,6 +312,28 @@
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
 </div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
 
 
 

@@ -42,41 +42,41 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#它是怎样工作的，高层次的？"><span class="toc-text">它是怎样工作的，高层次的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#任务支持持久化吗？万一断电了怎么办？"><span class="toc-text">任务支持持久化吗？万一断电了怎么办？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Beanstalkd是否从本质上支持分布式服务器?"><span class="toc-text">Beanstalkd是否从本质上支持分布式服务器?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？"><span class="toc-text">协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如果我想轮询，在预订一个任务时可以设置处理超时吗？"><span class="toc-text">如果我想轮询，在预订一个任务时可以设置处理超时吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是Tubes，他们是如何工作的?"><span class="toc-text">什么是Tubes，他们是如何工作的?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置待唤醒状态的目的是？我应该在什么时候用到它?"><span class="toc-text">设置待唤醒状态的目的是？我应该在什么时候用到它?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有没有一些web管理监控接口?"><span class="toc-text">有没有一些web管理监控接口?</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#图形化"><span class="toc-text">图形化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#管理监控接口"><span class="toc-text">管理监控接口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CLI"><span class="toc-text">CLI</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TTR(job的最大处理时间)是怎样工作的?"><span class="toc-text">TTR(job的最大处理时间)是怎样工作的?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DEADLINE_SOON响应如何理解?"><span class="toc-text">DEADLINE_SOON响应如何理解?</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#它是怎样工作的，高层次的？"><span class="toc-text">它是怎样工作的，高层次的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#任务支持持久化吗？万一断电了怎么办？"><span class="toc-text">任务支持持久化吗？万一断电了怎么办？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Beanstalkd是否从本质上支持分布式服务器"><span class="toc-text">Beanstalkd是否从本质上支持分布式服务器?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？"><span class="toc-text">协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如果我想轮询，在预订一个任务时可以设置处理超时吗？"><span class="toc-text">如果我想轮询，在预订一个任务时可以设置处理超时吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是Tubes，他们是如何工作的"><span class="toc-text">什么是Tubes，他们是如何工作的?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置待唤醒状态的目的是？我应该在什么时候用到它"><span class="toc-text">设置待唤醒状态的目的是？我应该在什么时候用到它?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有没有一些web管理监控接口"><span class="toc-text">有没有一些web管理监控接口?</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#图形化"><span class="toc-text">图形化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#管理监控接口"><span class="toc-text">管理监控接口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CLI"><span class="toc-text">CLI</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TTR-job的最大处理时间-是怎样工作的"><span class="toc-text">TTR(job的最大处理时间)是怎样工作的?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DEADLINE-SOON响应如何理解"><span class="toc-text">DEADLINE_SOON响应如何理解?</span></a></li></ol>
 <p>在团队分享关于<code>Beanstalkd</code>的PPT ：<a href="http://pan.baidu.com/s/1dDg2edF" target="_blank" rel="external">http://pan.baidu.com/s/1dDg2edF</a></p>
-<h4 id="它是怎样工作的，高层次的？">它是怎样工作的，高层次的？</h4><p><code>Beanstalkd</code>分布式应用程序是一个很大的待办事项清单。</p>
+<h4 id="它是怎样工作的，高层次的？"><a href="#它是怎样工作的，高层次的？" class="headerlink" title="它是怎样工作的，高层次的？"></a>它是怎样工作的，高层次的？</h4><p><code>Beanstalkd</code>分布式应用程序是一个很大的待办事项清单。</p>
 <p>如果有一个工作单元,你想推迟到之后进行（比如,发送电子邮件，向处理很慢的外部服务推送数据，从一个处理很慢的外部服务拉数据，生成高质量的图像缩略图 ），你投放该类的工作到<code>beanstalkd</code>，也就是“任务”。有些流程（比如web请求处理程序），“producers” ，将向队列投放任务。另外一些流程，“worker”，将从队列中取任务并运行。</p>
-<h4 id="任务支持持久化吗？万一断电了怎么办？">任务支持持久化吗？万一断电了怎么办？</h4><p>支持，你可以在启动的时候指定<code>-b /dir/</code>参数，beanstalkd会将所有的任务写入<code>binlog</code>文件。在断电的情况下，你可以用同样的参数指定重启beanstalkd 它将会恢复log中的内容。</p>
-<h4 id="Beanstalkd是否从本质上支持分布式服务器?">Beanstalkd是否从本质上支持分布式服务器?</h4><p>是的，尽管这是由客户端来处理，就像用memcached。<code>Beanstalkd</code>服务器不会知道其他运行的<code>beanstalkd</code>实例。</p>
-<h4 id="协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？">协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？</h4><p>在<code>beanstalk</code>协议中有一个阻塞的”<code>reserve</code>“（预订）命令。客户端可以尝试阅读响应，这将阻塞，直到有任务是可用的，并预订给客户端。</p>
+<h4 id="任务支持持久化吗？万一断电了怎么办？"><a href="#任务支持持久化吗？万一断电了怎么办？" class="headerlink" title="任务支持持久化吗？万一断电了怎么办？"></a>任务支持持久化吗？万一断电了怎么办？</h4><p>支持，你可以在启动的时候指定<code>-b /dir/</code>参数，beanstalkd会将所有的任务写入<code>binlog</code>文件。在断电的情况下，你可以用同样的参数指定重启beanstalkd 它将会恢复log中的内容。</p>
+<h4 id="Beanstalkd是否从本质上支持分布式服务器"><a href="#Beanstalkd是否从本质上支持分布式服务器" class="headerlink" title="Beanstalkd是否从本质上支持分布式服务器?"></a>Beanstalkd是否从本质上支持分布式服务器?</h4><p>是的，尽管这是由客户端来处理，就像用memcached。<code>Beanstalkd</code>服务器不会知道其他运行的<code>beanstalkd</code>实例。</p>
+<h4 id="协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？"><a href="#协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？" class="headerlink" title="协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？"></a>协议是否帮助实现了阻塞，或者是客户端类库，换句话说，客户端类库本身还需要轮询吗？</h4><p>在<code>beanstalk</code>协议中有一个阻塞的”<code>reserve</code>“（预订）命令。客户端可以尝试阅读响应，这将阻塞，直到有任务是可用的，并预订给客户端。</p>
 <p>客户端不需要轮询。</p>
-<h4 id="如果我想轮询，在预订一个任务时可以设置处理超时吗？">如果我想轮询，在预订一个任务时可以设置处理超时吗？</h4><p>是的，从1.1版本开始支持，<code>reserve-with-timeout</code>命令就可以。更多信息可以查看协议文档。</p>
-<h4 id="什么是Tubes，他们是如何工作的?">什么是<code>Tubes</code>，他们是如何工作的?</h4><p><code>Tubes</code>就是任务队列。</p>
+<h4 id="如果我想轮询，在预订一个任务时可以设置处理超时吗？"><a href="#如果我想轮询，在预订一个任务时可以设置处理超时吗？" class="headerlink" title="如果我想轮询，在预订一个任务时可以设置处理超时吗？"></a>如果我想轮询，在预订一个任务时可以设置处理超时吗？</h4><p>是的，从1.1版本开始支持，<code>reserve-with-timeout</code>命令就可以。更多信息可以查看协议文档。</p>
+<h4 id="什么是Tubes，他们是如何工作的"><a href="#什么是Tubes，他们是如何工作的" class="headerlink" title="什么是Tubes，他们是如何工作的?"></a>什么是<code>Tubes</code>，他们是如何工作的?</h4><p><code>Tubes</code>就是任务队列。</p>
 <p><code>Tubes</code>的常见用例将通过一个<code>beanstalk</code>实例运行完全不同的生产者和消费者，一个给定的消费者不应该处理由其他消费者投放的任务。</p>
 <p>比如说，Producer1可以排队的任务到Tube1， Consumer1可以从这里拿到任务，完全独立于 Producer2和Consumer2正在Tube2做的事情。</p>
-<h4 id="设置待唤醒状态的目的是？我应该在什么时候用到它?">设置待唤醒状态的目的是？我应该在什么时候用到它?</h4><p>如果设置一个任务为待唤醒，服务器将不理会直到你踢出这个任务。任务处于待唤醒状态时，不会被预订，也不会被放回到就绪队列。</p>
+<h4 id="设置待唤醒状态的目的是？我应该在什么时候用到它"><a href="#设置待唤醒状态的目的是？我应该在什么时候用到它" class="headerlink" title="设置待唤醒状态的目的是？我应该在什么时候用到它?"></a>设置待唤醒状态的目的是？我应该在什么时候用到它?</h4><p>如果设置一个任务为待唤醒，服务器将不理会直到你踢出这个任务。任务处于待唤醒状态时，不会被预订，也不会被放回到就绪队列。</p>
 <p>例如，当涉及大量而且无法预料的运行时间job处理时，防止服务器将一个超时任务投放到队列中是非常有用的。</p>
 <p>如果一个客户端预订了一个任务，然后置为待唤醒，然后做的逻辑工作，然后陷入僵局，任务将无限期处于待唤醒，可人为检查，不会被另外的worker重新运行。</p>
-<h4 id="有没有一些web管理监控接口?">有没有一些web管理监控接口?</h4><p>有，如下是一些管理和监控工具列表：</p>
-<h5 id="图形化">图形化</h5><ul>
+<h4 id="有没有一些web管理监控接口"><a href="#有没有一些web管理监控接口" class="headerlink" title="有没有一些web管理监控接口?"></a>有没有一些web管理监控接口?</h4><p>有，如下是一些管理和监控工具列表：</p>
+<h5 id="图形化"><a href="#图形化" class="headerlink" title="图形化"></a>图形化</h5><ul>
 <li><a href="https://github.com/urbanairship/beanstalk-munin" target="_blank" rel="external">beanstalk_munin</a> 6 graphs for Munin</li>
 <li><a href="https://github.com/FGM/beanstalk-munin-php" target="_blank" rel="external">beanstalk-munin-php</a> PHP port of beanstalk_munin.</li>
 </ul>
-<h5 id="管理监控接口">管理监控接口</h5><ul>
+<h5 id="管理监控接口"><a href="#管理监控接口" class="headerlink" title="管理监控接口"></a>管理监控接口</h5><ul>
 <li><a href="https://github.com/ptrofimov/beanstalk_console" target="_blank" rel="external">beanstalk_console</a> PHP Admin for Beanstalk queue server</li>
 <li><a href="https://github.com/andreisavu/django-jack" target="_blank" rel="external">django-Jack</a> Beanstalkd web administration interface</li>
 <li><a href="http://mnapoli.github.com/phpBeanstalkdAdmin/" target="_blank" rel="external">phpBeanstalkdAdmin</a> monitoring and administration interface</li>
 <li><a href="https://github.com/denniskuczynski/beanstalkd_view" target="_blank" rel="external">beanstalkd_view</a> Sinatra app to manage beanstalkd Queues</li>
 <li><a href="https://github.com/nickurt/beanstalkd-ui" target="_blank" rel="external">ZfBeanstalkdUI</a> Beanstalkd (Admin) UI for Zend Framework 2</li>
 </ul>
-<h5 id="CLI">CLI</h5><ul>
+<h5 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h5><ul>
 <li><a href="https://github.com/schickling/beanstalkd-cli" target="_blank" rel="external">beanstalkd-cli</a> Beanstalkd CLI tool</li>
 <li><a href="https://github.com/dustin/beanstalk-tools" target="_blank" rel="external">beanstalk-tools</a> CLI to Dump various stats, and nagios plugin</li>
 <li><a href="https://github.com/chexov/queueit/" target="_blank" rel="external">Queueit</a> CLI interface to integrate beanstalkd into shell scripts.</li>
 <li><a href="https://github.com/tyba/beanstool" target="_blank" rel="external">beanstool</a> Dependency free beanstalkd admin tool, written in Go</li>
 </ul>
-<h4 id="TTR(job的最大处理时间)是怎样工作的?"><code>TTR(job的最大处理时间)</code>是怎样工作的?</h4><p><code>TTR</code>只是应用在一个任务将要变成预订状态的瞬间。在这种情况下，一个定时器（任务统计中称作<code>time-left</code>）开始从任务的<code>TTR</code>开始倒计时。<br>如果定时器到达0，该任务放回就绪队列。<br>如果任务在定时器跑完之前被置为等待唤醒，删除，或者释放，定时器将不再存在。<br>如果任务在定时器到达0之前被取到，定时器从<code>TTR</code>新开始倒计时。<br>一个没有被预订的任务的统计信息将继续包含<code>time-left</code>入口 ，但是它的值是没有意义的。</p>
-<h4 id="DEADLINE_SOON响应如何理解?"><code>DEADLINE_SOON</code>响应如何理解?</h4><p>在reserve的失败的情况下有可能响应<code>DEADLINE_SOON</code>，说明你已经有一个预订的任务它的期限真的到了。（安全隔离接近1秒）。</p>
+<h4 id="TTR-job的最大处理时间-是怎样工作的"><a href="#TTR-job的最大处理时间-是怎样工作的" class="headerlink" title="TTR(job的最大处理时间)是怎样工作的?"></a><code>TTR(job的最大处理时间)</code>是怎样工作的?</h4><p><code>TTR</code>只是应用在一个任务将要变成预订状态的瞬间。在这种情况下，一个定时器（任务统计中称作<code>time-left</code>）开始从任务的<code>TTR</code>开始倒计时。<br>如果定时器到达0，该任务放回就绪队列。<br>如果任务在定时器跑完之前被置为等待唤醒，删除，或者释放，定时器将不再存在。<br>如果任务在定时器到达0之前被取到，定时器从<code>TTR</code>新开始倒计时。<br>一个没有被预订的任务的统计信息将继续包含<code>time-left</code>入口 ，但是它的值是没有意义的。</p>
+<h4 id="DEADLINE-SOON响应如何理解"><a href="#DEADLINE-SOON响应如何理解" class="headerlink" title="DEADLINE_SOON响应如何理解?"></a><code>DEADLINE_SOON</code>响应如何理解?</h4><p>在reserve的失败的情况下有可能响应<code>DEADLINE_SOON</code>，说明你已经有一个预订的任务它的期限真的到了。（安全隔离接近1秒）。</p>
 <p>如果你在预订任务时经常收到<code>DEADLINE_SOON</code>的错误，你应该考虑增加任务的<code>TTR</code>时长，这通常说明worker没有特定的<code>TTR</code>内完成任务的处理。也可能是你在完成任务时，没有删除任务。</p>
 <p>可以去邮件列表看更多讨论信息。</p>
 
@@ -99,6 +99,28 @@
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
 </div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
 
 
 

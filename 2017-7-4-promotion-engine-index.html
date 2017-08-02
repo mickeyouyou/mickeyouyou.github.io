@@ -43,18 +43,19 @@
 </div>
 
 <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正排索引"><span class="toc-text">正排索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倒排索引"><span class="toc-text">倒排索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#活动与团单的对应关系"><span class="toc-text">活动与团单的对应关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#活动的规则配置"><span class="toc-text">活动的规则配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动倒排索引"><span class="toc-text">活动倒排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动正排索引"><span class="toc-text">活动正排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动在促销引擎的匹配"><span class="toc-text">活动在促销引擎的匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求来源"><span class="toc-text">请求来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全国活动"><span class="toc-text">全国活动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动类型"><span class="toc-text">活动类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeline"><span class="toc-text">pipeline</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附"><span class="toc-text">附</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
-<h2 id="背景">背景</h2><p>糯米使用的一个促销引擎，为糯米的各个端与组件提供团单、城市、端类型维度的促销信息，还可以完成对用户设备类型、手机号码、百度账号级别的购买次数限制，之所以叫做促销引擎也是因为其中与搜索引擎在排序方面有一部分相关性吧。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>糯米使用的一个促销引擎，为糯米的各个端与组件提供团单、城市、端类型维度的促销信息，还可以完成对用户设备类型、手机号码、百度账号级别的购买次数限制，之所以叫做促销引擎也是因为其中与搜索引擎在排序方面有一部分相关性吧。</p>
 <p>促销引擎的数据来源非常依赖Redis，在Redis数据服务不可用的情况下，停止对外服务。<br>Redis服务基本上依赖百度内部的BDRP（Baidu Distributed Redis Platform）平台，机器数量150左右，数据量在900G左右。业务机器数量在200台左右。</p>
 <p>先说说正排索引与倒排索引。</p>
-<h2 id="正排索引">正排索引</h2><p>正排索引(forward index)：从文档角度看其中的单词，表示每个文档（用文档ID标识）都含有哪些单词，以及每个单词出现了多少次（词频）及其出现位置（相对于文档首部的偏移量）。</p>
-<h2 id="倒排索引">倒排索引</h2><p>倒排索引（inverted index），也常被称为反向索引、置入档案或反向档案，是一种索引方法，被用来存储在全文搜索下某个单词在一个文档或者一组文档中的存储位置的映射。它是文档检索系统中最常用的数据结构。</p>
-<h2 id="活动与团单的对应关系">活动与团单的对应关系</h2><p>再说说促销活动与团单的关系，他们的关系是多对多，既一个活动可以配置多个团单，一个团单也可以参与到多个促销活动当中，端的类型可选三端，城市可多选。<br>也就是说，活动与团单的关系是一种映射关系，既可以在活动配置之初，完成一个活动挂载多个团单；也可以完成在为端上输出活动时，先根据团单（城市、端类型）维度先倒序索引出活动ID，然后再正排索引，将通过得到的活动ID，召回活动规则信息。</p>
+<h2 id="正排索引"><a href="#正排索引" class="headerlink" title="正排索引"></a>正排索引</h2><p>正排索引(forward index)：从文档角度看其中的单词，表示每个文档（用文档ID标识）都含有哪些单词，以及每个单词出现了多少次（词频）及其出现位置（相对于文档首部的偏移量）。</p>
+<h2 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h2><p>倒排索引（inverted index），也常被称为反向索引、置入档案或反向档案，是一种索引方法，被用来存储在全文搜索下某个单词在一个文档或者一组文档中的存储位置的映射。它是文档检索系统中最常用的数据结构。</p>
+<h2 id="活动与团单的对应关系"><a href="#活动与团单的对应关系" class="headerlink" title="活动与团单的对应关系"></a>活动与团单的对应关系</h2><p>再说说促销活动与团单的关系，他们的关系是多对多，既一个活动可以配置多个团单，一个团单也可以参与到多个促销活动当中，端的类型可选三端，城市可多选。<br>也就是说，活动与团单的关系是一种映射关系，既可以在活动配置之初，完成一个活动挂载多个团单；也可以完成在为端上输出活动时，先根据团单（城市、端类型）维度先倒序索引出活动ID，然后再正排索引，将通过得到的活动ID，召回活动规则信息。</p>
 <p>下面可以看看将这些数据从活动配置平台到促销引擎的同步拆解过程。</p>
-<h3 id="活动的规则配置">活动的规则配置</h3><ul>
+<h3 id="活动的规则配置"><a href="#活动的规则配置" class="headerlink" title="活动的规则配置"></a>活动的规则配置</h3><ul>
 <li>活动1 = 团单A + 团单B + 团单C + ……</li>
 <li>活动2 = 团单A + 团单B + 团单C + ……</li>
 </ul>
-<h3 id="活动倒排索引">活动倒排索引</h3><table>
+<h3 id="活动倒排索引"><a href="#活动倒排索引" class="headerlink" title="活动倒排索引"></a>活动倒排索引</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:left">类型</th>
@@ -85,22 +86,23 @@
 </tr>
 </tbody>
 </table>
-<h3 id="活动正排索引">活动正排索引</h3><p>活动ID，对应值：召回活动规则信息。</p>
-<h3 id="活动在促销引擎的匹配">活动在促销引擎的匹配</h3><p>根据请求信息匹配活动的过程中，是先根据倒排索引，完成对活动ID的获取，以此为基础，在第二次中以活动ID为正排索引的方式获取活动规则，以此来创建之后在过滤、算价、物料渲染中使用的活动对象。</p>
+</div>
+<h3 id="活动正排索引"><a href="#活动正排索引" class="headerlink" title="活动正排索引"></a>活动正排索引</h3><p>活动ID，对应值：召回活动规则信息。</p>
+<h3 id="活动在促销引擎的匹配"><a href="#活动在促销引擎的匹配" class="headerlink" title="活动在促销引擎的匹配"></a>活动在促销引擎的匹配</h3><p>根据请求信息匹配活动的过程中，是先根据倒排索引，完成对活动ID的获取，以此为基础，在第二次中以活动ID为正排索引的方式获取活动规则，以此来创建之后在过滤、算价、物料渲染中使用的活动对象。</p>
 <ul>
 <li>城市(北京) + 端（NA）+ 团单（10883）=&gt; 活动ID(999)</li>
 <li>活动ID(999) =&gt; 活动规则数据 </li>
 </ul>
 <p>这样在同步redis构造索引的过程中，就是比较繁杂的一步。<br>从各个城市、各个端上来的请求，在获取的过程中也有需要特别实现的地方：</p>
-<h3 id="请求来源">请求来源</h3><p>每个请求的城市、端类型只有一个，团单可以有任意多个，这样需要完成这个维度的匹配，</p>
-<h3 id="全国活动">全国活动</h3><p>某个团单配置了全国范围的活动，就需要在请求倒序索引的过程中，在城市ID的基础上，补上同样维度的Key。</p>
-<h3 id="活动类型">活动类型</h3><p>在请求之初，团单对应的活动并不可知，需要将所有可能的活动类型都统一添加请求Redis的一组key数组当中。</p>
-<h3 id="pipeline">pipeline</h3><p>这其中有一步与Redis的交互方式为使用的是pipeline的方式将请求的key按一定数量切割分批请求，并处理成请求维度的结果集。</p>
+<h3 id="请求来源"><a href="#请求来源" class="headerlink" title="请求来源"></a>请求来源</h3><p>每个请求的城市、端类型只有一个，团单可以有任意多个，这样需要完成这个维度的匹配，</p>
+<h3 id="全国活动"><a href="#全国活动" class="headerlink" title="全国活动"></a>全国活动</h3><p>某个团单配置了全国范围的活动，就需要在请求倒序索引的过程中，在城市ID的基础上，补上同样维度的Key。</p>
+<h3 id="活动类型"><a href="#活动类型" class="headerlink" title="活动类型"></a>活动类型</h3><p>在请求之初，团单对应的活动并不可知，需要将所有可能的活动类型都统一添加请求Redis的一组key数组当中。</p>
+<h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h3><p>这其中有一步与Redis的交互方式为使用的是pipeline的方式将请求的key按一定数量切割分批请求，并处理成请求维度的结果集。</p>
 <p>基于以上几点，可以看到该引擎系统对于增加一个团单数量的情况下，对Redis以及下游的服务造成的压力是非常明显的。举例：增加一个团单，就要增加如此多的索引；稍不注意，增加一次额外的Redis读写，接口本身的耗时也会明显增加。</p>
 <p>对于促销引擎来说，团单数量较大的情况（基本上都很多），每个团单对应的活动，每次都增加一次redis操作，对应增加的io次数就是翻倍。慎重考量每次的数据读写可以避免这种问题。</p>
-<h2 id="附">附</h2><p>附图说明团单维度数量对接口耗时与下游的敏感性。<br><img src="http://7tsys1.com1.z0.glb.clouddn.com/image2016-10-2623-16-15.png" width="99%"></p>
+<h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><p>附图说明团单维度数量对接口耗时与下游的敏感性。<br><img src="http://7tsys1.com1.z0.glb.clouddn.com/image2016-10-2623-16-15.png" width="99%"></p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/image2016-10-2623-17-3.png" width="99%"></p>
-<h3 id="参考">参考</h3><ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95" target="_blank" rel="external">维基百科—倒序索引</a></li>
 <li><a href="https://my.oschina.net/u/2009816/blog/746141" target="_blank" rel="external">参考一</a></li>
 <li><a href="http://blog.csdn.net/caoshuming_500/article/details/23919977" target="_blank" rel="external">参考二</a></li>
@@ -125,6 +127,28 @@
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
 </div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
 
 
 

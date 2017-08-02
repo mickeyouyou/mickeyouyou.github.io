@@ -45,7 +45,8 @@
 <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务（job）"><span class="toc-text">任务（job）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用案例"><span class="toc-text">使用案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#秒杀未支付的订单取消"><span class="toc-text">秒杀未支付的订单取消</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#短信的批量发送"><span class="toc-text">短信的批量发送</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议"><span class="toc-text">协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FAQ"><span class="toc-text">FAQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#源代码"><span class="toc-text">源代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装包"><span class="toc-text">安装包</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端"><span class="toc-text">客户端</span></a></li></ol>
 <p>Beanstalkd实现队列最精妙的功能，而又简单快速。</p>
 <p>拥有基于TCP协议通用的接口，最初设计用于通过异步运行耗时的任务来减少大容量Web应用接口请求的延迟。</p>
-<h3 id="特点">特点</h3><table>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:left">特点</th>
@@ -107,8 +108,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="任务（job）">任务（job）</h3><p>Beanstalkd中的任务，就是被客户端投放其中，并包含主要信息的元信息。每一个任务通过一个管道进入队列，之后被取出并处理。典型的任务生命周期如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">put            reserve               delete&#10;  -----&#62; [READY] ---------&#62; [RESERVED] --------&#62; *poof*</span><br></pre></td></tr></table></figure></p>
+</div>
+<h3 id="任务（job）"><a href="#任务（job）" class="headerlink" title="任务（job）"></a>任务（job）</h3><p>Beanstalkd中的任务，就是被客户端投放其中，并包含主要信息的元信息。每一个任务通过一个管道进入队列，之后被取出并处理。典型的任务生命周期如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">put            reserve               delete&#10;  -----&#62; [READY] ---------&#62; [RESERVED] --------&#62; *poof*</span><br></pre></td></tr></table></figure></p>
 <p>一个任务在任何时候都处于ready,relayed,buried这三种状态的一种：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -131,6 +134,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>另外，还有几种行为可以影响给出的任务：</p>
 <ul>
 <li>reserve 从ready的队列中锁定一个任务开始处理</li>
@@ -140,22 +144,22 @@
 <li>bury 处理失败，暂时将任务迁移为buried状态</li>
 <li>kick 从buried状态置为ready状态</li>
 </ul>
-<p>job可能的状态迁移<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> put with delay               release with delay&#10;----------------&#62; [DELAYED] &#60;------------.&#10;                      |                   |&#10;               kick   | (time passes)     |&#10;                      |                   |&#10; put                  v     reserve       |       delete&#10;-----------------&#62; [READY] ---------&#62; [RESERVED] --------&#62; *poof*&#10;                     ^  ^                |  |&#10;                     |   \  release      |  |&#10;                     |    `-------------&#39;   |&#10;                     |                      |&#10;                     | kick                 |&#10;                     |                      |&#10;                     |       bury           |&#10;                  [BURIED] &#60;---------------&#39;&#10;                     |&#10;                     |  delete&#10;                      `--------&#62; *poof*</span><br></pre></td></tr></table></figure></p>
-<h3 id="使用案例">使用案例</h3><p>使用过的场景 — 凡是问题，皆有众多解决方案。</p>
-<h4 id="秒杀未支付的订单取消">秒杀未支付的订单取消</h4><p>秒杀订单需要用户在限定时间内完成支付，在期间为支付的订单，将会被取消，将该商品的库存购买机会让位于下一位用户。实现方案有很多，比如例行任务计划的方式读取未支付的秒杀订单，对比当前时间与创建时间的关系，取消他。比较优雅的方式可以在订单创建之初，就将该类型的订单放一份到队列中，利用其延时投放的特性，在指定时间消费该消息。</p>
-<h4 id="短信的批量发送">短信的批量发送</h4><p>不能过于依赖下游服务方的服务请求响应长耗时处理自我业务。短信发送过程，不将短信服务方的返回作为继续进行的依据。</p>
+<p>job可能的状态迁移<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> put with delay               release with delay&#10;----------------&#62; [DELAYED] &#60;------------.&#10;                      |                   |&#10;               kick   | (time passes)     |&#10;                      |                   |&#10; put                  v     reserve       |       delete&#10;-----------------&#62; [READY] ---------&#62; [RESERVED] --------&#62; *poof*&#10;                     ^  ^                |  |&#10;                     |   \  release      |  |&#10;                     |    `-------------&#39;   |&#10;                     |                      |&#10;                     | kick                 |&#10;                     |                      |&#10;                     |       bury           |&#10;                  [BURIED] &#60;---------------&#39;&#10;                     |&#10;                     |  delete&#10;                      `--------&#62; *poof*</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h3><p>使用过的场景 — 凡是问题，皆有众多解决方案。</p>
+<h4 id="秒杀未支付的订单取消"><a href="#秒杀未支付的订单取消" class="headerlink" title="秒杀未支付的订单取消"></a>秒杀未支付的订单取消</h4><p>秒杀订单需要用户在限定时间内完成支付，在期间为支付的订单，将会被取消，将该商品的库存购买机会让位于下一位用户。实现方案有很多，比如例行任务计划的方式读取未支付的秒杀订单，对比当前时间与创建时间的关系，取消他。比较优雅的方式可以在订单创建之初，就将该类型的订单放一份到队列中，利用其延时投放的特性，在指定时间消费该消息。</p>
+<h4 id="短信的批量发送"><a href="#短信的批量发送" class="headerlink" title="短信的批量发送"></a>短信的批量发送</h4><p>不能过于依赖下游服务方的服务请求响应长耗时处理自我业务。短信发送过程，不将短信服务方的返回作为继续进行的依据。</p>
 <p>交易状态的更新、指定活动的推送等</p>
-<h3 id="协议">协议</h3><ul>
+<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><ul>
 <li><a href="http://www.fzb.me/2015-3-21-beanstalkd-protocol-chinese-version.html" target="_blank" rel="external">Beanstalkd中文版协议解读</a></li>
 </ul>
-<h3 id="FAQ">FAQ</h3><ul>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><ul>
 <li><a href="http://www.fzb.me/2015-7-31-beanstalkd-faq.html" target="_blank" rel="external">BeanstalkdFAQ</a></li>
 </ul>
-<h3 id="使用">使用</h3><h4 id="源代码">源代码</h4><p>Beanstalkd发行基于 <code>MIT</code> 证书。 最新的发布版本为<a href="https://github.com/kr/beanstalkd/releases/tag/v1.10" target="_blank" rel="external">beanstalkd-1.10.tar.gz</a>。</p>
-<h4 id="安装包">安装包</h4><p>Debian/Ubuntu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install beanstalkd</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h4><p>Beanstalkd发行基于 <code>MIT</code> 证书。 最新的发布版本为<a href="https://github.com/kr/beanstalkd/releases/tag/v1.10" target="_blank" rel="external">beanstalkd-1.10.tar.gz</a>。</p>
+<h4 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h4><p>Debian/Ubuntu<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install beanstalkd</span><br></pre></td></tr></table></figure></p>
 <p>Homebrew OS X</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install beanstalkd</span><br></pre></td></tr></table></figure>
-<h3 id="客户端">客户端</h3><p>因不同语言爱好者开发支持的客户端而不再显得小众。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install beanstalkd</span><br></pre></td></tr></table></figure>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><p>因不同语言爱好者开发支持的客户端而不再显得小众。</p>
 <ul>
 <li>C<ul>
 <li><a href="http://github.com/bergundy/evbsc" target="_blank" rel="external">evbsc</a></li>
@@ -322,6 +326,28 @@
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
 </div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
 
 
 

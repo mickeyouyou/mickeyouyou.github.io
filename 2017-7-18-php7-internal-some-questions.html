@@ -1,0 +1,175 @@
+<html>
+<head>
+	
+	<title>关于php7内部实现的几个问题</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
+    
+
+</head>
+
+<body>
+
+
+<h2 class="title">关于php7内部实现的几个问题</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年7月18日
+
+
+    <a class="article-category-link" href="/categories/php/">php</a> | <a class="article-category-link" href="/categories/php/ast/">ast</a> | <a class="article-category-link" href="/categories/php/ast/opcode/">opcode</a>
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#php-fpm的实现"><span class="toc-text">php-fpm的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个php脚本的整体的执行流程"><span class="toc-text">一个php脚本的整体的执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP代码的编译"><span class="toc-text">PHP代码的编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词法解析、语法解析"><span class="toc-text">词法解析、语法解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AST-abstract-sytax-tree-抽象语法树编译流程"><span class="toc-text">AST(abstract sytax tree)抽象语法树编译流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#handler"><span class="toc-text">handler</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CALL模式"><span class="toc-text">CALL模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GOTO模式"><span class="toc-text">GOTO模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SWITCH模式"><span class="toc-text">SWITCH模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP5、7的编译执行差异"><span class="toc-text">PHP5、7的编译执行差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+<p>针对本文内容，主要是基于下面几个问题去探寻记录整理的：</p>
+<ul>
+<li>请求从nginx传递到php-fpm后，它的运行流程？</li>
+<li>php脚本被编译执行流程？</li>
+<li>PHP5、7的编译执行差异？</li>
+</ul>
+<h3 id="php-fpm的实现"><a href="#php-fpm的实现" class="headerlink" title="php-fpm的实现"></a>php-fpm的实现</h3><p>概括来说，fpm的实现就是创建一个master进程，在master进程中创建并监听socket，然后fork出多个子进程，这些子进程各自accept请求，子进程的处理非常简单，它在启动后阻塞在accept上，有请求到达后开始读取请求数据，读取完成后开始处理然后再返回，在这期间是不会接收其它请求的，也就是说fpm的子进程同时只能响应一个请求，只有把这个请求处理完成后才会accept下一个请求，这一点与nginx的事件驱动有很大的区别，nginx的子进程通过epoll管理套接字，如果一个请求数据还未发送完成则会处理下一个请求，即一个进程会同时连接多个请求，它是非阻塞的模型，只处理活跃的套接字。</p>
+<p>fpm的master进程与worker进程之间不会直接进行通信，master通过共享内存获取worker进程的信息，比如worker进程当前状态、已处理请求数等，当master进程要杀掉一个worker进程时则通过发送信号的方式通知worker进程。</p>
+<p>fpm可以同时监听多个端口，每个端口对应一个worker pool，而每个pool下对应多个worker进程，类似nginx中server概念。</p>
+<ul>
+<li>Fastcgi进程管理器，实现fastcgi协议；</li>
+<li>同步阻塞IO进程模型；</li>
+<li>请求结束后释放所有资源和内存</li>
+</ul>
+<blockquote>
+<p>请求处理<br>fpm_run()执行后将fork出worker进程，worker进程返回main()中继续向下执行，后面的流程就是worker进程不断accept请求，然后执行PHP脚本并返回。整体流程如下：</p>
+<ul>
+<li>(1)等待请求： worker进程阻塞在fcgi_accept_request()等待请求；</li>
+<li>(2)解析请求： fastcgi请求到达后被worker接收，然后开始接收并解析请求数据，直到request数据完全到达；</li>
+<li>(3)请求初始化： 执行php_request_startup()，此阶段会调用每个扩展的：PHP_RINIT_FUNCTION()；</li>
+<li>(4)编译、执行： 由php_execute_script()完成PHP脚本的编译、执行；</li>
+<li>(5)关闭请求： 请求完成后执行php_request_shutdown()，此阶段会调用每个扩展的：PHP_RSHUTDOWN_FUNCTION()，然后进入步骤(1)等待下一个请求。</li>
+</ul>
+</blockquote>
+<p>但是，该工作模式的隐患：</p>
+<ul>
+<li>并发受限于进程数，高并发请求时，fpm-worker不够用，nginx只能响应502</li>
+<li>PHP框架初始化占用大量计算资源</li>
+<li>fpm-worker每次处理请求前都需要重新初始化框架，请求结束释放资源</li>
+</ul>
+<h3 id="一个php脚本的整体的执行流程"><a href="#一个php脚本的整体的执行流程" class="headerlink" title="一个php脚本的整体的执行流程"></a>一个php脚本的整体的执行流程</h3><ul>
+<li>创建逻辑表示</li>
+<li>创建可执行代码 </li>
+<li>执行字节码 </li>
+<li>Zend Engine运行操作码</li>
+</ul>
+<p>PHP执行的几个阶段</p>
+<ul>
+<li>模块初始化阶段php_module_startup</li>
+<li>请求初始化阶段php_request_startup</li>
+<li>执行脚本阶段php_execute_script</li>
+<li>请求结束阶段php_request_shutdown</li>
+<li>模块结束阶段php_module_shutdown</li>
+</ul>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/php.png" width="99%"></p>
+<p>其中已经语法分析、词法分析等包含其中。</p>
+<h3 id="PHP代码的编译"><a href="#PHP代码的编译" class="headerlink" title="PHP代码的编译"></a>PHP代码的编译</h3><p>从PHP代码到opcode是怎么实现的？PHP编译过程包括词法分析、语法分析，使用re2c、bison完成，旧的PHP版本直接生成了opcode，PHP7新增了抽象语法树（AST），在语法分析阶段生成AST，然后再生成opcode数组。</p>
+<p>PHP编译阶段的基本过程如下图：</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/zend_compile_process.png" width="99%"></p>
+<h3 id="词法解析、语法解析"><a href="#词法解析、语法解析" class="headerlink" title="词法解析、语法解析"></a>词法解析、语法解析</h3><p>该PHP的解析阶段，即 PHP代码-&gt;抽象语法树(AST) 的过程。</p>
+<p>PHP使用re2c、bison完成这个阶段的工作:</p>
+<ul>
+<li>re2c: 词法分析器，将输入分割为一个个有意义的词块，称为token</li>
+<li>bison: 语法分析器，确定词法分析器分割出的token是如何彼此关联的</li>
+</ul>
+<h3 id="AST-abstract-sytax-tree-抽象语法树编译流程"><a href="#AST-abstract-sytax-tree-抽象语法树编译流程" class="headerlink" title="AST(abstract sytax tree)抽象语法树编译流程"></a>AST(abstract sytax tree)抽象语法树编译流程</h3><p>完成了从 <strong>PHP代码解析为抽象语法树</strong> 的过程，就要开始 <strong>抽象语法树-&gt;Opcodes</strong> 的过程。</p>
+<p>语法解析过程的产物保存于CG(AST)，接着zend引擎会把AST进一步编译为 <code>zend_op_array</code> ，它是编译阶段最终的产物，也是执行阶段的输入，后面我们介绍的东西基本都是围绕<code>zend_op_array</code>展开的，AST解析过程确定了当前脚本定义了哪些变量，并为这些变量 顺序编号，这些值在使用时都是按照这个编号获取的，另外也将变量的初始化值、调用的函数/类/常量名称等值(称之为字面量)保存到<code>zend_op_array.literals</code>中，这些字面量也有一个唯一的编号，所以执行的过程实际就是根据各指令调用不同的C函数，然后根据变量、字面量、临时变量的编号对这些值进行处理加工。</p>
+<p>我们首先看下zend_op_array的结构，明确几个关键信息，然后再看下ast编译为zend_op_array的过程。</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/zend_compile.png" width="99%"></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> _zend_op_array &#123;</span><br><span class="line">    <span class="comment">//common是普通函数或类成员方法对应的opcodes快速访问时使用的字段，后面分析PHP函数实现的时候会详细讲</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">uint32_t</span> *refcount;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">uint32_t</span> this_var;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">uint32_t</span> last;</span><br><span class="line">    <span class="comment">//opcode指令数组</span></span><br><span class="line">    zend_op *opcodes;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//PHP代码里定义的变量数：op_type为IS_CV的变量，不含IS_TMP_VAR、IS_VAR的</span></span><br><span class="line">    <span class="comment">//编译前此值为0，然后发现一个新变量这个值就加1</span></span><br><span class="line">    <span class="keyword">int</span> last_var;</span><br><span class="line">    <span class="comment">//临时变量数:op_type为IS_TMP_VAR、IS_VAR的变量</span></span><br><span class="line">    <span class="keyword">uint32_t</span> T;</span><br><span class="line">    <span class="comment">//PHP变量名数组</span></span><br><span class="line">    zend_string **vars; <span class="comment">//这个数组在ast编译期间配合last_var用来确定各个变量的编号，非常重要的一步操作</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">//静态变量符号表:通过static声明的</span></span><br><span class="line">    HashTable *static_variables;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">//字面量数量</span></span><br><span class="line">    <span class="keyword">int</span> last_literal; </span><br><span class="line">    <span class="comment">//字面量(常量)数组，这些都是在PHP代码定义的一些值</span></span><br><span class="line">    zval *literals;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//运行时缓存数组大小</span></span><br><span class="line">    <span class="keyword">int</span>  cache_size;</span><br><span class="line">    <span class="comment">//运行时缓存，主要用于缓存一些znode_op以便于快速获取数据，后面单独介绍这个机制</span></span><br><span class="line">    <span class="keyword">void</span> **<span class="keyword">run_t</span>ime_cache;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> *reserved[ZEND_MAX_RESERVED_RESOURCES];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>zend_op_array.opcodes指向指令列表，具体每条指令的结构如下：<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> _zend_op &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">void</span> *handler; <span class="comment">//指令执行handler</span></span><br><span class="line">    znode_op op1;   <span class="comment">//操作数1</span></span><br><span class="line">    znode_op op2;   <span class="comment">//操作数2</span></span><br><span class="line">    znode_op result; <span class="comment">//返回值</span></span><br><span class="line">    <span class="keyword">uint32_t</span> extended_value; </span><br><span class="line">    <span class="keyword">uint32_t</span> lineno; </span><br><span class="line">    zend_uchar opcode;  <span class="comment">//opcode指令</span></span><br><span class="line">    zend_uchar <span class="keyword">op1_t</span>ype; <span class="comment">//操作数1类型</span></span><br><span class="line">    zend_uchar <span class="keyword">op2_t</span>ype; <span class="comment">//操作数2类型</span></span><br><span class="line">    zend_uchar <span class="keyword">result_t</span>ype; <span class="comment">//返回值类型</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//操作数结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">union</span> _znode_op &#123;</span><br><span class="line">    <span class="keyword">uint32_t</span>      constant;</span><br><span class="line">    <span class="keyword">uint32_t</span>      var;</span><br><span class="line">    <span class="keyword">uint32_t</span>      num;</span><br><span class="line">    <span class="keyword">uint32_t</span>      opline_num; <span class="comment">/*  Needs to be signed */</span></span><br><span class="line">    <span class="keyword">uint32_t</span>      jmp_offset;</span><br><span class="line">&#125; znode_op;</span><br></pre></td></tr></table></figure></p>
+<p>opcode各字段含义下面展开说明。</p>
+<h4 id="handler"><a href="#handler" class="headerlink" title="handler"></a>handler</h4><p>handler为每条opcode对应的C语言编写的处理过程，所有opcode对应的处理过程定义在<code>zend_vm_def.h</code>中，值得注意的是这个文件并不是编译时用到的，因为opcode的处理过程 有三种不同的提供形式：<code>CALL</code>、<code>SWITCH</code>、<code>GOTO</code>，默认方式为<code>CALL</code>，这个是什么意思呢？</p>
+<p>每个opcode都代表了一些特定的处理操作，这个东西怎么提供呢？一种是把每种opcode负责的工作封装成一个function，然后执行器循环执行即可，这就是CALL模式的工作方式；<br>另外一种是把所有opcode的处理方式通过C语言里面的label标签区分开，然后执行器执行的时候goto到相应的位置处理，这就是GOTO模式的工作方式；<br>最后还有一种方式是把所有的处理方式写到一个switch下，然后通过case不同的opcode执行具体的操作，这就是SWITCH模式的工作方式。</p>
+<p>假设opcode数组是这个样子：<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> op_array[] = &#123;</span><br><span class="line">    opcode_1,</span><br><span class="line">    opcode_2,</span><br><span class="line">    opcode_3,</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>各模式下的工作过程类似这样：</p>
+<h4 id="CALL模式"><a href="#CALL模式" class="headerlink" title="CALL模式"></a>CALL模式</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//CALL模式</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">opcode_1_handler</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">opcode_2_handler</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(<span class="keyword">int</span> []op_array)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">void</span> *opcode_handler_list[] = &#123;&amp;opcode_1_handler, &amp;opcode_2_handler, ...&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">void</span> handler = opcode_handler_list[op_array[i]];</span><br><span class="line">        handler(); <span class="comment">//call handler</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="GOTO模式"><a href="#GOTO模式" class="headerlink" title="GOTO模式"></a>GOTO模式</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//GOTO模式</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(<span class="keyword">int</span> []op_array)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">goto</span> opcode_xx_handler_label;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">opcode_1_handler_label:</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">opcode_2_handler_label:</span><br><span class="line">    ...</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="SWITCH模式"><a href="#SWITCH模式" class="headerlink" title="SWITCH模式"></a>SWITCH模式</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//SWITCH模式</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(<span class="keyword">int</span> []op_array)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">switch</span>(op_array[i])&#123;</span><br><span class="line">            <span class="keyword">case</span> opcode_1:</span><br><span class="line">                ...</span><br><span class="line">            <span class="keyword">case</span> opcode_2:</span><br><span class="line">                ...</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>三种模式效率是不同的，GOTO最快。<br>怎么选择其它模式呢？下载PHP源码后不要直接编译，Zend目录下有个文件：zend_vm_gen.php，在编译PHP前执行：php zend_vm_gen.php —with-vm-kind=CALL|SWITCH|GOTO，这个脚本将重新生成:zend_vm_opcodes.h、zend_vm_opcodes.c、zend_vm_execute.h三个文件覆盖原来的，然后再编译PHP即可。</p>
+<h3 id="PHP5、7的编译执行差异"><a href="#PHP5、7的编译执行差异" class="headerlink" title="PHP5、7的编译执行差异"></a>PHP5、7的编译执行差异</h3><p>其实从以上的编译部分，还有zval的数据结构的变化，也都是导致5、7编译差异之处的根本原因。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://talks.php.net/show/jump-tek17" target="_blank" rel="external">It’s All About the Goto (slide in talk.php.net) by Derick</a></li>
+<li><a href="https://github.com/pangudashu/php7-internal" target="_blank" rel="external">PHP7内核剖析 by pangdashu</a></li>
+<li><a href="https://github.com/xudianyang/ppt/blob/master/swoole-2017/Swoole-MSF-%E5%BE%90%E5%85%B8%E9%98%B3.pdf" target="_blank" rel="external">Swoole-MSF-徐典阳.pdf</a></li>
+<li><a href="https://joind.in/event/phptek-2017/its-all-about-the-goto" target="_blank" rel="external">It’s All About the Goto</a></li>
+<li><a href="http://0x1.im/blog/php/changes-of-php7-because-of-ast.html" target="_blank" rel="external">PHP7 的抽象语法树（AST）带来的变化</a></li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/2017-7-18-php7-internal-some-questions.html#disqus_thread" class="article-comment-link">Comments</a>-->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
+
+
+
+
+
+
+</body>
+</html>
