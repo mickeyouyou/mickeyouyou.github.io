@@ -42,7 +42,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#汉字的数字化"><span class="toc-text">汉字的数字化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实数向量-One-hot-Representation"><span class="toc-text">实数向量 One-hot Representation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#词向量-Distributed-Representation"><span class="toc-text">词向量 Distributed Representation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型"><span class="toc-text">模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语言模型"><span class="toc-text">语言模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#N-gram-neural-model"><span class="toc-text">N-gram neural model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Continuous-Bag-of-Words-model-CBOW"><span class="toc-text">Continuous Bag-of-Words model(CBOW)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Skip-gram-model"><span class="toc-text">Skip-gram model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PaddlePaddle"><span class="toc-text">PaddlePaddle</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddle-Book"><span class="toc-text">Paddle Book</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddle-Models"><span class="toc-text">Paddle Models</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语言处理"><span class="toc-text">语言处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何判断词组的搭配合理性？"><span class="toc-text">如何判断词组的搭配合理性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#学习过程"><span class="toc-text">学习过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#词组词频库"><span class="toc-text">词组词频库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交互流程"><span class="toc-text">交互流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#覆盖的端"><span class="toc-text">覆盖的端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TODO"><span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#汉字的数字化"><span class="toc-text">汉字的数字化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实数向量-One-hot-Representation"><span class="toc-text">实数向量 One-hot Representation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#词向量-Distributed-Representation"><span class="toc-text">词向量 Distributed Representation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型"><span class="toc-text">模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语言模型"><span class="toc-text">语言模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#N-gram-neural-model"><span class="toc-text">N-gram neural model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Continuous-Bag-of-Words-model-CBOW"><span class="toc-text">Continuous Bag-of-Words model(CBOW)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Skip-gram-model"><span class="toc-text">Skip-gram model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PaddlePaddle"><span class="toc-text">PaddlePaddle</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddle-Book"><span class="toc-text">Paddle Book</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddle-Models"><span class="toc-text">Paddle Models</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语言处理"><span class="toc-text">语言处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何判断词组的搭配合理性？"><span class="toc-text">如何判断词组的搭配合理性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#学习过程"><span class="toc-text">学习过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交互流程"><span class="toc-text">交互流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#覆盖的端"><span class="toc-text">覆盖的端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
 <blockquote>
 <p>本文针对的是汉语错别字检查，或者为写作者提供建议词汇组合的一个方案。</p>
 </blockquote>
@@ -77,7 +77,7 @@
 <p>统计学习的三要素：方法 = 模型 + 策略 + 算法</p>
 </blockquote>
 <h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><h4 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h4><p>在介绍词向量模型之前，我们先来引入一个概念：语言模型。 语言模型旨在为语句的联合概率函数<script type="math/tex">P(w_1, …, w_T)</script>建模, 其中<script type="math/tex">w_i</script>表示句子中的第i个词。语言模型的目标是，希望模型对有意义的句子赋予大概率，对没意义的句子赋予小概率。 这样的模型可以应用于很多领域，如机器翻译、语音识别、信息检索、词性标注、手写识别等，它们都希望能得到一个连续序列的概率。 </p>
-<p>以上面的稿件为例，当编辑输入“<code>沙特国王萨勒曼21日宣布，废除王储默罕默德·本·纳伊夫，另立穆罕默德·本·萨勒曼为新任王储。</code>”时，识别引擎至少会提示你是否希望输入”<code>沙特国王萨勒曼21日宣布，废黜王储默罕默德·本·纳伊夫，另立穆罕默德·本·萨勒曼为新任王储。</code>”才是正确的, 因为根据语言模型计算出“<code>废除王储</code>”的概率很低，而与”废黜”近似的，可能引起错误的词中，”<code>废除</code>“会使该句生成的概率最大。</p>
+<p>以上面的稿件为例，当编辑输入“<code>沙特国王萨勒曼21日宣布，废除王储默罕默德·本·纳伊夫，另立穆罕默德·本·萨勒曼为新任王储。</code>”时，识别引擎至少会提示你是否希望输入”<code>沙特国王萨勒曼21日宣布，废黜王储默罕默德·本·纳伊夫，另立穆罕默德·本·萨勒曼为新任王储。</code>”才是正确的, 因为根据语言模型计算出“<code>废除王储</code>”的概率很低，而与”<code>废黜</code>“近似的，可能引起错误的词中，”<code>废除</code>“会使该句生成的概率最大。</p>
 <p>对语言模型的目标概率<script type="math/tex">P(w_1, …, w_T)</script>，如果假设文本中每个词都是相互独立的，则整句话的联合概率可以表示为其中所有词语条件概率的乘积，即：</p>
 <script type="math/tex; mode=display">P(w_1, …, w_T) = \prod_{t=1}^TP(w_t)</script><p>然而我们知道语句中的每个词出现的概率都与其前面的词紧密相关, 所以实际上通常用条件概率表示语言模型：</p>
 <script type="math/tex; mode=display">P(w_1, …, w_T) = \prod_{t=1}^TP(w_t | w_1, … , w_{t-1})</script><h4 id="N-gram-neural-model"><a href="#N-gram-neural-model" class="headerlink" title="N-gram neural model"></a>N-gram neural model</h4><p>在计算语言学中，n-gram是一种重要的文本表示方法，表示一个文本中连续的n个项。基于具体的应用场景，每一项可以是一个字母、单词或者音节。 n-gram模型也是统计语言模型中的一种重要方法，用n-gram训练语言模型时，一般用每个n-gram的历史n-1个词语组成的内容来预测第n个词。</p>
@@ -119,8 +119,6 @@
 <li>持续开发</li>
 <li>全中文文档详细讲解如何运行，如何预测文档</li>
 </ul>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>trie树常用于关键词搜索提示。在搜索引擎中输入一个词，可以给出可能的选择。当没有完全匹配的搜索结果，返回前缀最相似的可能。算法符合错别字检查这一需求特点，另外的用途也使用在搜索引擎的快速推荐搜索中，可以作为本项目的基础算法支撑。</p>
-<p>在糯米内部的文章抓取与相关门店的挂载中有相关的实现：抽取文章中门店信息（名称，地址，城市和电话等），并与库中POI(3000w+)进行精准匹配。</p>
 <h3 id="语言处理"><a href="#语言处理" class="headerlink" title="语言处理"></a>语言处理</h3><p>句子的处理，词性分析等，使用百度AI提供的<a href="http://ai.baidu.com/docs#/NLP-API/top" target="_blank" rel="external">自然语言处理</a>相关接口来实现</p>
 <div class="table-container">
 <table>
@@ -173,8 +171,9 @@
 <p>同时，也发现因为历史原因，”废黜“与”废除“用错的情况：<a href="http://news.xinhuanet.com/overseas/2017-05/13/c_129604002.htm" target="_blank" rel="external">纽约议员提决议案 将排华法案签署日定为“包容日”</a>中：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#12288;&#20915;&#35758;&#26696;&#25351;&#20986;&#65292;&#23613;&#31649;&#12298;&#25490;&#21326;&#27861;&#26696;&#12299;&#24050;&#34987;&#24223;&#40668;&#65292;&#32852;&#37030;&#25919;&#24220;&#20063;&#22240;&#27492;&#36947;&#27465;&#65292;&#20294;&#21326;&#35028;&#36973;&#21463;&#30340;&#20260;&#23475;&#27704;&#36828;&#26080;&#27861;&#25273;&#21435;&#65292;&#36825;&#27573;&#25490;&#26021;&#12289;&#27495;&#35270;&#31227;&#27665;&#30340;&#21382;&#21490;&#20063;&#19981;&#24212;&#34987;&#24536;&#35760;&#12290;</span><br></pre></td></tr></table></figure></p>
 <p>显然法案的弃用，应该使用”废除“。这样错误的稿件就不在学习范围之内了。</p>
 <p>上述稿件使用新华网提供的<a href="http://so.news.cn/?keyWordAll=%E5%BA%9F%E9%BB%9C&amp;keyWordOne=%E5%BA%9F%E9%BB%9C&amp;keyWordIg=%E6%B2%99%E7%89%B9&amp;searchFields=0&amp;sortField=0&amp;url=xinhuanet.com&amp;senSearch=1&amp;lang=cn#search/0/废黜/1/" target="_blank" rel="external">搜索工具</a>获得。</p>
-<h4 id="词组词频库"><a href="#词组词频库" class="headerlink" title="词组词频库"></a>词组词频库</h4><p>汉字的错别字检查，单个字没有绝对错误之说，这种检查应该是建立在文章，段落，一定的语言结构，词组搭配中。<br>所以词组词频库是基本的数据提供。包括公共词频库，用户词频库两部分。公共词频库还可以分根据行业细分，以便根据服务方，快速查询。</p>
-<h3 id="交互流程"><a href="#交互流程" class="headerlink" title="交互流程"></a>交互流程</h3><p>交互流程如下</p>
+<h3 id="交互流程"><a href="#交互流程" class="headerlink" title="交互流程"></a>交互流程</h3><p>与英文不同，中文没有空格作为间隔，判断的前提应该是拿到光标符号截止，上一个符号结束的整句话，先解析其词组部分，然后再分词查询。由此下来，中文错别字的实时检查，耗时应该不会太短，接口的耗时优化会成为重要的一项工作内容。</p>
+<p>在web方面，错别字检查服务需要建立在长连接之上，用户在每一步输入结束、打开文档的同时，开始错别字的实时校验。最小的校验单元可以成为一个句子。<br>先为此准备实时分析并给出相关词的准备工作。</p>
+<p>交互流程如下</p>
 <div id="flowchart-0" class="flow-chart"></div>
 
 <p>端、Client、Service</p>
@@ -192,10 +191,6 @@
 <li>开启单独的长连接服务，获取到用户正在输入的词，或者行，检查给出相近的词；</li>
 </ul>
 <h3 id="覆盖的端"><a href="#覆盖的端" class="headerlink" title="覆盖的端"></a>覆盖的端</h3><p>要想完成错别字消灭这件事情，就要让不同的端，覆盖到不同编辑发布的平台。web端，浏览器，会是有限考虑的一部分。</p>
-<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>与英文不同，中文没有空格作为间隔，判断的前提应该是拿到光标符号截止，上一个符号结束的整句话，先解析其词组部分，然后再分词查询。由此下来，中文错别字的实时检查，耗时应该不会太短，接口的耗时优化会成为重要的一项工作内容。</p>
-<p>在web方面，错别字检查服务需要建立在长连接之上，用户在每一步输入结束、打开文档的同时，开始错别字的实时校验。最小的校验单元可以成为一个句子。</p>
-<p>具体的错别字检查可以根据<code>trie search</code>算法，从相近字的词库中查找并输出。</p>
-<p>先为此准备实时分析并给出相关词的准备工作。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E6%B1%89%E5%AD%97" target="_blank" rel="external">汉字</a></li>
 <li><a href="http://edu.sina.com.cn/l/2008-11-14/0959156804.shtml" target="_blank" rel="external">教育部国家语委发布2007中国语言生活状况报告</a></li>
@@ -211,15 +206,11 @@
 <ul>
 <li>流程图 ：<a href="https://github.com/bubkoo/hexo-filter-flowchart" target="_blank" rel="external">https://github.com/bubkoo/hexo-filter-flowchart</a></li>
 <li>时序图 ：<a href="https://github.com/bubkoo/hexo-filter-sequence" target="_blank" rel="external">https://github.com/bubkoo/hexo-filter-sequence</a></li>
-<li>mathjax/2.6.1 <a href="https://github.com/mickeyouyou/hexo-renderer-kramed" target="_blank" rel="external">https://github.com/mickeyouyou/hexo-renderer-kramed</a><br><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Browser->Client:文档、段落、句子的拆分
-Client->Service: 文档、段落、实时编辑的句子
-Note right of Service: 基于词频库的词频检查
-Service->Client: 返回等级不同的检查结果
-Client->Browser:返回等级不同的检查结果</textarea><textarea id="sequence-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start
+<li>mathjax/2.6.1 <a href="https://github.com/mickeyouyou/hexo-renderer-kramed" target="_blank" rel="external">https://github.com/mickeyouyou/hexo-renderer-kramed</a><br><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start
 e=>end: End
 op1=>operation: 分词|past
 op2=>operation: 结果按等级返回|current
-sub1=>subroutine: 细粒度切分、重组再切
+sub1=>subroutine: 细粒度切分
 cond=>condition: 粒度划分?|approved
 c2=>condition: 词频判断|rejected
 io=>inputoutput: catch something...|request
@@ -228,7 +219,11 @@ st->op1(right)->cond
 cond(yes, right)->c2
 cond(no)->sub1(left)->op1
 c2(yes)->io->e
-c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></li>
+c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Browser->Client:文档、段落、句子的拆分
+Client->Service: 文档、段落、实时编辑的句子
+Note right of Service: 基于词向量的整句概率检查
+Service->Client: 概率由高到底，作为建议词组
+Client->Browser:返回等级不同的检查结果</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></li>
 </ul>
 
 
