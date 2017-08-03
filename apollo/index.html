@@ -1,0 +1,133 @@
+<html>
+<head>
+	
+	<title>Apollo</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
+    
+
+</head>
+
+<body>
+
+
+<h2 class="title">Apollo</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年8月3日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#PaddlePaddle的努力"><span class="toc-text">PaddlePaddle的努力</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddle-Book"><span class="toc-text">Paddle Book</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddlle-Models"><span class="toc-text">Paddlle Models</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TensorFlow参考"><span class="toc-text">TensorFlow参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo项目的特征"><span class="toc-text">Apollo项目的特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可能需要做出的努力"><span class="toc-text">可能需要做出的努力</span></a></li></ol>
+<blockquote>
+<p>对比一下Apollo和tensorflow的github项目，看看主要指标方面的差异，可以简单想一下如何能在各方面赶上tensorflow的活跃度。</p>
+</blockquote>
+<p>虽然目前Apollo项目的watch、star、fork数量低于tensorflow，但相信以这样的速度（最近30天，正好是apollo开源到现在，star数量5300+），赶上tensorflow是迟早的事。</p>
+<p>在说如何提高Apollo项目的活跃度之前，我先聊聊厂内的分布式深度学习框架PaddlePaddle。</p>
+<h3 id="PaddlePaddle的努力"><a href="#PaddlePaddle的努力" class="headerlink" title="PaddlePaddle的努力"></a>PaddlePaddle的努力</h3><p>根据深度学习实验室的同学介绍，PaddlePaddle自去年秋天开源至今，在框架的推广方面，着重做了以下几点：</p>
+<ul>
+<li><a href="http://book.paddlepaddle.org/index.cn.html" target="_blank" rel="external">Paddle Book</a></li>
+<li><a href="https://github.com/PaddlePaddle/models" target="_blank" rel="external">Paddlle Models</a> </li>
+<li>推出5分钟上手教程</li>
+</ul>
+<h4 id="Paddle-Book"><a href="#Paddle-Book" class="headerlink" title="Paddle Book"></a>Paddle Book</h4><p>PaddleBook深入讲解深度学习模型，通过图像分类识、词向量、浅层句法分析、推荐系统、情感分类、机器翻译6个典型任务，讲原理、讲模型，还支持交互式可直接运行，甚至成为深度学习的入门教科书。</p>
+<p>这让我想起来，框架发布时，大家急于想要尝鲜遇阻。这种感觉就像是入的第一道门，就被拦在了门户。在自己的机器编译安装，总会遇到问题，会显得平台不亲民。PaddleBook至少将用户的与Paddle拉近了不止一步。<br>所以将众人领进门的这一步显得格外重要。</p>
+<h4 id="Paddlle-Models"><a href="#Paddlle-Models" class="headerlink" title="Paddlle Models"></a>Paddlle Models</h4><ul>
+<li>模型多：涵盖图像分类、语音识别、自然语言处理多种任务</li>
+<li>全部来自已上线的成功应用案例</li>
+<li>持续开发</li>
+<li>全中文文档详细讲解如何运行，如何预测文档</li>
+</ul>
+<p>在另外拓展方面，在百度技术学院发布视频课程，</p>
+<p>号称5分钟上手。</p>
+<h3 id="TensorFlow参考"><a href="#TensorFlow参考" class="headerlink" title="TensorFlow参考"></a>TensorFlow参考</h3><p>好的项目推广，值得借鉴之处。<br>TensorFlow有很不错的开发者基础</p>
+<h3 id="Apollo项目的特征"><a href="#Apollo项目的特征" class="headerlink" title="Apollo项目的特征"></a>Apollo项目的特征</h3><p>Apollo吸引人的关键点，就是能将拉近开发者、合作方与自动驾驶技术的距离，</p>
+<ul>
+<li>开创性，就像Apollo名字本身与众不同，</li>
+<li>开源特质，只要你愿意，就能参与到自动驾驶技术中，进而影响身边人；</li>
+<li>软硬件结合，实践性非常高，激起内心的工匠动手欲望；</li>
+</ul>
+<h3 id="可能需要做出的努力"><a href="#可能需要做出的努力" class="headerlink" title="可能需要做出的努力"></a>可能需要做出的努力</h3><ul>
+<li><p>亲民也会成为用户判断平台的一个重要因素<br>技术工程师，总会有不同工具、框架的对比，其中技术文档，帮助开发者、合作方解决文档的最重要源头，技术文档相当重要。</p>
+</li>
+<li><p>成功的改装实现样例是最好的学习手段<br>技术文档的细化与完善，自动改装文档、视频等其他形式的宣传方案。<br>吸引开发者加入进来的一个最主要办法，亲身体验改装过程。感受自动驾驶。</p>
+</li>
+</ul>
+<p>Road Hackers实践教程</p>
+<p>3天开发自动驾驶汽车，将开发者的开发过程记录下来，分享到平台。让更多的开发者看到，参与进来。也许是目前更为吸引眼球的地方。</p>
+<p>从而帮助开发者完成开发，产生高质量测试数据，反哺Apollo。</p>
+<p>想要成为自动驾驶中的Android，与App开发快捷、入门低的特点相比，Apollo在设备上地区是需要一定门槛的，可以考虑为开发者提供模拟器的同时，以资助或者补贴的方式带动购买硬件的能力。</p>
+
+
+<!--<a href="http://yoursite.com/apollo/index.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
+
+
+
+
+
+
+</body>
+</html>
