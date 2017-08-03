@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<title>Rsync + sersync实时同步服务器文件</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Rsync + sersync实时同步服务器文件</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -29,7 +29,7 @@
 <body>
 
 
-<h2 class="title">Rsync + sersync实时同步服务器文件</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Rsync + sersync实时同步服务器文件</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -42,20 +42,23 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Rsync介绍"><span class="toc-text">Rsync介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sersync的介绍"><span class="toc-text">sersync的介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Rsync"><span class="toc-text">安装Rsync</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#rsyncd-conf服务器的配置详解："><span class="toc-text">rsyncd.conf服务器的配置详解：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sersync-安装与配置"><span class="toc-text">sersync 安装与配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证："><span class="toc-text">验证：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#错误参考："><span class="toc-text">错误参考：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#同步模块权限验证失败："><span class="toc-text">同步模块权限验证失败：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
-<h4 id="Rsync介绍"><a href="#Rsync介绍" class="headerlink" title="Rsync介绍"></a>Rsync介绍</h4><p>rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync。</p>
+
+<p>####Rsync介绍<br>rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync。</p>
 <p>Rsync（remote synchronize）是一个远程数据同步工具，可通过LAN/WAN快速同步多台主机间的文件。Rsync使用所谓的“Rsync算法”来使本地和远程两个主机之间的文件达到同步，这个算法只传送两个文件的不同部分，而不是每次都整份传送，因此速度相当快。</p>
 <p>Rsync本来是用于替代rcp的一个工具，目前由rsync.samba.org维护，所以rsync.conf文件的格式类似于samba的主配置文件。Rsync可以通过rsh或ssh使用，也能以daemon模式去运行，在以daemon方式运行时Rsync server会打开一个873端口，等待客户端去连接。连接时，Rsync server会检查口令是否相符，若通过口令查核，则可以开始进行文件传输。第一次连通完成时，会把整份文件传输一次，以后则就只需进行增量备份。</p>
 <p>Rsync支持大多数的类Unix系统，无论是Linux、Solaris还是BSD上都经过了良好的测试。此外，它在windows平台下也有相应的版本，如cwRsync和Sync2NAS等工具。</p>
-<h4 id="sersync的介绍"><a href="#sersync的介绍" class="headerlink" title="sersync的介绍"></a>sersync的介绍</h4><p>sersync主要用于服务器同步，web镜像等功能。基于boost1.43.0,inotify api,rsync command.开发。目前使用的比较多的同步解决方案是inotify-tools+rsync ，另外一个是google开源项目Openduckbill（依赖于inotify- tools），这两个都是基于脚本语言编写的。相比较上面两个项目，本项目优点是：<br>sersync是使用c++编写，而且对linux系统文件系统产生的临时文件和重复的文件操作进行过滤（详细见附录，这个过滤脚本程序没有实现），所以在结合rsync同步的时候，节省了运行时耗和网络资源。因此更快。</p>
+<p>####sersync的介绍</p>
+<p>sersync主要用于服务器同步，web镜像等功能。基于boost1.43.0,inotify api,rsync command.开发。目前使用的比较多的同步解决方案是inotify-tools+rsync ，另外一个是google开源项目Openduckbill（依赖于inotify- tools），这两个都是基于脚本语言编写的。相比较上面两个项目，本项目优点是：<br>sersync是使用c++编写，而且对linux系统文件系统产生的临时文件和重复的文件操作进行过滤（详细见附录，这个过滤脚本程序没有实现），所以在结合rsync同步的时候，节省了运行时耗和网络资源。因此更快。</p>
 <blockquote>
 <p>因为在墙外，我把它放在了百度网盘上：<a href="http://pan.baidu.com/s/1bndfcvX" target="_blank" rel="external">http://pan.baidu.com/s/1bndfcvX</a></p>
 </blockquote>
-<h4 id="安装Rsync"><a href="#安装Rsync" class="headerlink" title="安装Rsync"></a>安装Rsync</h4><p>在使用sersync之前，我们必须安装配置好rsync服务器。这里我们需要注意的是，纯粹的使用rsync做单向同步时，rsync的守护进程是运行在文件推送的服务器上，而接收的服务器是运行rsync客户端。使用sersync做文件实时同步刚好相反，用于接收文件的服务器运行rsync守护进程。</p>
+<p>####安装Rsync</p>
+<p>在使用sersync之前，我们必须安装配置好rsync服务器。这里我们需要注意的是，纯粹的使用rsync做单向同步时，rsync的守护进程是运行在文件推送的服务器上，而接收的服务器是运行rsync客户端。使用sersync做文件实时同步刚好相反，用于接收文件的服务器运行rsync守护进程。</p>
 <p>一.安装rsync<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># yum install rsync -y&#10;# yum install xinetd -y</span><br></pre></td></tr></table></figure></p>
 <p>二.启动rsync依赖服务<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># /etc/init.d/xinetd start&#10;# chkconfig xinetd on</span><br></pre></td></tr></table></figure></p>
 <p>编辑配置文件<code>/etc/rsyncd.conf</code><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uid=root&#10;gid=root&#10;use chroot=no&#10;max connections=10&#10;strict modes=yes&#10;port=873&#10;address=192.168.1.205  #&#26381;&#21153;&#22120;&#31471;ip&#10;&#10;[data]&#10;path=/data/Upload/product&#10;comment=mirror for test&#10;ignore errors&#10;read only=no&#10;list=no&#10;auth users=root&#10;secrets file=/etc/rsync.pas&#10;hosts.allow=*&#10;pid file=/var/run/rsyncd.pid&#10;lock file = /var/run/rsync.lock&#10;log file = /var/log/rsyncd.log</span><br></pre></td></tr></table></figure></p>
-<h5 id="rsyncd-conf服务器的配置详解："><a href="#rsyncd-conf服务器的配置详解：" class="headerlink" title="rsyncd.conf服务器的配置详解："></a>rsyncd.conf服务器的配置详解：</h5><p>A、全局定义</p>
+<p>#####rsyncd.conf服务器的配置详解：</p>
+<p>A、全局定义</p>
 <p>在rsync 服务器中，全局定义有几个比较关健的，根据我们前面所给的配置文件 rsyncd.conf 文件；</p>
 <ul>
 <li>pid file = /var/run/rsyncd.pid              注：告诉进程写到 /var/run/rsyncd.pid 文件中；</li>
@@ -85,7 +88,7 @@
 <li>motd file = /etc/rsyncd.motd</li>
 </ul>
 <p>　　注：motd file 是定义服务器信息的，要自己写 rsyncd.motd 文件内容。当用户登录时会看到这个信息。比如我写的是：</p>
-<p>　　++++++++++++++++++++++++++++++++++++++++++++++<br>　　Welcome to use the mike.org.cn rsync services!<br>           2002———2009<br>　　++++++++++++++++++++++++++++++++++++++++++++++</p>
+<p>　　++++++++++++++++++++++++++++++++++++++++++++++<br>　　Welcome to use the mike.org.cn rsync services!<br>           2002——2009<br>　　++++++++++++++++++++++++++++++++++++++++++++++</p>
 <p>　　log file = /var/log/rsync.log       注：rsync 服务器的日志；</p>
 <p>　　transfer logging = yes   注：这是传输文件的日志</p>
 <p>　　log format = %t %a %m %f %b<br>　　syslog facility = local3<br>　　timeout = 300</p>
@@ -101,7 +104,8 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># /etc/init.d/xinetd restart</span><br></pre></td></tr></table></figure>
 <p>设置开机自启动</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># echo &#34;rsync --daemon --config=/etc/rsyncd.conf&#34; &#62;&#62; /etc/rc.local</span><br></pre></td></tr></table></figure>
-<h4 id="sersync-安装与配置"><a href="#sersync-安装与配置" class="headerlink" title="sersync 安装与配置"></a>sersync 安装与配置</h4><p>下载安装：<a href="http://pan.baidu.com/s/1bndfcvX" target="_blank" rel="external">sersync in pan.baidu.com</a></p>
+<p>####sersync 安装与配置</p>
+<p>下载安装：<a href="http://pan.baidu.com/s/1bndfcvX" target="_blank" rel="external">sersync in pan.baidu.com</a></p>
 <p>创建sersync目录结构<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mkdir /usr/local/sersync&#10;# mkdir /usr/local/sersync/conf&#10;# mkdir /usr/local/sersync/bin&#10;# mkdir /usr/local/sersync/log&#10;# tar zxvf sersync2.5_32bit_binary_stable_final.tar.gz&#10;# cd GNU-Linux-x86/&#10;# cp confxml.xml /usr/local/sersync/conf&#10;# cp sersync2 /usr/local/sersync/bin</span><br></pre></td></tr></table></figure></p>
 <p>配置sersync</p>
 <p>1.首先创建连接rsyncd的密码文件</p>
@@ -117,10 +121,12 @@
 <p>4.设置环境变量：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># echo &#34;export PATH=$PATH:/usr/local/sersync/bin/&#34; &#62;&#62; /etc/profile&#10;# source /etc/profile</span><br></pre></td></tr></table></figure></p>
 <p>5.启动sersync<br><code># sersync2 -r -d -o /usr/local/sersync/conf/confxml.xml</code><br>注：重启操作如下：<br><code># killall sersync2 &amp;&amp; sersync2 -r -d -o /usr/local/sersync/conf/confxml.xml</code></p>
 <p>6.设置开机启动<br><code># echo &quot;sersync2 -r -d -o /usr/local/sersync/conf/confxml.xml&quot; &gt;&gt; /etc/rc.local</code></p>
-<h4 id="验证："><a href="#验证：" class="headerlink" title="验证："></a>验证：</h4><p>在192.168.1.217这台机器<code>/data/Upload/product/</code>目录下面新增文件，然后在192.168.1.205机器的配置模块目录下查看。</p>
-<h4 id="错误参考："><a href="#错误参考：" class="headerlink" title="错误参考："></a>错误参考：</h4><h5 id="同步模块权限验证失败："><a href="#同步模块权限验证失败：" class="headerlink" title="同步模块权限验证失败："></a>同步模块权限验证失败：</h5><p>单独执行下面这条指令，<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[jrtm@fzb ~]$ cd /data/Upload/product &#38;&#38; rsync -artuz -R --delete ./ 192.168.1.205::data&#10;Password: &#10;@ERROR: auth failed on module data&#10;rsync error: error starting client-server protocol (code 5) at main.c(1503) [sender=3.0.6]</span><br></pre></td></tr></table></figure></p>
+<p>####验证：<br>在192.168.1.217这台机器<code>/data/Upload/product/</code>目录下面新增文件，然后在192.168.1.205机器的配置模块目录下查看。</p>
+<p>####错误参考：</p>
+<p>#####同步模块权限验证失败：<br>单独执行下面这条指令，<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[jrtm@fzb ~]$ cd /data/Upload/product &#38;&#38; rsync -artuz -R --delete ./ 192.168.1.205::data&#10;Password: &#10;@ERROR: auth failed on module data&#10;rsync error: error starting client-server protocol (code 5) at main.c(1503) [sender=3.0.6]</span><br></pre></td></tr></table></figure></p>
 <p>遇到这种情况可以单独执行上面的<code>rsync -artuz -R --delete ./ 192.168.1.205::data</code> 测试下在单独输入密码的情况下能否过去到达相应的模块。</p>
-<h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><ul>
+<p>####参考文章</p>
+<ul>
 <li><a href="http://showerlee.blog.51cto.com/2047005/1248429" target="_blank" rel="external">http://showerlee.blog.51cto.com/2047005/1248429</a></li>
 <li><a href="http://blog.csdn.net/cymm_liu/article/details/31347531" target="_blank" rel="external">http://blog.csdn.net/cymm_liu/article/details/31347531</a></li>
 </ul>
@@ -143,29 +149,24 @@
 -->
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
-</div>
+</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
 
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    menuSettings: {
-      zoom: "None"
-    },
-    showMathMenu: true,
-    jax: ["input/TeX","output/CommonHTML"],
-    extensions: ["tex2jax.js"],
-    TeX: {
-      extensions: ["AMSmath.js","AMSsymbols.js"],
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    tex2jax: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]]
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
     }
   });
 </script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

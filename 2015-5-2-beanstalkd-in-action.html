@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<title>基于Beanstalkd的消息队列实践</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>基于Beanstalkd的消息队列实践</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -29,7 +29,7 @@
 <body>
 
 
-<h2 class="title">基于Beanstalkd的消息队列实践</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">基于Beanstalkd的消息队列实践</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -42,22 +42,21 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#beanstalk"><span class="toc-text">beanstalk</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#job"><span class="toc-text">job</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tube"><span class="toc-text">tube</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#producer"><span class="toc-text">producer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#consumer"><span class="toc-text">consumer</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Beanstalkd特点"><span class="toc-text">Beanstalkd特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#任务优先级-priority"><span class="toc-text">任务优先级 (priority):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#延时任务-delay"><span class="toc-text">延时任务 (delay):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#任务超时重发-time-to-run"><span class="toc-text">任务超时重发 (time-to-run):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#任务预留-buried"><span class="toc-text">任务预留 (buried):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Beanstalkd协议中文版"><span class="toc-text">Beanstalkd协议中文版</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能"><span class="toc-text">性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#client队列投放"><span class="toc-text">client队列投放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#worker：处理出队列的数据"><span class="toc-text">worker：处理出队列的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#result"><span class="toc-text">result</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#beanstalk"><span class="toc-text">beanstalk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Beanstalkd特点"><span class="toc-text">Beanstalkd特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能"><span class="toc-text">性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#client队列投放"><span class="toc-text">client队列投放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#worker：处理出队列的数据"><span class="toc-text">worker：处理出队列的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#result"><span class="toc-text">result</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
 <h3 id="beanstalk"><a href="#beanstalk" class="headerlink" title="beanstalk"></a>beanstalk</h3><p><code>beanstalk</code>中文<code>魔豆</code>，是一个轻量级消息中间件，他的最大特点是将自己定位为基于管道  (tube) 和任务 (job) 的工作队列 (work-queue)：</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/beanstalk.png" alt="enter image description here"></p>
 <p>Beanstalkd设计里面的核心概念：</p>
-<h4 id="job"><a href="#job" class="headerlink" title="job"></a>job</h4><p>一个需要异步处理的任务，是Beanstalkd中的基本单元，需要放在一个tube中。</p>
-<h4 id="tube"><a href="#tube" class="headerlink" title="tube"></a>tube</h4><p>一个有名的任务队列，用来存储统一类型的job，是producer和consumer操作的对象。</p>
-<h4 id="producer"><a href="#producer" class="headerlink" title="producer"></a>producer</h4><p>Job的生产者，通过put命令来将一个job放到一个tube中。</p>
-<h4 id="consumer"><a href="#consumer" class="headerlink" title="consumer"></a>consumer</h4><p>Job的消费者，通过reserve/release/bury/delete命令来获取job或改变job的状态。</p>
+<p>####job<br>一个需要异步处理的任务，是Beanstalkd中的基本单元，需要放在一个tube中。</p>
+<p>####tube<br>一个有名的任务队列，用来存储统一类型的job，是producer和consumer操作的对象。</p>
+<p>####producer<br>Job的生产者，通过put命令来将一个job放到一个tube中。</p>
+<p>####consumer<br>Job的消费者，通过reserve/release/bury/delete命令来获取job或改变job的状态。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/producer-consumer%20%281%29.png" width="92%"></p>
-<h3 id="Beanstalkd特点"><a href="#Beanstalkd特点" class="headerlink" title="Beanstalkd特点"></a>Beanstalkd特点</h3><h4 id="任务优先级-priority"><a href="#任务优先级-priority" class="headerlink" title="任务优先级 (priority):"></a>任务优先级 (priority):</h4><p>任务 (job) 可以有 0~2^32 个优先级, 0 代表最高优先级。 beanstalkd 采用最大最小堆 (Min-max heap) 处理任务优先级排序, 任何时刻调用 reserve 命令的消费者总是能拿到当前优先级最高的任务, 时间复杂度为 O(logn). </p>
-<h4 id="延时任务-delay"><a href="#延时任务-delay" class="headerlink" title="延时任务 (delay):"></a>延时任务 (delay):</h4><p>有两种方式可以延时执行任务 (job): 生产者发布任务时指定延时；或者当任务处理完毕后, 消费者再次将任务放入队列延时执行 (RELEASE with <delay>)。这种机制可以实现分布式的 java.util.Timer，这种分布式定时任务的优势是：如果某个消费者节点故障，任务超时重发 (time-to-run) 能够保证任务转移到另外的节点执行。</delay></p>
-<h4 id="任务超时重发-time-to-run"><a href="#任务超时重发-time-to-run" class="headerlink" title="任务超时重发 (time-to-run):"></a>任务超时重发 (time-to-run):</h4><p>Beanstalkd 把任务返回给消费者以后：消费者必须在预设的 TTR (time-to-run) 时间内发送 delete / release/ bury 改变任务状态；否则 Beanstalkd 会认为消息处理失败，然后把任务交给另外的消费者节点执行。如果消费者预计在 TTR (time-to-run) 时间内无法完成任务, 也可以发送 touch 命令, 它的作用是让 Beanstalkd 从系统时间重新计算 TTR (time-to-run).</p>
-<h4 id="任务预留-buried"><a href="#任务预留-buried" class="headerlink" title="任务预留 (buried):"></a>任务预留 (buried):</h4><p>如果任务因为某些原因无法执行, 消费者可以把任务置为 buried 状态让 Beanstalkd 保留这些任务。管理员可以通过 peek buried 命令查询被保留的任务，并且进行人工干预。简单的, kick <n> 能够一次性把 n 条被保留的任务踢回队列。</n></p>
-<h4 id="Beanstalkd协议中文版"><a href="#Beanstalkd协议中文版" class="headerlink" title="Beanstalkd协议中文版"></a>Beanstalkd协议中文版</h4><p>本博也在之前将师兄翻译的beanstalkd中文协议搬了过来做备用，现在涉及的队列方面的东西越多，就觉得这些资料着实重要。<br><a href="http://www.fzb.me/2015/03/21/beanstalkd-protocol-chinese-version/" target="_blank" rel="external">http://www.fzb.me/2015/03/21/beanstalkd-protocol-chinese-version/</a></p>
+<h3 id="Beanstalkd特点"><a href="#Beanstalkd特点" class="headerlink" title="Beanstalkd特点"></a>Beanstalkd特点</h3><p>####任务优先级 (priority):<br>任务 (job) 可以有 0~2^32 个优先级, 0 代表最高优先级。 beanstalkd 采用最大最小堆 (Min-max heap) 处理任务优先级排序, 任何时刻调用 reserve 命令的消费者总是能拿到当前优先级最高的任务, 时间复杂度为 O(logn). </p>
+<p>####延时任务 (delay):<br>有两种方式可以延时执行任务 (job): 生产者发布任务时指定延时；或者当任务处理完毕后, 消费者再次将任务放入队列延时执行 (RELEASE with <delay>)。这种机制可以实现分布式的 java.util.Timer，这种分布式定时任务的优势是：如果某个消费者节点故障，任务超时重发 (time-to-run) 能够保证任务转移到另外的节点执行。</delay></p>
+<p>####任务超时重发 (time-to-run):<br>Beanstalkd 把任务返回给消费者以后：消费者必须在预设的 TTR (time-to-run) 时间内发送 delete / release/ bury 改变任务状态；否则 Beanstalkd 会认为消息处理失败，然后把任务交给另外的消费者节点执行。如果消费者预计在 TTR (time-to-run) 时间内无法完成任务, 也可以发送 touch 命令, 它的作用是让 Beanstalkd 从系统时间重新计算 TTR (time-to-run).</p>
+<p>####任务预留 (buried):<br>如果任务因为某些原因无法执行, 消费者可以把任务置为 buried 状态让 Beanstalkd 保留这些任务。管理员可以通过 peek buried 命令查询被保留的任务，并且进行人工干预。简单的, kick <n> 能够一次性把 n 条被保留的任务踢回队列。</n></p>
+<p>####Beanstalkd协议中文版<br>本博也在之前将师兄翻译的beanstalkd中文协议搬了过来做备用，现在涉及的队列方面的东西越多，就觉得这些资料着实重要。<br><a href="http://www.fzb.me/2015/03/21/beanstalkd-protocol-chinese-version/" target="_blank" rel="external">http://www.fzb.me/2015/03/21/beanstalkd-protocol-chinese-version/</a></p>
 <h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>参考数据：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -89,7 +88,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>源码下载：<a href="https://github.com/kr/beanstalkd/archive/v1.10.tar.gz" target="_blank" rel="external">https://github.com/kr/beanstalkd/archive/v1.10.tar.gz</a></p>
 <p>启动参数：</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#10140;  ~  beanstalkd --help&#10;Options:&#10; -b DIR   wal directory&#10; -f MS    fsync at most once every MS milliseconds (use -f0 for &#34;always fsync&#34;)&#10; -F       never fsync (default)&#10; -l ADDR  listen on address (default is 0.0.0.0)&#10; -p PORT  listen on port (default is 11300)&#10; -u USER  become user and group&#10; -z BYTES set the maximum job size in bytes (default is 65535)&#10; -s BYTES set the size of each wal file (default is 10485760)&#10;            (will be rounded up to a multiple of 512 bytes)&#10; -c       compact the binlog (default)&#10; -n       do not compact the binlog&#10; -v       show version information&#10; -V       increase verbosity&#10; -h       show this help&#10;&#10;&#10140;  ~  beanstalkd -l 0.0.0.0 -p 11300 -f 300</span><br></pre></td></tr></table></figure>
@@ -120,29 +118,24 @@
 -->
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
-</div>
+</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
 
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    menuSettings: {
-      zoom: "None"
-    },
-    showMathMenu: true,
-    jax: ["input/TeX","output/CommonHTML"],
-    extensions: ["tex2jax.js"],
-    TeX: {
-      extensions: ["AMSmath.js","AMSsymbols.js"],
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    tex2jax: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]]
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
     }
   });
 </script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

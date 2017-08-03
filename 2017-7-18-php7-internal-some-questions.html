@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<title>关于php7内部实现的几个问题</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>关于php7内部实现的几个问题</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -29,7 +29,7 @@
 <body>
 
 
-<h2 class="title">关于php7内部实现的几个问题</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">关于php7内部实现的几个问题</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -114,7 +114,7 @@
 <h4 id="CALL模式"><a href="#CALL模式" class="headerlink" title="CALL模式"></a>CALL模式</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//CALL模式</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">opcode_1_handler</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">opcode_2_handler</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(<span class="keyword">int</span> []op_array)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">void</span> *opcode_handler_list[] = &#123;&amp;opcode_1_handler, &amp;opcode_2_handler, ...&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">void</span> handler = opcode_handler_list[op_array[i]];</span><br><span class="line">        handler(); <span class="comment">//call handler</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="GOTO模式"><a href="#GOTO模式" class="headerlink" title="GOTO模式"></a>GOTO模式</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//GOTO模式</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(<span class="keyword">int</span> []op_array)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">goto</span> opcode_xx_handler_label;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">opcode_1_handler_label:</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">opcode_2_handler_label:</span><br><span class="line">    ...</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="SWITCH模式"><a href="#SWITCH模式" class="headerlink" title="SWITCH模式"></a>SWITCH模式</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//SWITCH模式</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(<span class="keyword">int</span> []op_array)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">switch</span>(op_array[i])&#123;</span><br><span class="line">            <span class="keyword">case</span> opcode_1:</span><br><span class="line">                ...</span><br><span class="line">            <span class="keyword">case</span> opcode_2:</span><br><span class="line">                ...</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>三种模式效率是不同的，GOTO最快。<br>怎么选择其它模式呢？下载PHP源码后不要直接编译，Zend目录下有个文件：zend_vm_gen.php，在编译PHP前执行：php zend_vm_gen.php —with-vm-kind=CALL|SWITCH|GOTO，这个脚本将重新生成:zend_vm_opcodes.h、zend_vm_opcodes.c、zend_vm_execute.h三个文件覆盖原来的，然后再编译PHP即可。</p>
+<p>三种模式效率是不同的，GOTO最快。<br>怎么选择其它模式呢？下载PHP源码后不要直接编译，Zend目录下有个文件：zend_vm_gen.php，在编译PHP前执行：php zend_vm_gen.php –with-vm-kind=CALL|SWITCH|GOTO，这个脚本将重新生成:zend_vm_opcodes.h、zend_vm_opcodes.c、zend_vm_execute.h三个文件覆盖原来的，然后再编译PHP即可。</p>
 <h3 id="PHP5、7的编译执行差异"><a href="#PHP5、7的编译执行差异" class="headerlink" title="PHP5、7的编译执行差异"></a>PHP5、7的编译执行差异</h3><p>其实从以上的编译部分，还有zval的数据结构的变化，也都是导致5、7编译差异之处的根本原因。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://talks.php.net/show/jump-tek17" target="_blank" rel="external">It’s All About the Goto (slide in talk.php.net) by Derick</a></li>
@@ -142,29 +142,7 @@
 -->
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
-</div>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    menuSettings: {
-      zoom: "None"
-    },
-    showMathMenu: true,
-    jax: ["input/TeX","output/CommonHTML"],
-    extensions: ["tex2jax.js"],
-    TeX: {
-      extensions: ["AMSmath.js","AMSsymbols.js"],
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    tex2jax: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]]
-    }
-  });
-</script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

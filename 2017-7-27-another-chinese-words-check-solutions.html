@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<title>汉语错别字检查、词组建议的一个方案</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>汉语错别字检查、词组建议的一个方案</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -29,7 +29,7 @@
 <body>
 
 
-<h2 class="title">汉语错别字检查、词组建议的一个方案</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">汉语错别字检查、词组建议的一个方案</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -42,13 +42,13 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#汉字的数字化"><span class="toc-text">汉字的数字化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实数向量-One-hot-Representation"><span class="toc-text">实数向量 One-hot Representation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#词向量-Distributed-Representation"><span class="toc-text">词向量 Distributed Representation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型"><span class="toc-text">模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语言模型"><span class="toc-text">语言模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#N-gram-neural-model"><span class="toc-text">N-gram neural model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Continuous-Bag-of-Words-model-CBOW"><span class="toc-text">Continuous Bag-of-Words model(CBOW)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Skip-gram-model"><span class="toc-text">Skip-gram model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PaddlePaddle"><span class="toc-text">PaddlePaddle</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddle-Book"><span class="toc-text">Paddle Book</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddle-Models"><span class="toc-text">Paddle Models</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语言处理"><span class="toc-text">语言处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何判断词组的搭配合理性？"><span class="toc-text">如何判断词组的搭配合理性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#学习过程"><span class="toc-text">学习过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交互流程"><span class="toc-text">交互流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#覆盖的端"><span class="toc-text">覆盖的端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#汉字的数字化"><span class="toc-text">汉字的数字化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实数向量-One-hot-Representation"><span class="toc-text">实数向量 One-hot Representation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#词向量-Distributed-Representation"><span class="toc-text">词向量 Distributed Representation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型"><span class="toc-text">模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语言模型"><span class="toc-text">语言模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#N-gram-neural-model"><span class="toc-text">N-gram neural model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Continuous-Bag-of-Words-model-CBOW"><span class="toc-text">Continuous Bag-of-Words model(CBOW)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Skip-gram-model"><span class="toc-text">Skip-gram model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PaddlePaddle"><span class="toc-text">PaddlePaddle</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddle-Book"><span class="toc-text">Paddle Book</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Paddle-Models"><span class="toc-text">Paddle Models</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语言处理"><span class="toc-text">语言处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何判断词组的搭配合理性？"><span class="toc-text">如何判断词组的搭配合理性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#学习过程"><span class="toc-text">学习过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交互流程"><span class="toc-text">交互流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#覆盖的端"><span class="toc-text">覆盖的端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
 <blockquote>
 <p>本文针对的是汉语错别字检查，或者为写作者提供建议词汇组合的一个方案。</p>
 </blockquote>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>故事的背景，从新华社的一篇不论是浏览量还是评论量奇高的新闻稿件（<a href="http://mp.weixin.qq.com/s/75-QKDcu-0GWOKOP7iAkOg" target="_blank" rel="external">公众号文章</a>）说起。</p>
-<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/%E5%BA%9F%E9%BB%9C%EF%BC%88%E5%BA%9F%E9%99%A4%EF%BC%89.jpg" width="70%" alt="废黜与废除"></p>
-<script type="math/tex; mode=display">图1,搜狗输入法发布的“权威错别字”</script><p>我们假定新华社这么多位编辑想输入的是“废黜”，其实他们也确实想这么做，用机器学习的方式指出他们的错误之处，我们还需要知道“废黜”跟“废除”的相关性。</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/%E5%BA%9F%E9%BB%9C%EF%BC%88%E5%BA%9F%E9%99%A4%EF%BC%89.jpg" width="70%" alt="废黜与废除"><br>$$图1,搜狗输入法发布的“权威错别字”$$</p>
+<p>我们假定新华社这么多位编辑想输入的是“废黜”，其实他们也确实想这么做，用机器学习的方式指出他们的错误之处，我们还需要知道“废黜”跟“废除”的相关性。</p>
 <blockquote>
 <p>汉语词语正确性，都是相对的正确性。汉语词组从语境中独立出来看，没有绝对的错误。所以讨论就应该是这个词在当前句子中的正确性。</p>
 </blockquote>
@@ -76,28 +76,34 @@
 <blockquote>
 <p>统计学习的三要素：方法 = 模型 + 策略 + 算法</p>
 </blockquote>
-<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><h4 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h4><p>在介绍词向量模型之前，我们先来引入一个概念：语言模型。 语言模型旨在为语句的联合概率函数<script type="math/tex">P(w_1, …, w_T)</script>建模, 其中<script type="math/tex">w_i</script>表示句子中的第i个词。语言模型的目标是，希望模型对有意义的句子赋予大概率，对没意义的句子赋予小概率。 这样的模型可以应用于很多领域，如机器翻译、语音识别、信息检索、词性标注、手写识别等，它们都希望能得到一个连续序列的概率。 </p>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><h4 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h4><p>在介绍词向量模型之前，我们先来引入一个概念：语言模型。 语言模型旨在为语句的联合概率函数$P(w_1, …, w_T)$建模, 其中$w_i$表示句子中的第i个词。语言模型的目标是，希望模型对有意义的句子赋予大概率，对没意义的句子赋予小概率。 这样的模型可以应用于很多领域，如机器翻译、语音识别、信息检索、词性标注、手写识别等，它们都希望能得到一个连续序列的概率。 </p>
 <p>以上面的稿件为例，当编辑输入“<code>沙特国王萨勒曼21日宣布，废除王储默罕默德·本·纳伊夫，另立穆罕默德·本·萨勒曼为新任王储。</code>”时，识别引擎至少会提示你是否希望输入”<code>沙特国王萨勒曼21日宣布，废黜王储默罕默德·本·纳伊夫，另立穆罕默德·本·萨勒曼为新任王储。</code>“才是正确的, 因为根据语言模型计算出“<code>废除王储</code>”的概率很低，而与”<code>废黜</code>“近似的，可能引起错误的词中，”<code>废除</code>“会使该句生成的概率最大。</p>
-<p>对语言模型的目标概率<script type="math/tex">P(w_1, …, w_T)</script>，如果假设文本中每个词都是相互独立的，则整句话的联合概率可以表示为其中所有词语条件概率的乘积，即：</p>
-<script type="math/tex; mode=display">P(w_1, …, w_T) = \prod_{t=1}^TP(w_t)</script><p>然而我们知道语句中的每个词出现的概率都与其前面的词紧密相关, 所以实际上通常用条件概率表示语言模型：</p>
-<script type="math/tex; mode=display">P(w_1, …, w_T) = \prod_{t=1}^TP(w_t | w_1, … , w_{t-1})</script><h4 id="N-gram-neural-model"><a href="#N-gram-neural-model" class="headerlink" title="N-gram neural model"></a>N-gram neural model</h4><p>在计算语言学中，n-gram是一种重要的文本表示方法，表示一个文本中连续的n个项。基于具体的应用场景，每一项可以是一个字母、单词或者音节。 n-gram模型也是统计语言模型中的一种重要方法，用n-gram训练语言模型时，一般用每个n-gram的历史n-1个词语组成的内容来预测第n个词。</p>
+<p>对语言模型的目标概率$P(w_1, …, w_T)$，如果假设文本中每个词都是相互独立的，则整句话的联合概率可以表示为其中所有词语条件概率的乘积，即：<br><span>$$\\
+P(w_1, &hellip;, w_T) = \prod_{t=1}^TP(w_t)$$</span><!-- Has MathJax --><br>然而我们知道语句中的每个词出现的概率都与其前面的词紧密相关, 所以实际上通常用条件概率表示语言模型：<br><span>$$\\
+P(w_1, &hellip;, w_T) = \prod_{t=1}^TP(w_t | w_1, &hellip; , w_{t-1})$$</span><!-- Has MathJax --></p>
+<h4 id="N-gram-neural-model"><a href="#N-gram-neural-model" class="headerlink" title="N-gram neural model"></a>N-gram neural model</h4><p>在计算语言学中，n-gram是一种重要的文本表示方法，表示一个文本中连续的n个项。基于具体的应用场景，每一项可以是一个字母、单词或者音节。 n-gram模型也是统计语言模型中的一种重要方法，用n-gram训练语言模型时，一般用每个n-gram的历史n-1个词语组成的内容来预测第n个词。</p>
 <p>Yoshua Bengio等科学家的著名论文 <a href="http://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf" target="_blank" rel="external">Neural Probabilistic Language Models</a> 中介绍如何学习一个神经元网络表示的词向量模型。文中的神经概率语言模型（Neural Network Language Model，NNLM）通过一个线性映射和一个非线性隐层连接，同时学习了语言模型和词向量，即通过学习大量语料得到词语的向量表达，通过这些向量得到整个句子的概率。用这种方法学习语言模型可以克服维度灾难（curse of dimensionality）,即训练和测试数据不同导致的模型不准。</p>
-<p>我们在上文中已经讲到用条件概率建模语言模型，即一句话中第t个词的概率和该句话的前t−1个词相关。可实际上越远的词语其实对该词的影响越小，那么如果考虑一个n-gram, 每个词都只受其前面n-1个词的影响，则有：</p>
-<script type="math/tex; mode=display">P(w_1, …, w_T) = \prod_{t=n}^TP(w_t|w_{t-1}, w_{t-2}, …, w_{t-n+1})</script><p>给定一些真实语料，这些语料中都是有意义的句子，N-gram模型的优化目标则是最大化目标函数:</p>
-<script type="math/tex; mode=display">\frac{1}{T}\sum_t f(w_t, w_{t-1}, …, w_{t-n+1};\theta) + R(\theta)</script><p>其中<script type="math/tex">f(w_t, w_{t-1}, …, w_{t-n+1})</script>表示根据历史n-1个词得到当前词<script type="math/tex">w_t</script>的条件概率，R(θ)表示参数正则项。</p>
-<p><img src="http://book.paddlepaddle.org/04.word2vec/image/nnlm.png" width="99%" alt="N-gram神经网络模型"></p>
-<script type="math/tex; mode=display">图2,N-gram神经网络模型</script><p>上图展示了N-gram神经网络模型，从下往上看，该模型分为以下几个部分：</p>
+<p>我们在上文中已经讲到用条件概率建模语言模型，即一句话中第t个词的概率和该句话的前t−1个词相关。可实际上越远的词语其实对该词的影响越小，那么如果考虑一个n-gram, 每个词都只受其前面n-1个词的影响，则有：<br><span>$$\\
+P(w_1, &hellip;, w_T) = \prod_{t=n}^TP(w_t|w_{t-1}, w_{t-2}, &hellip;, w_{t-n+1})$$</span><!-- Has MathJax --><br>给定一些真实语料，这些语料中都是有意义的句子，N-gram模型的优化目标则是最大化目标函数:<br><span>$$\\
+\frac{1}{T}\sum_t f(w_t, w_{t-1}, &hellip;, w_{t-n+1};\theta) + R(\theta)$$</span><!-- Has MathJax --></p>
+<p>其中$f(w<em>t, w</em>{t-1}, …, w_{t-n+1})$表示根据历史n-1个词得到当前词$w_t$的条件概率，R(θ)表示参数正则项。</p>
+<p><img src="http://book.paddlepaddle.org/04.word2vec/image/nnlm.png" width="99%" alt="N-gram神经网络模型"><br>$$图2,N-gram神经网络模型$$</p>
+<p>上图展示了N-gram神经网络模型，从下往上看，该模型分为以下几个部分：</p>
 <ul>
-<li>对于每个样本，模型输入<script type="math/tex">w_{t-n+1},…w_{t-1}</script>, 输出句子第t个词为字典中|V|个词的概率。每个输入词<script type="math/tex">w_{t-n+1},…w_{t-1}</script>首先通过映射矩阵映射到词向量<script type="math/tex">C(w_{t-n+1}),…C(w_{t-1})</script>。</li>
-<li>然后所有词语的词向量连接成一个大向量，并经过一个非线性映射得到历史词语的隐层表示：<script type="math/tex; mode=display">g=Utanh(\theta^Tx + b_1) + Wx + b_2</script>其中，x为所有词语的词向量连接成的大向量，表示文本历史特征；θ、U、<script type="math/tex">b_1</script>、<script type="math/tex">b_2</script>和W分别为词向量层到隐层连接的参数。g表示未经归一化的所有输出单词概率，<script type="math/tex">g_i</script>表示未经归一化的字典中第i个单词的输出概率。</li>
-<li>根据softmax的定义，通过归一化<script type="math/tex">g_i</script>, 生成目标词<script type="math/tex">w_i</script>的概率为：<script type="math/tex; mode=display">P(w_t | w_1, …, w_{t-n+1}) = \frac{e^{g_{w_t}}}{\sum_i^{|V|} e^{g_i}}</script></li>
-<li>整个网络的损失值(cost)为多类分类交叉熵，用公式表示为<script type="math/tex; mode=display">J(\theta) = -\sum_{i=1}^N\sum_{c=1}^{|V|}y_k^{i}log(softmax(g_k^i))</script>其中<script type="math/tex">y_k^i</script>表示第i个样本第k类的真实标签(0或1)，softmax(<script type="math/tex">g_k^i</script>)表示第i个样本第k类softmax输出的概率。</li>
+<li>对于每个样本，模型输入$w<em>{t-n+1},…w</em>{t-1}$, 输出句子第t个词为字典中|V|个词的概率。每个输入词$w<em>{t-n+1},…w</em>{t-1}$首先通过映射矩阵映射到词向量$C(w<em>{t-n+1}),…C(w</em>{t-1})$。</li>
+<li>然后所有词语的词向量连接成一个大向量，并经过一个非线性映射得到历史词语的隐层表示：<br>$$g=Utanh(\theta^Tx + b_1) + Wx + b_2$$<br>其中，x为所有词语的词向量连接成的大向量，表示文本历史特征；θ、U、$b_1$、$b_2$和W分别为词向量层到隐层连接的参数。g表示未经归一化的所有输出单词概率，$g_i$表示未经归一化的字典中第i个单词的输出概率。</li>
+<li>根据softmax的定义，通过归一化$g_i$, 生成目标词$w_i$的概率为：<span>$$\\
+P(w_t | w_1, &hellip;, w_{t-n+1}) = \frac{e^{g_{w_t}}}{\sum_i^{|V|} e^{g_i}}$$</span><!-- Has MathJax --></li>
+<li>整个网络的损失值(cost)为多类分类交叉熵，用公式表示为<span>$$\\
+J(\theta) = -\sum_{i=1}^N\sum_{c=1}^{|V|}y_k^{i}log(softmax(g_k^i))$$</span><!-- Has MathJax -->
+其中$y_k^i$表示第i个样本第k类的真实标签(0或1)，softmax($g_k^i$)表示第i个样本第k类softmax输出的概率。</li>
 </ul>
-<h4 id="Continuous-Bag-of-Words-model-CBOW"><a href="#Continuous-Bag-of-Words-model-CBOW" class="headerlink" title="Continuous Bag-of-Words model(CBOW)"></a>Continuous Bag-of-Words model(CBOW)</h4><p>CBOW模型通过一个词的上下文（各N个词）预测当前词。当N=2时，模型如下图所示：<br><img src="http://book.paddlepaddle.org/04.word2vec/image/cbow.png" width="50%"></p>
-<script type="math/tex; mode=display">图3,CBOW模型</script><p>具体来说，不考虑上下文的词语输入顺序，CBOW是用上下文词语的词向量的均值来预测当前词。即：</p>
-<script type="math/tex; mode=display">context = \frac{x_{t-1} + x_{t-2} + x_{t+1} + x_{t+2}}{4}</script><p>其中xt为第t个词的词向量，分类分数（score）向量 <script type="math/tex">z=U*context</script>，最终的分类y采用softmax，损失函数采用多类分类交叉熵。</p>
-<h4 id="Skip-gram-model"><a href="#Skip-gram-model" class="headerlink" title="Skip-gram model"></a>Skip-gram model</h4><p>CBOW的好处是对上下文词语的分布在词向量上进行了平滑，去掉了噪声，因此在小数据集上很有效。而Skip-gram的方法中，用一个词预测其上下文，得到了当前词上下文的很多样本，因此可用于更大的数据集。<br><img src="http://book.paddlepaddle.org/04.word2vec/image/skipgram.png" width="50%"></p>
-<script type="math/tex; mode=display">图4,Skip-gram模型</script><p>如上图所示，Skip-gram模型的具体做法是，将一个词的词向量映射到2n个词的词向量（2n表示当前输入词的前后各n个词），然后分别通过softmax得到这2n个词的分类损失值之和。</p>
+<h4 id="Continuous-Bag-of-Words-model-CBOW"><a href="#Continuous-Bag-of-Words-model-CBOW" class="headerlink" title="Continuous Bag-of-Words model(CBOW)"></a>Continuous Bag-of-Words model(CBOW)</h4><p>CBOW模型通过一个词的上下文（各N个词）预测当前词。当N=2时，模型如下图所示：<br><img src="http://book.paddlepaddle.org/04.word2vec/image/cbow.png" width="50%"><br>$$图3,CBOW模型$$</p>
+<p>具体来说，不考虑上下文的词语输入顺序，CBOW是用上下文词语的词向量的均值来预测当前词。即：<br><span>$$\\
+context = \frac{x_{t-1} + x_{t-2} + x_{t+1} + x_{t+2}}{4}$$</span><!-- Has MathJax --></p>
+<p>其中xt为第t个词的词向量，分类分数（score）向量 $z=U*context$，最终的分类y采用softmax，损失函数采用多类分类交叉熵。</p>
+<h4 id="Skip-gram-model"><a href="#Skip-gram-model" class="headerlink" title="Skip-gram model"></a>Skip-gram model</h4><p>CBOW的好处是对上下文词语的分布在词向量上进行了平滑，去掉了噪声，因此在小数据集上很有效。而Skip-gram的方法中，用一个词预测其上下文，得到了当前词上下文的很多样本，因此可用于更大的数据集。<br><img src="http://book.paddlepaddle.org/04.word2vec/image/skipgram.png" width="50%"><br>$$图4,Skip-gram模型$$</p>
+<p>如上图所示，Skip-gram模型的具体做法是，将一个词的词向量映射到2n个词的词向量（2n表示当前输入词的前后各n个词），然后分别通过softmax得到这2n个词的分类损失值之和。</p>
 <h3 id="PaddlePaddle"><a href="#PaddlePaddle" class="headerlink" title="PaddlePaddle"></a>PaddlePaddle</h3><p>PaddlePaddle的开发工程师介绍，自开源后，在推广方面也是下了大工夫，比如他们做了Book、Modelsl两个项目，让更多人参与到框架的使用过程中。</p>
 <h4 id="Paddle-Book"><a href="#Paddle-Book" class="headerlink" title="Paddle Book"></a>Paddle Book</h4><ul>
 <li>1、6个典型任务，深入讲解深度学习模型：<ul>
@@ -120,7 +126,6 @@
 <li>全中文文档详细讲解如何运行，如何预测文档</li>
 </ul>
 <h3 id="语言处理"><a href="#语言处理" class="headerlink" title="语言处理"></a>语言处理</h3><p>句子的处理，词性分析等，使用百度AI提供的<a href="http://ai.baidu.com/docs#/NLP-API/top" target="_blank" rel="external">自然语言处理</a>相关接口来实现</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -151,8 +156,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><h4 id="如何判断词组的搭配合理性？"><a href="#如何判断词组的搭配合理性？" class="headerlink" title="如何判断词组的搭配合理性？"></a>如何判断词组的搭配合理性？</h4><p><em>汉字数量</em> ：<a href="https://zh.wikipedia.org/wiki/GB_18030" target="_blank" rel="external">GB 18030</a>是中华人民共和国现时最新的内码字集，总共收录70244个汉字；</p>
+<p>###Question</p>
+<h4 id="如何判断词组的搭配合理性？"><a href="#如何判断词组的搭配合理性？" class="headerlink" title="如何判断词组的搭配合理性？"></a>如何判断词组的搭配合理性？</h4><p><em>汉字数量</em> ：<a href="https://zh.wikipedia.org/wiki/GB_18030" target="_blank" rel="external">GB 18030</a>是中华人民共和国现时最新的内码字集，总共收录70244个汉字；</p>
 <p>汉语的词组搭配，就像是英文中26个字母的词组一样，只需要判断这个词组即可。<br>如何在如此多的汉字数量中，有相关组合的词组的词频，这跟英文的词组搭配相似，建立相应的词组词频数据库，用户数据库也作为一部分。</p>
 <p>所以这里所说的词组的搭配正确性，都是相对的正确性。汉语词组从语境中独立出来看，没有绝对的错误。所以讨论就应该是这个词在当前句子中的正确性。</p>
 <h4 id="学习过程"><a href="#学习过程" class="headerlink" title="学习过程"></a>学习过程</h4><ul>
@@ -206,7 +211,7 @@
 <ul>
 <li>流程图 ：<a href="https://github.com/bubkoo/hexo-filter-flowchart" target="_blank" rel="external">https://github.com/bubkoo/hexo-filter-flowchart</a></li>
 <li>时序图 ：<a href="https://github.com/bubkoo/hexo-filter-sequence" target="_blank" rel="external">https://github.com/bubkoo/hexo-filter-sequence</a></li>
-<li>mathjax/2.6.1 <a href="https://github.com/mickeyouyou/hexo-renderer-kramed" target="_blank" rel="external">https://github.com/mickeyouyou/hexo-renderer-kramed</a><br><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Browser->Client:文档、段落、句子的拆分
+<li>hexo-math <a href="https://github.com/hexojs/hexo-math" target="_blank" rel="external">https://github.com/hexojs/hexo-math</a><br><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Browser->Client:文档、段落、句子的拆分
 Client->Service: 文档、段落、实时编辑的句子
 Note right of Service: 基于词向量的整句概率检查
 Service->Client: 概率由高到底，作为建议词组
@@ -244,29 +249,24 @@ c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none
 -->
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
-</div>
+</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
 
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    menuSettings: {
-      zoom: "None"
-    },
-    showMathMenu: true,
-    jax: ["input/TeX","output/CommonHTML"],
-    extensions: ["tex2jax.js"],
-    TeX: {
-      extensions: ["AMSmath.js","AMSsymbols.js"],
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    tex2jax: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]]
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
     }
   });
 </script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

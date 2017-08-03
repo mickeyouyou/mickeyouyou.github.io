@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<title>Symbol table and Array API 符号表和数组API</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Symbol table and Array API 符号表和数组API</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -21,7 +21,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -29,7 +29,7 @@
 <body>
 
 
-<h2 class="title">Symbol table and Array API 符号表和数组API</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Symbol table and Array API 符号表和数组API</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -63,7 +63,6 @@
 <p>剩下的函数全都是处理插入值到一个数组的这种。有四组相似操作的函数：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Insert at next index */</span></span><br><span class="line"><span class="keyword">int</span> add_next_index_*(zval *arg, ...);</span><br><span class="line"><span class="comment">/* Insert at specific index */</span></span><br><span class="line"><span class="keyword">int</span> add_index_*(zval *arg, ulong idx, ...);</span><br><span class="line"><span class="comment">/* Insert at specific key */</span></span><br><span class="line"><span class="keyword">int</span> add_assoc_*(zval *arg, <span class="keyword">const</span> <span class="keyword">char</span> *key, ...);</span><br><span class="line"><span class="comment">/* Insert at specific key of length key_len (for binary safety) */</span></span><br><span class="line"><span class="keyword">int</span> add_assoc_*_ex(zval *arg, <span class="keyword">const</span> <span class="keyword">char</span> *key, uint key_len, ...);</span><br></pre></td></tr></table></figure>
 <p>这里<code>*</code>和<code>...</code>是占位符类型参数。他们的有效值列在下表中：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -102,7 +101,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>让我们来一个例子介绍这些函数的使用方法，让我们创建一个有不同类型键的数组：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">PHP_FUNCTION(make_array) &#123;</span><br><span class="line">    zval *zv;</span><br><span class="line"></span><br><span class="line">    array_init(return_value);</span><br><span class="line"></span><br><span class="line">    add_index_long(return_value, <span class="number">10</span>, <span class="number">100</span>);</span><br><span class="line">    add_index_double(return_value, <span class="number">20</span>, <span class="number">3.141</span>);</span><br><span class="line">    add_index_string(return_value, <span class="number">30</span>, <span class="string">"foo"</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    add_next_index_bool(return_value, <span class="number">1</span>);</span><br><span class="line">    add_next_index_stringl(return_value, <span class="string">"\0bar"</span>, <span class="keyword">sizeof</span>(<span class="string">"\0bar"</span>)-<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    add_assoc_null(return_value, <span class="string">"foo"</span>);</span><br><span class="line">    add_assoc_long(return_value, <span class="string">"bar"</span>, <span class="number">42</span>);</span><br><span class="line"></span><br><span class="line">    add_assoc_double_ex(return_value, <span class="string">"\0bar"</span>, <span class="keyword">sizeof</span>(<span class="string">"\0bar"</span>), <span class="number">1.61</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* For some things you still have to manually create a zval... */</span></span><br><span class="line">    MAKE_STD_ZVAL(zv);</span><br><span class="line">    object_init(zv);</span><br><span class="line">    add_next_index_zval(return_value, zv);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>var_dump()</code>输出这个数组如下（NUL字节由\0替换）：<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">array</span>(<span class="number">9</span>) &#123;</span><br><span class="line">  [<span class="number">10</span>]=&gt;</span><br><span class="line">  int(<span class="number">100</span>)</span><br><span class="line">  [<span class="number">20</span>]=&gt;</span><br><span class="line">  float(<span class="number">3.141</span>)</span><br><span class="line">  [<span class="number">30</span>]=&gt;</span><br><span class="line">  string(<span class="number">3</span>) <span class="string">"foo"</span></span><br><span class="line">  [<span class="number">31</span>]=&gt;</span><br><span class="line">  bool(<span class="keyword">true</span>)</span><br><span class="line">  [<span class="number">32</span>]=&gt;</span><br><span class="line">  string(<span class="number">4</span>) <span class="string">"\0bar"</span></span><br><span class="line">  [<span class="string">"foo"</span>]=&gt;</span><br><span class="line">  <span class="keyword">NULL</span></span><br><span class="line">  [<span class="string">"bar"</span>]=&gt;</span><br><span class="line">  int(<span class="number">42</span>)</span><br><span class="line">  [<span class="string">"\0bar"</span>]=&gt;</span><br><span class="line">  float(<span class="number">1.61</span>)</span><br><span class="line">  [<span class="number">33</span>]=&gt;</span><br><span class="line">  object(stdClass)<span class="comment">#1 (0) &#123;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -110,7 +108,7 @@
 <p>此外应指出的是，虽然这些函数以<code>add</code>开头，但他们更像更新功能，因为他们会覆盖以前现有键。</p>
 <p>有几个额外的 add_get 函数都插入一个值并再次获取 (类似于 <code>zend_hash_update</code> 函数的最后一个参数)。几乎从不使用它们，也不会在这里讨论出于完整性的考虑。</p>
 <p>哈希表、 符号表和数组 的Api 之旅就此结束。</p>
-<h3 id="参考部分"><a href="#参考部分" class="headerlink" title="参考部分"></a>参考部分</h3><p><a href="http://www.phpinternalsbook.com/hashtables/array_api.html" target="_blank" rel="external">SYMTABLE AND ARRAY API——PHP Internals Book</a></p>
+<h3 id="参考部分"><a href="#参考部分" class="headerlink" title="参考部分"></a>参考部分</h3><p><a href="http://www.phpinternalsbook.com/hashtables/array_api.html" target="_blank" rel="external">SYMTABLE AND ARRAY API—-PHP Internals Book</a></p>
 <p><a href="https://zh.wikipedia.org/wiki/%E7%AC%A6%E5%8F%B7%E8%A1%A8" target="_blank" rel="external">符号表</a></p>
 <p><a href="http://www.levijackson.net/php-zvals-and-symbol-tables/" target="_blank" rel="external">PHP ZVALS AND SYMBOL TABLE(S)</a></p>
 
@@ -132,29 +130,7 @@
 -->
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
-</div>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    menuSettings: {
-      zoom: "None"
-    },
-    showMathMenu: true,
-    jax: ["input/TeX","output/CommonHTML"],
-    extensions: ["tex2jax.js"],
-    TeX: {
-      extensions: ["AMSmath.js","AMSsymbols.js"],
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    tex2jax: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]]
-    }
-  });
-</script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
