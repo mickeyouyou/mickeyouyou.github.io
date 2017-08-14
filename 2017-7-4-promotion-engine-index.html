@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>糯米促销引擎系统中的正排索引与倒排索引</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>糯米促销引擎中的正排索引与倒排索引</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -29,7 +29,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">糯米促销引擎系统中的正排索引与倒排索引</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">糯米促销引擎中的正排索引与倒排索引</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -43,8 +43,9 @@
 </div>
 
 <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正排索引"><span class="toc-text">正排索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倒排索引"><span class="toc-text">倒排索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#活动与团单的对应关系"><span class="toc-text">活动与团单的对应关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#活动的规则配置"><span class="toc-text">活动的规则配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动倒排索引"><span class="toc-text">活动倒排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动正排索引"><span class="toc-text">活动正排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动在促销引擎的匹配"><span class="toc-text">活动在促销引擎的匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求来源"><span class="toc-text">请求来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全国活动"><span class="toc-text">全国活动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动类型"><span class="toc-text">活动类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeline"><span class="toc-text">pipeline</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附"><span class="toc-text">附</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>糯米使用的一个促销引擎，为糯米的各个端与组件提供团单、城市、端类型维度的促销信息，还可以完成对用户设备类型、手机号码、百度账号级别的购买次数限制，之所以叫做促销引擎也是因为其中与搜索引擎在排序方面有一部分相关性吧。</p>
-<p>促销引擎的数据来源非常依赖Redis，在Redis数据服务不可用的情况下，停止对外服务。<br>Redis服务基本上依赖百度内部的BDRP（Baidu Distributed Redis Platform）平台，机器数量150左右，数据量在900G左右。业务机器数量在200台左右。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>糯米使用的一个促销引擎，为糯米的各个端与组件提供团单、城市、端类型维度的促销信息，还可以完成对用户设备类型、手机号码、百度账号级别的购买次数限制，之所以叫做促销引擎下游不用关心具体的规则，给出请求，为你算价，吐出物料等活动规则，另外一部分原因也是其中与搜索引擎在排序方面有一部分相关。</p>
+<p>促销引擎的数据来源非常依赖Redis，在Redis数据服务不可用的情况下，停止对外服务。</p>
+<p>Redis服务基本上依赖百度内部的BDRP（Baidu Distributed Redis Platform）平台，机器数量150左右，数据量在900G左右。业务机器数量在200台左右。</p>
 <p>先说说正排索引与倒排索引。</p>
 <h2 id="正排索引"><a href="#正排索引" class="headerlink" title="正排索引"></a>正排索引</h2><p>正排索引(forward index)：从文档角度看其中的单词，表示每个文档（用文档ID标识）都含有哪些单词，以及每个单词出现了多少次（词频）及其出现位置（相对于文档首部的偏移量）。</p>
 <h2 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h2><p>倒排索引（inverted index），也常被称为反向索引、置入档案或反向档案，是一种索引方法，被用来存储在全文搜索下某个单词在一个文档或者一组文档中的存储位置的映射。它是文档检索系统中最常用的数据结构。</p>
