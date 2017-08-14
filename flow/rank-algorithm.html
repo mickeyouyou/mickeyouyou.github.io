@@ -1,0 +1,161 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>排序算法</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">排序算法</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年8月14日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#排序算法"><span class="toc-text">排序算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#稳定性"><span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#稳定的排序"><span class="toc-text">稳定的排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不稳定的排序"><span class="toc-text">不稳定的排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不实用的排序"><span class="toc-text">不实用的排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冒泡排序-Bubble-Sort"><span class="toc-text">冒泡排序 Bubble Sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速排序-Quicksort"><span class="toc-text">快速排序 Quicksort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
+<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><p>一个排序算法（Sorting algorithm）是一种能将一串数据依照特定排序方式进行排列的一种算法。最常用到的排序方式是数值顺序以及字典顺序。有效的排序算法在一些算法（例如搜索算法与合并算法）中是重要的，如此这些算法才能得到正确解答。排序算法也用在处理文字数据以及产生人类可读的输出结果。基本上，排序算法的输出必须遵守下列两个原则：</p>
+<ul>
+<li>输出结果为递增序列（递增是针对所需的排序顺序而言）</li>
+<li>输出结果是原输入的一种排列、或是重组</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>在计算机科学所使用的排序算法通常被分类为：</p>
+<ul>
+<li>计算的时间复杂度（最差、平均、和最好性能），依据列表（list）的大小(n)。一般而言，好的性能是O(n log n)，且坏的性能是$Ο(n^2)$。对于一个排序理想的性能是O(n)。仅使用一个抽象关键比较运算的排序算法总平均上总是至少需要O(n log n)。</li>
+<li>内存使用量（以及其他电脑资源的使用）</li>
+<li>稳定性：稳定排序算法会让原本有相等键值的纪录维持相对次序。也就是如果一个排序算法是稳定的，当有两个相等键值的纪录R和S，且在原本的列表中R出现在S之前，在排序过的列表中R也将会是在S之前。</li>
+<li>依据排序的方法：插入、交换、选择、合并等等。</li>
+</ul>
+<h3 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h3><p>当相等的元素是无法分辨的，比如像是整数，稳定性并不是一个问题。然而，假设以下的数对将要以他们的第一个数字来排序。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(4, 1)  (3, 1)  (3, 7)&#65288;5, 6&#65289;</span><br></pre></td></tr></table></figure></p>
+<p>在这个状况下，有可能产生两种不同的结果，一个是让相等键值的纪录维持相对的次序，而另外一个则没有：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(3, 1)  (3, 7)  (4, 1)  (5, 6)  &#65288;&#32173;&#25345;&#27425;&#24207;&#65289;&#10;(3, 7)  (3, 1)  (4, 1)  (5, 6)  &#65288;&#27425;&#24207;&#34987;&#25913;&#35722;&#65289;</span><br></pre></td></tr></table></figure></p>
+<p>不稳定排序算法可能会在相等的键值中改变纪录的相对次序，但是稳定排序算法从来不会如此。不稳定排序算法可以被特别地实现为稳定。作这件事情的一个方式是人工扩充键值的比较，如此在其他方面相同键值的两个对象间之比较，（比如上面的比较中加入第二个标准：第二个键值的大小）就会被决定使用在原先数据次序中的条目，当作一个同分决赛。然而，要记住这种次序通常牵涉到额外的空间负担。</p>
+<h3 id="稳定的排序"><a href="#稳定的排序" class="headerlink" title="稳定的排序"></a>稳定的排序</h3><ul>
+<li>冒泡排序（bubble sort）— $Ο(n^2)$</li>
+<li>插入排序（insertion sort）—$Ο(n^2)$</li>
+<li>鸡尾酒排序（cocktail sort）—$Ο(n^2)$</li>
+<li>桶排序（bucket sort）—O(n)；需要O(k)额外空间</li>
+<li>计数排序（counting sort）—O(n+k)；需要O(n+k)额外空间</li>
+<li>归并排序（merge sort）—O(n log n)；需要O(n)额外空间</li>
+<li>原地归并排序— O(n log2 n)如果使用最佳的现在版本</li>
+<li>二叉排序树排序（binary tree sort）— O(n log n)期望时间；$Ο(n^2)$最坏时间；需要O(n)额外空间</li>
+<li>鸽巢排序（pigeonhole sort）—O(n+k)；需要O(k)额外空间</li>
+<li>基数排序（radix sort）—O(n·k)；需要O(n)额外空间</li>
+<li>侏儒排序（gnome sort）— $Ο(n^2)$</li>
+<li>图书馆排序（library sort）— O(n log n)期望时间；$Ο(n^2)$最坏时间；需要(1+ε)n额外空间</li>
+<li>块排序（block sort）— O(n log n)</li>
+</ul>
+<h3 id="不稳定的排序"><a href="#不稳定的排序" class="headerlink" title="不稳定的排序"></a>不稳定的排序</h3><ul>
+<li>选择排序（selection sort）—$Ο(n^2)$</li>
+<li>希尔排序（shell sort）—O(n log2 n)如果使用最佳的现在版本</li>
+<li>Clover排序算法（Clover sort）—O(n)期望时间，$Ο(n^2)$最坏情况</li>
+<li>梳排序— O(n log n)</li>
+<li>堆排序（heap sort）—O(n log n)</li>
+<li>平滑排序（smooth sort）— O(n log n)</li>
+<li>快速排序（quick sort）—O(n log n)期望时间，$Ο(n^2)$最坏情况；对于大的、随机数列表一般相信是最快的已知排序</li>
+<li>内省排序（introsort）—O(n log n)</li>
+<li>耐心排序（patience sort）—O(n log n + k)最坏情况时间，需要额外的O(n + k)空间，也需要找到最长的递增子序列（longest increasing subsequence）</li>
+</ul>
+<h3 id="不实用的排序"><a href="#不实用的排序" class="headerlink" title="不实用的排序"></a>不实用的排序</h3><ul>
+<li>Bogo排序— O(n × n!)，最坏的情况下期望时间为无穷。</li>
+<li>Stupid排序—O(n3);递归版本需要$Ο(n^2)$额外内存</li>
+<li>珠排序（bead sort）— O(n) or O(√n),但需要特别的硬件</li>
+<li>煎饼排序—O(n),但需要特别的硬件</li>
+<li>臭皮匠排序（stooge sort）算法简单，但需要约n^2.7的时间</li>
+</ul>
+<h2 id="冒泡排序-Bubble-Sort"><a href="#冒泡排序-Bubble-Sort" class="headerlink" title="冒泡排序 Bubble Sort"></a>冒泡排序 Bubble Sort</h2><p>冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。<br><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif"></p>
+<p>冒泡排序算法的运作如下：</p>
+<ul>
+<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。</li>
+<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ul>
+<figure class="highlight php"><figcaption><span>bubble sort</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="variable">$rank</span> = [<span class="number">9</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable">$n</span> = count(<span class="variable">$rank</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span>&lt;<span class="variable">$n</span> ; <span class="variable">$i</span>++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$j</span>= <span class="variable">$i</span> + <span class="number">1</span>; <span class="variable">$j</span> &lt; <span class="variable">$n</span>; <span class="variable">$j</span>++) &#123; </span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$rank</span>[<span class="variable">$i</span>] &gt; <span class="variable">$rank</span>[<span class="variable">$j</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$a</span> = <span class="variable">$rank</span>[<span class="variable">$i</span>];</span><br><span class="line">            <span class="variable">$rank</span>[<span class="variable">$i</span>] = <span class="variable">$rank</span>[<span class="variable">$j</span>];</span><br><span class="line">            <span class="variable">$rank</span>[<span class="variable">$j</span>] = <span class="variable">$a</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="快速排序-Quicksort"><a href="#快速排序-Quicksort" class="headerlink" title="快速排序 Quicksort"></a>快速排序 Quicksort</h2><p>快速排序，又称划分交换排序（partition-exchange sort），最早由东尼·霍尔提出。在平均状况下，排序n个项目要Ο(n log n)次比较。在最坏状况下则需要$Ο(n^2)$次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n)算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
+<p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）。<br>步骤为：</p>
+<ul>
+<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
+<li>重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
+<li>递归地（recursively）把小于基准值元素的子数列和大于基准值元素的子数列排序。</li>
+</ul>
+<p>递归到最底部时，数列的大小是零或一，也就是已经排序好了。这个算法一定会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif"></p>
+<figure class="highlight php"><figcaption><span>quick sort </span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quick_sort</span><span class="params">(<span class="variable">$rank</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="variable">$n</span> = count(<span class="variable">$rank</span>);</span><br><span class="line">    <span class="variable">$middle</span> = <span class="variable">$n</span>&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="variable">$middle_value</span> = <span class="variable">$rank</span>[<span class="variable">$middle</span>];</span><br><span class="line"></span><br><span class="line">    <span class="variable">$left</span> = <span class="variable">$right</span> = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span>&lt;<span class="variable">$n</span> ; <span class="variable">$i</span>++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$middle</span> == <span class="variable">$i</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$rank</span>[<span class="variable">$i</span>] &lt; <span class="variable">$middle_value</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$left</span>[] = <span class="variable">$rank</span>[<span class="variable">$i</span>];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$right</span>[] = <span class="variable">$rank</span>[<span class="variable">$i</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array_merge(quick_sort(<span class="variable">$left</span>), <span class="variable">$middle_value</span>, quick_sort(<span class="variable">$right</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$rank</span> = [<span class="number">9</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="variable">$new_rank</span> = quick_sort(<span class="variable">$rank</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" target="_blank" rel="external">排序算法</a></li>
+<li><a href="https://zh.wikipedia.org/zh-cn/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" target="_blank" rel="external">快速排序</a></li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/flow/rank-algorithm.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
