@@ -1,0 +1,81 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>cpp</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">cpp</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年8月15日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#auto"><span class="toc-text">auto</span></a></li></ol>
+<h4 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h4><p>auto关键字用于两种情况：声明变量时根据初始化表达式自动推断该变量的类型、声明函数时函数返回值的占位符。</p>
+<p>auto可以在声明变量时根据变量初始值的类型自动为此变量选择匹配的类型。C++语言类似的关键字还有decltype。<br>举例：对于值x=1；即可以声明：int x = 1或long x = 1，也可以直接声明auto x = 1。<br>其它语言的类似功能包括C#的var关键字。</p>
+<p>根据初始化表达式自动推断被声明的变量的类型，如：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> f=<span class="number">3.14</span>;      <span class="comment">//double</span></span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">s</span><span class="params">("hello")</span></span>;  <span class="comment">//const char*</span></span><br><span class="line"><span class="keyword">auto</span> z = <span class="keyword">new</span> <span class="keyword">auto</span>(<span class="number">9</span>); <span class="comment">// int*</span></span><br><span class="line"><span class="keyword">auto</span> x1 = <span class="number">5</span>, x2 = <span class="number">5.0</span>, x3=<span class="string">'r'</span>;<span class="comment">//错误，必须是初始化为同一类型</span></span><br></pre></td></tr></table></figure></p>
+<p>但是，这么简单的变量声明类型，不建议用auto关键字，而是应更清晰地直接写出其类型。<br>auto关键字更适用于类型冗长复杂、变量使用范围专一时，使程序更清晰易读：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.begin(); it != vect.end(); ++it)</span><br><span class="line"> &#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>或者保存lambda表达式类型的变量声明：<br><code>auto ptr = [](double x){return x*x;};//类型为std::function&lt;double(double)&gt;</code>函数对象<br>在模板函数定义时，如果变量的类型依赖于模板参数，使用auto关键字使得在编译期确定这些类型，如：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt;<span class="function"><span class="keyword">void</span> <span class="title">Multiply</span><span class="params">(T t, U u)</span></span><br><span class="line"> </span>&#123;</span><br><span class="line">      <span class="keyword">auto</span> v = t * u;</span><br><span class="line">      <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;v;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>模板函数的返回类型如果也是依赖于从模板参数推导，<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> _Tx, <span class="keyword">typename</span> _Ty&gt;</span><br><span class="line"> <span class="function"><span class="keyword">auto</span> <span class="title">multiply</span><span class="params">(_Tx v1, _Ty v2)</span> -&gt; <span class="title">decltype</span><span class="params">( _Tx * _Ty )</span></span><br><span class="line"> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> v1*v2;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">auto</span> result = multiply(<span class="number">101</span>, <span class="number">1.414</span>); <span class="comment">// 结果类型是double</span></span><br></pre></td></tr></table></figure></p>
+<p>参考 <a href="https://zh.wikipedia.org/wiki/Auto_(C%2B%2B" target="_blank" rel="external">Auto (C++)</a>)</p>
+
+
+<!--<a href="http://yoursite.com/language/cc.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

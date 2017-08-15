@@ -42,13 +42,24 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-中既然已经有命名空间，为何还有include？"><span class="toc-text">C++中既然已经有命名空间，为何还有include？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仓库内的模块如何被识别？"><span class="toc-text">仓库内的模块如何被识别？</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目前Apollo只支持Ubuntu的原因是？"><span class="toc-text">目前Apollo只支持Ubuntu的原因是？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-中既然已经有命名空间，为何还有include？"><span class="toc-text">C++中既然已经有命名空间，为何还有include？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仓库内的模块如何被识别？"><span class="toc-text">仓库内的模块如何被识别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码阅读的一个走向"><span class="toc-text">代码阅读的一个走向</span></a></li></ol>
+<h3 id="目前Apollo只支持Ubuntu的原因是？"><a href="#目前Apollo只支持Ubuntu的原因是？" class="headerlink" title="目前Apollo只支持Ubuntu的原因是？"></a>目前Apollo只支持Ubuntu的原因是？</h3><p><img src="http://www.ros.org/wp-content/uploads/2013/10/rosorg-logo1.png"><br>因为底层的Ros只支持Ubuntu系统，所以导致了Apollo基础的编译与运行环境为Ubuntu。</p>
+<p>ros目前支持的环境为Ubuntu，其他环境为测试版本的环境。</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/MacHi%202017-08-15%2010-43-34.png" width="99%"></p>
+<p>参考：<br><a href="http://wiki.ros.org/cn/ROS/Installation" target="_blank" rel="external">ROS 最新发行版Jade 安装指南</a></p>
 <h3 id="C-中既然已经有命名空间，为何还有include？"><a href="#C-中既然已经有命名空间，为何还有include？" class="headerlink" title="C++中既然已经有命名空间，为何还有include？"></a>C++中既然已经有命名空间，为何还有include？</h3><p>代码库中会有很多这样的include，但其实Apollo的代码都是以命名空间的当时包起来的，为什么还会有这样的包含呢？</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "modules/canbus/can_client/fake/fake_can_client.h"</span></span><br></pre></td></tr></table></figure>
 <p>其实你发现主要是头文件的包含，cc文件是没有被包含进来的。</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "CivetServer.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "gflags/gflags.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "google/protobuf/util/json_util.h"</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "modules/common/log.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "modules/common/time/time.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "modules/dreamview/backend/simulation_world_service.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "modules/dreamview/backend/websocket.h"</span></span><br></pre></td></tr></table></figure>
 <p>但问题的还没被解释清楚，头文件中依然有命名空间定义。</p>
-<h3 id="仓库内的模块如何被识别？"><a href="#仓库内的模块如何被识别？" class="headerlink" title="仓库内的模块如何被识别？"></a>仓库内的模块如何被识别？</h3>
+<h3 id="仓库内的模块如何被识别？"><a href="#仓库内的模块如何被识别？" class="headerlink" title="仓库内的模块如何被识别？"></a>仓库内的模块如何被识别？</h3><h3 id="代码阅读的一个走向"><a href="#代码阅读的一个走向" class="headerlink" title="代码阅读的一个走向"></a>代码阅读的一个走向</h3><p>hmi:</p>
+<ul>
+<li>ros_service_api/start_auto_driving 启动自动驾驶</li>
+<li>ros_service_api/reset 停止自动驾驶模式，重置为手动驾驶</li>
+</ul>
+<p>启动自动驾驶代码逻辑：</p>
+<p>通过发送GRPC请求运行ROS命令，返回HTTP状态码<br>工具状态<br>渠道</p>
+
 
 <!--<a href="http://yoursite.com/apollo/question.html#disqus_thread" class="article-comment-link">Comments</a>
 <div id="disqus_thread"></div>
