@@ -1,0 +1,146 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>My Flow 201707</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">My Flow 201707</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年8月16日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-07-28"><span class="toc-text">2017.07.28</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-07-27"><span class="toc-text">2017.07.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-07-22"><span class="toc-text">2017.07.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型-参考redis-五种数据类型的使用场景"><span class="toc-text">数据类型 参考redis 五种数据类型的使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步原理、过程"><span class="toc-text">同步原理、过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份机制：rdb-aof-区别是什么，-分别有怎样的特性"><span class="toc-text">备份机制：rdb,aof, 区别是什么， 分别有怎样的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊情况：内存用完了在执行写入会怎样？redis在备份的时候能否写入？"><span class="toc-text">特殊情况：内存用完了在执行写入会怎样？redis在备份的时候能否写入？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单介绍一下nginx-fcgi？"><span class="toc-text">简单介绍一下nginx fcgi？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL存储引擎-MyISAM-与-InnoDB的区别"><span class="toc-text">MySQL存储引擎 MyISAM 与 InnoDB的区别?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#swoole-原理"><span class="toc-text">swoole 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-07-13"><span class="toc-text">2017.07.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-07-12"><span class="toc-text">2017.07.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-07-11"><span class="toc-text">2017.07.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-07-10"><span class="toc-text">2017.07.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-07-06"><span class="toc-text">2017.07.06</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#英文语法检查TOP2"><span class="toc-text">英文语法检查TOP2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-07-05"><span class="toc-text">2017.07.05</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#story-me"><span class="toc-text">story.me</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#story-store"><span class="toc-text">story.store</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#words-store"><span class="toc-text">words.store</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自然语言处理"><span class="toc-text">自然语言处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何给出两个词的相近程度"><span class="toc-text">如何给出两个词的相近程度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错别字的处理过程"><span class="toc-text">错别字的处理过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典库"><span class="toc-text">字典库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一步一步-交互流程"><span class="toc-text">一步一步 交互流程</span></a>
+<h3 id="2017-07-28"><a href="#2017-07-28" class="headerlink" title="2017.07.28"></a>2017.07.28</h3><h3 id="2017-07-27"><a href="#2017-07-27" class="headerlink" title="2017.07.27"></a>2017.07.27</h3><p>方案完善，先做出指定词库的错别字分析。</p>
+<p>至少做出一个检查、建议提供的服务版本。</p>
+<h3 id="2017-07-22"><a href="#2017-07-22" class="headerlink" title="2017.07.22"></a>2017.07.22</h3><p>##redis 几乎也都问到</p>
+<h3 id="数据类型-参考redis-五种数据类型的使用场景"><a href="#数据类型-参考redis-五种数据类型的使用场景" class="headerlink" title="数据类型 参考redis 五种数据类型的使用场景"></a>数据类型 参考redis 五种数据类型的使用场景</h3><h3 id="同步原理、过程"><a href="#同步原理、过程" class="headerlink" title="同步原理、过程"></a>同步原理、过程</h3><h3 id="备份机制：rdb-aof-区别是什么，-分别有怎样的特性"><a href="#备份机制：rdb-aof-区别是什么，-分别有怎样的特性" class="headerlink" title="备份机制：rdb,aof, 区别是什么， 分别有怎样的特性"></a>备份机制：rdb,aof, 区别是什么， 分别有怎样的特性</h3><h3 id="特殊情况：内存用完了在执行写入会怎样？redis在备份的时候能否写入？"><a href="#特殊情况：内存用完了在执行写入会怎样？redis在备份的时候能否写入？" class="headerlink" title="特殊情况：内存用完了在执行写入会怎样？redis在备份的时候能否写入？"></a>特殊情况：内存用完了在执行写入会怎样？redis在备份的时候能否写入？</h3><h3 id="简单介绍一下nginx-fcgi？"><a href="#简单介绍一下nginx-fcgi？" class="headerlink" title="简单介绍一下nginx fcgi？"></a>简单介绍一下nginx fcgi？</h3><p>FCGI:快速通用网关接口(Fast Common Gateway Interface),是对CGI的改进,描述了客户端和服务器之间传输数据的一种标准.FastCGI致力于减少Web服务器与CGI程式之间互动的开销，从而使服务器可以同时处理更多的Web请求。与为每个请求创建一个新的进程不同，FastCGI使用持续的进程来处理一连串的请求。这些进程由FastCGI进程管理器管理，而不是web服务器。</p>
+<h3 id="MySQL存储引擎-MyISAM-与-InnoDB的区别"><a href="#MySQL存储引擎-MyISAM-与-InnoDB的区别" class="headerlink" title="MySQL存储引擎 MyISAM 与 InnoDB的区别?"></a>MySQL存储引擎 MyISAM 与 InnoDB的区别?</h3><p>性质区别:<br>MyISAM是mysql的默认存储引擎,不支持事务,不支持外键.<br>InnoDB是事务型引擎,支持回滚,锁的粒度是行级锁,MyISAM是表级锁.<br>应用区别:<br>MyISAM管理非事务表。它提供高速存储和检索，以及全文搜索能力。如果应用中需要执行大量的SELECT查询，那么MyISAM是更好的选择.<br>InnoDB用于事务处理应用程序，具有众多特性，包括ACID事务支持。如果应用中需要执行大量的INSERT或UPDATE操作，则应该使用InnoDB，这样可以提高多用户并发操作的性能。</p>
+<h3 id="swoole-原理"><a href="#swoole-原理" class="headerlink" title="swoole 原理"></a>swoole 原理</h3><p>PHP的异步、并行、高性能网络通信引擎，使用纯C语言编写，提供了PHP语言的异步多线程服务器，异步TCP/UDP网络客户端，异步MySQL，异步Redis，数据库连接池，AsyncTask，消息队列，毫秒定时器，异步文件读写，异步DNS查询。 Swoole内置了Http/WebSocket服务器端/客户端、Http2.0服务器端/客户端。</p>
+<p>Swoole底层内置了异步非阻塞、多线程的网络IO服务器。PHP程序员仅需处理事件回调即可，无需关心底层。与Nginx/Tornado/Node.js等全异步的框架不同，Swoole既支持全异步，也支持同步。</p>
+<p>除了异步IO的支持之外，Swoole为PHP多进程的模式设计了多个并发数据结构和IPC通信机制，可以大大简化多进程并发编程的工作。其中包括了并发原子计数器，并发HashTable，Channel，Lock，进程间通信IPC等丰富的功能特性。</p>
+<p>Swoole从2.0版本开始支持了内置协程，可以使用完全同步的代码实现异步程序。PHP代码无需额外增加任何关键词，底层自动进行协程调度，实现异步。</p>
+<p>redis 实现高可用的背后原理？</p>
+<p>首先是底层的数据结构，SDS，链表，字典，跳跃表，压缩表，整数集合，在此基础上，基于对象，针对redisObject  其中的type标识具体的类型，encoding标识对应的操作编码，以此来寻找对应的操作函数。</p>
+<p>codis 分布式集群方案的原理？</p>
+<p>zk强依赖，<br>组成部分：codis-proxy，codis-group，codis-server</p>
+<p>如何实现一个hashtable ?<br>三个关键点：</p>
+<ul>
+<li>哈希函数的实现；</li>
+<li>哈希冲突的解决； 链表法，开放寻址两类方法</li>
+<li>操作接口的实现；初始化，根据key查询，插入，删除，销毁哈希表等操作</li>
+</ul>
+<p>哈希表的实现，使用如下的数据结构：<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _Bucket</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">char</span> *key;</span><br><span class="line">    <span class="keyword">void</span> *value;</span><br><span class="line">    <span class="keyword">struct</span> _Bucket *next;</span><br><span class="line">&#125; Bucket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _HashTable</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="keyword">int</span> elem_num;</span><br><span class="line">    Bucket** buckets;</span><br><span class="line">&#125; HashTable;</span><br></pre></td></tr></table></figure></p>
+<p>Bucket结构体是一个单链表，这是为了解决多个key哈希冲突的问题，也就是前面所提到的的链接法。 当多个key映射到同一个index的时候将冲突的元素链接起来。</p>
+<p>哈希函数的实现：<br>哈希函数需要尽可能的将不同的key映射到不同的槽(slot或者bucket)中，首先我们采用一种最为简单的哈希算法实现： 将key字符串的所有字符加起来，然后以结果对哈希表的大小取模，这样索引就能落在数组索引的范围之内了。</p>
+<p>这个哈希算法比较简单，它的效果并不好，在实际场景下不会使用这种哈希算法， 例如PHP中使用的是称为DJBX33A算法， 这里列举了Mysql，OpenSSL等开源软件使用的哈希算法， 有兴趣的读者可以前往参考。</p>
+<h3 id="2017-07-13"><a href="#2017-07-13" class="headerlink" title="2017.07.13"></a>2017.07.13</h3><p>开启一个故事的域名，然后将错别字检查服务开放为一个服务。</p>
+<p>开发关键的故事开启功能。</p>
+<h3 id="2017-07-12"><a href="#2017-07-12" class="headerlink" title="2017.07.12"></a>2017.07.12</h3><h3 id="2017-07-11"><a href="#2017-07-11" class="headerlink" title="2017.07.11"></a>2017.07.11</h3><ul>
+<li>FIE布局与物流规划系统</li>
+<li>审计之星</li>
+<li>复杂系统仿真支持平台</li>
+<li>数据可视化系统</li>
+<li>数据商务智能分析系统</li>
+</ul>
+<h3 id="2017-07-10"><a href="#2017-07-10" class="headerlink" title="2017.07.10"></a>2017.07.10</h3><blockquote>
+<p>发现你身边的故事，并感染成为电影剧本。</p>
+<p>我们不提供电影，只提供电影的核心–故事。</p>
+</blockquote>
+<h3 id="2017-07-06"><a href="#2017-07-06" class="headerlink" title="2017.07.06"></a>2017.07.06</h3><p><a href="https://www.ai.codes/" target="_blank" rel="external">https://www.ai.codes/</a><br>百度之星AI开发者参赛平台<br><a href="http://astar2017.baidu.com/home/personal#personalBox" target="_blank" rel="external">http://astar2017.baidu.com/home/personal#personalBox</a></p>
+<h3 id="英文语法检查TOP2"><a href="#英文语法检查TOP2" class="headerlink" title="英文语法检查TOP2"></a>英文语法检查TOP2</h3><p><a href="https://app.grammarly.com/docs/96274564" target="_blank" rel="external">https://app.grammarly.com/docs/96274564</a><br><a href="http://www.1checker.com/" target="_blank" rel="external">http://www.1checker.com/</a></p>
+<p>中文语料库<br><a href="http://www.jianshu.com/p/206caa232ded" target="_blank" rel="external">http://www.jianshu.com/p/206caa232ded</a></p>
+<p>搜狗语料数据<br><a href="http://www.sogou.com/labs/resource/t.php" target="_blank" rel="external">http://www.sogou.com/labs/resource/t.php</a></p>
+<p>中文词语搭配库(SogouR)<br><a href="http://www.sogou.com/labs/resource/r.php" target="_blank" rel="external">http://www.sogou.com/labs/resource/r.php</a></p>
+<p>分词和词性标注<br><a href="http://www.sogou.com/labs/webservice/" target="_blank" rel="external">http://www.sogou.com/labs/webservice/</a></p>
+<p>贝叶斯推断及其互联网应用（三）：拼写检查<br><a href="http://www.ruanyifeng.com/blog/2012/10/spelling_corrector.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/spelling_corrector.html</a></p>
+<p>原始中文版<br><a href="http://norvig.com/spell-correct.html" target="_blank" rel="external">http://norvig.com/spell-correct.html</a></p>
+<p>项目开始：</p>
+<h3 id="2017-07-05"><a href="#2017-07-05" class="headerlink" title="2017.07.05"></a>2017.07.05</h3><h3 id="story-me"><a href="#story-me" class="headerlink" title="story.me"></a>story.me</h3><p>每个人来到这世上，只是故事的开头，精彩的一生，没有人为你书写传记，我们能帮你记录。<br>你可以搜索到你的所有公开信息，并按年份月份日期排列。<br>根据时间线来展开你的故事。</p>
+<p>我的故事？</p>
+<p>主要来自搜索引擎，需要对这些数据做抓取和解析，然后保存于自己的数据库。展现给用户个人。<br>另外一个想法是做成电影级别的故事精选，控制故事文字数量。</p>
+<h3 id="story-store"><a href="#story-store" class="headerlink" title="story.store"></a>story.store</h3><blockquote>
+<p>story.store,based on true story.</p>
+</blockquote>
+<p>故事商店，根据真实故事改编。<br>基于小崔故事会灵感，可以提供一个Based on True story 的故事讲述平台，为中国电影支持更好的故事。</p>
+<h3 id="words-store"><a href="#words-store" class="headerlink" title="words.store"></a>words.store</h3><p>错别字检查，需要长连接检查，用户在录入、打开文档的同时，开始错别字的实时校验。这是web方面。</p>
+<p>具体的错别字检查可以根据trie search 提供相近字的数据输出。</p>
+<p>先为此准备实时分析并给出相关词的准备工作。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>错别字的检查，是基于用户给出的词，在现有的汉语词汇组词中，首先分析是否是错别词语，如果有，给出相近的词。</p>
+<p>与英文不同，中文没有空格作为间隔，判断的前提应该是拿到光标符号截止，上一个符号结束的整句话，先解析其词组部分，然后再分词查询。由此下来，感觉中文错别字的实时检查，耗时应该不会太短，接口的耗时优化会成为重要的一项工作内容。</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>trie search<br>trie树常用于搜索提示。如当输入一个网址，可以自动搜索出可能的选择。当没有完全匹配的搜索结果，可以返回前缀最相似的可能。<br>算法符合错别字检查这一需求特点，另外的用途也使用在搜索引擎的快速推荐搜索中，可以作为本项目的基础算法支撑。</p>
+<p>在糯米内部的文章抓取与相关门店的挂载中有相关的实现：</p>
+<blockquote>
+<p>抽取文章中门店信息（名称，地址，城市和电话等），并与库中POI(3000w+)进行精准匹配。</p>
+</blockquote>
+<h3 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h3><p><a href="http://ai.baidu.com/docs#/NLP-API/top" target="_blank" rel="external">http://ai.baidu.com/docs#/NLP-API/top</a></p>
+<ul>
+<li>词法分析 分词、词性标注、专名识别</li>
+<li>DNN语言模型接口 中文DNN语言模型接口用于输出切词结果并给出每个词在句子中的概率值,判断一句话是否符合语言表达习惯。</li>
+<li>词义相似度接口 输入两个词，得到两个词的相似度结果</li>
+<li>短文本相似度接口 短文本相似度接口用来判断两个文本的相似度得分</li>
+</ul>
+<h3 id="如何给出两个词的相近程度"><a href="#如何给出两个词的相近程度" class="headerlink" title="如何给出两个词的相近程度"></a>如何给出两个词的相近程度</h3><p>这个问题可以模型化为比较两个向量的最近距离，可以借助机器学习中的部分方法来解决。</p>
+<h3 id="错别字的处理过程"><a href="#错别字的处理过程" class="headerlink" title="错别字的处理过程"></a>错别字的处理过程</h3><p>1、在现有正确的词库中检索该词；<br>2、未找到的情况下给出该词的相近词；</p>
+<h3 id="字典库"><a href="#字典库" class="headerlink" title="字典库"></a>字典库</h3><p>感觉还需要建立相应的标准词字典库。方面查询正确的词组。</p>
+<h2 id="一步一步-交互流程"><a href="#一步一步-交互流程" class="headerlink" title="一步一步 交互流程"></a>一步一步 交互流程</h2><p>server：<br>输入某一个字，给出该词的相近值；<br>web:<br>与服务器建立将连接，将用户新创建的文本补充更新到数据表；<br>开启单独的长连接服务，获取到用户正在输入的词，或者行，检查给出相近的词，</p>
+
+
+<!--<a href="http://yoursite.com/flow/201707.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
