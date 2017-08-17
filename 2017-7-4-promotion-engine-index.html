@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>糯米促销引擎中的正排索引与倒排索引</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>糯米促销引擎高性能实现过程</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -29,7 +29,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">糯米促销引擎中的正排索引与倒排索引</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">糯米促销引擎高性能实现过程</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -42,20 +42,24 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正排索引"><span class="toc-text">正排索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倒排索引"><span class="toc-text">倒排索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#活动与团单的对应关系"><span class="toc-text">活动与团单的对应关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#活动的规则配置"><span class="toc-text">活动的规则配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动倒排索引"><span class="toc-text">活动倒排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动正排索引"><span class="toc-text">活动正排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动在促销引擎的匹配"><span class="toc-text">活动在促销引擎的匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求来源"><span class="toc-text">请求来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全国活动"><span class="toc-text">全国活动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动类型"><span class="toc-text">活动类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeline"><span class="toc-text">pipeline</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附"><span class="toc-text">附</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>糯米使用的一个促销引擎，为糯米的各个端与组件提供团单、城市、端类型维度的促销信息，还可以完成对用户设备类型、手机号码、百度账号级别的购买次数限制，之所以叫做促销引擎下游不用关心具体的规则，给出请求，为你算价，吐出物料等活动规则，另外一部分原因也是其中与搜索引擎在排序方面有一部分相关。</p>
-<p>促销引擎的数据来源非常依赖Redis，在Redis数据服务不可用的情况下，停止对外服务。</p>
-<p>Redis服务基本上依赖百度内部的BDRP（Baidu Distributed Redis Platform）平台，机器数量150左右，数据量在900G左右。业务机器数量在200台左右。</p>
-<p>先说说正排索引与倒排索引。</p>
-<h2 id="正排索引"><a href="#正排索引" class="headerlink" title="正排索引"></a>正排索引</h2><p>正排索引(forward index)：从文档角度看其中的单词，表示每个文档（用文档ID标识）都含有哪些单词，以及每个单词出现了多少次（词频）及其出现位置（相对于文档首部的偏移量）。</p>
-<h2 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h2><p>倒排索引（inverted index），也常被称为反向索引、置入档案或反向档案，是一种索引方法，被用来存储在全文搜索下某个单词在一个文档或者一组文档中的存储位置的映射。它是文档检索系统中最常用的数据结构。</p>
-<h2 id="活动与团单的对应关系"><a href="#活动与团单的对应关系" class="headerlink" title="活动与团单的对应关系"></a>活动与团单的对应关系</h2><p>再说说促销活动与团单的关系，他们的关系是多对多，既一个活动可以配置多个团单，一个团单也可以参与到多个促销活动当中，端的类型可选三端，城市可多选。<br>也就是说，活动与团单的关系是一种映射关系，既可以在活动配置之初，完成一个活动挂载多个团单；也可以完成在为端上输出活动时，先根据团单（城市、端类型）维度先倒序索引出活动ID，然后再正排索引，将通过得到的活动ID，召回活动规则信息。</p>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整体架构"><span class="toc-text">整体架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构"><span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#活动与团单的对应关系"><span class="toc-text">活动与团单的对应关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动的规则配置"><span class="toc-text">活动的规则配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动倒排索引"><span class="toc-text">活动倒排索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动正排索引"><span class="toc-text">活动正排索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预处理"><span class="toc-text">预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动在促销引擎的匹配"><span class="toc-text">活动在促销引擎的匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动抽象"><span class="toc-text">活动抽象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤模块"><span class="toc-text">过滤模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#影响因素"><span class="toc-text">影响因素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#请求来源"><span class="toc-text">请求来源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全国活动"><span class="toc-text">全国活动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动类型"><span class="toc-text">活动类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pipeline"><span class="toc-text">pipeline</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能优化"><span class="toc-text">性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多层拦截"><span class="toc-text">多层拦截</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定时缓存降低IO"><span class="toc-text">定时缓存降低IO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下游服务的超时时间设置"><span class="toc-text">下游服务的超时时间设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>糯米作为一个O2O平台，团单维度的促销信息自然占很大比重，促销系统承担着对外输出促销信息，通过促销对预算、购买限制等问题的控制。这是促销引擎主要的存在意义。</p>
+<p>糯米使用的促销引擎，为糯米的各个端与组件提供团单、城市、端类型维度的促销信息，还可以完成对用户设备类型、手机号码、百度账号级别的购买次数限制，之所以叫做促销引擎下游不用关心具体的规则，给出请求，算价，渲染物料等活动规则，另外一部分原因也是其中与搜索引擎在排序方面有一部分相关。</p>
+<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img src="http://7tsys1.com1.z0.glb.clouddn.com/engine.png" width="99%"><br>$$图1 促销引擎的整体架构$$</p>
+<p>促销引擎的对外服务的数据来源主要依赖Redis，在Redis数据服务不可用的情况下，将无法输出团单优惠信息，营销服务降级为无优惠活动，用户需要用团单原价支付。Redis服务基于百度内部的BDRP（Baidu Distributed Redis Platform）平台，机器数量150左右，数据量在900G左右，应该是糯米最大的Redis集群了。</p>
+<p>促销引擎第一个版本从2014年7月上线至今，于2016年10月份重构了第二个版本。本文主要的内容是重构的版本。</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>在介绍数据结构之前，先说说正排索引与倒排索引。</p>
+<p><strong>正排索引</strong></p>
+<p>正排索引(forward index)：从文档角度看其中的单词，表示每个文档（用文档ID标识）都含有哪些单词，以及每个单词出现了多少次（词频）及其出现位置（相对于文档首部的偏移量）。</p>
+<p><strong>倒排索引</strong></p>
+<p>倒排索引（inverted index），也常被称为反向索引、置入档案或反向档案，是一种索引方法，被用来存储在全文搜索下某个单词在一个文档或者一组文档中的存储位置的映射。它是文档检索系统中最常用的数据结构。</p>
+<h4 id="活动与团单的对应关系"><a href="#活动与团单的对应关系" class="headerlink" title="活动与团单的对应关系"></a>活动与团单的对应关系</h4><p>再说说促销活动与团单的关系，他们的关系是多对多，既一个活动可以配置多个团单，一个团单也可以参与到多个促销活动当中，端的类型可选三端，城市可多选。<br>也就是说，活动与团单的关系是一种映射关系，既可以在活动配置之初，完成一个活动挂载多个团单；也可以完成在为端上输出活动时，先根据团单（城市、端类型）维度先倒序索引出活动ID，然后再正排索引，将通过得到的活动ID，召回活动规则信息。</p>
 <p>下面可以看看将这些数据从活动配置平台到促销引擎的同步拆解过程。</p>
-<h3 id="活动的规则配置"><a href="#活动的规则配置" class="headerlink" title="活动的规则配置"></a>活动的规则配置</h3><ul>
-<li>活动1 = 团单A + 团单B + 团单C + ……</li>
-<li>活动2 = 团单A + 团单B + 团单C + ……</li>
+<h4 id="活动的规则配置"><a href="#活动的规则配置" class="headerlink" title="活动的规则配置"></a>活动的规则配置</h4><ul>
+<li>活动1 = 活动规则1 + 购买限次1 + [团单A + 团单B + 团单C + ……]</li>
+<li>活动2 = 活动规则1 + 购买限次2 + [团单A + 团单B + 团单C + ……]</li>
 </ul>
-<h3 id="活动倒排索引"><a href="#活动倒排索引" class="headerlink" title="活动倒排索引"></a>活动倒排索引</h3><table>
+<h4 id="活动倒排索引"><a href="#活动倒排索引" class="headerlink" title="活动倒排索引"></a>活动倒排索引</h4><table>
 <thead>
 <tr>
 <th style="text-align:left">类型</th>
@@ -86,24 +90,39 @@
 </tr>
 </tbody>
 </table>
-<h3 id="活动正排索引"><a href="#活动正排索引" class="headerlink" title="活动正排索引"></a>活动正排索引</h3><p>活动ID，对应值：召回活动规则信息。</p>
+<p>$$表1 活动规则的索引$$</p>
+<h4 id="活动正排索引"><a href="#活动正排索引" class="headerlink" title="活动正排索引"></a>活动正排索引</h4><p>活动ID，对应值：召回活动规则信息。</p>
+<h3 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h3><p>完成无效团单、黑团单的过滤，不让其进入下一步商品数据的获取、活动数据的获取。</p>
 <h3 id="活动在促销引擎的匹配"><a href="#活动在促销引擎的匹配" class="headerlink" title="活动在促销引擎的匹配"></a>活动在促销引擎的匹配</h3><p>根据请求信息匹配活动的过程中，是先根据倒排索引，完成对活动ID的获取，以此为基础，在第二次中以活动ID为正排索引的方式获取活动规则，以此来创建之后在过滤、算价、物料渲染中使用的活动对象。</p>
 <ul>
 <li>城市(北京) + 端（NA）+ 团单（10883）=&gt; 活动ID(999)</li>
 <li>活动ID(999) =&gt; 活动规则数据 </li>
 </ul>
 <p>这样在同步redis构造索引的过程中，就是比较繁杂的一步。<br>从各个城市、各个端上来的请求，在获取的过程中也有需要特别实现的地方：</p>
-<h3 id="请求来源"><a href="#请求来源" class="headerlink" title="请求来源"></a>请求来源</h3><p>每个请求的城市、端类型只有一个，团单可以有任意多个，这样需要完成这个维度的匹配，</p>
-<h3 id="全国活动"><a href="#全国活动" class="headerlink" title="全国活动"></a>全国活动</h3><p>某个团单配置了全国范围的活动，就需要在请求倒序索引的过程中，在城市ID的基础上，补上同样维度的Key。</p>
-<h3 id="活动类型"><a href="#活动类型" class="headerlink" title="活动类型"></a>活动类型</h3><p>在请求之初，团单对应的活动并不可知，需要将所有可能的活动类型都统一添加请求Redis的一组key数组当中。</p>
-<h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h3><p>这其中有一步与Redis的交互方式为使用的是pipeline的方式将请求的key按一定数量切割分批请求，并处理成请求维度的结果集。</p>
+<h3 id="活动抽象"><a href="#活动抽象" class="headerlink" title="活动抽象"></a>活动抽象</h3><p>在完成活动规则数据从Redis的获取后，需要将其转化为促销引擎内部处理的基本单位，抽象化的活动对象。</p>
+<p>活动作为促销引擎模块处理的基本单位，是被实例化的抽象对象。</p>
+<h3 id="过滤模块"><a href="#过滤模块" class="headerlink" title="过滤模块"></a>过滤模块</h3><p>基于抽象的活动对象，过滤模块针对活动规则，团单规则等信息进行过滤。</p>
+<p>过滤是针对匹配到的所有活动进行的，过滤的过程会将活动是否通过过滤、团单是否通过过滤属性做相应标记，之后再各自的业务层中只关心通过过滤的即可。</p>
+<h3 id="影响因素"><a href="#影响因素" class="headerlink" title="影响因素"></a>影响因素</h3><p>对促销引擎性能有影响的因素：</p>
+<h4 id="请求来源"><a href="#请求来源" class="headerlink" title="请求来源"></a>请求来源</h4><p>每个请求的城市、端类型只有一个，团单可以有任意多个，这样需要完成这个维度的匹配，在团单列表这类的浏览类接口中，可以认为是单方面的只读接口。影响的原因是每增加一个团单，对商品中心的请求、对redis的请求时成4~6倍的形式增长。</p>
+<h4 id="全国活动"><a href="#全国活动" class="headerlink" title="全国活动"></a>全国活动</h4><p>某个团单配置了全国范围的活动，就需要在请求倒序索引的过程中，在城市ID的基础上，补上全国维度（ALL）维度的Key。</p>
+<h4 id="活动类型"><a href="#活动类型" class="headerlink" title="活动类型"></a>活动类型</h4><p>在请求之初，团单对应的活动并不可知，需要将所有可能的活动类型都统一添加请求Redis的一组key数组当中。</p>
+<h4 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h4><p>这其中有一步与Redis的交互方式为使用的是pipeline的方式将请求的key按一定数量切割分批请求，并处理成请求维度的结果集。</p>
 <p>基于以上几点，可以看到该引擎系统对于增加一个团单数量的情况下，对Redis以及下游的服务造成的压力是非常明显的。举例：增加一个团单，就要增加如此多的索引；稍不注意，增加一次额外的Redis读写，接口本身的耗时也会明显增加。</p>
 <p>对于促销引擎来说，团单数量较大的情况（基本上都很多），每个团单对应的活动，每次都增加一次redis操作，对应增加的io次数就是翻倍。慎重考量每次的数据读写可以避免这种问题。</p>
-<h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><p>附图说明团单维度数量对接口耗时与下游的敏感性。<br><img src="http://7tsys1.com1.z0.glb.clouddn.com/image2016-10-2623-16-15.png" width="99%"></p>
-<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/image2016-10-2623-17-3.png" width="99%"></p>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>对于性能，经验告诉我们，再如何强调都不为过。</p>
+<h4 id="多层拦截"><a href="#多层拦截" class="headerlink" title="多层拦截"></a>多层拦截</h4><p>层层过滤，将对下游产生读取的团单、用户数据，提早过滤，尽量较少对Redis、商品中心、会员服务、手机号等服务的请求，降低耗时。</p>
+<h4 id="定时缓存降低IO"><a href="#定时缓存降低IO" class="headerlink" title="定时缓存降低IO"></a>定时缓存降低IO</h4><p>附图说明团单维度数量对接口耗时与下游的敏感性。<br><img src="http://7tsys1.com1.z0.glb.clouddn.com/image2016-10-2623-16-15.png" width="99%"><br>$$图2 增加一个redis读写带来的耗时增加$$<br><img src="http://7tsys1.com1.z0.glb.clouddn.com/image2016-10-2623-17-3.png" width="99%"><br>$$图3 redis读次数增加背后的稳定性相关变化$$</p>
+<p>这个图表，充分说明降低下游IO的重要性。主要的方式有：</p>
+<ul>
+<li>团单、用户、单个请求数据做缓存；</li>
+<li>单进程单请求内被实例化的抽象活动做静态缓存；</li>
+</ul>
+<h4 id="下游服务的超时时间设置"><a href="#下游服务的超时时间设置" class="headerlink" title="下游服务的超时时间设置"></a>下游服务的超时时间设置</h4><p>才去90-95分为的请求耗时，作为该服务的合理超时时间。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>综上，从整体架构、数据结构、活动在促销引擎的处理过程、性能优化等方面介绍了促销引擎的实践过程。</p>
+<p>随着促销工具的多样化，策略更精细，更精准，如何快速地在现有营销活动的基础上或新增活动类型、提高促销引擎的处理能力等问题是接下来的需要考虑的问题。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95" target="_blank" rel="external">维基百科–倒序索引</a></li>
-<li><a href="https://my.oschina.net/u/2009816/blog/746141" target="_blank" rel="external">参考一</a></li>
 <li><a href="http://blog.csdn.net/caoshuming_500/article/details/23919977" target="_blank" rel="external">参考二</a></li>
 </ul>
 
@@ -125,7 +144,24 @@
 -->
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
-</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

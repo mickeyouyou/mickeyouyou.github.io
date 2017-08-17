@@ -1,0 +1,187 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>My Flow 201708</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">My Flow 201708</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年8月16日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-17"><span class="toc-text">2017.08.17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-16"><span class="toc-text">2017.08.16</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-15"><span class="toc-text">2017.08.15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-14"><span class="toc-text">2017.08.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-11"><span class="toc-text">2017.08.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-10"><span class="toc-text">2017.08.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-09"><span class="toc-text">2017.08.09</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-08"><span class="toc-text">2017.08.08</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-05"><span class="toc-text">2017.08.05</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pv"><span class="toc-text">pv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#htop"><span class="toc-text">htop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-04"><span class="toc-text">2017.08.04</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装docker"><span class="toc-text">安装docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译-Apollo"><span class="toc-text">编译 Apollo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动Apollo"><span class="toc-text">启动Apollo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2017-08-03"><span class="toc-text">2017.08.03</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2017-08-02"><span class="toc-text">2017.08.02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2017-08-01"><span class="toc-text">2017.08.01</span></a>
+<h3 id="2017-08-17"><a href="#2017-08-17" class="headerlink" title="2017.08.17"></a>2017.08.17</h3><p>推荐系统的分享by 张前进<br>推荐系统的三种方法：</p>
+<ul>
+<li>基于内容</li>
+<li>协同过滤<ul>
+<li>Memory-based的推荐算法<ul>
+<li>基于User的协同过滤  为用户对item向量化的数据，求相似度，推荐出</li>
+<li>基于item的协同过滤</li>
+</ul>
+</li>
+<li>Model-based的推荐算法 矩阵分解 基于矩阵分解的推荐算法（隐语义模型，LFM）</li>
+</ul>
+</li>
+<li>Hybird的推荐算法</li>
+</ul>
+<p>相关书籍推荐：<br>《推荐系统实践》项亮</p>
+<p>《Wide &amp; Deep learning for REcommender System》</p>
+<h3 id="2017-08-16"><a href="#2017-08-16" class="headerlink" title="2017.08.16"></a>2017.08.16</h3><p>《糯米促销引擎的性能之路》</p>
+<h3 id="2017-08-15"><a href="#2017-08-15" class="headerlink" title="2017.08.15"></a>2017.08.15</h3><p><a href="http://www.infoq.com/cn/news/2015/03/grpc-google-http2-protobuf" target="_blank" rel="external">gRPC：Google开源的基于HTTP/2和ProtoBuf的通用RPC框架</a></p>
+<figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">HelloRequest</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> greeting = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">HelloResponse</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> reply = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">service</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">rpc</span> SayHello(HelloRequest) <span class="keyword">returns</span> (HelloResponse)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://doc.oschina.net/grpc?t=60136" target="_blank" rel="external">https://doc.oschina.net/grpc?t=60136</a></p>
+<h3 id="2017-08-14"><a href="#2017-08-14" class="headerlink" title="2017.08.14"></a>2017.08.14</h3><p>dota bot scripting<br><a href="https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting:zh-cn" target="_blank" rel="external">https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting:zh-cn</a></p>
+<h3 id="2017-08-11"><a href="#2017-08-11" class="headerlink" title="2017.08.11"></a>2017.08.11</h3><p>试戴了一天Sound Sport，感觉又能和音乐做朋友了。不过，质保卡放在外包装纸外面，撕得时候还得小心点，要是撕坏了对保修有影响，那这个设计就尴尬了。最后感谢领导@CC送的生日礼物。</p>
+<p>完成文章《北京开车指南》</p>
+<p>CI框架的优劣：</p>
+<p>感觉自己像一只追逐自己的英雄的小黄人。</p>
+<h3 id="2017-08-10"><a href="#2017-08-10" class="headerlink" title="2017.08.10"></a>2017.08.10</h3><p>日志文件的分析：<br>cat nginx-access.log | awk -F’ ‘ ‘{print $3}’ | uniq -c | sort -nr -k2 | head</p>
+<p>awk 使用参考文章<br><a href="http://coolshell.cn/articles/9070.html" target="_blank" rel="external">http://coolshell.cn/articles/9070.html</a></p>
+<p>Docker-compose file<br><a href="http://qkxue.net/info/212453/Docker-Compose" target="_blank" rel="external">http://qkxue.net/info/212453/Docker-Compose</a></p>
+<p>mysql int(10) 中10的含义<br><a href="http://daizj.iteye.com/blog/2248012" target="_blank" rel="external">http://daizj.iteye.com/blog/2248012</a></p>
+<p>InnoDB支持行级锁的原因</p>
+<p>Mysql锁机制<br><a href="http://www.cnblogs.com/chenqionghe/p/4845693.html" target="_blank" rel="external">http://www.cnblogs.com/chenqionghe/p/4845693.html</a></p>
+<p>Mysql相关函数：<br>Cast<br>Convert<br>group_concat</p>
+<p>substr<br>datediff<br>concat</p>
+<p>文章产出：<a href="2016-9-27-awk-in-action.html">awk实战与总结</a></p>
+<h3 id="2017-08-09"><a href="#2017-08-09" class="headerlink" title="2017.08.09"></a>2017.08.09</h3><p>砍价模块：</p>
+<ul>
+<li>订单回调接口支持重入；</li>
+<li>订单回调接口中pay_time格式从datetime转换为timestamp;</li>
+</ul>
+<p>促销引擎：</p>
+<ul>
+<li>支付回调中的砍价模块调用从NMQ改为直接调用，方面根据返回结果曝出问题。</li>
+</ul>
+<h3 id="2017-08-08"><a href="#2017-08-08" class="headerlink" title="2017.08.08"></a>2017.08.08</h3><p>《基于PaddlePaddle的文章错别字识别、建议实践》文章编写  程序完善</p>
+<h3 id="2017-08-05"><a href="#2017-08-05" class="headerlink" title="2017.08.05"></a>2017.08.05</h3><p>书中提及的阻碍无人驾驶技术发展的7个误区为现今对无人驾驶五花八门的观点做了一番恰到好处的解释。如今的技术发展快于人们接受意识的感觉，通过技术手段能真正解决这些问题，尤其是深度依赖驾驶的人，这也成为更多国人（67%）接受无人驾驶的原因。我真心希望无人驾驶这场变革尽快到来，可以想象，交通不再拥堵，车辆违章少，没有刺耳的喇叭声，夜里也没有远光灯晃眼等等城市病。</p>
+<p>《无人驾驶》整本书读下来，需要点耐力，不仅因为它厚重，而是从第四个章节开始很多介绍无人驾驶前世今生的内容有点教科书的感觉，像是能获取到什么，读了两遍，又好像没能总结到什么。</p>
+<p>当然，这其中也提到无人驾驶带来的伦理问题，我记得我们在2016年跟无人驾驶研发的同学就在讨论这个话题，觉得已经超出了技术的范围，需要相关的法律法规才能支持。</p>
+<p>基于PaddlePaddle的文章错别字识别、建议实践 文章编写</p>
+<h3 id="pv"><a href="#pv" class="headerlink" title="pv"></a>pv</h3><p><a href="http://blog.topspeedsnail.com/archives/2748" target="_blank" rel="external">http://blog.topspeedsnail.com/archives/2748</a></p>
+<h3 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h3><p><a href="http://www.cnblogs.com/lizhenghn/p/3728610.html" target="_blank" rel="external">http://www.cnblogs.com/lizhenghn/p/3728610.html</a></p>
+<p>Jupyter Notebook 快速入门<br><a href="http://codingpy.com/article/getting-started-with-jupyter-notebook-part-1/" target="_blank" rel="external">http://codingpy.com/article/getting-started-with-jupyter-notebook-part-1/</a><br><a href="http://codingpy.com/article/getting-started-with-jupyter-notebook-part-2/" target="_blank" rel="external">http://codingpy.com/article/getting-started-with-jupyter-notebook-part-2/</a></p>
+<h3 id="2017-08-04"><a href="#2017-08-04" class="headerlink" title="2017.08.04"></a>2017.08.04</h3><p>布道师：技术宣讲，分享数字化经验，对外梳理<br>技术专长 + 热衷分享</p>
+<ul>
+<li><a href="http://www.infoq.com/cn/news/2017/07/Apollo-baidu-AI" target="_blank" rel="external">这是一份详细的Apollo自动驾驶平台上手指南</a></li>
+<li><a href="http://www.infoq.com/cn/presentations/apollo-capability-opening-and-resource-opening?utm_source=infoq&amp;utm_medium=related_content_link&amp;utm_campaign=relatedContent_news_clk" target="_blank" rel="external">Apollo能力开放与资源开放</a></li>
+<li><a href="http://www.infoq.com/cn/presentations/end-to-end-autopilot-scheme?utm_source=infoq&amp;utm_medium=related_content_link&amp;utm_campaign=relatedContent_news_clk" target="_blank" rel="external">基于深度学习的End to End自动驾驶方案</a></li>
+<li><a href="http://www.infoq.com/cn/presentations/ros-in-baidu-automatic-driving?utm_source=infoq&amp;utm_medium=related_content_link&amp;utm_campaign=relatedContent_news_clk" target="_blank" rel="external">ROS在百度自动驾驶的探索和实践</a></li>
+</ul>
+<p>ROS在百度自动驾驶的探索与实践</p>
+<p>车载计算框架的要求：</p>
+<ul>
+<li>高效的开发支持</li>
+<li>模块灵活配置</li>
+<li>丰富的调试工具</li>
+</ul>
+<p>WHY ROS？<br>开发工具包：</p>
+<p>ROS是否能满足工程需求</p>
+<ul>
+<li>大数据量传输性能瓶颈</li>
+<li>中心化的网络存在单点风险</li>
+<li>数据格式缺乏向后兼容</li>
+</ul>
+<p>通信性能优化<br>自动驾驶大量使用传感器引发很大的传输带宽需求</p>
+<ul>
+<li>相机</li>
+<li>激光雷达</li>
+<li>雷达 64线</li>
+<li>等</li>
+</ul>
+<p>以上问题会造成高延迟，丢包，对自动驾驶很有危险；</p>
+<p>共享内存能减少传输中的数据拷贝，显著提升传输效率<br>原生Ros Socket 通信 -&gt; 无人车ROS 共享内存通信</p>
+<p>单路传感器消息有多个消费者时负载更是成倍增长</p>
+<p>共享内存可以有效满足一对多的传输场景</p>
+<p>引入共享内存，避免数据复制：</p>
+<ul>
+<li>小心通信时延迟约1-2倍；</li>
+<li>测试1：1吞吐均值可达5.5G/s；</li>
+<li>CPU资源占用率在共享内存模式下</li>
+</ul>
+<p>使用protobuf替代ROS message 数据兼容性扩展</p>
+<p>protobuf 消息格式与ROS的深度集成</p>
+<p>自研车载框架，后续有可能随着进度开放。<br>Apollo框架使用</p>
+<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash docker/scripts/install_docker.sh&#10;# logout and login &#10;bash docker/scripts/dev_start.sh&#10;bash docker/scripts/dev_info.sh</span><br></pre></td></tr></table></figure>
+<h3 id="编译-Apollo"><a href="#编译-Apollo" class="headerlink" title="编译 Apollo"></a>编译 Apollo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash apollo.sh build</span><br></pre></td></tr></table></figure>
+<h3 id="启动Apollo"><a href="#启动Apollo" class="headerlink" title="启动Apollo"></a>启动Apollo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash scripts/hmi.sh</span><br></pre></td></tr></table></figure>
+<p>离线数据包演示<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rosbag play -l ./docs/demo_guide/rosbag.pla</span><br></pre></td></tr></table></figure></p>
+<p>Clion + Cmake 编译配置<br><a href="https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html" target="_blank" rel="external">https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html</a></p>
+<h2 id="2017-08-03"><a href="#2017-08-03" class="headerlink" title="2017.08.03"></a>2017.08.03</h2><p>对比一下apollo和tensorflow的github项目，看看主要指标方面的差异，可以简单想一下如何能在各方面赶上tensorflow的活跃度</p>
+<p><a href="http://www.fzb.me/apollo/" target="_blank" rel="external">http://www.fzb.me/apollo/</a></p>
+<p>Apollo相关技术:</p>
+<ul>
+<li>lidar、radar 激光雷达、雷达</li>
+<li><a href="https://www.zhihu.com/question/51435499" target="_blank" rel="external">什么是 end-to-end 神经网络？</a></li>
+</ul>
+<h2 id="2017-08-02"><a href="#2017-08-02" class="headerlink" title="2017.08.02"></a>2017.08.02</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/home/users/fengzongbao/.jumbo/bin/mysqld: File <span class="string">'./mysql-bin.index'</span> not found (Errcode: <span class="number">13</span>)</span><br><span class="line"></span><br><span class="line">开发虚拟机挂载目录</span><br><span class="line">/dev/vdb         <span class="number">97</span>G   <span class="number">26</span>G   <span class="number">72</span>G  <span class="number">26</span>% /home</span><br></pre></td></tr></table></figure>
+<h2 id="2017-08-01"><a href="#2017-08-01" class="headerlink" title="2017.08.01"></a>2017.08.01</h2><p>今日任务：<br>错别字识别服务更新。</p>
+<p>Apollo相关技术</p>
+<p>Google Protocol Buffers<br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/</a></p>
+<p>PHP 的实现<br><a href="https://developers.google.com/protocol-buffers/docs/reference/php-generated" target="_blank" rel="external">PHP Generated Code</a></p>
+<p>待完成文章列表：</p>
+<ul>
+<li>PHP使用Protobuf作为序列化与反序列化的工具参考  参考文章：<a href="http://ju.outofmemory.cn/entry/219186" target="_blank" rel="external">http://ju.outofmemory.cn/entry/219186</a></li>
+<li>糯米促销引擎的性能秘密 截止8.9之前给王磊同学</li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/flow/201708.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
