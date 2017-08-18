@@ -43,12 +43,13 @@
 </div>
 
 <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-17"><span class="toc-text">2017.08.17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-16"><span class="toc-text">2017.08.16</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-15"><span class="toc-text">2017.08.15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-14"><span class="toc-text">2017.08.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-11"><span class="toc-text">2017.08.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-10"><span class="toc-text">2017.08.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-09"><span class="toc-text">2017.08.09</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-08"><span class="toc-text">2017.08.08</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-05"><span class="toc-text">2017.08.05</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pv"><span class="toc-text">pv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#htop"><span class="toc-text">htop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-04"><span class="toc-text">2017.08.04</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装docker"><span class="toc-text">安装docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译-Apollo"><span class="toc-text">编译 Apollo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动Apollo"><span class="toc-text">启动Apollo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-03"><span class="toc-text">2017.08.03</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-02"><span class="toc-text">2017.08.02</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017-08-01"><span class="toc-text">2017.08.01</span></a></li></ol>
-<h3 id="2017-08-17"><a href="#2017-08-17" class="headerlink" title="2017.08.17"></a>2017.08.17</h3><p>推荐系统的分享by 张前进<br>推荐系统的三种方法：</p>
+<h3 id="2017-08-17"><a href="#2017-08-17" class="headerlink" title="2017.08.17"></a>2017.08.17</h3><p>推荐系统的分享by 张前进</p>
+<p>推荐系统的三种方法：</p>
 <ul>
 <li>基于内容</li>
 <li>协同过滤<ul>
 <li>Memory-based的推荐算法<ul>
-<li>基于User的协同过滤  为用户对item向量化的数据，求相似度，推荐出</li>
+<li>基于User的协同过滤  为用户对item向量化的数据，求相似度</li>
 <li>基于item的协同过滤</li>
 </ul>
 </li>
@@ -57,8 +58,11 @@
 </li>
 <li>Hybird的推荐算法</li>
 </ul>
-<p>相关书籍推荐：<br>《推荐系统实践》项亮</p>
-<p>《Wide &amp; Deep learning for REcommender System》</p>
+<p>相关书籍推荐：</p>
+<ul>
+<li>《推荐系统实践》项亮</li>
+<li>《Wide &amp; Deep learning for REcommender System》</li>
+</ul>
 <h3 id="2017-08-16"><a href="#2017-08-16" class="headerlink" title="2017.08.16"></a>2017.08.16</h3><p>《糯米促销引擎的性能之路》</p>
 <h3 id="2017-08-15"><a href="#2017-08-15" class="headerlink" title="2017.08.15"></a>2017.08.15</h3><p><a href="http://www.infoq.com/cn/news/2015/03/grpc-google-http2-protobuf" target="_blank" rel="external">gRPC：Google开源的基于HTTP/2和ProtoBuf的通用RPC框架</a></p>
 <figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">HelloRequest</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> greeting = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">HelloResponse</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> reply = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">service</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">rpc</span> SayHello(HelloRequest) <span class="keyword">returns</span> (HelloResponse)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -66,7 +70,7 @@
 <h3 id="2017-08-14"><a href="#2017-08-14" class="headerlink" title="2017.08.14"></a>2017.08.14</h3><p>dota bot scripting<br><a href="https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting:zh-cn" target="_blank" rel="external">https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting:zh-cn</a></p>
 <h3 id="2017-08-11"><a href="#2017-08-11" class="headerlink" title="2017.08.11"></a>2017.08.11</h3><p>试戴了一天Sound Sport，感觉又能和音乐做朋友了。不过，质保卡放在外包装纸外面，撕得时候还得小心点，要是撕坏了对保修有影响，那这个设计就尴尬了。最后感谢领导@CC送的生日礼物。</p>
 <p>完成文章《北京开车指南》</p>
-<p>CI框架的优劣：</p>
+<p>CI框架的优劣</p>
 <p>感觉自己像一只追逐自己的英雄的小黄人。</p>
 <h3 id="2017-08-10"><a href="#2017-08-10" class="headerlink" title="2017.08.10"></a>2017.08.10</h3><p>日志文件的分析：<br>cat nginx-access.log | awk -F’ ‘ ‘{print $3}’ | uniq -c | sort -nr -k2 | head</p>
 <p>awk 使用参考文章<br><a href="http://coolshell.cn/articles/9070.html" target="_blank" rel="external">http://coolshell.cn/articles/9070.html</a></p>

@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>糯米促销引擎高性能实现过程</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>糯米促销引擎的高性能实现</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -29,7 +29,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">糯米促销引擎高性能实现过程</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">糯米促销引擎的高性能实现</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -42,8 +42,12 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整体架构"><span class="toc-text">整体架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构"><span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#活动与团单的对应关系"><span class="toc-text">活动与团单的对应关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动的规则配置"><span class="toc-text">活动的规则配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动倒排索引"><span class="toc-text">活动倒排索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动正排索引"><span class="toc-text">活动正排索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预处理"><span class="toc-text">预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动在促销引擎的匹配"><span class="toc-text">活动在促销引擎的匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动抽象"><span class="toc-text">活动抽象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤模块"><span class="toc-text">过滤模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#影响因素"><span class="toc-text">影响因素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#请求来源"><span class="toc-text">请求来源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全国活动"><span class="toc-text">全国活动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动类型"><span class="toc-text">活动类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pipeline"><span class="toc-text">pipeline</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能优化"><span class="toc-text">性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多层拦截"><span class="toc-text">多层拦截</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定时缓存降低IO"><span class="toc-text">定时缓存降低IO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下游服务的超时时间设置"><span class="toc-text">下游服务的超时时间设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>糯米作为一个O2O平台，团单维度的促销信息自然占很大比重，促销系统承担着对外输出促销信息，通过促销对预算、购买限制等问题的控制。这是促销引擎主要的存在意义。</p>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整体架构"><span class="toc-text">整体架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构"><span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#活动与团单的对应关系"><span class="toc-text">活动与团单的对应关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动的规则配置"><span class="toc-text">活动的规则配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动倒排索引"><span class="toc-text">活动倒排索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动正排索引"><span class="toc-text">活动正排索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预处理"><span class="toc-text">预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型的抽象过程"><span class="toc-text">模型的抽象过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#活动抽象"><span class="toc-text">活动抽象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤模块"><span class="toc-text">过滤模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#影响因素"><span class="toc-text">影响因素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#请求来源"><span class="toc-text">请求来源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全国活动"><span class="toc-text">全国活动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动类型"><span class="toc-text">活动类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pipeline"><span class="toc-text">pipeline</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能优化"><span class="toc-text">性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多层拦截"><span class="toc-text">多层拦截</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定时缓存降低IO"><span class="toc-text">定时缓存降低IO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下游服务的超时时间设置"><span class="toc-text">下游服务的超时时间设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+<p>文章按：</p>
+<blockquote>
+<p>实现了一个系统，怎样实现的，怎样思考的，怎样推而广之<br>这类问题是一类特定需求的工程实现，如实现一个广告系统，需抽象出需求建模共性和系统架构方法论，让读者学习到的不是如何实现这个广告系统本身，而是如何思考和设计这个广告系统的。<br>文章结构：需求背景-&gt;需求建模-&gt;系统架构实现或者系统迭代对比-&gt;问题归类和抽象（相类似的需求如何思考和解决）</p>
+</blockquote>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>糯米作为一个O2O平台，团单维度的促销信息自然占很大比重，促销系统承担着对外输出促销信息，通过促销对预算、购买限制等问题的控制,进而提升整个应用的转化效率，这是促销引擎主要的存在意义。</p>
 <p>糯米使用的促销引擎，为糯米的各个端与组件提供团单、城市、端类型维度的促销信息，还可以完成对用户设备类型、手机号码、百度账号级别的购买次数限制，之所以叫做促销引擎下游不用关心具体的规则，给出请求，算价，渲染物料等活动规则，另外一部分原因也是其中与搜索引擎在排序方面有一部分相关。</p>
 <h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img src="http://7tsys1.com1.z0.glb.clouddn.com/engine.png" width="99%"><br>$$图1 促销引擎的整体架构$$</p>
 <p>促销引擎的对外服务的数据来源主要依赖Redis，在Redis数据服务不可用的情况下，将无法输出团单优惠信息，营销服务降级为无优惠活动，用户需要用团单原价支付。Redis服务基于百度内部的BDRP（Baidu Distributed Redis Platform）平台，机器数量150左右，数据量在900G左右，应该是糯米最大的Redis集群了。</p>
@@ -93,15 +97,15 @@
 <p>$$表1 活动规则的索引$$</p>
 <h4 id="活动正排索引"><a href="#活动正排索引" class="headerlink" title="活动正排索引"></a>活动正排索引</h4><p>活动ID，对应值：召回活动规则信息。</p>
 <h3 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h3><p>完成无效团单、黑团单的过滤，不让其进入下一步商品数据的获取、活动数据的获取。</p>
-<h3 id="活动在促销引擎的匹配"><a href="#活动在促销引擎的匹配" class="headerlink" title="活动在促销引擎的匹配"></a>活动在促销引擎的匹配</h3><p>根据请求信息匹配活动的过程中，是先根据倒排索引，完成对活动ID的获取，以此为基础，在第二次中以活动ID为正排索引的方式获取活动规则，以此来创建之后在过滤、算价、物料渲染中使用的活动对象。</p>
+<h3 id="模型的抽象过程"><a href="#模型的抽象过程" class="headerlink" title="模型的抽象过程"></a>模型的抽象过程</h3><p>根据请求信息匹配活动的过程中，是先根据倒排索引，完成对活动ID的获取，以此为基础，在第二次中以活动ID为正排索引的方式获取活动规则，以此来创建之后在过滤、算价、物料渲染中使用的活动对象。</p>
 <ul>
 <li>城市(北京) + 端（NA）+ 团单（10883）=&gt; 活动ID(999)</li>
 <li>活动ID(999) =&gt; 活动规则数据 </li>
 </ul>
 <p>这样在同步redis构造索引的过程中，就是比较繁杂的一步。<br>从各个城市、各个端上来的请求，在获取的过程中也有需要特别实现的地方：</p>
-<h3 id="活动抽象"><a href="#活动抽象" class="headerlink" title="活动抽象"></a>活动抽象</h3><p>在完成活动规则数据从Redis的获取后，需要将其转化为促销引擎内部处理的基本单位，抽象化的活动对象。</p>
+<h4 id="活动抽象"><a href="#活动抽象" class="headerlink" title="活动抽象"></a>活动抽象</h4><p>在完成活动规则数据从Redis的获取后，需要将其转化为促销引擎内部处理的基本单位，抽象化的活动对象。</p>
 <p>活动作为促销引擎模块处理的基本单位，是被实例化的抽象对象。</p>
-<h3 id="过滤模块"><a href="#过滤模块" class="headerlink" title="过滤模块"></a>过滤模块</h3><p>基于抽象的活动对象，过滤模块针对活动规则，团单规则等信息进行过滤。</p>
+<h4 id="过滤模块"><a href="#过滤模块" class="headerlink" title="过滤模块"></a>过滤模块</h4><p>基于抽象的活动对象，过滤模块针对活动规则，团单规则等信息进行过滤。</p>
 <p>过滤是针对匹配到的所有活动进行的，过滤的过程会将活动是否通过过滤、团单是否通过过滤属性做相应标记，之后再各自的业务层中只关心通过过滤的即可。</p>
 <h3 id="影响因素"><a href="#影响因素" class="headerlink" title="影响因素"></a>影响因素</h3><p>对促销引擎性能有影响的因素：</p>
 <h4 id="请求来源"><a href="#请求来源" class="headerlink" title="请求来源"></a>请求来源</h4><p>每个请求的城市、端类型只有一个，团单可以有任意多个，这样需要完成这个维度的匹配，在团单列表这类的浏览类接口中，可以认为是单方面的只读接口。影响的原因是每增加一个团单，对商品中心的请求、对redis的请求时成4~6倍的形式增长。</p>
@@ -118,12 +122,12 @@
 <li>团单、用户、单个请求数据做缓存；</li>
 <li>单进程单请求内被实例化的抽象活动做静态缓存；</li>
 </ul>
-<h4 id="下游服务的超时时间设置"><a href="#下游服务的超时时间设置" class="headerlink" title="下游服务的超时时间设置"></a>下游服务的超时时间设置</h4><p>才去90-95分为的请求耗时，作为该服务的合理超时时间。</p>
+<h4 id="下游服务的超时时间设置"><a href="#下游服务的超时时间设置" class="headerlink" title="下游服务的超时时间设置"></a>下游服务的超时时间设置</h4><p>采取90-95分为的请求耗时，作为该服务的合理超时时间。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>综上，从整体架构、数据结构、活动在促销引擎的处理过程、性能优化等方面介绍了促销引擎的实践过程。</p>
 <p>随着促销工具的多样化，策略更精细，更精准，如何快速地在现有营销活动的基础上或新增活动类型、提高促销引擎的处理能力等问题是接下来的需要考虑的问题。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95" target="_blank" rel="external">维基百科–倒序索引</a></li>
-<li><a href="http://blog.csdn.net/caoshuming_500/article/details/23919977" target="_blank" rel="external">参考二</a></li>
+<li><a href="http://blog.csdn.net/caoshuming_500/article/details/23919977" target="_blank" rel="external">倒排索引、正排索引系列一</a></li>
 </ul>
 
 
