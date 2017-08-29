@@ -1,0 +1,217 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>从ApolloApp类、APOLLO_MAIN宏探究Apollo所有模块</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">从ApolloApp类、APOLLO_MAIN宏探究Apollo所有模块</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年8月14日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo入口"><span class="toc-text">Apollo入口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#APOLLO-MAIN宏"><span class="toc-text">APOLLO_MAIN宏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#现有模块"><span class="toc-text">现有模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#标准模块"><span class="toc-text">标准模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策模块"><span class="toc-text">决策模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制模块"><span class="toc-text">控制模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化方法"><span class="toc-text">初始化方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动方法"><span class="toc-text">启动方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关闭方法"><span class="toc-text">关闭方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#驱动模块（Drivers）"><span class="toc-text">驱动模块（Drivers）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定位模块（Localization）"><span class="toc-text">定位模块（Localization）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#监控模块（Monitor）"><span class="toc-text">监控模块（Monitor）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规划模块（Planning）"><span class="toc-text">规划模块（Planning）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#感知模块（Perception）"><span class="toc-text">感知模块（Perception）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预测模块（Prediction）"><span class="toc-text">预测模块（Prediction）</span></a></li></ol>
+<blockquote>
+<p>本文针对的是Apollo1.0发布的基础上的探究。<br>本篇文章，主要讲述从ApolloApp、APOLLO_MAIN宏入手，了解全部Apollo模块的初始化，启动等过程探究。</p>
+</blockquote>
+<h3 id="Apollo入口"><a href="#Apollo入口" class="headerlink" title="Apollo入口"></a>Apollo入口</h3><p>在modules/common/apollo_app.h文件中，定义了名为ApolloApp的类，主要用于各个模块注册信息。供各个模块调用一次APOLLO_MAIN(APP)，每调用一次，即创建一个module模块进程，ApolloApp类规范了每个模块APP类的公有接口。</p>
+<p>所以从这个类入手，作为Apollo的分析入口再合适不过。</p>
+<p>ApolloApp中包含几个虚函数，模块需要重写其中的虚函数接口实例化本模块。对虚函数的重写也体现了该模块区别与其他模块的地方。</p>
+<figure class="highlight cpp"><figcaption><span>modules/common/apollo_app.h ApplloApp中的虚函数</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">virtual</span> <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">Name</span><span class="params">()</span> <span class="keyword">const</span> </span>= <span class="number">0</span>; <span class="comment">// 模块名称，进程名。</span></span><br><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">Spin</span><span class="params">()</span></span>; <span class="comment">//初始化模块app的信息，并持续运行直到shutdown</span></span><br><span class="line"><span class="keyword">virtual</span> apollo::common::<span class="function">Status <span class="title">Init</span><span class="params">()</span> </span>= <span class="number">0</span>; <span class="comment">//执行初始化加载配置文件和传感器数据等任务。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">virtual</span> apollo::common::<span class="function">Status <span class="title">Start</span><span class="params">()</span> </span>= <span class="number">0</span>;<span class="comment">//开始执行模块任务。若由上层message到来触发，则执行与message相关的回调函数。若由时间time触发，则调用时间处理回调函数。</span></span><br><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Stop</span><span class="params">()</span> </span>= <span class="number">0</span>; <span class="comment">//模块停止运行。在ros::shutdown()执行完毕后的清理工作。</span></span><br><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">ReportModuleStatus</span><span class="params">()</span></span>; <span class="comment">//向HMI人机交互界面发送状态status码。</span></span><br></pre></td></tr></table></figure>
+<h4 id="APOLLO-MAIN宏"><a href="#APOLLO-MAIN宏" class="headerlink" title="APOLLO_MAIN宏"></a>APOLLO_MAIN宏</h4><p>在modules/common/apollo_app.h文件中，还定义了一个在用以在各个模块中初始化的<code>APOLLO_MAIN</code>宏，在大部分的Apollo模块初始化的主函数中，均使用该宏完成初始化工作（启动glog、gflag、ROS初始化等）。</p>
+<figure class="highlight cpp"><figcaption><span>modules/common/appllo_app.h APOLLO_MAIN宏定义</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> APOLLO_MAIN(APP)                                       \</span><br><span class="line">  int main(int argc, char **argv) &#123;                            \</span><br><span class="line">    google::InitGoogleLogging(argv[0]);                        \</span><br><span class="line">    google::ParseCommandLineFlags(&amp;argc, &amp;argv, true);         \</span><br><span class="line">    signal(SIGINT, apollo::common::apollo_app_sigint_handler); \</span><br><span class="line">    APP apollo_app_;                                           \</span><br><span class="line">    ros::init(argc, argv, apollo_app_.Name());                 \</span><br><span class="line">    apollo_app_.Spin();                                        \</span><br><span class="line">    return 0;                                                  \</span><br><span class="line">  &#125;</span></span><br></pre></td></tr></table></figure>
+<p>一个定义main函数：</p>
+<ul>
+<li>初始化glag、glog组件；</li>
+<li>注册信号变量，确保进程接收到SIGINT信号变量，或者ROS时，停止Apollo应用；</li>
+<li>实例化对应模块，注册ROS等；</li>
+</ul>
+<h4 id="现有模块"><a href="#现有模块" class="headerlink" title="现有模块"></a>现有模块</h4><p>Apollo 现以下模块，更多模块会在之后的版本发布中涵盖：</p>
+<ul>
+<li>canbus 汽车CAN总线控制模块</li>
+<li>common 公有的源码模块</li>
+<li>control 控制模块</li>
+<li>decision 决策模块</li>
+<li>dreamview 可视化模块</li>
+<li>drivers 驱动模块</li>
+<li>hmi 人机交互模块</li>
+<li>localization 定位模块</li>
+<li>monitor 监控模块</li>
+<li>perception 感知模块</li>
+<li>planning 运动规划模块</li>
+<li>prediction 预测模块</li>
+<li>tools 通用监控与可视化工具</li>
+</ul>
+<p>之后发布的模块：</p>
+<ul>
+<li>map</li>
+</ul>
+<h4 id="标准模块"><a href="#标准模块" class="headerlink" title="标准模块"></a>标准模块</h4><p>一个标准模块的至少包含以下内容：</p>
+<ul>
+<li>common</li>
+<li>conf</li>
+<li>proto</li>
+<li>main.cc</li>
+<li>module.cc</li>
+<li>module.h</li>
+</ul>
+<p>模块主函数（main.cc）中调用APOLLO_MAIN宏，完成模块的初始化。如在决策模块中调用该宏完成初始化：<br><figure class="highlight cpp"><figcaption><span>modules/decision/main.cc APOLLO_MAIN宏在决策模块的初始化</span></figcaption><table><tr><td class="code"><pre><span class="line">APOLLO_MAIN(apollo::decision::Decision);</span><br></pre></td></tr></table></figure></p>
+<p>由此，其他的模块，依照该逻辑在进程中，完成模块的初始化，启动，等待与ROS的交互。</p>
+<p>依照之前APOLLO_MAIN宏，依次观察实例化的模块中实现的Init()、Start()、Stop()，以增加对该模块的充分了解。</p>
+<h3 id="决策模块"><a href="#决策模块" class="headerlink" title="决策模块"></a>决策模块</h3><p>以决策模块为例，将其中的APOLLO_MAIN宏替换为：<br><figure class="highlight cpp"><figcaption><span>modules/decision/main.cc APOLLO_MAIN宏在决策模块的替换结果</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    google::InitGoogleLogging(argv[<span class="number">0</span>]);</span><br><span class="line">    google::ParseCommandLineFlags(&amp;argc, &amp;argv, <span class="keyword">true</span>);</span><br><span class="line">    signal(SIGINT, apollo::common::apollo_app_sigint_handler);</span><br><span class="line">    apollo::decision::Decision apollo_app_;</span><br><span class="line">    ros::init(argc, argv, apollo_app_.Name());</span><br><span class="line">    apollo_app_.Spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>完成的事情还是一样的，只不过这样更清晰：</p>
+<ul>
+<li>初始化glag、glog组件；</li>
+<li>注册信号变量，确保进程接收到SIGINT信号变量，或者ROS时，停止Apollo应用；</li>
+<li>实例化决策模块，初始化ROS决策节点；</li>
+<li>调用基础模块类的回旋方法，这是Apollo应用的入口，完成初始化、启动、关闭（当ros要求关闭时）应用</li>
+</ul>
+<blockquote>
+<p>重要的一点：所有模块的类，均基于Apollo_App基础模块类</p>
+</blockquote>
+<p>着重看下回旋方法：<br><figure class="highlight cpp"><figcaption><span>modules/common/apollo_app.cc 基类回旋方法</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ApolloApp::Spin() &#123;</span><br><span class="line">  ros::<span class="function">AsyncSpinner <span class="title">spinner</span><span class="params">(1)</span></span>; <span class="comment">// 初始化1个线程</span></span><br><span class="line">  <span class="keyword">auto</span> status = Init(); </span><br><span class="line">  <span class="keyword">if</span> (!status.ok()) &#123;</span><br><span class="line">    AERROR &lt;&lt; Name() &lt;&lt; <span class="string">" Init failed: "</span> &lt;&lt; status;</span><br><span class="line">    ReportModuleStatus(apollo::hmi::ModuleStatus::UNINITIALIZED);</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ReportModuleStatus(apollo::hmi::ModuleStatus::INITIALIZED);</span><br><span class="line">  status = Start();</span><br><span class="line">  <span class="keyword">if</span> (!status.ok()) &#123;</span><br><span class="line">    AERROR &lt;&lt; Name() &lt;&lt; <span class="string">" Start failed: "</span> &lt;&lt; status;</span><br><span class="line">    ReportModuleStatus(apollo::hmi::ModuleStatus::STOPPED);</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ReportModuleStatus(apollo::hmi::ModuleStatus::STARTED);</span><br><span class="line">  spinner.start();</span><br><span class="line">  ros::waitForShutdown();</span><br><span class="line">  Stop();</span><br><span class="line">  ReportModuleStatus(apollo::hmi::ModuleStatus::STOPPED);</span><br><span class="line">  AINFO &lt;&lt; Name() &lt;&lt; <span class="string">" exited."</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中的<code>ros::AsyncSpinner spinner(1);</code>是来自Ros中的线程管理，用以初始化1个线程，更多的解释参考：<br>一个更有用的线程spinner是AsyncSpinner，与阻塞的 <code>spin()</code>不同, 它有<code>start()</code>和<code>stop()</code>调用, 并且在销毁时自动停止</p>
+<figure class="highlight cpp"><figcaption><span>ros::AsyncSpinner</span></figcaption><table><tr><td class="code"><pre><span class="line">ros::<span class="function">AsyncSpinner <span class="title">spinner</span><span class="params">(4)</span></span>; <span class="comment">// Use 4 threads</span></span><br><span class="line">spinner.start();</span><br><span class="line">ros::waitForShutdown();</span><br><span class="line">``` </span><br><span class="line">```cpp </span><br><span class="line"><span class="keyword">auto</span> status = Init();</span><br></pre></td></tr></table></figure>
+<p>基类中没有实现Init()方法，所以此处的status结果其实是决策模块中的Init()方法运行的结果。</p>
+<p>决策模块的Init()方法:直接返回了成功码<br><figure class="highlight cpp"><figcaption><span>modules/decision/decision.cc 决策模块的Init()方法</span></figcaption><table><tr><td class="code"><pre><span class="line">common::Status Decision::Init() &#123; <span class="keyword">return</span> common::Status::OK(); &#125;</span><br></pre></td></tr></table></figure></p>
+<p>决策模块的Start()方法：启动Ros 计时器，并返回启动成功错误码：<br><figure class="highlight cpp"><figcaption><span>modules/decision/decision.cc 决策模块的Start()方法</span></figcaption><table><tr><td class="code"><pre><span class="line">common::Status Decision::Start() &#123;</span><br><span class="line">  AdapterManager::Init();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// start ROS timer, one-shot = false, auto-start = true</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">double</span> duration = <span class="number">1.0</span> / FLAGS_decision_publish_freq;</span><br><span class="line">  timer_ = AdapterManager::CreateTimer(ros::Duration(duration),</span><br><span class="line">                                       &amp;Decision::OnTimer, <span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">return</span> common::Status::OK();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>总结一下模块基类中Spin()方法的主要逻辑：是对决策模块的执行：</p>
+<ul>
+<li>初始化决策模块，并向HMI上报状态；</li>
+<li>启动决策模块，并向HMI上报状态；</li>
+<li>等待关闭，ros::waitForShutdown()；</li>
+<li>关闭决策模块；</li>
+</ul>
+<figure class="highlight"><figcaption><span>mudules/decision/proto/decision.proto 决策模块中对象定义</span></figcaption><table><tr><td class="code"><pre><span class="line">//&#26631;&#35782;&#29289;&#20307;&#38271;&#24230;&#30340;2D&#25968;&#25454;&#12290;&#10;message Range &#123;&#10;  optional double start = 1;&#10;  optional double end = 2;&#10;&#125;&#10;//&#29702;&#24819;&#21270;&#30340;&#36710;&#36947;&#32447;&#12290;&#36710;&#36742;&#34892;&#39542;&#36215;&#28857;+&#32456;&#28857;+&#34892;&#39542;&#36895;&#24230;&#12290; &#21333;&#20301;m&#10;message TargetLane &#123;&#10;  // lane id&#10;  optional string id = 1;&#10;  optional double start_s = 2;  // in meters&#10;  optional double end_s = 3;    // in meters&#10;  optional double speed_limit = 4;  // in m/s&#10;&#125;&#10;message ObjectIgnore &#123;&#10;&#125;&#10;//&#20572;&#36710;&#21629;&#20196;&#65292;&#20572;&#36710;&#29702;&#30001;&#29366;&#24577;&#30721;&#12290;&#10;enum StopReasonCode &#123;&#10;  STOP_REASON_HEAD_VEHICLE = 1; //&#26377;&#21069;&#36710;&#10;  STOP_REASON_DESTINATION = 2; //&#21040;&#36798;&#30446;&#30340;&#22320;&#10;  STOP_REASON_PEDESTRIAN = 3;  //&#26377;&#34892;&#20154;&#10;  STOP_REASON_OBSTACLE = 4;    //&#26377;&#38556;&#30861;&#29289;&#20307;&#10;  STOP_REASON_PREPARKING = 5;  // &#39044;&#20572;&#36710;&#10;  STOP_REASON_SIGNAL = 100;    //&#20449;&#21495;&#28783;&#10;  STOP_REASON_STOP_SIGN = 101; //&#20572;&#36710;&#26631;&#35782;&#10;  STOP_REASON_YIELD_SIGN = 102;//&#35753;&#36335;&#26631;&#24535;&#10;  STOP_REASON_CLEAR_ZONE = 103; // &#28165;&#38500;&#21306;&#10;  STOP_REASON_CROSSWALK = 104; //&#20154;&#34892;&#27178;&#36947;&#10;&#125;&#10;//&#20572;&#36710;&#30446;&#26631;&#12290;&#36317;&#31163;+&#20572;&#36710;&#30721;+&#20572;&#36710;&#28857;&#10;message ObjectStop &#123;&#10;  // stop at least distance_s before the object&#10;  optional double distance_s = 1;  // in meters&#10;  optional Range preferred_distance_s = 2;  // NOT SUPPORTED FIELD&#10;  optional StopReasonCode reason_code = 3;&#10;  optional apollo.common.PointENU stop_point = 4;  // stop point&#10;&#125;&#10;//&#36317;&#31163;&#32531;&#24930;&#31227;&#21160;&#29289;&#20307;&#30340;&#26368;&#23567;&#36317;&#31163;&#10;message ObjectNudge &#123;&#10;  // minimum lateral distance with the object&#10;  optional double distance_l = 1;  // in meters&#10;  enum Type &#123;&#10;    LEFT_NUDGE = 1;&#10;    RIGHT_NUDGE = 2;&#10;  &#125;;&#10;  optional Type type = 2;&#10;  optional Range preferred_distance_l = 3;  // NOT SUPPORTED FIELD&#10;&#125;&#10;//&#36710;&#36742; &#31036;&#35753; &#21629;&#20196;&#29366;&#24577;&#12290;&#22914;&#26657;&#36710;/&#20844;&#20132;&#36710;/&#25937;&#25252;&#36710;&#10;message ObjectYield &#123;&#10;  // minimum longitutional distance with the object&#10;  optional double distance_s = 1;  // in meters&#10;  optional Range preferred_distance_s = 2;  // NOT SUPPORTED FIELD&#10;  optional apollo.common.PointENU yield_point = 3;&#10;&#125;&#10;//&#36710;&#36742; &#36319;&#38543; &#30446;&#26631;&#10;message ObjectFollow &#123;&#10;  // minimum longitutional distance with the object&#10;  optional double distance_s = 1;  // in meters&#10;  optional Range preferred_distance_s = 2;  // NOT SUPPORTED FIELD&#10;  optional apollo.common.PointENU follow_point = 3;&#10;&#125;&#10;//&#36229;&#36710;&#21629;&#20196;&#29366;&#24577;&#10;message ObjectOvertake &#123;&#10;  // minimum longitutional distance with the object&#10;  optional double distance_s = 1;  // in meters&#10;  optional Range preferred_distance_s = 2;  // NOT SUPPORTED FIELD&#10;  optional apollo.common.PointENU overtake_point = 3;&#10;&#125;&#10;// &#36710;&#36742;&#20391;&#38754; &#29289;&#20307;/&#36710;&#36742; &#29366;&#24577;&#10;message ObjectSidePass &#123;&#10;  // Follow or lead the object from side lane keeping a longitutional distance&#10;  // to it.&#10;  // If you want to cut in the neighbored lane, you may need to sidepass a&#10;  // neighbored object first.&#10;  optional double distance_s = 1;           // in meters&#10;  optional Range preferred_distance_s = 2;  // in meters, relative to the object&#10;  enum Type &#123;&#10;    FOLLOW = 1;  // Follow the object from side lane&#10;    LEAD = 2;    // Lead the object from side lane&#10;  &#125;;&#10;  optional Type type = 3;&#10;&#125;&#10;message ObjectAvoid &#123;&#10;&#125;&#10;//&#22240;&#26576;&#29289;&#20307;&#32780;&#20135;&#29983;&#30340;&#20915;&#31574;&#31867;&#22411;&#10;message ObjectDecisionType &#123;&#10;  oneof object_tag &#123;&#10;    ObjectIgnore ignore = 1; //&#24573;&#30053;&#27492;&#29289;&#20307;&#10;    ObjectStop stop = 2;     //&#20572;&#36710;&#10;    ObjectFollow follow = 3; //&#36319;&#36710;&#10;    ObjectYield yield = 4;   //&#31036;&#35753;&#34892;&#20154;/&#36710;&#36742;&#10;    ObjectOvertake overtake = 5;//&#36229;&#36710;&#10;    ObjectNudge nudge = 6;     //&#32531;&#24930;&#31227;&#21160;&#10;    ObjectSidePass sidepass = 7; //&#20391;&#26041;&#34892;&#39542;&#10;    ObjectAvoid avoid = 8;  //&#36991;&#24320; unified object decision while estop&#10;  &#125;&#10;&#125;&#10;message ObjectDecision &#123;&#10;  enum ObjectType &#123;&#10;    PREDICTION = 1;&#10;    PERCEPTION = 2;&#10;    VIRTUAL = 3;&#10;  &#125;&#10;  optional apollo.prediction.PredictionObstacle prediction = 1;&#10;  optional string id = 2;&#10;  optional ObjectType type = 3;&#10;  optional ObjectDecisionType decision = 4 [deprecated = true];&#10;  repeated ObjectDecisionType object_decision = 5;&#10;&#125;&#10;//&#30001;&#35813;&#29289;&#20307;&#32780;&#20135;&#29983;&#30340;&#20915;&#31574;&#21629;&#20196;&#10;message ObjectDecisions &#123;&#10;  repeated ObjectDecision decision = 1;&#10;&#125;&#10;//&#20572;&#36710;&#32447;&#10;// stop at distance_s on lane&#10;message StopLine &#123;&#10;  optional string lane_id = 1;&#10;  optional double distance_s = 2;&#10;&#125;&#10;//&#20572;&#36710;&#25511;&#21046;&#21464;&#37327;&#12290;&#10;message MainStop &#123;&#10;  // stop at or before distance_s relative to the lane_id&#10;  optional StopLine enforced_line = 1;&#10;  optional StopLine preferred_start = 2;  // NOT SUPPORTED FIELD&#10;  optional StopLine preferred_end = 3;    // NOT SUPPORTED FIELD&#10;  optional string reason = 4;&#10;  optional StopReasonCode reason_code = 5;&#10;  // When stopped, the front center of vehicle should be at this point.&#10;  optional apollo.common.PointENU stop_point = 6;&#10;  // When stopped, the heading of the vehicle should be stop_heading.&#10;  optional double stop_heading = 7;&#10;&#125;&#10;message EmergencyStopHardBrake &#123;&#10;&#125;&#10;message EmergencyStopCruiseToStop &#123;&#10;&#125;&#10;//&#32039;&#24613;&#20572;&#36710;&#10;message MainEmergencyStop &#123;&#10;  // Unexpected event happened, human driver is required to take over the&#10;  // vehicle.&#10;  optional string reason = 1;&#10;  enum ReasonCode &#123;&#10;    ESTOP_REASON_INTERNAL_ERR = 1;&#10;    ESTOP_REASON_COLLISION = 2;&#10;    ESTOP_REASON_ST_FIND_PATH = 3;&#10;    ESTOP_REASON_ST_MAKE_DECISION = 4;&#10;    ESTOP_REASON_SENSOR_ERROR = 5;&#10;  &#125;&#10;  optional ReasonCode reason_code = 2;&#10;  oneof task &#123;&#10;    EmergencyStopHardBrake hard_brake = 3;  // hard brake&#10;    EmergencyStopCruiseToStop cruise_to_stop = 4;  // cruise to stop&#10;  &#125;&#10;&#125;&#10;// &#24033;&#33322;&#10;message MainCruise &#123;&#10;  // cruise current lane&#10;&#125;&#10;message MainChangeLane &#123;&#10;  enum Type &#123;&#10;    LEFT = 1;&#10;    RIGHT = 2;&#10;  &#125;;&#10;  optional Type type = 1;&#10;  repeated TargetLane default_lane = 2;&#10;  optional MainStop default_lane_stop = 3;&#10;  optional MainStop target_lane_stop = 4;&#10;&#125;&#10;message MainMissionComplete &#123;&#10;  // arrived at routing destination&#10;&#125;&#10;message MainNotReady &#123;&#10;  // decision system is not ready.&#10;  // e.g. wait for routing data.&#10;  optional string reason = 1;&#10;&#125;&#10;//&#20572;&#36710;&#10;message MainParking &#123;&#10;  enum Type &#123;&#10;    FORWARD_PARKING = 1;&#10;    REVERSE_PARKING = 2;&#10;  &#125;;&#10;  optional Type type = 1;&#10;  // the heading of the final car position&#10;  optional double heading = 2;&#10;  // stop point&#10;  optional apollo.common.PointENU stop_point = 3;&#10;  // the polygon of the parking spot&#10;  repeated apollo.common.PointENU parking_polygon = 4;&#10;&#125;&#10;//&#20915;&#31574;&#21629;&#20196;&#20869;&#23481;&#10;message MainDecision &#123;&#10;  oneof task &#123;&#10;    MainCruise cruise = 1;&#10;    MainStop stop = 2;&#10;    MainEmergencyStop estop = 3;&#10;    MainChangeLane change_lane = 4;&#10;    MainMissionComplete mission_complete = 6;&#10;    MainNotReady not_ready = 7;&#10;    MainParking parking = 8;&#10;  &#125;&#10;  repeated TargetLane target_lane = 5;&#10;&#125;&#10;//&#25511;&#21046;&#36710;&#36742;&#30340;&#26041;&#20415;debug&#20449;&#24687;&#10;message MasterVehicleDebug &#123;&#10;  optional apollo.common.PointENU position = 1;&#10;  optional string current_lane_id = 2;&#10;  optional double lane_s = 3;&#10;  optional double lane_l = 4;&#10;  optional double route_s = 5 [deprecated = true];&#10;  optional double route_l = 6 [deprecated = true];&#10;  optional double heading = 7;&#10;  optional double heading_speed = 8;&#10;  optional double heading_acceleration = 9;&#10;  optional Range route_s_range = 10;&#10;  optional Range route_l_range = 11;&#10;&#125;&#10;message ObjectDebug &#123;&#10;  optional string id = 1;&#10;  optional string path_id = 2;&#10;  optional Range route_s = 3;&#10;  optional Range route_l = 4;&#10;  optional bool on_route = 5;&#10;  optional string lane_id = 6;&#10;  optional double lane_s = 7;&#10;  optional bool on_lane = 8;&#10;  optional double path_speed = 9;&#10;  // x is time (t), y is s&#10;  repeated apollo.common.Point3D st_region =  10;&#10;&#125;&#10;//&#28508;&#22312;&#22240;&#32032;&#10;message LatencyStats &#123;&#10;  optional double total_time_ms = 1;&#10;  optional double sensor_read_time_ms = 2;&#10;  optional double adc_prepare_time_ms = 3;&#10;  optional double obj_prepare_time_ms = 4;&#10;  optional double world_rule_time_ms = 5;&#10;  optional double st_graph_time_ms = 6;&#10;  // time diff between gateway_msg_receive_timestamp and gateway_msg_timestamp&#10;  optional double gateway_receive_delay_ms = 8;&#10;  // time diff between perception_msg_receive_timestamp and&#10;  // perception_msg_timestamp&#10;  optional double perception_receive_delay_ms = 9;&#10;  // time diff between prediction_msg_receive_timestamp and&#10;  // prediction_msg_timestamp&#10;  optional double prediction_receive_delay_ms = 10;&#10;  // time diff between signal_msg_receive_timestamp and signal_msg_timestamp&#10;  optional double signal_receive_delay_ms = 11;&#10;  // time interval in ms between perception last and its previous msg&#10;  optional double perception_interval_ms = 12;&#10;  // time interval in ms between prediction last and its previous msg&#10;  optional double prediction_interval_ms = 13;&#10;&#125;&#10;message Stats &#123;&#10;  optional LatencyStats latency_stats = 1;&#10;&#125;&#10;message ModuleDebug &#123;&#10;  optional uint32 gateway_sequence_num = 1;&#10;  optional uint32 perception_sequence_num = 2;&#10;  optional uint32 prediction_sequence_num = 3;&#10;  optional uint32 signal_sequence_num = 4;&#10;&#125;&#10;// next id: 8&#10;message Debug &#123;&#10;  optional MasterVehicleDebug master_vehicle = 1;&#10;  // Stores current frame&#39;s original decision when current decision has be&#10;  // modified.&#10;  // E.g., when current decision is the first encountered estop, we may use&#10;  // A valid history decision to replace current decision, but the estop&#10;  // decision will be stored in original_decision.&#10;  optional MainDecision original_decision = 2;&#10;  repeated ObjectDebug object = 3;&#10;  // some meta data will be dumped into debug per sample frequency:&#10;  // e.g. every 500 decision, meta data will be dumped once.&#10;  optional bytes map_version = 5;&#10;  optional bytes decision_version = 7;&#10;  // record per module debug info&#10;  optional ModuleDebug module_debug = 6;&#10;&#125;&#10;//&#36710;&#36733;&#35745;&#31639;&#26426;&#25511;&#21046;&#30340;&#36710;&#28783;&#20449;&#21495;&#10;// The light signal of the adc&#10;// naming reference https://en.wikipedia.org/wiki/Automotive_lighting&#10;message LightSignal &#123;&#10;  optional bool emergency = 1; // hazard signal&#10;  enum TurnSignal &#123;&#10;    NO_TURN = 1;&#10;    LEFT_TURN = 2;&#10;    RIGHT_TURN = 3;&#10;  &#125;;&#10;  optional TurnSignal turn_signal = 2 [default = NO_TURN];&#10;&#125;&#10;//&#20915;&#31574;&#32467;&#26524;&#10;message DecisionResult &#123;&#10;  optional apollo.common.Header header = 1;&#10;  optional ObjectDecisions object_decision = 2;//&#30001;&#29289;&#20307;&#32780;&#20135;&#29983;&#30340;&#20915;&#31574;&#21629;&#20196;&#10;  optional MainDecision main_decision = 3;     //&#20915;&#31574;&#21629;&#20196;&#10;  optional Debug debug = 4;&#10;  optional Stats stats = 6;&#10;  optional apollo.canbus.Signal signal = 7;    //&#21521;&#24213;&#30424;&#21457;&#36865;&#30340;&#20449;&#21495;&#20869;&#23481;&#10;  optional LightSignal light_signal = 5 [deprecated = true];//&#36710;&#28783;&#20449;&#21495;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="控制模块"><a href="#控制模块" class="headerlink" title="控制模块"></a>控制模块</h3><blockquote>
+<p>control module, it processes localization, chasiss, and<br>pad data to compute throttle, brake and steer values.</p>
+</blockquote>
+<p>控制模块的主要功能，处理定位、车辆信息、平板数据，以计算节气门，制动和转向值。</p>
+<h4 id="初始化方法"><a href="#初始化方法" class="headerlink" title="初始化方法"></a><strong>初始化方法</strong></h4><ul>
+<li>加载，初始化默认控制配置文件</li>
+<li>初始化控制器 :<figure class="highlight cpp"><figcaption><span>modules/control/control.cc 控制器的初始化</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// set controller</span></span><br><span class="line"><span class="keyword">if</span> (!controller_agent_.Init(&amp;control_conf_).ok()) &#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> error_msg = <span class="string">"Control init controller failed! Stopping..."</span>;</span><br><span class="line">  buffer.ERROR(error_msg);</span><br><span class="line">  <span class="keyword">return</span> Status(ErrorCode::CONTROL_INIT_ERROR, error_msg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中提到Control模块的两个属性：</p>
+<ul>
+<li><code>controller_agent_</code> 实例化自 ControllerAgent 管理所有在控制模块配置文件中定义的控制器</li>
+<li><code>control_conf_</code> 实例化自ControlConf 控制器配置对象</li>
+</ul>
+<p>下面看下ControllerAgent::Init()方法的主要内容：</p>
+<ul>
+<li><p>利用公共模块提供的工厂模型方法，注册经度、维度控制器：</p>
+<figure class="highlight cpp"><figcaption><span>mudules/control/controler/controller_agent.cc </span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> ControllerAgent::RegisterControllers() &#123;</span><br><span class="line">  controller_factory_.Register(</span><br><span class="line">      ControlConf::LAT_CONTROLLER,</span><br><span class="line">      []() -&gt; Controller * &#123; <span class="keyword">return</span> <span class="keyword">new</span> LatController(); &#125;);</span><br><span class="line">  controller_factory_.Register(</span><br><span class="line">      ControlConf::LON_CONTROLLER,</span><br><span class="line">      []() -&gt; Controller * &#123; <span class="keyword">return</span> <span class="keyword">new</span> LonController(); &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载默认控制配置文件中激活的控制器：LAT_CONTROLLER、LON_CONTROLLER，并创建单例的控制对象。</p>
+</li>
+</ul>
+<p>mudules/control/conf/lincoln.pb.txt 默认控制配置文件一部分:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">control_period: 0.01&#10;trajectory_period: 0.1&#10;chassis_period: 0.01&#10;localization_period: 0.01&#10;max_status_interval_sec: 0.1&#10;max_planning_interval_sec: 0.2&#10;max_planning_delay_threshold: 4.0&#10;action: STOP&#10;soft_estop_brake: 50.0&#10;active_controllers: LAT_CONTROLLER&#10;active_controllers: LON_CONTROLLER&#10;max_steering_percentage_allowed: 100&#10;lat_controller_conf&#123;&#10;  ......&#10;&#125;&#10;lon_controller_conf&#123;&#10;  ......&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>遍历基于控制器类的经度、维度控制器，检查是否已被初始化。</p>
+<p>总结一下，控制器代理方法的的初始化内容主要是根据配置文件，初始化其中的两个控制器：经度、维度控制器。</p>
+<p>之后是一些跟控制模块相关的检查：</p>
+<ul>
+<li>检查定位模块是否已经初始化</li>
+<li>检查底盘信息是否被初始化</li>
+<li>检查路径规划模块是否已初始化</li>
+<li>检查平板是否已初始化</li>
+<li>检查控制命令发布者是否已初始化</li>
+</ul>
+<p>最后返回初始化成功的状态码</p>
+<h4 id="启动方法"><a href="#启动方法" class="headerlink" title="启动方法"></a><strong>启动方法</strong></h4><ul>
+<li>使用命令行设置车辆状态，因为<code>advertised channel</code>不能立即准备就绪的原因，需要sleep一定时间;</li>
+<li>初始化默认的控制状态：stop</li>
+<li>控制器初始化完毕</li>
+<li>返回操作成功码</li>
+</ul>
+<h4 id="关闭方法"><a href="#关闭方法" class="headerlink" title="关闭方法"></a><strong>关闭方法</strong></h4><p>当然，控制模块中，还有其他内容，进程管理，路径分析(Trajectory Analyzer)，磁滞滤波器(hysteresis filter)等方法：</p>
+<ul>
+<li>digital_filter_coefficients 产生数字滤波器系数的函数； </li>
+<li>MeanFilter 使一些列噪声数字更加平滑，例如传感器数据，我们希望更平滑的函数输出；</li>
+<li>DigitalFilter 用于过滤低于特定频率的信号，并衰减频率高于截止频率的信号； </li>
+<li>HysteresisFilter 磁滞滤波器</li>
+<li>TrajectoryAnalyzer 处理点查询和转换相关的轨迹</li>
+<li>Interpolation1D 插值</li>
+<li>Interpolation2D 从键（double，double）到一个double的线性插值</li>
+<li>PIDController 用于速度和转向的比例积分微分控制器</li>
+</ul>
+<h3 id="驱动模块（Drivers）"><a href="#驱动模块（Drivers）" class="headerlink" title="驱动模块（Drivers）"></a>驱动模块（Drivers）</h3><h3 id="定位模块（Localization）"><a href="#定位模块（Localization）" class="headerlink" title="定位模块（Localization）"></a>定位模块（Localization）</h3><h3 id="监控模块（Monitor）"><a href="#监控模块（Monitor）" class="headerlink" title="监控模块（Monitor）"></a>监控模块（Monitor）</h3><h3 id="规划模块（Planning）"><a href="#规划模块（Planning）" class="headerlink" title="规划模块（Planning）"></a>规划模块（Planning）</h3><h3 id="感知模块（Perception）"><a href="#感知模块（Perception）" class="headerlink" title="感知模块（Perception）"></a>感知模块（Perception）</h3><p>逻辑主要集中在模块启动中：</p>
+<ul>
+<li>创建单线程监听模块状态；</li>
+<li>进入while循环：<ul>
+<li>感知障碍（PerceptionObstacles），过滤与发布</li>
+<li>信号灯检测（TrafficLightDetection），过滤与发布</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><figcaption><span>modules/perception/perception.cc 感知模块启动方法</span></figcaption><table><tr><td class="code"><pre><span class="line">Status Perception::Start() &#123;</span><br><span class="line">  ros::<span class="function">AsyncSpinner <span class="title">spinner</span><span class="params">(1)</span></span>;</span><br><span class="line">  spinner.start();</span><br><span class="line">  ros::waitForShutdown();</span><br><span class="line">  spinner.stop();</span><br><span class="line">  ros::<span class="function">Rate <span class="title">loop_rate</span><span class="params">(FLAGS_perception_loop_rate)</span></span>;</span><br><span class="line">  <span class="keyword">while</span> (ros::ok()) &#123;</span><br><span class="line">    AdapterManager::Observe();</span><br><span class="line">    PerceptionObstacles perceptionObstacles;</span><br><span class="line">    AdapterManager::FillPerceptionObstaclesHeader(</span><br><span class="line">        Name(), perceptionObstacles.mutable_header());</span><br><span class="line">    AdapterManager::PublishPerceptionObstacles(perceptionObstacles);</span><br><span class="line"></span><br><span class="line">    TrafficLightDetection trafficLightDetection;</span><br><span class="line">    AdapterManager::FillTrafficLightDetectionHeader(</span><br><span class="line">        Name(), trafficLightDetection.mutable_header());</span><br><span class="line">    AdapterManager::PublishTrafficLightDetection(trafficLightDetection);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> Status::OK();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中的PerceptionObstacles对象是通过proto定义的消息对象：<br><figure class="highlight"><figcaption><span>modules/perception/proto/perception_obstacle.proto 感知障碍对象定义</span></figcaption><table><tr><td class="code"><pre><span class="line">message PerceptionObstacle &#123;&#10;  optional int32 id = 1;  // obstacle ID.&#38556;&#30861;&#29289;ID&#10;  optional Point position = 2;  // obstacle position in the world coordinate system.&#38556;&#30861;&#29289;&#28857;&#22352;&#26631;&#10;  optional double theta = 3;  // heading in the world coordinate system.&#22352;&#26631;&#26397;&#21521;&#10;  optional Point velocity = 4;  // obstacle velocity.&#38556;&#30861;&#29289;&#36895;&#24230;&#10;&#10;  // Size of obstacle bounding box.&#10;  optional double length = 5;  // obstacle length.&#10;  optional double width = 6;  // obstacle width.&#10;  optional double height = 7;  // obstacle height.&#10;&#10;  repeated Point polygon_point = 8;  // obstacle corner points.&#10;  // duration of an obstacle since detection in s.&#10;  optional double tracking_time = 9;&#10;&#10;  enum Type &#123;&#10;    UNKNOWN = 0;&#10;    UNKNOWN_MOVABLE = 1;&#10;    UNKNOWN_UNMOVABLE = 2;&#10;    PEDESTRIAN = 3;  // &#34892;&#20154; Pedestrian, usually determined by moving behaviour.&#10;    BICYCLE = 4;  // bike, motor bike&#10;    VEHICLE = 5;  // &#23458;&#36710;&#12289;&#21345;&#36710;Passenger car or truck.&#10;  &#125;;&#10;  optional Type type = 10;  // obstacle type&#10;  optional double timestamp = 11;  // GPS time in seconds.&#10;&#10;  // Just for offline debuging, onboard will not fill this field.&#10;  // Format like : [x0, y0, z0, x1, y1, z1...]&#10;  repeated double point_cloud = 12 [packed = true];&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>感知障碍模型在Apollo的形式，最后转换成为一个具体的立体对象，就像我们看到的这样：<br><img src="https://console.bce.baidu.com/apollo/img/overviewInfo0.gif"></p>
+<p>信号灯检测（TrafficLightDetection）</p>
+<figure class="highlight"><figcaption><span>modules/perception/proto/traffic_light_detection.proto 信号灯模型、信号灯检测模型定义</span></figcaption><table><tr><td class="code"><pre><span class="line">message TrafficLight &#123;&#10;  enum Color &#123;&#10;    UNKNOWN = 0;&#10;    RED = 1;&#10;    YELLOW = 2;&#10;    GREEN = 3;&#10;  &#125;;&#10;  optional Color color = 1;&#10;&#10;  // Traffic light string-ID in the map data.&#10;  optional string id = 2;&#10;&#10;  // How confidence about the detected results, between 0 and 1.&#10;  optional double confidence = 3 [default = 1.0];&#10;&#10;  // Duration of the traffic light since detected.&#10;  optional double tracking_time = 4;&#10;&#125;&#10;&#10;message TrafficLightDetection &#123;&#10;  optional apollo.common.Header header = 2;&#10;&#10;  repeated TrafficLight traffic_light = 1;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://console.bce.baidu.com/apollo/img/overviewInfo1.gif"></p>
+<h3 id="预测模块（Prediction）"><a href="#预测模块（Prediction）" class="headerlink" title="预测模块（Prediction）"></a>预测模块（Prediction）</h3><p>初始化：</p>
+<ul>
+<li>单例初始化（实例已在其他模块，如控制模块初始化）</li>
+<li>设置障碍物感知回调，回调方法完成</li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/apollo/from_apollo_main_macro_to_all_modules.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

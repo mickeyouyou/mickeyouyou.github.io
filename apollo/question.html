@@ -42,7 +42,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Words"><span class="toc-text">Words</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Protobuf"><span class="toc-text">Protobuf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过ROS服务的驾驶控制"><span class="toc-text">通过ROS服务的驾驶控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RPC服务定义"><span class="toc-text">RPC服务定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gRPCServer"><span class="toc-text">gRPCServer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#确保进入驾驶模式"><span class="toc-text">确保进入驾驶模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SendPadMessage方法"><span class="toc-text">SendPadMessage方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AdapterManager"><span class="toc-text">AdapterManager</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APOLLO-MAIN-MACRO"><span class="toc-text">APOLLO_MAIN MACRO</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#决策模块"><span class="toc-text">决策模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#控制模块"><span class="toc-text">控制模块</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#初始化方法"><span class="toc-text">初始化方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#启动方法"><span class="toc-text">启动方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#关闭方法"><span class="toc-text">关闭方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#驾驶模块"><span class="toc-text">驾驶模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Words"><span class="toc-text">Words</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Protobuf"><span class="toc-text">Protobuf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过ROS服务的驾驶控制"><span class="toc-text">通过ROS服务的驾驶控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RPC服务定义"><span class="toc-text">RPC服务定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gRPCServer"><span class="toc-text">gRPCServer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#确保进入驾驶模式"><span class="toc-text">确保进入驾驶模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SendPadMessage方法"><span class="toc-text">SendPadMessage方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AdapterManager"><span class="toc-text">AdapterManager</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#杂项"><span class="toc-text">杂项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用gflags的宏解析命令行参数"><span class="toc-text">用gflags的宏解析命令行参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MonitorBuffer"><span class="toc-text">MonitorBuffer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Monitor类"><span class="toc-text">Monitor类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
 <h3 id="Words"><a href="#Words" class="headerlink" title="Words"></a>Words</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CHASSIS &#24213;&#30424; &#10;CANBUS CAN&#24635;&#32447;&#10;CHASSIS DETAIL &#24213;&#30424;&#32454;&#33410;&#10;IMU Inertial Measurement Unit &#24815;&#24615;&#27979;&#37327;&#35013;&#32622;&#10;PLANNING TRAJECTORY &#36712;&#36857;&#35268;&#21010;&#10;PERCEPTION OBSTACLES &#30693;&#35273;&#38556;&#30861;&#10;GNSS &#20840;&#29699;&#23548;&#33322;&#21355;&#26143;&#31995;&#32479;&#10;chassis vehicle status &#24213;&#30424;&#36710;&#36742;&#29366;&#24577;&#65292;&#20363;&#22914;&#36895;&#24230;&#65292;&#21152;&#36895;&#24230;</span><br></pre></td></tr></table></figure>
 <h3 id="Protobuf"><a href="#Protobuf" class="headerlink" title="Protobuf"></a>Protobuf</h3><p>Apollo中对于消息序列化均是基于Protobuf实现，所以认真了解一遍protobuf很有必要。</p>
 <p>控制模块其中一个proto定义：<br><figure class="highlight protobuf"><figcaption><span>modules/control/proto/pad_msg.proto 驾驶操作与Pad信息的proto定义</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">DrivingAction</span> </span>&#123;</span><br><span class="line"><span class="constant">  STOP</span> = <span class="number">0</span>;</span><br><span class="line"><span class="constant">  START</span> = <span class="number">1</span>;</span><br><span class="line"><span class="constant">  RESET</span> = <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">PadMessage</span> </span>&#123;</span><br><span class="line">  <span class="comment">// control mode, set mode according to low level defination</span></span><br><span class="line">  <span class="keyword">optional</span> apollo.common.Header header = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// send driving mode to drive</span></span><br><span class="line">  <span class="keyword">optional</span> apollo.canbus.Chassis.DrivingMode driving_mode = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// action in the driving_mode</span></span><br><span class="line">  <span class="keyword">optional</span> DrivingAction action = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -56,7 +56,7 @@
 <p>其中字段标签标示了字段在二进制流中存放的位置，这个是必须的，而且序列化与反序列化的时候相同的字段的Tag值必须对应，否则反序列化会出现意想不到的问题。</p>
 <p>通过查看生成的头文件，可以发现针对每个字段都会大致生成如下几种函数，以number字段为例：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// required string number = 1;</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">has_number</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">clear_number</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">const</span> ::<span class="built_in">std</span>::<span class="built_in">string</span>&amp; number() <span class="keyword">const</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">set_number</span><span class="params">(<span class="keyword">const</span> ::<span class="built_in">std</span>::<span class="built_in">string</span>&amp; value)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">set_number</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* value)</span></span>;</span><br><span class="line"><span class="keyword">inline</span> ::<span class="built_in">std</span>::<span class="built_in">string</span>* mutable_number();</span><br></pre></td></tr></table></figure></p>
 <p>可以看出，对于每个字段会生成一个has函数(has_number)、clear清除函数(clear_number)、set函数(set_number)、get函数(number和mutable_number)。这儿解释下get函数中的两个函数的区别，对于原型为const std::string &amp;number() const的get函数而言，返回的是常量字段，不能对其值进行修改。但是在有一些情况下，对字段进行修改是必要的，所以提供了一个mutable版的get函数，通过获取字段变量的指针，从而达到改变其值的目的。</p>
-<h3 id="通过ROS服务的驾驶控制"><a href="#通过ROS服务的驾驶控制" class="headerlink" title="通过ROS服务的驾驶控制"></a>通过ROS服务的驾驶控制</h3><p>这个问题，总的描述了从接口入手了解下从指令发送到实际进入自动驾驶状态的过程分析。</p>
+<h3 id="通过ROS服务的驾驶控制"><a href="#通过ROS服务的驾驶控制" class="headerlink" title="通过ROS服务的驾驶控制"></a>通过ROS服务的驾驶控制</h3><p>我想你对Apollo的自动驾驶过程很感兴趣，想知道从指令发送到进入自动驾驶的的过程，对于这个问题，以下从HMI相关的接口入手，了解从指令发送到实际进入自动驾驶状态的过程分析。</p>
 <p>该部分从hmi一下的两个接口入手，了解下指令发送到自动驾驶接管汽车的过程:</p>
 <ul>
 <li>ros_service_api/start_auto_driving 启动自动驾驶</li>
@@ -80,115 +80,15 @@
 <p>ROS中AdapterManager即调度中心的角色，完成节点的发布与订阅关系。</p>
 <p>以下列出来现有模块对应适配器的位置：<br><figure class="highlight cpp"><figcaption><span>message_adapter.h</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> ChassisAdapter = Adapter&lt;::apollo::canbus::Chassis&gt;;</span><br><span class="line"><span class="keyword">using</span> ChassisDetailAdapter = Adapter&lt;::apollo::canbus::ChassisDetail&gt;;</span><br><span class="line"><span class="keyword">using</span> ControlCommandAdapter = Adapter&lt;::apollo::control::ControlCommand&gt;;</span><br><span class="line"><span class="keyword">using</span> DecisionAdapter = Adapter&lt;::apollo::decision::DecisionResult&gt;;</span><br><span class="line"><span class="keyword">using</span> GpsAdapter = Adapter&lt;apollo::localization::Gps&gt;;</span><br><span class="line"><span class="keyword">using</span> ImuAdapter = Adapter&lt;::apollo::localization::Imu&gt;;</span><br><span class="line"><span class="keyword">using</span> CameraAdapter = Adapter&lt;::apollo::localization::Camera&gt;;</span><br><span class="line"><span class="keyword">using</span> LocalizationAdapter = Adapter&lt;apollo::localization::LocalizationEstimate&gt;;</span><br><span class="line"><span class="keyword">using</span> MonitorAdapter = Adapter&lt;apollo::common::monitor::MonitorMessage&gt;;</span><br><span class="line"><span class="keyword">using</span> PadAdapter = Adapter&lt;::apollo::control::PadMessage&gt;;</span><br><span class="line"><span class="keyword">using</span> PerceptionObstaclesAdapter =</span><br><span class="line">    Adapter&lt;::apollo::perception::PerceptionObstacles&gt;;</span><br><span class="line"><span class="keyword">using</span> PlanningTrajectoryAdapter = Adapter&lt;::apollo::planning::ADCTrajectory&gt;;</span><br><span class="line"><span class="keyword">using</span> PredictionAdapter = Adapter&lt;::apollo::prediction::PredictionObstacles&gt;;</span><br><span class="line"><span class="keyword">using</span> TrafficLightDetectionAdapter =</span><br><span class="line">    Adapter&lt;::apollo::perception::TrafficLightDetection&gt;;</span><br></pre></td></tr></table></figure></p>
 <p>适配器的部分有些拓展了，但实现自动驾驶指令的过程总结为ros通过接口调用gRPC，再做适配后返回操作结果。</p>
-<h3 id="APOLLO-MAIN-MACRO"><a href="#APOLLO-MAIN-MACRO" class="headerlink" title="APOLLO_MAIN MACRO"></a>APOLLO_MAIN MACRO</h3><p><code>APOLLO_MAIN</code>宏帮助开发者在一行命令中启动glog、gflag、ROS。</p>
-<figure class="highlight cpp"><figcaption><span>modules/common/appllo_app.h APOLLO_MAIN宏定义</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> APOLLO_MAIN(APP)                                       \</span><br><span class="line">  int main(int argc, char **argv) &#123;                            \</span><br><span class="line">    google::InitGoogleLogging(argv[0]);                        \</span><br><span class="line">    google::ParseCommandLineFlags(&amp;argc, &amp;argv, true);         \</span><br><span class="line">    signal(SIGINT, apollo::common::apollo_app_sigint_handler); \</span><br><span class="line">    APP apollo_app_;                                           \</span><br><span class="line">    ros::init(argc, argv, apollo_app_.Name());                 \</span><br><span class="line">    apollo_app_.Spin();                                        \</span><br><span class="line">    return 0;                                                  \</span><br><span class="line">  &#125;</span></span><br></pre></td></tr></table></figure>
-<p>一个定义main函数：</p>
-<ul>
-<li>初始化glag、glog组件；</li>
-<li>注册信号变量，确保进程接收到SIGINT信号变量，或者ROS时，停止Apollo应用；</li>
-<li>实例化对应模块，注册ROS等；</li>
-</ul>
-<p>调用，如在决策模块中调用该宏完成初始化：<br><figure class="highlight cpp"><figcaption><span>modules/decision/main.cc APOLLO_MAIN宏在决策模块的初始化</span></figcaption><table><tr><td class="code"><pre><span class="line">APOLLO_MAIN(apollo::decision::Decision);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight cpp"><figcaption><span>modules/control/main.cc APOLLO_MAIN宏在控制模块的初始化</span></figcaption><table><tr><td class="code"><pre><span class="line">APOLLO_MAIN(apollo::control::Control);</span><br></pre></td></tr></table></figure>
-<h4 id="决策模块"><a href="#决策模块" class="headerlink" title="决策模块"></a>决策模块</h4><p>以决策模块为例，将其中的APOLLO_MAIN宏替换为：<br><figure class="highlight cpp"><figcaption><span>modules/decision/main.cc APOLLO_MAIN宏在决策模块的替换结果</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    google::InitGoogleLogging(argv[<span class="number">0</span>]);</span><br><span class="line">    google::ParseCommandLineFlags(&amp;argc, &amp;argv, <span class="keyword">true</span>);</span><br><span class="line">    signal(SIGINT, apollo::common::apollo_app_sigint_handler);</span><br><span class="line">    apollo::decision::Decision apollo_app_;</span><br><span class="line">    ros::init(argc, argv, apollo_app_.Name());</span><br><span class="line">    apollo_app_.Spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>完成的事情还是一样的，只不过这样更清晰：</p>
-<ul>
-<li>初始化glag、glog组件；</li>
-<li>注册信号变量，确保进程接收到SIGINT信号变量，或者ROS时，停止Apollo应用；</li>
-<li>实例化决策模块，初始化ROS决策节点；</li>
-<li>调用基础模块类的回旋方法，这是Apollo应用的入口，完成初始化、启动、关闭（当ros要求关闭时）应用</li>
-</ul>
-<blockquote>
-<p>重要的一点：所有模块的类，均基于Apollo_App基础模块类</p>
-</blockquote>
-<p>着重看下回旋方法：<br><figure class="highlight cpp"><figcaption><span>modules/common/apollo_app.cc 基类回旋方法</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ApolloApp::Spin() &#123;</span><br><span class="line">  ros::<span class="function">AsyncSpinner <span class="title">spinner</span><span class="params">(1)</span></span>; <span class="comment">// 初始化1个线程</span></span><br><span class="line">  <span class="keyword">auto</span> status = Init(); </span><br><span class="line">  <span class="keyword">if</span> (!status.ok()) &#123;</span><br><span class="line">    AERROR &lt;&lt; Name() &lt;&lt; <span class="string">" Init failed: "</span> &lt;&lt; status;</span><br><span class="line">    ReportModuleStatus(apollo::hmi::ModuleStatus::UNINITIALIZED);</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ReportModuleStatus(apollo::hmi::ModuleStatus::INITIALIZED);</span><br><span class="line">  status = Start();</span><br><span class="line">  <span class="keyword">if</span> (!status.ok()) &#123;</span><br><span class="line">    AERROR &lt;&lt; Name() &lt;&lt; <span class="string">" Start failed: "</span> &lt;&lt; status;</span><br><span class="line">    ReportModuleStatus(apollo::hmi::ModuleStatus::STOPPED);</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ReportModuleStatus(apollo::hmi::ModuleStatus::STARTED);</span><br><span class="line">  spinner.start();</span><br><span class="line">  ros::waitForShutdown();</span><br><span class="line">  Stop();</span><br><span class="line">  ReportModuleStatus(apollo::hmi::ModuleStatus::STOPPED);</span><br><span class="line">  AINFO &lt;&lt; Name() &lt;&lt; <span class="string">" exited."</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>其中的<code>ros::AsyncSpinner spinner(1);</code>是来自Ros中的线程管理，用以初始化1个线程，更多的解释参考：<br>一个更有用的线程spinner是AsyncSpinner，与阻塞的 <code>spin()</code>不同, 它有<code>start()</code>和<code>stop()</code>调用, 并且在销毁时自动停止</p>
-<figure class="highlight cpp"><figcaption><span>ros::AsyncSpinner</span></figcaption><table><tr><td class="code"><pre><span class="line">ros::<span class="function">AsyncSpinner <span class="title">spinner</span><span class="params">(4)</span></span>; <span class="comment">// Use 4 threads</span></span><br><span class="line">spinner.start();</span><br><span class="line">ros::waitForShutdown();</span><br><span class="line">``` </span><br><span class="line">```cpp </span><br><span class="line"><span class="keyword">auto</span> status = Init();</span><br></pre></td></tr></table></figure>
-<p>基类中没有实现Init()方法，所以此处的status结果其实是决策模块中的Init()方法运行的结果。</p>
-<p>决策模块的Init()方法:直接放回了成功码<br><figure class="highlight cpp"><figcaption><span>modules/decision/decision.cc 决策模块的Init()方法</span></figcaption><table><tr><td class="code"><pre><span class="line">common::Status Decision::Init() &#123; <span class="keyword">return</span> common::Status::OK(); &#125;</span><br></pre></td></tr></table></figure></p>
-<p>决策模块的Start()方法：启动Ros 计时器，并返回启动成功错误码：<br><figure class="highlight cpp"><figcaption><span>modules/decision/decision.cc 决策模块的Start()方法</span></figcaption><table><tr><td class="code"><pre><span class="line">common::Status Decision::Start() &#123;</span><br><span class="line">  AdapterManager::Init();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// start ROS timer, one-shot = false, auto-start = true</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">double</span> duration = <span class="number">1.0</span> / FLAGS_decision_publish_freq;</span><br><span class="line">  timer_ = AdapterManager::CreateTimer(ros::Duration(duration),</span><br><span class="line">                                       &amp;Decision::OnTimer, <span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">return</span> common::Status::OK();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>总结一下模块基类中Spin()方法的主要逻辑：是对决策模块的执行：</p>
-<ul>
-<li>初始化决策模块，并向HMI上报状态；</li>
-<li>启动决策模块，并向HMI上报状态；</li>
-<li>等待关闭，ros::waitForShutdown()；</li>
-<li>关闭决策模块；</li>
-</ul>
-<p>由此，其他的模块，依照该逻辑在进程中，完成模块的初始化，启动，等待与ROS的交互。</p>
-<p>依照之前APOLLO_MAIN宏，依次观察实例化的模块中实现的Init()、Start()、Stop()，以增加对该模块的充分了解。</p>
-<h4 id="控制模块"><a href="#控制模块" class="headerlink" title="控制模块"></a>控制模块</h4><blockquote>
-<p>control module, it processes localization, chasiss, and<br>pad data to compute throttle, brake and steer values.</p>
-</blockquote>
-<p>控制模块的主要功能，处理定位、车辆信息、平板数据，以计算节气门，制动和转向值。</p>
-<h5 id="初始化方法"><a href="#初始化方法" class="headerlink" title="初始化方法"></a><strong>初始化方法</strong></h5><ul>
-<li>加载，初始化默认控制配置文件</li>
-<li>初始化控制器 :<figure class="highlight cpp"><figcaption><span>modules/control/control.cc 控制器的初始化</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// set controller</span></span><br><span class="line"><span class="keyword">if</span> (!controller_agent_.Init(&amp;control_conf_).ok()) &#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> error_msg = <span class="string">"Control init controller failed! Stopping..."</span>;</span><br><span class="line">  buffer.ERROR(error_msg);</span><br><span class="line">  <span class="keyword">return</span> Status(ErrorCode::CONTROL_INIT_ERROR, error_msg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>其中提到Control模块的两个属性：</p>
-<ul>
-<li><code>controller_agent_</code> 实例化自 ControllerAgent 管理所有在控制模块配置文件中定义的控制器</li>
-<li><code>control_conf_</code> 实例化自ControlConf 控制器配置对象</li>
-</ul>
-<p>下面看下ControllerAgent::Init()方法的主要内容：</p>
-<ul>
-<li><p>利用公共模块提供的工厂模型方法，注册经度、维度控制器：</p>
-<figure class="highlight cpp"><figcaption><span>mudules/control/controler/controller_agent.cc </span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> ControllerAgent::RegisterControllers() &#123;</span><br><span class="line">  controller_factory_.Register(</span><br><span class="line">      ControlConf::LAT_CONTROLLER,</span><br><span class="line">      []() -&gt; Controller * &#123; <span class="keyword">return</span> <span class="keyword">new</span> LatController(); &#125;);</span><br><span class="line">  controller_factory_.Register(</span><br><span class="line">      ControlConf::LON_CONTROLLER,</span><br><span class="line">      []() -&gt; Controller * &#123; <span class="keyword">return</span> <span class="keyword">new</span> LonController(); &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>加载默认控制配置文件中激活的控制器：LAT_CONTROLLER、LON_CONTROLLER，并创建单例的控制对象。</p>
-</li>
-</ul>
-<p>mudules/control/conf/lincoln.pb.txt 默认控制配置文件一部分:</p>
-<pre><code class="txt">control_period: 0.01
-trajectory_period: 0.1
-chassis_period: 0.01
-localization_period: 0.01
-max_status_interval_sec: 0.1
-max_planning_interval_sec: 0.2
-max_planning_delay_threshold: 4.0
-action: STOP
-soft_estop_brake: 50.0
-active_controllers: LAT_CONTROLLER
-active_controllers: LON_CONTROLLER
-max_steering_percentage_allowed: 100
-lat_controller_conf{
-  ......
-}
-lon_controller_conf{
-  ......
-}
-</code></pre>
-<ul>
-<li>遍历基于控制器类的经度、维度控制器，检查是否已被初始化。</li>
-</ul>
-<p>总结一下，控制器代理方法的的初始化内容主要是根据配置文件，初始化其中的两个控制器：经度、维度控制器。</p>
-<p>之后是一些跟控制模块相关的检查：</p>
-<ul>
-<li>检查定位模块是否已经初始化</li>
-<li>检查底盘信息是否被初始化</li>
-<li>检查路径规划模块是否已初始化</li>
-<li>检查平板是否已初始化</li>
-<li>检查控制命令发布者是否已初始化</li>
-</ul>
-<p>最后返回初始化成功的状态码</p>
-<h5 id="启动方法"><a href="#启动方法" class="headerlink" title="启动方法"></a><strong>启动方法</strong></h5><ul>
-<li>使用命令行设置车辆状态，因为<code>advertised channel</code>不能立即准备就绪的原因，需要sleep一定时间;</li>
-<li>初始化默认的控制状态：stop</li>
-<li>控制器初始化完毕</li>
-<li>返回操作成功码</li>
-</ul>
-<h5 id="关闭方法"><a href="#关闭方法" class="headerlink" title="关闭方法"></a><strong>关闭方法</strong></h5><p>当然，控制模块中，还有其他内容，进程管理，路径分析(Trajectory Analyzer)，磁滞滤波器(hysteresis filter)等方法：</p>
-<ul>
-<li>digital_filter_coefficients 产生数字滤波器系数的函数； </li>
-<li>MeanFilter 使一些列噪声数字更加平滑，例如传感器数据，我们希望更平滑的函数输出；</li>
-<li>DigitalFilter 用于过滤低于特定频率的信号，并衰减频率高于截止频率的信号； </li>
-<li>HysteresisFilter 磁滞滤波器</li>
-<li>TrajectoryAnalyzer 处理点查询和转换相关的轨迹</li>
-<li>Interpolation1D 插值</li>
-<li>Interpolation2D 从键（double，double）到一个double的线性插值</li>
-<li>PIDController 用于速度和转向的比例积分微分控制器</li>
-</ul>
-<h3 id="驾驶模块"><a href="#驾驶模块" class="headerlink" title="驾驶模块"></a>驾驶模块</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><h4 id="用gflags的宏解析命令行参数"><a href="#用gflags的宏解析命令行参数" class="headerlink" title="用gflags的宏解析命令行参数"></a>用gflags的宏解析命令行参数</h4><p>声明：DECLARE_xxx(变量名)<br>定义：DEFINE_xxxxx(变量名，默认值，help-string)。</p>
+<h4 id="MonitorBuffer"><a href="#MonitorBuffer" class="headerlink" title="MonitorBuffer"></a>MonitorBuffer</h4><p>MonitorBuffer主要用于缓存多条log的消息日志。将多个相同level的log组合到一起。避免冗余信息。 不同level的log，将不会被组合。但是相同level的log日志将被组合到一起。</p>
+<p>构造函数<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">MonitorBuffer</span><span class="params">(Monitor *monitor)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>成员函数:<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintLog</span><span class="params">()</span></span>; <span class="comment">//将monitor_msg_items_的尾部消息输出。</span></span><br><span class="line">REG_MSG_TYPE(INFO); <span class="comment">//注册INFO级别的log。</span></span><br><span class="line">REG_MSG_TYPE(WARN);</span><br><span class="line">REG_MSG_TYPE(ERROR);</span><br><span class="line">REG_MSG_TYPE(FATAL);</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddMonitorMsgItem</span><span class="params">(<span class="keyword">const</span> MonitorMessageItem::LogLevel log_level,<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;msg)</span></span>;<span class="comment">//添加一个msgitem：level+msg.</span></span><br><span class="line">MonitorBuffer &amp;<span class="keyword">operator</span>&lt;&lt;(<span class="keyword">const</span> T &amp;msg)<span class="comment">//重载&lt;&lt;运算符,将msg写入MonitorBuffer。level是当前的level_</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Publish</span><span class="params">()</span></span>;<span class="comment">//调用monitor的成员函数Publish(),发布消息。</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Monitor类"><a href="#Monitor类" class="headerlink" title="Monitor类"></a>Monitor类</h4><p>Monitor类主要用于收集各个模块的message信息，并发布到相关的topic中。</p>
+<p>构造函数<br>explicit Monitor(const MonitorMessageItem::MessageSource &amp;source)<br>      : source_(source) {}<br>创建一个消息项，指定message来源哪一个模块。<br>成员函数:<br>virtual void Publish(const std::vector<messageitem> &amp;messages) const;<br>组合多条消息，并发布到相关的topic。<br>测试代码:</messageitem></p>
+<p>  MonitorTest monitor(MonitorMessageItem::CONTROL);<br>  std::vector<std::pair<monitormessageitem::loglevel, std::string="">&gt; items{<br>      {MonitorMessageItem::INFO, “info message”},<br>      {MonitorMessageItem::WARN, “warn message”},<br>      {MonitorMessageItem::ERROR, “error message”},<br>  };<br>  monitor.Publish(items);//一次性发布多条消息。<br>总的来说Monitor类就是收集各个模块的工作log日志并发布到相应的topic用于监控。其中用到了MonitorBuffer，目的是合并相同level的log消息日志并一次性发布——减少冗余信息。</std::pair<monitormessageitem::loglevel,></p>
+<p>路侧清除区概念<br>路侧清除区亦称路侧净区（Roadside Clear Zone）其关系到路侧护栏是否必须设置，<br><img src="https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/18698391_5904462119640035_7963861335050705775_n.jpg?oh=b581a24f0fec71f3941c5106ec76e7bf&oe=5A290EDE"><br><img src="https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/18664320_5904463836306530_5553544047426477646_n.jpg?oh=c4fa712e6ce1f2e62818f6b4de2958c2&oe=5A2C77D6"><br>上图路侧地面平坦，即使车辆驶离车道，也安全无误，而下图是高填土堤式公路，边坡甚陡，车辆一旦驶离行车道，有可能翻车，故此时需要设置路侧护栏。至少可以作为缓冲带。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://www.cnblogs.com/royenhome/archive/2010/10/29/1864860.html" target="_blank" rel="external">Google Protocol Buffers浅析（一）</a></li>
 <li>关于rpc配置的几种方式：<a href="https://doc.oschina.net/grpc?t=60136" target="_blank" rel="external">https://doc.oschina.net/grpc?t=60136</a></li>
 <li>互斥锁 <a href="http://zh.cppreference.com/w/cpp/thread/lock_guard" target="_blank" rel="external">http://zh.cppreference.com/w/cpp/thread/lock_guard</a></li>
