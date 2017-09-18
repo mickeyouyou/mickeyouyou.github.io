@@ -1,0 +1,130 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo相关名词解释</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo相关名词解释</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年8月14日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#IMU"><span class="toc-text">IMU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPS-GNSS"><span class="toc-text">GPS/GNSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiDAR"><span class="toc-text">LiDAR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#毫米波雷达"><span class="toc-text">毫米波雷达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EPS"><span class="toc-text">EPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CAN总线协议"><span class="toc-text">CAN总线协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ECU"><span class="toc-text">ECU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Autobox"><span class="toc-text">Autobox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADAS"><span class="toc-text">ADAS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SLAM"><span class="toc-text">SLAM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#镜头视角FOV"><span class="toc-text">镜头视角FOV</span></a></li></ol>
+<h3 id="IMU"><a href="#IMU" class="headerlink" title="IMU"></a>IMU</h3><p>惯性测量单元（英文：Inertial measurement unit，简称IMU）是测量物体三轴姿态角(或角速率)以及加速度的装置。</p>
+<p>一般情况，一个IMU包含了三个单轴的加速度计和三个单轴的陀螺仪，加速度计检测物体在载体坐标系统独立三轴的加速度信号，而陀螺仪检测载体相对于导航坐标系的角速度信号，测量物体在三维空间中的角速度和加速度，并以此解算出物体的姿态。在导航中有着很重要的应用价值。</p>
+<p>功能：通过测量角速度、加速度，确认车辆状态<br>refer:<a href="https://wenku.baidu.com/view/8074acbe195f312b3169a5d4.html" target="_blank" rel="external">https://wenku.baidu.com/view/8074acbe195f312b3169a5d4.html</a></p>
+<h3 id="GPS-GNSS"><a href="#GPS-GNSS" class="headerlink" title="GPS/GNSS"></a>GPS/GNSS</h3><p>GNSS的全称是全球导航卫星系统（Global Navigation Satellite System），它是泛指所有的卫星导航系统，包括全球的、区域的和增强的，如美国的GPS、俄罗斯的Glonass、欧洲的Galileo、中国的北斗卫星导航系统，以及相关的增强系统，如美国的WAAS（广域增强系统）、欧洲的EGNOS（欧洲静地导航重叠系统）和日本的MSAS（多功能运输卫星增强系统）等，还涵盖在建和以后要建设的其他卫星导航系统。国际GNSS系统是个多系统、多层面、多模式的复杂组合系统。</p>
+<p>GPS是英文Global Positioning System（全球定位系统）的简称。GPS起始于1958年美国军方的一个项目，1964年投入使用。20世纪70年代，美国陆海空三军联合研制了新一代卫星定位系统GPS 。主要目的是为陆海空三大领域提供实时、全天候和全球性的导航服务，并用于情报搜集、核爆监测和应急通讯等一些军事目的，经过20余年的研究实验，耗资300亿美元，到1994年，全球覆盖率高达98%的24颗GPS卫星星座己布设完成。<br>功能：提供车辆定位</p>
+<h3 id="LiDAR"><a href="#LiDAR" class="headerlink" title="LiDAR"></a>LiDAR</h3><p>LiDAR——Light Detection And Ranging，即激光探测与测量。是利用GPS（Global Position System）和IMU（Inertial Measurement Unit，惯性测量装置）机载激光扫描。其所测得的数据为数字表面模型(Digital Surface Model, DSM)的离散点表示，数据中含有空间三维信息和激光强度信息。应用分类(Classification)技术在这些原始数字表面模型中移除建筑物、人造物、覆盖植物等测点，即可获得数字高程模型(Digital Elevation Model, DEM)，并同时得到地面覆盖物的高度。<br>机载LIDAR 系统主要包括:</p>
+<ul>
+<li>动态差分GPS接收机,用于确定扫描投影中心的空间位置;</li>
+<li>姿态测量装置( IMU) ,用于测量扫描装置主光轴的空间姿态参数;</li>
+<li>激光扫描测距系统,用于测量传感器到地面点的距离;</li>
+<li>一套成像装置(主要是数码相机) ,用于获取对应地面的彩色数码影像,用于最终制作正射影像。</li>
+</ul>
+<p>LIDAR(激光雷达）即Light Detection And Ranging，大致分为机载和地面两大类，其中机载激光雷达是一种安装在飞机上的机载激光探测和测距系统，可以量测地面物体的三维坐标。机载LIDAR是一种主动式对地观测系统，是九十年代初首先由西方国家发展起来并投入商业化应用的一门新兴技术。它集成激光测距技术、计算机技术、惯性测量单元(IMU) /DGPS差分定位技术于一体，该技术在三维空间信息的实时获取方面产生了重大突破，为获取高时空分辨率地球空间信息提供了一种全新的技术手段。它具有自动化程度高、受天气影响小、数据生产周期短、精度高等特点。机载LIDAR传感器发射的激光脉冲能部分地穿透树林遮挡，直接获取高精度三维地表地形数据。机载LIDAR数据经过相关软件数据处理后，可以生成高精度的数字地面模型DTM、等高线图，具有传统摄影测量和地面常规测量技术无法取代的优越性，因此引起了测绘界的浓厚兴趣。机载激光雷达技术的商业化应用，使航测制图如生成DEM、等高线和地物要素的自动提取更加便捷，其地面数据通过软件处理很容易合并到各种数字图中。<br>refer:<a href="http://baike.baidu.com/item/Lidar?sefr=cr" target="_blank" rel="external">http://baike.baidu.com/item/Lidar?sefr=cr</a></p>
+<p>功能：极光测距，实时获取三维空间的物体信息，</p>
+<h3 id="毫米波雷达"><a href="#毫米波雷达" class="headerlink" title="毫米波雷达"></a>毫米波雷达</h3><p>根据毫米波雷达的有效范围，可以将车载毫米波雷达分为长距离雷达（LRR）和中距离雷达（MRR）以及短距离雷达（SRR）。</p>
+<p><img src="http://www.elecfans.com/uploads/allimg/170301/2160275-1F30111531MR.png" width="50%"></p>
+<p><img src="http://www.elecfans.com/uploads/allimg/170301/2160275-1F301115331495.png" width="50%"></p>
+<ul>
+<li>自动泊车辅助PA</li>
+<li>预碰撞保护</li>
+<li>自动跟车SG(step &amp; go)</li>
+<li>前置碰撞预警</li>
+<li>预撞缓解</li>
+</ul>
+<p>以自动跟车型（Stop &amp; Go）ACC功能为例，一般需要3个毫米波雷达。车正中间一个77GHz的LRR，探测距离在150-250米之间，角度为10度左右；车两侧各一个24GHz的MRR，角度都为30度，探测距离在50-70米之间。</p>
+<h3 id="EPS"><a href="#EPS" class="headerlink" title="EPS"></a>EPS</h3><p>EPS是英文Electric Power Steering的缩写，即电动助力转向系统。电动助力转向系统是汽车转向系统的发展方向。该系统由电动助力机直接提供转向助力，省去了液压动力转向系统所必需的动力转向油泵、软管、液压油、传送带和装于发动机上的皮带轮，既节省能量，又保护了环境。另外，还具有调整简单、装配灵活以及在多种状况下都能提供转向助力的特点。正是有了这些优点，电动助力转向系统作为一种新的转向技术，将挑战大家都非常熟知的、已具有50多年历史的液压转向系统。EPS是英文Electric Power Steering的缩写,即电动助力转向系统。电动助力转向系统是汽车转向系统的发展方向。该系统由电动助力机直接提供转向助力，省去了液压动力转向系统所必需的动力转向油泵、软管、液压油、传送带和装于发动机上的皮带轮，既节省能量，又保护了环境。另外，还具有调整简单、装配灵活以及在多种状况下都能提供转向助力的特点。正是有了这些优点，电动助力转向系统作为一种新的转向技术，将挑战大家都非常熟知的、已具有50多年历史的液压转向系统。<br>refer:百科，<a href="https://wenku.baidu.com/view/a56070ddff00bed5b8f31d87.html" target="_blank" rel="external">https://wenku.baidu.com/view/a56070ddff00bed5b8f31d87.html</a></p>
+<h3 id="CAN总线协议"><a href="#CAN总线协议" class="headerlink" title="CAN总线协议"></a>CAN总线协议</h3><p>控制器局域网总线（CAN，Controller Area Network）是一种用于实时应用的串行通讯协议总线，它可以使用双绞线来传输信号，是世界上应用最广泛的现场总线之一。CAN协议用于汽车中各种不同元件之间的通信，以此取代昂贵而笨重的配电线束。该协议的健壮性使其用途延伸到其他自动化和工业应用。CAN协议的特性包括完整性的串行数据通讯、提供实时支持、传输速率高达1Mb/s、同时具有11位的寻址以及检错能力。<br>refer:百科，这家公司的双通道CAN总线分析仪很有参考意义：<a href="http://www.gcanbox.com/fsd/canzxfxy/70.html" target="_blank" rel="external">http://www.gcanbox.com/fsd/canzxfxy/70.html</a></p>
+<h3 id="ECU"><a href="#ECU" class="headerlink" title="ECU"></a>ECU</h3><p>ECU（Electronic Control Unit）电子控制单元，又称“行车电脑”、“车载电脑”等。从用途上讲则是汽车专用微机控制器。它和普通的电脑一样,由微处理器（CPU）、存储器（ROM、、RAM）、输入/输出接口（I/O）、模数转换器（A/D）以及整形、驱动等大规模集成电路组成。用一句简单的话来形容就是“ECU就是汽车的大脑”。</p>
+<h3 id="Autobox"><a href="#Autobox" class="headerlink" title="Autobox"></a>Autobox</h3><p>更通用的ECU,如Dspace公司的MicroAutoBox，比如你可以用MicroAutoBox做控制器，加上RapidPro模块做驱动来构建一个使用不同控制系统的ECU。<br>MicroAutoBox：<a href="https://www.dspace.com/en/ltd/home/products/hw/rapidpro.cfm" target="_blank" rel="external">https://www.dspace.com/en/ltd/home/products/hw/rapidpro.cfm</a><br>RapidPro Hardware：<a href="https://www.dspace.com/en/ltd/home/products/hw/rapidpro.cfm" target="_blank" rel="external">https://www.dspace.com/en/ltd/home/products/hw/rapidpro.cfm</a><br>refer:<a href="https://www.zhihu.com/question/24239041/answer/31324188" target="_blank" rel="external">https://www.zhihu.com/question/24239041/answer/31324188</a><br><a href="https://www.zhihu.com/question/52838341/answer/138658739" target="_blank" rel="external">https://www.zhihu.com/question/52838341/answer/138658739</a><br><a href="https://wenku.baidu.com/view/a090931ac5da50e2524d7fce.html" target="_blank" rel="external">https://wenku.baidu.com/view/a090931ac5da50e2524d7fce.html</a></p>
+<h3 id="ADAS"><a href="#ADAS" class="headerlink" title="ADAS"></a>ADAS</h3><p>高级驾驶辅助系统 是利用安装在车上的各式各样传感器，在汽车行驶过程中随时来感应周围的环境，收集数据，进行静态、动态物体的辨识、侦测与追踪，并结合导航仪地图数据，进行系统的运算与分析，从而预先让驾驶者察觉到可能发生的危险，有效增加汽车驾驶的舒适性和安全性。近年来ADAS市场增长迅速，原来这类系统局限于高端市场，而现在正在进入中端市场，与此同时，许多低技术应用在入门级乘用车领域更加常见，经过改进的新型传感器技术也在为系统布署创造新的机会与策略。<br>refer:百科，adas的相关产品，<a href="http://www.mdas.com.cn/Products1833.html" target="_blank" rel="external">http://www.mdas.com.cn/Products1833.html</a></p>
+<h3 id="SLAM"><a href="#SLAM" class="headerlink" title="SLAM"></a>SLAM</h3><p>SLAM (simultaneous localization and mapping)，也称为CML (Concurrent Mapping and Localization), 即时定位与地图构建，或并发建图与定位。 SLAM最早由Smith、Self和Cheeseman于1988年提出。 </p>
+<p><img src="https://camo.githubusercontent.com/9f8858ee1ebba5aa929afb4e4aff6b201413cbaf/68747470733a2f2f6a2e676966732e636f6d2f777033424a4d2e676966" width="99%"></p>
+<p>$$Google 提供的slam方案$$</p>
+<p>由于其重要的理论与应用价值，被很多学者认为是实现真正全自主移动机器人的关键。<br>谷歌发布开源SLAM地图代码库 可用于无人驾驶 <a href="http://auto.qq.com/a/20161009/018004.htm" target="_blank" rel="external">http://auto.qq.com/a/20161009/018004.htm</a></p>
+<ul>
+<li><a href="http://www.leiphone.com/news/201605/5etiwlnkWnx7x0zb.html" target="_blank" rel="external">http://www.leiphone.com/news/201605/5etiwlnkWnx7x0zb.html</a></li>
+<li><a href="http://www.cnblogs.com/gaoxiang12/p/3695962.html" target="_blank" rel="external">http://www.cnblogs.com/gaoxiang12/p/3695962.html</a></li>
+</ul>
+<p>SLAM资料：<a href="http://blog.csdn.net/akunainiannian/article/details/45363731" target="_blank" rel="external">http://blog.csdn.net/akunainiannian/article/details/45363731</a></p>
+<h3 id="镜头视角FOV"><a href="#镜头视角FOV" class="headerlink" title="镜头视角FOV"></a>镜头视角FOV</h3><p>视角FOV是指镜头所能覆盖的范围，(物体超过这个角就不会被收在镜头里),一个摄像机镜头能涵盖多大范围的景物，通常以角度来表示，这个角度就叫镜头的视角FOV。被摄对象透过镜头在焦点平面上结成可见影像所包括的面积，是镜头的视场。<br>refer:<a href="http://product.pconline.com.cn/itbk/digital/jt/1308/3428727.html" target="_blank" rel="external">http://product.pconline.com.cn/itbk/digital/jt/1308/3428727.html</a> <a href="http://blog.csdn.net/akunainiannian/article/details/45363731" target="_blank" rel="external">http://blog.csdn.net/akunainiannian/article/details/45363731</a></p>
+
+
+<!--<a href="http://yoursite.com/apollo/words.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
