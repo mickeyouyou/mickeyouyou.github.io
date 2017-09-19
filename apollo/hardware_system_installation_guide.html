@@ -1,0 +1,198 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo硬件安装</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo硬件安装</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年9月19日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-text">引言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文档"><span class="toc-text">文档</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键硬件组件"><span class="toc-text">关键硬件组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#额外需要的组件"><span class="toc-text">额外需要的组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#车载计算机系统，工业计算机"><span class="toc-text">车载计算机系统，工业计算机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IPC的配置"><span class="toc-text">IPC的配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IPC前后视图"><span class="toc-text">IPC前后视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CAN-卡"><span class="toc-text">CAN 卡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GPS与IMU"><span class="toc-text">GPS与IMU</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#NovAtel-SPAN-IGM-A1"><span class="toc-text">NovAtel SPAN-IGM-A1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NovAtel-SPAN-ProPak6-and-NovAtel-IMU-IGM-A1"><span class="toc-text">NovAtel SPAN ProPak6 and NovAtel IMU-IGM-A1</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GPS天线、接收器"><span class="toc-text">GPS天线、接收器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装任务概览"><span class="toc-text">安装任务概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装任务步骤"><span class="toc-text">安装任务步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#室内"><span class="toc-text">室内</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#准备IPC"><span class="toc-text">准备IPC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为IPC安装软件"><span class="toc-text">为IPC安装软件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#车辆"><span class="toc-text">车辆</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#先决条件"><span class="toc-text">先决条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主要组件安装视图"><span class="toc-text">主要组件安装视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装GPS接收器与天线"><span class="toc-text">安装GPS接收器与天线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装IPC"><span class="toc-text">安装IPC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置GPS、IMU"><span class="toc-text">配置GPS、IMU</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立网络"><span class="toc-text">建立网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#推荐配置"><span class="toc-text">推荐配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#额外任务"><span class="toc-text">额外任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下一步"><span class="toc-text">下一步</span></a></li></ol></li></ol>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>阿波罗计划是为汽车和自主驾驶行业的合作伙伴提供开放，完整和可靠的软件平台的举措。该项目的目的是使合作伙伴能够基于Apollo软件堆栈开发自己的自动驾驶系统。</p>
+<h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><p>车辆：</p>
+<ul>
+<li>工业计算机</li>
+<li>GPS</li>
+<li>IMU</li>
+<li>CAN 卡</li>
+<li>硬盘</li>
+<li>GPS 天线</li>
+<li>GPS 接收器</li>
+</ul>
+<p>软件：</p>
+<ul>
+<li>Ubuntu Linux</li>
+<li>Apollo Linux Kernel</li>
+</ul>
+<h2 id="关键硬件组件"><a href="#关键硬件组件" class="headerlink" title="关键硬件组件"></a>关键硬件组件</h2><p>需要安装的关键的硬件组件包括：</p>
+<ul>
+<li>车载计算机系统，Neousys Nuvo-5095GC</li>
+<li>CAN 卡 ESD CAN-PCIe/402-1</li>
+<li>GPS IMU，可以从下面选择其一：<ul>
+<li>NovAtel SPN-IGM-A1</li>
+<li>NovAtel SPAN® ProPak6™ and NovAtel IMU-IGM-A1</li>
+</ul>
+</li>
+</ul>
+<h3 id="额外需要的组件"><a href="#额外需要的组件" class="headerlink" title="额外需要的组件"></a>额外需要的组件</h3><ul>
+<li>提供网络接入的4G路由器</li>
+<li>调试使用的显示器，键盘，鼠标</li>
+<li>连接线：VGA连接线，DVI连接线</li>
+<li>苹果IPad Pro</li>
+</ul>
+<p>关键硬件组件的特性将在后续部分中介绍</p>
+<h3 id="车载计算机系统，工业计算机"><a href="#车载计算机系统，工业计算机" class="headerlink" title="车载计算机系统，工业计算机"></a>车载计算机系统，工业计算机</h3><p>车载计算机系统是用于自动驾驶车辆的工业PC（IPC），并使用由第六代Intel Skylake内核i7-6700 CPU供电的NeousysNuvo-5095GC。</p>
+<p>Neousys Nuvo-5095GC是自动驾驶系统（ADS）的中心单元。</p>
+<h4 id="IPC的配置"><a href="#IPC的配置" class="headerlink" title="IPC的配置"></a>IPC的配置</h4><p>IPC配置如下：</p>
+<ul>
+<li>32GB DDR4 RAM</li>
+<li>MezIO-V20-EP module (带车内使用的点火控制)</li>
+<li>PO-160W-OW 160W 交流、直流电源适配器</li>
+<li>CSM2 module (x16 PCIe expansion Gen3 8-lane cassette)</li>
+</ul>
+<h4 id="IPC前后视图"><a href="#IPC前后视图" class="headerlink" title="IPC前后视图"></a>IPC前后视图</h4><p>Nuvo-5095GC前视图：<br><img src="https://github.com/ApolloAuto/apollo/raw/master/docs/quickstart/images/ipc_front.png" width="60%"><br>Nuvo-5095GC后视图：</p>
+<p><img src="https://github.com/ApolloAuto/apollo/raw/master/docs/quickstart/images/ipc_back.png" width="60%"></p>
+<p>中文介绍：<a href="http://www.neousys-tech.com/cn/product/application/gpu-computing/product/nuvo-5095gc-gpu-computer" target="_blank" rel="external">http://www.neousys-tech.com/cn/product/application/gpu-computing/product/nuvo-5095gc-gpu-computer</a></p>
+<p>Neousys Nuvo-5095GC-Manual:<br>手册：<a href="http://www.neousys-tech.com/en/support/resources/category/162-manual" target="_blank" rel="external">http://www.neousys-tech.com/en/support/resources/category/162-manual</a></p>
+<h4 id="CAN-卡"><a href="#CAN-卡" class="headerlink" title="CAN 卡"></a>CAN 卡</h4><p>IPC中使用的CAN卡，是ESD CAN-PCIe/402.<br><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/can_card.png" width="50%"></p>
+<p>产品主页：<a href="https://esd.eu/en/products/can-pcie402" target="_blank" rel="external">https://esd.eu/en/products/can-pcie402</a></p>
+<h4 id="GPS与IMU"><a href="#GPS与IMU" class="headerlink" title="GPS与IMU"></a>GPS与IMU</h4><p>对于GPS-IMU，有两个选择，取决于满足你的需求：</p>
+<ul>
+<li>可选项1：NovAtel SPAN-IGM-A1</li>
+<li>可选项2：NovAtel SPAN® ProPak6™ and NovAtel IMU-IGM-A1</li>
+</ul>
+<h5 id="NovAtel-SPAN-IGM-A1"><a href="#NovAtel-SPAN-IGM-A1" class="headerlink" title="NovAtel SPAN-IGM-A1"></a>NovAtel SPAN-IGM-A1</h5><p>NovAtel SPAN-IGM-A1是一个集成的，单盒的解决方案，提供紧密耦合的全球导航卫星系统（GNSS）定位和具有NovAtel OEM615接收机的惯性导航功能。<br><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/Novatel_imu.png" width="60%"></p>
+<p>产品主页：<br><a href="https://www.novatel.com/products/span-gnss-inertial-systems/span-combined-systems/span-igm-a1/" target="_blank" rel="external">https://www.novatel.com/products/span-gnss-inertial-systems/span-combined-systems/span-igm-a1/</a></p>
+<h5 id="NovAtel-SPAN-ProPak6-and-NovAtel-IMU-IGM-A1"><a href="#NovAtel-SPAN-ProPak6-and-NovAtel-IMU-IGM-A1" class="headerlink" title="NovAtel SPAN ProPak6 and NovAtel IMU-IGM-A1"></a>NovAtel SPAN ProPak6 and NovAtel IMU-IGM-A1</h5><p>NovAtel ProPak6是独立的GNSS接收机，它与单独的NovAtel支持的IMU（本例中为NovAtel IMU-IGM-A1）融合提供定位。</p>
+<p>ProPak6提供由NovAtel生产的最新最先进的外壳产品。</p>
+<p>IMU-IGM-A1是与支持SPAN的GNSS接收器（如SPAN ProPak6）配对的IMU。<br><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/Novatel_pp6.png" width="60%"></p>
+<p>NovAtel ProPak6 Installation &amp; Operation Manual:</p>
+<p><a href="https://www.novatel.com/assets/Documents/Manuals/OM-20000148.pdf" target="_blank" rel="external">https://www.novatel.com/assets/Documents/Manuals/OM-20000148.pdf</a></p>
+<p>onlineNovAtel IMU-IGM-A1 Product Page:</p>
+<p><a href="https://www.novatel.com/products/span-gnss-inertial-systems/span-imus/span-mems-imus/imu-igm-a1/#overview" target="_blank" rel="external">https://www.novatel.com/products/span-gnss-inertial-systems/span-imus/span-mems-imus/imu-igm-a1/#overview</a></p>
+<h4 id="GPS天线、接收器"><a href="#GPS天线、接收器" class="headerlink" title="GPS天线、接收器"></a>GPS天线、接收器</h4><p>GPS-IMU组件的GPS接收器、天线使用的是NovAtel GPS-703-GGG-HV。</p>
+<p><strong>注意</strong>：GPS NovAtelGPS-703-GGG-HV与上文中提到的两个GPS-IMU选项的任一型号配合使用。<br><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/gps_receiver.png" width="60%"></p>
+<p> NovAtel GPS-703-GGG-HV 产品主页:</p>
+<p><a href="https://www.novatel.com/products/gnss-antennas/high-performance-gnss-antennas/gps-703-ggg-hv/" target="_blank" rel="external">https://www.novatel.com/products/gnss-antennas/high-performance-gnss-antennas/gps-703-ggg-hv/</a></p>
+<h2 id="安装任务概览"><a href="#安装任务概览" class="headerlink" title="安装任务概览"></a>安装任务概览</h2><p>安装硬件和软件组件涉及以下任务：<br>室内：</p>
+<ol>
+<li>准备IPC：<ul>
+<li>检查图形处理单元（GPU）磁带，以确定是否需要卸下GPU卡（如果已预安装）</li>
+<li>在将卡插入插槽之前，首先重新定位CAN卡端接跳线，准备并安装控制器局域网（CAN）卡。</li>
+</ul>
+</li>
+<li>安装硬盘，推荐安装固态硬盘</li>
+<li>准备IPC加电：<ul>
+<li>将电源线连接到电源连接器（接线端子）</li>
+<li>将显示器，以太网，键盘和鼠标连接到IPC</li>
+<li>将IPC连接到电源</li>
+</ul>
+</li>
+<li>在IPC安装软件（需要部分Linux经验）：<ul>
+<li>安装Ubuntu</li>
+<li>安装Apollo Linux内核</li>
+</ul>
+</li>
+</ol>
+<p>车辆：</p>
+<ul>
+<li>确保所有在前提条件中列出的对车辆的修改，都已执行。</li>
+<li>安装主要的组件：<ul>
+<li>GPS 天线</li>
+<li>IPC</li>
+<li>GPS接收器</li>
+</ul>
+</li>
+</ul>
+<p>安装所有硬件和软件组件的实际步骤详见安装任务步骤。</p>
+<h2 id="安装任务步骤"><a href="#安装任务步骤" class="headerlink" title="安装任务步骤"></a>安装任务步骤</h2><p>该部分包含：</p>
+<ul>
+<li>关键组件的安装</li>
+<li>车辆硬件的安装</li>
+</ul>
+<h3 id="室内"><a href="#室内" class="headerlink" title="室内"></a>室内</h3><ul>
+<li>准备IPC：<ul>
+<li>安装CAN卡</li>
+<li>安装或者替换硬盘</li>
+<li>准备为IPC供电</li>
+</ul>
+</li>
+<li>为IPC安装软件：<ul>
+<li>Ubuntu Linux</li>
+<li>Apollo内核</li>
+</ul>
+</li>
+</ul>
+<h4 id="准备IPC"><a href="#准备IPC" class="headerlink" title="准备IPC"></a>准备IPC</h4><h4 id="为IPC安装软件"><a href="#为IPC安装软件" class="headerlink" title="为IPC安装软件"></a>为IPC安装软件</h4><h3 id="车辆"><a href="#车辆" class="headerlink" title="车辆"></a>车辆</h3><h4 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h4><ul>
+<li>车辆必须由专业的服务公司修改关于“线控技术”的部分。此外，必须在要安装IPC的中继线上提供CAN接口连接。</li>
+<li>必须在后备箱中安装电源插板，为IPC和GPS-IMU提供电源。电源插板还需要服务于车上的其他硬件，比如4G的路由器。电源插板应连接到车辆的电源系统。</li>
+<li>必须安装定制的机架，将GPS-IMU天线安装在车辆的顶部。</li>
+<li>必须安装定制的机架，以便将GPS-IMU安装在后背箱中。</li>
+<li>必须将4G LTE路由器安装在后备箱中才能为IPC提供Internet访问。路由器必须具有内置Wi-Fi接入点（AP）功能，以连接到其他设备（如iPad），以与自主驾驶（AD）系统相连接。例如，用户将能够使用移动设备来启动AD模式或监视AD状态。</li>
+</ul>
+<h4 id="主要组件安装视图"><a href="#主要组件安装视图" class="headerlink" title="主要组件安装视图"></a>主要组件安装视图</h4><p>示例图：</p>
+<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/major_compoment_side_view.png" width="99%"><br>车辆与后备箱侧视图</p>
+<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/major_component_rear_view.png" width="99%"><br>车辆与后备箱后视图</p>
+<h4 id="安装GPS接收器与天线"><a href="#安装GPS接收器与天线" class="headerlink" title="安装GPS接收器与天线"></a>安装GPS接收器与天线</h4><h4 id="安装IPC"><a href="#安装IPC" class="headerlink" title="安装IPC"></a>安装IPC</h4><h4 id="配置GPS、IMU"><a href="#配置GPS、IMU" class="headerlink" title="配置GPS、IMU"></a>配置GPS、IMU</h4><h3 id="建立网络"><a href="#建立网络" class="headerlink" title="建立网络"></a>建立网络</h3><h4 id="推荐配置"><a href="#推荐配置" class="headerlink" title="推荐配置"></a>推荐配置</h4><h3 id="额外任务"><a href="#额外任务" class="headerlink" title="额外任务"></a>额外任务</h3><h3 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h3>
+
+<!--<a href="http://yoursite.com/apollo/hardware_system_installation_guide.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
