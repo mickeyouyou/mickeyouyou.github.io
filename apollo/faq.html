@@ -1,0 +1,74 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo Faq</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(!isMobile()) {
+                loadjscssfile('../css/desktop.css', 'css');
+                }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo Faq</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年9月22日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何通过Docker镜像提交image？"><span class="toc-text">如何通过Docker镜像提交image？</span></a></li></ol>
+<h3 id="如何通过Docker镜像提交image？"><a href="#如何通过Docker镜像提交image？" class="headerlink" title="如何通过Docker镜像提交image？"></a>如何通过Docker镜像提交image？</h3><p>用户在仿真平台上传和运行image需要先通过本地Docker镜像上传完整的image。Docker镜像上传image的步骤如下：<br>A．启动Docker指定仓库地址<br>sudo service docker stop<br>sudo service docker start –insecure-registry=apollo-docker.baidu.com<br>（如果发现invalid option错误，需要在/etc/default/docker文件中增加一行DOCKER_OPTS=“–insecure-registry apollo-docker.baidu.com”）<br>B．登录仓库<br>sudo docker login apollo-docker.baidu.com<br>C．输入用户名和密码（用户名和密码请在『任务创建』页的『获取验证码』查询）<br>username: {USERNAME}<br>password: {PASSWORD}<br>D．拉取仿真平台的标准simulation镜像<br>sudo docker pull apollo-docker.baidu.com/public/demo/simulation:v0.0.1<br>E．修改simulation镜像tag名。若用户修改的tag名总是相同，将直接替换线上原有的同名tag。<br>sudo docker tag apollo-docker.baidu.com/public/demo/simulation:v0.0.1  apollo-docker.baidu.com/{USERNAME}/demo/simulation:v0.0.1<br>F．进入simulation镜像，在标准镜像的docker container中放置自己需要替换的算法模块<br>sudo docker run -it –privileged=true –entrypoint /bin/bash apollo-docker.baidu.com/{USERNAME}/demo/simulation:v0.0.1<br>在/apollo目录下放置sim_op目录，sim_op下面包含metainfo文件和模块启停脚本<br>修改镜像内容完成后exit退出镜像，Docker将返回新镜像id<br><code># container_id</code><br>G. 基于docker container构建新的image。<br>sudo docker commit -m ‘comments’ container_id apollo-docker.baidu.com/{USERNAME}/demo/simulation:v0.0.1<br>H．推送新镜像至Apollo仿真平台的docker registry，即可在仿真平台的『image上传选择』界面更新到本次提交的image。<br>sudo docker push apollo-docker.baidu.com/{USERNAME}/demo/simulation:v0.0.1</p>
+
+
+<!--<a href="http://yoursite.com/apollo/faq.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
