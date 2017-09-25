@@ -44,19 +44,18 @@
 
 <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础篇"><span class="toc-text">基础篇</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标题"><span class="toc-text">标题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#段落与断行"><span class="toc-text">段落与断行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接"><span class="toc-text">链接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#自动链接"><span class="toc-text">自动链接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用链接"><span class="toc-text">引用链接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列表"><span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#无序列表"><span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#有序列表"><span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多级子列表"><span class="toc-text">多级子列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#任务列表"><span class="toc-text">任务列表</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表格"><span class="toc-text">表格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图片"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提高篇：媲美任何格式化文字工具。"><span class="toc-text">提高篇：媲美任何格式化文字工具。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#兼容HTML元素"><span class="toc-text">兼容HTML元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#流程图、时序图等"><span class="toc-text">流程图、时序图等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#支持公式"><span class="toc-text">支持公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文档格式转换"><span class="toc-text">文档格式转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上手尝试"><span class="toc-text">上手尝试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考编辑工具"><span class="toc-text">参考编辑工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用-1"><span class="toc-text">引用</span></a></li></ol>
 <p>在介绍Markdown之前，你想想你现在的文字工具，真正用在思考、写作上的时间占比是多少？除去这些时间又在干什么？让我想起来写论文的时候总是因为各种格式字体问题，被导师挑了毛病。标题字体不一致，间距不等，无符号列表关联关系错误等等。</p>
-<p>Markdown让你专心于文字、内容本身，而非格式化。现在已经非常流行，已然成为趋势。总之，你需要理解的是，简单的符号格式如何将让你的码字效率倍增？你将带着这个问题，直到最后实践。</p>
-<p>Markdown是一种语言格式，用户只需要按照固定格式编写文字，Markdown引擎将负责其解析为html格式的文件。对应的样式文件负责其展示效果。  </p>
-<p>Markdown在研发人员中，使用比较广泛。他们使用这种工具有一个特点，只是记录一些文字，简单到可以在记事本中完成，亦或者NotePad++，而没有必要打开Word等重量型文字工具。</p>
+<p>Markdown是一种语言格式，用户只需要按照固定格式编写文字，Markdown引擎将负责其解析为html格式的文件。对应的样式文件负责其展示效果。Markdown让你专心于文字、内容本身，而非格式化。现在已经非常流行，已然成为趋势。总之，你需要理解的是，简单的符号格式如何将让你的码字效率倍增？你将带着这个问题，直到最后实践。</p>
+<p>在研发人员中，Markdown使用比较广泛。他们使用这种工具有一个特点，只是记录一些文字，简单到可以在记事本中完成，亦或者NotePad++，而没有必要打开Word等重量型文字工具。</p>
 <p>Markdown的渲染可以由多种语言实现。最初是由John Gruber使用Perl脚本实现渲染。使用易读易写的纯文本格式编写文档，即将md格式的文本，渲染为Html格式，浏览器用文件。</p>
 <p>Markdown备受欢迎的特征总结如下：</p>
 <ul>
 <li>更专注写作，而不是关注排版，举个例子，代码的格式化，开发人员<strong>很痛的痛点</strong>；</li>
 <li>基于Html格式做多种格式的转换，在线分享变得很方便；</li>
-<li>图片等资源可直接使用在线图片；</li>
-<li>多处使用，随处可见。Github等代码托管平台使用md作为格式解析。国内的网站图灵社区(ituring.cn)、等，写作均基于Markdown；</li>
-<li>用于写作；</li>
-<li>将UI个性化，真正交给用户；</li>
-<li>你能在手机上写完一篇word吗？有些难，实践的时候；</li>
+<li>图片资源可直接使用在线图片；</li>
+<li>多处使用，随处可见。Github等代码托管平台使用md作为格式解析。国内的网站图灵社区(ituring.cn)、等，电子书的写作均基于Markdown；</li>
+<li>用于长文系列写作；</li>
+<li>将UI个性化，真正交给用户。在md文件基础之上，你可以做自定义的样式展示；</li>
+<li>你能在手机上写完一篇word吗？有些难，但你觉得能够完成一篇markdown；</li>
 </ul>
 <p>具体的使用，让我们打开Markdown暗箱，先剖析，后实践。</p>
 <h3 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h3><p>如何更专注写作，而不是关注排版？</p>
