@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>自动驾驶控制指令与线控车辆执行交互</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>线控车辆控制组件与自动驾驶的衔接</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -29,7 +29,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">自动驾驶控制指令与线控车辆执行交互</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">线控车辆控制组件与自动驾驶的衔接</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -43,7 +43,7 @@
 </div>
 
 <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#速度-Speed"><span class="toc-text">速度(Speed)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转向-Steering-Angle"><span class="toc-text">转向(Steering Angle)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子助力转向（EPS）"><span class="toc-text">电子助力转向（EPS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线控转向"><span class="toc-text">线控转向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#制动"><span class="toc-text">制动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#车身动态稳定系统（Electronic-Stability-Program：ESP）"><span class="toc-text">车身动态稳定系统（Electronic Stability Program：ESP）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#真空助力器"><span class="toc-text">真空助力器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用参考"><span class="toc-text">引用参考</span></a></li></ol>
-<p>Apollo项目中，对参考硬件的要求就是“Driving-by-wire”，线控车辆。本文主要介绍的是关于线控与控制。简单来说，线控执行主要包括转向(Steering Angle)和加减速度(Speed)、刹车，其中刹车是线控执行中最难的部分。</p>
+<p>Apollo项目中，对参考硬件的要求是“Driving-by-wire”，线控车辆。本文主要介绍的是关于线控的三个方面，主要包括转向(Steering Angle)和加减速度(Speed)、刹车制动。</p>
 <h3 id="速度-Speed"><a href="#速度-Speed" class="headerlink" title="速度(Speed)"></a>速度(Speed)</h3><p>传统发动机节气门操纵机构是通过拉索或者拉杆，一端联接油门踏板，另一端联接节气门连动板而工作。但这种传统油门应用范畴受到限制并缺乏精确性。</p>
 <p><strong>电子油门</strong><br>技术的发展，随着定速巡航功能的引入，车辆速度靠电子油门控制，即线控油门，现在已经有大量应用。凡具备定速巡航（Cruise Main）的车辆都配备有电子油门。 </p>
 <p>电子油门通过位置传感器，传送油门踩踏深浅与快慢的信号，这个信号会被ECU接收和解读，然后再发出控制指令要节气门依指令快速或缓和开启它应当张开的角度。这个过程精准而快速。</p>
@@ -53,6 +53,8 @@
 <p align="center"><a href="http://www.bosch-mobility-solutions.cn/cn/highlights/connected-mobility/active-gas-pedal/" target="_blank" rel="external">博世智能电子油门踏板</a></p>
 
 <p>电子油门控制系统主要由油门踏板、踏板位移传感器、ECU（电控单元）、数据总线、伺服电动机和节气门执行机构组成。位移传感器安装在油门踏板内部，随时监测油门踏板的位置。当监测到油门踏板高度位置有变化，会瞬间将此信息送往ECU，ECU对该信息和其它系统传来的数据信息进行运算处理，计算出一个控制信号，通过线路送到伺服电动机继电器，伺服电动机驱动节气门执行机构，数据总线则是负责系统ECU与其它ECU之间的通讯。在自适应巡航中，则由ESP（ESC）中的ECU来控制电机，进而控制进气门开合幅度，最终控制车速。</p>
+<p><strong>与自动驾驶的衔接关系</strong></p>
+<p>接收到规划决策输出的有油门速度，做到自动化的定速巡航。</p>
 <h3 id="转向-Steering-Angle"><a href="#转向-Steering-Angle" class="headerlink" title="转向(Steering Angle)"></a>转向(Steering Angle)</h3><h4 id="电子助力转向（EPS）"><a href="#电子助力转向（EPS）" class="headerlink" title="电子助力转向（EPS）"></a>电子助力转向（EPS）</h4><p>了解车、开过车的朋友，多少知道点电子助力转向（EPS），知道如果没有这个助力，其实转向过程是很费力的，EPS根据驾驶员的转角来增加转向力，达到转向目的。</p>
 <h4 id="线控转向"><a href="#线控转向" class="headerlink" title="线控转向"></a>线控转向</h4><p>线控转向技术最先来自航空技术，如今慢慢在汽车行业出现。飞机使用线控技术是因为需要用很快的控制速度，更能灵敏地控制飞机很强的机动性、很高的速度。线控转向取消了方向盘与车轮之间的机械连接，用传感器获得方向盘的转角数据，然后ECU（电子计算单元）将其折算为具体的驱动力数据，用电机推动转向机转动车轮。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG112.jpeg"></p>
