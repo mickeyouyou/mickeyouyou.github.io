@@ -44,9 +44,8 @@
 
 <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于条件概率的语言模型"><span class="toc-text">基于条件概率的语言模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Continuous-Bag-of-Words-model-CBOW"><span class="toc-text">Continuous Bag-of-Words model(CBOW)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于PaddlePaddle的学习过程"><span class="toc-text">基于PaddlePaddle的学习过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据准备"><span class="toc-text">数据准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切词处理"><span class="toc-text">切词处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#训练过程"><span class="toc-text">训练过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模型配置"><span class="toc-text">模型配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cost"><span class="toc-text">Cost</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建参数与Trainer"><span class="toc-text">创建参数与Trainer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开始训练"><span class="toc-text">开始训练</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
 <blockquote>
-<p>You Shall Know a Word By the Company It Keeps.</p>
+<p>You Shall Know a Word By the Company It Keeps.<br>一个词的具体含义与上下文、语料库有关系。</p>
 </blockquote>
-<p>一个词的具体含义与上下文、语料库有关系。</p>
 <h3 id="基于条件概率的语言模型"><a href="#基于条件概率的语言模型" class="headerlink" title="基于条件概率的语言模型"></a>基于条件概率的语言模型</h3><p>对于一句话的目标概率$P(w_1, …, w_T)$，如果假设文本中每个词都是相互独立的，则整句话的联合概率可以表示为其中所有词语条件概率的乘积，即：<br><span>$$\\
 P(w_1, &hellip;, w_T) = \prod_{t=1}^TP(w_t)$$</span><!-- Has MathJax --><br>然而我们知道语句中的每个词出现的概率都与其前面的词紧密相关, 所以实际上通常用条件概率表示语言模型：<br><span>$$\\
 P(w_1, &hellip;, w_T) = \prod_{t=1}^TP(w_t | w_1, &hellip; , w_{t-1})$$</span><!-- Has MathJax --></p>
