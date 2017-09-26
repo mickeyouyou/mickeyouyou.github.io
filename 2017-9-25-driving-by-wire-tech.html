@@ -44,7 +44,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#速度-Speed"><span class="toc-text">速度(Speed)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子油门"><span class="toc-text">电子油门</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转向-Steering-Angle"><span class="toc-text">转向(Steering Angle)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子助力转向（EPS）"><span class="toc-text">电子助力转向（EPS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线控转向"><span class="toc-text">线控转向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#制动"><span class="toc-text">制动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#线控液压制动器-EHB"><span class="toc-text">线控液压制动器(EHB)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子机械制动-EMB"><span class="toc-text">电子机械制动(EMB)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用参考"><span class="toc-text">引用参考</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#速度-Speed"><span class="toc-text">速度(Speed)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子油门"><span class="toc-text">电子油门</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转向-Steering-Angle"><span class="toc-text">转向(Steering Angle)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子助力转向（EPS）"><span class="toc-text">电子助力转向（EPS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线控转向"><span class="toc-text">线控转向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#制动"><span class="toc-text">制动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#线控液压制动器-EHB"><span class="toc-text">线控液压制动器(EHB)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子机械制动-EMB"><span class="toc-text">电子机械制动(EMB)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo与线控控制组件的交互"><span class="toc-text">Apollo与线控控制组件的交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用参考"><span class="toc-text">引用参考</span></a></li></ol>
 <p>Apollo项目中，对参考硬件的要求是“Driving-by-wire”，线控车辆。本文从自动驾驶控制考虑，介绍车辆线控的三个方面：速度(Speed)、转向(Steering Angle)和刹车制动（Break）。</p>
 <p>也许你也跟我有过同样的疑问，比如转向，具体跟车辆的交互，是传入转向角度还是力度？</p>
 <h3 id="速度-Speed"><a href="#速度-Speed" class="headerlink" title="速度(Speed)"></a>速度(Speed)</h3><p>传统发动机节气门操纵机构是通过拉索或者拉杆，一端联接油门踏板，另一端联接节气门连动板而工作。但这种传统油门应用范畴受到限制并缺乏精确性。</p>
@@ -64,7 +64,7 @@
 <p align="center">日产旗下的<a href="http://www.infiniti.com.cn/vehicles/new-vehicles/Q50/features.html" target="_blank" rel="external">英菲尼迪Q50</a>是首批使用线控转向的量产车辆</p>
 
 <p>线控转向的缺点是需要模拟一个方向盘的力回馈，因为方向盘没有和机械部分连接，驾驶者感觉不到路面传导来的阻力，会失去路感，不过在无人车上，就无需考虑这个了。在Q50L上线控转向还保留机械装置，保证即使电子系统全部失效，依然可以正常转向。</p>
-<p>控制命令中转向角度还是力度？</p>
+<p>Question：控制命令中转向角度还是力度？</p>
 <p>线控助力将解答我的一个问题，就是控制命令中转向角度还是力度的问题，其实这个问题的答案就在于转向所用的技术，如果是线控转向，必然是角度。</p>
 <p>率先将线控转向技术运用与量产线的Q50，价格自然不便宜。那么一般的电子转向助力对转向的支持如何？是否意味着跟自动驾驶说拜拜？</p>
 <h3 id="制动"><a href="#制动" class="headerlink" title="制动"></a>制动</h3><p><img src="http://www.chinabaike.com/uploads/allimg/130717/1050433233-0.gif" width="70%"></p>
@@ -80,12 +80,23 @@
 <p align="center">线控制动系统与各个模块的高度关联</p>
 
 <h4 id="线控液压制动器-EHB"><a href="#线控液压制动器-EHB" class="headerlink" title="线控液压制动器(EHB)"></a>线控液压制动器(EHB)</h4><p>EHB（Electro-Hydraulic Brake）即线控液压制动器，是在传统的液压制动器基础上发展而来的。EHB用一个综合的制动模块来取代传统制动器中的压力调节器和ABS模块等，这个综合制动模块就包含了电机、泵、蓄电池等等部件，它可以产生并储存制动压力，并可分别对4个轮胎的制动力矩进行单独调节。比传统的液压制动器，EHB有了显著的进步，其结构紧凑、改善了制动效能、控制方便可靠、制动噪声显著减小、不需要真空装置、有效减轻了制动踏板的打脚、提供了更好的踏板感觉。由于模块化程度的提高，在车辆设计过程中又提高了设计的灵活性、减少了制动系统的零部件数量、节省了车内制动系统的布置、空间。可见相比传统的液压制动器，EHB有了很大的改善。但是EHB还是有其局限性，那就是整个系统仍然需要液压部件，其基本的还是离不开制动液。</p>
-<h4 id="电子机械制动-EMB"><a href="#电子机械制动-EMB" class="headerlink" title="电子机械制动(EMB)"></a>电子机械制动(EMB)</h4><p>如果把EHB称为“湿”式brake-by-wire制动系统的话，那么EMB就是“干”式brake-by-wire制动系统。EMB是Electro Mechanical Brake的英文简称，它和EHB以及EHB的最大区别就在于它不再需要制动液和液压部件，制动力矩完全是通过安装在4个轮胎上的由电机驱动的执行机构产生。因此相应的取消了制动主缸、液压管路等等，可以大大简化制动系统的结构、便于布置、装配和维修，更为显著的是随着制动液的取消，对于环境的污染大大降低了。</p>
+<h4 id="电子机械制动-EMB"><a href="#电子机械制动-EMB" class="headerlink" title="电子机械制动(EMB)"></a>电子机械制动(EMB)</h4><p>如果把EHB称为“湿”式brake-by-wire制动系统的话，那么EMB就是“干”式brake-by-wire制动系统。</p>
+<p>EMB全称Electro Mechanical Brake，和EHB的最大区别就在于它不再需要制动液和液压部件，制动力矩完全是通过安装在4个轮胎上的由电机驱动的执行机构产生。因此相应的取消了<strong>制动主缸</strong>、<strong>液压管路</strong>等等，可以大大简化制动系统的结构、便于布置、装配和维修，更为显著的是随着制动液的取消，对于环境的污染大大降低了。<br><img src="https://static.leiphone.com/uploads/new/article/740_740/201703/58d8715978f41.png?imageMogr2/format/jpg/quality/90" width="80%"></p>
+<p align="center">西门子 VDO的EMB示意图</p>
+
+
 <p>因此结构相对简单、功能集成可靠的电子机械制动系统越来越受到青睐，可以预见EMB将最终取代传统的液压（空气）制动器，成为未来车辆的发展方向。</p>
 <p>总结一下制动组件的发展里程：</p>
 <div id="flowchart-0" class="flow-chart"></div>
 
-<p>与自动驾驶的关系，线控制动需要什么样的参数才能达到制动效果？</p>
+<p>Question:说了这么多，线控制动与自动驾驶的关联如何，线控制动需要什么样的参数才能达到制动效果？<br>通过下面Apollo与线控各组件的交互过程，可以解答这个问题。</p>
+<h3 id="Apollo与线控控制组件的交互"><a href="#Apollo与线控控制组件的交互" class="headerlink" title="Apollo与线控控制组件的交互"></a>Apollo与线控控制组件的交互</h3><p>自动驾驶中，数据主要来源于传感器的原始数据，包括图像、激光雷达、雷达等。end-to-end输入以图像为主。 输出是车辆的控制决策指令，如方向盘角度、加速、刹车。</p>
+<p>策略规划（planning）</p>
+<p>控制模块(control)</p>
+<p>Canbus模块</p>
+<p>底盘接受，执行，并给出状态反馈</p>
+<div id="sequence-0"></div>
+
 <h3 id="引用参考"><a href="#引用参考" class="headerlink" title="引用参考"></a>引用参考</h3><ul>
 <li><a href="https://www.zhihu.com/question/23704461" target="_blank" rel="external">汽车刹车的原理是什么？</a></li>
 <li><a href="http://www.infiniti-cdn.net/content/dam/Infiniti/China/Homepage/brochure/Q50_Brochure_v1.pdf" target="_blank" rel="external">Q50_产品手册_v1.pdf</a></li>
@@ -100,7 +111,10 @@
 op2=>operation: 鼓式、盘式制动器
 op3=>operation: 机械、电子ABS制动
 op4=>operation: EHB、EMB线控制动
-op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
+op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">planning->control:车道规划（定位、感知、预测）
+control->canbus: 车道规划、车辆状态、HMI自动状态切换
+Note right of canbus: 底盘各组件接受执行
+canbus->control: 给出底盘状态反馈</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></p>
 
 
 <!--<a href="http://yoursite.com/2017-9-25-driving-by-wire-tech.html#disqus_thread" class="article-comment-link">Comments</a>
