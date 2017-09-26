@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>线控车辆控制组件与自动驾驶的衔接</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>线控车辆控制组件与自动驾驶的控制</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -12,9 +12,11 @@
     
         <script src="/js/util.js" type="text/javascript"></script>
         <script>
-            if(!isMobile()) {
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
                 loadjscssfile('../css/desktop.css', 'css');
-                }
+            }
         </script> 
     
 
@@ -29,7 +31,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">线控车辆控制组件与自动驾驶的衔接</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">线控车辆控制组件与自动驾驶的控制</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -42,18 +44,19 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#速度-Speed"><span class="toc-text">速度(Speed)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转向-Steering-Angle"><span class="toc-text">转向(Steering Angle)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子助力转向（EPS）"><span class="toc-text">电子助力转向（EPS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线控转向"><span class="toc-text">线控转向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#制动"><span class="toc-text">制动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#车身动态稳定系统（Electronic-Stability-Program：ESP）"><span class="toc-text">车身动态稳定系统（Electronic Stability Program：ESP）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#真空助力器"><span class="toc-text">真空助力器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用参考"><span class="toc-text">引用参考</span></a></li></ol>
-<p>Apollo项目中，对参考硬件的要求是“Driving-by-wire”，线控车辆。本文主要介绍的是关于线控的三个方面，主要包括转向(Steering Angle)和加减速度(Speed)、刹车制动。</p>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#速度-Speed"><span class="toc-text">速度(Speed)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转向-Steering-Angle"><span class="toc-text">转向(Steering Angle)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子助力转向（EPS）"><span class="toc-text">电子助力转向（EPS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线控转向"><span class="toc-text">线控转向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#制动"><span class="toc-text">制动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#车身动态稳定系统（Electronic-Stability-Program：ESP）"><span class="toc-text">车身动态稳定系统（Electronic Stability Program：ESP）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#真空助力器"><span class="toc-text">真空助力器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子机械制动-EMB"><span class="toc-text">电子机械制动(EMB)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用参考"><span class="toc-text">引用参考</span></a></li></ol>
+<p>Apollo项目中，对参考硬件的要求是“Driving-by-wire”，线控车辆。本文从自动驾驶控制考虑，介绍车辆线控的三个方面：速度(Speed)、转向(Steering Angle)和刹车制动（Break）。</p>
+<p>也许你也跟我有过同样的疑问，比如转向，具体跟车辆的交互，是传入转向角度还是力度？</p>
 <h3 id="速度-Speed"><a href="#速度-Speed" class="headerlink" title="速度(Speed)"></a>速度(Speed)</h3><p>传统发动机节气门操纵机构是通过拉索或者拉杆，一端联接油门踏板，另一端联接节气门连动板而工作。但这种传统油门应用范畴受到限制并缺乏精确性。</p>
 <p><strong>电子油门</strong><br>技术的发展，随着定速巡航功能的引入，车辆速度靠电子油门控制，即线控油门，现在已经有大量应用。凡具备定速巡航（Cruise Main）的车辆都配备有电子油门。 </p>
-<p>电子油门通过位置传感器，传送油门踩踏深浅与快慢的信号，这个信号会被ECU接收和解读，然后再发出控制指令要节气门依指令快速或缓和开启它应当张开的角度。这个过程精准而快速。</p>
+<p>电子油门通过位置传感器，传送油门踩踏深浅与快慢的信号，这个信号会被ECU接收和解读，然后再发出控制指令要节气门（throttle）依指令快速或缓和开启它应当张开的角度。这个过程精准而快速。</p>
 <p>电子油门通过用导线来代替拉索或者拉杆，在节气门安装微型电动机，用来驱动节气门开度。一般而言，增减油门就是指通过油门踏板改变发动机节气门开度，从而控制可燃混合气的流量，改变发动机的转速和功率，以适应汽车行驶的需要。</p>
 <p>电子油门的主要功能是把驾驶员踩下油门踏板的角度转换成与其成正比的电压信号，同时把油门踏板的各种特殊位置制成接触开关，把怠速、高负荷、加减速等发动机工况变成电脉冲信号输送给电控发动机的控制器 ECU，以达到供油、喷油与变速等的优化自动控制。</p>
 <p><img src="http://www.bosch-mobility-solutions.cn/media/cn/highlights/bosch_connected_mobility_active_gas_pedal_technical_details_en.jpg" width="99%"></p>
 <p align="center"><a href="http://www.bosch-mobility-solutions.cn/cn/highlights/connected-mobility/active-gas-pedal/" target="_blank" rel="external">博世智能电子油门踏板</a></p>
 
 <p>电子油门控制系统主要由油门踏板、踏板位移传感器、ECU（电控单元）、数据总线、伺服电动机和节气门执行机构组成。位移传感器安装在油门踏板内部，随时监测油门踏板的位置。当监测到油门踏板高度位置有变化，会瞬间将此信息送往ECU，ECU对该信息和其它系统传来的数据信息进行运算处理，计算出一个控制信号，通过线路送到伺服电动机继电器，伺服电动机驱动节气门执行机构，数据总线则是负责系统ECU与其它ECU之间的通讯。在自适应巡航中，则由ESP（ESC）中的ECU来控制电机，进而控制进气门开合幅度，最终控制车速。</p>
-<p><strong>与自动驾驶的衔接关系</strong></p>
+<p><strong>与自动驾驶控制关系</strong></p>
 <p>接收到规划决策输出的有油门速度，做到自动化的定速巡航。</p>
 <h3 id="转向-Steering-Angle"><a href="#转向-Steering-Angle" class="headerlink" title="转向(Steering Angle)"></a>转向(Steering Angle)</h3><h4 id="电子助力转向（EPS）"><a href="#电子助力转向（EPS）" class="headerlink" title="电子助力转向（EPS）"></a>电子助力转向（EPS）</h4><p>了解车、开过车的朋友，多少知道点电子助力转向（EPS），知道如果没有这个助力，其实转向过程是很费力的，EPS根据驾驶员的转角来增加转向力，达到转向目的。</p>
 <h4 id="线控转向"><a href="#线控转向" class="headerlink" title="线控转向"></a>线控转向</h4><p>线控转向技术最先来自航空技术，如今慢慢在汽车行业出现。飞机使用线控技术是因为需要用很快的控制速度，更能灵敏地控制飞机很强的机动性、很高的速度。线控转向取消了方向盘与车轮之间的机械连接，用传感器获得方向盘的转角数据，然后ECU（电子计算单元）将其折算为具体的驱动力数据，用电机推动转向机转动车轮。</p>
@@ -79,18 +82,19 @@
 <h4 id="车身动态稳定系统（Electronic-Stability-Program：ESP）"><a href="#车身动态稳定系统（Electronic-Stability-Program：ESP）" class="headerlink" title="车身动态稳定系统（Electronic Stability Program：ESP）"></a>车身动态稳定系统（Electronic Stability Program：ESP）</h4><p>博世第九代ESP增加了两个特殊功能，一个是ACC，自适应巡航，ESP可以部分控制电子节气门。另一个是AEB，ESP可以部分控制刹车系统。有些认为ESP既可以控制油门又可以控制刹车，是个很好的线控系统，非也。 </p>
 <ul>
 <li>博世对国内厂家一般只开放ACC和ESP量产接口协议，刹车力度最大大约为0.5g，标准的刹车力度在 0.8g以上，0.5g远不够用。</li>
-<li>再次，在设计之初，ESP控制刹车系统只是在少数紧急情况下使用，可能 1 年用不了 2 次，一般泵的容量只有3毫升，每一次使用，柱塞泵都要承受高温高压，频繁使用，会导致柱塞泵发热严重，精密度下滑，导致 ESP寿命急剧下滑，常规刹车系统 1 小时就可能使用数次，如果用 ESP做常规刹车系统，可能1个月就报废了。最后即便是不计寿命问题， ESP的泵油功率有限，且缺乏真空助力，反应速度较慢。最后如果ESP真的可以做常规制动，那么博世也无需开发Ibooster，日立无需开发EACT，大陆无需开发MK C 1 ，天合无需开发 IBC。</li>
+<li>再次，在设计之初，ESP控制刹车系统只是在少数紧急情况下使用，可能 1 年用不了 2 次，一般泵的容量只有3毫升，每一次使用，柱塞泵都要承受高温高压，频繁使用，会导致柱塞泵发热严重，精密度下滑，导致 ESP寿命急剧下滑，常规刹车系统 1 小时就可能使用数次，如果用 ESP做常规刹车系统，可能1个月就报废了。最后即便是不计寿命问题， ESP的泵油功率有限，且缺乏真空助力，反应速度较慢。最后如果ESP真的可以做常规制动，那么博世也无需开发iBooster，日立无需开发EACT，大陆无需开发MK C1 ，天合无需开发 IBC。</li>
 </ul>
 <h4 id="真空助力器"><a href="#真空助力器" class="headerlink" title="真空助力器"></a><a href="http://auto.qq.com/a/20090425/000060.htm" target="_blank" rel="external">真空助力器</a></h4><p>如何做到常规的线控制动，这得从真空助力器说起。 </p>
 <p>单单踏板的杠杆并不足以推动主缸活塞较大的行程，因为刹车油是非常黏性的液体，与主缸缸壁之间的摩擦力很大，需要的推力很大，为此人类使用了真空助力器。</p>
 <p>线控制动正是从真空助力器延伸开来，用一个电机来代替真空助力器推动主缸活塞。由于汽车底盘空间狭小，电机的体积必须很小，同时要有一套高效的减速装置，将电机的扭矩转换为强大的直线推力。这其中的关键因素就是电机主轴，日本是此领域的霸主。<br>。</p>
-<p>随着电机技术的发展，日立旗下的东机特工在 2009 年首次推出电液线控制动系统 E-ACT。除丰田外，大部分日系混动或纯电车都采用这种设计，最典型的就是日产Leaf。 说起来很简单，用直流无刷超高速电机配合滚珠丝杠直接推动主缸活塞达到电液线控制动，这套方案对滚珠丝杠的加工精度要求很高。传统的液压制动系统反应时间大约400-600 毫秒，电液线控制动大约为 120-150 毫秒，安全性能大幅度提高。百公里时速刹车大约最少可缩短 9 米以上的距离。同时用在混动和电动车上，可以回收几乎 99%的刹车摩擦能量。是目前公认最好的制动方式，为了保证系统的可靠性，这套制动系统一般都需要加入ESP（ESC）做系统备份。</p>
-<p>早在 1999 年大众在开发纯电动车过程当中也很想使用这种电机直接推动主缸的设计，但是德国的电机工业当时没有能力满足大众的需求，大众采取了妥协的设计。既然电机的能量达不到，那就继续用高压蓄能器配合，但是推动主缸的是电机，大众称之为 eBKV ， 是德文 Elektromechanischer . Bremskraftverstärker 的缩写， 2009 年的大众 E - UP 上首次使用。 </p>
-<p>博世从e-UP中获得灵感，加上博世是电机大师，经过博世的努力，最终在 2013 年去掉了高压蓄能器，单用电机推动主缸，这就是 iBooster。 </p>
-<p>iBooster不需要真空源，利用电机实现助力，与ESP hev再生制动系统相结合，可以实现完全解耦，最大程度地实现制动能量回收，也可以实现多种制动踏板模式的调整，实现不同驾驶风格的切换。<br><img src="https://static.leiphone.com/uploads/new/article/740_740/201703/58d8711944b48.png?imageMogr2/format/jpg/quality/90"></p>
+<p>随着电机技术的发展，日立旗下的东机特工在 2009 年首次推出电液线控制动系统 E-ACT。除丰田外，大部分日系混动或纯电车都采用这种设计，最典型的就是日产Leaf。说起来很简单，用直流无刷超高速电机配合滚珠丝杠直接推动主缸活塞达到电液线控制动，这套方案对滚珠丝杠的加工精度要求很高。传统的液压制动系统反应时间大约400-600 毫秒，电液线控制动大约为120-150毫秒，安全性能大幅度提高。百公里时速刹车大约最少可缩短 9 米以上的距离。同时用在混动和电动车上，可以回收几乎 99%的刹车摩擦能量。是目前公认最好的制动方式，为了保证系统的可靠性，这套制动系统一般都需要加入ESP（ESC）做系统备份。</p>
+<p>既然电机的能量达不到，那就继续用高压蓄能器配合，但是推动主缸的是电机，大众称之为 eBKV ， 是德文 Elektromechanischer Bremskraftverstärker 的缩写，2009年的大众 e-UP 上首次使用。 </p>
+<p>博世从e-UP中获得灵感，加上博世是电机方面的经验与努力，最终在 2013 年去掉了高压蓄能器，单用电机推动主缸，这就是 iBooster。 </p>
+<p>iBooster不需要真空源，利用电机实现助力，与ESP hev再生制动系统相结合，可以实现完全解耦，最大程度地实现制动能量回收，也可以实现多种制动踏板模式的调整，实现不同驾驶风格的切换。<br><img src="https://static.leiphone.com/uploads/new/article/740_740/201703/58d8711944b48.png?imageMogr2/format/jpg/quality/90" width="99%"></p>
 <p>博世的iBooster于2013年初推出，并且应用大众（包括奥迪品牌，大众持有ibooster的部分专利）全系列电动与混动车上，其他客户还有特斯拉和即将上市的卡迪拉克CT6。</p>
-<p>大陆和天合（ZF）则在此基础上将ESC也集成进来，大陆的MK C1早在2011年就已经推出，在2017年版的阿尔法罗密欧Giulia上使用。TRW的则于2012年推出IBC，通用的K2XX平台上将全线使用。</p>
-<p>电子机械制动(EMB)<br>这些线控制动都不是纯粹的线控制动，仍然需要液压系统放大制动能量。液压系统结构复杂，专利门槛很高。为了突破大厂的封锁，也为了简化制动系统，纯粹的线控制动（EMB)近年来是个火热的研究领域。EMB取消液压系统，直接用电机驱动机械活塞制动。</p>
+<p>这些线控制动都不是纯粹的线控制动，仍然需要液压系统放大制动能量。</p>
+<h4 id="电子机械制动-EMB"><a href="#电子机械制动-EMB" class="headerlink" title="电子机械制动(EMB)"></a>电子机械制动(EMB)</h4><p>与常规的液压制动系统截然不同，EMB以电能为能量来源，通过电机驱动制动垫块，由电线传递能量，数据线传递信号，EMB是线制动系统的一种。整个系统中没有连接制动管路，结构简单，体积小，信号通过电传播，反应灵敏，减小制动距离，工作稳定，维护简单，没有液压油管路，不存在液压油泄露问题，通过ECU直接控制，易于实现ABS、TCS、ESP、ACC等功能。</p>
+<p>与自动驾驶的关系，EMB需要什么样的参数才能达到制动效果？</p>
 <h3 id="引用参考"><a href="#引用参考" class="headerlink" title="引用参考"></a>引用参考</h3><ul>
 <li><a href="https://www.zhihu.com/question/23704461" target="_blank" rel="external">汽车刹车的原理是什么？</a></li>
 <li><a href="http://www.infiniti-cdn.net/content/dam/Infiniti/China/Homepage/brochure/Q50_Brochure_v1.pdf" target="_blank" rel="external">Q50_产品手册_v1.pdf</a></li>

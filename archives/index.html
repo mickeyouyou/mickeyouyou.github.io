@@ -12,9 +12,11 @@
     
         <script src="/js/util.js" type="text/javascript"></script>
         <script>
-            if(!isMobile()) {
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
                 loadjscssfile('../css/desktop.css', 'css');
-                }
+            }
         </script> 
     
 
@@ -84,7 +86,7 @@
                     
                     
 <li class="list-group-item title">
-    <a target="_blank" href="/2017-9-25-driving-by-wire-tech.html">线控车辆控制组件与自动驾驶的衔接</a>
+    <a target="_blank" href="/2017-9-25-driving-by-wire-tech.html">线控车辆控制组件与自动驾驶的控制</a>
 </li>
 
 
