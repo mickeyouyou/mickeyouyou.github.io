@@ -92,9 +92,32 @@
 <p>Question:说了这么多，线控制动与自动驾驶的关联如何，线控制动需要什么样的参数才能达到制动效果？<br>通过下面Apollo与线控各组件的交互过程，可以解答这个问题。</p>
 <h3 id="Apollo与线控控制组件的交互"><a href="#Apollo与线控控制组件的交互" class="headerlink" title="Apollo与线控控制组件的交互"></a>Apollo与线控控制组件的交互</h3><p>自动驾驶中，数据主要来源于传感器的原始数据，包括图像、激光雷达、雷达等。end-to-end输入以图像为主。 输出是车辆的控制决策指令，如方向盘角度、加速、刹车。</p>
 <p>策略规划（planning）</p>
+<ul>
+<li>输入：定位、感知、预测</li>
+<li>输出：无碰撞、舒适的轨道</li>
+</ul>
 <p>控制模块(control)</p>
+<ul>
+<li>输入：<ul>
+<li>车道规划</li>
+<li>车辆状态</li>
+<li>HMI自动状态切换</li>
+</ul>
+</li>
+<li>输出：给canbus模块执行的控制命令，转向，气节门，制动等</li>
+</ul>
 <p>Canbus模块</p>
-<p>底盘接受，执行，并给出状态反馈</p>
+<ul>
+<li>输入：<ul>
+<li>控制命令</li>
+</ul>
+</li>
+<li>输出：底盘接受，执行，并给出状态反馈<ul>
+<li>底盘状态</li>
+<li>底盘详细状态</li>
+</ul>
+</li>
+</ul>
 <div id="sequence-0"></div>
 
 <h3 id="引用参考"><a href="#引用参考" class="headerlink" title="引用参考"></a>引用参考</h3><ul>
@@ -107,14 +130,14 @@
 <li><a href="http://www.chinabaike.com/t/9675/2013/0910/1523950.html" target="_blank" rel="external">BOSCH第九代ESP控制系统简介</a></li>
 <li><a href="http://www.elecfans.com/baike/qichedianzi/cheshendianzixitong/20100311187330.html" target="_blank" rel="external">车辆EMB制动系统的发展历程简述</a></li>
 </ul>
-<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op1=>operation: 摩擦片制动|past
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">planning->control:车道规划（定位、感知、预测）
+control->canbus: 车道规划、车辆状态、HMI自动状态切换
+Note right of canbus: 底盘各组件接受执行
+canbus->control: 给出底盘状态反馈</textarea><textarea id="sequence-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op1=>operation: 摩擦片制动|past
 op2=>operation: 鼓式、盘式制动器
 op3=>operation: 机械、电子ABS制动
 op4=>operation: EHB、EMB线控制动
-op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">planning->control:车道规划（定位、感知、预测）
-control->canbus: 车道规划、车辆状态、HMI自动状态切换
-Note right of canbus: 底盘各组件接受执行
-canbus->control: 给出底盘状态反馈</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></p>
+op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 
 
 <!--<a href="http://yoursite.com/2017-9-25-driving-by-wire-tech.html#disqus_thread" class="article-comment-link">Comments</a>
