@@ -45,7 +45,7 @@
 </div>
 
 <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#速度-Speed"><span class="toc-text">速度(Speed)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子油门"><span class="toc-text">电子油门</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转向-Steering-Angle"><span class="toc-text">转向(Steering Angle)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子助力转向（EPS）"><span class="toc-text">电子助力转向（EPS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线控转向"><span class="toc-text">线控转向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#制动"><span class="toc-text">制动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#线控液压制动器-EHB"><span class="toc-text">线控液压制动器(EHB)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子机械制动-EMB"><span class="toc-text">电子机械制动(EMB)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo与线控控制组件的交互"><span class="toc-text">Apollo与线控控制组件的交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用参考"><span class="toc-text">引用参考</span></a></li></ol>
-<p>Apollo项目中，对参考硬件的要求是“Driving-by-wire”，线控车辆。本文从自动驾驶控制考虑，介绍车辆线控的三个方面：速度(Speed)、转向(Steering Angle)和刹车制动（Break）。</p>
+<p>Apollo项目中，对参考硬件的要求是“Drive-by-wire”，线控车辆。本文从自动驾驶控制考虑，介绍车辆线控的三个方面：速度(Speed)、转向(Steering Angle)和刹车制动（Break）。</p>
 <p>也许你也跟我有过同样的疑问，比如转向，具体跟车辆的交互，是传入转向角度还是力度？</p>
 <h3 id="速度-Speed"><a href="#速度-Speed" class="headerlink" title="速度(Speed)"></a>速度(Speed)</h3><p>传统发动机节气门操纵机构是通过拉索或者拉杆，一端联接油门踏板，另一端联接节气门连动板而工作。但这种传统油门应用范畴受到限制并缺乏精确性。</p>
 <h4 id="电子油门"><a href="#电子油门" class="headerlink" title="电子油门"></a><strong>电子油门</strong></h4><p>技术的发展，随着定速巡航功能的引入，车辆速度靠电子油门控制，即线控油门，现在已经有大量应用。凡具备定速巡航（Cruise Main）的车辆都配备有电子油门。 </p>
@@ -129,17 +129,17 @@
 <li><a href="http://www.chinabaike.com/t/9675/2013/0910/1523950.html" target="_blank" rel="external">BOSCH第九代ESP控制系统简介</a></li>
 <li><a href="http://www.elecfans.com/baike/qichedianzi/cheshendianzixitong/20100311187330.html" target="_blank" rel="external">车辆EMB制动系统的发展历程简述</a></li>
 </ul>
-<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op1=>operation: 摩擦片制动|past
-op2=>operation: 鼓式、盘式制动器
-op3=>operation: 机械、电子ABS制动
-op4=>operation: EHB、EMB线控制动
-op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">planning->control:车道规划
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">planning->control:车道规划
 Note right of planning:（定位、感知、预测）
 control->canbus: 车道规划、车辆状态、HMI自动状态切换
 #Note right of control:HMI自动状态切换
 Note right of canbus: 底盘各组件接受执行
 canbus->control: 给出底盘状态反馈
-control-->planning:none</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></p>
+control-->planning:none</textarea><textarea id="sequence-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op1=>operation: 摩擦片制动|past
+op2=>operation: 鼓式、盘式制动器
+op3=>operation: 机械、电子ABS制动
+op4=>operation: EHB、EMB线控制动
+op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 
 
 <!--<a href="http://yoursite.com/2017-9-25-driving-by-wire-tech.html#disqus_thread" class="article-comment-link">Comments</a>
