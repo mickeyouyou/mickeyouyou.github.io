@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js" type="text/javascript"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -89,7 +89,7 @@
 <div id="flowchart-0" class="flow-chart"></div>
 
 <p>Question:说了这么多，线控制动与自动驾驶的关联如何，线控制动需要什么样的参数才能达到制动效果？<br>通过下面Apollo与线控各组件的交互过程，可以解答这个问题。</p>
-<h3 id="Apollo与线控控制组件的交互"><a href="#Apollo与线控控制组件的交互" class="headerlink" title="Apollo与线控控制组件的交互"></a>Apollo与线控控制组件的交互</h3><p>自动驾驶中，数据主要来源于传感器的原始数据，包括图像、激光雷达、雷达等。end-to-end输入以图像为主。 输出是车辆的控制决策指令，如方向盘角度、加速、刹车。</p>
+<h3 id="Apollo与线控控制组件的交互"><a href="#Apollo与线控控制组件的交互" class="headerlink" title="Apollo与线控控制组件的交互"></a>Apollo与线控控制组件的交互</h3><p>Apollo自动驾驶中，数据主要来源于传感器的原始数据，包括图像、激光雷达、雷达等。end-to-end输入以图像为主。输出是车辆的控制决策指令，如方向盘角度、加速、刹车。</p>
 <p>策略规划（planning）</p>
 <ul>
 <li>输入：定位、感知、预测</li>
@@ -103,7 +103,7 @@
 <li>HMI自动状态切换</li>
 </ul>
 </li>
-<li>输出：给canbus模块执行的控制命令，转向，气节门，制动等</li>
+<li>输出：给canbus模块执行的控制命令（转向，气节门，制动）</li>
 </ul>
 <p>Canbus模块</p>
 <ul>
