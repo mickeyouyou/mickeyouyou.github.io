@@ -1,0 +1,165 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo * udacity 合作规划</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo * udacity 合作规划</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年9月24日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo-项目特征"><span class="toc-text">Apollo 项目特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一阶段"><span class="toc-text">第一阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二阶段"><span class="toc-text">第二阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#note"><span class="toc-text">note</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个共识"><span class="toc-text">一个共识</span></a></li></ol>
+<h3 id="Apollo-项目特征"><a href="#Apollo-项目特征" class="headerlink" title="Apollo 项目特征"></a>Apollo 项目特征</h3><p>Apollo吸引开发者、合作者的关键点，就是能结合平台的自动驾驶开放软件、平台优势，拉近开发者、合作方与用户距离，在此总结的关于Apollo特征：</p>
+<ul>
+<li>开创性，就像Apollo名字本身与众不同，目标宏大，分阶段分能力实现自动驾驶；</li>
+<li>开源特质，只要你愿意，就能参与到自动驾驶技术中，进而影响身边人；</li>
+<li>软硬件结合，实践性非常高，调起动手能力，激起内心的创造情怀；</li>
+<li>代码能力、数据的开放；</li>
+</ul>
+<p>考虑到现有的无人驾驶入门课程，完全跟目前的数据平台等不能有效结合，课程从以下几个几步，分阶段展开：</p>
+<h3 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h3><p>以Apollo目前能开放的能力为准，快速切入与Udacity的课程合作。从以下几个方面接入Apollo平台工具：</p>
+<ul>
+<li>Apollo数据平台<ul>
+<li>开放数据下载，或者使用数据标注服务</li>
+<li>激光点云障碍物检测分类</li>
+<li>红绿灯检测（竖式红绿灯，20000帧图像，27787绿灯，43852个非绿灯）</li>
+<li>Road Hackers(输入：前车图像，输出：速度与曲率)</li>
+<li>样例数据：数据量小，查看数据样例，离线接口适配</li>
+</ul>
+</li>
+<li>Apollo感知平台 <ul>
+<li>传感器标定平台实践性强</li>
+</ul>
+</li>
+<li>Apollo仿真平台 <ul>
+<li>目前只支持上传整体模块，或决策规划模块，输出指定场景的模拟运行情况；</li>
+<li>1.5版本开放的场景均支持云端验证算法，实时的模拟，也就是自建场景的验证，会在12月底开放。</li>
+</ul>
+</li>
+</ul>
+<h3 id="第二阶段"><a href="#第二阶段" class="headerlink" title="第二阶段"></a>第二阶段</h3><p>Udacity 结合Apollo可以输出的能力，联合课程计划      </p>
+<ul>
+<li>理论  <ul>
+<li>优达第一学期  <ul>
+<li>机器学习  </li>
+<li>计算机视觉 </li>
+</ul>
+</li>
+<li>apollo理论体系  <ul>
+<li>Apollo平台介绍  Apollo自动驾驶平台概览      收集完成一辆自动驾驶所需要的硬件与软件列表</li>
+<li>Apollo系统平台架构</li>
+<li>Apollo源代码    Apollo开源代码解析与编译安装  完成Apollo的编译安装，并上传编译安装结果</li>
+<li>Apollo数据平台  Apollo数据开放平台介绍  挑战1</li>
+<li>Apollo感知平台  Apollo感知平台介绍与使用</li>
+<li>Apollo仿真平台  Apollo仿真平台介绍与使用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>应用  <ul>
+<li>Apollo核心模块  <ul>
+<li>Map Engine  MapAuto引擎指南</li>
+<li>定位模块(Localization)  百度elo自定位技术</li>
+<li>感知模块(Perception)  障碍物感知的实现原理</li>
+<li>决策感知与控制Planning&amp;Control  决策规划与控制如何支持不同车型和算法</li>
+<li>End-to-End  基于深度学习得端到端自动驾驶技术</li>
+<li>预测模块（Prediction）根据导航定位感知等，输出横纵两方向的预测</li>
+<li>导航模块（Routing） 车道规划，车辆状态，HMI模式切换请求，输出控制命令</li>
+<li>Canbus模块 涉及到与底盘交互的各个组件需要实现的数据协议</li>
+</ul>
+</li>
+<li>其他模块  <ul>
+<li>高精地图、仿真 高精地图技术及应用</li>
+<li>标定模块（Calibration）传感器相对位置初始化标定</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>规则  <ul>
+<li>车规标准与安全 <ul>
+<li>需与第三方合作 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="note"><a href="#note" class="headerlink" title="note"></a>note</h3><ul>
+<li>机器学习的部分，就需要加入paddlepaddle的部分；</li>
+<li>服务器环境，推动百度云针对Apollo项目的环境；</li>
+<li>重视动手能力，每章知识之后，通过工具做代码重点逻辑检查，即挑战是学习不断前进的动力；</li>
+</ul>
+<p>现有的无人驾驶入门课程是基础介绍。具体的合作课程需要双方规划推出。</p>
+<h3 id="一个共识"><a href="#一个共识" class="headerlink" title="一个共识"></a>一个共识</h3><ul>
+<li>先接触开放平台或能力，再整体合作；</li>
+<li>前期:三个项目数据集接入；</li>
+<li>后期:完成联合课程的开发；</li>
+</ul>
+<p>两个问题：</p>
+<ul>
+<li>两部分数据集，交通标识数据集、点云数据</li>
+<li>选修课数量；</li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/flow/udacity.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

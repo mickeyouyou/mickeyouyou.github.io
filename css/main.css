@@ -10,6 +10,9 @@ body {
 H1 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
 }
+H1 a {
+  border-bottom: none;
+}
 H2 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
   margin-bottom: 60px;
@@ -20,6 +23,9 @@ H2 {
   line-height: 150%;
   color: #666;
 }
+H2 a {
+  border-bottom: none;
+}
 H3 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
   margin-top: 40px;
@@ -29,6 +35,9 @@ H3 {
   line-height: 150%;
   color: #666;
 }
+H3 a {
+  border-bottom: none;
+}
 H4 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
   margin-top: 40px;
@@ -37,6 +46,9 @@ H4 {
   width: 80%;
   line-height: 150%;
   color: #666;
+}
+H4 a {
+  border-bottom: none;
 }
 li {
   margin-left: 10px;

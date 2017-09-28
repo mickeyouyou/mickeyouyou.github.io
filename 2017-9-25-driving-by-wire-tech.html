@@ -119,7 +119,7 @@
 </ul>
 <div id="sequence-0"></div>
 
-<p>底盘组件接受控制消息（进入自动驾驶状态）执行的Update，通过Can</p>
+<p>底盘组件接受控制消息（进入自动驾驶状态）通过Can执行的Update:</p>
 <ul>
 <li>齿轮（Gear）控制</li>
 <li>气节门(Throttle)控制，调整速度</li>
@@ -147,17 +147,17 @@
 <li><a href="http://www.chinabaike.com/t/9675/2013/0910/1523950.html" target="_blank" rel="external">BOSCH第九代ESP控制系统简介</a></li>
 <li><a href="http://www.elecfans.com/baike/qichedianzi/cheshendianzixitong/20100311187330.html" target="_blank" rel="external">车辆EMB制动系统的发展历程简述</a></li>
 </ul>
-<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op1=>operation: 摩擦片制动|past
-op2=>operation: 鼓式、盘式制动器
-op3=>operation: 机械、电子ABS制动
-op4=>operation: EHB、EMB线控制动
-op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">planning->control:车道规划
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">planning->control:车道规划
 Note right of planning:（定位、感知、预测）
 control->canbus: 车道规划、车辆状态、HMI自动状态切换
 #Note right of control:HMI自动状态切换
 Note right of canbus: 底盘各组件接受执行
 canbus->control: 给出底盘状态反馈
-control-->planning:none</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></p>
+control-->planning:none</textarea><textarea id="sequence-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op1=>operation: 摩擦片制动|past
+op2=>operation: 鼓式、盘式制动器
+op3=>operation: 机械、电子ABS制动
+op4=>operation: EHB、EMB线控制动
+op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 
 
 <!--<a href="http://yoursite.com/2017-9-25-driving-by-wire-tech.html#disqus_thread" class="article-comment-link">Comments</a>
