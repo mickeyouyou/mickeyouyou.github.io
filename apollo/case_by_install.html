@@ -1,0 +1,127 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo Install Faq</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo Install Faq</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年9月29日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-1：Not-copying-from-‘-etc-skel’"><span class="toc-text">Case 1：Not copying from ‘/etc/skel’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-2-拉取Docker镜像慢"><span class="toc-text">Case 2 拉取Docker镜像慢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-3-Bazel编译慢"><span class="toc-text">Case 3 Bazel编译慢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-4：rosbag-command-not-found"><span class="toc-text">Case 4：rosbag :command not found</span></a></li></ol>
+<blockquote>
+<p>不编译安装Apollo的产品经理，怎能说是一个好的工程师？</p>
+</blockquote>
+<p>为让解决中国开发者在编译安装Apollo过程中的问题，我们从一个普通开发者的角度，对编译安装过程做了总结，也集中采集了部分在GitHub Issue的问题。</p>
+<p>目前在国内的安装环境下，最主要的问题集中在：</p>
+<ul>
+<li>docker镜像下载慢</li>
+<li>bazel构建慢</li>
+<li>编译构建错误<ul>
+<li>因为缓存关系，可以清理缓存之后再做一次尝试。</li>
+</ul>
+</li>
+</ul>
+<p>关于慢的问题，已经在最新的代码里支持了中国镜像加速的方法。你可以在启动的时候选择中国镜像加速。</p>
+<figure class="highlight bash"><figcaption><span>docker/scripts/dev_start.sh</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"Type 'y' or 'Y' to pull docker image from China mirror or any other key from US mirror."</span></span><br><span class="line"><span class="built_in">read</span> -t <span class="number">10</span> -n <span class="number">1</span> INCHINA</span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$INCHINA</span>"</span> == <span class="string">"y"</span> ] || [ <span class="string">"<span class="variable">$INCHINA</span>"</span> == <span class="string">"Y"</span> ]; <span class="keyword">then</span></span><br><span class="line">    docker pull <span class="string">"registry.docker-cn.com/<span class="variable">$&#123;IMG&#125;</span>"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    docker pull <span class="variable">$IMG</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>另外，为了保证安装过程不被打断，不论是何种安装方式，何种架构（64位ARM、X86），请为安装预留至少20G的大小。</p>
+<h3 id="Case-1：Not-copying-from-‘-etc-skel’"><a href="#Case-1：Not-copying-from-‘-etc-skel’" class="headerlink" title="Case 1：Not copying from ‘/etc/skel’"></a>Case 1：Not copying from ‘/etc/skel’</h3><p>来自：<a href="https://github.com/ApolloAuto/apollo/issues/271" target="_blank" rel="external">Apollo Issue from GerberaTetra1991</a></p>
+<p>在执行如下脚本时：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash docker/scripts/dev_start.sh</span><br></pre></td></tr></table></figure></p>
+<p>偶发如下case<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">adding new user <span class="string">'axin'</span> ...</span><br><span class="line">The home directory <span class="string">'/home/axin/'</span> already exists.Not copying from <span class="string">'/etc/skel'</span></span><br></pre></td></tr></table></figure></p>
+<p>没关系，尽管遇到了错误，但docker容器已经被正确拉起了。</p>
+<p>你可以尝试进入Apollo容器，并开始构建Apollo了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">axin@in_dev_docker:/apollo$ bash scripts/hmi.sh&#10;Start roscore...&#10;HMI ros node service running at localhost:8887&#10;Failed to start HMI.&#10;Traceback (most recent call last):&#10;File &#34;modules/hmi/web/hmi_main.py&#34;, line 23, in &#10;import handlers&#10;File &#34;/apollo/modules/hmi/web/handlers.py&#34;, line 27, in &#10;import config&#10;File &#34;/apollo/modules/hmi/web/config.py&#34;, line 26, in &#10;import modules.hmi.proto.config_pb2 as config_pb2&#10;ImportError: No module named modules.hmi.proto.config_pb2</span><br></pre></td></tr></table></figure>
+<p>上述问题说明编译安装没有成功。<br>看下对应的日志目录：data/log/*:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">nohup : failed to run command &#39;/apollo/modules/hmi/ros_bridge/ros_bridge&#39;:No such file or directory.</span><br></pre></td></tr></table></figure>
+<h3 id="Case-2-拉取Docker镜像慢"><a href="#Case-2-拉取Docker镜像慢" class="headerlink" title="Case 2 拉取Docker镜像慢"></a>Case 2 拉取Docker镜像慢</h3><p>来自：<a href="https://github.com/ApolloAuto/apollo/issues/268" target="_blank" rel="external">Apollo Issue from qwetqwe </a></p>
+<p>在拉取docker 镜像过程中，默认拉取的地址会比较慢。比如<br><code>353dcb25c39c</code>文件，1.8G，下载很慢。</p>
+<p>解决办法<br>设置中国镜像：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull registry.docker-cn.com/apolloauto/apollo:dev-x86_64-20170926_1848</span><br></pre></td></tr></table></figure></p>
+<p>这是临时办法，最新的代码已经为你加入了环境选择。在国内，输入y即可。</p>
+<h3 id="Case-3-Bazel编译慢"><a href="#Case-3-Bazel编译慢" class="headerlink" title="Case 3 Bazel编译慢"></a>Case 3 Bazel编译慢</h3><p>来自：<a href="https://github.com/ApolloAuto/apollo/issues/398" target="_blank" rel="external">Apollo Issue from zhangjun-xyz</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash apollo.sh build</span><br><span class="line">`System check passed. Build <span class="built_in">continue</span> ...</span><br><span class="line">[WARNING] ESD CAN library supplied by ESD Electronics does not exist. If you need ESD CAN, please refer to third_party/can_card_library/esd_can/README.md.</span><br><span class="line">Start building, please <span class="built_in">wait</span> ...</span><br><span class="line">INFO: Reading <span class="string">'startup'</span> options from /apollo/tools/bazel.rc: --batch_cpu_scheduling</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">Building: no action running</span><br><span class="line">ERROR: query interrupted</span><br><span class="line"></span><br><span class="line">[ERROR] Build failed!</span><br><span class="line">[INFO] Took <span class="number">2315</span> seconds</span><br></pre></td></tr></table></figure>
+<p>如果遇到这种情况，先尝试“ctrl + C”退出，再做如下尝试：<br>尝试一 ：清楚bezal缓存<br>针对这种情况，可以先运行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bazel query //..</span><br></pre></td></tr></table></figure>
+<p>then try<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash apollo.sh build</span><br></pre></td></tr></table></figure></p>
+<p>因为网络等原因，可能会有失败的情况，有可能需要多尝试几次。</p>
+<h3 id="Case-4：rosbag-command-not-found"><a href="#Case-4：rosbag-command-not-found" class="headerlink" title="Case 4：rosbag :command not found"></a>Case 4：rosbag :command not found</h3><figure class="highlight bash"><figcaption><span>播放rosbag</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># source /apollo/bazel-apollo/external/ros/setup.bash</span></span><br><span class="line"><span class="comment"># rosbag play -l /apollo/docs/demo_guide/demo_1.5.bag</span></span><br></pre></td></tr></table></figure>
+
+
+<!--<a href="http://yoursite.com/apollo/case_by_install.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
