@@ -44,10 +44,17 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看正在运行的容器"><span class="toc-text">查看正在运行的容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进入容器的两种方式"><span class="toc-text">进入容器的两种方式</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看正在运行的容器"><span class="toc-text">查看正在运行的容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进入容器的两种方式"><span class="toc-text">进入容器的两种方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取容器ID"><span class="toc-text">获取容器ID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从容器中复制文件"><span class="toc-text">从容器中复制文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a>
 <h4 id="查看正在运行的容器"><a href="#查看正在运行的容器" class="headerlink" title="查看正在运行的容器"></a>查看正在运行的容器</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
 <p>如果是多容器融合的方案：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker-compose ps</span><br></pre></td></tr></table></figure></p>
 <h4 id="进入容器的两种方式"><a href="#进入容器的两种方式" class="headerlink" title="进入容器的两种方式"></a>进入容器的两种方式</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it suspicious_ramanujan /bin/bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo docker run -it --privileged=true apollo-docker.baidu.com/1381f4fcbb9da276324bc66cddea9e94/traffic_lights:paddle_traffic_lights_detection /bin/bash</span><br></pre></td></tr></table></figure>
+<h4 id="获取容器ID"><a href="#获取容器ID" class="headerlink" title="获取容器ID"></a>获取容器ID</h4><p>现在，成功地拉取要求的或所需的 Docker 镜像之后，我们当然想运行这个 Docker 镜像。我们可以用 docker run 命令在镜像上运行一个 docker 容器。在 Docker 镜像上运行一个 docker 容器时我们有很多选项和标记。我们使用 -t 和 -i 选项来运行一个 docker 镜像并进入容器，如下面所示。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#10140;  ~ sudo docker run -itd 3ef23c8602c3 /bin/bash&#10;4b587d02ce93a85b43ffdc36a76a6928be597b75b49974057f8741e0359fa33d</span><br></pre></td></tr></table></figure></p>
+<h4 id="从容器中复制文件"><a href="#从容器中复制文件" class="headerlink" title="从容器中复制文件"></a>从容器中复制文件</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker cp &#60;containerId&#62;:/file/path/within/container /host/path/target</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://xiaorui.cc/2015/04/12/docker%E5%AE%B9%E5%99%A8%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%A6%82%E4%BD%95%E4%BA%92%E7%9B%B8%E6%8B%B7%E8%B4%9D%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/" target="_blank" rel="external">Docker容器和主机如何互相拷贝传输文件</a></li>
+</ul>
+
 
 <!--<a href="http://yoursite.com/flow/docker.html#disqus_thread" class="article-comment-link">Comments</a>
 <div id="disqus_thread"></div>
