@@ -1,0 +1,363 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>3D障碍物感知</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">3D障碍物感知</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年10月18日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高精地图ROI过滤"><span class="toc-text">高精地图ROI过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坐标转换"><span class="toc-text">坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT构造"><span class="toc-text">ROI LUT构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT点查询"><span class="toc-text">ROI LUT点查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于CNN的障碍物检测与分割"><span class="toc-text">基于CNN的障碍物检测与分割</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通道特征提取"><span class="toc-text">通道特征提取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于卷积神经网络的障碍物预测"><span class="toc-text">基于卷积神经网络的障碍物预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#障碍集群"><span class="toc-text">障碍集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后期处理"><span class="toc-text">后期处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MinBox-障碍物框构建"><span class="toc-text">MinBox 障碍物框构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HM对象跟踪"><span class="toc-text">HM对象跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检测跟踪关联（Detection-to-Track-Association）"><span class="toc-text">检测跟踪关联（Detection-to-Track Association）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟踪动态预估-Track-Motion-Estimation"><span class="toc-text">跟踪动态预估 Track Motion Estimation</span></a></li></ol></li></ol>
+<blockquote>
+<p>文档状态：待交叉验证</p>
+</blockquote>
+<p>Apollo解决的障碍物感知问题：</p>
+<ul>
+<li>高精地图ROI过滤(HDMap ROI Filter)</li>
+<li>基于CNN的障碍物检测与分割(CNN Segmentation) </li>
+<li>MinBox 障碍物框构建(MinBox Builder)</li>
+<li>HM对象跟踪(HM Object Tracker)</li>
+</ul>
+<h2 id="高精地图ROI过滤"><a href="#高精地图ROI过滤" class="headerlink" title="高精地图ROI过滤"></a>高精地图ROI过滤</h2><p>ROI指包含路表、路口和从高清地图检索得到地图的可驾驶区域。HDMap ROI过滤器将激光雷达点处理出ROI，去除背景物体，如路边建筑物和树木等，剩余的点云留待后续处理。</p>
+<p>给定一个高精地图，每个激光雷达点的隶属关系表示在ROI内部还是外部。<br>每个激光雷达点可以查询一个车辆周围区域的2D化的查找表（LUT）。HDMap ROI过滤器模块的输入和输出汇总于下表。</p>
+<table>
+<thead>
+<tr>
+<th>输入</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>点云: 激光雷达捕捉的3D点数据集</td>
+<td>由高精地图定义的ROI内的输入点索引。</td>
+</tr>
+<tr>
+<td>高精地图: 多边形集合，每个多边形均含有一个有序的点集。</td>
+</tr>
+</tbody>
+</table>
+<p>一般来说，HDMap ROI过滤器由三个步骤：</p>
+<ol>
+<li>坐标转换</li>
+<li>ROI LUT构造</li>
+<li>ROI LUT点查询</li>
+</ol>
+<h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><p>对于高精地图ROI过滤器来说，高精地图数据接口被定义为一系列多边形集，每个集合由世界坐标系点组成的有序点集。<br>HDMap ROI对点进行查询需要点云和多边形处在相同的坐标系中表示。<br>为此，Apollo将输入点云和HDMap多边形点 变换为来自激光雷达传感器位置的地方坐标系。</p>
+<h3 id="ROI-LUT构造"><a href="#ROI-LUT构造" class="headerlink" title="ROI LUT构造"></a>ROI LUT构造</h3><p>Apollo采用网格显示查找表（LUT），将ROI量化为俯视图2D<br>格，以此决定输入点是在ROI之内还是之外。如图1所示，该显示查找表（LUT）覆盖有边界的，高精地图边界之上，一般视图的预定义的空间范围的矩形区域。它代表了与ROI关联网格的每个单元格（即1/0表示它在ROI的内部/外部）。 为了计算效率，Apollo使用扫描线算法和位图编码来构建ROI LUT。</p>
+<blockquote>
+<p>As shown in figure 1, this LUT covers a rectangle region, bounded<br>by a predefined spatial range around the general view from above in the<br>boundary of HDMap. </p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/roi_lookup_table.png"></p>
+<div align="center">图 1 ROI显示查找表（LUT）</div>
+
+<p>蓝色线条标出了高精地图ROI的边界，包含路表与路口。红色加粗点表示地方坐标系统对应于激光雷达传感器位置的原始位置。2D网格由8*8绿色正方形组成，这些在ROI中的单元格，蓝色填充的正方形，而之外的是黄色填充的正方形。</p>
+<h3 id="ROI-LUT点查询"><a href="#ROI-LUT点查询" class="headerlink" title="ROI LUT点查询"></a>ROI LUT点查询</h3><p>基于ROI LUT，查询每个输入点的隶属关系使用两步认证。之后，Apollo进行数据编译，输出如下，对于点查询过程Apollo:</p>
+<ol>
+<li>检查点在ROI LUT矩形区域之内还是外。</li>
+<li>查询LUT中相对于ROI关联点的相应单元。</li>
+<li>收集属于ROI的所有点，并输出其相对于输入点云的索引。</li>
+</ol>
+<p>用户定义的参数可在配置文件<code>modules/perception/model/hdmap_roi_filter.config</code>中设置，HDMap ROI Filter 参数使用参考如下表格：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>使用</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rectangle</td>
+<td>相对于原点（LiDAR传感器）的2D网格ROI LUT的范围。</td>
+<td>70.0 米</td>
+</tr>
+<tr>
+<td>cell_size</td>
+<td>用于量化2D网格的单元格的大小。</td>
+<td>0.25 米</td>
+</tr>
+<tr>
+<td>extend_dist</td>
+<td>从多边形边界扩展ROI的距离。</td>
+<td>0.0 米</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基于CNN的障碍物检测与分割"><a href="#基于CNN的障碍物检测与分割" class="headerlink" title="基于CNN的障碍物检测与分割"></a>基于CNN的障碍物检测与分割</h2><p>HDMap ROI过滤之后，Apollo得到已过滤、只包含属于ROI内的点（如可驾驶、路口区域）的点云，大部分背景障碍物，如路侧的建筑物、树木等，均被移除，ROI内的点云被传送到分割模块中。这个过程检测和划分前景障碍物，例如汽车，卡车，自行车和行人。</p>
+<table>
+<thead>
+<tr>
+<th>输入</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>点云（3D数据集）</td>
+<td>对应于ROI中的障碍物对象数据集</td>
+</tr>
+<tr>
+<td>表示在HDMap中定义的ROI内的点的点索引</td>
+</tr>
+</tbody>
+</table>
+<p>Apollo 使用深度卷积神经网络提高障碍物识别与分割的精度，包含以下四步：</p>
+<ul>
+<li>通道特征提取</li>
+<li>基于卷积神经网络的障碍物预测</li>
+<li>障碍物集群</li>
+<li>后期处理</li>
+</ul>
+<p>深度卷积神经网络详细介绍如下：</p>
+<h3 id="通道特征提取"><a href="#通道特征提取" class="headerlink" title="通道特征提取"></a>通道特征提取</h3><p>给定一个点云框架，Apollo在地方坐标系中构建俯视图（即投影到X-Y平面）2D网格。 基于点X、Y坐标，相对于原点（即LiDAR传感器）的预定范围内的每个点被量化为2D网格的一个单元。 量化后，Apollo计算网格的每个单元格点的8个统计测量，这将是下一步中传递给CNN的输入通道特征。 </p>
+<p>计算的8个统计测量：</p>
+<ol>
+<li>单元格中的最大高度点</li>
+<li>单元格中最高点的强度</li>
+<li>单元格中点的平均高度</li>
+<li>单元格中点的平均强度</li>
+<li>单元格中的点数</li>
+<li>单元格中心相对于原点的角度</li>
+<li>单元格中心与原点之间的距离</li>
+<li>二进制值标示单元格是空还是被占用</li>
+</ol>
+<h3 id="基于卷积神经网络的障碍物预测"><a href="#基于卷积神经网络的障碍物预测" class="headerlink" title="基于卷积神经网络的障碍物预测"></a>基于卷积神经网络的障碍物预测</h3><p>基于上述通道特征，Apollo使用深度完全卷积神经网络（FCNN）来预测单元格障碍物属性，包括相对于潜在物体中心的偏移位移，称为中心偏移（见下图2），客观性，积极性和物体高度。 如图2所示，网络的输入为 <em>W</em> x <em>H</em> x <em>C</em> 通道图像，其中：</p>
+<ul>
+<li><em>W</em> 代表网格中的列数</li>
+<li><em>H</em> 代表网格中的行数</li>
+<li><em>C</em> 代表通道特征数</li>
+</ul>
+<p>深度完全卷积神经网络由三层构成：The FCNN is composed of three layers:</p>
+<ul>
+<li>下游编码层（特征编码器）</li>
+<li>上游解码层（特征解码器）</li>
+<li>障碍物属性预测层（预测器）</li>
+</ul>
+<p>特征编码器将通道特征图像作为输入，并且随着特征抽取的增加而连续 <strong>下采样</strong>其空间分辨率。 然后特征解码器逐渐对特征图像 <strong>上采样</strong>到输入2D网格的空间分辨率，可以恢复特征图像的空间细节，以促进单元格方向的障碍物属性预测。<br>根据具有非线性激活（即ReLu）层的堆叠卷积/分散层来实现 <strong>下采样</strong>和 <strong>上采样</strong>操作。</p>
+<div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/FCNN.png" width="99%"></div>
+
+<div align="center">图 2 FCNN在单元格方向上的障碍物预测</div>
+
+<h3 id="障碍集群"><a href="#障碍集群" class="headerlink" title="障碍集群"></a>障碍集群</h3><p>After the CNN-based prediction step, Apollo obtains prediction<br>information for individual cells. Apollo utilizes four cell object<br>attribute images that contain the:</p>
+<ul>
+<li><p>Center offset</p>
+</li>
+<li><p>Objectness</p>
+</li>
+<li><p>Positiveness</p>
+</li>
+<li><p>Object height</p>
+</li>
+</ul>
+<p>To generate obstacle objects, Apollo constructs a directed graph based<br>on the cell center offset prediction and searches the connected<br>components as candidate object clusters.</p>
+<p>As shown in figure 3, each cell is a node of the graph and the directed<br>edge is built based on the center offset prediction of the cell, which<br>points to its parent node corresponding to another cell.</p>
+<p>Given this graph, Apollo adopts a compressed Union Find algorithm to<br>efficiently find the connected components, each of which is a candidate<br>obstacle object cluster. The objectness is the probability of being a<br>valid object for one individual cell. So Apollo defines the non-object<br>cells as the ones with the objectness less than 0.5. Thus Apollo filters<br>out the empty cells and non-object ones for each candidate object<br>cluster.</p>
+<div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/obstacle_clustering.png" width="99%"></div>
+
+<div align="center">Figure 3 Illustration of obstacle clustering</div>
+
+<p>(a) The red arrow represents the object center offset prediction for<br>    each cell. The blue mask corresponds to the object cells for which<br>    the objectness probability is no less than 0.5.</p>
+<p>(b) The cells within solid red polygon compose a candidate object<br>    cluster.</p>
+<p>The red filled five-pointed stars indicate the root nodes (cells) of<br>sub-graphs that correspond to the connected components. One candidate<br>object cluster can be composed of multiple neighboring connected<br>components whose root nodes are adjacent to each other.</p>
+<h3 id="后期处理"><a href="#后期处理" class="headerlink" title="后期处理"></a>后期处理</h3><p>After clustering, Apollo obtains a set of candidate object clusters each<br>of which includes several cells. In the post-processing step, Apollo<br>first computes the detection confidence score and object height for each<br>candidate cluster by averaging the positiveness and object height values<br>of its involved cells respectively. Then, Apollo removes the points that<br>are too high with respect to the predicted object height and collects<br>the points of valid cells for each candidate cluster. Finally, Apollo<br>removes the candidate clusters that have either a very low confidence<br>score or small number of points, to output the final obstacle<br>clusters/segments.</p>
+<p>The user-defined parameters can be set in the configuration file of<br>modules/perception/model/cnn_segmentation/cnnseg.conf. The table below<br>explains the parameter usage and default values for CNN Segmentation.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Usage</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>objectness_thresh</td>
+<td>The threshold of objectness for filtering out non-object cells in obstacle clustering step.</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>use_all_grids_for_clustering</td>
+<td>The option of specifying whether or not to use all cells to construct the graph in the obstacle clustering step.If not, only the occupied cells will be considered.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>confidence_thresh</td>
+<td>The detection confidence score threshold for filtering out the candidate clusters in the post-processing step.</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>height_thresh</td>
+<td>If it is non-negative, the points that are higher than the predicted object height by height_thresh will be filtered out in the post-processing step.</td>
+<td>0.5 meters</td>
+</tr>
+<tr>
+<td>min_pts_num</td>
+<td>In the post-processing step, the candidate clusters with less than min_pts_num points are removed.</td>
+<td>3</td>
+</tr>
+<tr>
+<td>use_full_cloud</td>
+<td>If it is set by true, all the points of the original point cloud will be used for extracting channel features. Otherwise only the points of input point cloud (i.e., the points after HDMap ROI filter) are used.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>gpu_id</td>
+<td>The ID of the GPU device used in the CNN-based obstacle prediction step.</td>
+<td>0</td>
+</tr>
+<tr>
+<td>feature_param {width}</td>
+<td>The number of cells in X (column) axis of the 2D grid.</td>
+<td>512</td>
+</tr>
+<tr>
+<td>feature_param {height}</td>
+<td>The number of cells in Y (row) axis of the 2D grid.</td>
+<td>512</td>
+</tr>
+<tr>
+<td>feature_param {range}</td>
+<td>The range of the 2D grid with respect to the origin (the LiDAR sensor).</td>
+<td>60 meters</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MinBox-障碍物框构建"><a href="#MinBox-障碍物框构建" class="headerlink" title="MinBox 障碍物框构建"></a>MinBox 障碍物框构建</h2><p>对象构建器组件为检测到的障碍物建立一个边界框。因为LiDAR传感器的遮挡或距离，形成障碍物的点云可以是稀疏的，并且仅覆盖一部分表面。因此，盒构建器将恢复给定多边形点的完整边界框。即使点云稀疏，边界框的主要目的是预估障碍物（例如，车辆）的方向。同样地，边框也用于可视化障碍物。</p>
+<p>算法背后的想法是找到给定多边形点边缘的所有区域。在以下示例中，如果AB是边缘，则Apollo将其他多边形点投影到AB上，并建立具有最大距离的交点对。</p>
+<p>这是属于边框的边缘之一。然后直接获得边界框的另一边。通过迭代多边形中的所有边，在以下示例中，如图4所示，Apollo确定了一个6边界边框。Apollo将选择具有最小面积的方案作为最终的边界框。</p>
+<blockquote>
+<p>The idea behind the algorithm is to find the all areas given an edge of<br>the polygon point. In the following example, if AB is the edge, Apollo<br>projects other polygon points onto AB and establishes the pair of<br>intersections that has the maximum distance.<br>That’s one of the edges belonging to the bounding box.<br>Then it is straightforward to obtain the other edge of the bounding box. By iterating all edges in the polygon, in the following example as shown in figure 4, Apollo determines a 6-edge bounding box. Apollo then selects the solution that has the minimum area as the final bounding box.</p>
+</blockquote>
+<div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/object_building.png"></div>
+
+<div align="center">图 4 MinBox 对象构建</div>
+
+<h2 id="HM对象跟踪"><a href="#HM对象跟踪" class="headerlink" title="HM对象跟踪"></a>HM对象跟踪</h2><p>HM对象跟踪器被设计为跟踪由分段检测到的障碍物。通常，它通过将当前检测与现有轨道列表相关联来形成和更新轨道列表，如果不再存在，则删除旧的轨道列表，并在识别出新的检测时生成新的轨道列表。 更新后的轨道列表的运动状态将在关联后进行估计。 在HM对象跟踪器中，<strong>匈牙利算法</strong>(Hungarian algorithm)用于检测到轨道关联，并采用 <strong>鲁棒卡尔曼滤波器</strong>(Robust Kalman Filter) 进行运动估计。</p>
+<h3 id="检测跟踪关联（Detection-to-Track-Association）"><a href="#检测跟踪关联（Detection-to-Track-Association）" class="headerlink" title="检测跟踪关联（Detection-to-Track Association）"></a>检测跟踪关联（Detection-to-Track Association）</h3><p>When associating detection to existing track lists, Apollo constructs a<br>bipartite graph and then uses the Hungarian algorithm to find the best<br>detection-to-track matching with minimum cost (distance).</p>
+<p><strong>Computing Association Distance Matrix</strong></p>
+<p>In the first step, an association distance matrix is established. The<br>distance between a given detection and one track is calculated according to<br>a series of association features including motion consistency,<br>appearance consistency, etc. Some features used in HM tracker’s distance<br>computing are shown as below:</p>
+<table>
+<thead>
+<tr>
+<th>Association Feature Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location_distance</td>
+<td>Evaluating motion consistency</td>
+</tr>
+<tr>
+<td>direction_distance</td>
+<td>Evaluating motion consistency</td>
+</tr>
+<tr>
+<td>bbox_size_distance</td>
+<td>Evaluating appearance consistency</td>
+</tr>
+<tr>
+<td>point_num_distance</td>
+<td>Evaluating appearance consistency</td>
+</tr>
+<tr>
+<td>histogram_distance</td>
+<td>Evaluating appearance consistency</td>
+</tr>
+</tbody>
+</table>
+<p>Besides, there are some important parameters of distance weights which are<br>used for combining the above-mentioned association features into a final<br>distance measurement.</p>
+<p><strong>Bipartite Graph Matching via Hungarian Algorithm</strong></p>
+<p>Given the association distance matrix, as shown in figure 5, Apollo<br>constructs a bipartite graph and uses Hungarian algorithm to find the<br>best detection-to-track matching via minimizing the distance cost. It<br>solves the assignment problem within O(n\^3) time complexity. To boost<br>its computing performance, the Hungarian algorithm is implemented after<br>cutting original bipartite graph into subgraphs, by deleting vertices<br>with distance greater than a reasonable maximum distance threshold.</p>
+<div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/bipartite_graph_matching.png"></div>
+
+<div align="center">Figure 5 Illustration of Bipartite Graph Matching</div>
+
+<h3 id="跟踪动态预估-Track-Motion-Estimation"><a href="#跟踪动态预估-Track-Motion-Estimation" class="headerlink" title="跟踪动态预估 Track Motion Estimation"></a>跟踪动态预估 Track Motion Estimation</h3><p>After the detection-to-track association, HM object tracker uses a<br>Robust Kalman Filter to estimate the motion states of current track<br>lists with a constant velocity motion model. The motion states include<br>its belief anchor point and belief velocity, which correspond to the 3D<br>position and its 3D velocity respectively. To overcome possible<br>distraction caused from imperfect detections, Robust Statistics<br>techniques are implemented in the tracker’s filtering algorithm.</p>
+<p><strong>Observation Redundancy</strong></p>
+<p>The measurement of velocity, which is the input of filtering algorithm,<br>is selected among a series of redundant observations, including anchor<br>point shift, bounding box center shift, bounding box corner point shift,<br>etc. Redundant observations will bring extra robustness to filtering<br>measurement, as the probability that all observations fail is much less<br>than the one that a single observation fails.</p>
+<p><strong>Breakdown</strong></p>
+<p>Gaussian Filter algorithms always assume their noises are generated from<br>Gaussian distribution. However, this hypothesis may fail in motion<br>estimation problem, as the noise of its measurement may draw from<br>fat-tail distributions. To overcome the over-estimation of update gain,<br>a breakdown threshold is used in the process of filtering.</p>
+<p><strong>Update according Association Quality</strong></p>
+<p>The original Kalman Filter updates its states without distinguishing the<br>quality of its measurements. However, the quality of measurement is a<br>beneficial cue of filtering noise and somehow can be estimated. For<br>instance, the distance calculated in the association step could be a<br>reasonable estimate of quality of measurement. Updating the state of<br>filtering algorithm according to the association quality enhances<br>robustness and smoothness to the motion estimation problem.</p>
+<p>A high-level workflow of HM object tracker is given in figure 6.</p>
+<div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/hm_object_tracker.png"></div>
+
+<div align="center">Figure 6 Workflow of HM Object Tracker</div>
+
+<p>1)  Construct the tracked objects and transform them into world coordinates.</p>
+<p>2)  Predict the states of existing track lists and match detections to<br>    them.</p>
+<p>3)  Update the motion state of updated track lists and collect the<br>    tracking results.</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://zh.wikipedia.org/zh-cn/%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95" target="_blank" rel="external">匈牙利算法</a></li>
+<li><a href="https://baike.baidu.com/item/%E5%9C%B0%E6%96%B9%E5%9D%90%E6%A0%87%E7%B3%BB/5154246" target="_blank" rel="external">地方坐标系</a></li>
+<li><a href="https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf" target="_blank" rel="external">Fully Convolutional Networks for Semantic Segmentation</a></li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/apollo/3d_obstacle_perception.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
