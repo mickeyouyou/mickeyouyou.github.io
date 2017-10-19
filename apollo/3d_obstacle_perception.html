@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>3D障碍物感知</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>3D 障碍物感知</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,7 +31,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">3D障碍物感知</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">3D 障碍物感知</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -44,18 +44,18 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高精地图ROI过滤"><span class="toc-text">高精地图ROI过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坐标转换"><span class="toc-text">坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT构造"><span class="toc-text">ROI LUT构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT点查询"><span class="toc-text">ROI LUT点查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于CNN的障碍物检测与分割"><span class="toc-text">基于CNN的障碍物检测与分割</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通道特征提取"><span class="toc-text">通道特征提取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于卷积神经网络的障碍物预测"><span class="toc-text">基于卷积神经网络的障碍物预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#障碍集群"><span class="toc-text">障碍集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后期处理"><span class="toc-text">后期处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MinBox-障碍物框构建"><span class="toc-text">MinBox 障碍物框构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HM对象跟踪"><span class="toc-text">HM对象跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检测跟踪关联（Detection-to-Track-Association）"><span class="toc-text">检测跟踪关联（Detection-to-Track Association）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟踪动态预估-Track-Motion-Estimation"><span class="toc-text">跟踪动态预估 Track Motion Estimation</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高精地图ROI过滤器"><span class="toc-text">高精地图ROI过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坐标转换"><span class="toc-text">坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT构造"><span class="toc-text">ROI LUT构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT点查询"><span class="toc-text">ROI LUT点查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于CNN的障碍物检测与分割"><span class="toc-text">基于CNN的障碍物检测与分割</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通道特征提取"><span class="toc-text">通道特征提取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于卷积神经网络的障碍物预测"><span class="toc-text">基于卷积神经网络的障碍物预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#障碍物聚类"><span class="toc-text">障碍物聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后期处理"><span class="toc-text">后期处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MinBox-障碍物边框构建"><span class="toc-text">MinBox 障碍物边框构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HM对象跟踪"><span class="toc-text">HM对象跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检测跟踪关联（Detection-to-Track-Association）"><span class="toc-text">检测跟踪关联（Detection-to-Track Association）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟踪动态预估-Track-Motion-Estimation"><span class="toc-text">跟踪动态预估 Track Motion Estimation</span></a></li></ol></li></ol>
 <blockquote>
 <p>文档状态：待交叉验证</p>
 </blockquote>
 <p>Apollo解决的障碍物感知问题：</p>
 <ul>
-<li>高精地图ROI过滤(HDMap ROI Filter)</li>
-<li>基于CNN的障碍物检测与分割(CNN Segmentation) </li>
-<li>MinBox 障碍物框构建(MinBox Builder)</li>
+<li>高精地图ROI过滤器(HDMap ROI Filter)</li>
+<li>基于卷积神经网络（CNN）的障碍物检测与分割(CNN Segmentation) </li>
+<li>MinBox 障碍物边框构建(MinBox Builder)</li>
 <li>HM对象跟踪(HM Object Tracker)</li>
 </ul>
-<h2 id="高精地图ROI过滤"><a href="#高精地图ROI过滤" class="headerlink" title="高精地图ROI过滤"></a>高精地图ROI过滤</h2><p>ROI指包含路表、路口和从高清地图检索得到地图的可驾驶区域。HDMap ROI过滤器将激光雷达点处理出ROI，去除背景物体，如路边建筑物和树木等，剩余的点云留待后续处理。</p>
+<h2 id="高精地图ROI过滤器"><a href="#高精地图ROI过滤器" class="headerlink" title="高精地图ROI过滤器"></a>高精地图ROI过滤器</h2><p>ROI（The Region of Interest）指定从高精地图检索到包含路面、路口的可驾驶区域。高精地图 ROI 过滤器将激光雷达点处理出ROI，去除背景对象，如路边建筑物和树木等，剩余的点云留待后续处理。</p>
 <p>给定一个高精地图，每个激光雷达点的隶属关系表示在ROI内部还是外部。<br>每个激光雷达点可以查询一个车辆周围区域的2D化的查找表（LUT）。HDMap ROI过滤器模块的输入和输出汇总于下表。</p>
 <table>
 <thead>
@@ -74,17 +74,15 @@
 </tr>
 </tbody>
 </table>
-<p>一般来说，HDMap ROI过滤器由三个步骤：</p>
+<p>一般来说，高精地图 ROI过滤器有以下三步：</p>
 <ol>
 <li>坐标转换</li>
 <li>ROI LUT构造</li>
 <li>ROI LUT点查询</li>
 </ol>
 <h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><p>对于高精地图ROI过滤器来说，高精地图数据接口被定义为一系列多边形集，每个集合由世界坐标系点组成的有序点集。<br>HDMap ROI对点进行查询需要点云和多边形处在相同的坐标系中表示。<br>为此，Apollo将输入点云和HDMap多边形点 变换为来自激光雷达传感器位置的地方坐标系。</p>
-<h3 id="ROI-LUT构造"><a href="#ROI-LUT构造" class="headerlink" title="ROI LUT构造"></a>ROI LUT构造</h3><p>Apollo采用网格显示查找表（LUT），将ROI量化为俯视图2D<br>格，以此决定输入点是在ROI之内还是之外。如图1所示，该显示查找表（LUT）覆盖有边界的，高精地图边界之上，一般视图的预定义的空间范围的矩形区域。它代表了与ROI关联网格的每个单元格（即1/0表示它在ROI的内部/外部）。 为了计算效率，Apollo使用扫描线算法和位图编码来构建ROI LUT。</p>
-<blockquote>
-<p>As shown in figure 1, this LUT covers a rectangle region, bounded<br>by a predefined spatial range around the general view from above in the<br>boundary of HDMap. </p>
-</blockquote>
+<h3 id="ROI-LUT构造"><a href="#ROI-LUT构造" class="headerlink" title="ROI LUT构造"></a>ROI LUT构造</h3><p>Apollo采用网格显示查找表（LUT），将ROI量化为俯视图2D<br>格，以此决定输入点是在ROI之内还是之外。</p>
+<p>如图1所示，该LUT覆盖了一个矩形区域，该矩形区域围绕着HDMap边界上方的普通视图周围的预定义的空间范围。<br>它代表了与ROI关联网格的每个单元格（即1/0表示它在ROI的内部/外部）。 为了计算效率，Apollo使用扫描线算法和位图编码来构建ROI LUT。</p>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/roi_lookup_table.png"></p>
 <div align="center">图 1 ROI显示查找表（LUT）</div>
 
@@ -140,18 +138,18 @@
 </tr>
 </tbody>
 </table>
-<p>Apollo 使用深度卷积神经网络提高障碍物识别与分割的精度，包含以下四步：</p>
+<p>Apollo 使用卷积神经网络提高障碍物识别与分割的精度，包含以下四步：</p>
 <ul>
 <li>通道特征提取</li>
 <li>基于卷积神经网络的障碍物预测</li>
 <li>障碍物集群</li>
 <li>后期处理</li>
 </ul>
-<p>深度卷积神经网络详细介绍如下：</p>
+<p>卷积神经网络详细介绍如下：</p>
 <h3 id="通道特征提取"><a href="#通道特征提取" class="headerlink" title="通道特征提取"></a>通道特征提取</h3><p>给定一个点云框架，Apollo在地方坐标系中构建俯视图（即投影到X-Y平面）2D网格。 基于点X、Y坐标，相对于原点（即LiDAR传感器）的预定范围内的每个点被量化为2D网格的一个单元。 量化后，Apollo计算网格的每个单元格点的8个统计测量，这将是下一步中传递给CNN的输入通道特征。 </p>
 <p>计算的8个统计测量：</p>
 <ol>
-<li>单元格中的最大高度点</li>
+<li>单元格中点的最大高度</li>
 <li>单元格中最高点的强度</li>
 <li>单元格中点的平均高度</li>
 <li>单元格中点的平均强度</li>
@@ -166,7 +164,7 @@
 <li><em>H</em> 代表网格中的行数</li>
 <li><em>C</em> 代表通道特征数</li>
 </ul>
-<p>深度完全卷积神经网络由三层构成：The FCNN is composed of three layers:</p>
+<p>深度完全卷积神经网络由三层构成：</p>
 <ul>
 <li>下游编码层（特征编码器）</li>
 <li>上游解码层（特征解码器）</li>
@@ -177,35 +175,36 @@
 
 <div align="center">图 2 FCNN在单元格方向上的障碍物预测</div>
 
-<h3 id="障碍集群"><a href="#障碍集群" class="headerlink" title="障碍集群"></a>障碍集群</h3><p>After the CNN-based prediction step, Apollo obtains prediction<br>information for individual cells. Apollo utilizes four cell object<br>attribute images that contain the:</p>
+<h3 id="障碍物聚类"><a href="#障碍物聚类" class="headerlink" title="障碍物聚类"></a>障碍物聚类</h3><p>在基于CNN的预测步骤之后，Apollo获取单个单元格的预测信息。Apollo利用四个单元对象属性图像，其中包含：</p>
 <ul>
-<li><p>Center offset</p>
-</li>
-<li><p>Objectness</p>
-</li>
-<li><p>Positiveness</p>
-</li>
-<li><p>Object height</p>
-</li>
+<li>中心偏移</li>
+<li>对象性</li>
+<li>积极性</li>
+<li>对象高度</li>
 </ul>
-<p>To generate obstacle objects, Apollo constructs a directed graph based<br>on the cell center offset prediction and searches the connected<br>components as candidate object clusters.</p>
-<p>As shown in figure 3, each cell is a node of the graph and the directed<br>edge is built based on the center offset prediction of the cell, which<br>points to its parent node corresponding to another cell.</p>
-<p>Given this graph, Apollo adopts a compressed Union Find algorithm to<br>efficiently find the connected components, each of which is a candidate<br>obstacle object cluster. The objectness is the probability of being a<br>valid object for one individual cell. So Apollo defines the non-object<br>cells as the ones with the objectness less than 0.5. Thus Apollo filters<br>out the empty cells and non-object ones for each candidate object<br>cluster.</p>
+<p>为了生成障碍物，Apollo基于单元格中心偏移预测构建有向图，并将连接的组件搜索为候选对象集群。</p>
+<p>如图3所示，每个单元格是图的一个节点，并且基于单元格的中心偏移预测构建有向边，其指向对应于另一单元的父节点。</p>
+<p>如图所示，Apollo采用压缩的联合查找算法来有效查找连接的组件，每个组件都是候选障碍物对象集群。对象是单个单元格成为有效对象的概率。因此，Apollo将非对象单元定义为目标小于0.5的单元格。因此，Apollo过滤出每个候选对象集群的空单元格和非对象集。</p>
 <div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/obstacle_clustering.png" width="99%"></div>
 
-<div align="center">Figure 3 Illustration of obstacle clustering</div>
+<div align="center">图 3 障碍聚类</div>
 
-<p>(a) The red arrow represents the object center offset prediction for<br>    each cell. The blue mask corresponds to the object cells for which<br>    the objectness probability is no less than 0.5.</p>
-<p>(b) The cells within solid red polygon compose a candidate object<br>    cluster.</p>
-<p>The red filled five-pointed stars indicate the root nodes (cells) of<br>sub-graphs that correspond to the connected components. One candidate<br>object cluster can be composed of multiple neighboring connected<br>components whose root nodes are adjacent to each other.</p>
-<h3 id="后期处理"><a href="#后期处理" class="headerlink" title="后期处理"></a>后期处理</h3><p>After clustering, Apollo obtains a set of candidate object clusters each<br>of which includes several cells. In the post-processing step, Apollo<br>first computes the detection confidence score and object height for each<br>candidate cluster by averaging the positiveness and object height values<br>of its involved cells respectively. Then, Apollo removes the points that<br>are too high with respect to the predicted object height and collects<br>the points of valid cells for each candidate cluster. Finally, Apollo<br>removes the candidate clusters that have either a very low confidence<br>score or small number of points, to output the final obstacle<br>clusters/segments.</p>
-<p>The user-defined parameters can be set in the configuration file of<br>modules/perception/model/cnn_segmentation/cnnseg.conf. The table below<br>explains the parameter usage and default values for CNN Segmentation.</p>
+<p>(a) 红色箭头表示每个单元格对象中心偏移预测；蓝色填充对应于物体概率不小于0.5的对象单元。</p>
+<p>(b) 固体红色多边形内的单元格组成候选对象集群。</p>
+<p>由五角星填充的红色范围表示对应于连接组件子图的根节点（单元格）。 </p>
+<p>一个候选对象集群可以由其根节点彼此相邻的多个相邻连接组件组成。</p>
+<h3 id="后期处理"><a href="#后期处理" class="headerlink" title="后期处理"></a>后期处理</h3><p>聚类后，Apollo获得一组候选对象集，每个候选对象集包括几个单元。 </p>
+<p>在后处理步骤中，Apollo首先通过分别对其所涉及的单元格的积极性和物体高度值平均计算每个候选群体的检测置信度分数和物体高度。 然后，Apollo去除相对于预测物体高度太高的点，并收集每个候选集中的有效单元格的点。 最后，Apollo删除具有非常低的可信度分数或小点数的候选聚类，以输出最终的障碍物集/分段。</p>
+<p>用户定义的参数可以在<code>modules/perception/model/cnn_segmentation/cnnseg.conf</code>的配置文件中设置。 下表说明了CNN细分的参数用法和默认值</p>
+<blockquote>
+<p>In the post-processing step, Apollo<br>first computes the detection confidence score and object height for each<br>candidate cluster by averaging the positiveness and object height values<br>of its involved cells respectively.<br> Then, Apollo removes the points that<br>are too high with respect to the predicted object height and collects<br>the points of valid cells for each candidate cluster. Finally, Apollo<br>removes the candidate clusters that have either a very low confidence<br>score or small number of points, to output the final obstacle<br>clusters/segments.</p>
+</blockquote>
 <table>
 <thead>
 <tr>
-<th>Parameter Name</th>
-<th>Usage</th>
-<th>Default</th>
+<th>参数名称</th>
+<th>使用说明</th>
+<th>默认值</th>
 </tr>
 </thead>
 <tbody>
@@ -261,7 +260,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="MinBox-障碍物框构建"><a href="#MinBox-障碍物框构建" class="headerlink" title="MinBox 障碍物框构建"></a>MinBox 障碍物框构建</h2><p>对象构建器组件为检测到的障碍物建立一个边界框。因为LiDAR传感器的遮挡或距离，形成障碍物的点云可以是稀疏的，并且仅覆盖一部分表面。因此，盒构建器将恢复给定多边形点的完整边界框。即使点云稀疏，边界框的主要目的是预估障碍物（例如，车辆）的方向。同样地，边框也用于可视化障碍物。</p>
+<h2 id="MinBox-障碍物边框构建"><a href="#MinBox-障碍物边框构建" class="headerlink" title="MinBox 障碍物边框构建"></a>MinBox 障碍物边框构建</h2><p>对象构建器组件为检测到的障碍物建立一个边界框。因为LiDAR传感器的遮挡或距离，形成障碍物的点云可以是稀疏的，并且仅覆盖一部分表面。因此，盒构建器将恢复给定多边形点的完整边界框。即使点云稀疏，边界框的主要目的是预估障碍物（例如，车辆）的方向。同样地，边框也用于可视化障碍物。</p>
 <p>算法背后的想法是找到给定多边形点边缘的所有区域。在以下示例中，如果AB是边缘，则Apollo将其他多边形点投影到AB上，并建立具有最大距离的交点对。</p>
 <p>这是属于边框的边缘之一。然后直接获得边界框的另一边。通过迭代多边形中的所有边，在以下示例中，如图4所示，Apollo确定了一个6边界边框。Apollo将选择具有最小面积的方案作为最终的边界框。</p>
 <blockquote>
@@ -271,62 +270,63 @@
 
 <div align="center">图 4 MinBox 对象构建</div>
 
-<h2 id="HM对象跟踪"><a href="#HM对象跟踪" class="headerlink" title="HM对象跟踪"></a>HM对象跟踪</h2><p>HM对象跟踪器被设计为跟踪由分段检测到的障碍物。通常，它通过将当前检测与现有轨道列表相关联来形成和更新轨道列表，如果不再存在，则删除旧的轨道列表，并在识别出新的检测时生成新的轨道列表。 更新后的轨道列表的运动状态将在关联后进行估计。 在HM对象跟踪器中，<strong>匈牙利算法</strong>(Hungarian algorithm)用于检测到轨道关联，并采用 <strong>鲁棒卡尔曼滤波器</strong>(Robust Kalman Filter) 进行运动估计。</p>
-<h3 id="检测跟踪关联（Detection-to-Track-Association）"><a href="#检测跟踪关联（Detection-to-Track-Association）" class="headerlink" title="检测跟踪关联（Detection-to-Track Association）"></a>检测跟踪关联（Detection-to-Track Association）</h3><p>When associating detection to existing track lists, Apollo constructs a<br>bipartite graph and then uses the Hungarian algorithm to find the best<br>detection-to-track matching with minimum cost (distance).</p>
-<p><strong>Computing Association Distance Matrix</strong></p>
-<p>In the first step, an association distance matrix is established. The<br>distance between a given detection and one track is calculated according to<br>a series of association features including motion consistency,<br>appearance consistency, etc. Some features used in HM tracker’s distance<br>computing are shown as below:</p>
+<h2 id="HM对象跟踪"><a href="#HM对象跟踪" class="headerlink" title="HM对象跟踪"></a>HM对象跟踪</h2><p>HM对象跟踪器被设计为跟踪由分段检测到的障碍物。通常，它通过将当前检测与现有跟踪列表相关联来形成和更新跟踪列表，如果不再存在，则删除旧的跟踪列表，并在识别出新的检测时生成新的跟踪列表。 更新后的跟踪列表的运动状态将在关联后进行估计。 在HM对象跟踪器中，<strong>匈牙利算法</strong>(Hungarian algorithm)用于检测到跟踪关联，并采用 <strong>鲁棒卡尔曼滤波器</strong>(Robust Kalman Filter) 进行运动估计。</p>
+<h3 id="检测跟踪关联（Detection-to-Track-Association）"><a href="#检测跟踪关联（Detection-to-Track-Association）" class="headerlink" title="检测跟踪关联（Detection-to-Track Association）"></a>检测跟踪关联（Detection-to-Track Association）</h3><p>当将检测与现有跟踪列表相关联时，Apollo构建了一个二分图，然后使用 <strong>匈牙利算法</strong>以最小成本（距离）找到最佳检测跟踪匹配。</p>
+<p><strong>计算关联距离矩阵</strong></p>
+<p>首先，建立一个关联距离矩阵。<br>根据一系列关联特征（包括运动一致性，外观一致性等）计算给定检测和一条轨迹之间的距离。HM跟踪器距离计算中使用的一些特征如下所示：</p>
 <table>
 <thead>
 <tr>
-<th>Association Feature Name</th>
-<th>Description</th>
+<th>关联特征名称</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>location_distance</td>
-<td>Evaluating motion consistency</td>
+<td>评估运动一致性</td>
 </tr>
 <tr>
 <td>direction_distance</td>
-<td>Evaluating motion consistency</td>
+<td>评估运动一致性</td>
 </tr>
 <tr>
 <td>bbox_size_distance</td>
-<td>Evaluating appearance consistency</td>
+<td>评估外观一致性</td>
 </tr>
 <tr>
 <td>point_num_distance</td>
-<td>Evaluating appearance consistency</td>
+<td>评估外观一致性</td>
 </tr>
 <tr>
 <td>histogram_distance</td>
-<td>Evaluating appearance consistency</td>
+<td>评估外观一致性</td>
 </tr>
 </tbody>
 </table>
-<p>Besides, there are some important parameters of distance weights which are<br>used for combining the above-mentioned association features into a final<br>distance measurement.</p>
-<p><strong>Bipartite Graph Matching via Hungarian Algorithm</strong></p>
+<p>此外，还有一些重要的距离权重参数，用于将上述关联特征组合成最终距离测量。</p>
+<p><strong>匈牙利算法的二分图匹配</strong></p>
 <p>Given the association distance matrix, as shown in figure 5, Apollo<br>constructs a bipartite graph and uses Hungarian algorithm to find the<br>best detection-to-track matching via minimizing the distance cost. It<br>solves the assignment problem within O(n\^3) time complexity. To boost<br>its computing performance, the Hungarian algorithm is implemented after<br>cutting original bipartite graph into subgraphs, by deleting vertices<br>with distance greater than a reasonable maximum distance threshold.</p>
+<p>给定关联距离矩阵，如图5所示，Apollo构造了一个二分图，并使用 <strong>匈牙利算法</strong>通过最小化距离成本找到最佳的检测跟踪匹配。<br>它解决了O(n\^3)时间复杂度中的赋值问题。 为了提高其计算性能，通过删除距离大于合理的最大距离阈值的顶点，将原始的二分图切割成子图后实现了匈牙利算法。</p>
 <div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/bipartite_graph_matching.png"></div>
 
-<div align="center">Figure 5 Illustration of Bipartite Graph Matching</div>
+<div align="center">图 5 二分图匹配（Bipartite Graph Matching）</div>
 
-<h3 id="跟踪动态预估-Track-Motion-Estimation"><a href="#跟踪动态预估-Track-Motion-Estimation" class="headerlink" title="跟踪动态预估 Track Motion Estimation"></a>跟踪动态预估 Track Motion Estimation</h3><p>After the detection-to-track association, HM object tracker uses a<br>Robust Kalman Filter to estimate the motion states of current track<br>lists with a constant velocity motion model. The motion states include<br>its belief anchor point and belief velocity, which correspond to the 3D<br>position and its 3D velocity respectively. To overcome possible<br>distraction caused from imperfect detections, Robust Statistics<br>techniques are implemented in the tracker’s filtering algorithm.</p>
-<p><strong>Observation Redundancy</strong></p>
-<p>The measurement of velocity, which is the input of filtering algorithm,<br>is selected among a series of redundant observations, including anchor<br>point shift, bounding box center shift, bounding box corner point shift,<br>etc. Redundant observations will bring extra robustness to filtering<br>measurement, as the probability that all observations fail is much less<br>than the one that a single observation fails.</p>
-<p><strong>Breakdown</strong></p>
-<p>Gaussian Filter algorithms always assume their noises are generated from<br>Gaussian distribution. However, this hypothesis may fail in motion<br>estimation problem, as the noise of its measurement may draw from<br>fat-tail distributions. To overcome the over-estimation of update gain,<br>a breakdown threshold is used in the process of filtering.</p>
-<p><strong>Update according Association Quality</strong></p>
-<p>The original Kalman Filter updates its states without distinguishing the<br>quality of its measurements. However, the quality of measurement is a<br>beneficial cue of filtering noise and somehow can be estimated. For<br>instance, the distance calculated in the association step could be a<br>reasonable estimate of quality of measurement. Updating the state of<br>filtering algorithm according to the association quality enhances<br>robustness and smoothness to the motion estimation problem.</p>
-<p>A high-level workflow of HM object tracker is given in figure 6.</p>
+<h3 id="跟踪动态预估-Track-Motion-Estimation"><a href="#跟踪动态预估-Track-Motion-Estimation" class="headerlink" title="跟踪动态预估 Track Motion Estimation"></a>跟踪动态预估 Track Motion Estimation</h3><p>在检测到跟踪关联之后，HM对象跟踪器使用 <strong>鲁棒卡尔曼滤波器</strong>来利用恒定速度运动模型估计当前跟踪列表的运动状态。 运动状态包括锚点和速度，分别对应于3D位置及其3D速度。 为了克服由不完美的检测引起的可能的分心，在跟踪器的滤波算法中实现了鲁棒统计技术。</p>
+<p><strong>观察冗余</strong></p>
+<p>在一系列重复观测中选择速度测量，即滤波算法的输入，包括锚点移位、边界框中心偏移、边界框角点移位等。冗余观测将为滤波测量带来额外的鲁棒性， 因为所有观察失败的概率远远小于单次观察失败的概率。</p>
+<p><strong>分解</strong></p>
+<p>高斯滤波算法 （Gaussian Filter algorithms）总是假设它们的高斯分布产生噪声。 然而，这种假设可能在运动预估问题中失败，因为其测量的噪声可能来自脂肪分布。 为了克服更新增益的过度估计，在过滤过程中使用故障阈值。</p>
+<p><strong>更新关联质量</strong></p>
+<p>原始卡尔曼滤波器更新其状态不区分其测量的质量。 然而，质量是滤波噪声的有益提示，可以估计。 例如，在关联步骤中计算的距离可以是一个合理的测量质量估计。 根据关联质量更新过滤算法的状态，增强了运动估计问题的鲁棒性和平滑度。</p>
+<p>HM对象跟踪器的高级工作流程如图6所示。</p>
 <div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/hm_object_tracker.png"></div>
 
-<div align="center">Figure 6 Workflow of HM Object Tracker</div>
+<div align="center">图 6 HM对象跟踪器工作流</div>
 
-<p>1)  Construct the tracked objects and transform them into world coordinates.</p>
-<p>2)  Predict the states of existing track lists and match detections to<br>    them.</p>
-<p>3)  Update the motion state of updated track lists and collect the<br>    tracking results.</p>
+<p>1）构造跟踪对象并将其转换为世界坐标。</p>
+<p>2）预测现有跟踪列表的状态，并对其匹配检测。</p>
+<p>3）在更新后的跟踪列表中更新运动状态，并收集跟踪结果。</p>
 <p>参考：</p>
 <ul>
 <li><a href="https://zh.wikipedia.org/zh-cn/%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95" target="_blank" rel="external">匈牙利算法</a></li>
