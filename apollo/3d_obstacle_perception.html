@@ -44,19 +44,19 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高精地图ROI过滤器"><span class="toc-text">高精地图ROI过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坐标转换"><span class="toc-text">坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT构造"><span class="toc-text">ROI LUT构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT点查询"><span class="toc-text">ROI LUT点查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于CNN的障碍物检测与分割"><span class="toc-text">基于CNN的障碍物检测与分割</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通道特征提取"><span class="toc-text">通道特征提取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于卷积神经网络的障碍物预测"><span class="toc-text">基于卷积神经网络的障碍物预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#障碍物聚类"><span class="toc-text">障碍物聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后期处理"><span class="toc-text">后期处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MinBox-障碍物边框构建"><span class="toc-text">MinBox 障碍物边框构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HM对象跟踪"><span class="toc-text">HM对象跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检测跟踪关联（Detection-to-Track-Association）"><span class="toc-text">检测跟踪关联（Detection-to-Track Association）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟踪动态预估-Track-Motion-Estimation"><span class="toc-text">跟踪动态预估 Track Motion Estimation</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高精地图ROI过滤器"><span class="toc-text">高精地图ROI过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坐标转换"><span class="toc-text">坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT构造"><span class="toc-text">ROI LUT构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT点查询"><span class="toc-text">ROI LUT点查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于CNN的障碍物分割"><span class="toc-text">基于CNN的障碍物分割</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通道特征提取"><span class="toc-text">通道特征提取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于卷积神经网络的障碍物预测"><span class="toc-text">基于卷积神经网络的障碍物预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#障碍物聚类"><span class="toc-text">障碍物聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后期处理"><span class="toc-text">后期处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MinBox-障碍物边框构建"><span class="toc-text">MinBox 障碍物边框构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HM对象跟踪"><span class="toc-text">HM对象跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检测跟踪关联（Detection-to-Track-Association）"><span class="toc-text">检测跟踪关联（Detection-to-Track Association）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟踪动态预估-Track-Motion-Estimation"><span class="toc-text">跟踪动态预估 Track Motion Estimation</span></a></li></ol></li></ol>
 <blockquote>
 <p>文档状态：待交叉验证</p>
 </blockquote>
 <p>Apollo解决的障碍物感知问题：</p>
 <ul>
-<li>高精地图ROI过滤器(HDMap ROI Filter)</li>
-<li>基于卷积神经网络（CNN）的障碍物检测与分割(CNN Segmentation) </li>
-<li>MinBox 障碍物边框构建(MinBox Builder)</li>
-<li>HM对象跟踪(HM Object Tracker)</li>
+<li>高精地图ROI过滤器（HDMap ROI Filter）</li>
+<li>基于卷积神经网络分割（CNN Segmentation）</li>
+<li>MinBox 障碍物边框构建（MinBox Builder）</li>
+<li>HM对象跟踪（HM Object Tracker）</li>
 </ul>
-<h2 id="高精地图ROI过滤器"><a href="#高精地图ROI过滤器" class="headerlink" title="高精地图ROI过滤器"></a>高精地图ROI过滤器</h2><p>ROI（The Region of Interest）指定从高精地图检索到包含路面、路口的可驾驶区域。高精地图 ROI 过滤器将激光雷达点处理出ROI，去除背景对象，如路边建筑物和树木等，剩余的点云留待后续处理。</p>
-<p>给定一个高精地图，每个激光雷达点的隶属关系表示在ROI内部还是外部。<br>每个激光雷达点可以查询一个车辆周围区域的2D化的查找表（LUT）。HDMap ROI过滤器模块的输入和输出汇总于下表。</p>
+<h2 id="高精地图ROI过滤器"><a href="#高精地图ROI过滤器" class="headerlink" title="高精地图ROI过滤器"></a>高精地图ROI过滤器</h2><p>ROI（The Region of Interest）指定从高精地图检索到包含路面、路口的可驾驶区域。高精地图 ROI 过滤器（往下简称“过滤器”）处理在ROI之外的激光雷达点，去除背景对象，如路边建筑物和树木等，剩余的点云留待后续处理。</p>
+<p>给定一个高精地图，每个激光雷达点的关系意味着它在ROI内部还是外部。<br>每个激光雷达点可以查询一个车辆周围区域的2D量化的查找表（LUT）。过滤器模块的输入和输出汇总于下表。</p>
 <table>
 <thead>
 <tr>
@@ -74,23 +74,23 @@
 </tr>
 </tbody>
 </table>
-<p>一般来说，高精地图 ROI过滤器有以下三步：</p>
+<p>一般来说，Apollo 高精地图 ROI过滤器有以下三步：</p>
 <ol>
 <li>坐标转换</li>
 <li>ROI LUT构造</li>
 <li>ROI LUT点查询</li>
 </ol>
-<h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><p>对于高精地图ROI过滤器来说，高精地图数据接口被定义为一系列多边形集，每个集合由世界坐标系点组成的有序点集。<br>HDMap ROI对点进行查询需要点云和多边形处在相同的坐标系中表示。<br>为此，Apollo将输入点云和HDMap多边形点 变换为来自激光雷达传感器位置的地方坐标系。</p>
-<h3 id="ROI-LUT构造"><a href="#ROI-LUT构造" class="headerlink" title="ROI LUT构造"></a>ROI LUT构造</h3><p>Apollo采用网格显示查找表（LUT），将ROI量化为俯视图2D<br>格，以此决定输入点是在ROI之内还是之外。</p>
-<p>如图1所示，该LUT覆盖了一个矩形区域，该矩形区域围绕着HDMap边界上方的普通视图周围的预定义的空间范围。<br>它代表了与ROI关联网格的每个单元格（即1/0表示它在ROI的内部/外部）。 为了计算效率，Apollo使用扫描线算法和位图编码来构建ROI LUT。</p>
+<h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><p>对于（高精地图ROI）过滤器来说，高精地图数据接口被定义为一系列多边形集合，每个集合由世界坐标系点组成有序点集。高精地图ROI点查询需要点云和多边形处在相同的坐标系，为此，Apollo将输入点云和HDMap多边形变换为来自激光雷达传感器位置的地方坐标系。</p>
+<h3 id="ROI-LUT构造"><a href="#ROI-LUT构造" class="headerlink" title="ROI LUT构造"></a>ROI LUT构造</h3><p>Apollo采用网格显示查找表（LUT），将ROI量化为俯视图2D网格，以此决定输入点是在ROI之内还是之外。</p>
+<p>如图1所示，该LUT覆盖了一个矩形区域，该区域位于高精地图边界上方，以普通视图周围的预定义空间范围为边界。它代表了与ROI关联网格的每个单元格（如用1/0表示在ROI的内部/外部）。 为了计算效率，Apollo使用 <strong>扫描线算法</strong>和 <strong>位图编码</strong>来构建ROI LUT。</p>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/roi_lookup_table.png"></p>
 <div align="center">图 1 ROI显示查找表（LUT）</div>
 
-<p>蓝色线条标出了高精地图ROI的边界，包含路表与路口。红色加粗点表示地方坐标系统对应于激光雷达传感器位置的原始位置。2D网格由8*8绿色正方形组成，这些在ROI中的单元格，蓝色填充的正方形，而之外的是黄色填充的正方形。</p>
-<h3 id="ROI-LUT点查询"><a href="#ROI-LUT点查询" class="headerlink" title="ROI LUT点查询"></a>ROI LUT点查询</h3><p>基于ROI LUT，查询每个输入点的隶属关系使用两步认证。之后，Apollo进行数据编译，输出如下，对于点查询过程Apollo:</p>
+<p>蓝色线条标出了高精地图ROI的边界，包含路表与路口。红色加粗点表示对应于激光雷达传感器位置的地方坐标系原始位置。2D网格由8*8个绿色正方形组成，在ROI中的单元格，为蓝色填充的正方形，而之外的是黄色填充的正方形。</p>
+<h3 id="ROI-LUT点查询"><a href="#ROI-LUT点查询" class="headerlink" title="ROI LUT点查询"></a>ROI LUT点查询</h3><p>基于ROI LUT，查询每个输入点的关系使用两步认证。对于点查询过程，Apollo数据编译输出如下，:</p>
 <ol>
-<li>检查点在ROI LUT矩形区域之内还是外。</li>
-<li>查询LUT中相对于ROI关联点的相应单元。</li>
+<li>检查点在ROI LUT矩形区域之内还是之外。</li>
+<li>查询LUT中相对于ROI关联点的相应单元格。</li>
 <li>收集属于ROI的所有点，并输出其相对于输入点云的索引。</li>
 </ol>
 <p>用户定义的参数可在配置文件<code>modules/perception/model/hdmap_roi_filter.config</code>中设置，HDMap ROI Filter 参数使用参考如下表格：</p>
@@ -104,8 +104,8 @@
 </thead>
 <tbody>
 <tr>
-<td>rectangle</td>
-<td>相对于原点（LiDAR传感器）的2D网格ROI LUT的范围。</td>
+<td>range</td>
+<td>基于LiDAR传感器点的2D网格ROI LUT的图层范围），如(-70, 70)*(-70, 70)</td>
 <td>70.0 米</td>
 </tr>
 <tr>
@@ -120,7 +120,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="基于CNN的障碍物检测与分割"><a href="#基于CNN的障碍物检测与分割" class="headerlink" title="基于CNN的障碍物检测与分割"></a>基于CNN的障碍物检测与分割</h2><p>HDMap ROI过滤之后，Apollo得到已过滤、只包含属于ROI内的点（如可驾驶、路口区域）的点云，大部分背景障碍物，如路侧的建筑物、树木等，均被移除，ROI内的点云被传送到分割模块中。这个过程检测和划分前景障碍物，例如汽车，卡车，自行车和行人。</p>
+<h2 id="基于CNN的障碍物分割"><a href="#基于CNN的障碍物分割" class="headerlink" title="基于CNN的障碍物分割"></a>基于CNN的障碍物分割</h2><p>HDMap ROI过滤之后，Apollo得到已过滤、只包含属于ROI内的点云，大部分背景障碍物，如路侧的建筑物、树木等均被移除，ROI内的点云被传送到分割模块中。这个过程检测和划分前景障碍物，例如汽车，卡车，自行车和行人。</p>
 <table>
 <thead>
 <tr>
@@ -138,7 +138,7 @@
 </tr>
 </tbody>
 </table>
-<p>Apollo 使用卷积神经网络提高障碍物识别与分割的精度，包含以下四步：</p>
+<p>Apollo 使用深度卷积神经网络提高障碍物识别与分割的精度，障碍物分割包含以下四步：</p>
 <ul>
 <li>通道特征提取</li>
 <li>基于卷积神经网络的障碍物预测</li>
@@ -146,7 +146,7 @@
 <li>后期处理</li>
 </ul>
 <p>卷积神经网络详细介绍如下：</p>
-<h3 id="通道特征提取"><a href="#通道特征提取" class="headerlink" title="通道特征提取"></a>通道特征提取</h3><p>给定一个点云框架，Apollo在地方坐标系中构建俯视图（即投影到X-Y平面）2D网格。 基于点X、Y坐标，相对于原点（即LiDAR传感器）的预定范围内的每个点被量化为2D网格的一个单元。 量化后，Apollo计算网格的每个单元格点的8个统计测量，这将是下一步中传递给CNN的输入通道特征。 </p>
+<h3 id="通道特征提取"><a href="#通道特征提取" class="headerlink" title="通道特征提取"></a>通道特征提取</h3><p>给定一个点云框架，Apollo在地方坐标系中构建俯视图（即投影到X-Y平面）2D网格。 基于点的X、Y坐标，相对于LiDAR传感器原点的预定范围内，每个点被量化为2D网格的一个单元。 量化后，Apollo计算网格内每个单元格中点的8个统计测量，这将是下一步中传递给CNN的输入通道特征。 </p>
 <p>计算的8个统计测量：</p>
 <ol>
 <li>单元格中点的最大高度</li>
@@ -158,33 +158,33 @@
 <li>单元格中心与原点之间的距离</li>
 <li>二进制值标示单元格是空还是被占用</li>
 </ol>
-<h3 id="基于卷积神经网络的障碍物预测"><a href="#基于卷积神经网络的障碍物预测" class="headerlink" title="基于卷积神经网络的障碍物预测"></a>基于卷积神经网络的障碍物预测</h3><p>基于上述通道特征，Apollo使用深度完全卷积神经网络（FCNN）来预测单元格障碍物属性，包括相对于潜在物体中心的偏移位移，称为中心偏移（见下图2），客观性，积极性和物体高度。 如图2所示，网络的输入为 <em>W</em> x <em>H</em> x <em>C</em> 通道图像，其中：</p>
+<h3 id="基于卷积神经网络的障碍物预测"><a href="#基于卷积神经网络的障碍物预测" class="headerlink" title="基于卷积神经网络的障碍物预测"></a>基于卷积神经网络的障碍物预测</h3><p>基于上述通道特征，Apollo使用深度完全卷积神经网络（FCNN）来预测单元格障碍物属性，包括潜在物体中心的偏移位移（称为中心偏移）、对象性<br>积极性和物体高度。如图2所示，网络的输入为 <em>W</em> x <em>H</em> x <em>C</em> 通道图像，其中：</p>
 <ul>
 <li><em>W</em> 代表网格中的列数</li>
 <li><em>H</em> 代表网格中的行数</li>
 <li><em>C</em> 代表通道特征数</li>
 </ul>
-<p>深度完全卷积神经网络由三层构成：</p>
+<p>完全卷积神经网络由三层构成：</p>
 <ul>
 <li>下游编码层（特征编码器）</li>
 <li>上游解码层（特征解码器）</li>
 <li>障碍物属性预测层（预测器）</li>
 </ul>
-<p>特征编码器将通道特征图像作为输入，并且随着特征抽取的增加而连续 <strong>下采样</strong>其空间分辨率。 然后特征解码器逐渐对特征图像 <strong>上采样</strong>到输入2D网格的空间分辨率，可以恢复特征图像的空间细节，以促进单元格方向的障碍物属性预测。<br>根据具有非线性激活（即ReLu）层的堆叠卷积/分散层来实现 <strong>下采样</strong>和 <strong>上采样</strong>操作。</p>
+<p>特征编码器将通道特征图像作为输入，并且随着特征抽取的增加而连续<strong>下采样</strong>其空间分辨率。 然后特征解码器逐渐对特征图像 <strong>上采样</strong>到输入2D网格的空间分辨率，可以恢复特征图像的空间细节，以促进单元格方向的障碍物位置、速度属性预测。 根据具有非线性激活（即ReLu）层的堆叠卷积/分散层来实现 <strong>下采样</strong>和 <strong>上采样</strong>操作。</p>
 <div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/FCNN.png" width="99%"></div>
 
 <div align="center">图 2 FCNN在单元格方向上的障碍物预测</div>
 
-<h3 id="障碍物聚类"><a href="#障碍物聚类" class="headerlink" title="障碍物聚类"></a>障碍物聚类</h3><p>在基于CNN的预测步骤之后，Apollo获取单个单元格的预测信息。Apollo利用四个单元对象属性图像，其中包含：</p>
+<h3 id="障碍物聚类"><a href="#障碍物聚类" class="headerlink" title="障碍物聚类"></a>障碍物聚类</h3><p>在基于CNN的预测之后，Apollo获取单个单元格的预测信息。利用四个单元对象属性图像，其中包含：</p>
 <ul>
 <li>中心偏移</li>
 <li>对象性</li>
 <li>积极性</li>
 <li>对象高度</li>
 </ul>
-<p>为了生成障碍物，Apollo基于单元格中心偏移预测构建有向图，并将连接的组件搜索为候选对象集群。</p>
+<p>为生成障碍物，Apollo基于单元格中心偏移，预测构建有向图，并搜索连接的组件作为候选对象集群。</p>
 <p>如图3所示，每个单元格是图的一个节点，并且基于单元格的中心偏移预测构建有向边，其指向对应于另一单元的父节点。</p>
-<p>如图所示，Apollo采用压缩的联合查找算法来有效查找连接的组件，每个组件都是候选障碍物对象集群。对象是单个单元格成为有效对象的概率。因此，Apollo将非对象单元定义为目标小于0.5的单元格。因此，Apollo过滤出每个候选对象集群的空单元格和非对象集。</p>
+<p>如图3，Apollo采用压缩的联合查找算法（Union Find algorithm ）有效查找连接组件，每个组件都是候选障碍物对象集群。对象是单个单元格成为有效对象的概率。因此，Apollo将非对象单元定义为目标小于0.5的单元格。因此，Apollo过滤出每个候选对象集群的空单元格和非对象集。</p>
 <div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/obstacle_clustering.png" width="99%"></div>
 
 <div align="center">图 3 障碍聚类</div>
@@ -193,12 +193,9 @@
 <p>(b) 固体红色多边形内的单元格组成候选对象集群。</p>
 <p>由五角星填充的红色范围表示对应于连接组件子图的根节点（单元格）。 </p>
 <p>一个候选对象集群可以由其根节点彼此相邻的多个相邻连接组件组成。</p>
-<h3 id="后期处理"><a href="#后期处理" class="headerlink" title="后期处理"></a>后期处理</h3><p>聚类后，Apollo获得一组候选对象集，每个候选对象集包括几个单元。 </p>
-<p>在后处理步骤中，Apollo首先通过分别对其所涉及的单元格的积极性和物体高度值平均计算每个候选群体的检测置信度分数和物体高度。 然后，Apollo去除相对于预测物体高度太高的点，并收集每个候选集中的有效单元格的点。 最后，Apollo删除具有非常低的可信度分数或小点数的候选聚类，以输出最终的障碍物集/分段。</p>
-<p>用户定义的参数可以在<code>modules/perception/model/cnn_segmentation/cnnseg.conf</code>的配置文件中设置。 下表说明了CNN细分的参数用法和默认值</p>
-<blockquote>
-<p>In the post-processing step, Apollo<br>first computes the detection confidence score and object height for each<br>candidate cluster by averaging the positiveness and object height values<br>of its involved cells respectively.<br> Then, Apollo removes the points that<br>are too high with respect to the predicted object height and collects<br>the points of valid cells for each candidate cluster. Finally, Apollo<br>removes the candidate clusters that have either a very low confidence<br>score or small number of points, to output the final obstacle<br>clusters/segments.</p>
-</blockquote>
+<h3 id="后期处理"><a href="#后期处理" class="headerlink" title="后期处理"></a>后期处理</h3><p>聚类后，Apollo获得一组候选对象集，每个候选对象集包括若干单元格。 </p>
+<p>在后期处理中，Apollo首先对所涉及的单元格的积极性和物体高度值，平均计算每个候选群体的检测置信度分数和物体高度。 然后，Apollo去除相对于预测物体高度太高的点，并收集每个候选集中的有效单元格的点。 最后，Apollo删除具有非常低的可信度分数或小点数的候选聚类，以输出最终的障碍物集/分段。</p>
+<p>用户定义的参数可以在<code>modules/perception/model/cnn_segmentation/cnnseg.conf</code>的配置文件中设置。 下表说明了CNN细分的参数用法和默认值：</p>
 <table>
 <thead>
 <tr>
@@ -210,62 +207,58 @@
 <tbody>
 <tr>
 <td>objectness_thresh</td>
-<td>The threshold of objectness for filtering out non-object cells in obstacle clustering step.</td>
+<td>用于在障碍物聚类步骤中过滤掉非对象单元的对象的阈值。</td>
 <td>0.5</td>
 </tr>
 <tr>
 <td>use_all_grids_for_clustering</td>
-<td>The option of specifying whether or not to use all cells to construct the graph in the obstacle clustering step.If not, only the occupied cells will be considered.</td>
+<td>指定是否使用所有单元格在障碍物聚类步骤中构建图形的选项。如果不是，则仅考虑占用的单元格。</td>
 <td>true</td>
 </tr>
 <tr>
 <td>confidence_thresh</td>
-<td>The detection confidence score threshold for filtering out the candidate clusters in the post-processing step.</td>
+<td>用于在后期处理过程中滤出候选聚类的检测置信度得分阈值。</td>
 <td>0.1</td>
 </tr>
 <tr>
 <td>height_thresh</td>
-<td>If it is non-negative, the points that are higher than the predicted object height by height_thresh will be filtered out in the post-processing step.</td>
+<td>如果是非负数，则在后处理步骤中将过滤掉高于预测物体高度的点。</td>
 <td>0.5 meters</td>
 </tr>
 <tr>
 <td>min_pts_num</td>
-<td>In the post-processing step, the candidate clusters with less than min_pts_num points are removed.</td>
+<td>在后期处理中，删除具有小于min_pts_num点的候选集群。</td>
 <td>3</td>
 </tr>
 <tr>
 <td>use_full_cloud</td>
-<td>If it is set by true, all the points of the original point cloud will be used for extracting channel features. Otherwise only the points of input point cloud (i.e., the points after HDMap ROI filter) are used.</td>
+<td>如果设置为true，则原始点云的所有点将用于提取通道特征。 否则仅使用输入点云的点（即，HDMap ROI过滤器之后的点）。</td>
 <td>true</td>
 </tr>
 <tr>
 <td>gpu_id</td>
-<td>The ID of the GPU device used in the CNN-based obstacle prediction step.</td>
+<td>在基于CNN的障碍物预测步骤中使用的GPU设备的ID。</td>
 <td>0</td>
 </tr>
 <tr>
 <td>feature_param {width}</td>
-<td>The number of cells in X (column) axis of the 2D grid.</td>
+<td>2D网格的X轴上的单元格数。</td>
 <td>512</td>
 </tr>
 <tr>
 <td>feature_param {height}</td>
-<td>The number of cells in Y (row) axis of the 2D grid.</td>
+<td>2D网格的Y轴上的单元格数。</td>
 <td>512</td>
 </tr>
 <tr>
 <td>feature_param {range}</td>
-<td>The range of the 2D grid with respect to the origin (the LiDAR sensor).</td>
+<td>2D格栅相对于原点（LiDAR传感器）的范围。</td>
 <td>60 meters</td>
 </tr>
 </tbody>
 </table>
-<h2 id="MinBox-障碍物边框构建"><a href="#MinBox-障碍物边框构建" class="headerlink" title="MinBox 障碍物边框构建"></a>MinBox 障碍物边框构建</h2><p>对象构建器组件为检测到的障碍物建立一个边界框。因为LiDAR传感器的遮挡或距离，形成障碍物的点云可以是稀疏的，并且仅覆盖一部分表面。因此，盒构建器将恢复给定多边形点的完整边界框。即使点云稀疏，边界框的主要目的是预估障碍物（例如，车辆）的方向。同样地，边框也用于可视化障碍物。</p>
-<p>算法背后的想法是找到给定多边形点边缘的所有区域。在以下示例中，如果AB是边缘，则Apollo将其他多边形点投影到AB上，并建立具有最大距离的交点对。</p>
-<p>这是属于边框的边缘之一。然后直接获得边界框的另一边。通过迭代多边形中的所有边，在以下示例中，如图4所示，Apollo确定了一个6边界边框。Apollo将选择具有最小面积的方案作为最终的边界框。</p>
-<blockquote>
-<p>The idea behind the algorithm is to find the all areas given an edge of<br>the polygon point. In the following example, if AB is the edge, Apollo<br>projects other polygon points onto AB and establishes the pair of<br>intersections that has the maximum distance.<br>That’s one of the edges belonging to the bounding box.<br>Then it is straightforward to obtain the other edge of the bounding box. By iterating all edges in the polygon, in the following example as shown in figure 4, Apollo determines a 6-edge bounding box. Apollo then selects the solution that has the minimum area as the final bounding box.</p>
-</blockquote>
+<h2 id="MinBox-障碍物边框构建"><a href="#MinBox-障碍物边框构建" class="headerlink" title="MinBox 障碍物边框构建"></a>MinBox 障碍物边框构建</h2><p>对象构建器组件为检测到的障碍物建立一个边界框。因为LiDAR传感器的遮挡或距离，形成障碍物的点云可以是稀疏的，并且仅覆盖一部分表面。因此，盒构建器将恢复给定多边形点的完整边界框。即使点云稀疏，边界框的主要目的还是预估障碍物（例如，车辆）的方向。同样地，边框也用于可视化障碍物。</p>
+<p>算法背后的想法是找到给定多边形点边缘的所有区域。在以下示例中，如果AB是边缘，则Apollo将其他多边形点投影到AB上，并建立具有最大距离的交点对，这是属于边框的边缘之一。然后直接获得边界框的另一边。通过迭代多边形中的所有边，在以下图4所示，Apollo确定了一个6边界边框，将选择具有最小面积的方案作为最终的边界框。</p>
 <div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/object_building.png"></div>
 
 <div align="center">图 4 MinBox 对象构建</div>
