@@ -120,7 +120,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="基于CNN的障碍物分割"><a href="#基于CNN的障碍物分割" class="headerlink" title="基于CNN的障碍物分割"></a>基于CNN的障碍物分割</h2><p>HDMap ROI过滤之后，Apollo得到已过滤、只包含属于ROI内的点云，大部分背景障碍物，如路侧的建筑物、树木等均被移除，ROI内的点云被传送到分割模块中。这个过程检测和划分前景障碍物，例如汽车，卡车，自行车和行人。</p>
+<h2 id="基于CNN的障碍物分割"><a href="#基于CNN的障碍物分割" class="headerlink" title="基于CNN的障碍物分割"></a>基于CNN的障碍物分割</h2><p>高精地图 ROI过滤之后，Apollo得到已过滤、只包含属于ROI内的点云，大部分背景障碍物，如路侧的建筑物、树木等均被移除，ROI内的点云被传递到分割模块。分割模块检测和划分前景障碍物，例如汽车，卡车，自行车和行人。</p>
 <table>
 <thead>
 <tr>
@@ -266,7 +266,7 @@
 <h2 id="HM对象跟踪"><a href="#HM对象跟踪" class="headerlink" title="HM对象跟踪"></a>HM对象跟踪</h2><p>HM对象跟踪器跟踪分段检测到的障碍物。通常，它通过将当前检测与现有跟踪列表相关联，来形成和更新跟踪列表，如不再存在，则删除旧的跟踪列表，并在识别出新的检测时生成新的跟踪列表。 更新后的跟踪列表的运动状态将在关联后进行估计。 在HM对象跟踪器中，<strong>匈牙利算法</strong>(Hungarian algorithm)用于检测到跟踪关联，并采用 <strong>鲁棒卡尔曼滤波器</strong>(Robust Kalman Filter) 进行运动估计。</p>
 <h3 id="检测跟踪关联（Detection-to-Track-Association）"><a href="#检测跟踪关联（Detection-to-Track-Association）" class="headerlink" title="检测跟踪关联（Detection-to-Track Association）"></a>检测跟踪关联（Detection-to-Track Association）</h3><p>当将检测与现有跟踪列表相关联时，Apollo构建了一个二分图，然后使用 <strong>匈牙利算法</strong>以最小成本（距离）找到最佳检测跟踪匹配。</p>
 <p><strong>计算关联距离矩阵</strong></p>
-<p>首先，建立一个关联距离矩阵。<br>根据一系列关联特征（包括运动一致性，外观一致性等）计算给定检测和一条轨迹之间的距离。HM跟踪器距离计算中使用的一些特征如下所示：</p>
+<p>首先，建立一个关联距离矩阵。根据一系列关联特征（包括运动一致性，外观一致性等）计算给定检测和一条轨迹之间的距离。HM跟踪器距离计算中使用的一些特征如下所示：</p>
 <table>
 <thead>
 <tr>
@@ -299,7 +299,7 @@
 </table>
 <p>此外，还有一些重要的距离权重参数，用于将上述关联特征组合成最终距离测量。</p>
 <p><strong>匈牙利算法的二分图匹配</strong></p>
-<p>给定关联距离矩阵，如图5所示，Apollo构造了一个二分图，并使用 <strong>匈牙利算法</strong>通过最小化距离成本找到最佳的检测跟踪匹配。<br>它解决了O(n\^3)时间复杂度中的赋值问题。 为了提高其计算性能，通过删除距离大于合理的最大距离阈值的顶点，将原始的二分图切割成子图后实现了匈牙利算法。</p>
+<p>给定关联距离矩阵，如图5所示，Apollo构造了一个二分图，并使用 <strong>匈牙利算法</strong>通过最小化距离成本找到最佳的检测跟踪匹配。它解决了O(n\^3)时间复杂度中的赋值问题。 为了提高其计算性能，通过删除距离大于合理的最大距离阈值的顶点，将原始的二分图切割成子图后实现了匈牙利算法。</p>
 <div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/bipartite_graph_matching.png"></div>
 
 <div align="center">图 5 二分图匹配（Bipartite Graph Matching）</div>
