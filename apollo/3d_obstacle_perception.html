@@ -44,7 +44,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高精地图ROI过滤器"><span class="toc-text">高精地图ROI过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坐标转换"><span class="toc-text">坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT构造"><span class="toc-text">ROI LUT构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT点查询"><span class="toc-text">ROI LUT点查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于CNN的障碍物分割"><span class="toc-text">基于CNN的障碍物分割</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通道特征提取"><span class="toc-text">通道特征提取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于卷积神经网络的障碍物预测"><span class="toc-text">基于卷积神经网络的障碍物预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#障碍物聚类"><span class="toc-text">障碍物聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后期处理"><span class="toc-text">后期处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MinBox-障碍物边框构建"><span class="toc-text">MinBox 障碍物边框构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HM对象跟踪"><span class="toc-text">HM对象跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检测跟踪关联（Detection-to-Track-Association）"><span class="toc-text">检测跟踪关联（Detection-to-Track Association）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟踪动态预估-Track-Motion-Estimation"><span class="toc-text">跟踪动态预估 Track Motion Estimation</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高精地图ROI过滤器"><span class="toc-text">高精地图ROI过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#坐标转换"><span class="toc-text">坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT构造"><span class="toc-text">ROI LUT构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROI-LUT点查询"><span class="toc-text">ROI LUT点查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于CNN的障碍物分割"><span class="toc-text">基于CNN的障碍物分割</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通道特征提取"><span class="toc-text">通道特征提取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于卷积神经网络的障碍物预测"><span class="toc-text">基于卷积神经网络的障碍物预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#障碍物聚类"><span class="toc-text">障碍物聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后期处理"><span class="toc-text">后期处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MinBox-障碍物边框构建"><span class="toc-text">MinBox 障碍物边框构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HM对象跟踪"><span class="toc-text">HM对象跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检测跟踪关联（Detection-to-Track-Association）"><span class="toc-text">检测跟踪关联（Detection-to-Track Association）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟踪动态预估-（Track-Motion-Estimation）"><span class="toc-text">跟踪动态预估 （Track Motion Estimation）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
 <blockquote>
 <p>文档状态：待交叉验证</p>
 </blockquote>
@@ -263,7 +263,7 @@
 
 <div align="center">图 4 MinBox 对象构建</div>
 
-<h2 id="HM对象跟踪"><a href="#HM对象跟踪" class="headerlink" title="HM对象跟踪"></a>HM对象跟踪</h2><p>HM对象跟踪器被设计为跟踪由分段检测到的障碍物。通常，它通过将当前检测与现有跟踪列表相关联来形成和更新跟踪列表，如果不再存在，则删除旧的跟踪列表，并在识别出新的检测时生成新的跟踪列表。 更新后的跟踪列表的运动状态将在关联后进行估计。 在HM对象跟踪器中，<strong>匈牙利算法</strong>(Hungarian algorithm)用于检测到跟踪关联，并采用 <strong>鲁棒卡尔曼滤波器</strong>(Robust Kalman Filter) 进行运动估计。</p>
+<h2 id="HM对象跟踪"><a href="#HM对象跟踪" class="headerlink" title="HM对象跟踪"></a>HM对象跟踪</h2><p>HM对象跟踪器跟踪分段检测到的障碍物。通常，它通过将当前检测与现有跟踪列表相关联，来形成和更新跟踪列表，如不再存在，则删除旧的跟踪列表，并在识别出新的检测时生成新的跟踪列表。 更新后的跟踪列表的运动状态将在关联后进行估计。 在HM对象跟踪器中，<strong>匈牙利算法</strong>(Hungarian algorithm)用于检测到跟踪关联，并采用 <strong>鲁棒卡尔曼滤波器</strong>(Robust Kalman Filter) 进行运动估计。</p>
 <h3 id="检测跟踪关联（Detection-to-Track-Association）"><a href="#检测跟踪关联（Detection-to-Track-Association）" class="headerlink" title="检测跟踪关联（Detection-to-Track Association）"></a>检测跟踪关联（Detection-to-Track Association）</h3><p>当将检测与现有跟踪列表相关联时，Apollo构建了一个二分图，然后使用 <strong>匈牙利算法</strong>以最小成本（距离）找到最佳检测跟踪匹配。</p>
 <p><strong>计算关联距离矩阵</strong></p>
 <p>首先，建立一个关联距离矩阵。<br>根据一系列关联特征（包括运动一致性，外观一致性等）计算给定检测和一条轨迹之间的距离。HM跟踪器距离计算中使用的一些特征如下所示：</p>
@@ -299,13 +299,12 @@
 </table>
 <p>此外，还有一些重要的距离权重参数，用于将上述关联特征组合成最终距离测量。</p>
 <p><strong>匈牙利算法的二分图匹配</strong></p>
-<p>Given the association distance matrix, as shown in figure 5, Apollo<br>constructs a bipartite graph and uses Hungarian algorithm to find the<br>best detection-to-track matching via minimizing the distance cost. It<br>solves the assignment problem within O(n\^3) time complexity. To boost<br>its computing performance, the Hungarian algorithm is implemented after<br>cutting original bipartite graph into subgraphs, by deleting vertices<br>with distance greater than a reasonable maximum distance threshold.</p>
 <p>给定关联距离矩阵，如图5所示，Apollo构造了一个二分图，并使用 <strong>匈牙利算法</strong>通过最小化距离成本找到最佳的检测跟踪匹配。<br>它解决了O(n\^3)时间复杂度中的赋值问题。 为了提高其计算性能，通过删除距离大于合理的最大距离阈值的顶点，将原始的二分图切割成子图后实现了匈牙利算法。</p>
 <div align="center"><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/specs/images/3d_obstacle_perception/bipartite_graph_matching.png"></div>
 
 <div align="center">图 5 二分图匹配（Bipartite Graph Matching）</div>
 
-<h3 id="跟踪动态预估-Track-Motion-Estimation"><a href="#跟踪动态预估-Track-Motion-Estimation" class="headerlink" title="跟踪动态预估 Track Motion Estimation"></a>跟踪动态预估 Track Motion Estimation</h3><p>在检测到跟踪关联之后，HM对象跟踪器使用 <strong>鲁棒卡尔曼滤波器</strong>来利用恒定速度运动模型估计当前跟踪列表的运动状态。 运动状态包括锚点和速度，分别对应于3D位置及其3D速度。 为了克服由不完美的检测引起的可能的分心，在跟踪器的滤波算法中实现了鲁棒统计技术。</p>
+<h3 id="跟踪动态预估-（Track-Motion-Estimation）"><a href="#跟踪动态预估-（Track-Motion-Estimation）" class="headerlink" title="跟踪动态预估 （Track Motion Estimation）"></a>跟踪动态预估 （Track Motion Estimation）</h3><p>在检测到跟踪关联之后，HM对象跟踪器使用 <strong>鲁棒卡尔曼滤波器</strong>来利用恒定速度运动模型估计当前跟踪列表的运动状态。 运动状态包括锚点和速度，分别对应于3D位置及其3D速度。 为了克服由不完美的检测引起的可能的分心，在跟踪器的滤波算法中实现了鲁棒统计技术。</p>
 <p><strong>观察冗余</strong></p>
 <p>在一系列重复观测中选择速度测量，即滤波算法的输入，包括锚点移位、边界框中心偏移、边界框角点移位等。冗余观测将为滤波测量带来额外的鲁棒性， 因为所有观察失败的概率远远小于单次观察失败的概率。</p>
 <p><strong>分解</strong></p>
@@ -320,8 +319,7 @@
 <p>1）构造跟踪对象并将其转换为世界坐标。</p>
 <p>2）预测现有跟踪列表的状态，并对其匹配检测。</p>
 <p>3）在更新后的跟踪列表中更新运动状态，并收集跟踪结果。</p>
-<p>参考：</p>
-<ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://zh.wikipedia.org/zh-cn/%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95" target="_blank" rel="external">匈牙利算法</a></li>
 <li><a href="https://baike.baidu.com/item/%E5%9C%B0%E6%96%B9%E5%9D%90%E6%A0%87%E7%B3%BB/5154246" target="_blank" rel="external">地方坐标系</a></li>
 <li><a href="https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf" target="_blank" rel="external">Fully Convolutional Networks for Semantic Segmentation</a></li>
