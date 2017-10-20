@@ -294,9 +294,10 @@
 <h3 id="接收数据"><a href="#接收数据" class="headerlink" title="接收数据"></a>接收数据</h3><p>为了接收WebSocket数据，终端监听底层的网络连接。到来的数据必须按5.2节定义的WebSocket帧解析。如果接收到控制帧，必须按5.5节的定义处理。当接收到数据帧时，终端必须知道数据的类型，通过操作码（frame-opcode）定义。帧的”Application data”是定义为消息的/data/的。如果帧包含一个未分帧的消息，就是说接收到一个包含类型和数据的WebSocket消息。如果帧是分帧了的消息的一部分，应用数据是后续帧的数据的拼接。当最后帧（有FIN位指示）接收到时，就是说WebSocket消息接收到了，数据由所有帧的应用数据拼接组成，类型由第一帧指示。后续的数据帧必须解释为属于新的WebSocket消息的。</p>
 <p>扩展（第9章）可能改变如何读取数据的语义，具体包括什么组成消息的边界。扩展，在”Applicationdata”前添加”Extensiondata”，是计入有效载荷的，也可能修改”Application data”。</p>
 <p>服务器必须移除从客户端接收到的数据帧的标记，如5.3节。</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
-<p><a href="https://developer.mozilla.org/en-US/docs/WebSockets/Writing_WebSocket_client_applications" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/WebSockets/Writing_WebSocket_client_applications</a><br><a href="http://www.html5rocks.com/zh/tutorials/websockets/basics/" target="_blank" rel="external">http://www.html5rocks.com/zh/tutorials/websockets/basics/</a></p>
-</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/WebSockets/Writing_WebSocket_client_applications" target="_blank" rel="external">Writing WebSocket client applications</a></li>
+<li><a href="https://www.html5rocks.com/zh/tutorials/websockets/basics/" target="_blank" rel="external">WebSockets 简介：将套接字引入网络</a></li>
+</ul>
 
 
 <!--<a href="http://yoursite.com/2015-3-24-websocket-protocol-abstract.html#disqus_thread" class="article-comment-link">Comments</a>
