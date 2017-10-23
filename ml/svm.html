@@ -1,0 +1,99 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Support Vector Machine</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js" type="text/javascript"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Support Vector Machine</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年8月14日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SVM"><span class="toc-text">SVM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic"><span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SUPPORT-VECTOR"><span class="toc-text">SUPPORT VECTOR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KERNEL-FUNCTION"><span class="toc-text">KERNEL FUNCTION</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-an-SVM"><span class="toc-text">Use an SVM</span></a></li></ol></li></ol>
+<h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1><blockquote>
+<p>Question:引入SVM的原因？</p>
+</blockquote>
+<h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><p>basic idea of support vector machines: just like 1-layer or multi-layer neural nets.</p>
+<ul>
+<li><p>Optimal hyperplane for linearly separable patterns<br>– Extend to patterns that are not linearly separable by transformations of original data to map into new space – the Kernel function</p>
+</li>
+<li><p>线性可分离图案的最优超平面</p>
+</li>
+<li>扩展到通过原始数据转换不能线性分离以映射到新空间的内核 - 内核函数</li>
+</ul>
+<h2 id="SUPPORT-VECTOR"><a href="#SUPPORT-VECTOR" class="headerlink" title="SUPPORT VECTOR"></a>SUPPORT VECTOR</h2><p>支持向量是最靠近决策面（或超平面）的数据点，<br>•它们是最难分类的数据点<br>•它们直接关系到决策表面的最佳位置<br>•我们可以显示最佳的超平面茎<br>从功能类最低的“容量”=＃的独立功能/参数我们可以旋转</p>
+<h2 id="KERNEL-FUNCTION"><a href="#KERNEL-FUNCTION" class="headerlink" title="KERNEL FUNCTION"></a>KERNEL FUNCTION</h2><blockquote>
+<p>Question:引入核函数的原因？</p>
+</blockquote>
+<h2 id="Use-an-SVM"><a href="#Use-an-SVM" class="headerlink" title="Use an SVM"></a>Use an SVM</h2><blockquote>
+<p>how to use an SVM?</p>
+</blockquote>
+<p>参考</p>
+<ul>
+<li><a href="https://d3c33hcgiwev3.cloudfront.net/_246c2a4e4c249f94c895f607ea1e6407_Lecture12.pdf?Expires=1508716800&amp;Signature=chmRz-UVjoWpymEPQ8-yCjAGqV013viCJot-nY92nKuws~pZfqAeLjK2IwqUGx6zPQAJ9X3BdP1U8mVOn3uEG~MD2LMmVFS4WJjw75rs-5jhZkuz73U9N7c4LtmlXQKbBGCTxPKKD2~lAQM9AE1zH4~uDI1CyxdQsSXFW1BL9gw_&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank" rel="external">Lecture12.pdf</a></li>
+<li><a href="http://web.mit.edu/6.034/wwwbob/svm-notes-long-08.pdf" target="_blank" rel="external">“An Idiot’s Guide to Support Vector Machines”</a></li>
+<li><a href="http://www.blogjava.net/zhenandaci/archive/2009/03/06/258288.html" target="_blank" rel="external">SVM入门（七）为何需要核函数</a></li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/ml/svm.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
