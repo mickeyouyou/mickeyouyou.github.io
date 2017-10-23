@@ -10,7 +10,7 @@
     
 	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
     
-        <script src="/js/util.js" type="text/javascript"></script>
+        <script src="/js/util.js"></script>
         <script>
             if(isMobile()) {
                 loadjscssfile('../css/mobile.css', 'css');
@@ -62,7 +62,7 @@
 <h3 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h3><p>如何更专注写作，而不是关注排版？</p>
 <p>举个例子：突然思如泉涌的你想出来若干个点子，需要一个列表来展示。Word中的做法，需要先写内容，再格式化。格式化是需要时间成本的，真的与必要在选择具体是怎么样的图标花费时间吗？</p>
 <p>这就是Markdown为你免去的其中一部分的烦恼。列表的图标你再不用去特别的设置，这部分时间已经由Markdown引擎负责解析你只需要完成的内容上下文是否还有其他子列表。</p>
-<p>来看一个例子：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- &#24320;&#25918;&#33021;&#21147;&#10;- &#20849;&#20139;&#36164;&#28304;&#10;- &#21152;&#36895;&#21019;&#26032;&#10;- &#25345;&#32493;&#20849;&#36194;</span><br></pre></td></tr></table></figure></p>
+<p>来看一个例子：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">- 开放能力</div><div class="line">- 共享资源</div><div class="line">- 加速创新</div><div class="line">- 持续共赢</div></pre></td></tr></table></figure></p>
 <p>通过Markdown引擎的渲染之后的效果：</p>
 <ul>
 <li>开放能力</li>
@@ -73,10 +73,10 @@
 <p>重视文字内容本身，而非排版或UI。</p>
 <p>以下部分，展示如何书写一个Markdown格式的文件中涉及的标题、段落、列表、表格、图片等元素。</p>
 <h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>可以在标题内容前输入特定数量的井号(‘#’)来实现对应级别的HTML样式的标题(HTML提供六级标题)。例如：</p>
-<p>atx形式：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># &#19968;&#32423;&#26631;&#39064;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#### &#22235;&#32423;&#26631;&#39064;</span><br></pre></td></tr></table></figure>
-<p>一级和二级标题还有一种写法（Setext）：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#19968;&#32423;&#26631;&#39064;&#10;===================</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#20108;&#32423;&#26631;&#39064;&#10;--------------------</span><br></pre></td></tr></table></figure>
+<p>atx形式：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 一级标题</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#### 四级标题</div></pre></td></tr></table></figure>
+<p>一级和二级标题还有一种写法（Setext）：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">一级标题</div><div class="line">===================</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">二级标题</div><div class="line">--------------------</div></pre></td></tr></table></figure>
 <p>本文的目录，就是抽取文章中标题的继承关系，集合而成的。</p>
 <h4 id="段落与断行"><a href="#段落与断行" class="headerlink" title="段落与断行"></a>段落与断行</h4><p>段落的前后必须是空行  </p>
 <ul>
@@ -87,14 +87,14 @@
 <li><p>Markdown 中的多数区块都需要在两个空行之间。<br>不用加任何格式的文字段落，均会被处理为正文部分。断行可以使用两个换行来表示，也是为了格式好看。同样的断行标准也执行在任何标签之后。</p>
 </li>
 </ul>
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>最简单的超链接：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[&#36229;&#38142;&#25509;&#25991;&#26412;](http://www.example.com)</span><br></pre></td></tr></table></figure></p>
-<h5 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h5><p>Markdown支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要认为是一个http协议的地址，将会被Markdown 自动转成链接。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">http://www.apollo.auto</span><br></pre></td></tr></table></figure></p>
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>最简单的超链接：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[超链接文本](http://www.example.com)</div></pre></td></tr></table></figure></p>
+<h5 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h5><p>Markdown支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要认为是一个http协议的地址，将会被Markdown 自动转成链接。<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">http://www.apollo.auto</div></pre></td></tr></table></figure></p>
 <p>以上格式，将被直接解析为一个指向自己的链接：<br><a href="http://www.apollo.auto" target="_blank" rel="external">http://www.apollo.auto</a></p>
 <h5 id="引用链接"><a href="#引用链接" class="headerlink" title="引用链接"></a>引用链接</h5><p>有时，一堆链接与文字放在一起，非常地不“易读”，可以使用引用链接，先将链接标注，再在文章任意位置，放置该链接标签与地址的定义关系。</p>
 <p>你可以使用<code>[][]</code>的方式，在第一个方括号，放置链接文字，第二个中括号包含引用链接标签。在任意位置定义该标签即可。示例如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Apollo&#39033;&#30446;&#20013;&#65292;1.0&#21442;&#32771;&#30828;&#20214;&#26377;&#65306;[Neousys Nuvo-5095GC][5095GC]&#12289;[ESD CAN-PCIe/402][can-pcie402]&#12289;[NovAtel SPN-IGM-A1][SPN-IGM-A1]&#12289;[NovAtel SPAN&#174; ProPak6&#8482; and NovAtel IMU-IGM-A1][IMU-IGM-A1]&#12289;[&#39640;&#24615;&#33021;GNSS&#22825;&#32447;GPS703][GPS703]&#12290;&#10;&#10;[5095GC]:http://www.neousys-tech.com/cn/support/resources/category/162-manual&#10;[can-pcie402]:https://esd.eu/en/products/can-pcie402 &#10;[SPN-IGM-A1]:https://www.novatel.com/products/span-gnss-inertial-systems/span-combined-systems/span-igm-a1/&#10;[IMU-IGM-A1]:https://www.novatel.com/products/span-gnss-inertial-systems/span-imus/span-mems-imus/imu-igm-a1/#overview&#10;[GPS703]:https://www.novatel.com/products/gnss-antennas/high-performance-gnss-antennas/gps-703-ggg-hv/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Apollo项目中，1.0参考硬件有：[Neousys Nuvo-5095GC][5095GC]、[ESD CAN-PCIe/402][can-pcie402]、[NovAtel SPN-IGM-A1][SPN-IGM-A1]、[NovAtel SPAN® ProPak6™ and NovAtel IMU-IGM-A1][IMU-IGM-A1]、[高性能GNSS天线GPS703][GPS703]。</div><div class="line"></div><div class="line">[5095GC]:http://www.neousys-tech.com/cn/support/resources/category/162-manual</div><div class="line">[can-pcie402]:https://esd.eu/en/products/can-pcie402 </div><div class="line">[SPN-IGM-A1]:https://www.novatel.com/products/span-gnss-inertial-systems/span-combined-systems/span-igm-a1/</div><div class="line">[IMU-IGM-A1]:https://www.novatel.com/products/span-gnss-inertial-systems/span-imus/span-mems-imus/imu-igm-a1/#overview</div><div class="line">[GPS703]:https://www.novatel.com/products/gnss-antennas/high-performance-gnss-antennas/gps-703-ggg-hv/</div></pre></td></tr></table></figure>
 <p>Apollo项目中，1.0参考硬件有：<a href="http://www.neousys-tech.com/cn/support/resources/category/162-manual" target="_blank" rel="external">Neousys Nuvo-5095GC</a>、<a href="https://esd.eu/en/products/can-pcie402" target="_blank" rel="external">ESD CAN-PCIe/402</a>、<a href="https://www.novatel.com/products/span-gnss-inertial-systems/span-combined-systems/span-igm-a1/" target="_blank" rel="external">NovAtel SPN-IGM-A1</a>、<a href="https://www.novatel.com/products/span-gnss-inertial-systems/span-imus/span-mems-imus/imu-igm-a1/#overview" target="_blank" rel="external">NovAtel SPAN® ProPak6™ and NovAtel IMU-IGM-A1</a>、<a href="https://www.novatel.com/products/gnss-antennas/high-performance-gnss-antennas/gps-703-ggg-hv/" target="_blank" rel="external">高性能GNSS天线GPS703</a>。</p>
-<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><h5 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Apollo1.5&#24320;&#25918;&#30340;&#20116;&#22823;&#33021;&#21147;&#65306;&#10;- &#38556;&#30861;&#29289;&#24863;&#30693;&#10;- &#20915;&#31574;&#35268;&#21010;&#10;- &#39640;&#31934;&#22320;&#22270;&#10;- &#20113;&#31471;&#20223;&#30495;&#10;- End-To-End&#23398;&#20064;&#33021;&#21147;</span><br></pre></td></tr></table></figure>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><h5 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h5><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Apollo1.5开放的五大能力：</div><div class="line">- 障碍物感知</div><div class="line">- 决策规划</div><div class="line">- 高精地图</div><div class="line">- 云端仿真</div><div class="line">- End-To-End学习能力</div></pre></td></tr></table></figure>
 <p>以上的物料列表将被展示为：<br>Apollo1.5开放的五大能力：</p>
 <ul>
 <li>障碍物感知</li>
@@ -103,7 +103,7 @@
 <li>云端仿真</li>
 <li>End-To-End学习能力</li>
 </ul>
-<h5 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Apollo1.5&#24320;&#25918;&#30340;&#20116;&#22823;&#33021;&#21147;&#65306;&#10;1. &#38556;&#30861;&#29289;&#24863;&#30693;&#10;2. &#20915;&#31574;&#35268;&#21010;&#10;3. &#39640;&#31934;&#22320;&#22270;&#10;4. &#20113;&#31471;&#20223;&#30495;&#10;5. End-To-End&#23398;&#20064;&#33021;&#21147;</span><br></pre></td></tr></table></figure>
+<h5 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h5><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Apollo1.5开放的五大能力：</div><div class="line">1. 障碍物感知</div><div class="line">2. 决策规划</div><div class="line">3. 高精地图</div><div class="line">4. 云端仿真</div><div class="line">5. End-To-End学习能力</div></pre></td></tr></table></figure>
 <p>以上的物料列表将被展示为：<br>Apollo1.5开放的五大能力：</p>
 <ol>
 <li>障碍物感知</li>
@@ -187,7 +187,7 @@
 </li>
 </ul>
 <p>尝试1:在文后尝试做出有序数字列表的上述版本。</p>
-<h5 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h5><p>今天运动2+1闭环完成情况：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- [ ] &#33310;&#21147;&#20840;&#24320;100&#21315;&#21345;&#10;- [x] &#26085;&#34892;&#19968;&#19975;&#27493;&#10;  - [x] &#21320;&#39277;&#36807;&#21518;4000&#27493;&#10;  - [x] &#26202;&#39277;5000&#27493;&#10;- [ ] &#21608;&#26411;&#28216;&#27891;1000&#31859;+</span><br></pre></td></tr></table></figure></p>
+<h5 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h5><p>今天运动2+1闭环完成情况：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">- [ ] 舞力全开100千卡</div><div class="line">- [x] 日行一万步</div><div class="line">  - [x] 午饭过后4000步</div><div class="line">  - [x] 晚饭5000步</div><div class="line">- [ ] 周末游泳1000米+</div></pre></td></tr></table></figure></p>
 <ul>
 <li style="list-style: none"><input type="checkbox"> 舞力全开100千卡</li>
 <li style="list-style: none"><input type="checkbox" checked> 日行一万步<ul>
@@ -199,10 +199,10 @@
 </ul>
 <h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><ul>
 <li>单元格和表头：使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行</li>
-<li>对齐：在表头下方的分隔线标记中加入 :，即可标记下方单元格内容的对齐方式：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">:--- &#20195;&#34920;&#24038;&#23545;&#40784;&#10;:--: &#20195;&#34920;&#23621;&#20013;&#23545;&#40784;&#10;---: &#20195;&#34920;&#21491;&#23545;&#40784;</span><br></pre></td></tr></table></figure>
+<li>对齐：在表头下方的分隔线标记中加入 :，即可标记下方单元格内容的对齐方式：<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">:--- 代表左对齐</div><div class="line">:--: 代表居中对齐</div><div class="line">---: 代表右对齐</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|     &#20851;&#38190;&#30828;&#20214;&#21517;&#31216;     | &#22411;&#21495; |             &#20135;&#21697;&#20027;&#39029;                |&#10;| :------------ | ---: | :-------------------------------: |&#10;| IPC |  Neousys Nuvo-5095GC | [&#20135;&#21697;&#25163;&#20876;][5095GC] |&#10;| CAN &#21345;     | ESD CAN-PCIe/402  | [&#20135;&#21697;&#20027;&#39029;][can-pcie402]          |&#10;| GPS-IMU&#20256;&#24863;&#22120;&#32452;&#20214; |  [NovAtel SPN-IGM-A1]&#12289;[NovAtel SPAN&#174; ProPak6&#8482; and NovAtel IMU-IGM-A1]&#36873;&#20854;&#19968; |  [NovAtel SPN-IGM-A1][SPN-IGM-A1]&#12289;[NovAtel SPAN&#174; ProPak6&#8482; and NovAtel IMU-IGM-A1][IMU-IGM-A1]         |&#10;| GPS&#22825;&#32447;     |  GPS NovAtelGPS-703-GGG-H | [&#39640;&#24615;&#33021;GNSS&#22825;&#32447;GPS703][GPS703]          |</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">|     关键硬件名称     | 型号 |             产品主页                |</div><div class="line">| :------------ | ---: | :-------------------------------: |</div><div class="line">| IPC |  Neousys Nuvo-5095GC | [产品手册][5095GC] |</div><div class="line">| CAN 卡     | ESD CAN-PCIe/402  | [产品主页][can-pcie402]          |</div><div class="line">| GPS-IMU传感器组件 |  [NovAtel SPN-IGM-A1]、[NovAtel SPAN® ProPak6™ and NovAtel IMU-IGM-A1]选其一 |  [NovAtel SPN-IGM-A1][SPN-IGM-A1]、[NovAtel SPAN® ProPak6™ and NovAtel IMU-IGM-A1][IMU-IGM-A1]         |</div><div class="line">| GPS天线     |  GPS NovAtelGPS-703-GGG-H | [高性能GNSS天线GPS703][GPS703]          |</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -234,29 +234,29 @@
 </tr>
 </tbody>
 </table>
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![Foo](http://i.weather.com.cn/images/cn/life/2017/04/11/11141533DF572FBBA092E37E6E843C656C318272.jpg)</span><br></pre></td></tr></table></figure>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">![Foo](http://i.weather.com.cn/images/cn/life/2017/04/11/11141533DF572FBBA092E37E6E843C656C318272.jpg)</div></pre></td></tr></table></figure>
 <p>以上格式将生成标准的Html img标签展示该图：<br><img src="http://i.weather.com.cn/images/cn/life/2017/04/11/11141533DF572FBBA092E37E6E843C656C318272.jpg" alt="Foo"></p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>写作过程中免不了有代码片段的展示，想想之前怎么做的？粘贴一段代码，在word中，格式混乱，手足无措。最后放了一张代码截图。图片可以保留原始格式，但是不能复制文本内容是个遗憾。</p>
 <p>代码的引用为格式化的代码提供了不少便利，不用再将其转化为图片。</p>
 <p>反引号代码块</p>
 <p>Markdown使用独占一行的反引号来包含多行代码，格式化不同的语言类型，只需要在反引号后面标注即可。</p>
-<p>另一种形式的代码块，不同的是它使用三个反引号来包裹。之后以此标注代码语言类型，代码模块名称，链接地址，链接文本。<br><figure class="highlight"><figcaption><span>[title] [url] [link text] </span></figcaption><table><tr><td class="code"><pre><span class="line">&#20195;&#30721;&#29255;&#27573;</span><br></pre></td></tr></table></figure></p>
-<p>完整示例，语言cpp，指定了文件，代码模块名称，链接等：<br><figure class="highlight cpp"><figcaption><span>modules/common/appllo_app.h APOLLO_MAIN宏定义</span><a href="https://github.com/ApolloAuto/apollo/blob/master/modules/common/apollo_app.h" target="_blank" rel="external">apollo_app.h</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> APOLLO_MAIN(APP)                                       \</span><br><span class="line">  int main(int argc, char **argv) &#123;                            \</span><br><span class="line">    google::InitGoogleLogging(argv[0]);                        \</span><br><span class="line">    google::ParseCommandLineFlags(&amp;argc, &amp;argv, true);         \</span><br><span class="line">    signal(SIGINT, apollo::common::apollo_app_sigint_handler); \</span><br><span class="line">    APP apollo_app_;                                           \</span><br><span class="line">    ros::init(argc, argv, apollo_app_.Name());                 \</span><br><span class="line">    apollo_app_.Spin();                                        \</span><br><span class="line">    return 0;                                                  \</span><br><span class="line">  &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>另一种形式的代码块，不同的是它使用三个反引号来包裹。之后以此标注代码语言类型，代码模块名称，链接地址，链接文本。<br><figure class="highlight plain"><figcaption><span>[title] [url] [link text] </span></figcaption><table><tr><td class="code"><pre><div class="line">代码片段</div></pre></td></tr></table></figure></p>
+<p>完整示例，语言cpp，指定了文件，代码模块名称，链接等：<br><figure class="highlight cpp"><figcaption><span>modules/common/appllo_app.h APOLLO_MAIN宏定义</span><a href="https://github.com/ApolloAuto/apollo/blob/master/modules/common/apollo_app.h" target="_blank" rel="external">apollo_app.h</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> APOLLO_MAIN(APP)                                       \</span></div><div class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;                            \</div><div class="line">    google::InitGoogleLogging(argv[<span class="number">0</span>]);                        \</div><div class="line">    google::ParseCommandLineFlags(&amp;argc, &amp;argv, <span class="literal">true</span>);         \</div><div class="line">    signal(SIGINT, apollo::common::apollo_app_sigint_handler); \</div><div class="line">    APP apollo_app_;                                           \</div><div class="line">    ros::init(argc, argv, apollo_app_.Name());                 \</div><div class="line">    apollo_app_.Spin();                                        \</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                                                  \</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>使用符号&gt;标识。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#62; &#24341;&#35328;&#25110;&#32773;&#24341;&#29992;&#37096;&#20998;&#12290;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; 引言或者引用部分。</div></pre></td></tr></table></figure>
 <p>以上引言将展示如下：</p>
 <blockquote>
 <p>引言或者引用部分。</p>
 </blockquote>
 <h3 id="提高篇：媲美任何格式化文字工具。"><a href="#提高篇：媲美任何格式化文字工具。" class="headerlink" title="提高篇：媲美任何格式化文字工具。"></a>提高篇：媲美任何格式化文字工具。</h3><h4 id="兼容HTML元素"><a href="#兼容HTML元素" class="headerlink" title="兼容HTML元素"></a>兼容HTML元素</h4><p>如何你熟悉html，这个问题就简单很多。你可在md文件中插入任何html元素。</p>
-<p>所以，图片的另外一种使用方式，就是直接插入html img标签：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#60;img src=&#34;http://i.weather.com.cn/images/cn/life/2017/04/11/11141533DF572FBBA092E37E6E843C656C318272.jpg&#34;&#62;</span><br></pre></td></tr></table></figure></p>
+<p>所以，图片的另外一种使用方式，就是直接插入html img标签：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;img src=&quot;http://i.weather.com.cn/images/cn/life/2017/04/11/11141533DF572FBBA092E37E6E843C656C318272.jpg&quot;&gt;</div></pre></td></tr></table></figure></p>
 <p>延伸一下，为此图添加文字标注：<br><img src="http://i.weather.com.cn/images/cn/life/2017/04/11/11141533DF572FBBA092E37E6E843C656C318272.jpg"></p>
-<p></p><p align="center">pretty apples</p><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#60;p align=&#34;center&#34;&#62;pretty apples&#60;/p&#62;</span><br></pre></td></tr></table></figure><p></p>
-<h4 id="流程图、时序图等"><a href="#流程图、时序图等" class="headerlink" title="流程图、时序图等"></a>流程图、时序图等</h4><p>流程图(flow):<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">st=&#62;start: Start&#10;e=&#62;end: End&#10;op1=&#62;operation: &#20998;&#35789;|past&#10;op2=&#62;operation: &#32467;&#26524;&#25353;&#31561;&#32423;&#36820;&#22238;|current&#10;sub1=&#62;subroutine: &#32454;&#31890;&#24230;&#20999;&#20998;&#10;cond=&#62;condition: &#31890;&#24230;&#21010;&#20998;?|approved&#10;c2=&#62;condition: &#35789;&#39057;&#21028;&#26029;|rejected&#10;io=&#62;inputoutput: catch something...|request&#10;&#10;st-&#62;op1(right)-&#62;cond&#10;cond(yes, right)-&#62;c2&#10;cond(no)-&#62;sub1(left)-&#62;op1&#10;c2(yes)-&#62;io-&#62;e&#10;c2(no)-&#62;op2-&#62;e</span><br></pre></td></tr></table></figure></p>
+<p></p><p align="center">pretty apples</p><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;p align=&quot;center&quot;&gt;pretty apples&lt;/p&gt;</div></pre></td></tr></table></figure><p></p>
+<h4 id="流程图、时序图等"><a href="#流程图、时序图等" class="headerlink" title="流程图、时序图等"></a>流程图、时序图等</h4><p>流程图(flow):<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">st=&gt;start: Start</div><div class="line">e=&gt;end: End</div><div class="line">op1=&gt;operation: 分词|past</div><div class="line">op2=&gt;operation: 结果按等级返回|current</div><div class="line">sub1=&gt;subroutine: 细粒度切分</div><div class="line">cond=&gt;condition: 粒度划分?|approved</div><div class="line">c2=&gt;condition: 词频判断|rejected</div><div class="line">io=&gt;inputoutput: catch something...|request</div><div class="line"></div><div class="line">st-&gt;op1(right)-&gt;cond</div><div class="line">cond(yes, right)-&gt;c2</div><div class="line">cond(no)-&gt;sub1(left)-&gt;op1</div><div class="line">c2(yes)-&gt;io-&gt;e</div><div class="line">c2(no)-&gt;op2-&gt;e</div></pre></td></tr></table></figure></p>
 <div id="flowchart-0" class="flow-chart"></div>
 
 
-<p>时序图：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Browser-&#62;Client:&#25991;&#26723;&#12289;&#27573;&#33853;&#12289;&#21477;&#23376;&#30340;&#25286;&#20998;&#10;Client-&#62;Service: &#25991;&#26723;&#12289;&#27573;&#33853;&#12289;&#23454;&#26102;&#32534;&#36753;&#30340;&#21477;&#23376;&#10;Note right of Service: &#22522;&#20110;&#35789;&#21521;&#37327;&#30340;&#25972;&#21477;&#27010;&#29575;&#26816;&#26597;&#10;Service-&#62;Client: &#27010;&#29575;&#30001;&#39640;&#21040;&#24213;&#65292;&#20316;&#20026;&#24314;&#35758;&#35789;&#32452;&#10;Client-&#62;Browser:&#36820;&#22238;&#31561;&#32423;&#19981;&#21516;&#30340;&#26816;&#26597;&#32467;&#26524;</span><br></pre></td></tr></table></figure></p>
+<p>时序图：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Browser-&gt;Client:文档、段落、句子的拆分</div><div class="line">Client-&gt;Service: 文档、段落、实时编辑的句子</div><div class="line">Note right of Service: 基于词向量的整句概率检查</div><div class="line">Service-&gt;Client: 概率由高到底，作为建议词组</div><div class="line">Client-&gt;Browser:返回等级不同的检查结果</div></pre></td></tr></table></figure></p>
 <p><div id="sequence-0"></div></p>
 <h4 id="支持公式"><a href="#支持公式" class="headerlink" title="支持公式"></a>支持公式</h4><p>leTax，支持原始公式可获取。</p>
 <span>$$\\

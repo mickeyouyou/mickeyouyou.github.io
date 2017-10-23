@@ -10,7 +10,7 @@
     
 	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
     
-        <script src="/js/util.js" type="text/javascript"></script>
+        <script src="/js/util.js"></script>
         <script>
             if(isMobile()) {
                 loadjscssfile('../css/mobile.css', 'css');
@@ -121,8 +121,8 @@
 </tbody>
 </table>
 <p>job典型的生命周期</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> put            reserve               delete&#10;-----&#62; [READY] ---------&#62; [RESERVED] --------&#62; *poof*</span><br></pre></td></tr></table></figure>
-<p>job可能的状态迁移<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> put with delay               release with delay&#10;----------------&#62; [DELAYED] &#60;------------.&#10;                      |                   |&#10;               kick   | (time passes)     |&#10;                      |                   |&#10; put                  v     reserve       |       delete&#10;-----------------&#62; [READY] ---------&#62; [RESERVED] --------&#62; *poof*&#10;                     ^  ^                |  |&#10;                     |   \  release      |  |&#10;                     |    `-------------&#39;   |&#10;                     |                      |&#10;                     | kick                 |&#10;                     |                      |&#10;                     |       bury           |&#10;                  [BURIED] &#60;---------------&#39;&#10;                     |&#10;                     |  delete&#10;                      `--------&#62; *poof*</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"> put            reserve               delete</div><div class="line">-----&gt; [READY] ---------&gt; [RESERVED] --------&gt; *poof*</div></pre></td></tr></table></figure>
+<p>job可能的状态迁移<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"> put with delay               release with delay</div><div class="line">----------------&gt; [DELAYED] &lt;------------.</div><div class="line">                      |                   |</div><div class="line">               kick   | (time passes)     |</div><div class="line">                      |                   |</div><div class="line"> put                  v     reserve       |       delete</div><div class="line">-----------------&gt; [READY] ---------&gt; [RESERVED] --------&gt; *poof*</div><div class="line">                     ^  ^                |  |</div><div class="line">                     |   \  release      |  |</div><div class="line">                     |    `-------------&apos;   |</div><div class="line">                     |                      |</div><div class="line">                     | kick                 |</div><div class="line">                     |                      |</div><div class="line">                     |       bury           |</div><div class="line">                  [BURIED] &lt;---------------&apos;</div><div class="line">                     |</div><div class="line">                     |  delete</div><div class="line">                      `--------&gt; *poof*</div></pre></td></tr></table></figure></p>
 <p>###Tubes<br>一个服务器有一个或者多个tubes，用来储存统一类型的job。每个tube由一个就绪队列与延迟队列组成。每个job所有的状态迁移在一个tube中完成。consumers消费者可以监控感兴趣的tube，通过发送watch指令。consumers消费者可以取消监控tube，通过发送ignore命令。通过watch list命令返回所有监控的tubes，当客户端预订一个job，此job可能来自任何一个它监控的tube。</p>
 <p>当一个客户端连接上服务器时，客户端监控的tube默认为defaut，如果客户端提交job时，没有使用use命令，那么这些job就存于名为default的tube中。</p>
 <p>tube按需求创建，无论他们在什么时候被引用到。如果一个tube变为空（即no ready jobs，no delayed jobs，no buried jobs）和没有任何客户端引用，它将会被自动删除。</p>
@@ -130,7 +130,7 @@
 <p>####生产者指令说明（Producer Commands）</p>
 <p>####<code>put</code></p>
 <p>插入一个job到队列</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">put &#60;pri&#62; &#60;delay&#62; &#60;ttr&#62; &#60;bytes&#62;\r\n&#10;&#60;data&#62;\r\n</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">put &lt;pri&gt; &lt;delay&gt; &lt;ttr&gt; &lt;bytes&gt;\r\n</div><div class="line">&lt;data&gt;\r\n</div></pre></td></tr></table></figure>
 <ul>
 <li><code>&lt;pri&gt;</code> 整型值，为优先级，可以为0-2^32（4,294,967,295），值越小优先级越高，默认为1024。</li>
 <li><code>&lt;delay&gt;</code> 整型值，延迟ready的秒数，在这段时间job为delayed状态。</li>
@@ -138,45 +138,45 @@
 <li><code>&lt;bytes&gt;</code> 整型值，job body的长度，不包含\r\n，这个值必须小于max-job-size，默认为2^16。</li>
 <li><code>&lt;data&gt;</code>   job body</li>
 </ul>
-<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INSERTED &#60;id&#62;\r\n</span><br></pre></td></tr></table></figure></p>
-<p>表示插入job成功，id为新job的任务标识，整型值<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">BURIED &#60;id&#62;\r\n</span><br></pre></td></tr></table></figure></p>
-<p>如服务器为了增加队列的优先级而，内存不足时返回，id为新job的任务标识，整型值<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">EXPECTED_CRLF\r\n</span><br></pre></td></tr></table></figure></p>
-<p>job body必须以\r\n结尾<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">JOB_TOO_BIG\r\n</span><br></pre></td></tr></table></figure></p>
-<p>job body的长度超过max-job-size<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DRAINING\r\n</span><br></pre></td></tr></table></figure></p>
+<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">INSERTED &lt;id&gt;\r\n</div></pre></td></tr></table></figure></p>
+<p>表示插入job成功，id为新job的任务标识，整型值<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">BURIED &lt;id&gt;\r\n</div></pre></td></tr></table></figure></p>
+<p>如服务器为了增加队列的优先级而，内存不足时返回，id为新job的任务标识，整型值<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">EXPECTED_CRLF\r\n</div></pre></td></tr></table></figure></p>
+<p>job body必须以\r\n结尾<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">JOB_TOO_BIG\r\n</div></pre></td></tr></table></figure></p>
+<p>job body的长度超过max-job-size<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DRAINING\r\n</div></pre></td></tr></table></figure></p>
 <p>表示服务器资源耗尽，表示服务器已经进入了“drain mode”，服务器再也不能接受连接，客户端应该使用另一个服务器或者断开稍后重试</p>
-<p>####<code>use</code><br>说明<br>producer生产者使用，随后使用put命令，将job放置于对应的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use &#60;tube&#62;\r\n&#10;tube tube&#30340;&#21517;&#31216;&#65292;&#26368;&#22823;&#20026;200&#23383;&#33410;&#65292;&#19981;&#23384;&#22312;&#26102;&#23558;&#33258;&#21160;&#21019;&#24314;</span><br></pre></td></tr></table></figure></p>
-<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">USING &#60;tube&#62;\r\n tube&#20026;&#27491;&#22312;&#20351;&#29992;&#30340;tube&#21517;&#31216;</span><br></pre></td></tr></table></figure></p>
+<p>####<code>use</code><br>说明<br>producer生产者使用，随后使用put命令，将job放置于对应的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">use &lt;tube&gt;\r\n</div><div class="line">tube tube的名称，最大为200字节，不存在时将自动创建</div></pre></td></tr></table></figure></p>
+<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">USING &lt;tube&gt;\r\n tube为正在使用的tube名称</div></pre></td></tr></table></figure></p>
 <p>消费者指令说明（Worker Commands）</p>
-<p>####<code>reserve</code><br>说明<br>取出（预订）job，待处理。它将返回一个新预订的job，如果没有job，beanstalkd将直到有job时才发送响应。一旦job状态迁移为reserved,取出job的client被限制在指定的时间（如果设置了ttr）完成，否则超时，job状态重装迁移为ready。<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reserve\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>reserve</code><br>说明<br>取出（预订）job，待处理。它将返回一个新预订的job，如果没有job，beanstalkd将直到有job时才发送响应。一旦job状态迁移为reserved,取出job的client被限制在指定的时间（如果设置了ttr）完成，否则超时，job状态重装迁移为ready。<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">reserve\r\n</div></pre></td></tr></table></figure></p>
 <p>可选的一个相似的命令<br><code>reserve-with-timeout \r\n</code> 设置取job的超时时间，timeout设置为0时，服务器立即响应或者TIMED_OUT，积极的设置超时，将会限制客户端阻塞在取job的请求的时间。</p>
-<p>#####失败响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DEADLINE_SOON\r\n</span><br></pre></td></tr></table></figure></p>
-<p>在一个预定的任务的运行时间内,最后一秒会被服务器保持为一个安全边际，在此期间，客户端将无法等候另外一个任务。<br>如果客户端在安全隔离期间发出一个预留命令，或者安全隔离期到了,客户端在等候一个预定命令。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TIMED_OUT\r\n &#36229;&#26102;</span><br></pre></td></tr></table></figure></p>
-<p>#####成功响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RESERVED &#60;id&#62; &#60;bytes&#62;\r\n&#10;&#60;data&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>#####失败响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DEADLINE_SOON\r\n</div></pre></td></tr></table></figure></p>
+<p>在一个预定的任务的运行时间内,最后一秒会被服务器保持为一个安全边际，在此期间，客户端将无法等候另外一个任务。<br>如果客户端在安全隔离期间发出一个预留命令，或者安全隔离期到了,客户端在等候一个预定命令。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">TIMED_OUT\r\n 超时</div></pre></td></tr></table></figure></p>
+<p>#####成功响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">RESERVED &lt;id&gt; &lt;bytes&gt;\r\n</div><div class="line">&lt;data&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>成功取出job，id为job id,整型值，job body的长度，不包含\r\n，data为job body</p>
-<p>####<code>delete</code><br>说明<br>从队列中删除一个job<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">delete &#60;id&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>delete</code><br>说明<br>从队列中删除一个job<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">delete &lt;id&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>id为job id<br>响应<br>DELETED\r\n 删除成功<br>NOT_FOUND\r\n job不存在时，或者job的状态不为ready和buried（这种情况是在job执行超时之前，client发送了delete指令）</p>
-<p>####<code>release</code><br>说明<br>release指令将一个reserved的job放回ready queue。它通常在job执行失败时使用。<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">release &#60;id&#62; &#60;pri&#62; &#60;delay&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>release</code><br>说明<br>release指令将一个reserved的job放回ready queue。它通常在job执行失败时使用。<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">release &lt;id&gt; &lt;pri&gt; &lt;delay&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>id 为job id，pri为job的优先级，delay为延迟ready的秒数<br>响应<br>RELEASED\r\n 表明成功<br>BURIED\r\n 如服务器为了增加队列的优先级而，内存不足时返回<br>NOT_FOUND\r\n 如果job不存在或者client没有预订此job</p>
-<p>####<code>bury</code><br>说明<br>将一个job的状态迁移为buried，通过kick命令唤醒<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bury &#60;id&#62; &#60;pri&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>bury</code><br>说明<br>将一个job的状态迁移为buried，通过kick命令唤醒<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bury &lt;id&gt; &lt;pri&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>id为job id，pri为优先级<br>响应<br>BURIED\r\n 表明成功<br>NOT_FOUND\r\n 如果job不存在或者client没有预订此job</p>
-<p>####<code>touch</code><br>说明<br>允许worker请求更多的时间执行job，这个很有用当job需要很长的时间来执行，worker可用周期的告诉服务器它仍然在执行job（可以被DEADLINE_SOON触发）<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch &#60;id&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>touch</code><br>说明<br>允许worker请求更多的时间执行job，这个很有用当job需要很长的时间来执行，worker可用周期的告诉服务器它仍然在执行job（可以被DEADLINE_SOON触发）<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">touch &lt;id&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>id为job id<br>响应<br>TOUCHED\r\n 表明成功<br>NOT_FOUND\r\n 如果job不存在或者client没有预订此job</p>
-<p>####<code>watch</code><br>说明<br>添加监控的tube到watch list列表，reserve指令将会从监控的tube列表获取job，对于每个连接，监控的列表默认为default<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">watch &#60;tube&#62;\r\n</span><br></pre></td></tr></table></figure></p>
-<p>tube 为监控的tube名称，名称最大为200字节，如果tube不存在会自动创建<br>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WATCHING &#60;count&#62;\r\n &#34920;&#26126;&#25104;&#21151;</span><br></pre></td></tr></table></figure></p>
+<p>####<code>watch</code><br>说明<br>添加监控的tube到watch list列表，reserve指令将会从监控的tube列表获取job，对于每个连接，监控的列表默认为default<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">watch &lt;tube&gt;\r\n</div></pre></td></tr></table></figure></p>
+<p>tube 为监控的tube名称，名称最大为200字节，如果tube不存在会自动创建<br>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">WATCHING &lt;count&gt;\r\n 表明成功</div></pre></td></tr></table></figure></p>
 <p>count 整型值，已监控的tube数量</p>
-<p>####<code>ignore</code><br>说明<br>从已监控的watch list列表中移出特定的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ignore &#60;tube&#62;\r\n</span><br></pre></td></tr></table></figure></p>
-<p>tube 为移出的tube名称，名称最多为200字节，如果tube不存在会自动创建<br>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WATCHING &#60;count&#62;\r\n &#34920;&#26126;&#25104;&#21151;</span><br></pre></td></tr></table></figure></p>
+<p>####<code>ignore</code><br>说明<br>从已监控的watch list列表中移出特定的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ignore &lt;tube&gt;\r\n</div></pre></td></tr></table></figure></p>
+<p>tube 为移出的tube名称，名称最多为200字节，如果tube不存在会自动创建<br>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">WATCHING &lt;count&gt;\r\n 表明成功</div></pre></td></tr></table></figure></p>
 <p>count 整型值，已监控的tube数量<br>NOT_IGNORED\r\n 如果client企图忽略其仅有的tube时的响应<br>其他指令说明（Other Command）</p>
-<p>####<code>peek</code><br>说明<br>让client在系统中检查job，有四种形式的命令，其中第一种形式的指令是针对当前使用的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">peek &#60;id&#62;\r\n  &#36820;&#22238;id&#23545;&#24212;&#30340;job&#10;peek-ready\r\n &#36820;&#22238;&#19979;&#19968;&#20010;ready job&#10;peek-delayed\r\n &#36820;&#22238;&#19979;&#19968;&#20010;&#24310;&#36831;&#21097;&#20313;&#26102;&#38388;&#26368;&#30701;&#30340;job&#10;peek-buried\r\n &#36820;&#22238;&#19979;&#19968;&#20010;&#22312;buried&#21015;&#34920;&#20013;&#30340;job</span><br></pre></td></tr></table></figure></p>
-<p>响应<br>NOT_FOUND\r\n 如果job不存在，或者没有对应状态的job<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FOUND &#60;id&#62; &#60;bytes&#62;\r\n &#60;data&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>peek</code><br>说明<br>让client在系统中检查job，有四种形式的命令，其中第一种形式的指令是针对当前使用的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">peek &lt;id&gt;\r\n  返回id对应的job</div><div class="line">peek-ready\r\n 返回下一个ready job</div><div class="line">peek-delayed\r\n 返回下一个延迟剩余时间最短的job</div><div class="line">peek-buried\r\n 返回下一个在buried列表中的job</div></pre></td></tr></table></figure></p>
+<p>响应<br>NOT_FOUND\r\n 如果job不存在，或者没有对应状态的job<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FOUND &lt;id&gt; &lt;bytes&gt;\r\n &lt;data&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>id 为对应的job id<br>bytes job body的字节数<br>data 为job body</p>
-<p>####<code>kick</code><br>说明<br>此指令应用在当前使用的tube中，它将job的状态迁移为ready或者delayed<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kick &#60;bound&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>kick</code><br>说明<br>此指令应用在当前使用的tube中，它将job的状态迁移为ready或者delayed<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">kick &lt;bound&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>bound 整型值，唤醒的job上限</p>
-<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">KICKED &#60;count&#62;\r\n</span><br></pre></td></tr></table></figure></p>
-<p>count 为真实唤醒的job数量<br>kick-job<br>说明<br>kick指令的一个变体，可以使单个job被唤醒，使一个状态为buried或者delayed的job迁移为ready，所有的状态迁移都在相同的tube中完成<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kick-job &#60;id&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">KICKED &lt;count&gt;\r\n</div></pre></td></tr></table></figure></p>
+<p>count 为真实唤醒的job数量<br>kick-job<br>说明<br>kick指令的一个变体，可以使单个job被唤醒，使一个状态为buried或者delayed的job迁移为ready，所有的状态迁移都在相同的tube中完成<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">kick-job &lt;id&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>id 为job id<br>响应<br>NOT_FOUND\r\n 如果job不存在，或者job是不可唤醒的状态<br>KICKED\r\n 表明成功</p>
-<p>####<code>stats-job</code><br>说明<br>统计job的相关信息<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">stats-job &#60;id&#62;\r\n</span><br></pre></td></tr></table></figure></p>
-<p>id 为job id<br>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NOT_FOUND\r\n &#22914;&#26524;job&#19981;&#23384;&#22312;&#10;&#10;OK &#60;bytes&#62;\r\n&#60;data&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>stats-job</code><br>说明<br>统计job的相关信息<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">stats-job &lt;id&gt;\r\n</div></pre></td></tr></table></figure></p>
+<p>id 为job id<br>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">NOT_FOUND\r\n 如果job不存在</div><div class="line"></div><div class="line">OK &lt;bytes&gt;\r\n&lt;data&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>bytes 为接下来的data区块的长度<br>data 为YAML file的统计信息<br>其中YAML file包括的key有：</p>
 <ul>
 <li><code>id</code> 表示job id</li>
@@ -192,8 +192,8 @@
 <li><code>buries</code> 表示job被buried的次数</li>
 <li><code>kicks</code> 表示job被kiced的次数</li>
 </ul>
-<p>####<code>stats-tube</code><br><strong>说明</strong><br>统计tube的相关信息<br><strong>格式</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">stats-tube &#60;tube&#62;\r\n</span><br></pre></td></tr></table></figure></p>
-<p>tube 为对应的tube的名称，最多为200字节<br><strong>响应</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NOT_FOUND\r\n &#22914;&#26524;tube&#19981;&#23384;&#22312;&#10;OK &#60;bytes&#62;\r\n&#60;data&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>stats-tube</code><br><strong>说明</strong><br>统计tube的相关信息<br><strong>格式</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">stats-tube &lt;tube&gt;\r\n</div></pre></td></tr></table></figure></p>
+<p>tube 为对应的tube的名称，最多为200字节<br><strong>响应</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">NOT_FOUND\r\n 如果tube不存在</div><div class="line">OK &lt;bytes&gt;\r\n&lt;data&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>bytes 为接下来的data区块的长度<br>data 为YAML file的统计信息<br>其中YAML file包括的key有：</p>
 <ul>
 <li><code>name</code> 表示tube的名称</li>
@@ -211,8 +211,8 @@
 <li><code>cmd-pause-tube</code> 此tube中总共执行pause-tube指令的次数</li>
 <li><code>pause-time-left</code> 此tube暂停剩余的秒数</li>
 </ul>
-<p>####<code>stats</code><br><strong>说明</strong><br>返回整个消息队列系统的整体信息<br><strong>格式</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">stats\r\n</span><br></pre></td></tr></table></figure></p>
-<p><strong>响应</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">OK &#60;bytes&#62;\r\n&#60;data&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>stats</code><br><strong>说明</strong><br>返回整个消息队列系统的整体信息<br><strong>格式</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">stats\r\n</div></pre></td></tr></table></figure></p>
+<p><strong>响应</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">OK &lt;bytes&gt;\r\n&lt;data&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>bytes 为接下来的data区块的长度<br>data 为YAML file的统计信息<br>其中YAML file包括的key有（所有的信息都累积的，自从beanstalkd进程启动以来，这些信息不储存在binlog中）：</p>
 <ul>
 <li><code>current-jobs-urgent</code> 优先级小于1024状态为ready的job数量</li>
@@ -261,20 +261,20 @@
 <li><code>id</code> 一个随机字符串，在beanstalkd进程启动时产生</li>
 <li><code>hostname</code> 主机名</li>
 </ul>
-<p>####<code>list-tubes</code><br>说明<br>列表所有存在的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list-tubes\r\n</span><br></pre></td></tr></table></figure></p>
-<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">OK &#60;bytes&#62;\r\n&#10;&#10;&#60;data&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>list-tubes</code><br>说明<br>列表所有存在的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">list-tubes\r\n</div></pre></td></tr></table></figure></p>
+<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">OK &lt;bytes&gt;\r\n</div><div class="line"></div><div class="line">&lt;data&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>bytes 为接下来的data区块的长度<br>data 为YAML file，包含所有的tube名称</p>
-<p>####<code>list-tube-used</code><br>说明<br>列表当前client正在use的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list-tube-used\r\n</span><br></pre></td></tr></table></figure></p>
-<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">USING &#60;tube&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>list-tube-used</code><br>说明<br>列表当前client正在use的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">list-tube-used\r\n</div></pre></td></tr></table></figure></p>
+<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">USING &lt;tube&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>tube 为tube名称</p>
-<p>####<code>list-tubes-watched</code><br>说明<br>列表当前client watch的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list-tubes-watched\r\n</span><br></pre></td></tr></table></figure></p>
-<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">OK &#60;bytes&#62;\r\n&#10;&#10;&#60;data&#62;\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>list-tubes-watched</code><br>说明<br>列表当前client watch的tube<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">list-tubes-watched\r\n</div></pre></td></tr></table></figure></p>
+<p>响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">OK &lt;bytes&gt;\r\n</div><div class="line"></div><div class="line">&lt;data&gt;\r\n</div></pre></td></tr></table></figure></p>
 <p>bytes 为接下来的data区块的长度<br>data 为YAML file，包含所有的tube名称</p>
-<p>####<code>quit</code><br>说明<br>关闭连接<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quit\r\n</span><br></pre></td></tr></table></figure></p>
+<p>####<code>quit</code><br>说明<br>关闭连接<br>格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">quit\r\n</div></pre></td></tr></table></figure></p>
 <p>####<code>pause-tube</code></p>
 <p>#####说明<br>此指令针对特定的tube内所有新的job延迟给定的秒数</p>
-<p>#####格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pause-tube &#60;tube-name&#62; &#60;delay&#62;\r\n</span><br></pre></td></tr></table></figure></p>
-<p>#####响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PAUSED\r\n &#34920;&#31034;&#25104;&#21151;&#10;NOT_FOUND\r\n tube&#19981;&#23384;&#22312;</span><br></pre></td></tr></table></figure></p>
+<p>#####格式<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pause-tube &lt;tube-name&gt; &lt;delay&gt;\r\n</div></pre></td></tr></table></figure></p>
+<p>#####响应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">PAUSED\r\n 表示成功</div><div class="line">NOT_FOUND\r\n tube不存在</div></pre></td></tr></table></figure></p>
 <p>原创翻译，英文能力此水平，见谅。By PHPboy.</p>
 <p>####英文版</p>
 <blockquote>

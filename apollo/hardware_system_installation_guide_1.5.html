@@ -10,7 +10,7 @@
     
 	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
     
-        <script src="/js/util.js" type="text/javascript"></script>
+        <script src="/js/util.js"></script>
         <script>
             if(isMobile()) {
                 loadjscssfile('../css/mobile.css', 'css');
@@ -256,10 +256,10 @@
 </li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/tip_icon.png" alt="warning"><br>如果将一个或多个插件卡添加到系统中，建议通过BIOS设置来配置风扇速度</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- &#35745;&#31639;&#26426;&#21551;&#21160;&#65292;&#25353; F2 &#36827;&#20837; BIOS &#35774;&#32622;&#33756;&#21333;&#10;- &#36873;&#25321;[Advanced] =&#62; [Smart Fan Setting]&#10;- &#35774;&#32622; [Fan Max. Trip Temp] &#20026; 50&#10;- &#35774;&#32622; [Fan Start Trip Temp] &#20026; 20</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">- 计算机启动，按 F2 进入 BIOS 设置菜单</div><div class="line">- 选择[Advanced] =&gt; [Smart Fan Setting]</div><div class="line">- 设置 [Fan Max. Trip Temp] 为 50</div><div class="line">- 设置 [Fan Start Trip Temp] 为 20</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/tip_icon.png" alt="tip_icon">建议在显卡的图形卡上使用DVI连接器。 要将显示设置为主板上的DVI端口，请执行以下设置步骤：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- &#24320;&#26426;&#25353; F2 &#36827;&#20837; BIOS &#35774;&#32622;&#33756;&#21333;&#10;- &#20381;&#27425;&#36873;&#25321; [Advanced]=&#62;[System Agent (SA) Configuration]=&#62;[Graphics Configuration]=&#62;[Primary Display]=&#62; &#35774;&#32622;&#20026; &#34;PEG&#34;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/tip_icon.png" alt="tip_icon">建议将IPC配置为始终以最高性能模式运行:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- &#24320;&#26426;&#25353; F2 &#36827;&#20837; BIOS &#35774;&#32622;&#33756;&#21333;&#10;- &#36873;&#25321; [Power] =&#62; [SKU POWER CONFIG] =&#62; &#35774;&#32622;&#20026; &#34;MAX. TDP&#34;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">- 开机按 F2 进入 BIOS 设置菜单</div><div class="line">- 依次选择 [Advanced]=&gt;[System Agent (SA) Configuration]=&gt;[Graphics Configuration]=&gt;[Primary Display]=&gt; 设置为 &quot;PEG&quot;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/tip_icon.png" alt="tip_icon">建议将IPC配置为始终以最高性能模式运行:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">- 开机按 F2 进入 BIOS 设置菜单</div><div class="line">- 选择 [Power] =&gt; [SKU POWER CONFIG] =&gt; 设置为 &quot;MAX. TDP&quot;</div></pre></td></tr></table></figure></p>
 <p>c. 连接电源: </p>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/IPC-6108GC-PowerCable.JPG" alt="IPC-6108GC-PowerCable.JPG"></p>
 <h4 id="为IPC安装软件"><a href="#为IPC安装软件" class="headerlink" title="为IPC安装软件"></a>为IPC安装软件</h4><p>这部分主要描述以下的安装步骤：</p>
@@ -284,18 +284,18 @@
 <p> a. 将Ubuntu安装驱动器插入USB端口并启动IPC。<br> b. 按照屏幕上的说明安装Linux。</p>
 </li>
 <li><p>执行软件更新与安装:<br> a. 安装完成，重启进入Linux。<br> b. 执行软件更新器（Software Updater）更新最新软件包，或在终端执行以下命令完成更新。</p>
- <figure class="highlight"><table><tr><td class="code"><pre><span class="line">sudo apt-get update; sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">sudo apt-get update; sudo apt-get upgrade</div></pre></td></tr></table></figure>
 <p> c. 打开终端，输入以下命令，安装Linux 4.4 内核：</p>
 </li>
 </ol>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">sudo apt-get install linux-generic-lts-xenial</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">sudo apt-get install linux-generic-lts-xenial</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/tip_icon.png" alt="tip_icon">IPC必须接入网络以便更新与安装软件，所以请确认网线插入并连接，如果连接网络没有使用动态分配（DHCP），需要更改网络配置。</p>
 <h4 id="安装Apollo内核"><a href="#安装Apollo内核" class="headerlink" title="安装Apollo内核"></a>安装Apollo内核</h4><p>车上运行Apollo需要<a href="https://github.com/ApolloAuto/apollo-kernel" target="_blank" rel="external">Apollo 内核</a>。强烈建议安装预编译内核。</p>
 <h5 id="使用预编译的-Apollo-内核"><a href="#使用预编译的-Apollo-内核" class="headerlink" title="使用预编译的 Apollo 内核"></a>使用预编译的 Apollo 内核</h5><p>你可以依照如下步骤获取、安装预编译的内核。</p>
 <ol>
 <li>下载发布的最新包<br><a href="https://github.com/ApolloAuto/apollo-kernel/releases" target="_blank" rel="external">https://github.com/ApolloAuto/apollo-kernel/releases</a></li>
 <li><p>解压与安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar zxvf linux-<span class="number">4.4</span>.<span class="number">32</span>-apollo-<span class="number">1.0</span>.<span class="number">0</span>.tar.gz</span><br><span class="line"><span class="built_in">cd</span> install</span><br><span class="line">sudo bash install_kernel.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">tar zxvf linux-4.4.32-apollo-1.0.0.tar.gz</div><div class="line"><span class="built_in">cd</span> install</div><div class="line">sudo bash install_kernel.sh</div></pre></td></tr></table></figure>
 </li>
 <li><p>使用<code>reboot</code>命令重启系统；</p>
 </li>
@@ -304,12 +304,12 @@
 <h5 id="构建你自己的内核"><a href="#构建你自己的内核" class="headerlink" title="构建你自己的内核"></a>构建你自己的内核</h5><p>如果你有修改内核，或者预编译内核不是你的最佳平台，你可以按照如下步骤构建自己的：</p>
 <ol>
 <li><p>从代码仓库克隆代码</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/ApolloAuto/apollo-kernel.git&#10;cd apollo-kernel</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git clone https://github.com/ApolloAuto/apollo-kernel.git</div><div class="line">cd apollo-kernel</div></pre></td></tr></table></figure>
 </li>
 <li><p>根据 <a href="https://github.com/ApolloAuto/apollo-kernel/blob/master/linux/ESDCAN-README.md" target="_blank" rel="external">ESDCAN-README.md</a>添加 ESD CAN 驱动源代码</p>
 </li>
 <li><p>按照如下指令编译：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash build.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bash build.sh</div></pre></td></tr></table></figure>
 </li>
 <li><p>使用同样的方式安装内核。</p>
 </li>
@@ -317,15 +317,15 @@
 <h4 id="安装-Nvidia-GPU-驱动"><a href="#安装-Nvidia-GPU-驱动" class="headerlink" title="安装 Nvidia GPU 驱动"></a>安装 Nvidia GPU 驱动</h4><p>车辆运行Apollo还需要<a href="http://www.nvidia.com/download/driverResults.aspx/114708/en-us" target="_blank" rel="external">Nvidia GPU 驱动</a>。需要安装特定型号的Nvidia GPU 驱动。</p>
 <ol>
 <li><p>下载安装文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">wget http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run</div></pre></td></tr></table></figure>
 </li>
 <li><p>开始安装</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo bash ./NVIDIA-Linux-x86_64-375.39.run --no-x-check -a -s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo bash ./NVIDIA-Linux-x86_64-375.39.run --no-x-check -a -s</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h5 id="可选项-测试ESD-CAN硬件节点"><a href="#可选项-测试ESD-CAN硬件节点" class="headerlink" title="可选项: 测试ESD CAN硬件节点"></a>可选项: 测试ESD CAN硬件节点</h5><p>重启安装新内核的IPC之后：</p>
 <p>a. 使用以下指令创建CAN硬件节点：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">cd /dev; sudo mknod &#8211;-mode=a+rw can0 c 52 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">cd /dev; sudo mknod –-mode=a+rw can0 c 52 0</div></pre></td></tr></table></figure>
 <p>b. 使用从ESD Electronics获取到得的ESD CAN软件包的一部分的测试程序来测试CAN设备节点。</p>
 <p>至此，IPC就可以被装载到车辆上了。</p>
 <h3 id="车辆"><a href="#车辆" class="headerlink" title="车辆"></a>车辆</h3><p>执行以下任务：</p>
@@ -508,11 +508,11 @@
 <p><a href="https://www.novatel.com/assets/Documents/Manuals/OM-20000148.pdf" target="_blank" rel="external">https://www.novatel.com/assets/Documents/Manuals/OM-20000148.pdf</a></p>
 <p><img src="images/online_icon.png" alt="online_icon">NovAtel SPAN-IGM-A1 产品主页:</p>
 <p><a href="https://www.novatel.com/products/span-gnss-inertial-systems/span-combined-systems/span-igm-a1/" target="_blank" rel="external">https://www.novatel.com/products/span-gnss-inertial-systems/span-combined-systems/span-igm-a1/</a></p>
-<h4 id="配置GPS、IMU"><a href="#配置GPS、IMU" class="headerlink" title="配置GPS、IMU"></a>配置GPS、IMU</h4><p>GPS 和IMU 配置如下：<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">WIFICONFIGSTATE OFF&#10;UNLOGALLTHISPORT&#10;SETIMUTOANTOFFSET0.00 1.10866 1.14165 0.05 0.05 0.08&#10;SETINSOFFSET0 0 0&#10;LOGCOM2 GPRMC ONTIME 1.0 0.25&#10;EVENTOUTCONTROLMARK2 ENABLE POSITIVE 999999990 10&#10;EVENTOUTCONTROLMARK1 ENABLE POSITIVE 500000000 500000000&#10;LOGNCOM1 GPGGA ONTIME 1.0&#10;&#10;logbestgnssposb ontime 0.5&#10;logbestgnssvelb ontime 0.5&#10;logbestposb ontime 0.5&#10;logINSPVASB ontime 0.01&#10;logCORRIMUDATASB ontime 0.01&#10;logINSCOVSB ontime 1&#10;logmark1pvab onnew&#10;&#10;logimutoantoffsetsb once&#10;logvehiclebodyrotationb onchanged&#10;&#10;SAVECONFIG</span><br></pre></td></tr></table></figure></p>
-<p>ProPak6配置如下:<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">WIFICONFIG STATE OFF&#10;CONNECTIMU COM3 IMU_ADIS16488&#10;INSCOMMAND ENABLE&#10;SETIMUORIENTATION 5&#10;ALIGNMENTMODE AUTOMATIC  &#10;SETIMUTOANTOFFSET 0.00 1.10866 1.14165 0.05 0.05 0.08&#10;VEHICLEBODYROTATION 0 0 0&#10; &#10;COM COM1 9600 N 8 1 N OFF OFF&#10;COM COM2 9600 N 8 1 N OFF OFF&#10;INTERFACEMODE COM1 NOVATEL NOVATEL OFF&#10;LOG COM2 GPRMC ONTIME 1 0.25&#10;PPSCONTROL ENABLE POSITIVE 1.0 10000&#10;MARKCONTROL MARK1 ENABLE POSITIVE&#10;EVENTINCONTROL MARK1 ENABLE POSITIVE 0 2&#10; &#10;interfacemode usb2 rtcmv3 none off&#10;rtksource auto any&#10;psrdiffsource auto any&#10; &#10;SAVECONFIG</span><br></pre></td></tr></table></figure></p>
+<h4 id="配置GPS、IMU"><a href="#配置GPS、IMU" class="headerlink" title="配置GPS、IMU"></a>配置GPS、IMU</h4><p>GPS 和IMU 配置如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">WIFICONFIGSTATE OFF</div><div class="line">UNLOGALLTHISPORT</div><div class="line">SETIMUTOANTOFFSET0.00 1.10866 1.14165 0.05 0.05 0.08</div><div class="line">SETINSOFFSET0 0 0</div><div class="line">LOGCOM2 GPRMC ONTIME 1.0 0.25</div><div class="line">EVENTOUTCONTROLMARK2 ENABLE POSITIVE 999999990 10</div><div class="line">EVENTOUTCONTROLMARK1 ENABLE POSITIVE 500000000 500000000</div><div class="line">LOGNCOM1 GPGGA ONTIME 1.0</div><div class="line"></div><div class="line">logbestgnssposb ontime 0.5</div><div class="line">logbestgnssvelb ontime 0.5</div><div class="line">logbestposb ontime 0.5</div><div class="line">logINSPVASB ontime 0.01</div><div class="line">logCORRIMUDATASB ontime 0.01</div><div class="line">logINSCOVSB ontime 1</div><div class="line">logmark1pvab onnew</div><div class="line"></div><div class="line">logimutoantoffsetsb once</div><div class="line">logvehiclebodyrotationb onchanged</div><div class="line"></div><div class="line">SAVECONFIG</div></pre></td></tr></table></figure></p>
+<p>ProPak6配置如下:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">WIFICONFIG STATE OFF</div><div class="line">CONNECTIMU COM3 IMU_ADIS16488</div><div class="line">INSCOMMAND ENABLE</div><div class="line">SETIMUORIENTATION 5</div><div class="line">ALIGNMENTMODE AUTOMATIC  </div><div class="line">SETIMUTOANTOFFSET 0.00 1.10866 1.14165 0.05 0.05 0.08</div><div class="line">VEHICLEBODYROTATION 0 0 0</div><div class="line"> </div><div class="line">COM COM1 9600 N 8 1 N OFF OFF</div><div class="line">COM COM2 9600 N 8 1 N OFF OFF</div><div class="line">INTERFACEMODE COM1 NOVATEL NOVATEL OFF</div><div class="line">LOG COM2 GPRMC ONTIME 1 0.25</div><div class="line">PPSCONTROL ENABLE POSITIVE 1.0 10000</div><div class="line">MARKCONTROL MARK1 ENABLE POSITIVE</div><div class="line">EVENTINCONTROL MARK1 ENABLE POSITIVE 0 2</div><div class="line"> </div><div class="line">interfacemode usb2 rtcmv3 none off</div><div class="line">rtksource auto any</div><div class="line">psrdiffsource auto any</div><div class="line"> </div><div class="line">SAVECONFIG</div></pre></td></tr></table></figure></p>
 <p><strong><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/warning_icon.png" alt="warning_icon"> WARNING:基于真实的测量值（GPS天线、IMU的偏移量）</strong> 修改 <strong><u>SETIMUTOANTOFFSE</u>T</strong> 行。</p>
 <p>示例:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SETIMUTOANTOFFSET -0.05 0.5 0.8 0.05 0.05 0.08</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SETIMUTOANTOFFSET -0.05 0.5 0.8 0.05 0.05 0.08</div></pre></td></tr></table></figure>
 <h3 id="建立网络"><a href="#建立网络" class="headerlink" title="建立网络"></a>建立网络</h3><p>本节提供了一种建立网络的建议。<br>运行阿波罗软件的IPC必须访问互联网获取实时运动学（RTK）数据，以便精确定位。移动设备还需要连接到IPC来运行阿波罗软件。</p>
 <h4 id="推荐配置"><a href="#推荐配置" class="headerlink" title="推荐配置"></a>推荐配置</h4><p>建议您根据下图设置网络：<br><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/4G-LTE-setup-6108GC.png" width="99%"></p>
 <p>步骤如下：</p>

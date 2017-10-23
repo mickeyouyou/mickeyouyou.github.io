@@ -10,7 +10,7 @@
     
 	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
     
-        <script src="/js/util.js" type="text/javascript"></script>
+        <script src="/js/util.js"></script>
         <script>
             if(isMobile()) {
                 loadjscssfile('../css/mobile.css', 'css');
@@ -63,7 +63,7 @@
 <li>哈希冲突的解决； 链表法，开放寻址两类方法</li>
 <li>操作接口的实现；初始化，根据key查询，插入，删除，销毁哈希表等操作</li>
 </ul>
-<p>哈希表的实现，使用如下的数据结构：<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _Bucket</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">char</span> *key;</span><br><span class="line">    <span class="keyword">void</span> *value;</span><br><span class="line">    <span class="keyword">struct</span> _Bucket *next;</span><br><span class="line">&#125; Bucket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _HashTable</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="keyword">int</span> elem_num;</span><br><span class="line">    Bucket** buckets;</span><br><span class="line">&#125; HashTable;</span><br></pre></td></tr></table></figure></p>
+<p>哈希表的实现，使用如下的数据结构：<br><figure class="highlight c"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">Bucket</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">    <span class="keyword">char</span> *key;</div><div class="line">    <span class="keyword">void</span> *value;</div><div class="line">    <span class="class"><span class="keyword">struct</span> _<span class="title">Bucket</span> *<span class="title">next</span>;</span></div><div class="line">&#125; Bucket;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">HashTable</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">    <span class="keyword">int</span> size;</div><div class="line">    <span class="keyword">int</span> elem_num;</div><div class="line">    Bucket** buckets;</div><div class="line">&#125; HashTable;</div></pre></td></tr></table></figure></p>
 <p>Bucket结构体是一个单链表，这是为了解决多个key哈希冲突的问题，也就是前面所提到的的链接法。 当多个key映射到同一个index的时候将冲突的元素链接起来。</p>
 <p>哈希函数的实现：<br>哈希函数需要尽可能的将不同的key映射到不同的槽(slot或者bucket)中，首先我们采用一种最为简单的哈希算法实现： 将key字符串的所有字符加起来，然后以结果对哈希表的大小取模，这样索引就能落在数组索引的范围之内了。</p>
 <p>这个哈希算法比较简单，它的效果并不好，在实际场景下不会使用这种哈希算法， 例如PHP中使用的是称为DJBX33A算法， 这里列举了Mysql，OpenSSL等开源软件使用的哈希算法， 有兴趣的读者可以前往参考。</p>

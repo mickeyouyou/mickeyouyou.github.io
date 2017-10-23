@@ -10,7 +10,7 @@
     
 	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
     
-        <script src="/js/util.js" type="text/javascript"></script>
+        <script src="/js/util.js"></script>
         <script>
             if(isMobile()) {
                 loadjscssfile('../css/mobile.css', 'css');
@@ -56,8 +56,8 @@
 </blockquote>
 <h3 id="汉字的数字化"><a href="#汉字的数字化" class="headerlink" title="汉字的数字化"></a>汉字的数字化</h3><p>为了做这样的比较，我们往往先要把词表示成计算机适合处理的方式。即自然语言理解的问题转化为机器学习的问题，第一步把这些符号数字化。</p>
 <h4 id="实数向量-One-hot-Representation"><a href="#实数向量-One-hot-Representation" class="headerlink" title="实数向量 One-hot Representation"></a>实数向量 One-hot Representation</h4><p>NLP 中最直观，也是到目前为止最常用的词表示方法是 One-hot Representation，把每个词表示为一个很长的向量。这个向量的维度是词表大小，其中绝大多数元素为 0，只有一个维度的值为 1，这个维度就代表了当前的词。</p>
-<p>示例：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#27801;&#29305;&#22269;&#29579;&#33832;&#21202;&#26364;21&#26085;&#23459;&#24067;&#65292;&#24223;&#38500;&#29579;&#20648;&#40664;&#32597;&#40664;&#24503;&#183;&#26412;&#183;&#32435;&#20234;&#22827;&#65292;&#21478;&#31435;&#31302;&#32597;&#40664;&#24503;&#183;&#26412;&#183;&#33832;&#21202;&#26364;&#20026;&#26032;&#20219;&#29579;&#20648;&#12290;</span><br></pre></td></tr></table></figure></p>
-<p>分词结果，由23个词组成：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#27801;&#29305; &#22269;&#29579; &#33832;&#21202;&#26364; 21&#26085; &#23459;&#24067; &#24223;&#38500; &#29579;&#20648; &#31302;&#32597;&#40664;&#24503; &#183;  &#26412; &#183; &#32435;&#20234;&#22827; , &#21478;&#31435; &#31302;&#32597;&#40664;&#24503; &#183; &#26412; &#183; &#33832;&#21202;&#26364; &#20026; &#26032;&#20219; &#29579;&#20648; &#12290;</span><br></pre></td></tr></table></figure></p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">沙特国王萨勒曼21日宣布，废除王储默罕默德·本·纳伊夫，另立穆罕默德·本·萨勒曼为新任王储。</div></pre></td></tr></table></figure></p>
+<p>分词结果，由23个词组成：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">沙特 国王 萨勒曼 21日 宣布 废除 王储 穆罕默德 ·  本 · 纳伊夫 , 另立 穆罕默德 · 本 · 萨勒曼 为 新任 王储 。</div></pre></td></tr></table></figure></p>
 <p>如下列出了上面两个词的编码为：</p>
 <ul>
 <li>废除 = [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 …]</li>
@@ -70,7 +70,7 @@
 <li>废除 = [0.347811, 0.419389, -0.507915, 0.0933927, …]</li>
 <li>废黜 = [0.153066, 0.320302, 0.0317544, 0.106635, …]</li>
 </ul>
-<p>这样如“废除”和“废黜”的对应词向量的余弦相似度就不再为零了。<code>废除</code>与<code>废黜</code>的相似性评估得分：<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="string">'score'</span> =&gt; float <span class="number">0.21303</span></span><br><span class="line"><span class="string">'words'</span> =&gt; </span><br><span class="line">  <span class="keyword">array</span> (size=<span class="number">2</span>)</span><br><span class="line">    <span class="string">'word_2'</span> =&gt; string <span class="string">'废黜'</span> (length=<span class="number">6</span>)</span><br><span class="line">    <span class="string">'word_1'</span> =&gt; string <span class="string">'废除'</span> (length=<span class="number">6</span>)</span><br></pre></td></tr></table></figure></p>
+<p>这样如“废除”和“废黜”的对应词向量的余弦相似度就不再为零了。<code>废除</code>与<code>废黜</code>的相似性评估得分：<br><figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="string">'score'</span> =&gt; float <span class="number">0.21303</span></div><div class="line"><span class="string">'words'</span> =&gt; </div><div class="line">  <span class="keyword">array</span> (size=<span class="number">2</span>)</div><div class="line">    <span class="string">'word_2'</span> =&gt; string <span class="string">'废黜'</span> (length=<span class="number">6</span>)</div><div class="line">    <span class="string">'word_1'</span> =&gt; string <span class="string">'废除'</span> (length=<span class="number">6</span>)</div></pre></td></tr></table></figure></p>
 <p>可以看到这两个词的相似性概率，并不算太高。</p>
 <p>词向量模型可以是概率模型或神经元网络模型。</p>
 <p>此处引用神经网络模型。</p>
@@ -172,7 +172,7 @@ context = \frac{x_{t-1} + x_{t-2} + x_{t+1} + x_{t+2}}{4}$$</span><!-- Has MathJ
 <li><a href="http://news.xinhuanet.com/world/2016-05/11/c_128974778.htm" target="_blank" rel="external">巴西总统弹劾案上演“360度转折” 2016.05.11</a></li>
 <li><a href="http://news.xinhuanet.com/world/2017-01/09/c_1120275986.htm" target="_blank" rel="external">新闻人物：伊朗前总统拉夫桑贾尼 2017.01.09</a></li>
 </ul>
-<p>同时，也发现因为历史原因，”废黜“与”废除“用错的情况：<a href="http://news.xinhuanet.com/overseas/2017-05/13/c_129604002.htm" target="_blank" rel="external">纽约议员提决议案 将排华法案签署日定为“包容日”</a>中：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#12288;&#20915;&#35758;&#26696;&#25351;&#20986;&#65292;&#23613;&#31649;&#12298;&#25490;&#21326;&#27861;&#26696;&#12299;&#24050;&#34987;&#24223;&#40668;&#65292;&#32852;&#37030;&#25919;&#24220;&#20063;&#22240;&#27492;&#36947;&#27465;&#65292;&#20294;&#21326;&#35028;&#36973;&#21463;&#30340;&#20260;&#23475;&#27704;&#36828;&#26080;&#27861;&#25273;&#21435;&#65292;&#36825;&#27573;&#25490;&#26021;&#12289;&#27495;&#35270;&#31227;&#27665;&#30340;&#21382;&#21490;&#20063;&#19981;&#24212;&#34987;&#24536;&#35760;&#12290;</span><br></pre></td></tr></table></figure></p>
+<p>同时，也发现因为历史原因，”废黜“与”废除“用错的情况：<a href="http://news.xinhuanet.com/overseas/2017-05/13/c_129604002.htm" target="_blank" rel="external">纽约议员提决议案 将排华法案签署日定为“包容日”</a>中：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">　决议案指出，尽管《排华法案》已被废黜，联邦政府也因此道歉，但华裔遭受的伤害永远无法抹去，这段排斥、歧视移民的历史也不应被忘记。</div></pre></td></tr></table></figure></p>
 <p>显然法案的弃用，应该使用”废除“。这样错误的稿件就不在学习范围之内了。</p>
 <p>上述稿件使用新华网提供的<a href="http://so.news.cn/?keyWordAll=%E5%BA%9F%E9%BB%9C&amp;keyWordOne=%E5%BA%9F%E9%BB%9C&amp;keyWordIg=%E6%B2%99%E7%89%B9&amp;searchFields=0&amp;sortField=0&amp;url=xinhuanet.com&amp;senSearch=1&amp;lang=cn#search/0/废黜/1/" target="_blank" rel="external">搜索工具</a>获得。</p>
 <h3 id="交互流程"><a href="#交互流程" class="headerlink" title="交互流程"></a>交互流程</h3><p>与英文不同，中文没有空格作为间隔，判断的前提应该是拿到光标符号截止，上一个符号结束的整句话，先解析其词组部分，然后再分词查询。由此下来，中文错别字的实时检查，耗时应该不会太短，接口的耗时优化会成为重要的一项工作内容。</p>

@@ -10,7 +10,7 @@
     
 	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
     
-        <script src="/js/util.js" type="text/javascript"></script>
+        <script src="/js/util.js"></script>
         <script>
             if(isMobile()) {
                 loadjscssfile('../css/mobile.css', 'css');
@@ -69,7 +69,7 @@
 </ul>
 <h3 id="2017-08-16"><a href="#2017-08-16" class="headerlink" title="2017.08.16"></a>2017.08.16</h3><p>《糯米促销引擎的性能之路》</p>
 <h3 id="2017-08-15"><a href="#2017-08-15" class="headerlink" title="2017.08.15"></a>2017.08.15</h3><p><a href="http://www.infoq.com/cn/news/2015/03/grpc-google-http2-protobuf" target="_blank" rel="external">gRPC：Google开源的基于HTTP/2和ProtoBuf的通用RPC框架</a></p>
-<figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">HelloRequest</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> greeting = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">HelloResponse</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> reply = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">service</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">rpc</span> SayHello(HelloRequest) <span class="keyword">returns</span> (HelloResponse)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight protobuf"><table><tr><td class="code"><pre><div class="line">message HelloRequest &#123;</div><div class="line">  string greeting = 1;</div><div class="line">&#125;</div><div class="line">message HelloResponse &#123;</div><div class="line">  string reply = 1;</div><div class="line">&#125;</div><div class="line">service HelloService &#123;</div><div class="line">  rpc SayHello(HelloRequest) returns (HelloResponse);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><a href="https://doc.oschina.net/grpc?t=60136" target="_blank" rel="external">https://doc.oschina.net/grpc?t=60136</a></p>
 <h3 id="2017-08-14"><a href="#2017-08-14" class="headerlink" title="2017.08.14"></a>2017.08.14</h3><p>dota bot scripting<br><a href="https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting:zh-cn" target="_blank" rel="external">https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting:zh-cn</a></p>
 <h3 id="2017-08-11"><a href="#2017-08-11" class="headerlink" title="2017.08.11"></a>2017.08.11</h3><p>试戴了一天Sound Sport，感觉又能和音乐做朋友了。不过，质保卡放在外包装纸外面，撕得时候还得小心点，要是撕坏了对保修有影响，那这个设计就尴尬了。最后感谢领导@CC送的生日礼物。</p>
@@ -142,10 +142,10 @@
 <p>使用protobuf替代ROS message 数据兼容性扩展</p>
 <p>protobuf 消息格式与ROS的深度集成</p>
 <p>自研车载框架，后续有可能随着进度开放。<br>Apollo框架使用</p>
-<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash docker/scripts/install_docker.sh&#10;# logout and login &#10;bash docker/scripts/dev_start.sh&#10;bash docker/scripts/dev_info.sh</span><br></pre></td></tr></table></figure>
-<h3 id="编译-Apollo"><a href="#编译-Apollo" class="headerlink" title="编译 Apollo"></a>编译 Apollo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash apollo.sh build</span><br></pre></td></tr></table></figure>
-<h3 id="启动Apollo"><a href="#启动Apollo" class="headerlink" title="启动Apollo"></a>启动Apollo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash scripts/hmi.sh</span><br></pre></td></tr></table></figure>
-<p>离线数据包演示<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rosbag play -l ./docs/demo_guide/rosbag.pla</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/install_docker.sh</div><div class="line"># logout and login </div><div class="line">bash docker/scripts/dev_start.sh</div><div class="line">bash docker/scripts/dev_info.sh</div></pre></td></tr></table></figure>
+<h3 id="编译-Apollo"><a href="#编译-Apollo" class="headerlink" title="编译 Apollo"></a>编译 Apollo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bash apollo.sh build</div></pre></td></tr></table></figure>
+<h3 id="启动Apollo"><a href="#启动Apollo" class="headerlink" title="启动Apollo"></a>启动Apollo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bash scripts/hmi.sh</div></pre></td></tr></table></figure>
+<p>离线数据包演示<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rosbag play -l ./docs/demo_guide/rosbag.pla</div></pre></td></tr></table></figure></p>
 <p>Clion + Cmake 编译配置<br><a href="https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html" target="_blank" rel="external">https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html</a></p>
 <h3 id="2017-08-03"><a href="#2017-08-03" class="headerlink" title="2017.08.03"></a>2017.08.03</h3><p>对比一下apollo和tensorflow的github项目，看看主要指标方面的差异，可以简单想一下如何能在各方面赶上tensorflow的活跃度</p>
 <p><a href="http://www.fzb.me/apollo/" target="_blank" rel="external">http://www.fzb.me/apollo/</a></p>
@@ -154,7 +154,7 @@
 <li>lidar、radar 激光雷达、雷达</li>
 <li><a href="https://www.zhihu.com/question/51435499" target="_blank" rel="external">什么是 end-to-end 神经网络？</a></li>
 </ul>
-<h3 id="2017-08-02"><a href="#2017-08-02" class="headerlink" title="2017.08.02"></a>2017.08.02</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/home/users/fengzongbao/.jumbo/bin/mysqld: File <span class="string">'./mysql-bin.index'</span> not found (Errcode: <span class="number">13</span>)</span><br><span class="line"></span><br><span class="line">开发虚拟机挂载目录</span><br><span class="line">/dev/vdb         <span class="number">97</span>G   <span class="number">26</span>G   <span class="number">72</span>G  <span class="number">26</span>% /home</span><br></pre></td></tr></table></figure>
+<h3 id="2017-08-02"><a href="#2017-08-02" class="headerlink" title="2017.08.02"></a>2017.08.02</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">/home/users/fengzongbao/.jumbo/bin/mysqld: File <span class="string">'./mysql-bin.index'</span> not found (Errcode: 13)</div><div class="line"></div><div class="line">开发虚拟机挂载目录</div><div class="line">/dev/vdb         97G   26G   72G  26% /home</div></pre></td></tr></table></figure>
 <h3 id="2017-08-01"><a href="#2017-08-01" class="headerlink" title="2017.08.01"></a>2017.08.01</h3><p>今日任务：<br>错别字识别服务更新。</p>
 <p>Apollo相关技术</p>
 <p>Google Protocol Buffers<br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/</a></p>
