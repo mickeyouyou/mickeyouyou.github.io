@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title></title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>如何添加新的GPS接收器</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,11 +31,11 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title"></h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">如何添加新的GPS接收器</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
-发表于2017年10月24日
+发表于2017年8月3日
 
 
 
@@ -44,8 +44,8 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何添加新的GPS接收器"><span class="toc-text">如何添加新的GPS接收器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加新GPS接收机的步骤"><span class="toc-text">添加新GPS接收机的步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-继承-Parse类，实现新GPS接收机的数据解析；"><span class="toc-text">1. 继承 Parse类，实现新GPS接收机的数据解析；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在-Parse类为新GPS接收机增加新接口；"><span class="toc-text">2. 在 Parse类为新GPS接收机增加新接口；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在配置文件-config-proto，增加新GPS接收机的数据格式；"><span class="toc-text">3. 在配置文件 config.proto，增加新GPS接收机的数据格式；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-为-data-parser-cpp中方法-create-parser，增加新接收机的实现逻辑；"><span class="toc-text">4. 为 data_parser.cpp中方法 create_parser，增加新接收机的实现逻辑；</span></a></li></ol></li></ol></li></ol>
-<h1 id="如何添加新的GPS接收器"><a href="#如何添加新的GPS接收器" class="headerlink" title="如何添加新的GPS接收器"></a>如何添加新的GPS接收器</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E7%90%83%E5%AE%9A%E4%BD%8D%E7%B3%BB%E7%BB%9F" target="_blank" rel="external">GPS</a>接收机是接收GPS卫星信息并计算地理位置(三维坐标)、速度、精确时间（GPS时间）的设备。<br><a href="https://baike.baidu.com/item/GPS%E8%AE%BE%E5%A4%87" target="_blank" rel="external">GPS设备</a>通常包含一个接收机，一个IMU惯导，<strong>编码器的接口</strong>，以及传感器信息融合引擎。<br>Apollo默认的GPS接收机使用Novatel。<br>以下说明演示如何添加新的GPS接收机。</p>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加新GPS接收机的步骤"><span class="toc-text">添加新GPS接收机的步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-继承-Parse类，实现新GPS接收机的数据解析；"><span class="toc-text">1. 继承 Parse类，实现新GPS接收机的数据解析；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在-Parse类为新GPS接收机增加新接口；"><span class="toc-text">2. 在 Parse类为新GPS接收机增加新接口；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在配置文件-config-proto，增加新GPS接收机的数据格式；"><span class="toc-text">3. 在配置文件 config.proto，增加新GPS接收机的数据格式；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-为-data-parser-cpp中方法-create-parser，增加新接收机的实现逻辑；"><span class="toc-text">4. 为 data_parser.cpp中方法 create_parser，增加新接收机的实现逻辑；</span></a></li></ol></li></ol>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E7%90%83%E5%AE%9A%E4%BD%8D%E7%B3%BB%E7%BB%9F" target="_blank" rel="external">GPS</a>接收机是接收GPS卫星信息并计算地理位置(三维坐标)、速度、精确时间（GPS时间）的设备。<br><a href="https://baike.baidu.com/item/GPS%E8%AE%BE%E5%A4%87" target="_blank" rel="external">GPS设备</a>通常包含一个接收机，一个IMU惯导，<strong>编码器的接口</strong>，以及传感器信息融合引擎。<br>Apollo默认的GPS接收机使用Novatel。<br>以下说明演示如何添加新的GPS接收机。</p>
 <h2 id="添加新GPS接收机的步骤"><a href="#添加新GPS接收机的步骤" class="headerlink" title="添加新GPS接收机的步骤"></a>添加新GPS接收机的步骤</h2><p>请跟随以下步骤添加新GPS接收机</p>
 <ul>
 <li>继承 <code>Parse</code>类，实现新GPS接收机的数据解析；</li>

@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title></title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>添加新的控制算法</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,11 +31,11 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title"></h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">添加新的控制算法</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
-发表于2017年10月24日
+发表于2017年8月3日
 
 
 
@@ -44,8 +44,8 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#添加新的控制算法"><span class="toc-text">添加新的控制算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-创建一个控制器"><span class="toc-text">1. 创建一个控制器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-在control-config文件，为新控制器添加配置"><span class="toc-text">2. 在control_config文件，为新控制器添加配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-注册新控制器"><span class="toc-text">3. 注册新控制器</span></a></li></ol></li></ol>
-<h1 id="添加新的控制算法"><a href="#添加新的控制算法" class="headerlink" title="添加新的控制算法"></a>添加新的控制算法</h1><p>Apollo中的控制算法由一个或多个可以非常容易改动，或者被替换为其他算法组成。每个控制器输出指令到<code>canbus</code>。Apollo默认控制算法包含一个横向控制器（LatController）和一个纵向控制器(LonController)。他们分别负责车辆在横向和纵向上的控制。</p>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-创建一个控制器"><span class="toc-text">1. 创建一个控制器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-在control-config文件，为新控制器添加配置"><span class="toc-text">2. 在control_config文件，为新控制器添加配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-注册新控制器"><span class="toc-text">3. 注册新控制器</span></a></li></ol>
+<p>Apollo中的控制算法由一个或多个可以非常容易改动，或者被替换为其他算法组成。每个控制器输出指令到<code>canbus</code>。Apollo默认控制算法包含一个横向控制器（LatController）和一个纵向控制器(LonController)。他们分别负责车辆在横向和纵向上的控制。</p>
 <p>新的控制算法不必遵循默认模式，比如一个横向控制器 + 一个纵向控制器。可以是一个单独的控制器，或者任意数量控制器的组合。</p>
 <p>添加新控制算法，需依次完成如下任务：</p>
 <ul>

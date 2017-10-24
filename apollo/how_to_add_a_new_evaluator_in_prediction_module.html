@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title></title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>在预测模块新增评估器</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,11 +31,11 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title"></h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">在预测模块新增评估器</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
-发表于2017年10月24日
+发表于2017年8月3日
 
 
 
@@ -44,8 +44,8 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在预测模块新增评估器"><span class="toc-text">在预测模块新增评估器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加新评估器的步骤Steps-to-add-a-new-evaluator"><span class="toc-text">添加新评估器的步骤Steps to add a new evaluator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-新增proto字段"><span class="toc-text">1. 新增proto字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-定义一个继承自Evaluator的类"><span class="toc-text">2. 定义一个继承自Evaluator的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-实现类NewEvaluator"><span class="toc-text">3. 实现类NewEvaluator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-更新预测配置"><span class="toc-text">4. 更新预测配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-更新评估管理器-Step-5-Upate-evaluator-manager"><span class="toc-text">5. 更新评估管理器 Step 5: Upate evaluator manager</span></a></li></ol></li></ol></li></ol>
-<h1 id="在预测模块新增评估器"><a href="#在预测模块新增评估器" class="headerlink" title="在预测模块新增评估器"></a>在预测模块新增评估器</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>评估器通过应用预训练的深度学习模型，生成特征（从障碍物和自定位车辆的原始信息），以获取模型输出。</p>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加新评估器的步骤Steps-to-add-a-new-evaluator"><span class="toc-text">添加新评估器的步骤Steps to add a new evaluator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-新增proto字段"><span class="toc-text">1. 新增proto字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-定义一个继承自Evaluator的类"><span class="toc-text">2. 定义一个继承自Evaluator的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-实现类NewEvaluator"><span class="toc-text">3. 实现类NewEvaluator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-更新预测配置"><span class="toc-text">4. 更新预测配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-更新评估管理器-Step-5-Upate-evaluator-manager"><span class="toc-text">5. 更新评估管理器 Step 5: Upate evaluator manager</span></a></li></ol></li></ol>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>评估器通过应用预训练的深度学习模型，生成特征（从障碍物和自定位车辆的原始信息），以获取模型输出。</p>
 <h2 id="添加新评估器的步骤Steps-to-add-a-new-evaluator"><a href="#添加新评估器的步骤Steps-to-add-a-new-evaluator" class="headerlink" title="添加新评估器的步骤Steps to add a new evaluator"></a>添加新评估器的步骤Steps to add a new evaluator</h2><p>添加名为<code>NewEvaluator</code>的评估器需要完成如下步骤：</p>
 <ul>
 <li>新增proto字段；</li>
