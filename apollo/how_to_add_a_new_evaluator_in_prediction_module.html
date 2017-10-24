@@ -1,0 +1,94 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title></title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title"></h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年10月24日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在预测模块新增评估器"><span class="toc-text">在预测模块新增评估器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加新评估器的步骤Steps-to-add-a-new-evaluator"><span class="toc-text">添加新评估器的步骤Steps to add a new evaluator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-新增proto字段"><span class="toc-text">1. 新增proto字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-定义一个继承自Evaluator的类"><span class="toc-text">2. 定义一个继承自Evaluator的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-实现类NewEvaluator"><span class="toc-text">3. 实现类NewEvaluator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-更新预测配置"><span class="toc-text">4. 更新预测配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-更新评估管理器-Step-5-Upate-evaluator-manager"><span class="toc-text">5. 更新评估管理器 Step 5: Upate evaluator manager</span></a></li></ol></li></ol></li></ol>
+<h1 id="在预测模块新增评估器"><a href="#在预测模块新增评估器" class="headerlink" title="在预测模块新增评估器"></a>在预测模块新增评估器</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>评估器通过应用预训练的深度学习模型，生成特征（从障碍物和自定位车辆的原始信息），以获取模型输出。</p>
+<h2 id="添加新评估器的步骤Steps-to-add-a-new-evaluator"><a href="#添加新评估器的步骤Steps-to-add-a-new-evaluator" class="headerlink" title="添加新评估器的步骤Steps to add a new evaluator"></a>添加新评估器的步骤Steps to add a new evaluator</h2><p>添加名为<code>NewEvaluator</code>的评估器需要完成如下步骤：</p>
+<ul>
+<li>新增proto字段；</li>
+<li>定义一个继承自<code>Evaluator</code>的类；</li>
+<li>实现类<code>NewEvaluator</code>；</li>
+<li>更新预测配置；</li>
+<li>更新评估管理器；</li>
+</ul>
+<h3 id="1-新增proto字段"><a href="#1-新增proto字段" class="headerlink" title="1. 新增proto字段"></a>1. 新增proto字段</h3><p>假设新评估结果为 <code>new_output</code> 类型为 <code>int32</code>。如果该输出直接关联了障碍物，你可以将其添加到<code>modules/prediction/proto/feature.proto</code>中：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line">message Feature &#123;</div><div class="line">    <span class="comment">// Other existing features</span></div><div class="line">    optional int32 new_output = <span class="number">1000</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果输出关联了车道序列，需要添加到<code>modules/prediction/proto/lane_graph.proto</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line">message LaneSequence &#123;</div><div class="line">    <span class="comment">// Other existing features</span></div><div class="line">    optional int32 new_output = <span class="number">1000</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-定义一个继承自Evaluator的类"><a href="#2-定义一个继承自Evaluator的类" class="headerlink" title="2. 定义一个继承自Evaluator的类"></a>2. 定义一个继承自<code>Evaluator</code>的类</h3><p>在目录<code>modules/prediction/evaluator/vehicle</code>下，创建名为<code>new_evaluator.h</code>的文件，定义如下：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"modules/prediction/evaluator/evaluator.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> apollo &#123;</div><div class="line"><span class="keyword">namespace</span> prediction &#123;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewEvaluator</span> :</span> <span class="keyword">public</span> Evaluator &#123;</div><div class="line"> <span class="keyword">public</span>:</div><div class="line">  NewEvaluator();</div><div class="line">  <span class="keyword">virtual</span> ~NewEvaluator();</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Evaluate</span><span class="params">(Obstacle* obstacle_ptr)</span> override</span>;</div><div class="line">  <span class="comment">// Other useful functions and fields.</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">&#125;  <span class="comment">// namespace prediction</span></div><div class="line">&#125;  <span class="comment">// namespace apollo</span></div></pre></td></tr></table></figure></p>
+<h3 id="3-实现类NewEvaluator"><a href="#3-实现类NewEvaluator" class="headerlink" title="3. 实现类NewEvaluator"></a>3. 实现类<code>NewEvaluator</code></h3><p>在与<code>new_evaluator.h</code>同样的目录中，创建名为<code>new_evaluator.cc</code> 的新文件，实现如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"modules/prediction/evaluator/vehicle/new_evaluator.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> apollo &#123;</div><div class="line"><span class="keyword">namespace</span> prediction &#123;</div><div class="line"></div><div class="line">NewEvaluator::NewEvaluator() &#123;</div><div class="line">  <span class="comment">// Implement</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">NewEvaluator::～NewEvaluator() &#123;</div><div class="line">  <span class="comment">// Implement</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">NewEvaluator::Evaluate(Obstacle* obstacle_ptr)() &#123;</div><div class="line">  <span class="comment">// Extract features</span></div><div class="line">  <span class="comment">// Compute new_output by applying pre-trained model</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Other functions</span></div><div class="line"></div><div class="line">&#125;  <span class="comment">// namespace prediction</span></div><div class="line">&#125;  <span class="comment">// namespace apollo</span></div></pre></td></tr></table></figure>
+<h3 id="4-更新预测配置"><a href="#4-更新预测配置" class="headerlink" title="4. 更新预测配置"></a>4. 更新预测配置</h3><p>在文件 <code>modules/prediction/conf/prediction_conf.pb.txt</code>中，更新字段 <code>evaluator_type</code> 如下：<br><figure class="highlight protobuf"><table><tr><td class="code"><pre><div class="line">obstacle_conf &#123;</div><div class="line">  obstacle_type: VEHICLE</div><div class="line">  obstacle_status: ON_LANE</div><div class="line">  evaluator_type: NEW_EVALUATOR</div><div class="line">  predictor_type: NEW_PREDICTOR</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="5-更新评估管理器-Step-5-Upate-evaluator-manager"><a href="#5-更新评估管理器-Step-5-Upate-evaluator-manager" class="headerlink" title="5. 更新评估管理器 Step 5: Upate evaluator manager"></a>5. 更新评估管理器 Step 5: Upate evaluator manager</h3><p>在文件<code>modlues/prediction/evaluator/evaluator_manager.h</code>中，更新 <code>vehicle_on_lane_evaluator_</code> 如下：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line">ObstacleConf::EvaluatorType vehicle_on_lane_evaluator_ =</div><div class="line">  ObstacleConf::NEW_EVALUATOR;</div></pre></td></tr></table></figure></p>
+<p>完成以上过程，新的评估器就创建成功了。</p>
+
+
+<!--<a href="http://yoursite.com/apollo/how_to_add_a_new_evaluator_in_prediction_module.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title></title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title"></h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年10月24日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何添加新的GPS接收器"><span class="toc-text">如何添加新的GPS接收器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加新GPS接收机的步骤"><span class="toc-text">添加新GPS接收机的步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-继承-Parse类，实现新GPS接收机的数据解析；"><span class="toc-text">1. 继承 Parse类，实现新GPS接收机的数据解析；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在-Parse类为新GPS接收机增加新接口；"><span class="toc-text">2. 在 Parse类为新GPS接收机增加新接口；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在配置文件-config-proto，增加新GPS接收机的数据格式；"><span class="toc-text">3. 在配置文件 config.proto，增加新GPS接收机的数据格式；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-为-data-parser-cpp中方法-create-parser，增加新接收机的实现逻辑；"><span class="toc-text">4. 为 data_parser.cpp中方法 create_parser，增加新接收机的实现逻辑；</span></a></li></ol></li></ol></li></ol>
+<h1 id="如何添加新的GPS接收器"><a href="#如何添加新的GPS接收器" class="headerlink" title="如何添加新的GPS接收器"></a>如何添加新的GPS接收器</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E7%90%83%E5%AE%9A%E4%BD%8D%E7%B3%BB%E7%BB%9F" target="_blank" rel="external">GPS</a>接收机是接收GPS卫星信息并计算地理位置(三维坐标)、速度、精确时间（GPS时间）的设备。<br><a href="https://baike.baidu.com/item/GPS%E8%AE%BE%E5%A4%87" target="_blank" rel="external">GPS设备</a>通常包含一个接收机，一个IMU惯导，<strong>编码器的接口</strong>，以及传感器信息融合引擎。<br>Apollo默认的GPS接收机使用Novatel。<br>以下说明演示如何添加新的GPS接收机。</p>
+<h2 id="添加新GPS接收机的步骤"><a href="#添加新GPS接收机的步骤" class="headerlink" title="添加新GPS接收机的步骤"></a>添加新GPS接收机的步骤</h2><p>请跟随以下步骤添加新GPS接收机</p>
+<ul>
+<li>继承 <code>Parse</code>类，实现新GPS接收机的数据解析；</li>
+<li>在 <code>Parse</code>类为新GPS接收机增加新接口；</li>
+<li>在配置文件 <code>config.proto</code>，增加新GPS接收机的数据格式；</li>
+<li>为 <code>data_parser.cpp</code>中方法 <code>create_parser</code>，增加新接收机的实现逻辑；</li>
+</ul>
+<p>假设我们将要添加一个名为<code>u-blox</code>的GPS接收机。</p>
+<h3 id="1-继承-Parse类，实现新GPS接收机的数据解析；"><a href="#1-继承-Parse类，实现新GPS接收机的数据解析；" class="headerlink" title="1. 继承 Parse类，实现新GPS接收机的数据解析；"></a>1. 继承 <code>Parse</code>类，实现新GPS接收机的数据解析；</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UbloxParser</span> :</span> <span class="keyword">public</span> Parser &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    UbloxParser();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">virtual</span> MessageType <span class="title">get_message</span><span class="params">(MessagePtr&amp; message_ptr)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">verify_checksum</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    Parser::<span class="function">MessageType <span class="title">prepare_message</span><span class="params">(MessagePtr&amp; message_ptr)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">// The handle_xxx functions return whether a message is ready.</span></div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">handle_esf_raw</span><span class="params">(<span class="keyword">const</span> ublox::EsfRaw* raw, <span class="keyword">size_t</span> data_size)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">handle_esf_ins</span><span class="params">(<span class="keyword">const</span> ublox::EsfIns* ins)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">handle_hnr_pvt</span><span class="params">(<span class="keyword">const</span> ublox::HnrPvt* pvt)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">handle_nav_att</span><span class="params">(<span class="keyword">const</span> ublox::NavAtt *att)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">handle_nav_pvt</span><span class="params">(<span class="keyword">const</span> ublox::NavPvt* pvt)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">handle_nav_cov</span><span class="params">(<span class="keyword">const</span> ublox::NavCov *cov)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">handle_rxm_rawx</span><span class="params">(<span class="keyword">const</span> ublox::RxmRawx *raw)</span></span>;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> _gps_seconds_base = <span class="number">-1.0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> _gyro_scale = <span class="number">0.0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> _accel_scale = <span class="number">0.0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">float</span> _imu_measurement_span = <span class="number">0.0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> _imu_frame_mapping = <span class="number">5</span>;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> _imu_measurement_time_previous = <span class="number">-1.0</span>;</div><div class="line"></div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">uint8_t</span>&gt; _buffer;</div><div class="line"></div><div class="line">    <span class="keyword">size_t</span> _total_length = <span class="number">0</span>;</div><div class="line"></div><div class="line">    ::apollo::drivers::gnss::Gnss _gnss;</div><div class="line">    ::apollo::drivers::gnss::Imu _imu;</div><div class="line">    ::apollo::drivers::gnss::Ins _ins;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="2-在-Parse类为新GPS接收机增加新接口；"><a href="#2-在-Parse类为新GPS接收机增加新接口；" class="headerlink" title="2. 在 Parse类为新GPS接收机增加新接口；"></a>2. 在 <code>Parse</code>类为新GPS接收机增加新接口；</h3><p>在 <code>Parser</code>类， 增加方法 <code>create_ublox</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parser</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">// Return a pointer to a NovAtel parser. The caller should take ownership.</span></div><div class="line">    <span class="function"><span class="keyword">static</span> Parser* <span class="title">create_novatel</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">// Return a pointer to a u-blox parser. The caller should take ownership.</span></div><div class="line">    <span class="function"><span class="keyword">static</span> Parser* <span class="title">create_ublox</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="keyword">virtual</span> ~Parser() &#123;&#125;</div><div class="line"></div><div class="line">    <span class="comment">// Updates the parser with new data. The caller must keep the data valid until get_message()</span></div><div class="line">    <span class="comment">// returns NONE.</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">const</span> <span class="keyword">uint8_t</span>* data, <span class="keyword">size_t</span> length)</span> </span>&#123;</div><div class="line">        _data = data;</div><div class="line">        _data_end = data + length;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; data)</span> </span>&#123;</div><div class="line">        update(<span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">uint8_t</span>*&gt;(data.data()), data.size());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageType</span> &#123;</span></div><div class="line">        NONE,</div><div class="line">        GNSS,</div><div class="line">        GNSS_RANGE,</div><div class="line">        IMU,</div><div class="line">        INS,</div><div class="line">        WHEEL,</div><div class="line">        EPHEMERIDES,</div><div class="line">        OBSERVATION,</div><div class="line">        GPGGA,</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// Gets a parsed protobuf message. The caller must consume the message before calling another</span></div><div class="line">    <span class="comment">// get_message() or update();</span></div><div class="line">    <span class="function"><span class="keyword">virtual</span> MessageType <span class="title">get_message</span><span class="params">(MessagePtr&amp; message_ptr)</span> </span>= <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">protected</span>:</div><div class="line">    Parser() &#123;&#125;</div><div class="line"></div><div class="line">    <span class="comment">// Point to the beginning and end of data. Do not take ownership.</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">uint8_t</span>* _data = <span class="literal">nullptr</span>;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">uint8_t</span>* _data_end = <span class="literal">nullptr</span>;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    DISABLE_COPY_AND_ASSIGN(Parser);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Parser* Parser::create_ublox() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> UbloxParser();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-在配置文件-config-proto，增加新GPS接收机的数据格式；"><a href="#3-在配置文件-config-proto，增加新GPS接收机的数据格式；" class="headerlink" title="3. 在配置文件 config.proto，增加新GPS接收机的数据格式；"></a>3. 在配置文件 <code>config.proto</code>，增加新GPS接收机的数据格式；</h3><p>在配置文件中 <code>modules/drivers/gnss/proto/config.proto</code>，添加<code>UBLOX_TEXT</code> and <code>UBLOX_BINARY</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">message Stream &#123;</div><div class="line">    enum Format &#123;</div><div class="line">        UNKNOWN = 0;</div><div class="line">        NMEA = 1;</div><div class="line">        RTCM_V2 = 2;</div><div class="line">        RTCM_V3 = 3;</div><div class="line"></div><div class="line">        NOVATEL_TEXT = 10;</div><div class="line">        NOVATEL_BINARY = 11;</div><div class="line"></div><div class="line">        UBLOX_TEXT = 20;</div><div class="line">        UBLOX_BINARY = 21;</div><div class="line">    &#125;</div><div class="line">... ...</div></pre></td></tr></table></figure>
+<h3 id="4-为-data-parser-cpp中方法-create-parser，增加新接收机的实现逻辑；"><a href="#4-为-data-parser-cpp中方法-create-parser，增加新接收机的实现逻辑；" class="headerlink" title="4. 为 data_parser.cpp中方法 create_parser，增加新接收机的实现逻辑；"></a>4. 为 <code>data_parser.cpp</code>中方法 <code>create_parser</code>，增加新接收机的实现逻辑；</h3><p>添加如下处理<code>config::Stream::UBLOX_BINARY</code>的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="function">Parser* <span class="title">create_parser</span><span class="params">(config::Stream::Format format, <span class="keyword">bool</span> is_base_station = <span class="literal">false</span>)</span> </span>&#123;</div><div class="line">    <span class="keyword">switch</span> (format) &#123;</div><div class="line">    <span class="keyword">case</span> config::Stream::NOVATEL_BINARY:</div><div class="line">        <span class="keyword">return</span> Parser::create_novatel();</div><div class="line"></div><div class="line">    <span class="keyword">case</span> config::Stream::UBLOX_BINARY:</div><div class="line">        <span class="keyword">return</span> Parser::create_ubloxl();</div><div class="line"></div><div class="line">    <span class="keyword">default</span>:</div><div class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+
+<!--<a href="http://yoursite.com/apollo/how_to_add_a_gps_receiver.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

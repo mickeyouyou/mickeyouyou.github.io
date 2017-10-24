@@ -1,0 +1,105 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title></title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title"></h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年10月24日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#添加新的控制算法"><span class="toc-text">添加新的控制算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-创建一个控制器"><span class="toc-text">1. 创建一个控制器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-在control-config文件，为新控制器添加配置"><span class="toc-text">2. 在control_config文件，为新控制器添加配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-注册新控制器"><span class="toc-text">3. 注册新控制器</span></a></li></ol></li></ol>
+<h1 id="添加新的控制算法"><a href="#添加新的控制算法" class="headerlink" title="添加新的控制算法"></a>添加新的控制算法</h1><p>Apollo中的控制算法由一个或多个可以非常容易改动，或者被替换为其他算法组成。每个控制器输出指令到<code>canbus</code>。Apollo默认控制算法包含一个横向控制器（LatController）和一个纵向控制器(LonController)。他们分别负责车辆在横向和纵向上的控制。</p>
+<p>新的控制算法不必遵循默认模式，比如一个横向控制器 + 一个纵向控制器。可以是一个单独的控制器，或者任意数量控制器的组合。</p>
+<p>添加新控制算法，需依次完成如下任务：</p>
+<ul>
+<li>创建一个控制器；</li>
+<li>在<code>control_config</code>文件，为新控制器添加配置；</li>
+<li>注册新控制器；</li>
+</ul>
+<h2 id="1-创建一个控制器"><a href="#1-创建一个控制器" class="headerlink" title="1. 创建一个控制器"></a>1. 创建一个控制器</h2><p>所有控制器必须继承定义了一组接口的基类<code>Controller</code>。以下为控制器实现示例：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">namespace</span> apollo &#123;</div><div class="line"><span class="keyword">namespace</span> control &#123;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewController</span> :</span> <span class="keyword">public</span> Controller &#123;</div><div class="line"> <span class="keyword">public</span>:</div><div class="line">  NewController();</div><div class="line">  <span class="keyword">virtual</span> ~NewController();</div><div class="line">  <span class="function">Status <span class="title">Init</span><span class="params">(<span class="keyword">const</span> ControlConf* control_conf)</span> override</span>;</div><div class="line">  <span class="function">Status <span class="title">ComputeControlCommand</span><span class="params">(</span></span></div><div class="line"><span class="function"><span class="params">      <span class="keyword">const</span> localization::LocalizationEstimate* localization,</span></span></div><div class="line"><span class="function"><span class="params">      <span class="keyword">const</span> canbus::Chassis* chassis, <span class="keyword">const</span> planning::ADCTrajectory* trajectory,</span></span></div><div class="line"><span class="function"><span class="params">      ControlCommand* cmd)</span> override</span>;</div><div class="line">  <span class="function">Status <span class="title">Reset</span><span class="params">()</span> override</span>;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Stop</span><span class="params">()</span> override</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">Name</span><span class="params">()</span> <span class="keyword">const</span> override</span>;</div><div class="line">&#125;;</div><div class="line">&#125;  <span class="comment">// namespace control</span></div><div class="line">&#125;  <span class="comment">// namespace apollo</span></div></pre></td></tr></table></figure>
+<h2 id="2-在control-config文件，为新控制器添加配置"><a href="#2-在control-config文件，为新控制器添加配置" class="headerlink" title="2. 在control_config文件，为新控制器添加配置"></a>2. 在<code>control_config</code>文件，为新控制器添加配置</h2><p>新增控制器配置需要完成以下步骤：</p>
+<ol>
+<li>根据算法需要，为新控制器配置和参数定义一个 <code>proto</code>。横向控制器<code>LatController</code>的<code>proto</code>定义示例见： <code>modules/control/proto/lat_controller_conf.proto</code></li>
+<li><p>定义新控制器<code>proto</code>之后，为<code>new_controller_conf.proto</code>录入以下示例内容:</p>
+ <figure class="highlight protobuf"><table><tr><td class="code"><pre><div class="line">syntax = &quot;proto2&quot;;</div><div class="line"></div><div class="line">package apollo.control;</div><div class="line"></div><div class="line">message NewControllerConf &#123;</div><div class="line">    double parameter1 = 1;</div><div class="line">    int32 parameter2 = 2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>更新配置文件<code>modules/control/proto/control_conf.proto</code>：</p>
+ <figure class="highlight protobuf"><table><tr><td class="code"><pre><div class="line"><span class="keyword">optional</span> apollo.control.NewControllerConf new_controller_conf = <span class="number">16</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在同样的文件中，更新 <code>ControllerType</code>:</p>
+ <figure class="highlight protobuf"><table><tr><td class="code"><pre><div class="line">enum ControllerType &#123;</div><div class="line">    LAT_CONTROLLER = 0;</div><div class="line">    LON_CONTROLLER = 1;</div><div class="line">    NEW_CONTROLLER = 2;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>完成<code>protobuf</code>的定义后，相应地在 <code>modules/control/conf/lincoln.pb.txt</code>更新控制配置文件。</p>
+</li>
+</ol>
+<p><em>注意:</em>  以上 <code>control/conf</code> 文件是Apollo下默认配置文件，你需要使用单独的控制配置文件。</p>
+<h2 id="3-注册新控制器"><a href="#3-注册新控制器" class="headerlink" title="3. 注册新控制器"></a>3. 注册新控制器</h2><p>为激活在Apollo中的新控制器，需要在<code>ControllerAgent</code>类中注册，类文件：<code>modules/control/controller/controller_agent.cc</code></p>
+<p>添加新控制器注册信息如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">void</span> ControllerAgent::RegisterControllers() &#123;</div><div class="line">  controller_factory_.Register(</div><div class="line">      ControlConf::NEW_CONTROLLER,</div><div class="line">      []() -&gt; Controller * &#123; <span class="keyword">return</span> <span class="keyword">new</span> NewController(); &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>更新代码之后，新控制就可以在Apollo系统中生效了。</p>
+
+
+<!--<a href="http://yoursite.com/apollo/how_to_add_a_new_control_algorithm.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
