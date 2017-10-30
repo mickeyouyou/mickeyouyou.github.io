@@ -1,0 +1,94 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title></title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title"></h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年10月30日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#编译与发布"><span class="toc-text">编译与发布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Docker"><span class="toc-text">安装 Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译与发布-1"><span class="toc-text">编译与发布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动容器"><span class="toc-text">启动容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入容器"><span class="toc-text">进入容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译模块"><span class="toc-text">编译模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布二进制版本"><span class="toc-text">发布二进制版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成发布版本镜像"><span class="toc-text">生成发布版本镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#推送镜像"><span class="toc-text">推送镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Legal-Disclaimer"><span class="toc-text">Legal Disclaimer</span></a></li></ol></li></ol>
+<h1 id="编译与发布"><a href="#编译与发布" class="headerlink" title="编译与发布"></a>编译与发布</h1><ul>
+<li><a href="#docker">1. 安装 Docker</a></li>
+<li><a href="#build_release">2. 编译与发布</a></li>
+<li><a href="#test">3. 测试</a></li>
+</ul>
+<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a><span id="docker">安装 Docker</span></h2><p>The system requirement for building Apollo is Ubuntu 14.04. Docker container is the simplest way to set up the build environment for Apollo project. Detailed docker tutorial is <a href="https://docs.docker.com/" target="_blank" rel="external">here</a>.<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo docker/scripts/install_docker.sh</div></pre></td></tr></table></figure></p>
+<h2 id="编译与发布-1"><a href="#编译与发布-1" class="headerlink" title="编译与发布"></a><span id="build_release">编译与发布</span></h2><h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><p>We provide a build image named <em>dev-latest</em>. Container will mount your local apollo repo to <em>/apollo</em>.<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/dev_start.sh</div></pre></td></tr></table></figure></p>
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/dev_into.sh</div></pre></td></tr></table></figure>
+<h3 id="编译模块"><a href="#编译模块" class="headerlink" title="编译模块"></a>编译模块</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo.sh build</div></pre></td></tr></table></figure>
+<h3 id="发布二进制版本"><a href="#发布二进制版本" class="headerlink" title="发布二进制版本"></a>发布二进制版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo.sh release</div></pre></td></tr></table></figure>
+<p>This will generate a release directory, which contains ROS environment, running scripts, binaries and dependent shared libraries (.so files).</p>
+<p>To create a release excluding proprietary software (such as ESD CAN library), do:<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo.sh release_noproprietary</div></pre></td></tr></table></figure></p>
+<h3 id="生成发布版本镜像"><a href="#生成发布版本镜像" class="headerlink" title="生成发布版本镜像"></a>生成发布版本镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo_docker.sh gen</div></pre></td></tr></table></figure>
+<p>This will create a new docker image with the release directory. The release image will be named as <em>release-yyyymmdd_hhmm</em>. Meanwhile, your most recent built image will be tagged as <em>release-latest</em>. <strong>The docker_release needed to be executed outside of container.</strong></p>
+<h3 id="推送镜像"><a href="#推送镜像" class="headerlink" title="推送镜像"></a>推送镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo_docker.sh push</div></pre></td></tr></table></figure>
+<p>The command will push your most recent release docker image to the docker hub.</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><span id="test">测试</span></h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/release_start.sh [release tag]</div></pre></td></tr></table></figure>
+<p>The <em>HMI</em> will automatically start and you can control each apollo module through any web browser by inputting IP address and port number, such as <em>localhost:8887</em>. You can get into the release container if quick fix needed.<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/release_into.sh</div></pre></td></tr></table></figure></p>
+<h2 id="Legal-Disclaimer"><a href="#Legal-Disclaimer" class="headerlink" title="Legal Disclaimer"></a>Legal Disclaimer</h2><p>The docker image that you build may contain ESD CAN library files provided by ESD Electronics (hereby referred as ESD), which you should have obtained via a licensing agreement with ESD. The licensing agreement shall have granted you (as an individual or a business entity) the right to use the said software provided by ESD; however, you may (and likely you do) need explicit re-distribution permission from ESD to publish the docker image for any other third party to consume. Such licensing agreement is solely between you and ESD, and is not covered by the license terms of the Apollo project (see file LICENSE under Apollo top directory).</p>
+
+
+<!--<a href="http://yoursite.com/apollo/howto/how_to_build_and_release.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

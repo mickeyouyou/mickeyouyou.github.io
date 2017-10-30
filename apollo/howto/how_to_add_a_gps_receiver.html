@@ -63,7 +63,7 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="function">Parser* <span class="title">create_parser</span><span class="params">(config::Stream::Format format, <span class="keyword">bool</span> is_base_station = <span class="literal">false</span>)</span> </span>&#123;</div><div class="line">    <span class="keyword">switch</span> (format) &#123;</div><div class="line">    <span class="keyword">case</span> config::Stream::NOVATEL_BINARY:</div><div class="line">        <span class="keyword">return</span> Parser::create_novatel();</div><div class="line"></div><div class="line">    <span class="keyword">case</span> config::Stream::UBLOX_BINARY:</div><div class="line">        <span class="keyword">return</span> Parser::create_ubloxl();</div><div class="line"></div><div class="line">    <span class="keyword">default</span>:</div><div class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
 
-<!--<a href="http://yoursite.com/apollo/how_to_add_a_gps_receiver.html#disqus_thread" class="article-comment-link">Comments</a>
+<!--<a href="http://yoursite.com/apollo/howto/how_to_add_a_gps_receiver.html#disqus_thread" class="article-comment-link">Comments</a>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
