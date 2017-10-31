@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo 开发者在线文档</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,7 +31,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo 开发者在线文档</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -44,16 +44,28 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HowTo"><span class="toc-text">HowTo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#车辆硬件"><span class="toc-text">车辆硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档"><span class="toc-text">文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#faq"><span class="toc-text">faq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo生态进展"><span class="toc-text">Apollo生态进展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other"><span class="toc-text">Other</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文档目录"><span class="toc-text">文档目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#车辆硬件"><span class="toc-text">车辆硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo参考文档"><span class="toc-text">Apollo参考文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-Apollo-自动驾驶公开课"><span class="toc-text">Hello Apollo 自动驾驶公开课</span></a></li></ol>
 <p>一张图了解Apollo最新进展：</p>
-<p><img src="http://7xk16m.com1.z0.glb.clouddn.com/640.png"></p>
-<p>阅读笔记整理，起初这里只是对点滴技术代码的阅读，后来汇合在了一起，希望能成为理解Apollo的整体思路：</p>
+<p><img src="http://7xk16m.com1.z0.glb.clouddn.com/MacHi%202017-10-31%2018-30-29.png" width="99%"></p>
 <ul>
+<li>蓝色：1.0开放的模块</li>
+<li>黄色：1.5开放的模块</li>
+<li>深蓝色：2.0将要开放的能力</li>
+</ul>
+<p>本文档是在线手册的预览（Preview）版本，覆盖多个阶段，不同功能模块。 为了给开发者在短时间内一个宏观的认识，我们建设在线文档站点。</p>
+<h2 id="文档目录"><a href="#文档目录" class="headerlink" title="文档目录"></a>文档目录</h2><ul>
+<li>安装 <ul>
+<li><a href="./hardware_system_installation_guide_1.5.html">参考硬件的安装（v1.5）</a></li>
+<li><a href="./install_by_sourcecodes.html">软件部分编译安装</a></li>
+<li><a href="./case_by_install.html">安装过程中遇到的case与解决办法</a></li>
+</ul>
+</li>
+<li>代码<ul>
 <li><a href="./doxygen.html">Doxygen生成文档</a> </li>
 <li><a href="./words.html">Apollo相关名词解释</a></li>
 <li><a href="./question.html">Apollo代码阅读笔记</a></li>
 <li><a href="./from_apollo_main_macro_to_all_modules.html">从ApolloApp类、APOLLO_MAIN宏探究Apollo所有模块</a></li>
-<li>核心能力模块<ul>
+<li>核心模块<ul>
 <li><a href="./module_perception.html">感知模块(perception)</a><ul>
 <li><a href="./3d_obstacle_perception.html">3D 障碍物感知</a> </li>
 </ul>
@@ -63,24 +75,50 @@
 </ul>
 </li>
 </ul>
-<h2 id="HowTo"><a href="#HowTo" class="headerlink" title="HowTo"></a>HowTo</h2><ul>
+</li>
+<li><a href="./howto">HowTo</a><ul>
 <li><a href="./howto/how_to_add_a_gps_receiver.html">如何添加新的GPS接收器</a></li>
 <li><a href="./howto/how_to_add_a_new_can_card.html">如何新增CAN卡</a></li>
 <li><a href="./howto/how_to_add_a_new_control_algorithm.html">添加新的控制算法</a></li>
 <li><a href="./howto/how_to_add_a_new_evaluator_in_prediction_module.html">在预测模块新增评估器</a></li>
 <li><a href="./howto/how_to_add_a_new_predictor_in_prediction_module.html">在预测模块新增预测器</a></li>
-<li><a href="./howto/how_to_add_a_new_vehicle.html">如何添加一辆新车</a></li>
-<li><a href="./howto/how_to_add_an_external_dependency.html">如何添加外部依赖</a></li>
-<li><a href="./howto/how_to_build_and_release.html">如何编译与发布</a></li>
+<li><a href="./howto/how_to_add_a_new_vehicle.html">如何添加车辆</a></li>
 <li><a href="./howto/how_to_debug_dreamview_start_problem.html">如何调试DreamView的启动问题</a></li>
-<li><a href="./howto/how_to_document_code.html">Apollo注释规范</a></li>
 <li><a href="./howto/how_to_add_an_external_dependency.html">如何离线运行感知可视化</a></li>
 <li><a href="./howto/how_to_run_perception_module_on_your_local_computer.html">如何在本地运行感知模块</a></li>
-<li><a href="./howto/how_to_save_load_docker_image_locally.html">如何在本地保存与加载Docker镜像</a></li>
-<li><a href="./howto/how_to_style_check_to_one_dir.html">如何对目录做代码规范检查</a></li>
 <li><a href="./howto/how_to_troubleshoot_esdcan.html">如何调试ESD CAN设备</a></li>
 <li><a href="./howto/how_to_tune_control_parameters.html">如何调整控制参数</a></li>
 <li><a href="./howto/how_to_update_vehicle_calibration.html">如何更新车辆油门与制动的校准</a></li>
+</ul>
+</li>
+<li><a href="./training.html">训练</a><ul>
+<li><a href="./run_demo.html">Demo</a> </li>
+<li>[封闭园区低速小型车]<ul>
+<li>参考硬件选择</li>
+<li>Apollo模块适配  </li>
+</ul>
+</li>
+<li>[改装一辆乘用车]<ul>
+<li>参考硬件选择</li>
+<li>Apollo模块适配</li>
+</ul>
+</li>
+<li>[改装一辆大巴]<ul>
+<li>参考硬件选择</li>
+<li>Apollo模块适配 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>社区 <ul>
+<li><a href="./howto/how_to_document_code.html">Apollo注释规范</a></li>
+<li><a href="./howto/how_to_add_an_external_dependency.html">如何添加外部依赖</a></li>
+<li><a href="./howto/how_to_style_check_to_one_dir.html">如何对目录做代码规范检查</a></li>
+<li><a href="./howto/how_to_save_load_docker_image_locally.html">如何在本地保存与加载Docker镜像</a></li>
+<li><a href="./howto/how_to_build_and_release.html">如何编译与发布</a></li>
+</ul>
+</li>
+<li><a href="./faq.html">FAQ</a></li>
 </ul>
 <h2 id="车辆硬件"><a href="#车辆硬件" class="headerlink" title="车辆硬件"></a>车辆硬件</h2><ul>
 <li><a href="http://www.fzb.me/2017-9-25-driving-by-wire-tech.html" target="_blank" rel="external">线控车辆控制组件与自动驾驶的控制</a></li>
@@ -92,24 +130,16 @@
 <li><a href="./platform_sim.html">仿真平台</a></li>
 <li><a href="https://console.bce.baidu.com/apollo/task/overview?locale=zh-cn#/apollo/home" target="_blank" rel="external">数据开放平台</a></li>
 </ul>
-<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>在线版：<a href="http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html" target="_blank" rel="external">http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html</a></p>
-<h2 id="faq"><a href="#faq" class="headerlink" title="faq"></a>faq</h2><ul>
-<li><a href="./faq.html">FAQ</a></li>
-<li><a href="./case_by_install.html">Apollo 安装过程中遇到的case与解决办法</a></li>
+<h2 id="Apollo参考文档"><a href="#Apollo参考文档" class="headerlink" title="Apollo参考文档"></a>Apollo参考文档</h2><p>开发者可以在下载代码库后，参照<a href="./doxygen.html">Doxygen生成文档</a> 生成基于最新代码库的参考文档。当然，我们也提供基于最新发布版本的在线版：<a href="http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html" target="_blank" rel="external">http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html</a></p>
+<h2 id="Hello-Apollo-自动驾驶公开课"><a href="#Hello-Apollo-自动驾驶公开课" class="headerlink" title="Hello Apollo 自动驾驶公开课"></a>Hello Apollo 自动驾驶公开课</h2><p>第一站：上海技术沙龙，举行了如下三个主题的分享，资源会在上传后更新：</p>
+<ul>
+<li>Apollo自动驾驶及跟车方案设计思路</li>
+<li>Apollo高精地图服务介绍及云端仿真平台应用</li>
+<li>基于深度学习的End-to-End自动驾驶方案</li>
 </ul>
-<h2 id="Apollo生态进展"><a href="#Apollo生态进展" class="headerlink" title="Apollo生态进展"></a>Apollo生态进展</h2><p><a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="external"><img src="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" width="99.9999%"></a></p>
+<p><a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="external"><img src="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" width="99.9999%"></a></p>
 <p align="center"> <a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="external">点击查看大图</a></p>
 
-
-<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><ul>
-<li><a href="http://www.ednchina.com/news/article/201606021755" target="_blank" rel="external">基于机器人操作系统ROS的无人驾驶系统，这些优缺点要知道</a></li>
-</ul>
-<p>目前有关无人驾驶的开源系统：</p>
-<ul>
-<li>Udacity开源的自动驾驶方案： <a href="https://github.com/udacity/self-driving-car" target="_blank" rel="external">https://github.com/udacity/self-driving-car</a></li>
-<li>日本名古屋大学开源的一款自动驾驶软件，<a href="https://github.com/CPFL/Autoware" target="_blank" rel="external">Autoware</a> </li>
-<li>comma.ai 硅谷创业公司已开源 <a href="https://github.com/commaai/openpilot" target="_blank" rel="external">OpenPilot</a></li>
-</ul>
 
 
 <!--<a href="http://yoursite.com/apollo/index.html#disqus_thread" class="article-comment-link">Comments</a>
