@@ -1,0 +1,86 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>如何对目录做代码规范检查</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">如何对目录做代码规范检查</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年10月31日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何为目录增加C-代码规划检查"><span class="toc-text">如何为目录增加C++代码规划检查</span></a></li></ol>
+<h2 id="如何为目录增加C-代码规划检查"><a href="#如何为目录增加C-代码规划检查" class="headerlink" title="如何为目录增加C++代码规划检查"></a>如何为目录增加C++代码规划检查</h2><ol>
+<li><p>在BUILD文件头部，添加如下内容：</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">load(&quot;//tools:cpplint.bzl&quot;, &quot;cpplint&quot;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>在BUILD文件结尾，添加如下内容：</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cpplint()</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行 <code>apollo.sh check</code> 验证目录是否通过代码规范检查。</p>
+</li>
+</ol>
+<p>###canbus模块 <a href="https://github.com/ApolloAuto/apollo/blob/master/modules/canbus/BUILD" target="_blank" rel="external">BUILD</a> 示例：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">load(&quot;//tools:cpplint.bzl&quot;, &quot;cpplint&quot;)</div><div class="line"></div><div class="line">package(default_visibility = [&quot;//visibility:public&quot;])</div><div class="line"></div><div class="line">cc_library(</div><div class="line">    name = &quot;canbus_lib&quot;,</div><div class="line">    srcs = [&quot;canbus.cc&quot;],</div><div class="line">    hdrs = [&quot;canbus.h&quot;],</div><div class="line">    deps = [</div><div class="line">        &quot;//modules/canbus/can_client:can_client_factory&quot;,</div><div class="line">        &quot;//modules/canbus/can_comm:can_receiver&quot;,</div><div class="line">        &quot;//modules/canbus/can_comm:can_sender&quot;,</div><div class="line">        &quot;//modules/canbus/vehicle:vehicle_factory&quot;,</div><div class="line">        &quot;//modules/common&quot;,</div><div class="line">        &quot;//modules/common:apollo_app&quot;,</div><div class="line">        &quot;//modules/common/adapters:adapter_manager&quot;,</div><div class="line">        &quot;//modules/common/monitor&quot;,</div><div class="line">        &quot;//modules/hmi/utils:hmi_status_helper&quot;,</div><div class="line">    ],</div><div class="line">)</div><div class="line"></div><div class="line">cc_test(</div><div class="line">    name = &quot;canbus_test&quot;,</div><div class="line">    size = &quot;small&quot;,</div><div class="line">    srcs = [&quot;canbus_test.cc&quot;],</div><div class="line">    deps = [</div><div class="line">        &quot;//modules/canbus:canbus_lib&quot;,</div><div class="line">        &quot;@gtest//:main&quot;,</div><div class="line">    ],</div><div class="line">)</div><div class="line"></div><div class="line">cc_binary(</div><div class="line">    name = &quot;canbus&quot;,</div><div class="line">    srcs = [&quot;main.cc&quot;],</div><div class="line">    deps = [</div><div class="line">        &quot;:canbus_lib&quot;,</div><div class="line">        &quot;//external:gflags&quot;,</div><div class="line">        &quot;//modules/canbus/can_client&quot;,</div><div class="line">        &quot;//modules/canbus/common:canbus_common&quot;,</div><div class="line">        &quot;//modules/common:log&quot;,</div><div class="line">        &quot;//modules/common/monitor&quot;,</div><div class="line">        &quot;//third_party/ros:ros_common&quot;,</div><div class="line">    ],</div><div class="line">)</div><div class="line"></div><div class="line">filegroup(</div><div class="line">    name = &quot;canbus_testdata&quot;,</div><div class="line">    srcs = glob([&quot;testdata/**&quot;]),</div><div class="line">)</div><div class="line"></div><div class="line">cpplint()</div></pre></td></tr></table></figure></p>
+
+
+<!--<a href="http://yoursite.com/apollo/howto/how_to_style_check_to_one_dir.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

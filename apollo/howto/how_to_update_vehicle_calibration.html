@@ -1,0 +1,106 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>如何更新车辆油门与制动的校准</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">如何更新车辆油门与制动的校准</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年10月31日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何更新车辆油门与制动的校准"><span class="toc-text">如何更新车辆油门与制动的校准</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备-Preparation"><span class="toc-text">准备 Preparation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取相关代码"><span class="toc-text">获取相关代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变更驾驶模式"><span class="toc-text">变更驾驶模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择测试地点"><span class="toc-text">选择测试地点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新车辆标定"><span class="toc-text">更新车辆标定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#采集数据"><span class="toc-text">采集数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理数据"><span class="toc-text">处理数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果绘图"><span class="toc-text">结果绘图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将结果转换为Protobuf格式"><span class="toc-text">将结果转换为Protobuf格式</span></a></li></ol></li></ol></li></ol>
+<h1 id="如何更新车辆油门与制动的校准"><a href="#如何更新车辆油门与制动的校准" class="headerlink" title="如何更新车辆油门与制动的校准"></a>如何更新车辆油门与制动的校准</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>车辆标定的目的，是为了找到控制模块请求的精确产生加速的量的气节门和刹车命令。</p>
+<h2 id="准备-Preparation"><a href="#准备-Preparation" class="headerlink" title="准备 Preparation"></a>准备 Preparation</h2><p>准备过程由以下任务组成：</p>
+<ul>
+<li>获取相关代码</li>
+<li>变更驾驶模式</li>
+<li>选择测试地点</li>
+</ul>
+<h3 id="获取相关代码"><a href="#获取相关代码" class="headerlink" title="获取相关代码"></a>获取相关代码</h3><ul>
+<li>Canbus, 包含以下模块:<ul>
+<li>GPS 驱动</li>
+<li>定位（Localization)</li>
+</ul>
+</li>
+</ul>
+<h3 id="变更驾驶模式"><a href="#变更驾驶模式" class="headerlink" title="变更驾驶模式"></a>变更驾驶模式</h3><p>在文件<code>modules/canbus/conf/canbus_conf.pb.txt</code> 变更驾驶模式为 <code>AUTO_SPEED_ONLY</code>.</p>
+<h3 id="选择测试地点"><a href="#选择测试地点" class="headerlink" title="选择测试地点"></a>选择测试地点</h3><p>首选的测试地点是一条平坦的公路。</p>
+<h2 id="更新车辆标定"><a href="#更新车辆标定" class="headerlink" title="更新车辆标定"></a>更新车辆标定</h2><p>准备工作完成后，在目录<code>modules/tools/calibration</code>中依次完成如下任务：</p>
+<ul>
+<li>采集数据</li>
+<li>处理数据</li>
+<li>结果绘图</li>
+<li>将结果转换为<code>Protobuf</code>格式</li>
+</ul>
+<h3 id="采集数据"><a href="#采集数据" class="headerlink" title="采集数据"></a>采集数据</h3><ol>
+<li>为不同命令运行命令<code>python data_collector.py {dir}/{command}.txt</code> 每个命令运行多次；</li>
+<li>根据车辆返回调整命令脚本；</li>
+<li>运行 <code>python plot_data.py {dir}/{command}.txt_recorded.csv&gt;</code> 将采集数据可视化。</li>
+</ol>
+<h3 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h3><p>在每个记录的日志中单独运行<code>process_data.sh</code>。每一条数据日志都将被处理并追加到<code>result.csv</code>文件。</p>
+<h3 id="结果绘图"><a href="#结果绘图" class="headerlink" title="结果绘图"></a>结果绘图</h3><p>运行<code>python plot_results.py result.csv</code>可视化最终结果，检查有无异常。</p>
+<h3 id="将结果转换为Protobuf格式"><a href="#将结果转换为Protobuf格式" class="headerlink" title="将结果转换为Protobuf格式"></a>将结果转换为<code>Protobuf</code>格式</h3><p>如果无误，运行shell脚本<code>result2pb.sh</code>移动标定结果到控制模块定义的<code>protobuf</code>中。</p>
+
+
+<!--<a href="http://yoursite.com/apollo/howto/how_to_update_vehicle_calibration.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
