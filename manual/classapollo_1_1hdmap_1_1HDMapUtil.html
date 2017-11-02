@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1HDMapUtil.html">HDMapUtil</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1HDMapUtil.html">HDMapUtil</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,19 +74,153 @@ $(function() {
 <div class="title">apollo::hdmap::HDMapUtil Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="hdmap__util_8h_source.html">hdmap_util.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::hdmap::HDMapUtil:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1hdmap_1_1HDMapUtil__coll__graph.png" border="0" usemap="#apollo_1_1hdmap_1_1HDMapUtil_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aafac9bc96f724d2cb06bacc8dda57eb8"><td class="memItemLeft" align="right" valign="top"><a id="aafac9bc96f724d2cb06bacc8dda57eb8"></a>
-static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>BaseMapPtr</b> ()</td></tr>
+<tr class="memitem:aafac9bc96f724d2cb06bacc8dda57eb8"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapUtil.html#aafac9bc96f724d2cb06bacc8dda57eb8">BaseMapPtr</a> ()</td></tr>
 <tr class="separator:aafac9bc96f724d2cb06bacc8dda57eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93be4399c10f39656bc097bfd36cf2e3"><td class="memItemLeft" align="right" valign="top"><a id="a93be4399c10f39656bc097bfd36cf2e3"></a>
-static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>BaseMap</b> ()</td></tr>
+<tr class="memitem:a93be4399c10f39656bc097bfd36cf2e3"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapUtil.html#a93be4399c10f39656bc097bfd36cf2e3">BaseMap</a> ()</td></tr>
 <tr class="separator:a93be4399c10f39656bc097bfd36cf2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a726c120373355be187b16702944014e9"><td class="memItemLeft" align="right" valign="top"><a id="a726c120373355be187b16702944014e9"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>ReloadBaseMap</b> ()</td></tr>
-<tr class="separator:a726c120373355be187b16702944014e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93bcf003cea07a895d74a27fcd18d2c"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapUtil.html#ad93bcf003cea07a895d74a27fcd18d2c">SimMapPtr</a> ()</td></tr>
+<tr class="separator:ad93bcf003cea07a895d74a27fcd18d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bf733c12f1a20957fe6e651979fab34"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapUtil.html#a1bf733c12f1a20957fe6e651979fab34">SimMap</a> ()</td></tr>
+<tr class="separator:a1bf733c12f1a20957fe6e651979fab34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a8e260c34ed959d06d43daca3e8d98"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapUtil.html#ad7a8e260c34ed959d06d43daca3e8d98">ReloadMaps</a> ()</td></tr>
+<tr class="separator:ad7a8e260c34ed959d06d43daca3e8d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a93be4399c10f39656bc097bfd36cf2e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93be4399c10f39656bc097bfd36cf2e3">&#9670;&nbsp;</a></span>BaseMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a>&amp; apollo::hdmap::HDMapUtil::BaseMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafac9bc96f724d2cb06bacc8dda57eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafac9bc96f724d2cb06bacc8dda57eb8">&#9670;&nbsp;</a></span>BaseMapPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a>* apollo::hdmap::HDMapUtil::BaseMapPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7a8e260c34ed959d06d43daca3e8d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a8e260c34ed959d06d43daca3e8d98">&#9670;&nbsp;</a></span>ReloadMaps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::hdmap::HDMapUtil::ReloadMaps </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1bf733c12f1a20957fe6e651979fab34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bf733c12f1a20957fe6e651979fab34">&#9670;&nbsp;</a></span>SimMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a>&amp; apollo::hdmap::HDMapUtil::SimMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad93bcf003cea07a895d74a27fcd18d2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93bcf003cea07a895d74a27fcd18d2c">&#9670;&nbsp;</a></span>SimMapPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classapollo_1_1hdmap_1_1HDMap.html">HDMap</a>* apollo::hdmap::HDMapUtil::SimMapPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/map/hdmap/<a class="el" href="hdmap__util_8h_source.html">hdmap_util.h</a></li>
 </ul>

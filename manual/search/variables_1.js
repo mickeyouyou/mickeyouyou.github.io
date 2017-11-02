@@ -1,7 +1,23 @@
 var searchData=
 [
-  ['data',['data',['../structapollo_1_1drivers_1_1canbus_1_1CanFrame.html#a80102665decc72536509b72dd0eca678',1,'apollo::drivers::canbus::CanFrame']]],
-  ['dbg_5flvl',['dbg_lvl',['../structapollo_1_1platform_1_1log_1_1LogModule.html#ad0acb5f7b979bd0ced1d6827dcf0105a',1,'apollo::platform::log::LogModule']]],
-  ['deg_5fto_5fraw',['DEG_TO_RAW',['../classapollo_1_1common_1_1math_1_1Angle.html#af0d1da42d68ddf1afe6d23a6fb97de97',1,'apollo::common::math::Angle']]],
-  ['details',['details',['../structapollo_1_1platform_1_1HwCheckResult.html#aa02937e913a5bd49cf148b67508be1ba',1,'apollo::platform::HwCheckResult']]]
+  ['accel_5fscale',['accel_scale',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1ImuParameter.html#afdc73cf85d6645bfe991b3124fea1c52',1,'apollo::drivers::gnss::novatel::ImuParameter']]],
+  ['acceleration',['acceleration',['../structapollo_1_1perception_1_1TrackedObject.html#a6f3b0677b238626c583471fdd04d1879',1,'apollo::perception::TrackedObject']]],
+  ['accumulated_5fs_5f',['accumulated_s_',['../classapollo_1_1hdmap_1_1Path.html#a33324dd99af05b21e0128aa6454ed69d',1,'apollo::hdmap::Path']]],
+  ['adc_5flane_5fid_5f',['adc_lane_id_',['../classapollo_1_1prediction_1_1SequencePredictor.html#a8ad26dfb2178ecb2b9978b82acfc2b40',1,'apollo::prediction::SequencePredictor']]],
+  ['adc_5flane_5fs_5f',['adc_lane_s_',['../classapollo_1_1prediction_1_1SequencePredictor.html#a77660870bf15b383116b5e7888f59ad1',1,'apollo::prediction::SequencePredictor']]],
+  ['adc_5fposition_5f',['adc_position_',['../classapollo_1_1prediction_1_1SequencePredictor.html#ad0c09d8094560057c7a7afc33dc92cee',1,'apollo::prediction::SequencePredictor']]],
+  ['adc_5ftrajectory_5f',['adc_trajectory_',['../classapollo_1_1planning_1_1PlanningTestBase.html#a9bf171177b8fc612b7338e15756e618d',1,'apollo::planning::PlanningTestBase']]],
+  ['affine_5fequality_5fboundary_5f',['affine_equality_boundary_',['../classapollo_1_1common_1_1math_1_1QpSolver.html#a3ac1aac48455c92f9cff3e454f4e2165',1,'apollo::common::math::QpSolver']]],
+  ['affine_5fequality_5fmatrix_5f',['affine_equality_matrix_',['../classapollo_1_1common_1_1math_1_1QpSolver.html#a6b834f679e1c0ce0980216e9136162dd',1,'apollo::common::math::QpSolver']]],
+  ['affine_5finequality_5fboundary_5f',['affine_inequality_boundary_',['../classapollo_1_1common_1_1math_1_1QpSolver.html#a3c495f6c93cf77a9de2a541f3e87826f',1,'apollo::common::math::QpSolver']]],
+  ['affine_5finequality_5fmatrix_5f',['affine_inequality_matrix_',['../classapollo_1_1common_1_1math_1_1QpSolver.html#aad576e1b4a94984580afe547a8c1a6db',1,'apollo::common::math::QpSolver']]],
+  ['age',['age',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1BestVel.html#a1392ae4e08a0e277a930e136292ace54',1,'apollo::drivers::gnss::novatel::BestVel']]],
+  ['age_5f',['age_',['../classapollo_1_1perception_1_1KalmanFilter.html#a3bfda191014f6dad4687e65b91ce6318',1,'apollo::perception::KalmanFilter::age_()'],['../classapollo_1_1perception_1_1ObjectTrack.html#a8cdc618338470e9a3c491d9bb48ec65a',1,'apollo::perception::ObjectTrack::age_()']]],
+  ['anchor_5fpoint',['anchor_point',['../structapollo_1_1perception_1_1Object.html#a85eb0c69ad4000d81c24ab2017e4b62e',1,'apollo::perception::Object::anchor_point()'],['../structapollo_1_1perception_1_1TrackedObject.html#a55646e39526e492439c7c44492ce6d74',1,'apollo::perception::TrackedObject::anchor_point()']]],
+  ['approximation_5f',['approximation_',['../classapollo_1_1hdmap_1_1Path.html#aee6c6629b5a73aad3bf0be49c11404ce',1,'apollo::hdmap::Path']]],
+  ['area_5f',['area_',['../classapollo_1_1common_1_1math_1_1Polygon2d.html#ad6176d1fbbaa4517b651a67c02d68775',1,'apollo::common::math::Polygon2d']]],
+  ['association_5fscore',['association_score',['../structapollo_1_1perception_1_1TrackedObject.html#a388ff9e694a72e7876cf04b46e806dea',1,'apollo::perception::TrackedObject']]],
+  ['attitude_5fcovariance',['attitude_covariance',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1InsCov.html#a0f6fcf6745fb018dac3e982c51d63326',1,'apollo::drivers::gnss::novatel::InsCov']]],
+  ['azimuth',['azimuth',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1InsPva.html#a55f0238243b78a744f02d3c97e574b0b',1,'apollo::drivers::gnss::novatel::InsPva::azimuth()'],['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1InsPvaX.html#a156c833445689e78a511ecece15d2f52',1,'apollo::drivers::gnss::novatel::InsPvaX::azimuth()']]],
+  ['azimuth_5fstd',['azimuth_std',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1InsPvaX.html#a6827ef3b84385bcafe01e208c986f68b',1,'apollo::drivers::gnss::novatel::InsPvaX']]]
 ];

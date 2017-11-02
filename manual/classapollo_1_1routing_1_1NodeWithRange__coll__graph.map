@@ -1,0 +1,3 @@
+<map id="apollo::routing::NodeWithRange" name="apollo::routing::NodeWithRange">
+<area shape="rect" id="node2" href="$classapollo_1_1routing_1_1NodeSRange.html" title="{apollo::routing::NodeSRange\n||+ NodeSRange()\l+ NodeSRange()\l+ ~NodeSRange()\l+ operator\&lt;()\l+ IsValid()\l+ StartS()\l+ EndS()\l+ IsEnoughForChangeLane()\l+ Length()\l+ SetStartS()\l+ SetEndS()\l+ MergeRangeOverlap()\l+ IsEnoughForChangeLane()\l+ IsEnoughForChangeLane()\l}" alt="" coords="5,5,200,252"/>
+</map>

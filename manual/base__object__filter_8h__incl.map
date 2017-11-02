@@ -1,0 +1,10 @@
+<map id="modules/perception/obstacle/lidar/interface/base_object_filter.h" name="modules/perception/obstacle/lidar/interface/base_object_filter.h">
+<area shape="rect" id="node5" href="$macro_8h.html" title="modules/common/macro.h" alt="" coords="1479,212,1657,237"/>
+<area shape="rect" id="node7" href="$registerer_8h.html" title="modules/perception\l/lib/base/registerer.h" alt="" coords="1024,112,1165,151"/>
+<area shape="rect" id="node13" href="$hdmap__struct_8h.html" title="modules/perception\l/obstacle/base/hdmap\l_struct.h" alt="" coords="273,105,425,157"/>
+<area shape="rect" id="node23" href="$object_8h.html" title="modules/perception\l/obstacle/base/object.h" alt="" coords="508,112,665,151"/>
+<area shape="rect" id="node10" href="$log_8h.html" title="modules/common/log.h" alt="" coords="1295,212,1454,237"/>
+<area shape="rect" id="node14" href="$types_8h.html" title="modules/perception\l/obstacle/base/types.h" alt="" coords="264,205,418,244"/>
+<area shape="rect" id="node15" href="$define_8h.html" title="modules/perception\l/common/define.h" alt="" coords="272,292,410,331"/>
+<area shape="rect" id="node16" href="$pcl__types_8h.html" title="modules/perception\l/lib/pcl_util/pcl_types.h" alt="" coords="448,292,603,331"/>
+</map>

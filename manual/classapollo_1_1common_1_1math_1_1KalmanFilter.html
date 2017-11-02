@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1math.html">math</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html">KalmanFilter</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1math.html">math</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html">KalmanFilter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,12 +79,16 @@ $(function() {
  <a href="classapollo_1_1common_1_1math_1_1KalmanFilter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="common_2math_2kalman__filter_8h_source.html">kalman_filter.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::common::math::KalmanFilter&lt; T, XN, ZN, UN &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1common_1_1math_1_1KalmanFilter__coll__graph.png" border="0" usemap="#apollo_1_1common_1_1math_1_1KalmanFilter_3_01T_00_01XN_00_01ZN_00_01UN_01_4_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2e2e696227f90329560ef2a4ab19dfd1"><td class="memItemLeft" align="right" valign="top"><a id="a2e2e696227f90329560ef2a4ab19dfd1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html#a2e2e696227f90329560ef2a4ab19dfd1">KalmanFilter</a> ()</td></tr>
-<tr class="memdesc:a2e2e696227f90329560ef2a4ab19dfd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which defers initialization until the initial state distribution parameters are set (with SetStateEstimate), typically on the first observation. <br /></td></tr>
+<tr class="memitem:a2e2e696227f90329560ef2a4ab19dfd1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html#a2e2e696227f90329560ef2a4ab19dfd1">KalmanFilter</a> ()</td></tr>
+<tr class="memdesc:a2e2e696227f90329560ef2a4ab19dfd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which defers initialization until the initial state distribution parameters are set (with SetStateEstimate), typically on the first observation.  <a href="#a2e2e696227f90329560ef2a4ab19dfd1">More...</a><br /></td></tr>
 <tr class="separator:a2e2e696227f90329560ef2a4ab19dfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72f2469517275ec19d24112a246d0282"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html#a72f2469517275ec19d24112a246d0282">SetStateEstimate</a> (const Eigen::Matrix&lt; T, XN, 1 &gt; &amp;x, const Eigen::Matrix&lt; T, XN, XN &gt; &amp;P)</td></tr>
 <tr class="memdesc:a72f2469517275ec19d24112a246d0282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the initial state belief distribution.  <a href="#a72f2469517275ec19d24112a246d0282">More...</a><br /></td></tr>
@@ -91,9 +96,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0fc305ddfc4770e7144162bfbde52e07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html#a0fc305ddfc4770e7144162bfbde52e07">KalmanFilter</a> (const Eigen::Matrix&lt; T, XN, 1 &gt; &amp;x, const Eigen::Matrix&lt; T, XN, XN &gt; &amp;P)</td></tr>
 <tr class="memdesc:a0fc305ddfc4770e7144162bfbde52e07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which fully initializes the Kalman filter.  <a href="#a0fc305ddfc4770e7144162bfbde52e07">More...</a><br /></td></tr>
 <tr class="separator:a0fc305ddfc4770e7144162bfbde52e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8c738c5d1d7a0aa7aec3fa4307eebfc"><td class="memItemLeft" align="right" valign="top"><a id="aa8c738c5d1d7a0aa7aec3fa4307eebfc"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html#aa8c738c5d1d7a0aa7aec3fa4307eebfc">~KalmanFilter</a> ()</td></tr>
-<tr class="memdesc:aa8c738c5d1d7a0aa7aec3fa4307eebfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="memitem:aa8c738c5d1d7a0aa7aec3fa4307eebfc"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html#aa8c738c5d1d7a0aa7aec3fa4307eebfc">~KalmanFilter</a> ()</td></tr>
+<tr class="memdesc:aa8c738c5d1d7a0aa7aec3fa4307eebfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#aa8c738c5d1d7a0aa7aec3fa4307eebfc">More...</a><br /></td></tr>
 <tr class="separator:aa8c738c5d1d7a0aa7aec3fa4307eebfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24370748ffebcc366ed57d4424bdf910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html#a24370748ffebcc366ed57d4424bdf910">SetTransitionMatrix</a> (const Eigen::Matrix&lt; T, XN, XN &gt; &amp;F)</td></tr>
 <tr class="memdesc:a24370748ffebcc366ed57d4424bdf910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the system transition function under zero control.  <a href="#a24370748ffebcc366ed57d4424bdf910">More...</a><br /></td></tr>
@@ -158,8 +162,37 @@ class apollo::common::math::KalmanFilter&lt; T, XN, ZN, UN &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2e2e696227f90329560ef2a4ab19dfd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e2e696227f90329560ef2a4ab19dfd1">&#9670;&nbsp;</a></span>KalmanFilter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, unsigned int XN, unsigned int ZN, unsigned int UN&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html">apollo::common::math::KalmanFilter</a>&lt; T, XN, ZN, UN &gt;::<a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html">KalmanFilter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor which defers initialization until the initial state distribution parameters are set (with SetStateEstimate), typically on the first observation. </p>
+
+</div>
+</div>
 <a id="a0fc305ddfc4770e7144162bfbde52e07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fc305ddfc4770e7144162bfbde52e07">&#9670;&nbsp;</a></span>KalmanFilter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fc305ddfc4770e7144162bfbde52e07">&#9670;&nbsp;</a></span>KalmanFilter() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,6 +235,35 @@ template&lt;typename T, unsigned int XN, unsigned int ZN, unsigned int UN&gt; </
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aa8c738c5d1d7a0aa7aec3fa4307eebfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8c738c5d1d7a0aa7aec3fa4307eebfc">&#9670;&nbsp;</a></span>~KalmanFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, unsigned int XN, unsigned int ZN, unsigned int UN&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html">apollo::common::math::KalmanFilter</a>&lt; T, XN, ZN, UN &gt;::~<a class="el" href="classapollo_1_1common_1_1math_1_1KalmanFilter.html">KalmanFilter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>

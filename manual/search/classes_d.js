@@ -3,6 +3,7 @@ var searchData=
   ['navigator',['Navigator',['../classapollo_1_1routing_1_1Navigator.html',1,'apollo::routing']]],
   ['next76c',['Next76c',['../classapollo_1_1drivers_1_1mobileye_1_1Next76c.html',1,'apollo::drivers::mobileye']]],
   ['next76d',['Next76d',['../classapollo_1_1drivers_1_1mobileye_1_1Next76d.html',1,'apollo::drivers::mobileye']]],
+  ['nmeatime',['NMEATime',['../structapollo_1_1drivers_1_1velodyne_1_1NMEATime.html',1,'apollo::drivers::velodyne']]],
   ['node',['Node',['../structapollo_1_1common_1_1util_1_1Node.html',1,'apollo::common::util']]],
   ['node_3c_20int_2c_20apollo_3a_3aprediction_3a_3aobstacle_20_3e',['Node&lt; int, apollo::prediction::Obstacle &gt;',['../structapollo_1_1common_1_1util_1_1Node.html',1,'apollo::common::util']]],
   ['nodecreator',['NodeCreator',['../classapollo_1_1routing_1_1NodeCreator.html',1,'apollo::routing']]],

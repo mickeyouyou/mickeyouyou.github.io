@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">RouteSegments</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">RouteSegments</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,10 +74,19 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>change_lane_type</b>() const (defined in <a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a>)</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a617fcb8948fea5a86bc0e99391213a0a">GetInnerProjection</a>(const common::PointENU &amp;point_enu, double *s, double *l) const</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>RouteSegments</b>()=default (defined in <a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a>)</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>SetChangeLaneType</b>(routing::ChangeLaneType type) (defined in <a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a>)</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#aa3a8ae758439642cde10d2978114bf16">CanDriveFrom</a>(const LaneWaypoint &amp;waypoint) const</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a8fce80773abdb184baa9dde4d833e58f">CanExit</a>() const</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a8eef5e209cd688f7d8a11a0879dc49b8">GetProjection</a>(const common::PointENU &amp;point_enu, double *s, double *l, LaneWaypoint *waypoint) const</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#ac3d2b41d88ab886ce1102db75c5dd067">IsOnSegment</a>() const</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a2e9f05361c07a93111cff1ce07abadc2">IsWaypointOnSegment</a>(const LaneWaypoint &amp;waypoint) const</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a5cb58b51310a0d9606962f70a6f6de03">LastWaypoint</a>() const</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#adb273d2c5cacceb2c66326d4fb6a3a78">NextAction</a>() const</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a21d22a425c91942ac256760105651665">RouteEndWaypoint</a>() const</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a491cee067045ed7f4283dfe920431538">RouteSegments</a>()=default</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#af2147f044ec5c0cb2a273cc5f64285ed">SetCanExit</a>(bool can_exit)</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a9c35fdcf9e9625607af967587444c91a">SetIsOnSegment</a>(bool on_segment)</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#afae10832710e98046747433851861b99">SetNextAction</a>(routing::ChangeLaneType action)</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a9b592f257ede50d0104e08fc744d9018">SetRouteEndWaypoint</a>(const LaneWaypoint &amp;waypoint)</td><td class="entry"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">apollo::hdmap::RouteSegments</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,0 +1,5 @@
+<map id="apollo::prediction::SequencePredictor" name="apollo::prediction::SequencePredictor">
+<area shape="rect" id="node3" href="$classapollo_1_1prediction_1_1LaneSequencePredictor.html" title="{apollo::prediction\l::LaneSequencePredictor\n||+ LaneSequencePredictor()\l+ ~LaneSequencePredictor()\l+ Predict()\l# DrawLaneSequenceTrajectory\lPoints()\l}" alt="" coords="5,515,217,655"/>
+<area shape="rect" id="node4" href="$classapollo_1_1prediction_1_1MoveSequencePredictor.html" title="{apollo::prediction\l::MoveSequencePredictor\n||+ MoveSequencePredictor()\l+ ~MoveSequencePredictor()\l+ Predict()\l}" alt="" coords="242,528,437,641"/>
+<area shape="rect" id="node2" href="$classapollo_1_1prediction_1_1Predictor.html" title="{apollo::prediction\l::Predictor\n|# trajectories_\l|+ Predictor()\l+ ~Predictor()\l+ trajectories()\l+ Predict()\l+ NumOfTrajectories()\l+ Clear()\l# SetEqualProbability()\l# GenerateTrajectory()\l}" alt="" coords="146,5,304,185"/>
+</map>

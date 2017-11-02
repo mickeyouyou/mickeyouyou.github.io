@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1StBoundaryMapper.html">StBoundaryMapper</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1StBoundaryMapper.html">StBoundaryMapper</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,19 +74,148 @@ $(function() {
 <div class="title">apollo::planning::StBoundaryMapper Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="st__boundary__mapper_8h_source.html">st_boundary_mapper.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::StBoundaryMapper:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1StBoundaryMapper__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1StBoundaryMapper_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aab3c0fe020a66f6efab4bc70007dc0ca"><td class="memItemLeft" align="right" valign="top"><a id="aab3c0fe020a66f6efab4bc70007dc0ca"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>StBoundaryMapper</b> (const SLBoundary &amp;adc_sl_boundary, const StBoundaryConfig &amp;config, const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> &amp;path_data, const double planning_distance, const double planning_time)</td></tr>
+<tr class="memitem:aab3c0fe020a66f6efab4bc70007dc0ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundaryMapper.html#aab3c0fe020a66f6efab4bc70007dc0ca">StBoundaryMapper</a> (const SLBoundary &amp;adc_sl_boundary, const StBoundaryConfig &amp;config, const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> &amp;path_data, const double planning_distance, const double planning_time)</td></tr>
 <tr class="separator:aab3c0fe020a66f6efab4bc70007dc0ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7354636332c73d8854c0246c5245fca1"><td class="memItemLeft" align="right" valign="top"><a id="a7354636332c73d8854c0246c5245fca1"></a>
-<a class="el" href="classapollo_1_1common_1_1Status.html">apollo::common::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetGraphBoundary</b> (<a class="el" href="classapollo_1_1planning_1_1PathDecision.html">PathDecision</a> *path_decision) const</td></tr>
+<tr class="memitem:ac9c9c9788f1a9c86a8554f22cd08acbe"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundaryMapper.html#ac9c9c9788f1a9c86a8554f22cd08acbe">~StBoundaryMapper</a> ()=default</td></tr>
+<tr class="separator:ac9c9c9788f1a9c86a8554f22cd08acbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7354636332c73d8854c0246c5245fca1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1common_1_1Status.html">apollo::common::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundaryMapper.html#a7354636332c73d8854c0246c5245fca1">GetGraphBoundary</a> (<a class="el" href="classapollo_1_1planning_1_1PathDecision.html">PathDecision</a> *path_decision) const</td></tr>
 <tr class="separator:a7354636332c73d8854c0246c5245fca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7c50fe6b82f3ea1fe68ac02aad8b927"><td class="memItemLeft" align="right" valign="top"><a id="ac7c50fe6b82f3ea1fe68ac02aad8b927"></a>
-virtual <a class="el" href="classapollo_1_1common_1_1Status.html">apollo::common::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetSpeedLimits</b> (<a class="el" href="classapollo_1_1planning_1_1SpeedLimit.html">SpeedLimit</a> *const speed_limit_data) const</td></tr>
+<tr class="memitem:ac7c50fe6b82f3ea1fe68ac02aad8b927"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classapollo_1_1common_1_1Status.html">apollo::common::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundaryMapper.html#ac7c50fe6b82f3ea1fe68ac02aad8b927">GetSpeedLimits</a> (<a class="el" href="classapollo_1_1planning_1_1SpeedLimit.html">SpeedLimit</a> *const speed_limit_data) const</td></tr>
 <tr class="separator:ac7c50fe6b82f3ea1fe68ac02aad8b927"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aab3c0fe020a66f6efab4bc70007dc0ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab3c0fe020a66f6efab4bc70007dc0ca">&#9670;&nbsp;</a></span>StBoundaryMapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::StBoundaryMapper::StBoundaryMapper </td>
+          <td>(</td>
+          <td class="paramtype">const SLBoundary &amp;&#160;</td>
+          <td class="paramname"><em>adc_sl_boundary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const StBoundaryConfig &amp;&#160;</td>
+          <td class="paramname"><em>config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;&#160;</td>
+          <td class="paramname"><em>reference_line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> &amp;&#160;</td>
+          <td class="paramname"><em>path_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>planning_distance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>planning_time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9c9c9788f1a9c86a8554f22cd08acbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9c9c9788f1a9c86a8554f22cd08acbe">&#9670;&nbsp;</a></span>~StBoundaryMapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::planning::StBoundaryMapper::~StBoundaryMapper </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7354636332c73d8854c0246c5245fca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7354636332c73d8854c0246c5245fca1">&#9670;&nbsp;</a></span>GetGraphBoundary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1common_1_1Status.html">apollo::common::Status</a> apollo::planning::StBoundaryMapper::GetGraphBoundary </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1planning_1_1PathDecision.html">PathDecision</a> *&#160;</td>
+          <td class="paramname"><em>path_decision</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7c50fe6b82f3ea1fe68ac02aad8b927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7c50fe6b82f3ea1fe68ac02aad8b927">&#9670;&nbsp;</a></span>GetSpeedLimits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classapollo_1_1common_1_1Status.html">apollo::common::Status</a> apollo::planning::StBoundaryMapper::GetSpeedLimits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1planning_1_1SpeedLimit.html">SpeedLimit</a> *const&#160;</td>
+          <td class="paramname"><em>speed_limit_data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/tasks/st_graph/<a class="el" href="st__boundary__mapper_8h_source.html">st_boundary_mapper.h</a></li>
 </ul>

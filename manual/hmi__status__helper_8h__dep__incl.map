@@ -1,0 +1,20 @@
+<map id="modules/hmi/utils/hmi_status_helper.h" name="modules/hmi/utils/hmi_status_helper.h">
+<area shape="rect" id="node2" href="$apollo__app_8h.html" title="modules/common/apollo\l_app.h" alt="" coords="863,92,1029,131"/>
+<area shape="rect" id="node5" href="$canbus_8h.html" title="modules/canbus/canbus.h" alt="" coords="7,192,184,217"/>
+<area shape="rect" id="node9" href="$sensor__canbus_8h.html" title="modules/drivers/canbus\l/sensor_canbus.h" alt="" coords="208,185,370,224"/>
+<area shape="rect" id="node19" href="$hardware__check__utils_8h.html" title="modules/monitor/hardware\l/hardware_check_utils.h" alt="" coords="1053,92,1232,131"/>
+<area shape="rect" id="node3" href="$lidar__ex__checker_8h.html" title="modules/calibration\l/lidar_ex_checker/lidar\l_ex_checker.h" alt="" coords="1144,179,1298,231"/>
+<area shape="rect" id="node4" href="$republish__msg_8h.html" title="modules/calibration\l/republish_msg/republish_msg.h" alt="" coords="1322,185,1536,224"/>
+<area shape="rect" id="node6" href="$control_8h.html" title="modules/control/control.h" alt="" coords="1560,192,1730,217"/>
+<area shape="rect" id="node8" href="$dreamview_8h.html" title="modules/dreamview/backend\l/dreamview.h" alt="" coords="1755,185,1949,224"/>
+<area shape="rect" id="node12" href="$localization_8h.html" title="The class of Localization. " alt="" coords="1973,185,2114,224"/>
+<area shape="rect" id="node13" href="$perception_8h.html" title="modules/perception\l/perception.h" alt="" coords="2139,185,2276,224"/>
+<area shape="rect" id="node14" href="$planning_8h.html" title="modules/planning/planning.h" alt="" coords="393,192,584,217"/>
+<area shape="rect" id="node16" href="$prediction_8h.html" title="modules/prediction\l/prediction.h" alt="" coords="609,185,742,224"/>
+<area shape="rect" id="node17" href="$routing_8h.html" title="modules/routing/routing.h" alt="" coords="766,192,937,217"/>
+<area shape="rect" id="node18" href="$third__party__perception_8h.html" title="modules/third_party\l_perception/third_party\l_perception.h" alt="" coords="962,179,1120,231"/>
+<area shape="rect" id="node7" href="$control__test__base_8h.html" title="modules/control/integration\l_tests/control_test_base.h" alt="" coords="1554,279,1736,317"/>
+<area shape="rect" id="node10" href="$delphi__esr__canbus_8h.html" title="modules/drivers/delphi\l_esr/delphi_esr_canbus.h" alt="" coords="202,279,376,317"/>
+<area shape="rect" id="node11" href="$mobileye__canbus_8h.html" title="modules/drivers/mobileye\l/mobileye_canbus.h" alt="" coords="5,279,178,317"/>
+<area shape="rect" id="node15" href="$planning__test__base_8h.html" title="modules/planning/integration\l_tests/planning_test_base.h" alt="" coords="400,279,591,317"/>
+</map>

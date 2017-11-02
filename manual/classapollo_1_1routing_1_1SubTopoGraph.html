@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><b>routing</b></li><li class="navelem"><a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html">SubTopoGraph</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1routing.html">routing</a></li><li class="navelem"><a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html">SubTopoGraph</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,22 +74,156 @@ $(function() {
 <div class="title">apollo::routing::SubTopoGraph Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="sub__topo__graph_8h_source.html">sub_topo_graph.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::routing::SubTopoGraph:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1routing_1_1SubTopoGraph__coll__graph.png" border="0" usemap="#apollo_1_1routing_1_1SubTopoGraph_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5fa13e690e68be26ce996d4db55b2a1e"><td class="memItemLeft" align="right" valign="top"><a id="a5fa13e690e68be26ce996d4db55b2a1e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SubTopoGraph</b> (const std::unordered_map&lt; const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *, std::vector&lt; <a class="el" href="classapollo_1_1routing_1_1NodeSRange.html">NodeSRange</a> &gt;&gt; &amp;black_map)</td></tr>
+<tr class="memitem:a5fa13e690e68be26ce996d4db55b2a1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html#a5fa13e690e68be26ce996d4db55b2a1e">SubTopoGraph</a> (const std::unordered_map&lt; const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *, std::vector&lt; <a class="el" href="classapollo_1_1routing_1_1NodeSRange.html">NodeSRange</a> &gt;&gt; &amp;black_map)</td></tr>
 <tr class="separator:a5fa13e690e68be26ce996d4db55b2a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9455e954106009a2441832c9cfd7a056"><td class="memItemLeft" align="right" valign="top"><a id="a9455e954106009a2441832c9cfd7a056"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetSubInEdgesIntoSubGraph</b> (const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *edge, std::unordered_set&lt; const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *&gt; *const sub_edges) const</td></tr>
+<tr class="memitem:a226f65503ea75f387ce7a00b8b8963b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html#a226f65503ea75f387ce7a00b8b8963b2">~SubTopoGraph</a> ()</td></tr>
+<tr class="separator:a226f65503ea75f387ce7a00b8b8963b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9455e954106009a2441832c9cfd7a056"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html#a9455e954106009a2441832c9cfd7a056">GetSubInEdgesIntoSubGraph</a> (const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *edge, std::unordered_set&lt; const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *&gt; *const sub_edges) const</td></tr>
 <tr class="separator:a9455e954106009a2441832c9cfd7a056"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84acf68f451da7e7fd1c3acbc8e2e189"><td class="memItemLeft" align="right" valign="top"><a id="a84acf68f451da7e7fd1c3acbc8e2e189"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetSubOutEdgesIntoSubGraph</b> (const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *edge, std::unordered_set&lt; const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *&gt; *const sub_edges) const</td></tr>
+<tr class="memitem:a84acf68f451da7e7fd1c3acbc8e2e189"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html#a84acf68f451da7e7fd1c3acbc8e2e189">GetSubOutEdgesIntoSubGraph</a> (const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *edge, std::unordered_set&lt; const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *&gt; *const sub_edges) const</td></tr>
 <tr class="separator:a84acf68f451da7e7fd1c3acbc8e2e189"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3433f0dd2342742453c32401e5217850"><td class="memItemLeft" align="right" valign="top"><a id="a3433f0dd2342742453c32401e5217850"></a>
-const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetSubNodeWithS</b> (const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *topo_node, double s) const</td></tr>
+<tr class="memitem:a3433f0dd2342742453c32401e5217850"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html#a3433f0dd2342742453c32401e5217850">GetSubNodeWithS</a> (const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *topo_node, double s) const</td></tr>
 <tr class="separator:a3433f0dd2342742453c32401e5217850"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5fa13e690e68be26ce996d4db55b2a1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa13e690e68be26ce996d4db55b2a1e">&#9670;&nbsp;</a></span>SubTopoGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::routing::SubTopoGraph::SubTopoGraph </td>
+          <td>(</td>
+          <td class="paramtype">const std::unordered_map&lt; const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *, std::vector&lt; <a class="el" href="classapollo_1_1routing_1_1NodeSRange.html">NodeSRange</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>black_map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a226f65503ea75f387ce7a00b8b8963b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a226f65503ea75f387ce7a00b8b8963b2">&#9670;&nbsp;</a></span>~SubTopoGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::routing::SubTopoGraph::~SubTopoGraph </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9455e954106009a2441832c9cfd7a056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9455e954106009a2441832c9cfd7a056">&#9670;&nbsp;</a></span>GetSubInEdgesIntoSubGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::routing::SubTopoGraph::GetSubInEdgesIntoSubGraph </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *&#160;</td>
+          <td class="paramname"><em>edge</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::unordered_set&lt; const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *&gt; *const&#160;</td>
+          <td class="paramname"><em>sub_edges</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3433f0dd2342742453c32401e5217850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3433f0dd2342742453c32401e5217850">&#9670;&nbsp;</a></span>GetSubNodeWithS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a>* apollo::routing::SubTopoGraph::GetSubNodeWithS </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *&#160;</td>
+          <td class="paramname"><em>topo_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84acf68f451da7e7fd1c3acbc8e2e189"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84acf68f451da7e7fd1c3acbc8e2e189">&#9670;&nbsp;</a></span>GetSubOutEdgesIntoSubGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::routing::SubTopoGraph::GetSubOutEdgesIntoSubGraph </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *&#160;</td>
+          <td class="paramname"><em>edge</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::unordered_set&lt; const <a class="el" href="classapollo_1_1routing_1_1TopoEdge.html">TopoEdge</a> *&gt; *const&#160;</td>
+          <td class="paramname"><em>sub_edges</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/routing/graph/<a class="el" href="sub__topo__graph_8h_source.html">sub_topo_graph.h</a></li>
 </ul>

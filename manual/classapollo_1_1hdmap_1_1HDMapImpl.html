@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html">HDMapImpl</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html">HDMapImpl</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -79,38 +80,33 @@ $(function() {
  <a href="classapollo_1_1hdmap_1_1HDMapImpl.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="hdmap__impl_8h_source.html">hdmap_impl.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::hdmap::HDMapImpl:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1hdmap_1_1HDMapImpl__coll__graph.png" border="0" usemap="#apollo_1_1hdmap_1_1HDMapImpl_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a32d803b13a29805cbd7ac19bf7e700eb"><td class="memItemLeft" align="right" valign="top"><a id="a32d803b13a29805cbd7ac19bf7e700eb"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>LaneTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1LaneInfo.html">LaneInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:a32d803b13a29805cbd7ac19bf7e700eb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a32d803b13a29805cbd7ac19bf7e700eb">LaneTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1LaneInfo.html">LaneInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:a32d803b13a29805cbd7ac19bf7e700eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2917d5b4b7296950566b08b4d0511465"><td class="memItemLeft" align="right" valign="top"><a id="a2917d5b4b7296950566b08b4d0511465"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>JunctionTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1JunctionInfo.html">JunctionInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:a2917d5b4b7296950566b08b4d0511465"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a2917d5b4b7296950566b08b4d0511465">JunctionTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1JunctionInfo.html">JunctionInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:a2917d5b4b7296950566b08b4d0511465"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02779974711e90e656d14ea87d58c6d6"><td class="memItemLeft" align="right" valign="top"><a id="a02779974711e90e656d14ea87d58c6d6"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>SignalTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1SignalInfo.html">SignalInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:a02779974711e90e656d14ea87d58c6d6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a02779974711e90e656d14ea87d58c6d6">SignalTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1SignalInfo.html">SignalInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:a02779974711e90e656d14ea87d58c6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86ec824355908883e7741d7a85201a95"><td class="memItemLeft" align="right" valign="top"><a id="a86ec824355908883e7741d7a85201a95"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>CrosswalkTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1CrosswalkInfo.html">CrosswalkInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:a86ec824355908883e7741d7a85201a95"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a86ec824355908883e7741d7a85201a95">CrosswalkTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1CrosswalkInfo.html">CrosswalkInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:a86ec824355908883e7741d7a85201a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4fa690a48e1c3d7c908d5194366c3e"><td class="memItemLeft" align="right" valign="top"><a id="a0f4fa690a48e1c3d7c908d5194366c3e"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>StopSignTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1StopSignInfo.html">StopSignInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:a0f4fa690a48e1c3d7c908d5194366c3e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a0f4fa690a48e1c3d7c908d5194366c3e">StopSignTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1StopSignInfo.html">StopSignInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:a0f4fa690a48e1c3d7c908d5194366c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a005b60415baae63ab4997611ed1ce615"><td class="memItemLeft" align="right" valign="top"><a id="a005b60415baae63ab4997611ed1ce615"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>YieldSignTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1YieldSignInfo.html">YieldSignInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:a005b60415baae63ab4997611ed1ce615"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a005b60415baae63ab4997611ed1ce615">YieldSignTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1YieldSignInfo.html">YieldSignInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:a005b60415baae63ab4997611ed1ce615"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbdb726760fc8da1b42030917b678f4f"><td class="memItemLeft" align="right" valign="top"><a id="abbdb726760fc8da1b42030917b678f4f"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ClearAreaTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1ClearAreaInfo.html">ClearAreaInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:abbdb726760fc8da1b42030917b678f4f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#abbdb726760fc8da1b42030917b678f4f">ClearAreaTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1ClearAreaInfo.html">ClearAreaInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:abbdb726760fc8da1b42030917b678f4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04ea77d1eeb947e4f1bce23dd446dfff"><td class="memItemLeft" align="right" valign="top"><a id="a04ea77d1eeb947e4f1bce23dd446dfff"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>SpeedBumpTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1SpeedBumpInfo.html">SpeedBumpInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:a04ea77d1eeb947e4f1bce23dd446dfff"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a04ea77d1eeb947e4f1bce23dd446dfff">SpeedBumpTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1SpeedBumpInfo.html">SpeedBumpInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:a04ea77d1eeb947e4f1bce23dd446dfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a366bf497712511aabf56b8b40ef81ff8"><td class="memItemLeft" align="right" valign="top"><a id="a366bf497712511aabf56b8b40ef81ff8"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>OverlapTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1OverlapInfo.html">OverlapInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:a366bf497712511aabf56b8b40ef81ff8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a366bf497712511aabf56b8b40ef81ff8">OverlapTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1OverlapInfo.html">OverlapInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:a366bf497712511aabf56b8b40ef81ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade6d70af33430c29fdc55b8293045468"><td class="memItemLeft" align="right" valign="top"><a id="ade6d70af33430c29fdc55b8293045468"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>RoadTable</b> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1RoadInfo.html">RoadInfo</a> &gt; &gt;</td></tr>
+<tr class="memitem:ade6d70af33430c29fdc55b8293045468"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#ade6d70af33430c29fdc55b8293045468">RoadTable</a> = std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classapollo_1_1hdmap_1_1RoadInfo.html">RoadInfo</a> &gt; &gt;</td></tr>
 <tr class="separator:ade6d70af33430c29fdc55b8293045468"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -118,79 +114,228 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8840bb9f94951782a090771caec9039"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#ae8840bb9f94951782a090771caec9039">LoadMapFromFile</a> (const std::string &amp;map_filename)</td></tr>
 <tr class="memdesc:ae8840bb9f94951782a090771caec9039"><td class="mdescLeft">&#160;</td><td class="mdescRight">load map from local file  <a href="#ae8840bb9f94951782a090771caec9039">More...</a><br /></td></tr>
 <tr class="separator:ae8840bb9f94951782a090771caec9039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd1495c70714ad4d3683fb4588427df6"><td class="memItemLeft" align="right" valign="top"><a id="abd1495c70714ad4d3683fb4588427df6"></a>
-LaneInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetLaneById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:abd1495c70714ad4d3683fb4588427df6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#abd1495c70714ad4d3683fb4588427df6">GetLaneById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:abd1495c70714ad4d3683fb4588427df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59291019f373e7292d1b5ad3f9e8720d"><td class="memItemLeft" align="right" valign="top"><a id="a59291019f373e7292d1b5ad3f9e8720d"></a>
-JunctionInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetJunctionById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:a59291019f373e7292d1b5ad3f9e8720d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#a2a1dafe23ba534c4883d5d68298d94a1">JunctionInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a59291019f373e7292d1b5ad3f9e8720d">GetJunctionById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:a59291019f373e7292d1b5ad3f9e8720d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a788b5bab57ec9821f1429a1590d96d8d"><td class="memItemLeft" align="right" valign="top"><a id="a788b5bab57ec9821f1429a1590d96d8d"></a>
-SignalInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetSignalById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:a788b5bab57ec9821f1429a1590d96d8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#a7fb93f89fad32fc45e3753b095be0e7a">SignalInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a788b5bab57ec9821f1429a1590d96d8d">GetSignalById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:a788b5bab57ec9821f1429a1590d96d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a696541152965af9bc046bf65b664efce"><td class="memItemLeft" align="right" valign="top"><a id="a696541152965af9bc046bf65b664efce"></a>
-CrosswalkInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetCrosswalkById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:a696541152965af9bc046bf65b664efce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#ab9c5c55e9dde55a2f3c6b3d28a654662">CrosswalkInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a696541152965af9bc046bf65b664efce">GetCrosswalkById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:a696541152965af9bc046bf65b664efce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41d27503505999261f96818e6f40a8e1"><td class="memItemLeft" align="right" valign="top"><a id="a41d27503505999261f96818e6f40a8e1"></a>
-StopSignInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetStopSignById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:a41d27503505999261f96818e6f40a8e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#a72c712c2eb2372be960dfc50997267d7">StopSignInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a41d27503505999261f96818e6f40a8e1">GetStopSignById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:a41d27503505999261f96818e6f40a8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8586c1ddcce7ce913cfca095afb4fc94"><td class="memItemLeft" align="right" valign="top"><a id="a8586c1ddcce7ce913cfca095afb4fc94"></a>
-YieldSignInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetYieldSignById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:a8586c1ddcce7ce913cfca095afb4fc94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#adf1245a734b42c79b46647452a7957ac">YieldSignInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a8586c1ddcce7ce913cfca095afb4fc94">GetYieldSignById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:a8586c1ddcce7ce913cfca095afb4fc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bb14caa0f2dbb1ee7a38f9a8e61afd1"><td class="memItemLeft" align="right" valign="top"><a id="a6bb14caa0f2dbb1ee7a38f9a8e61afd1"></a>
-ClearAreaInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetClearAreaById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:a6bb14caa0f2dbb1ee7a38f9a8e61afd1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#a7a15c615d8ef2d748516943502682fa6">ClearAreaInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a6bb14caa0f2dbb1ee7a38f9a8e61afd1">GetClearAreaById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:a6bb14caa0f2dbb1ee7a38f9a8e61afd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef250fefbb7ae5c29f0ceb8282bdc5e8"><td class="memItemLeft" align="right" valign="top"><a id="aef250fefbb7ae5c29f0ceb8282bdc5e8"></a>
-SpeedBumpInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetSpeedBumpById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:aef250fefbb7ae5c29f0ceb8282bdc5e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#a8fe7a58a672a8fd1b49b67fcbe8be729">SpeedBumpInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#aef250fefbb7ae5c29f0ceb8282bdc5e8">GetSpeedBumpById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:aef250fefbb7ae5c29f0ceb8282bdc5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29d276798c843dce4854e08d9371b416"><td class="memItemLeft" align="right" valign="top"><a id="a29d276798c843dce4854e08d9371b416"></a>
-OverlapInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetOverlapById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:a29d276798c843dce4854e08d9371b416"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#a0b2220549ceb22634710c8eced588ca0">OverlapInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a29d276798c843dce4854e08d9371b416">GetOverlapById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:a29d276798c843dce4854e08d9371b416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf4549b79306e3c49486ce30aa7f1922"><td class="memItemLeft" align="right" valign="top"><a id="aaf4549b79306e3c49486ce30aa7f1922"></a>
-RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadById</b> (const Id &amp;id) const</td></tr>
+<tr class="memitem:aaf4549b79306e3c49486ce30aa7f1922"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap.html#aa94bc6874b4505ebb73876b36f8ab700">RoadInfoConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#aaf4549b79306e3c49486ce30aa7f1922">GetRoadById</a> (const Id &amp;id) const</td></tr>
 <tr class="separator:aaf4549b79306e3c49486ce30aa7f1922"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe81197aacb4b496aebb716c0ee5f4ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#afe81197aacb4b496aebb716c0ee5f4ca">GetLanes</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; LaneInfoConstPtr &gt; *lanes) const</td></tr>
+<tr class="memitem:afe81197aacb4b496aebb716c0ee5f4ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#afe81197aacb4b496aebb716c0ee5f4ca">GetLanes</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a> &gt; *lanes) const</td></tr>
 <tr class="memdesc:afe81197aacb4b496aebb716c0ee5f4ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all lanes in certain range  <a href="#afe81197aacb4b496aebb716c0ee5f4ca">More...</a><br /></td></tr>
 <tr class="separator:afe81197aacb4b496aebb716c0ee5f4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ad7698e8a80b0be3ef175b0d4cca9c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a1ad7698e8a80b0be3ef175b0d4cca9c3">GetJunctions</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; JunctionInfoConstPtr &gt; *junctions) const</td></tr>
+<tr class="memitem:a1ad7698e8a80b0be3ef175b0d4cca9c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a1ad7698e8a80b0be3ef175b0d4cca9c3">GetJunctions</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a2a1dafe23ba534c4883d5d68298d94a1">JunctionInfoConstPtr</a> &gt; *junctions) const</td></tr>
 <tr class="memdesc:a1ad7698e8a80b0be3ef175b0d4cca9c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all junctions in certain range  <a href="#a1ad7698e8a80b0be3ef175b0d4cca9c3">More...</a><br /></td></tr>
 <tr class="separator:a1ad7698e8a80b0be3ef175b0d4cca9c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a898f203fbef17681d4f48763b9f09b73"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a898f203fbef17681d4f48763b9f09b73">GetCrosswalks</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; CrosswalkInfoConstPtr &gt; *crosswalks) const</td></tr>
+<tr class="memitem:a898f203fbef17681d4f48763b9f09b73"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a898f203fbef17681d4f48763b9f09b73">GetCrosswalks</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#ab9c5c55e9dde55a2f3c6b3d28a654662">CrosswalkInfoConstPtr</a> &gt; *crosswalks) const</td></tr>
 <tr class="memdesc:a898f203fbef17681d4f48763b9f09b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all crosswalks in certain range  <a href="#a898f203fbef17681d4f48763b9f09b73">More...</a><br /></td></tr>
 <tr class="separator:a898f203fbef17681d4f48763b9f09b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83610ccaf8f01d07e25b8291172a40e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a83610ccaf8f01d07e25b8291172a40e8">GetSignals</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; SignalInfoConstPtr &gt; *signals) const</td></tr>
+<tr class="memitem:a83610ccaf8f01d07e25b8291172a40e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a83610ccaf8f01d07e25b8291172a40e8">GetSignals</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a7fb93f89fad32fc45e3753b095be0e7a">SignalInfoConstPtr</a> &gt; *signals) const</td></tr>
 <tr class="memdesc:a83610ccaf8f01d07e25b8291172a40e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all signals in certain range  <a href="#a83610ccaf8f01d07e25b8291172a40e8">More...</a><br /></td></tr>
 <tr class="separator:a83610ccaf8f01d07e25b8291172a40e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c6212a18201865d520c6066774b432f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a3c6212a18201865d520c6066774b432f">GetStopSigns</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; StopSignInfoConstPtr &gt; *stop_signs) const</td></tr>
+<tr class="memitem:a3c6212a18201865d520c6066774b432f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a3c6212a18201865d520c6066774b432f">GetStopSigns</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a72c712c2eb2372be960dfc50997267d7">StopSignInfoConstPtr</a> &gt; *stop_signs) const</td></tr>
 <tr class="memdesc:a3c6212a18201865d520c6066774b432f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all stop signs in certain range  <a href="#a3c6212a18201865d520c6066774b432f">More...</a><br /></td></tr>
 <tr class="separator:a3c6212a18201865d520c6066774b432f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7e34e012d2e023714d24ff9b17d6da8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#ab7e34e012d2e023714d24ff9b17d6da8">GetYieldSigns</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; YieldSignInfoConstPtr &gt; *yield_signs) const</td></tr>
+<tr class="memitem:ab7e34e012d2e023714d24ff9b17d6da8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#ab7e34e012d2e023714d24ff9b17d6da8">GetYieldSigns</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#adf1245a734b42c79b46647452a7957ac">YieldSignInfoConstPtr</a> &gt; *yield_signs) const</td></tr>
 <tr class="memdesc:ab7e34e012d2e023714d24ff9b17d6da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all yield signs in certain range  <a href="#ab7e34e012d2e023714d24ff9b17d6da8">More...</a><br /></td></tr>
 <tr class="separator:ab7e34e012d2e023714d24ff9b17d6da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96105b4da2b7b5660c607de16aa39e43"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a96105b4da2b7b5660c607de16aa39e43">GetClearAreas</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; ClearAreaInfoConstPtr &gt; *clear_areas) const</td></tr>
+<tr class="memitem:a96105b4da2b7b5660c607de16aa39e43"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a96105b4da2b7b5660c607de16aa39e43">GetClearAreas</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a7a15c615d8ef2d748516943502682fa6">ClearAreaInfoConstPtr</a> &gt; *clear_areas) const</td></tr>
 <tr class="memdesc:a96105b4da2b7b5660c607de16aa39e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all clear areas in certain range  <a href="#a96105b4da2b7b5660c607de16aa39e43">More...</a><br /></td></tr>
 <tr class="separator:a96105b4da2b7b5660c607de16aa39e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae747b642d49f5e445effd4cfe06b2701"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#ae747b642d49f5e445effd4cfe06b2701">GetSpeedBumps</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; SpeedBumpInfoConstPtr &gt; *speed_bumps) const</td></tr>
+<tr class="memitem:ae747b642d49f5e445effd4cfe06b2701"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#ae747b642d49f5e445effd4cfe06b2701">GetSpeedBumps</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a8fe7a58a672a8fd1b49b67fcbe8be729">SpeedBumpInfoConstPtr</a> &gt; *speed_bumps) const</td></tr>
 <tr class="memdesc:ae747b642d49f5e445effd4cfe06b2701"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all speed bumps in certain range  <a href="#ae747b642d49f5e445effd4cfe06b2701">More...</a><br /></td></tr>
 <tr class="separator:ae747b642d49f5e445effd4cfe06b2701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6beb1e0779de12a5167ad01132b2127f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a6beb1e0779de12a5167ad01132b2127f">GetRoads</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; RoadInfoConstPtr &gt; *roads) const</td></tr>
+<tr class="memitem:a6beb1e0779de12a5167ad01132b2127f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a6beb1e0779de12a5167ad01132b2127f">GetRoads</a> (const apollo::common::PointENU &amp;point, double distance, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#aa94bc6874b4505ebb73876b36f8ab700">RoadInfoConstPtr</a> &gt; *roads) const</td></tr>
 <tr class="memdesc:a6beb1e0779de12a5167ad01132b2127f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all roads in certain range  <a href="#a6beb1e0779de12a5167ad01132b2127f">More...</a><br /></td></tr>
 <tr class="separator:a6beb1e0779de12a5167ad01132b2127f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cdd4b6932e7958cdb0a996f9c7c100b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a1cdd4b6932e7958cdb0a996f9c7c100b">GetNearestLane</a> (const apollo::common::PointENU &amp;point, LaneInfoConstPtr *nearest_lane, double *nearest_s, double *nearest_l) const</td></tr>
+<tr class="memitem:a1cdd4b6932e7958cdb0a996f9c7c100b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a1cdd4b6932e7958cdb0a996f9c7c100b">GetNearestLane</a> (const apollo::common::PointENU &amp;point, <a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a> *nearest_lane, double *nearest_s, double *nearest_l) const</td></tr>
 <tr class="memdesc:a1cdd4b6932e7958cdb0a996f9c7c100b"><td class="mdescLeft">&#160;</td><td class="mdescRight">get nearest lane from target point,  <a href="#a1cdd4b6932e7958cdb0a996f9c7c100b">More...</a><br /></td></tr>
 <tr class="separator:a1cdd4b6932e7958cdb0a996f9c7c100b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0721577ffb704b4f5c36e0259bbbf3af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a0721577ffb704b4f5c36e0259bbbf3af">GetNearestLaneWithHeading</a> (const apollo::common::PointENU &amp;point, const double distance, const double central_heading, const double max_heading_difference, LaneInfoConstPtr *nearest_lane, double *nearest_s, double *nearest_l) const</td></tr>
+<tr class="memitem:a0721577ffb704b4f5c36e0259bbbf3af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a0721577ffb704b4f5c36e0259bbbf3af">GetNearestLaneWithHeading</a> (const apollo::common::PointENU &amp;point, const double distance, const double central_heading, const double max_heading_difference, <a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a> *nearest_lane, double *nearest_s, double *nearest_l) const</td></tr>
 <tr class="memdesc:a0721577ffb704b4f5c36e0259bbbf3af"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the nearest lane within a certain range by pose  <a href="#a0721577ffb704b4f5c36e0259bbbf3af">More...</a><br /></td></tr>
 <tr class="separator:a0721577ffb704b4f5c36e0259bbbf3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b8b07b45dc7956730f14932d6a203e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a4b8b07b45dc7956730f14932d6a203e3">GetLanesWithHeading</a> (const apollo::common::PointENU &amp;point, const double distance, const double central_heading, const double max_heading_difference, std::vector&lt; LaneInfoConstPtr &gt; *lanes) const</td></tr>
+<tr class="memitem:a4b8b07b45dc7956730f14932d6a203e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a4b8b07b45dc7956730f14932d6a203e3">GetLanesWithHeading</a> (const apollo::common::PointENU &amp;point, const double distance, const double central_heading, const double max_heading_difference, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a> &gt; *lanes) const</td></tr>
 <tr class="memdesc:a4b8b07b45dc7956730f14932d6a203e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all lanes within a certain range by pose  <a href="#a4b8b07b45dc7956730f14932d6a203e3">More...</a><br /></td></tr>
 <tr class="separator:a4b8b07b45dc7956730f14932d6a203e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11387ebb7a9ecbae78de95319b6ec346"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a11387ebb7a9ecbae78de95319b6ec346">GetRoadBoundaries</a> (const apollo::common::PointENU &amp;point, double radius, std::vector&lt; RoadROIBoundaryPtr &gt; *road_boundaries, std::vector&lt; JunctionBoundaryPtr &gt; *junctions) const</td></tr>
+<tr class="memitem:a11387ebb7a9ecbae78de95319b6ec346"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a11387ebb7a9ecbae78de95319b6ec346">GetRoadBoundaries</a> (const apollo::common::PointENU &amp;point, double radius, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a2b355a3fa1e6ba781a1b5d1328f67fcd">RoadROIBoundaryPtr</a> &gt; *road_boundaries, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#ac4f3107ef1a880e8a99a2fde1074d65d">JunctionBoundaryPtr</a> &gt; *junctions) const</td></tr>
 <tr class="memdesc:a11387ebb7a9ecbae78de95319b6ec346"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all road and junctions boundaries within certain range  <a href="#a11387ebb7a9ecbae78de95319b6ec346">More...</a><br /></td></tr>
 <tr class="separator:a11387ebb7a9ecbae78de95319b6ec346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>High-precision map loader implement. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="abbdb726760fc8da1b42030917b678f4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbdb726760fc8da1b42030917b678f4f">&#9670;&nbsp;</a></span>ClearAreaTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#abbdb726760fc8da1b42030917b678f4f">apollo::hdmap::HDMapImpl::ClearAreaTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1ClearAreaInfo.html">ClearAreaInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86ec824355908883e7741d7a85201a95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86ec824355908883e7741d7a85201a95">&#9670;&nbsp;</a></span>CrosswalkTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a86ec824355908883e7741d7a85201a95">apollo::hdmap::HDMapImpl::CrosswalkTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1CrosswalkInfo.html">CrosswalkInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2917d5b4b7296950566b08b4d0511465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2917d5b4b7296950566b08b4d0511465">&#9670;&nbsp;</a></span>JunctionTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a2917d5b4b7296950566b08b4d0511465">apollo::hdmap::HDMapImpl::JunctionTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1JunctionInfo.html">JunctionInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a32d803b13a29805cbd7ac19bf7e700eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32d803b13a29805cbd7ac19bf7e700eb">&#9670;&nbsp;</a></span>LaneTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a32d803b13a29805cbd7ac19bf7e700eb">apollo::hdmap::HDMapImpl::LaneTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1LaneInfo.html">LaneInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a366bf497712511aabf56b8b40ef81ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a366bf497712511aabf56b8b40ef81ff8">&#9670;&nbsp;</a></span>OverlapTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a366bf497712511aabf56b8b40ef81ff8">apollo::hdmap::HDMapImpl::OverlapTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1OverlapInfo.html">OverlapInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade6d70af33430c29fdc55b8293045468"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade6d70af33430c29fdc55b8293045468">&#9670;&nbsp;</a></span>RoadTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#ade6d70af33430c29fdc55b8293045468">apollo::hdmap::HDMapImpl::RoadTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1RoadInfo.html">RoadInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02779974711e90e656d14ea87d58c6d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02779974711e90e656d14ea87d58c6d6">&#9670;&nbsp;</a></span>SignalTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a02779974711e90e656d14ea87d58c6d6">apollo::hdmap::HDMapImpl::SignalTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1SignalInfo.html">SignalInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04ea77d1eeb947e4f1bce23dd446dfff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04ea77d1eeb947e4f1bce23dd446dfff">&#9670;&nbsp;</a></span>SpeedBumpTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a04ea77d1eeb947e4f1bce23dd446dfff">apollo::hdmap::HDMapImpl::SpeedBumpTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1SpeedBumpInfo.html">SpeedBumpInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f4fa690a48e1c3d7c908d5194366c3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4fa690a48e1c3d7c908d5194366c3e">&#9670;&nbsp;</a></span>StopSignTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a0f4fa690a48e1c3d7c908d5194366c3e">apollo::hdmap::HDMapImpl::StopSignTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1StopSignInfo.html">StopSignInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a005b60415baae63ab4997611ed1ce615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a005b60415baae63ab4997611ed1ce615">&#9670;&nbsp;</a></span>YieldSignTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classapollo_1_1hdmap_1_1HDMapImpl.html#a005b60415baae63ab4997611ed1ce615">apollo::hdmap::HDMapImpl::YieldSignTable</a> =  std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classapollo_1_1hdmap_1_1YieldSignInfo.html">YieldSignInfo</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6bb14caa0f2dbb1ee7a38f9a8e61afd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bb14caa0f2dbb1ee7a38f9a8e61afd1">&#9670;&nbsp;</a></span>GetClearAreaById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#a7a15c615d8ef2d748516943502682fa6">ClearAreaInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetClearAreaById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a96105b4da2b7b5660c607de16aa39e43"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96105b4da2b7b5660c607de16aa39e43">&#9670;&nbsp;</a></span>GetClearAreas()</h2>
 
@@ -212,7 +357,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; ClearAreaInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a7a15c615d8ef2d748516943502682fa6">ClearAreaInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>clear_areas</em>&#160;</td>
         </tr>
         <tr>
@@ -233,6 +378,24 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0:success, otherwise failed </dd></dl>
+
+</div>
+</div>
+<a id="a696541152965af9bc046bf65b664efce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a696541152965af9bc046bf65b664efce">&#9670;&nbsp;</a></span>GetCrosswalkById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#ab9c5c55e9dde55a2f3c6b3d28a654662">CrosswalkInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetCrosswalkById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -257,7 +420,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; CrosswalkInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#ab9c5c55e9dde55a2f3c6b3d28a654662">CrosswalkInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>crosswalks</em>&#160;</td>
         </tr>
         <tr>
@@ -278,6 +441,24 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0:success, otherwise failed </dd></dl>
+
+</div>
+</div>
+<a id="a59291019f373e7292d1b5ad3f9e8720d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59291019f373e7292d1b5ad3f9e8720d">&#9670;&nbsp;</a></span>GetJunctionById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#a2a1dafe23ba534c4883d5d68298d94a1">JunctionInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetJunctionById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -302,7 +483,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; JunctionInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a2a1dafe23ba534c4883d5d68298d94a1">JunctionInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>junctions</em>&#160;</td>
         </tr>
         <tr>
@@ -323,6 +504,24 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0:success, otherwise failed </dd></dl>
+
+</div>
+</div>
+<a id="abd1495c70714ad4d3683fb4588427df6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd1495c70714ad4d3683fb4588427df6">&#9670;&nbsp;</a></span>GetLaneById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetLaneById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -347,7 +546,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; LaneInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>lanes</em>&#160;</td>
         </tr>
         <tr>
@@ -404,7 +603,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; LaneInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>lanes</em>&#160;</td>
         </tr>
         <tr>
@@ -445,7 +644,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">LaneInfoConstPtr *&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a> *&#160;</td>
           <td class="paramname"><em>nearest_lane</em>, </td>
         </tr>
         <tr>
@@ -515,7 +714,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">LaneInfoConstPtr *&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceapollo_1_1hdmap.html#a775ceb238b0607bcc5591ba12d579b4e">LaneInfoConstPtr</a> *&#160;</td>
           <td class="paramname"><em>nearest_lane</em>, </td>
         </tr>
         <tr>
@@ -555,6 +754,24 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
 
 </div>
 </div>
+<a id="a29d276798c843dce4854e08d9371b416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29d276798c843dce4854e08d9371b416">&#9670;&nbsp;</a></span>GetOverlapById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#a0b2220549ceb22634710c8eced588ca0">OverlapInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetOverlapById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a11387ebb7a9ecbae78de95319b6ec346"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11387ebb7a9ecbae78de95319b6ec346">&#9670;&nbsp;</a></span>GetRoadBoundaries()</h2>
 
@@ -576,13 +793,13 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; RoadROIBoundaryPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a2b355a3fa1e6ba781a1b5d1328f67fcd">RoadROIBoundaryPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>road_boundaries</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; JunctionBoundaryPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#ac4f3107ef1a880e8a99a2fde1074d65d">JunctionBoundaryPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>junctions</em>&#160;</td>
         </tr>
         <tr>
@@ -607,6 +824,24 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
 
 </div>
 </div>
+<a id="aaf4549b79306e3c49486ce30aa7f1922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf4549b79306e3c49486ce30aa7f1922">&#9670;&nbsp;</a></span>GetRoadById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#aa94bc6874b4505ebb73876b36f8ab700">RoadInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetRoadById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6beb1e0779de12a5167ad01132b2127f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6beb1e0779de12a5167ad01132b2127f">&#9670;&nbsp;</a></span>GetRoads()</h2>
 
@@ -628,7 +863,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; RoadInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#aa94bc6874b4505ebb73876b36f8ab700">RoadInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>roads</em>&#160;</td>
         </tr>
         <tr>
@@ -649,6 +884,24 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0:success, otherwise failed </dd></dl>
+
+</div>
+</div>
+<a id="a788b5bab57ec9821f1429a1590d96d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a788b5bab57ec9821f1429a1590d96d8d">&#9670;&nbsp;</a></span>GetSignalById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#a7fb93f89fad32fc45e3753b095be0e7a">SignalInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetSignalById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -673,7 +926,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; SignalInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a7fb93f89fad32fc45e3753b095be0e7a">SignalInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>signals</em>&#160;</td>
         </tr>
         <tr>
@@ -694,6 +947,24 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0:success, otherwise failed </dd></dl>
+
+</div>
+</div>
+<a id="aef250fefbb7ae5c29f0ceb8282bdc5e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef250fefbb7ae5c29f0ceb8282bdc5e8">&#9670;&nbsp;</a></span>GetSpeedBumpById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#a8fe7a58a672a8fd1b49b67fcbe8be729">SpeedBumpInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetSpeedBumpById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -718,7 +989,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; SpeedBumpInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a8fe7a58a672a8fd1b49b67fcbe8be729">SpeedBumpInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>speed_bumps</em>&#160;</td>
         </tr>
         <tr>
@@ -739,6 +1010,24 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0:success, otherwise failed </dd></dl>
+
+</div>
+</div>
+<a id="a41d27503505999261f96818e6f40a8e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41d27503505999261f96818e6f40a8e1">&#9670;&nbsp;</a></span>GetStopSignById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#a72c712c2eb2372be960dfc50997267d7">StopSignInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetStopSignById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -763,7 +1052,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; StopSignInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#a72c712c2eb2372be960dfc50997267d7">StopSignInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>stop_signs</em>&#160;</td>
         </tr>
         <tr>
@@ -784,6 +1073,24 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0:success, otherwise failed </dd></dl>
+
+</div>
+</div>
+<a id="a8586c1ddcce7ce913cfca095afb4fc94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8586c1ddcce7ce913cfca095afb4fc94">&#9670;&nbsp;</a></span>GetYieldSignById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap.html#adf1245a734b42c79b46647452a7957ac">YieldSignInfoConstPtr</a> apollo::hdmap::HDMapImpl::GetYieldSignById </td>
+          <td>(</td>
+          <td class="paramtype">const Id &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -808,7 +1115,7 @@ RoadInfoConstPtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadBy
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; YieldSignInfoConstPtr &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap.html#adf1245a734b42c79b46647452a7957ac">YieldSignInfoConstPtr</a> &gt; *&#160;</td>
           <td class="paramname"><em>yield_signs</em>&#160;</td>
         </tr>
         <tr>

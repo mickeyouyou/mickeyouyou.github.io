@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1util.html">util</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">LRUCache</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1util.html">util</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">LRUCache</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,82 +74,841 @@ $(function() {
 <div class="title">apollo::common::util::LRUCache&lt; K, V &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="lru__cache_8h_source.html">lru_cache.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::common::util::LRUCache&lt; K, V &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1common_1_1util_1_1LRUCache__coll__graph.png" border="0" usemap="#apollo_1_1common_1_1util_1_1LRUCache_3_01K_00_01V_01_4_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aacd7d5158b63ae326ff76694abf8e43e"><td class="memItemLeft" align="right" valign="top"><a id="aacd7d5158b63ae326ff76694abf8e43e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LRUCache</b> (const size_t capacity)</td></tr>
+<tr class="memitem:a8abe944694acc7731c17b03470852b41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a8abe944694acc7731c17b03470852b41">LRUCache</a> ()</td></tr>
+<tr class="separator:a8abe944694acc7731c17b03470852b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacd7d5158b63ae326ff76694abf8e43e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#aacd7d5158b63ae326ff76694abf8e43e">LRUCache</a> (const size_t <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a4debc03e15df44b81a93c86e9b3496ba">capacity</a>)</td></tr>
 <tr class="separator:aacd7d5158b63ae326ff76694abf8e43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada5ba141e69791da5731005b7b8d84b2"><td class="memItemLeft" align="right" valign="top"><a id="ada5ba141e69791da5731005b7b8d84b2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetCache</b> (std::unordered_map&lt; K, V &gt; *cache)</td></tr>
+<tr class="memitem:a864faa0df1e838a3d2d7dbb0204ed876"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a864faa0df1e838a3d2d7dbb0204ed876">~LRUCache</a> ()</td></tr>
+<tr class="separator:a864faa0df1e838a3d2d7dbb0204ed876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada5ba141e69791da5731005b7b8d84b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#ada5ba141e69791da5731005b7b8d84b2">GetCache</a> (std::unordered_map&lt; K, V &gt; *cache)</td></tr>
 <tr class="separator:ada5ba141e69791da5731005b7b8d84b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37630b67badcdfe938e637768d07d459"><td class="memItemLeft" align="right" valign="top"><a id="a37630b67badcdfe938e637768d07d459"></a>
-V &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const K &amp;key)</td></tr>
+<tr class="memitem:a37630b67badcdfe938e637768d07d459"><td class="memItemLeft" align="right" valign="top">V &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a37630b67badcdfe938e637768d07d459">operator[]</a> (const K &amp;key)</td></tr>
 <tr class="separator:a37630b67badcdfe938e637768d07d459"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac68e533446471028651a34c4c78414ea"><td class="memItemLeft" align="right" valign="top"><a id="ac68e533446471028651a34c4c78414ea"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetAllSilently</b> (std::vector&lt; V *&gt; *ret)</td></tr>
+<tr class="memitem:ac68e533446471028651a34c4c78414ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#ac68e533446471028651a34c4c78414ea">GetAllSilently</a> (std::vector&lt; V *&gt; *ret)</td></tr>
 <tr class="separator:ac68e533446471028651a34c4c78414ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f9fd37d848274fccae25daa4d6d6085"><td class="memTemplParams" colspan="2"><a id="a0f9fd37d848274fccae25daa4d6d6085"></a>
-template&lt;typename VV &gt; </td></tr>
-<tr class="memitem:a0f9fd37d848274fccae25daa4d6d6085"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Put</b> (const K &amp;key, VV &amp;&amp;val)</td></tr>
+<tr class="memitem:a0f9fd37d848274fccae25daa4d6d6085"><td class="memTemplParams" colspan="2">template&lt;typename VV &gt; </td></tr>
+<tr class="memitem:a0f9fd37d848274fccae25daa4d6d6085"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a0f9fd37d848274fccae25daa4d6d6085">Put</a> (const K &amp;key, VV &amp;&amp;val)</td></tr>
 <tr class="separator:a0f9fd37d848274fccae25daa4d6d6085"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9c8dddd31dca16bdc9a77990b6cc2b8"><td class="memTemplParams" colspan="2"><a id="aa9c8dddd31dca16bdc9a77990b6cc2b8"></a>
-template&lt;typename VV &gt; </td></tr>
-<tr class="memitem:aa9c8dddd31dca16bdc9a77990b6cc2b8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Update</b> (const K &amp;key, VV &amp;&amp;val)</td></tr>
+<tr class="memitem:aa9c8dddd31dca16bdc9a77990b6cc2b8"><td class="memTemplParams" colspan="2">template&lt;typename VV &gt; </td></tr>
+<tr class="memitem:aa9c8dddd31dca16bdc9a77990b6cc2b8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#aa9c8dddd31dca16bdc9a77990b6cc2b8">Update</a> (const K &amp;key, VV &amp;&amp;val)</td></tr>
 <tr class="separator:aa9c8dddd31dca16bdc9a77990b6cc2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a021237163181b3c9f25f9904adf62a71"><td class="memTemplParams" colspan="2"><a id="a021237163181b3c9f25f9904adf62a71"></a>
-template&lt;typename VV &gt; </td></tr>
-<tr class="memitem:a021237163181b3c9f25f9904adf62a71"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>UpdateSilently</b> (const K &amp;key, VV *val)</td></tr>
+<tr class="memitem:a021237163181b3c9f25f9904adf62a71"><td class="memTemplParams" colspan="2">template&lt;typename VV &gt; </td></tr>
+<tr class="memitem:a021237163181b3c9f25f9904adf62a71"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a021237163181b3c9f25f9904adf62a71">UpdateSilently</a> (const K &amp;key, VV *val)</td></tr>
 <tr class="separator:a021237163181b3c9f25f9904adf62a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70c390a9ed38544cf759fbc8f831f7fa"><td class="memTemplParams" colspan="2"><a id="a70c390a9ed38544cf759fbc8f831f7fa"></a>
-template&lt;typename VV &gt; </td></tr>
-<tr class="memitem:a70c390a9ed38544cf759fbc8f831f7fa"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Add</b> (const K &amp;key, VV *val)</td></tr>
+<tr class="memitem:a70c390a9ed38544cf759fbc8f831f7fa"><td class="memTemplParams" colspan="2">template&lt;typename VV &gt; </td></tr>
+<tr class="memitem:a70c390a9ed38544cf759fbc8f831f7fa"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a70c390a9ed38544cf759fbc8f831f7fa">Add</a> (const K &amp;key, VV *val)</td></tr>
 <tr class="separator:a70c390a9ed38544cf759fbc8f831f7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad04a2c4d79c2a33a87f73d96e7c1ed67"><td class="memTemplParams" colspan="2"><a id="ad04a2c4d79c2a33a87f73d96e7c1ed67"></a>
-template&lt;typename VV &gt; </td></tr>
-<tr class="memitem:ad04a2c4d79c2a33a87f73d96e7c1ed67"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>PutAndGetObsolete</b> (const K &amp;key, VV *val, K *obs)</td></tr>
+<tr class="memitem:ad04a2c4d79c2a33a87f73d96e7c1ed67"><td class="memTemplParams" colspan="2">template&lt;typename VV &gt; </td></tr>
+<tr class="memitem:ad04a2c4d79c2a33a87f73d96e7c1ed67"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#ad04a2c4d79c2a33a87f73d96e7c1ed67">PutAndGetObsolete</a> (const K &amp;key, VV *val, K *obs)</td></tr>
 <tr class="separator:ad04a2c4d79c2a33a87f73d96e7c1ed67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa992b01c9a00f6eb248c9ef7b06bb0a0"><td class="memTemplParams" colspan="2"><a id="aa992b01c9a00f6eb248c9ef7b06bb0a0"></a>
-template&lt;typename VV &gt; </td></tr>
-<tr class="memitem:aa992b01c9a00f6eb248c9ef7b06bb0a0"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>AddAndGetObsolete</b> (const K &amp;key, VV *val, K *obs)</td></tr>
+<tr class="memitem:aa992b01c9a00f6eb248c9ef7b06bb0a0"><td class="memTemplParams" colspan="2">template&lt;typename VV &gt; </td></tr>
+<tr class="memitem:aa992b01c9a00f6eb248c9ef7b06bb0a0"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#aa992b01c9a00f6eb248c9ef7b06bb0a0">AddAndGetObsolete</a> (const K &amp;key, VV *val, K *obs)</td></tr>
 <tr class="separator:aa992b01c9a00f6eb248c9ef7b06bb0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f99fdd324280ef813c6ca660938570f"><td class="memItemLeft" align="right" valign="top"><a id="a3f99fdd324280ef813c6ca660938570f"></a>
-V *&#160;</td><td class="memItemRight" valign="bottom"><b>GetSilently</b> (const K &amp;key)</td></tr>
+<tr class="memitem:a3f99fdd324280ef813c6ca660938570f"><td class="memItemLeft" align="right" valign="top">V *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a3f99fdd324280ef813c6ca660938570f">GetSilently</a> (const K &amp;key)</td></tr>
 <tr class="separator:a3f99fdd324280ef813c6ca660938570f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad40722110ecf10ef988ac14add09d970"><td class="memItemLeft" align="right" valign="top"><a id="ad40722110ecf10ef988ac14add09d970"></a>
-V *&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> (const K &amp;key)</td></tr>
+<tr class="memitem:ad40722110ecf10ef988ac14add09d970"><td class="memItemLeft" align="right" valign="top">V *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#ad40722110ecf10ef988ac14add09d970">Get</a> (const K &amp;key)</td></tr>
 <tr class="separator:ad40722110ecf10ef988ac14add09d970"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad17df986e5c9b9bdd9282488966402dc"><td class="memItemLeft" align="right" valign="top"><a id="ad17df986e5c9b9bdd9282488966402dc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetCopySilently</b> (const K &amp;key, const V *val)</td></tr>
+<tr class="memitem:ad17df986e5c9b9bdd9282488966402dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#ad17df986e5c9b9bdd9282488966402dc">GetCopySilently</a> (const K &amp;key, const V *val)</td></tr>
 <tr class="separator:ad17df986e5c9b9bdd9282488966402dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9c1bcdf8a9b4efeaeb6abe419fd0772"><td class="memItemLeft" align="right" valign="top"><a id="ab9c1bcdf8a9b4efeaeb6abe419fd0772"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetCopy</b> (const K &amp;key, const V *val)</td></tr>
+<tr class="memitem:ab9c1bcdf8a9b4efeaeb6abe419fd0772"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#ab9c1bcdf8a9b4efeaeb6abe419fd0772">GetCopy</a> (const K &amp;key, const V *val)</td></tr>
 <tr class="separator:ab9c1bcdf8a9b4efeaeb6abe419fd0772"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a078870d9c8cbf10fe067b8f3aff6a72f"><td class="memItemLeft" align="right" valign="top"><a id="a078870d9c8cbf10fe067b8f3aff6a72f"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></tr>
+<tr class="memitem:a078870d9c8cbf10fe067b8f3aff6a72f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a078870d9c8cbf10fe067b8f3aff6a72f">size</a> ()</td></tr>
 <tr class="separator:a078870d9c8cbf10fe067b8f3aff6a72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d82ced8c28aab7bc0ae0c2da8687d26"><td class="memItemLeft" align="right" valign="top"><a id="a9d82ced8c28aab7bc0ae0c2da8687d26"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Full</b> ()</td></tr>
+<tr class="memitem:a9d82ced8c28aab7bc0ae0c2da8687d26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a9d82ced8c28aab7bc0ae0c2da8687d26">Full</a> ()</td></tr>
 <tr class="separator:a9d82ced8c28aab7bc0ae0c2da8687d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bac43882a38cd1d2cbac021aebf9f72"><td class="memItemLeft" align="right" valign="top"><a id="a5bac43882a38cd1d2cbac021aebf9f72"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Empty</b> ()</td></tr>
+<tr class="memitem:a5bac43882a38cd1d2cbac021aebf9f72"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a5bac43882a38cd1d2cbac021aebf9f72">Empty</a> ()</td></tr>
 <tr class="separator:a5bac43882a38cd1d2cbac021aebf9f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4debc03e15df44b81a93c86e9b3496ba"><td class="memItemLeft" align="right" valign="top"><a id="a4debc03e15df44b81a93c86e9b3496ba"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>capacity</b> ()</td></tr>
+<tr class="memitem:a4debc03e15df44b81a93c86e9b3496ba"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#a4debc03e15df44b81a93c86e9b3496ba">capacity</a> ()</td></tr>
 <tr class="separator:a4debc03e15df44b81a93c86e9b3496ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfb0d2b67090bef8b0412a719b164b39"><td class="memItemLeft" align="right" valign="top"><a id="abfb0d2b67090bef8b0412a719b164b39"></a>
-<a class="el" href="structapollo_1_1common_1_1util_1_1Node.html">Node</a>&lt; K, V &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>First</b> ()</td></tr>
+<tr class="memitem:abfb0d2b67090bef8b0412a719b164b39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structapollo_1_1common_1_1util_1_1Node.html">Node</a>&lt; K, V &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#abfb0d2b67090bef8b0412a719b164b39">First</a> ()</td></tr>
 <tr class="separator:abfb0d2b67090bef8b0412a719b164b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab610d0ad2f6219e3157fc3df6daf1a6b"><td class="memItemLeft" align="right" valign="top"><a id="ab610d0ad2f6219e3157fc3df6daf1a6b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Contains</b> (const K &amp;key)</td></tr>
+<tr class="memitem:ab610d0ad2f6219e3157fc3df6daf1a6b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#ab610d0ad2f6219e3157fc3df6daf1a6b">Contains</a> (const K &amp;key)</td></tr>
 <tr class="separator:ab610d0ad2f6219e3157fc3df6daf1a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac82d9ea83c8fddb1547bda2bd8fa01d7"><td class="memItemLeft" align="right" valign="top"><a id="ac82d9ea83c8fddb1547bda2bd8fa01d7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Prioritize</b> (const K &amp;key)</td></tr>
+<tr class="memitem:ac82d9ea83c8fddb1547bda2bd8fa01d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#ac82d9ea83c8fddb1547bda2bd8fa01d7">Prioritize</a> (const K &amp;key)</td></tr>
 <tr class="separator:ac82d9ea83c8fddb1547bda2bd8fa01d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab73a4b620ada4177576ed04d74fa5d76"><td class="memItemLeft" align="right" valign="top"><a id="ab73a4b620ada4177576ed04d74fa5d76"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr>
+<tr class="memitem:ab73a4b620ada4177576ed04d74fa5d76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html#ab73a4b620ada4177576ed04d74fa5d76">Clear</a> ()</td></tr>
 <tr class="separator:ab73a4b620ada4177576ed04d74fa5d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8abe944694acc7731c17b03470852b41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8abe944694acc7731c17b03470852b41">&#9670;&nbsp;</a></span>LRUCache() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::<a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">LRUCache</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aacd7d5158b63ae326ff76694abf8e43e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacd7d5158b63ae326ff76694abf8e43e">&#9670;&nbsp;</a></span>LRUCache() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::<a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">LRUCache</a> </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>capacity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a864faa0df1e838a3d2d7dbb0204ed876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a864faa0df1e838a3d2d7dbb0204ed876">&#9670;&nbsp;</a></span>~LRUCache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::~<a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">LRUCache</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a70c390a9ed38544cf759fbc8f831f7fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70c390a9ed38544cf759fbc8f831f7fa">&#9670;&nbsp;</a></span>Add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<div class="memtemplate">
+template&lt;typename VV &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::Add </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VV *&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa992b01c9a00f6eb248c9ef7b06bb0a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa992b01c9a00f6eb248c9ef7b06bb0a0">&#9670;&nbsp;</a></span>AddAndGetObsolete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<div class="memtemplate">
+template&lt;typename VV &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::AddAndGetObsolete </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VV *&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">K *&#160;</td>
+          <td class="paramname"><em>obs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4debc03e15df44b81a93c86e9b3496ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4debc03e15df44b81a93c86e9b3496ba">&#9670;&nbsp;</a></span>capacity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::capacity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab73a4b620ada4177576ed04d74fa5d76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab73a4b620ada4177576ed04d74fa5d76">&#9670;&nbsp;</a></span>Clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::Clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab610d0ad2f6219e3157fc3df6daf1a6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab610d0ad2f6219e3157fc3df6daf1a6b">&#9670;&nbsp;</a></span>Contains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::Contains </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bac43882a38cd1d2cbac021aebf9f72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bac43882a38cd1d2cbac021aebf9f72">&#9670;&nbsp;</a></span>Empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::Empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfb0d2b67090bef8b0412a719b164b39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb0d2b67090bef8b0412a719b164b39">&#9670;&nbsp;</a></span>First()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structapollo_1_1common_1_1util_1_1Node.html">Node</a>&lt;K, V&gt;* <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::First </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d82ced8c28aab7bc0ae0c2da8687d26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d82ced8c28aab7bc0ae0c2da8687d26">&#9670;&nbsp;</a></span>Full()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::Full </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad40722110ecf10ef988ac14add09d970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad40722110ecf10ef988ac14add09d970">&#9670;&nbsp;</a></span>Get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">V* <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::Get </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac68e533446471028651a34c4c78414ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac68e533446471028651a34c4c78414ea">&#9670;&nbsp;</a></span>GetAllSilently()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::GetAllSilently </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; V *&gt; *&#160;</td>
+          <td class="paramname"><em>ret</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada5ba141e69791da5731005b7b8d84b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada5ba141e69791da5731005b7b8d84b2">&#9670;&nbsp;</a></span>GetCache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::GetCache </td>
+          <td>(</td>
+          <td class="paramtype">std::unordered_map&lt; K, V &gt; *&#160;</td>
+          <td class="paramname"><em>cache</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9c1bcdf8a9b4efeaeb6abe419fd0772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9c1bcdf8a9b4efeaeb6abe419fd0772">&#9670;&nbsp;</a></span>GetCopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::GetCopy </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V *&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad17df986e5c9b9bdd9282488966402dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad17df986e5c9b9bdd9282488966402dc">&#9670;&nbsp;</a></span>GetCopySilently()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::GetCopySilently </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V *&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f99fdd324280ef813c6ca660938570f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f99fdd324280ef813c6ca660938570f">&#9670;&nbsp;</a></span>GetSilently()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">V* <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::GetSilently </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37630b67badcdfe938e637768d07d459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37630b67badcdfe938e637768d07d459">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">V&amp; <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac82d9ea83c8fddb1547bda2bd8fa01d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac82d9ea83c8fddb1547bda2bd8fa01d7">&#9670;&nbsp;</a></span>Prioritize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::Prioritize </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f9fd37d848274fccae25daa4d6d6085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f9fd37d848274fccae25daa4d6d6085">&#9670;&nbsp;</a></span>Put()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<div class="memtemplate">
+template&lt;typename VV &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::Put </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VV &amp;&amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad04a2c4d79c2a33a87f73d96e7c1ed67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad04a2c4d79c2a33a87f73d96e7c1ed67">&#9670;&nbsp;</a></span>PutAndGetObsolete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<div class="memtemplate">
+template&lt;typename VV &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::PutAndGetObsolete </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VV *&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">K *&#160;</td>
+          <td class="paramname"><em>obs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a078870d9c8cbf10fe067b8f3aff6a72f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078870d9c8cbf10fe067b8f3aff6a72f">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9c8dddd31dca16bdc9a77990b6cc2b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c8dddd31dca16bdc9a77990b6cc2b8">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<div class="memtemplate">
+template&lt;typename VV &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::Update </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VV &amp;&amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a021237163181b3c9f25f9904adf62a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a021237163181b3c9f25f9904adf62a71">&#9670;&nbsp;</a></span>UpdateSilently()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class K, class V&gt; </div>
+<div class="memtemplate">
+template&lt;typename VV &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classapollo_1_1common_1_1util_1_1LRUCache.html">apollo::common::util::LRUCache</a>&lt; K, V &gt;::UpdateSilently </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VV *&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/common/util/<a class="el" href="lru__cache_8h_source.html">lru_cache.h</a></li>
 </ul>

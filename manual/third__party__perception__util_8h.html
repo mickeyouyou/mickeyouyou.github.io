@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -77,6 +78,11 @@ $(function() {
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
 <code>#include &quot;modules/common/proto/geometry.pb.h&quot;</code><br />
 <code>#include &quot;modules/perception/proto/perception_obstacle.pb.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for third_party_perception_util.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="third__party__perception__util_8h__incl.png" border="0" usemap="#modules_2third__party__perception_2common_2third__party__perception__util_8h" alt=""/></div>
+</div>
 </div>
 <p><a href="third__party__perception__util_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -85,56 +91,43 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceapollo_1_1third__party__perception"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html">apollo::third_party_perception</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1third__party__perception"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1third__party__perception.html" title="apollo::third_party_perception ">apollo::third_party_perception</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a42c5e07233e7c55f8518fe71f85686bb"><td class="memItemLeft" align="right" valign="top"><a id="a42c5e07233e7c55f8518fe71f85686bb"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::GetAngleFromQuaternion</b> (const Quaternion quaternion)</td></tr>
-<tr class="separator:a42c5e07233e7c55f8518fe71f85686bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a008ae421eb6a1cb996b1fdc5e7dd9a2c"><td class="memItemLeft" align="right" valign="top"><a id="a008ae421eb6a1cb996b1fdc5e7dd9a2c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::FillPerceptionPolygon</b> (PerceptionObstacle *const perception_obstacle, const double mid_x, const double mid_y, const double mid_z, const double length, const double width, const double height, const double heading)</td></tr>
-<tr class="separator:a008ae421eb6a1cb996b1fdc5e7dd9a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b0651396992f829f0f2bbc2445adfb9"><td class="memItemLeft" align="right" valign="top"><a id="a0b0651396992f829f0f2bbc2445adfb9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::GetDefaultObjectLength</b> (const int object_type)</td></tr>
+<tr class="memitem:ae2e10d91dcfb7fbaaf68cda869f10770"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#ae2e10d91dcfb7fbaaf68cda869f10770">apollo::third_party_perception::GetAngleFromQuaternion</a> (const apollo::common::Quaternion quaternion)</td></tr>
+<tr class="separator:ae2e10d91dcfb7fbaaf68cda869f10770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6376e259ee087f8acca4e48851c00e80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#a6376e259ee087f8acca4e48851c00e80">apollo::third_party_perception::FillPerceptionPolygon</a> (apollo::perception::PerceptionObstacle *const perception_obstacle, const double mid_x, const double mid_y, const double mid_z, const double length, const double width, const double height, const double heading)</td></tr>
+<tr class="separator:a6376e259ee087f8acca4e48851c00e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b0651396992f829f0f2bbc2445adfb9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#a0b0651396992f829f0f2bbc2445adfb9">apollo::third_party_perception::GetDefaultObjectLength</a> (const int object_type)</td></tr>
 <tr class="separator:a0b0651396992f829f0f2bbc2445adfb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada5aa65f21bf3684fb91d94660b6353c"><td class="memItemLeft" align="right" valign="top"><a id="ada5aa65f21bf3684fb91d94660b6353c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::GetDefaultObjectWidth</b> (const int object_type)</td></tr>
+<tr class="memitem:ada5aa65f21bf3684fb91d94660b6353c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#ada5aa65f21bf3684fb91d94660b6353c">apollo::third_party_perception::GetDefaultObjectWidth</a> (const int object_type)</td></tr>
 <tr class="separator:ada5aa65f21bf3684fb91d94660b6353c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8662c5175d01e0ce963ef4f698c10b85"><td class="memItemLeft" align="right" valign="top"><a id="a8662c5175d01e0ce963ef4f698c10b85"></a>
-Point&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::SLtoXY</b> (const double x, const double y, const double theta)</td></tr>
-<tr class="separator:a8662c5175d01e0ce963ef4f698c10b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a493d13b886ec1240149c0c09bf555813"><td class="memItemLeft" align="right" valign="top"><a id="a493d13b886ec1240149c0c09bf555813"></a>
-Point&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::SLtoXY</b> (const Point &amp;point, const double theta)</td></tr>
-<tr class="separator:a493d13b886ec1240149c0c09bf555813"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a568bfe5d3852c74b7f8ff625e624b21b"><td class="memItemLeft" align="right" valign="top"><a id="a568bfe5d3852c74b7f8ff625e624b21b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::Distance</b> (const Point &amp;point1, const Point &amp;point2)</td></tr>
-<tr class="separator:a568bfe5d3852c74b7f8ff625e624b21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af80144800004c61b1e9fa503f697efe2"><td class="memItemLeft" align="right" valign="top"><a id="af80144800004c61b1e9fa503f697efe2"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::Speed</b> (const Point &amp;point)</td></tr>
-<tr class="separator:af80144800004c61b1e9fa503f697efe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5f8dbb5f4dae9799b5f5e813b773d87"><td class="memItemLeft" align="right" valign="top"><a id="ae5f8dbb5f4dae9799b5f5e813b773d87"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::Speed</b> (const double vx, const double vy)</td></tr>
+<tr class="memitem:a3997ffd52c17ccbb71cc7f4030f5fd2b"><td class="memItemLeft" align="right" valign="top">apollo::perception::Point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#a3997ffd52c17ccbb71cc7f4030f5fd2b">apollo::third_party_perception::SLtoXY</a> (const double x, const double y, const double theta)</td></tr>
+<tr class="separator:a3997ffd52c17ccbb71cc7f4030f5fd2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c1a65afb069b02e4acf49ae5b1c014"><td class="memItemLeft" align="right" valign="top">apollo::perception::Point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#a35c1a65afb069b02e4acf49ae5b1c014">apollo::third_party_perception::SLtoXY</a> (const apollo::perception::Point &amp;point, const double theta)</td></tr>
+<tr class="separator:a35c1a65afb069b02e4acf49ae5b1c014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af91652bb730a4cf79ed99137e47fa6f5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#af91652bb730a4cf79ed99137e47fa6f5">apollo::third_party_perception::Distance</a> (const apollo::perception::Point &amp;point1, const apollo::perception::Point &amp;point2)</td></tr>
+<tr class="separator:af91652bb730a4cf79ed99137e47fa6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ec77fdd7c38f69e12fa663a43f11336"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#a8ec77fdd7c38f69e12fa663a43f11336">apollo::third_party_perception::Speed</a> (const apollo::perception::Point &amp;point)</td></tr>
+<tr class="separator:a8ec77fdd7c38f69e12fa663a43f11336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5f8dbb5f4dae9799b5f5e813b773d87"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#ae5f8dbb5f4dae9799b5f5e813b773d87">apollo::third_party_perception::Speed</a> (const double vx, const double vy)</td></tr>
 <tr class="separator:ae5f8dbb5f4dae9799b5f5e813b773d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3b761c13c18f00b883bfa35a7afe5be"><td class="memItemLeft" align="right" valign="top"><a id="ac3b761c13c18f00b883bfa35a7afe5be"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::GetNearestLaneHeading</b> (const PointENU &amp;point_enu)</td></tr>
-<tr class="separator:ac3b761c13c18f00b883bfa35a7afe5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8923698d33ae4b270d0056b792dc261b"><td class="memItemLeft" align="right" valign="top"><a id="a8923698d33ae4b270d0056b792dc261b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::GetNearestLaneHeading</b> (const Point &amp;point)</td></tr>
-<tr class="separator:a8923698d33ae4b270d0056b792dc261b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed4fbe85d016cc2dd6fd15d37a43f4f4"><td class="memItemLeft" align="right" valign="top"><a id="aed4fbe85d016cc2dd6fd15d37a43f4f4"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::GetNearestLaneHeading</b> (const double x, const double y, const double z)</td></tr>
+<tr class="memitem:a7e97be83afeb7f15b9237afee7540558"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#a7e97be83afeb7f15b9237afee7540558">apollo::third_party_perception::GetNearestLaneHeading</a> (const apollo::common::PointENU &amp;point_enu)</td></tr>
+<tr class="separator:a7e97be83afeb7f15b9237afee7540558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1df64704576b71d3f61edc042fb715f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#ab1df64704576b71d3f61edc042fb715f">apollo::third_party_perception::GetNearestLaneHeading</a> (const apollo::perception::Point &amp;point)</td></tr>
+<tr class="separator:ab1df64704576b71d3f61edc042fb715f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed4fbe85d016cc2dd6fd15d37a43f4f4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#aed4fbe85d016cc2dd6fd15d37a43f4f4">apollo::third_party_perception::GetNearestLaneHeading</a> (const double x, const double y, const double z)</td></tr>
 <tr class="separator:aed4fbe85d016cc2dd6fd15d37a43f4f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57c289f432dab99462fb0931b550351d"><td class="memItemLeft" align="right" valign="top"><a id="a57c289f432dab99462fb0931b550351d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::GetLateralDistanceToNearestLane</b> (const Point &amp;point)</td></tr>
-<tr class="separator:a57c289f432dab99462fb0931b550351d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a858a212127bd2d4ea6a520fb7bf3fb1e"><td class="memItemLeft" align="right" valign="top"><a id="a858a212127bd2d4ea6a520fb7bf3fb1e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::HeadingDifference</b> (const double theta1, const double theta2)</td></tr>
+<tr class="memitem:aec3f47f73eae63ffba85032fb201394e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#aec3f47f73eae63ffba85032fb201394e">apollo::third_party_perception::GetLateralDistanceToNearestLane</a> (const apollo::perception::Point &amp;point)</td></tr>
+<tr class="separator:aec3f47f73eae63ffba85032fb201394e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a858a212127bd2d4ea6a520fb7bf3fb1e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#a858a212127bd2d4ea6a520fb7bf3fb1e">apollo::third_party_perception::HeadingDifference</a> (const double theta1, const double theta2)</td></tr>
 <tr class="separator:a858a212127bd2d4ea6a520fb7bf3fb1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab4eb5e60e2d61e19bb628098889762a2"><td class="memItemLeft" align="right" valign="top"><a id="ab4eb5e60e2d61e19bb628098889762a2"></a>
-const double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::third_party_perception::PI</b> = 3.141592653</td></tr>
+<tr class="memitem:ab4eb5e60e2d61e19bb628098889762a2"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1third__party__perception.html#ab4eb5e60e2d61e19bb628098889762a2">apollo::third_party_perception::PI</a> = 3.141592653</td></tr>
 <tr class="separator:ab4eb5e60e2d61e19bb628098889762a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

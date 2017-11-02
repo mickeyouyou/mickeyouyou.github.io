@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['status',['Status',['../namespaceapollo_1_1platform_1_1hw.html#a38601a19d2f89fd81fd418f2e0cd67eb',1,'apollo::platform::hw']]]
+  ['clockmode',['ClockMode',['../classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a',1,'apollo::common::time::Clock']]]
 ];

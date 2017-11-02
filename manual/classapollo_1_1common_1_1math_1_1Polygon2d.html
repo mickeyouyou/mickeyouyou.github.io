@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1math.html">math</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html">Polygon2d</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1math.html">math</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html">Polygon2d</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -85,18 +86,21 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for apollo::common::math::Polygon2d:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1common_1_1math_1_1Polygon2d.png" usemap="#apollo::common::math::Polygon2d_map" alt=""/>
-  <map id="apollo::common::math::Polygon2d_map" name="apollo::common::math::Polygon2d_map">
-<area href="classapollo_1_1planning_1_1StBoundary.html" alt="apollo::planning::StBoundary" shape="rect" coords="0,56,196,80"/>
+<div class="center"><img src="classapollo_1_1common_1_1math_1_1Polygon2d__inherit__graph.png" border="0" usemap="#apollo_1_1common_1_1math_1_1Polygon2d_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1common_1_1math_1_1Polygon2d_inherit__map" id="apollo_1_1common_1_1math_1_1Polygon2d_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1planning_1_1StBoundary.html" title="{apollo::planning::StBoundary\n||+ StBoundary()\l+ StBoundary()\l+ StBoundary()\l+ StBoundary()\l+ ~StBoundary()\l+ IsEmpty()\l+ IsPointInBoundary()\l+ BottomLeftPoint()\l+ BottomRightPoint()\l+ ExpandByS()\land 17 more...\l+ GenerateStBoundary()\l}" alt="" coords="5,447,197,667"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::common::math::Polygon2d:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1common_1_1math_1_1Polygon2d__coll__graph.png" border="0" usemap="#apollo_1_1common_1_1math_1_1Polygon2d_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a37cf2040ad518e9d53860ab414d2a92c"><td class="memItemLeft" align="right" valign="top"><a id="a37cf2040ad518e9d53860ab414d2a92c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a37cf2040ad518e9d53860ab414d2a92c">Polygon2d</a> ()=default</td></tr>
-<tr class="memdesc:a37cf2040ad518e9d53860ab414d2a92c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty constructor. <br /></td></tr>
+<tr class="memitem:a37cf2040ad518e9d53860ab414d2a92c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a37cf2040ad518e9d53860ab414d2a92c">Polygon2d</a> ()=default</td></tr>
+<tr class="memdesc:a37cf2040ad518e9d53860ab414d2a92c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty constructor.  <a href="#a37cf2040ad518e9d53860ab414d2a92c">More...</a><br /></td></tr>
 <tr class="separator:a37cf2040ad518e9d53860ab414d2a92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb5f3874dfb3b2653b182d70a1dcb37c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#acb5f3874dfb3b2653b182d70a1dcb37c">Polygon2d</a> (const <a class="el" href="classapollo_1_1common_1_1math_1_1Box2d.html">Box2d</a> &amp;box)</td></tr>
 <tr class="memdesc:acb5f3874dfb3b2653b182d70a1dcb37c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which takes a box.  <a href="#acb5f3874dfb3b2653b182d70a1dcb37c">More...</a><br /></td></tr>
@@ -191,57 +195,71 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae2d05e3fe44829b1e55adc5ab390e8e2"><td class="memItemLeft" align="right" valign="top"><a id="ae2d05e3fe44829b1e55adc5ab390e8e2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildFromPoints</b> ()</td></tr>
+<tr class="memitem:ae2d05e3fe44829b1e55adc5ab390e8e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ae2d05e3fe44829b1e55adc5ab390e8e2">BuildFromPoints</a> ()</td></tr>
 <tr class="separator:ae2d05e3fe44829b1e55adc5ab390e8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9df2b77e8046164818034c761317a99"><td class="memItemLeft" align="right" valign="top"><a id="ae9df2b77e8046164818034c761317a99"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>Next</b> (int at) const</td></tr>
+<tr class="memitem:ae9df2b77e8046164818034c761317a99"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ae9df2b77e8046164818034c761317a99">Next</a> (int at) const</td></tr>
 <tr class="separator:ae9df2b77e8046164818034c761317a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d5221e5ec688170f053edfa56025927"><td class="memItemLeft" align="right" valign="top"><a id="a0d5221e5ec688170f053edfa56025927"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>Prev</b> (int at) const</td></tr>
+<tr class="memitem:a0d5221e5ec688170f053edfa56025927"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a0d5221e5ec688170f053edfa56025927">Prev</a> (int at) const</td></tr>
 <tr class="separator:a0d5221e5ec688170f053edfa56025927"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:aed964a9d643e36ec140c4186e0f2de6b"><td class="memItemLeft" align="right" valign="top"><a id="aed964a9d643e36ec140c4186e0f2de6b"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>ClipConvexHull</b> (const <a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a> &amp;line_segment, std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt; *const <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a7b34b3db0ab1b6ff6e008f1b815d96e6">points</a>)</td></tr>
+<tr class="memitem:aed964a9d643e36ec140c4186e0f2de6b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#aed964a9d643e36ec140c4186e0f2de6b">ClipConvexHull</a> (const <a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a> &amp;line_segment, std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt; *const <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a7b34b3db0ab1b6ff6e008f1b815d96e6">points</a>)</td></tr>
 <tr class="separator:aed964a9d643e36ec140c4186e0f2de6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a12e60a817a0f39b06b186d0d851056ca"><td class="memItemLeft" align="right" valign="top"><a id="a12e60a817a0f39b06b186d0d851056ca"></a>
-std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>points_</b></td></tr>
+<tr class="memitem:a12e60a817a0f39b06b186d0d851056ca"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a12e60a817a0f39b06b186d0d851056ca">points_</a></td></tr>
 <tr class="separator:a12e60a817a0f39b06b186d0d851056ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eb66344f3b0651a2c3aeee668e73833"><td class="memItemLeft" align="right" valign="top"><a id="a6eb66344f3b0651a2c3aeee668e73833"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>num_points_</b> = 0</td></tr>
+<tr class="memitem:a6eb66344f3b0651a2c3aeee668e73833"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a6eb66344f3b0651a2c3aeee668e73833">num_points_</a> = 0</td></tr>
 <tr class="separator:a6eb66344f3b0651a2c3aeee668e73833"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab19a56071a05b578c1f0b41113b301f2"><td class="memItemLeft" align="right" valign="top"><a id="ab19a56071a05b578c1f0b41113b301f2"></a>
-std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>line_segments_</b></td></tr>
+<tr class="memitem:ab19a56071a05b578c1f0b41113b301f2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ab19a56071a05b578c1f0b41113b301f2">line_segments_</a></td></tr>
 <tr class="separator:ab19a56071a05b578c1f0b41113b301f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bc63a214d6bd657c15614f9867927d0"><td class="memItemLeft" align="right" valign="top"><a id="a3bc63a214d6bd657c15614f9867927d0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_convex_</b> = false</td></tr>
+<tr class="memitem:a3bc63a214d6bd657c15614f9867927d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a3bc63a214d6bd657c15614f9867927d0">is_convex_</a> = false</td></tr>
 <tr class="separator:a3bc63a214d6bd657c15614f9867927d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6176d1fbbaa4517b651a67c02d68775"><td class="memItemLeft" align="right" valign="top"><a id="ad6176d1fbbaa4517b651a67c02d68775"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>area_</b> = 0.0</td></tr>
+<tr class="memitem:ad6176d1fbbaa4517b651a67c02d68775"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ad6176d1fbbaa4517b651a67c02d68775">area_</a> = 0.0</td></tr>
 <tr class="separator:ad6176d1fbbaa4517b651a67c02d68775"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9424d0fdf3c9b444abd806a000568af1"><td class="memItemLeft" align="right" valign="top"><a id="a9424d0fdf3c9b444abd806a000568af1"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>min_x_</b> = 0.0</td></tr>
+<tr class="memitem:a9424d0fdf3c9b444abd806a000568af1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a9424d0fdf3c9b444abd806a000568af1">min_x_</a> = 0.0</td></tr>
 <tr class="separator:a9424d0fdf3c9b444abd806a000568af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b5466a61928603775b2d77c5ff343b8"><td class="memItemLeft" align="right" valign="top"><a id="a3b5466a61928603775b2d77c5ff343b8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>max_x_</b> = 0.0</td></tr>
+<tr class="memitem:a3b5466a61928603775b2d77c5ff343b8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a3b5466a61928603775b2d77c5ff343b8">max_x_</a> = 0.0</td></tr>
 <tr class="separator:a3b5466a61928603775b2d77c5ff343b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a452552eb677a643cd4ee8a0fd5e74c69"><td class="memItemLeft" align="right" valign="top"><a id="a452552eb677a643cd4ee8a0fd5e74c69"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>min_y_</b> = 0.0</td></tr>
+<tr class="memitem:a452552eb677a643cd4ee8a0fd5e74c69"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a452552eb677a643cd4ee8a0fd5e74c69">min_y_</a> = 0.0</td></tr>
 <tr class="separator:a452552eb677a643cd4ee8a0fd5e74c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4e02e547adb26adfcfeec90e6cc2335"><td class="memItemLeft" align="right" valign="top"><a id="ad4e02e547adb26adfcfeec90e6cc2335"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>max_y_</b> = 0.0</td></tr>
+<tr class="memitem:ad4e02e547adb26adfcfeec90e6cc2335"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ad4e02e547adb26adfcfeec90e6cc2335">max_y_</a> = 0.0</td></tr>
 <tr class="separator:ad4e02e547adb26adfcfeec90e6cc2335"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The class of polygon in 2-D. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a37cf2040ad518e9d53860ab414d2a92c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37cf2040ad518e9d53860ab414d2a92c">&#9670;&nbsp;</a></span>Polygon2d() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::common::math::Polygon2d::Polygon2d </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Empty constructor. </p>
+
+</div>
+</div>
 <a id="acb5f3874dfb3b2653b182d70a1dcb37c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb5f3874dfb3b2653b182d70a1dcb37c">&#9670;&nbsp;</a></span>Polygon2d() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acb5f3874dfb3b2653b182d70a1dcb37c">&#9670;&nbsp;</a></span>Polygon2d() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,7 +293,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>max_y_</b> = 0.0</t
 </div>
 </div>
 <a id="a0fb827f824da526d8cc630e772620482"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fb827f824da526d8cc630e772620482">&#9670;&nbsp;</a></span>Polygon2d() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fb827f824da526d8cc630e772620482">&#9670;&nbsp;</a></span>Polygon2d() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,6 +399,67 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>max_y_</b> = 0.0</t
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The bound box according to the specified heading. </dd></dl>
+
+</div>
+</div>
+<a id="ae2d05e3fe44829b1e55adc5ab390e8e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d05e3fe44829b1e55adc5ab390e8e2">&#9670;&nbsp;</a></span>BuildFromPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::common::math::Polygon2d::BuildFromPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed964a9d643e36ec140c4186e0f2de6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed964a9d643e36ec140c4186e0f2de6b">&#9670;&nbsp;</a></span>ClipConvexHull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::common::math::Polygon2d::ClipConvexHull </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a> &amp;&#160;</td>
+          <td class="paramname"><em>line_segment</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt; *const&#160;</td>
+          <td class="paramname"><em>points</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1031,6 +1110,32 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>max_y_</b> = 0.0</t
 
 </div>
 </div>
+<a id="ae9df2b77e8046164818034c761317a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9df2b77e8046164818034c761317a99">&#9670;&nbsp;</a></span>Next()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int apollo::common::math::Polygon2d::Next </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aba90e7c1a4b2edfb541fbbd18bfef81f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba90e7c1a4b2edfb541fbbd18bfef81f">&#9670;&nbsp;</a></span>num_points()</h2>
 
@@ -1084,6 +1189,231 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>max_y_</b> = 0.0</t
 
 <p>Get the vertices of the polygon. </p>
 <dl class="section return"><dt>Returns</dt><dd>The vertices of the polygon. </dd></dl>
+
+</div>
+</div>
+<a id="a0d5221e5ec688170f053edfa56025927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5221e5ec688170f053edfa56025927">&#9670;&nbsp;</a></span>Prev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int apollo::common::math::Polygon2d::Prev </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad6176d1fbbaa4517b651a67c02d68775"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6176d1fbbaa4517b651a67c02d68775">&#9670;&nbsp;</a></span>area_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::common::math::Polygon2d::area_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3bc63a214d6bd657c15614f9867927d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bc63a214d6bd657c15614f9867927d0">&#9670;&nbsp;</a></span>is_convex_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::common::math::Polygon2d::is_convex_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab19a56071a05b578c1f0b41113b301f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab19a56071a05b578c1f0b41113b301f2">&#9670;&nbsp;</a></span>line_segments_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a>&gt; apollo::common::math::Polygon2d::line_segments_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b5466a61928603775b2d77c5ff343b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b5466a61928603775b2d77c5ff343b8">&#9670;&nbsp;</a></span>max_x_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::common::math::Polygon2d::max_x_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4e02e547adb26adfcfeec90e6cc2335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e02e547adb26adfcfeec90e6cc2335">&#9670;&nbsp;</a></span>max_y_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::common::math::Polygon2d::max_y_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9424d0fdf3c9b444abd806a000568af1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9424d0fdf3c9b444abd806a000568af1">&#9670;&nbsp;</a></span>min_x_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::common::math::Polygon2d::min_x_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a452552eb677a643cd4ee8a0fd5e74c69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a452552eb677a643cd4ee8a0fd5e74c69">&#9670;&nbsp;</a></span>min_y_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::common::math::Polygon2d::min_y_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6eb66344f3b0651a2c3aeee668e73833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eb66344f3b0651a2c3aeee668e73833">&#9670;&nbsp;</a></span>num_points_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int apollo::common::math::Polygon2d::num_points_ = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12e60a817a0f39b06b186d0d851056ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12e60a817a0f39b06b186d0d851056ca">&#9670;&nbsp;</a></span>points_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a>&gt; apollo::common::math::Polygon2d::points_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

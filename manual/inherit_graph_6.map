@@ -1,0 +1,15 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classapollo_1_1common_1_1ApolloApp.html" title="The base module class to define the interface of an Apollo app. An Apollo app runs infinitely until b..." alt="" coords="5,331,189,356"/>
+<area shape="rect" id="node2" href="$classapollo_1_1calibration_1_1LidarExChecker.html" title="apollo::calibration\l::LidarExChecker" alt="" coords="286,5,411,44"/>
+<area shape="rect" id="node3" href="$classapollo_1_1calibration_1_1RepublishMsg.html" title="apollo::calibration\l::RepublishMsg" alt="" coords="286,68,411,107"/>
+<area shape="rect" id="node4" href="$classapollo_1_1canbus_1_1Canbus.html" title="canbus module main class. It processes the control data to send protocol messages to can card..." alt="" coords="268,131,429,156"/>
+<area shape="rect" id="node5" href="$classapollo_1_1control_1_1Control.html" title="control module main class, it processes localization, chasiss, and pad data to compute throttle..." alt="" coords="271,180,426,205"/>
+<area shape="rect" id="node6" href="$classapollo_1_1dreamview_1_1Dreamview.html" title="apollo::dreamview::\lDreamview" alt="" coords="281,229,417,268"/>
+<area shape="rect" id="node7" href="$classapollo_1_1drivers_1_1SensorCanbus.html" title="template of canbus&#45;based sensor module main class (e.g., mobileye). " alt="" coords="249,292,449,331"/>
+<area shape="rect" id="node8" href="$classapollo_1_1localization_1_1Localization.html" title="Localization module main class. It processes GPS and IMU as input, to generate localization info..." alt="" coords="284,355,414,393"/>
+<area shape="rect" id="node9" href="$classapollo_1_1perception_1_1Perception.html" title="apollo::perception\l::Perception" alt="" coords="286,417,412,456"/>
+<area shape="rect" id="node10" href="$classapollo_1_1planning_1_1Planning.html" title="apollo::planning::Planning" alt="" coords="262,480,436,505"/>
+<area shape="rect" id="node11" href="$classapollo_1_1prediction_1_1Prediction.html" title="apollo::prediction\l::Prediction" alt="" coords="288,529,410,568"/>
+<area shape="rect" id="node12" href="$classapollo_1_1routing_1_1Routing.html" title="apollo::routing::Routing" alt="" coords="270,592,428,617"/>
+<area shape="rect" id="node13" href="$classapollo_1_1third__party__perception_1_1ThirdPartyPerception.html" title="apollo::third_party\l_perception::ThirdPartyPerception" alt="" coords="237,641,461,680"/>
+</map>

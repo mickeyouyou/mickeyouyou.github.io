@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -82,10 +83,44 @@ $(function() {
 <code>#include &quot;Eigen/Core&quot;</code><br />
 <code>#include &quot;modules/common/configs/proto/vehicle_config.pb.h&quot;</code><br />
 <code>#include &quot;modules/common/proto/pnc_point.pb.h&quot;</code><br />
+<code>#include &quot;modules/planning/proto/planning_internal.pb.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="path__obstacle_8h_source.html">modules/planning/common/path_obstacle.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="speed__data_8h_source.html">modules/planning/common/speed/speed_data.h</a>&quot;</code><br />
-<code>#include &quot;modules/planning/proto/planning_internal.pb.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="reference__line_8h_source.html">modules/planning/reference_line/reference_line.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for qp_frenet_frame.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="qp__frenet__frame_8h__incl.png" border="0" usemap="#modules_2planning_2tasks_2qp__spline__path_2qp__frenet__frame_8h" alt=""/></div>
+<map name="modules_2planning_2tasks_2qp__spline__path_2qp__frenet__frame_8h" id="modules_2planning_2tasks_2qp__spline__path_2qp__frenet__frame_8h">
+<area shape="rect" id="node9" href="path__obstacle_8h.html" title="modules/planning/common\l/path_obstacle.h" alt="" coords="998,105,1178,144"/>
+<area shape="rect" id="node31" href="reference__line_8h.html" title="modules/planning/reference\l_line/reference_line.h" alt="" coords="3330,192,3516,231"/>
+<area shape="rect" id="node50" href="speed__data_8h.html" title="modules/planning/common\l/speed/speed_data.h" alt="" coords="4055,279,4236,317"/>
+<area shape="rect" id="node18" href="box2d_8h.html" title="The class of Box2d. Here, the x/y axes are respectively Forward/Left, as opposed to what happens in e..." alt="" coords="2049,785,2209,824"/>
+<area shape="rect" id="node20" href="vec2d_8h.html" title="Defines the Vec2d class. " alt="" coords="3155,959,3315,997"/>
+<area shape="rect" id="node23" href="indexed__list_8h.html" title="modules/planning/common\l/indexed_list.h" alt="" coords="768,612,949,651"/>
+<area shape="rect" id="node25" href="planning_2common_2obstacle_8h.html" title="modules/planning/common\l/obstacle.h" alt="" coords="819,525,1000,564"/>
+<area shape="rect" id="node27" href="st__boundary_8h.html" title="modules/planning/common\l/speed/st_boundary.h" alt="" coords="1522,612,1702,651"/>
+<area shape="rect" id="node19" href="aabox2d_8h.html" title="Defines the AABox2d class. " alt="" coords="2471,872,2631,911"/>
+<area shape="rect" id="node22" href="line__segment2d_8h.html" title="Define the LineSegment2d class. " alt="" coords="2961,872,3121,911"/>
+<area shape="rect" id="node26" href="polygon2d_8h.html" title="Define the Polygon2d class. " alt="" coords="2335,699,2495,737"/>
+<area shape="rect" id="node30" href="st__point_8h.html" title="modules/planning/common\l/speed/st_point.h" alt="" coords="2655,872,2836,911"/>
+<area shape="rect" id="node33" href="path_8h.html" title="modules/map/pnc_map\l/path.h" alt="" coords="3473,365,3633,404"/>
+<area shape="rect" id="node49" href="reference__point_8h.html" title="modules/planning/reference\l_line/reference_point.h" alt="" coords="3460,279,3646,317"/>
+<area shape="rect" id="node37" href="log_8h.html" title="modules/common/log.h" alt="" coords="3835,452,3994,477"/>
+<area shape="rect" id="node40" href="hdmap_8h.html" title="modules/map/hdmap/hdmap.h" alt="" coords="3047,452,3249,477"/>
+<area shape="rect" id="node43" href="hdmap__common_8h.html" title="modules/map/hdmap/hdmap\l_common.h" alt="" coords="2868,612,3058,651"/>
+<area shape="rect" id="node41" href="macro_8h.html" title="modules/common/macro.h" alt="" coords="2484,532,2663,557"/>
+<area shape="rect" id="node48" href="hdmap__impl_8h.html" title="modules/map/hdmap/hdmap\l_impl.h" alt="" coords="2921,525,3111,564"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="qp__frenet__frame_8h__dep__incl.png" border="0" usemap="#modules_2planning_2tasks_2qp__spline__path_2qp__frenet__frame_8hdep" alt=""/></div>
+<map name="modules_2planning_2tasks_2qp__spline__path_2qp__frenet__frame_8hdep" id="modules_2planning_2tasks_2qp__spline__path_2qp__frenet__frame_8hdep">
+<area shape="rect" id="node2" href="qp__spline__path__generator_8h.html" title="modules/planning/tasks\l/qp_spline_path/qp_spline\l_path_generator.h" alt="" coords="5,105,182,157"/>
+</map>
+</div>
 </div>
 <p><a href="qp__frenet__frame_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -96,6 +131,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceapollo_1_1planning"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1planning.html">apollo::planning</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1planning"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1planning.html" title="apollo::planning ">apollo::planning</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>

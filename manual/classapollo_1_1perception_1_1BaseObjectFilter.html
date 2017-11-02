@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1BaseObjectFilter.html">BaseObjectFilter</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1BaseObjectFilter.html">BaseObjectFilter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,28 +74,179 @@ $(function() {
 <div class="title">apollo::perception::BaseObjectFilter Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="base__object__filter_8h_source.html">base_object_filter.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::perception::BaseObjectFilter:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1perception_1_1BaseObjectFilter.png" usemap="#apollo::perception::BaseObjectFilter_map" alt=""/>
-  <map id="apollo::perception::BaseObjectFilter_map" name="apollo::perception::BaseObjectFilter_map">
-<area href="classapollo_1_1perception_1_1DummyObjectFilter.html" alt="apollo::perception::DummyObjectFilter" shape="rect" coords="0,56,225,80"/>
+<div class="center"><img src="classapollo_1_1perception_1_1BaseObjectFilter__inherit__graph.png" border="0" usemap="#apollo_1_1perception_1_1BaseObjectFilter_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1perception_1_1BaseObjectFilter_inherit__map" id="apollo_1_1perception_1_1BaseObjectFilter_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1perception_1_1DummyObjectFilter.html" title="{apollo::perception\l::DummyObjectFilter\n||+ DummyObjectFilter()\l+ ~DummyObjectFilter()\l+ Init()\l+ Filter()\l+ name()\l}" alt="" coords="5,193,169,333"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::BaseObjectFilter:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1BaseObjectFilter__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1BaseObjectFilter_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2dcb4f4f48a2a47d4dff3523fa8267c0"><td class="memItemLeft" align="right" valign="top"><a id="a2dcb4f4f48a2a47d4dff3523fa8267c0"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()=0</td></tr>
+<tr class="memitem:a2eb6daac3009e23c01883115cca5d354"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseObjectFilter.html#a2eb6daac3009e23c01883115cca5d354">BaseObjectFilter</a> ()</td></tr>
+<tr class="separator:a2eb6daac3009e23c01883115cca5d354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7af98d7c5796875c3ae1f217227979fd"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseObjectFilter.html#a7af98d7c5796875c3ae1f217227979fd">~BaseObjectFilter</a> ()</td></tr>
+<tr class="separator:a7af98d7c5796875c3ae1f217227979fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dcb4f4f48a2a47d4dff3523fa8267c0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseObjectFilter.html#a2dcb4f4f48a2a47d4dff3523fa8267c0">Init</a> ()=0</td></tr>
 <tr class="separator:a2dcb4f4f48a2a47d4dff3523fa8267c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8231245bf3cde2451bf40084a009717"><td class="memItemLeft" align="right" valign="top"><a id="ad8231245bf3cde2451bf40084a009717"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Filter</b> (const <a class="el" href="structapollo_1_1perception_1_1ObjectFilterOptions.html">ObjectFilterOptions</a> &amp;obj_filter_options, std::vector&lt; ObjectPtr &gt; *objects)=0</td></tr>
+<tr class="memitem:ad8231245bf3cde2451bf40084a009717"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseObjectFilter.html#ad8231245bf3cde2451bf40084a009717">Filter</a> (const <a class="el" href="structapollo_1_1perception_1_1ObjectFilterOptions.html">ObjectFilterOptions</a> &amp;obj_filter_options, std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *objects)=0</td></tr>
 <tr class="separator:ad8231245bf3cde2451bf40084a009717"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a408f2ca1e4539273d5f0872386024ffa"><td class="memItemLeft" align="right" valign="top"><a id="a408f2ca1e4539273d5f0872386024ffa"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const =0</td></tr>
+<tr class="memitem:a408f2ca1e4539273d5f0872386024ffa"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseObjectFilter.html#a408f2ca1e4539273d5f0872386024ffa">name</a> () const =0</td></tr>
 <tr class="separator:a408f2ca1e4539273d5f0872386024ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2eb6daac3009e23c01883115cca5d354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb6daac3009e23c01883115cca5d354">&#9670;&nbsp;</a></span>BaseObjectFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::BaseObjectFilter::BaseObjectFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7af98d7c5796875c3ae1f217227979fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7af98d7c5796875c3ae1f217227979fd">&#9670;&nbsp;</a></span>~BaseObjectFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::perception::BaseObjectFilter::~BaseObjectFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad8231245bf3cde2451bf40084a009717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8231245bf3cde2451bf40084a009717">&#9670;&nbsp;</a></span>Filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool apollo::perception::BaseObjectFilter::Filter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1perception_1_1ObjectFilterOptions.html">ObjectFilterOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj_filter_options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *&#160;</td>
+          <td class="paramname"><em>objects</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1perception_1_1DummyObjectFilter.html#a725c699b53a02a3d05cc94c32efdb465">apollo::perception::DummyObjectFilter</a>.</p>
+
+</div>
+</div>
+<a id="a2dcb4f4f48a2a47d4dff3523fa8267c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dcb4f4f48a2a47d4dff3523fa8267c0">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool apollo::perception::BaseObjectFilter::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1perception_1_1DummyObjectFilter.html#a9c5b0645d99666ef93b06e30507133fb">apollo::perception::DummyObjectFilter</a>.</p>
+
+</div>
+</div>
+<a id="a408f2ca1e4539273d5f0872386024ffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a408f2ca1e4539273d5f0872386024ffa">&#9670;&nbsp;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string apollo::perception::BaseObjectFilter::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1perception_1_1DummyObjectFilter.html#ab8bbe79e8590b571d070126aeb3538e9">apollo::perception::DummyObjectFilter</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/obstacle/lidar/interface/<a class="el" href="base__object__filter_8h_source.html">base_object_filter.h</a></li>
 </ul>

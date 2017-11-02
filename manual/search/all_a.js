@@ -1,15 +1,20 @@
 var searchData=
 [
-  ['kalman_5ffilter_2eh',['kalman_filter.h',['../common_2math_2kalman__filter_8h.html',1,'']]],
-  ['kalmanfilter',['KalmanFilter',['../classapollo_1_1perception_1_1KalmanFilter.html',1,'apollo::perception::KalmanFilter'],['../classapollo_1_1common_1_1math_1_1KalmanFilter.html',1,'apollo::common::math::KalmanFilter&lt; T, XN, ZN, UN &gt;'],['../classapollo_1_1common_1_1math_1_1KalmanFilter.html#a2e2e696227f90329560ef2a4ab19dfd1',1,'apollo::common::math::KalmanFilter::KalmanFilter()'],['../classapollo_1_1common_1_1math_1_1KalmanFilter.html#a0fc305ddfc4770e7144162bfbde52e07',1,'apollo::common::math::KalmanFilter::KalmanFilter(const Eigen::Matrix&lt; T, XN, 1 &gt; &amp;x, const Eigen::Matrix&lt; T, XN, XN &gt; &amp;P)']]],
-  ['kalmanfilter_3c_20double_2c_202_2c_202_2c_204_20_3e',['KalmanFilter&lt; double, 2, 2, 4 &gt;',['../classapollo_1_1common_1_1math_1_1KalmanFilter.html',1,'apollo::common::math']]],
-  ['kalmanfilter_3c_20double_2c_206_2c_202_2c_200_20_3e',['KalmanFilter&lt; double, 6, 2, 0 &gt;',['../classapollo_1_1common_1_1math_1_1KalmanFilter.html',1,'apollo::common::math']]],
-  ['kappa_5ffunc_5fk3',['kappa_func_k3',['../classapollo_1_1planning_1_1SpiralFormula.html#af7000fdd132a48eba8841713caebde14',1,'apollo::planning::SpiralFormula']]],
-  ['kappa_5ffunc_5fk3_5fa',['kappa_func_k3_a',['../classapollo_1_1planning_1_1SpiralFormula.html#aed8a6cc8b27caf244c6e552e7b4259fe',1,'apollo::planning::SpiralFormula']]],
-  ['kappa_5ffunc_5fk5',['kappa_func_k5',['../classapollo_1_1planning_1_1SpiralFormula.html#a9cb4a00016e90b09411c7bbc91d4635a',1,'apollo::planning::SpiralFormula']]],
-  ['kappa_5ffunc_5fk5_5fa',['kappa_func_k5_a',['../classapollo_1_1planning_1_1SpiralFormula.html#a5e1c90c4ec80f768ebc7261968b59246',1,'apollo::planning::SpiralFormula']]],
-  ['kf_5flane_5ftracker',['kf_lane_tracker',['../classapollo_1_1prediction_1_1Obstacle.html#afa1893df6d8d7f39ca573976fdfde405',1,'apollo::prediction::Obstacle']]],
-  ['kf_5fmotion_5ftracker',['kf_motion_tracker',['../classapollo_1_1prediction_1_1Obstacle.html#af869d8da32ae05b9b77f14c2863807b8',1,'apollo::prediction::Obstacle']]],
-  ['kf_5fpedestrian_5ftracker',['kf_pedestrian_tracker',['../classapollo_1_1prediction_1_1Obstacle.html#a2399c4de6378005e33d579a4036df158',1,'apollo::prediction::Obstacle']]],
-  ['kmlmapbasedtest',['KMLMapBasedTest',['../classapollo_1_1prediction_1_1KMLMapBasedTest.html',1,'apollo::prediction']]]
+  ['json',['Json',['../classapollo_1_1dreamview_1_1WebSocketHandler.html#ab606ed3ffadd48097d2dbde8749fac7b',1,'apollo::dreamview::WebSocketHandler::Json()'],['../structapollo_1_1dreamview_1_1MapElementIds.html#abb583a9e2a6304cbba0d51e0ada662f9',1,'apollo::dreamview::MapElementIds::Json()']]],
+  ['junction',['junction',['../structapollo_1_1dreamview_1_1MapElementIds.html#ab631380266330554e07f8a936484a730',1,'apollo::dreamview::MapElementIds::junction()'],['../structapollo_1_1hdmap_1_1adapter_1_1JunctionInternal.html#ae500cd1856b3978b538b608d10948c6d',1,'apollo::hdmap::adapter::JunctionInternal::junction()'],['../structapollo_1_1perception_1_1HdmapStruct.html#ac65d9c3f48e987f8d379df63027f8727',1,'apollo::perception::HdmapStruct::junction()'],['../classapollo_1_1hdmap_1_1JunctionInfo.html#aff1f206089dd2a61e00b892690628a3b',1,'apollo::hdmap::JunctionInfo::junction()']]],
+  ['junction_5fid',['junction_id',['../structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html#adc22b6eafb365c66a016dcf737e024d4',1,'apollo::hdmap::adapter::RoadInternal::junction_id()'],['../classapollo_1_1hdmap_1_1RoadInfo.html#a7bc4af776a1de4d95141ef282f49ad32',1,'apollo::hdmap::RoadInfo::junction_id()']]],
+  ['junction_5finfo',['junction_info',['../structapollo_1_1hdmap_1_1JunctionBoundary.html#aa1c1e9ef8b8736370ffd9241ef27386e',1,'apollo::hdmap::JunctionBoundary']]],
+  ['junction_5foverlaps',['junction_overlaps',['../classapollo_1_1hdmap_1_1Path.html#abc530202a70343d53073b52597a016a6',1,'apollo::hdmap::Path']]],
+  ['junction_5foverlaps_5f',['junction_overlaps_',['../classapollo_1_1hdmap_1_1Path.html#ac8f3ab04864c09ccd26635acf98a0ee9',1,'apollo::hdmap::Path']]],
+  ['junctionboundary',['JunctionBoundary',['../structapollo_1_1hdmap_1_1JunctionBoundary.html',1,'apollo::hdmap']]],
+  ['junctionboundaryptr',['JunctionBoundaryPtr',['../namespaceapollo_1_1hdmap.html#ac4f3107ef1a880e8a99a2fde1074d65d',1,'apollo::hdmap']]],
+  ['junctioninfo',['JunctionInfo',['../classapollo_1_1hdmap_1_1JunctionInfo.html',1,'apollo::hdmap::JunctionInfo'],['../classapollo_1_1hdmap_1_1JunctionInfo.html#a3dbdb607d38c8d8f684aaa6e38e0200f',1,'apollo::hdmap::JunctionInfo::JunctionInfo()']]],
+  ['junctioninfoconstptr',['JunctionInfoConstPtr',['../namespaceapollo_1_1hdmap.html#a2a1dafe23ba534c4883d5d68298d94a1',1,'apollo::hdmap']]],
+  ['junctioninternal',['JunctionInternal',['../structapollo_1_1hdmap_1_1adapter_1_1JunctionInternal.html',1,'apollo::hdmap::adapter']]],
+  ['junctionpolygonbox',['JunctionPolygonBox',['../namespaceapollo_1_1hdmap.html#a95cdb72de07a2b193f0599091db3ba33',1,'apollo::hdmap']]],
+  ['junctionpolygonkdtree',['JunctionPolygonKDTree',['../namespaceapollo_1_1hdmap.html#a79bfc137e435f5755f9a7a719074ec54',1,'apollo::hdmap']]],
+  ['junctions',['junctions',['../classapollo_1_1hdmap_1_1LaneInfo.html#a3935bce6b95b8ab4c410c53a0a8ab3ef',1,'apollo::hdmap::LaneInfo']]],
+  ['junctions_5fxml_5fparser_2eh',['junctions_xml_parser.h',['../junctions__xml__parser_8h.html',1,'']]],
+  ['junctionsxmlparser',['JunctionsXmlParser',['../classapollo_1_1hdmap_1_1adapter_1_1JunctionsXmlParser.html',1,'apollo::hdmap::adapter']]],
+  ['junctiontable',['JunctionTable',['../classapollo_1_1hdmap_1_1HDMapImpl.html#a2917d5b4b7296950566b08b4d0511465',1,'apollo::hdmap::HDMapImpl']]]
 ];

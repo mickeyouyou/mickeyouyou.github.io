@@ -1,0 +1,3 @@
+<map id="apollo::planning::QuinticSpiralCurve" name="apollo::planning::QuinticSpiralCurve">
+<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1SpiralCurve.html" title="{apollo::planning::Spiral\lCurve\n|# s_two_pi_\l|+ SpiralCurve()\l+ ~SpiralCurve()\l+ SetSpiralConfig()\l+ CalculatePath()\l+ p_params()\l+ spiral_config()\l+ start_point()\l+ end_point()\l+ sg()\l+ error()\l+ GetPathVec()\l+ GetPathVecWithS()\l# set_sg()\l# set_error()\l# ResultSanityCheck()\l# PrependToPParams()\l}" alt="" coords="7,5,167,292"/>
+</map>

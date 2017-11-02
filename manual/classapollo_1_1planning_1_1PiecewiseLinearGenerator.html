@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearGenerator.html">PiecewiseLinearGenerator</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearGenerator.html">PiecewiseLinearGenerator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,25 +74,160 @@ $(function() {
 <div class="title">apollo::planning::PiecewiseLinearGenerator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="piecewise__linear__generator_8h_source.html">piecewise_linear_generator.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::PiecewiseLinearGenerator:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1PiecewiseLinearGenerator__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1PiecewiseLinearGenerator_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab91b68fc88720e1fec2a90d8586b16db"><td class="memItemLeft" align="right" valign="top"><a id="ab91b68fc88720e1fec2a90d8586b16db"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PiecewiseLinearGenerator</b> (const uint32_t num_of_segments, const double unit_segment)</td></tr>
+<tr class="memitem:ab91b68fc88720e1fec2a90d8586b16db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearGenerator.html#ab91b68fc88720e1fec2a90d8586b16db">PiecewiseLinearGenerator</a> (const uint32_t num_of_segments, const double unit_segment)</td></tr>
 <tr class="separator:ab91b68fc88720e1fec2a90d8586b16db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a043617b23d91aa135ba395a997ba8da9"><td class="memItemLeft" align="right" valign="top"><a id="a043617b23d91aa135ba395a997ba8da9"></a>
-<a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearConstraint.html">PiecewiseLinearConstraint</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mutable_constraint</b> ()</td></tr>
+<tr class="memitem:a350f011c77080cab9b42bf7b67f255f4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearGenerator.html#a350f011c77080cab9b42bf7b67f255f4">~PiecewiseLinearGenerator</a> ()=default</td></tr>
+<tr class="separator:a350f011c77080cab9b42bf7b67f255f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a043617b23d91aa135ba395a997ba8da9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearConstraint.html">PiecewiseLinearConstraint</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearGenerator.html#a043617b23d91aa135ba395a997ba8da9">mutable_constraint</a> ()</td></tr>
 <tr class="separator:a043617b23d91aa135ba395a997ba8da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c24d4c1c0505ba5feb6a3eb86acf5f5"><td class="memItemLeft" align="right" valign="top"><a id="a9c24d4c1c0505ba5feb6a3eb86acf5f5"></a>
-<a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html">PiecewiseLinearKernel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mutable_kernel</b> ()</td></tr>
+<tr class="memitem:a9c24d4c1c0505ba5feb6a3eb86acf5f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html">PiecewiseLinearKernel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearGenerator.html#a9c24d4c1c0505ba5feb6a3eb86acf5f5">mutable_kernel</a> ()</td></tr>
 <tr class="separator:a9c24d4c1c0505ba5feb6a3eb86acf5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e092ab63b6e3775e4a8170fb3d09afa"><td class="memItemLeft" align="right" valign="top"><a id="a1e092ab63b6e3775e4a8170fb3d09afa"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Solve</b> ()</td></tr>
+<tr class="memitem:a1e092ab63b6e3775e4a8170fb3d09afa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearGenerator.html#a1e092ab63b6e3775e4a8170fb3d09afa">Solve</a> ()</td></tr>
 <tr class="separator:a1e092ab63b6e3775e4a8170fb3d09afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab459eea0e9d2d6032cfc3f8a2283f1e7"><td class="memItemLeft" align="right" valign="top"><a id="ab459eea0e9d2d6032cfc3f8a2283f1e7"></a>
-Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><b>params</b> () const</td></tr>
+<tr class="memitem:ab459eea0e9d2d6032cfc3f8a2283f1e7"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearGenerator.html#ab459eea0e9d2d6032cfc3f8a2283f1e7">params</a> () const</td></tr>
 <tr class="separator:ab459eea0e9d2d6032cfc3f8a2283f1e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab91b68fc88720e1fec2a90d8586b16db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91b68fc88720e1fec2a90d8586b16db">&#9670;&nbsp;</a></span>PiecewiseLinearGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::PiecewiseLinearGenerator::PiecewiseLinearGenerator </td>
+          <td>(</td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>num_of_segments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>unit_segment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a350f011c77080cab9b42bf7b67f255f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a350f011c77080cab9b42bf7b67f255f4">&#9670;&nbsp;</a></span>~PiecewiseLinearGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::planning::PiecewiseLinearGenerator::~PiecewiseLinearGenerator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a043617b23d91aa135ba395a997ba8da9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a043617b23d91aa135ba395a997ba8da9">&#9670;&nbsp;</a></span>mutable_constraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearConstraint.html">PiecewiseLinearConstraint</a>* apollo::planning::PiecewiseLinearGenerator::mutable_constraint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c24d4c1c0505ba5feb6a3eb86acf5f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c24d4c1c0505ba5feb6a3eb86acf5f5">&#9670;&nbsp;</a></span>mutable_kernel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html">PiecewiseLinearKernel</a>* apollo::planning::PiecewiseLinearGenerator::mutable_kernel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab459eea0e9d2d6032cfc3f8a2283f1e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab459eea0e9d2d6032cfc3f8a2283f1e7">&#9670;&nbsp;</a></span>params()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd apollo::planning::PiecewiseLinearGenerator::params </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e092ab63b6e3775e4a8170fb3d09afa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e092ab63b6e3775e4a8170fb3d09afa">&#9670;&nbsp;</a></span>Solve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::PiecewiseLinearGenerator::Solve </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/math/smoothing_spline/<a class="el" href="piecewise__linear__generator_8h_source.html">piecewise_linear_generator.h</a></li>
 </ul>

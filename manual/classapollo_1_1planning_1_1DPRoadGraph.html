@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1DPRoadGraph.html">DPRoadGraph</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1DPRoadGraph.html">DPRoadGraph</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,16 +75,126 @@ $(function() {
 <div class="title">apollo::planning::DPRoadGraph Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="dp__road__graph_8h_source.html">dp_road_graph.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::DPRoadGraph:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1DPRoadGraph__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1DPRoadGraph_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a89bd8beef2b9311be1c672774dacb3fd"><td class="memItemLeft" align="right" valign="top"><a id="a89bd8beef2b9311be1c672774dacb3fd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DPRoadGraph</b> (const DpPolyPathConfig &amp;config, const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;speed_data)</td></tr>
+<tr class="memitem:a89bd8beef2b9311be1c672774dacb3fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DPRoadGraph.html#a89bd8beef2b9311be1c672774dacb3fd">DPRoadGraph</a> (const DpPolyPathConfig &amp;config, const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;speed_data)</td></tr>
 <tr class="separator:a89bd8beef2b9311be1c672774dacb3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb712f93379cd53cb25784a723f098fd"><td class="memItemLeft" align="right" valign="top"><a id="adb712f93379cd53cb25784a723f098fd"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>FindPathTunnel</b> (const common::TrajectoryPoint &amp;init_point, const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;obstacles, <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> *const path_data)</td></tr>
+<tr class="memitem:a4795cc57984a5c2a737508f957008119"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DPRoadGraph.html#a4795cc57984a5c2a737508f957008119">~DPRoadGraph</a> ()=default</td></tr>
+<tr class="separator:a4795cc57984a5c2a737508f957008119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb712f93379cd53cb25784a723f098fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DPRoadGraph.html#adb712f93379cd53cb25784a723f098fd">FindPathTunnel</a> (const common::TrajectoryPoint &amp;init_point, const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;obstacles, <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> *const path_data)</td></tr>
 <tr class="separator:adb712f93379cd53cb25784a723f098fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a89bd8beef2b9311be1c672774dacb3fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89bd8beef2b9311be1c672774dacb3fd">&#9670;&nbsp;</a></span>DPRoadGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::DPRoadGraph::DPRoadGraph </td>
+          <td>(</td>
+          <td class="paramtype">const DpPolyPathConfig &amp;&#160;</td>
+          <td class="paramname"><em>config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;&#160;</td>
+          <td class="paramname"><em>reference_line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;&#160;</td>
+          <td class="paramname"><em>speed_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4795cc57984a5c2a737508f957008119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4795cc57984a5c2a737508f957008119">&#9670;&nbsp;</a></span>~DPRoadGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::DPRoadGraph::~DPRoadGraph </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="adb712f93379cd53cb25784a723f098fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb712f93379cd53cb25784a723f098fd">&#9670;&nbsp;</a></span>FindPathTunnel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::DPRoadGraph::FindPathTunnel </td>
+          <td>(</td>
+          <td class="paramtype">const common::TrajectoryPoint &amp;&#160;</td>
+          <td class="paramname"><em>init_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;&#160;</td>
+          <td class="paramname"><em>obstacles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> *const&#160;</td>
+          <td class="paramname"><em>path_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/tasks/dp_poly_path/<a class="el" href="dp__road__graph_8h_source.html">dp_road_graph.h</a></li>
 </ul>

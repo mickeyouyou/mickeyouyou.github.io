@@ -10,6 +10,7 @@ var searchData=
   ['misc69',['Misc69',['../classapollo_1_1canbus_1_1lincoln_1_1Misc69.html',1,'apollo::canbus::lincoln']]],
   ['mlpevaluator',['MLPEvaluator',['../classapollo_1_1prediction_1_1MLPEvaluator.html',1,'apollo::prediction']]],
   ['modelconfig',['ModelConfig',['../classapollo_1_1perception_1_1ModelConfig.html',1,'apollo::perception']]],
+  ['modulemonitor',['ModuleMonitor',['../classapollo_1_1monitor_1_1ModuleMonitor.html',1,'apollo::monitor']]],
   ['monitor',['Monitor',['../classapollo_1_1common_1_1monitor_1_1Monitor.html',1,'apollo::common::monitor']]],
   ['monitorbuffer',['MonitorBuffer',['../classapollo_1_1common_1_1monitor_1_1MonitorBuffer.html',1,'apollo::common::monitor']]],
   ['movesequencepredictor',['MoveSequencePredictor',['../classapollo_1_1prediction_1_1MoveSequencePredictor.html',1,'apollo::prediction']]]

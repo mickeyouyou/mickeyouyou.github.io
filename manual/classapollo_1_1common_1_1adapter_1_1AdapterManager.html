@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1adapter.html">adapter</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html">AdapterManager</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1adapter.html">adapter</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html">AdapterManager</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,6 +79,11 @@ $(function() {
  <a href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="adapter__manager_8h_source.html">adapter_manager.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::common::adapter::AdapterManager:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1common_1_1adapter_1_1AdapterManager__coll__graph.png" border="0" usemap="#apollo_1_1common_1_1adapter_1_1AdapterManager_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -87,17 +93,23 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a260c34dda8ad77c9dddf4d4d1a0852a4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html#a260c34dda8ad77c9dddf4d4d1a0852a4">Init</a> (const AdapterManagerConfig &amp;configs)</td></tr>
 <tr class="memdesc:a260c34dda8ad77c9dddf4d4d1a0852a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the /class <a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html" title="this class hosts all the specific adapters and manages them. It provides APIs for the users to initia...">AdapterManager</a> singleton with the provided configuration.  <a href="#a260c34dda8ad77c9dddf4d4d1a0852a4">More...</a><br /></td></tr>
 <tr class="separator:a260c34dda8ad77c9dddf4d4d1a0852a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53f933e202d9d34220fd3f1036a6081f"><td class="memItemLeft" align="right" valign="top"><a id="a53f933e202d9d34220fd3f1036a6081f"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html#a53f933e202d9d34220fd3f1036a6081f">Initialized</a> ()</td></tr>
-<tr class="memdesc:a53f933e202d9d34220fd3f1036a6081f"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the <a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html" title="this class hosts all the specific adapters and manages them. It provides APIs for the users to initia...">AdapterManager</a> is initialized <br /></td></tr>
+<tr class="memitem:adde158894b4a1ca134228212bd38856f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html#adde158894b4a1ca134228212bd38856f">Reset</a> ()</td></tr>
+<tr class="memdesc:adde158894b4a1ca134228212bd38856f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the /class <a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html" title="this class hosts all the specific adapters and manages them. It provides APIs for the users to initia...">AdapterManager</a> so that it could be re-initiailized.  <a href="#adde158894b4a1ca134228212bd38856f">More...</a><br /></td></tr>
+<tr class="separator:adde158894b4a1ca134228212bd38856f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53f933e202d9d34220fd3f1036a6081f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html#a53f933e202d9d34220fd3f1036a6081f">Initialized</a> ()</td></tr>
+<tr class="memdesc:a53f933e202d9d34220fd3f1036a6081f"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the <a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html" title="this class hosts all the specific adapters and manages them. It provides APIs for the users to initia...">AdapterManager</a> is initialized  <a href="#a53f933e202d9d34220fd3f1036a6081f">More...</a><br /></td></tr>
 <tr class="separator:a53f933e202d9d34220fd3f1036a6081f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac448236c0106a85c0d401410a9dfc28a"><td class="memItemLeft" align="right" valign="top"><a id="ac448236c0106a85c0d401410a9dfc28a"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>Observe</b> ()</td></tr>
+<tr class="memitem:ac448236c0106a85c0d401410a9dfc28a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html#ac448236c0106a85c0d401410a9dfc28a">Observe</a> ()</td></tr>
 <tr class="separator:ac448236c0106a85c0d401410a9dfc28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e3c71ad4176bd75e7d6b88124e31017"><td class="memTemplParams" colspan="2"><a id="a8e3c71ad4176bd75e7d6b88124e31017"></a>
-template&lt;class T &gt; </td></tr>
+<tr class="memitem:a6230f6c46f8e9e651303597afe968642"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html#a6230f6c46f8e9e651303597afe968642">IsRos</a> ()</td></tr>
+<tr class="memdesc:a6230f6c46f8e9e651303597afe968642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether <a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html" title="this class hosts all the specific adapters and manages them. It provides APIs for the users to initia...">AdapterManager</a> is running ROS mode.  <a href="#a6230f6c46f8e9e651303597afe968642">More...</a><br /></td></tr>
+<tr class="separator:a6230f6c46f8e9e651303597afe968642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a479869afb872f508db11edc386284382"><td class="memItemLeft" align="right" valign="top">static tf2_ros::Buffer &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html#a479869afb872f508db11edc386284382">Tf2Buffer</a> ()</td></tr>
+<tr class="memdesc:a479869afb872f508db11edc386284382"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to static tf2 buffer.  <a href="#a479869afb872f508db11edc386284382">More...</a><br /></td></tr>
+<tr class="separator:a479869afb872f508db11edc386284382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e3c71ad4176bd75e7d6b88124e31017"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a8e3c71ad4176bd75e7d6b88124e31017"><td class="memTemplItemLeft" align="right" valign="top">static ros::Timer&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html#a8e3c71ad4176bd75e7d6b88124e31017">CreateTimer</a> (ros::Duration period, void(T::*callback)(const ros::TimerEvent &amp;), T *obj, bool oneshot=false, bool autostart=true)</td></tr>
-<tr class="memdesc:a8e3c71ad4176bd75e7d6b88124e31017"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a timer which will call a callback at the specified rate. It takes a class member function, and a bare pointer to the object to call the method on. <br /></td></tr>
+<tr class="memdesc:a8e3c71ad4176bd75e7d6b88124e31017"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a timer which will call a callback at the specified rate. It takes a class member function, and a bare pointer to the object to call the method on.  <a href="#a8e3c71ad4176bd75e7d6b88124e31017">More...</a><br /></td></tr>
 <tr class="separator:a8e3c71ad4176bd75e7d6b88124e31017"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -105,6 +117,64 @@ template&lt;class T &gt; </td></tr>
 <dl class="section user"><dt></dt><dd>Each (potentially) useful adapter needs to be registered here with the macro REGISTER_ADAPTER.</dd></dl>
 <dl class="section user"><dt></dt><dd>The <a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html" title="this class hosts all the specific adapters and manages them. It provides APIs for the users to initia...">AdapterManager</a> is a singleton. </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8e3c71ad4176bd75e7d6b88124e31017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e3c71ad4176bd75e7d6b88124e31017">&#9670;&nbsp;</a></span>CreateTimer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ros::Timer apollo::common::adapter::AdapterManager::CreateTimer </td>
+          <td>(</td>
+          <td class="paramtype">ros::Duration&#160;</td>
+          <td class="paramname"><em>period</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(T::*)(const ros::TimerEvent &amp;)&#160;</td>
+          <td class="paramname"><em>callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>oneshot</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>autostart</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create a timer which will call a callback at the specified rate. It takes a class member function, and a bare pointer to the object to call the method on. </p>
+
+</div>
+</div>
 <a id="ac584afd5f54d3c439eb7982b6100ab48"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac584afd5f54d3c439eb7982b6100ab48">&#9670;&nbsp;</a></span>Init() <span class="overload">[1/2]</span></h2>
 
@@ -170,6 +240,139 @@ template&lt;class T &gt; </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a53f933e202d9d34220fd3f1036a6081f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53f933e202d9d34220fd3f1036a6081f">&#9670;&nbsp;</a></span>Initialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::common::adapter::AdapterManager::Initialized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>check if the <a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html" title="this class hosts all the specific adapters and manages them. It provides APIs for the users to initia...">AdapterManager</a> is initialized </p>
+
+</div>
+</div>
+<a id="a6230f6c46f8e9e651303597afe968642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6230f6c46f8e9e651303597afe968642">&#9670;&nbsp;</a></span>IsRos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::common::adapter::AdapterManager::IsRos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether <a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html" title="this class hosts all the specific adapters and manages them. It provides APIs for the users to initia...">AdapterManager</a> is running ROS mode. </p>
+
+</div>
+</div>
+<a id="ac448236c0106a85c0d401410a9dfc28a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac448236c0106a85c0d401410a9dfc28a">&#9670;&nbsp;</a></span>Observe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void apollo::common::adapter::AdapterManager::Observe </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adde158894b4a1ca134228212bd38856f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde158894b4a1ca134228212bd38856f">&#9670;&nbsp;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void apollo::common::adapter::AdapterManager::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the /class <a class="el" href="classapollo_1_1common_1_1adapter_1_1AdapterManager.html" title="this class hosts all the specific adapters and manages them. It provides APIs for the users to initia...">AdapterManager</a> so that it could be re-initiailized. </p>
+
+</div>
+</div>
+<a id="a479869afb872f508db11edc386284382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a479869afb872f508db11edc386284382">&#9670;&nbsp;</a></span>Tf2Buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static tf2_ros::Buffer&amp; apollo::common::adapter::AdapterManager::Tf2Buffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a reference to static tf2 buffer. </p>
 
 </div>
 </div>

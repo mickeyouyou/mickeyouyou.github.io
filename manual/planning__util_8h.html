@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -76,6 +77,20 @@ $(function() {
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &quot;modules/common/proto/pnc_point.pb.h&quot;</code><br />
 <code>#include &quot;modules/planning/proto/planning.pb.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for planning_util.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="planning__util_8h__incl.png" border="0" usemap="#modules_2planning_2common_2planning__util_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="planning__util_8h__dep__incl.png" border="0" usemap="#modules_2planning_2common_2planning__util_8hdep" alt=""/></div>
+<map name="modules_2planning_2common_2planning__util_8hdep" id="modules_2planning_2common_2planning__util_8hdep">
+<area shape="rect" id="node2" href="qp__piecewise__st__graph_8h.html" title="modules/planning/tasks\l/qp_spline_st_speed/qp\l_piecewise_st_graph.h" alt="" coords="5,92,168,144"/>
+<area shape="rect" id="node3" href="qp__spline__st__graph_8h.html" title="modules/planning/tasks\l/qp_spline_st_speed/qp\l_spline_st_graph.h" alt="" coords="192,92,354,144"/>
+</map>
+</div>
 </div>
 <p><a href="planning__util_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -84,26 +99,25 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceapollo_1_1common_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1util.html">apollo::common::util</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1common_1_1util"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1common_1_1util.html" title="apollo::common::util ">apollo::common::util</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceapollo_1_1planning"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1planning.html">apollo::planning</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1planning"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1planning.html" title="apollo::planning ">apollo::planning</a> <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo_1_1planning_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1planning_1_1util.html">apollo::planning::util</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3d85e17817da1380d1992b5e1cbc7744"><td class="memItemLeft" align="right" valign="top"><a id="a3d85e17817da1380d1992b5e1cbc7744"></a>
-common::SLPoint&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::planning::util::interpolate</b> (const common::SLPoint &amp;start, const common::SLPoint &amp;end, const double weight)</td></tr>
+<tr class="memitem:a3d85e17817da1380d1992b5e1cbc7744"><td class="memItemLeft" align="right" valign="top">common::SLPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1planning_1_1util.html#a3d85e17817da1380d1992b5e1cbc7744">apollo::planning::util::interpolate</a> (const common::SLPoint &amp;<a class="el" href="camera__px2_8h.html#a60de64d75454385b23995437f1d72669">start</a>, const common::SLPoint &amp;end, const double weight)</td></tr>
 <tr class="separator:a3d85e17817da1380d1992b5e1cbc7744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a142ce20472c81bb0d31108c5d4b766e1"><td class="memItemLeft" align="right" valign="top"><a id="a142ce20472c81bb0d31108c5d4b766e1"></a>
-common::PathPoint&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::planning::util::interpolate</b> (const common::PathPoint &amp;p0, const common::PathPoint &amp;p1, const double s)</td></tr>
+<tr class="memitem:a142ce20472c81bb0d31108c5d4b766e1"><td class="memItemLeft" align="right" valign="top">common::PathPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1planning_1_1util.html#a142ce20472c81bb0d31108c5d4b766e1">apollo::planning::util::interpolate</a> (const common::PathPoint &amp;p0, const common::PathPoint &amp;p1, const double s)</td></tr>
 <tr class="separator:a142ce20472c81bb0d31108c5d4b766e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e6b30c97b7c9bdb7c731ee85b9480d7"><td class="memItemLeft" align="right" valign="top"><a id="a3e6b30c97b7c9bdb7c731ee85b9480d7"></a>
-common::PathPoint&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::planning::util::InterpolateUsingLinearApproximation</b> (const common::PathPoint &amp;p0, const common::PathPoint &amp;p1, const double s)</td></tr>
+<tr class="memitem:a3e6b30c97b7c9bdb7c731ee85b9480d7"><td class="memItemLeft" align="right" valign="top">common::PathPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1planning_1_1util.html#a3e6b30c97b7c9bdb7c731ee85b9480d7">apollo::planning::util::InterpolateUsingLinearApproximation</a> (const common::PathPoint &amp;p0, const common::PathPoint &amp;p1, const double s)</td></tr>
 <tr class="separator:a3e6b30c97b7c9bdb7c731ee85b9480d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af560e682282b632ff659ac32d6f57147"><td class="memItemLeft" align="right" valign="top"><a id="af560e682282b632ff659ac32d6f57147"></a>
-common::TrajectoryPoint&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::planning::util::interpolate</b> (const common::TrajectoryPoint &amp;tp0, const common::TrajectoryPoint &amp;tp1, const double t)</td></tr>
+<tr class="memitem:af560e682282b632ff659ac32d6f57147"><td class="memItemLeft" align="right" valign="top">common::TrajectoryPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1planning_1_1util.html#af560e682282b632ff659ac32d6f57147">apollo::planning::util::interpolate</a> (const common::TrajectoryPoint &amp;tp0, const common::TrajectoryPoint &amp;tp1, const double t)</td></tr>
 <tr class="separator:af560e682282b632ff659ac32d6f57147"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a419d32f2830c6f3720c704691ae9774b"><td class="memItemLeft" align="right" valign="top"><a id="a419d32f2830c6f3720c704691ae9774b"></a>
-common::TrajectoryPoint&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::planning::util::InterpolateUsingLinearApproximation</b> (const common::TrajectoryPoint &amp;tp0, const common::TrajectoryPoint &amp;tp1, const double t)</td></tr>
+<tr class="memitem:a419d32f2830c6f3720c704691ae9774b"><td class="memItemLeft" align="right" valign="top">common::TrajectoryPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1planning_1_1util.html#a419d32f2830c6f3720c704691ae9774b">apollo::planning::util::InterpolateUsingLinearApproximation</a> (const common::TrajectoryPoint &amp;tp0, const common::TrajectoryPoint &amp;tp1, const double t)</td></tr>
 <tr class="separator:a419d32f2830c6f3720c704691ae9774b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1prediction.html">prediction</a></li><li class="navelem"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">Prediction</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1prediction.html">prediction</a></li><li class="navelem"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">Prediction</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -76,14 +77,15 @@ $(function() {
   <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#ada8f79e96319ae35753d83071fcd7ba2">callback_thread_num_</a></td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html#aceedcb4fc2bced02966ca2fe260c20ac">Init</a>() override</td><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">apollo::prediction::Prediction</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html#a73c31780e6a74a976266b99dcdb9f964">Name</a>() const override</td><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">apollo::prediction::Prediction</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#a124b7e158c01c287d23be6508baf6d04">ReportModuleStatus</a>(const apollo::hmi::ModuleStatus::Status status)</td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#aa3db9e2aefa68c56a9d43b89f0f1d961">SetCallbackThreadNumber</a>(uint32_t callback_thread_num)</td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#acfff7b785e14e90403f9ff5d2e27faec">Spin</a>()</td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html#ad1d4710d63d3d535863e7d1b63093619">Start</a>() override</td><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">apollo::prediction::Prediction</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>status_</b> (defined in <a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a>)</td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html#aaddb673726cf8959a16c3ecbe1b3c26b">Stop</a>() override</td><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">apollo::prediction::Prediction</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#a51b4b0d4e2e4685349a4b0f4ee717515">~ApolloApp</a>()=default</td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html#a15d1ee05b2ea04961b972a67d4494153">~Prediction</a>()=default</td><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">apollo::prediction::Prediction</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html#a9a9a4edefa2ca72132a52d1be0592129">OnPerception</a>(const perception::PerceptionObstacles &amp;perception_obstacles)</td><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">apollo::prediction::Prediction</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#a124b7e158c01c287d23be6508baf6d04">ReportModuleStatus</a>(const apollo::hmi::ModuleStatus::Status status)</td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#aa3db9e2aefa68c56a9d43b89f0f1d961">SetCallbackThreadNumber</a>(uint32_t callback_thread_num)</td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#acfff7b785e14e90403f9ff5d2e27faec">Spin</a>()</td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html#ad1d4710d63d3d535863e7d1b63093619">Start</a>() override</td><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">apollo::prediction::Prediction</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#af1f722bd9565e4849a6a778717ebeb52">status_</a></td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html#aaddb673726cf8959a16c3ecbe1b3c26b">Stop</a>() override</td><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">apollo::prediction::Prediction</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html#a51b4b0d4e2e4685349a4b0f4ee717515">~ApolloApp</a>()=default</td><td class="entry"><a class="el" href="classapollo_1_1common_1_1ApolloApp.html">apollo::common::ApolloApp</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html#a15d1ee05b2ea04961b972a67d4494153">~Prediction</a>()=default</td><td class="entry"><a class="el" href="classapollo_1_1prediction_1_1Prediction.html">apollo::prediction::Prediction</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

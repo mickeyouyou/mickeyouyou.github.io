@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1dreamview.html">dreamview</a></li><li class="navelem"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html">SimControl</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1dreamview.html">dreamview</a></li><li class="navelem"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html">SimControl</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,24 +79,32 @@ $(function() {
  <a href="classapollo_1_1dreamview_1_1SimControl.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="sim__control_8h_source.html">sim_control.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::dreamview::SimControl:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1dreamview_1_1SimControl__coll__graph.png" border="0" usemap="#apollo_1_1dreamview_1_1SimControl_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6d40080b20ff384788d1ae563aefe350"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html#a6d40080b20ff384788d1ae563aefe350">SimControl</a> (const <a class="el" href="classapollo_1_1dreamview_1_1MapService.html">MapService</a> *map_service)</td></tr>
 <tr class="memdesc:a6d40080b20ff384788d1ae563aefe350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of <a class="el" href="classapollo_1_1dreamview_1_1SimControl.html" title="A module that simulates a &#39;perfect control&#39; algorithm, which assumes an ideal world where the car can...">SimControl</a>.  <a href="#a6d40080b20ff384788d1ae563aefe350">More...</a><br /></td></tr>
 <tr class="separator:a6d40080b20ff384788d1ae563aefe350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67feaef0aa030690b943421be07be6b0"><td class="memItemLeft" align="right" valign="top"><a id="a67feaef0aa030690b943421be07be6b0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html#a67feaef0aa030690b943421be07be6b0">Start</a> ()</td></tr>
-<tr class="memdesc:a67feaef0aa030690b943421be07be6b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer to publish simulated localization and chassis messages. <br /></td></tr>
+<tr class="memitem:a76d961b863baf664fc97bf67ca1a5ca0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html#a76d961b863baf664fc97bf67ca1a5ca0">Init</a> (bool set_start_point)</td></tr>
+<tr class="memdesc:a76d961b863baf664fc97bf67ca1a5ca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">setup callbacks and timer  <a href="#a76d961b863baf664fc97bf67ca1a5ca0">More...</a><br /></td></tr>
+<tr class="separator:a76d961b863baf664fc97bf67ca1a5ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67feaef0aa030690b943421be07be6b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html#a67feaef0aa030690b943421be07be6b0">Start</a> ()</td></tr>
+<tr class="memdesc:a67feaef0aa030690b943421be07be6b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer to publish simulated localization and chassis messages.  <a href="#a67feaef0aa030690b943421be07be6b0">More...</a><br /></td></tr>
 <tr class="separator:a67feaef0aa030690b943421be07be6b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85f8e7840737bc2e908168d948516a5a"><td class="memItemLeft" align="right" valign="top"><a id="a85f8e7840737bc2e908168d948516a5a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html#a85f8e7840737bc2e908168d948516a5a">Stop</a> ()</td></tr>
-<tr class="memdesc:a85f8e7840737bc2e908168d948516a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer. <br /></td></tr>
+<tr class="memitem:a85f8e7840737bc2e908168d948516a5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html#a85f8e7840737bc2e908168d948516a5a">Stop</a> ()</td></tr>
+<tr class="memdesc:a85f8e7840737bc2e908168d948516a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer.  <a href="#a85f8e7840737bc2e908168d948516a5a">More...</a><br /></td></tr>
 <tr class="separator:a85f8e7840737bc2e908168d948516a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8274699f09238ba916b8d7c2e4d5b484"><td class="memItemLeft" align="right" valign="top"><a id="a8274699f09238ba916b8d7c2e4d5b484"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html#a8274699f09238ba916b8d7c2e4d5b484">ClearPlanning</a> ()</td></tr>
-<tr class="memdesc:a8274699f09238ba916b8d7c2e4d5b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ignores the current received planning data. <br /></td></tr>
+<tr class="memitem:a8274699f09238ba916b8d7c2e4d5b484"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html#a8274699f09238ba916b8d7c2e4d5b484">ClearPlanning</a> ()</td></tr>
+<tr class="memdesc:a8274699f09238ba916b8d7c2e4d5b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the current received planning data.  <a href="#a8274699f09238ba916b8d7c2e4d5b484">More...</a><br /></td></tr>
 <tr class="separator:a8274699f09238ba916b8d7c2e4d5b484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ff7c858731300f47824f096f68275b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1SimControl.html#ac4ff7c858731300f47824f096f68275b">RunOnce</a> ()</td></tr>
+<tr class="memdesc:ac4ff7c858731300f47824f096f68275b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish simulated localization and chassis.  <a href="#ac4ff7c858731300f47824f096f68275b">More...</a><br /></td></tr>
+<tr class="separator:ac4ff7c858731300f47824f096f68275b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A module that simulates a 'perfect control' algorithm, which assumes an ideal world where the car can be perfectly placed wherever the planning asks it to be, with the expected speed, acceleration, etc. </p>
@@ -131,6 +140,109 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8274699f09238ba916b8d7c2e4d5b484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8274699f09238ba916b8d7c2e4d5b484">&#9670;&nbsp;</a></span>ClearPlanning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::dreamview::SimControl::ClearPlanning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the current received planning data. </p>
+
+</div>
+</div>
+<a id="a76d961b863baf664fc97bf67ca1a5ca0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76d961b863baf664fc97bf67ca1a5ca0">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::dreamview::SimControl::Init </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>set_start_point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setup callbacks and timer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">set_start_point</td><td>initialize localization. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac4ff7c858731300f47824f096f68275b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4ff7c858731300f47824f096f68275b">&#9670;&nbsp;</a></span>RunOnce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::dreamview::SimControl::RunOnce </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publish simulated localization and chassis. </p>
+
+</div>
+</div>
+<a id="a67feaef0aa030690b943421be07be6b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67feaef0aa030690b943421be07be6b0">&#9670;&nbsp;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::dreamview::SimControl::Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts the timer to publish simulated localization and chassis messages. </p>
+
+</div>
+</div>
+<a id="a85f8e7840737bc2e908168d948516a5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85f8e7840737bc2e908168d948516a5a">&#9670;&nbsp;</a></span>Stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::dreamview::SimControl::Stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stops the timer. </p>
 
 </div>
 </div>

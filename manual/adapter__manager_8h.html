@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -82,9 +83,42 @@ $(function() {
 <code>#include &quot;<a class="el" href="adapter_8h_source.html">modules/common/adapters/adapter.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="message__adapters_8h_source.html">modules/common/adapters/message_adapters.h</a>&quot;</code><br />
 <code>#include &quot;modules/common/adapters/proto/adapter_config.pb.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="common_2log_8h_source.html">modules/common/log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_8h_source.html">modules/common/log.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="macro_8h_source.html">modules/common/macro.h</a>&quot;</code><br />
 <code>#include &quot;ros/include/ros/ros.h&quot;</code><br />
+<code>#include &quot;tf/transform_listener.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for adapter_manager.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="adapter__manager_8h__incl.png" border="0" usemap="#modules_2common_2adapters_2adapter__manager_8h" alt=""/></div>
+<map name="modules_2common_2adapters_2adapter__manager_8h" id="modules_2common_2adapters_2adapter__manager_8h">
+<area shape="rect" id="node7" href="adapter_8h.html" title="modules/common/adapters\l/adapter.h" alt="" coords="1308,185,1490,224"/>
+<area shape="rect" id="node19" href="log_8h.html" title="modules/common/log.h" alt="" coords="1843,372,2002,397"/>
+<area shape="rect" id="node21" href="macro_8h.html" title="modules/common/macro.h" alt="" coords="1640,372,1819,397"/>
+<area shape="rect" id="node30" href="message__adapters_8h.html" title="modules/common/adapters\l/message_adapters.h" alt="" coords="3146,92,3328,131"/>
+<area shape="rect" id="node14" href="adapter__gflags_8h.html" title="modules/common/adapters\l/adapter_gflags.h" alt="" coords="346,279,528,317"/>
+<area shape="rect" id="node17" href="time_8h.html" title="This library provides the utilities to deal with timestamps. currently our assumption is that every t..." alt="" coords="1832,279,1987,317"/>
+<area shape="rect" id="node24" href="file_8h.html" title="modules/common/util\l/file.h" alt="" coords="602,279,750,317"/>
+<area shape="rect" id="node25" href="string__util_8h.html" title="Some string util functions. " alt="" coords="494,365,642,404"/>
+<area shape="rect" id="node26" href="common_2util_2util_8h.html" title="Some util functions. " alt="" coords="1325,279,1472,317"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="adapter__manager_8h__dep__incl.png" border="0" usemap="#modules_2common_2adapters_2adapter__manager_8hdep" alt=""/></div>
+<map name="modules_2common_2adapters_2adapter__manager_8hdep" id="modules_2common_2adapters_2adapter__manager_8hdep">
+<area shape="rect" id="node2" href="sim__control_8h.html" title="modules/dreamview/backend\l/sim_control/sim_control.h" alt="" coords="224,99,418,137"/>
+<area shape="rect" id="node5" href="simulation__world__service_8h.html" title="modules/dreamview/backend\l/simulation_world/simulation\l_world_service.h" alt="" coords="5,92,199,144"/>
+<area shape="rect" id="node6" href="sensor__canbus_8h.html" title="modules/drivers/canbus\l/sensor_canbus.h" alt="" coords="640,99,802,137"/>
+<area shape="rect" id="node9" href="delphi__esr__message__manager_8h.html" title="The class of DelphiESRMessageManager. " alt="" coords="442,92,616,144"/>
+<area shape="rect" id="node10" href="planning__test__base_8h.html" title="modules/planning/integration\l_tests/planning_test_base.h" alt="" coords="826,99,1018,137"/>
+<area shape="rect" id="node3" href="simulation__world__updater_8h.html" title="modules/dreamview/backend\l/simulation_world/simulation\l_world_updater.h" alt="" coords="89,192,283,244"/>
+<area shape="rect" id="node4" href="dreamview_8h.html" title="modules/dreamview/backend\l/dreamview.h" alt="" coords="156,292,350,331"/>
+<area shape="rect" id="node7" href="delphi__esr__canbus_8h.html" title="modules/drivers/delphi\l_esr/delphi_esr_canbus.h" alt="" coords="442,199,616,237"/>
+<area shape="rect" id="node8" href="mobileye__canbus_8h.html" title="modules/drivers/mobileye\l/mobileye_canbus.h" alt="" coords="640,199,813,237"/>
+</map>
+</div>
 </div>
 <p><a href="adapter__manager_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -98,6 +132,8 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceapollo_1_1common_1_1adapter"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1adapter.html">apollo::common::adapter</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1common_1_1adapter"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1common_1_1adapter.html" title="apollo::common::adapter ">apollo::common::adapter</a> <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceapollo_1_1common"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common.html">apollo::common</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1common"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1common.html" title="apollo::common ">apollo::common</a> <br /></td></tr>

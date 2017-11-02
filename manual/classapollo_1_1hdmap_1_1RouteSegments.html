@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">RouteSegments</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html">RouteSegments</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,35 +74,134 @@ $(function() {
 <div class="title">apollo::hdmap::RouteSegments Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>class <a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html" title="class RouteSegments ">RouteSegments</a>  
+ <a href="classapollo_1_1hdmap_1_1RouteSegments.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="pnc__map_8h_source.html">pnc_map.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::hdmap::RouteSegments:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1hdmap_1_1RouteSegments.png" usemap="#apollo::hdmap::RouteSegments_map" alt=""/>
-  <map id="apollo::hdmap::RouteSegments_map" name="apollo::hdmap::RouteSegments_map">
-</map>
- </div></div>
+<div class="center"><img src="classapollo_1_1hdmap_1_1RouteSegments__inherit__graph.png" border="0" usemap="#apollo_1_1hdmap_1_1RouteSegments_inherit__map" alt="Inheritance graph"/></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::hdmap::RouteSegments:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1hdmap_1_1RouteSegments__coll__graph.png" border="0" usemap="#apollo_1_1hdmap_1_1RouteSegments_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1bcd33a7eab62a5272bfe1c010d22686"><td class="memItemLeft" align="right" valign="top"><a id="a1bcd33a7eab62a5272bfe1c010d22686"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetChangeLaneType</b> (routing::ChangeLaneType type)</td></tr>
-<tr class="separator:a1bcd33a7eab62a5272bfe1c010d22686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa67247c0fac7184f74176e59a6141f53"><td class="memItemLeft" align="right" valign="top"><a id="aa67247c0fac7184f74176e59a6141f53"></a>
-routing::ChangeLaneType&#160;</td><td class="memItemRight" valign="bottom"><b>change_lane_type</b> () const</td></tr>
-<tr class="separator:aa67247c0fac7184f74176e59a6141f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a617fcb8948fea5a86bc0e99391213a0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a617fcb8948fea5a86bc0e99391213a0a">GetInnerProjection</a> (const common::PointENU &amp;point_enu, double *s, double *l) const</td></tr>
-<tr class="separator:a617fcb8948fea5a86bc0e99391213a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491cee067045ed7f4283dfe920431538"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a491cee067045ed7f4283dfe920431538">RouteSegments</a> ()=default</td></tr>
+<tr class="separator:a491cee067045ed7f4283dfe920431538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb273d2c5cacceb2c66326d4fb6a3a78"><td class="memItemLeft" align="right" valign="top">routing::ChangeLaneType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#adb273d2c5cacceb2c66326d4fb6a3a78">NextAction</a> () const</td></tr>
+<tr class="separator:adb273d2c5cacceb2c66326d4fb6a3a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae10832710e98046747433851861b99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#afae10832710e98046747433851861b99">SetNextAction</a> (routing::ChangeLaneType action)</td></tr>
+<tr class="separator:afae10832710e98046747433851861b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fce80773abdb184baa9dde4d833e58f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a8fce80773abdb184baa9dde4d833e58f">CanExit</a> () const</td></tr>
+<tr class="separator:a8fce80773abdb184baa9dde4d833e58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2147f044ec5c0cb2a273cc5f64285ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#af2147f044ec5c0cb2a273cc5f64285ed">SetCanExit</a> (bool can_exit)</td></tr>
+<tr class="separator:af2147f044ec5c0cb2a273cc5f64285ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eef5e209cd688f7d8a11a0879dc49b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a8eef5e209cd688f7d8a11a0879dc49b8">GetProjection</a> (const common::PointENU &amp;point_enu, double *s, double *l, <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> *waypoint) const</td></tr>
+<tr class="separator:a8eef5e209cd688f7d8a11a0879dc49b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3a8ae758439642cde10d2978114bf16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#aa3a8ae758439642cde10d2978114bf16">CanDriveFrom</a> (const <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> &amp;waypoint) const</td></tr>
+<tr class="separator:aa3a8ae758439642cde10d2978114bf16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d22a425c91942ac256760105651665"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a21d22a425c91942ac256760105651665">RouteEndWaypoint</a> () const</td></tr>
+<tr class="separator:a21d22a425c91942ac256760105651665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b592f257ede50d0104e08fc744d9018"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a9b592f257ede50d0104e08fc744d9018">SetRouteEndWaypoint</a> (const <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> &amp;waypoint)</td></tr>
+<tr class="separator:a9b592f257ede50d0104e08fc744d9018"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d2b41d88ab886ce1102db75c5dd067"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#ac3d2b41d88ab886ce1102db75c5dd067">IsOnSegment</a> () const</td></tr>
+<tr class="separator:ac3d2b41d88ab886ce1102db75c5dd067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c35fdcf9e9625607af967587444c91a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a9c35fdcf9e9625607af967587444c91a">SetIsOnSegment</a> (bool on_segment)</td></tr>
+<tr class="separator:a9c35fdcf9e9625607af967587444c91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cb58b51310a0d9606962f70a6f6de03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a5cb58b51310a0d9606962f70a6f6de03">LastWaypoint</a> () const</td></tr>
+<tr class="separator:a5cb58b51310a0d9606962f70a6f6de03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e9f05361c07a93111cff1ce07abadc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html#a2e9f05361c07a93111cff1ce07abadc2">IsWaypointOnSegment</a> (const <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> &amp;waypoint) const</td></tr>
+<tr class="memdesc:a2e9f05361c07a93111cff1ce07abadc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a waypoint is on segment.  <a href="#a2e9f05361c07a93111cff1ce07abadc2">More...</a><br /></td></tr>
+<tr class="separator:a2e9f05361c07a93111cff1ce07abadc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>class <a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html" title="class RouteSegments ">RouteSegments</a> </p>
+<p>This class is a representation of the Passage type in routing.proto. It is exended from a passage region, but keeps some properties of the passage such as the last end <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> of the original passage region (route_end_waypoint), whether the passage can lead to another passage in routing (can_exit_). This class contains the original data that can be used to generate <a class="el" href="classapollo_1_1hdmap_1_1Path.html">hdmap::Path</a> </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a491cee067045ed7f4283dfe920431538"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a491cee067045ed7f4283dfe920431538">&#9670;&nbsp;</a></span>RouteSegments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::hdmap::RouteSegments::RouteSegments </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The default constructor. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a617fcb8948fea5a86bc0e99391213a0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a617fcb8948fea5a86bc0e99391213a0a">&#9670;&nbsp;</a></span>GetInnerProjection()</h2>
+<a id="aa3a8ae758439642cde10d2978114bf16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a8ae758439642cde10d2978114bf16">&#9670;&nbsp;</a></span>CanDriveFrom()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool apollo::hdmap::RouteSegments::GetInnerProjection </td>
+          <td class="memname">bool apollo::hdmap::RouteSegments::CanDriveFrom </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>waypoint</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check whether the map allows a vehicle can reach current RouteSegment from a point on a lane (<a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a>). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">waypoint</td><td>the start waypoint </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the map allows a vehicle to drive from waypoint to current RouteSegment. Otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a8fce80773abdb184baa9dde4d833e58f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fce80773abdb184baa9dde4d833e58f">&#9670;&nbsp;</a></span>CanExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::hdmap::RouteSegments::CanExit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Wether the passage region that generate this route segment can lead to another passage region in route. </p>
+
+</div>
+</div>
+<a id="a8eef5e209cd688f7d8a11a0879dc49b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eef5e209cd688f7d8a11a0879dc49b8">&#9670;&nbsp;</a></span>GetProjection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::hdmap::RouteSegments::GetProjection </td>
           <td>(</td>
           <td class="paramtype">const common::PointENU &amp;&#160;</td>
           <td class="paramname"><em>point_enu</em>, </td>
@@ -116,7 +216,13 @@ routing::ChangeLaneType&#160;</td><td class="memItemRight" valign="bottom"><b>ch
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>l</em>&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> *&#160;</td>
+          <td class="paramname"><em>waypoint</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -125,7 +231,178 @@ routing::ChangeLaneType&#160;</td><td class="memItemRight" valign="bottom"><b>ch
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Project a point to route segments. </p><dl class="section return"><dt>Returns</dt><dd>false if error happended or projected outside of the lane segments. </dd></dl>
+<p>Project a point to this route segment. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point_enu</td><td>a map point. </td></tr>
+    <tr><td class="paramname">s</td><td>return the longitudinal s relative to the route segment. </td></tr>
+    <tr><td class="paramname">l</td><td>return the lateral distance relative to the route segment. </td></tr>
+    <tr><td class="paramname">waypoint</td><td>return the <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a>, which has lane and lane_s on the route segment. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>false if error happended or projected outside of the lane segments. </dd></dl>
+
+</div>
+</div>
+<a id="ac3d2b41d88ab886ce1102db75c5dd067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3d2b41d88ab886ce1102db75c5dd067">&#9670;&nbsp;</a></span>IsOnSegment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::hdmap::RouteSegments::IsOnSegment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e9f05361c07a93111cff1ce07abadc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e9f05361c07a93111cff1ce07abadc2">&#9670;&nbsp;</a></span>IsWaypointOnSegment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::hdmap::RouteSegments::IsWaypointOnSegment </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>waypoint</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a waypoint is on segment. </p>
+
+</div>
+</div>
+<a id="a5cb58b51310a0d9606962f70a6f6de03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cb58b51310a0d9606962f70a6f6de03">&#9670;&nbsp;</a></span>LastWaypoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> apollo::hdmap::RouteSegments::LastWaypoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the last waypoint from the lane segments. </p>
+
+</div>
+</div>
+<a id="adb273d2c5cacceb2c66326d4fb6a3a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb273d2c5cacceb2c66326d4fb6a3a78">&#9670;&nbsp;</a></span>NextAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">routing::ChangeLaneType apollo::hdmap::RouteSegments::NextAction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the next change lane action need to take by the vehicle, if the vehicle is on this <a class="el" href="classapollo_1_1hdmap_1_1RouteSegments.html" title="class RouteSegments ">RouteSegments</a>. For a vehicle on this RouteSegment, If the vehicle does not need to change lane, then change_lane_type = routing::FORWARD If the vehicle need to change to left lane according to routing, then change_lane_type_ = routing::LEFT; If the vehicle need to change to right lane according to routing, then change_lane_type_ = routing::RIGHT; </p>
+
+</div>
+</div>
+<a id="a21d22a425c91942ac256760105651665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21d22a425c91942ac256760105651665">&#9670;&nbsp;</a></span>RouteEndWaypoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a>&amp; apollo::hdmap::RouteSegments::RouteEndWaypoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2147f044ec5c0cb2a273cc5f64285ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2147f044ec5c0cb2a273cc5f64285ed">&#9670;&nbsp;</a></span>SetCanExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::hdmap::RouteSegments::SetCanExit </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>can_exit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c35fdcf9e9625607af967587444c91a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c35fdcf9e9625607af967587444c91a">&#9670;&nbsp;</a></span>SetIsOnSegment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::hdmap::RouteSegments::SetIsOnSegment </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>on_segment</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afae10832710e98046747433851861b99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae10832710e98046747433851861b99">&#9670;&nbsp;</a></span>SetNextAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::hdmap::RouteSegments::SetNextAction </td>
+          <td>(</td>
+          <td class="paramtype">routing::ChangeLaneType&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b592f257ede50d0104e08fc744d9018"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b592f257ede50d0104e08fc744d9018">&#9670;&nbsp;</a></span>SetRouteEndWaypoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::hdmap::RouteSegments::SetRouteEndWaypoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1hdmap_1_1LaneWaypoint.html">LaneWaypoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>waypoint</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

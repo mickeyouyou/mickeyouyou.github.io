@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><b>adapter</b></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ProtoOrganizer.html">ProtoOrganizer</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html">adapter</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ProtoOrganizer.html">ProtoOrganizer</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,22 +74,108 @@ $(function() {
 <div class="title">apollo::hdmap::adapter::ProtoOrganizer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="proto__organizer_8h_source.html">proto_organizer.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::hdmap::adapter::ProtoOrganizer:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1hdmap_1_1adapter_1_1ProtoOrganizer__coll__graph.png" border="0" usemap="#apollo_1_1hdmap_1_1adapter_1_1ProtoOrganizer_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a92cbbc5bad6cefdf8d05537217183a3f"><td class="memItemLeft" align="right" valign="top"><a id="a92cbbc5bad6cefdf8d05537217183a3f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetRoadElements</b> (std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html">RoadInternal</a> &gt; *roads)</td></tr>
+<tr class="memitem:a92cbbc5bad6cefdf8d05537217183a3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ProtoOrganizer.html#a92cbbc5bad6cefdf8d05537217183a3f">GetRoadElements</a> (std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html">RoadInternal</a> &gt; *roads)</td></tr>
 <tr class="separator:a92cbbc5bad6cefdf8d05537217183a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69baceef34199751ce55b985cea8cf50"><td class="memItemLeft" align="right" valign="top"><a id="a69baceef34199751ce55b985cea8cf50"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetJunctionElements</b> (const std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1JunctionInternal.html">JunctionInternal</a> &gt; &amp;junctions)</td></tr>
+<tr class="memitem:a69baceef34199751ce55b985cea8cf50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ProtoOrganizer.html#a69baceef34199751ce55b985cea8cf50">GetJunctionElements</a> (const std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1JunctionInternal.html">JunctionInternal</a> &gt; &amp;junctions)</td></tr>
 <tr class="separator:a69baceef34199751ce55b985cea8cf50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8006c658647bd24a98f552985d19f229"><td class="memItemLeft" align="right" valign="top"><a id="a8006c658647bd24a98f552985d19f229"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetOverlapElements</b> (const std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html">RoadInternal</a> &gt; &amp;roads, const std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1JunctionInternal.html">JunctionInternal</a> &gt; &amp;junctions)</td></tr>
+<tr class="memitem:a8006c658647bd24a98f552985d19f229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ProtoOrganizer.html#a8006c658647bd24a98f552985d19f229">GetOverlapElements</a> (const std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html">RoadInternal</a> &gt; &amp;roads, const std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1JunctionInternal.html">JunctionInternal</a> &gt; &amp;junctions)</td></tr>
 <tr class="separator:a8006c658647bd24a98f552985d19f229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d7410f8e996670edc9ed3fd34a488ff"><td class="memItemLeft" align="right" valign="top"><a id="a3d7410f8e996670edc9ed3fd34a488ff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OutputData</b> (apollo::hdmap::Map *pb_map)</td></tr>
+<tr class="memitem:a3d7410f8e996670edc9ed3fd34a488ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ProtoOrganizer.html#a3d7410f8e996670edc9ed3fd34a488ff">OutputData</a> (apollo::hdmap::Map *pb_map)</td></tr>
 <tr class="separator:a3d7410f8e996670edc9ed3fd34a488ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a69baceef34199751ce55b985cea8cf50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69baceef34199751ce55b985cea8cf50">&#9670;&nbsp;</a></span>GetJunctionElements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::hdmap::adapter::ProtoOrganizer::GetJunctionElements </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1JunctionInternal.html">JunctionInternal</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>junctions</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8006c658647bd24a98f552985d19f229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8006c658647bd24a98f552985d19f229">&#9670;&nbsp;</a></span>GetOverlapElements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::hdmap::adapter::ProtoOrganizer::GetOverlapElements </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html">RoadInternal</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>roads</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1JunctionInternal.html">JunctionInternal</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>junctions</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92cbbc5bad6cefdf8d05537217183a3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92cbbc5bad6cefdf8d05537217183a3f">&#9670;&nbsp;</a></span>GetRoadElements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::hdmap::adapter::ProtoOrganizer::GetRoadElements </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html">RoadInternal</a> &gt; *&#160;</td>
+          <td class="paramname"><em>roads</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d7410f8e996670edc9ed3fd34a488ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7410f8e996670edc9ed3fd34a488ff">&#9670;&nbsp;</a></span>OutputData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::hdmap::adapter::ProtoOrganizer::OutputData </td>
+          <td>(</td>
+          <td class="paramtype">apollo::hdmap::Map *&#160;</td>
+          <td class="paramname"><em>pb_map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/map/hdmap/adapter/<a class="el" href="proto__organizer_8h_source.html">proto_organizer.h</a></li>
 </ul>

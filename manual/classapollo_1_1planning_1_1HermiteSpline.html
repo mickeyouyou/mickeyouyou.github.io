@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html">HermiteSpline</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html">HermiteSpline</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,16 +74,140 @@ $(function() {
 <div class="title">apollo::planning::HermiteSpline&lt; T, N &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="hermite__spline_8h_source.html">hermite_spline.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::HermiteSpline&lt; T, N &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1HermiteSpline__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1HermiteSpline_3_01T_00_01N_01_4_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a971e89c876aa54ed176f390ae4697003"><td class="memItemLeft" align="right" valign="top"><a id="a971e89c876aa54ed176f390ae4697003"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HermiteSpline</b> (std::array&lt; T,(N+1)/2 &gt; x0, std::array&lt; T,(N+1)/2 &gt; x1, const double z0=0.0, const double z1=1.0)</td></tr>
+<tr class="memitem:a971e89c876aa54ed176f390ae4697003"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html#a971e89c876aa54ed176f390ae4697003">HermiteSpline</a> (std::array&lt; T,(N+1)/2 &gt; x0, std::array&lt; T,(N+1)/2 &gt; x1, const double z0=0.0, const double z1=1.0)</td></tr>
 <tr class="separator:a971e89c876aa54ed176f390ae4697003"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad978058f8c2386c5e1927c23b8d4d19d"><td class="memItemLeft" align="right" valign="top"><a id="ad978058f8c2386c5e1927c23b8d4d19d"></a>
-virtual T&#160;</td><td class="memItemRight" valign="bottom"><b>Evaluate</b> (const std::uint32_t order, const double z) const</td></tr>
+<tr class="memitem:a95a5dea7f7111d76cb70dca8c30fa1a1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html#a95a5dea7f7111d76cb70dca8c30fa1a1">~HermiteSpline</a> ()=default</td></tr>
+<tr class="separator:a95a5dea7f7111d76cb70dca8c30fa1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad978058f8c2386c5e1927c23b8d4d19d"><td class="memItemLeft" align="right" valign="top">virtual T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html#ad978058f8c2386c5e1927c23b8d4d19d">Evaluate</a> (const std::uint32_t order, const double z) const</td></tr>
 <tr class="separator:ad978058f8c2386c5e1927c23b8d4d19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a971e89c876aa54ed176f390ae4697003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a971e89c876aa54ed176f390ae4697003">&#9670;&nbsp;</a></span>HermiteSpline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::uint32_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html">apollo::planning::HermiteSpline</a>&lt; T, N &gt;::<a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html">HermiteSpline</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; T,(N+1)/2 &gt;&#160;</td>
+          <td class="paramname"><em>x0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::array&lt; T,(N+1)/2 &gt;&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>z0</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>z1</em> = <code>1.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95a5dea7f7111d76cb70dca8c30fa1a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95a5dea7f7111d76cb70dca8c30fa1a1">&#9670;&nbsp;</a></span>~HermiteSpline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::uint32_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html">apollo::planning::HermiteSpline</a>&lt; T, N &gt;::~<a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html">HermiteSpline</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad978058f8c2386c5e1927c23b8d4d19d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad978058f8c2386c5e1927c23b8d4d19d">&#9670;&nbsp;</a></span>Evaluate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::uint32_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classapollo_1_1planning_1_1HermiteSpline.html">apollo::planning::HermiteSpline</a>&lt; T, N &gt;::Evaluate </td>
+          <td>(</td>
+          <td class="paramtype">const std::uint32_t&#160;</td>
+          <td class="paramname"><em>order</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/math/<a class="el" href="hermite__spline_8h_source.html">hermite_spline.h</a></li>
 </ul>

@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><b>velodyne</b></li><li class="navelem"><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html">Calibration</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1velodyne.html">velodyne</a></li><li class="navelem"><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html">Calibration</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -79,34 +80,167 @@ $(function() {
  <a href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="calibration_8h_source.html">calibration.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::drivers::velodyne::Calibration:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1drivers_1_1velodyne_1_1Calibration__coll__graph.png" border="0" usemap="#apollo_1_1drivers_1_1velodyne_1_1Calibration_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab1f1c923ba93b45efe3f635779e4c81c"><td class="memItemLeft" align="right" valign="top"><a id="ab1f1c923ba93b45efe3f635779e4c81c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Calibration</b> (const std::string &amp;calibration_file)</td></tr>
+<tr class="memitem:a2cc6ac3adac8760b5a5dd664daa430d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html#a2cc6ac3adac8760b5a5dd664daa430d0">Calibration</a> ()</td></tr>
+<tr class="separator:a2cc6ac3adac8760b5a5dd664daa430d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f1c923ba93b45efe3f635779e4c81c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html#ab1f1c923ba93b45efe3f635779e4c81c">Calibration</a> (const std::string &amp;calibration_file)</td></tr>
 <tr class="separator:ab1f1c923ba93b45efe3f635779e4c81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9477f90dd59b37d950bce4d28e18cc51"><td class="memItemLeft" align="right" valign="top"><a id="a9477f90dd59b37d950bce4d28e18cc51"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (const std::string &amp;calibration_file)</td></tr>
+<tr class="memitem:a9477f90dd59b37d950bce4d28e18cc51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html#a9477f90dd59b37d950bce4d28e18cc51">read</a> (const std::string &amp;calibration_file)</td></tr>
 <tr class="separator:a9477f90dd59b37d950bce4d28e18cc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12c51ddcc8ad1f142246f20b074dae9d"><td class="memItemLeft" align="right" valign="top"><a id="a12c51ddcc8ad1f142246f20b074dae9d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (const std::string &amp;calibration_file)</td></tr>
+<tr class="memitem:a12c51ddcc8ad1f142246f20b074dae9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html#a12c51ddcc8ad1f142246f20b074dae9d">write</a> (const std::string &amp;calibration_file)</td></tr>
 <tr class="separator:a12c51ddcc8ad1f142246f20b074dae9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a97c540d8e8f41b95f1cbe485fbb0a097"><td class="memItemLeft" align="right" valign="top"><a id="a97c540d8e8f41b95f1cbe485fbb0a097"></a>
-std::map&lt; int, <a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1LaserCorrection.html">LaserCorrection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_laser_corrections</b></td></tr>
-<tr class="separator:a97c540d8e8f41b95f1cbe485fbb0a097"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7433ccf7c6b9fdb941356ee93100279"><td class="memItemLeft" align="right" valign="top"><a id="ae7433ccf7c6b9fdb941356ee93100279"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>_num_lasers</b></td></tr>
-<tr class="separator:ae7433ccf7c6b9fdb941356ee93100279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39f046a9d9c67fc499eba712f7c09839"><td class="memItemLeft" align="right" valign="top"><a id="a39f046a9d9c67fc499eba712f7c09839"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>_initialized</b></td></tr>
-<tr class="separator:a39f046a9d9c67fc499eba712f7c09839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3aaca11c8eb4caf95368b4a47c241f8"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, <a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1LaserCorrection.html">LaserCorrection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html#ab3aaca11c8eb4caf95368b4a47c241f8">laser_corrections_</a></td></tr>
+<tr class="separator:ab3aaca11c8eb4caf95368b4a47c241f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5def5e0ea7cc135977737389cef268d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html#a5def5e0ea7cc135977737389cef268d2">num_lasers_</a></td></tr>
+<tr class="separator:a5def5e0ea7cc135977737389cef268d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33222bb1219d2ee31c27ddabad672a04"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html#a33222bb1219d2ee31c27ddabad672a04">initialized_</a></td></tr>
+<tr class="separator:a33222bb1219d2ee31c27ddabad672a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classapollo_1_1drivers_1_1velodyne_1_1Calibration.html" title="Calibration class storing entire configuration for the Velodyne. ">Calibration</a> class storing entire configuration for the Velodyne. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2cc6ac3adac8760b5a5dd664daa430d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc6ac3adac8760b5a5dd664daa430d0">&#9670;&nbsp;</a></span>Calibration() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::drivers::velodyne::Calibration::Calibration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1f1c923ba93b45efe3f635779e4c81c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1f1c923ba93b45efe3f635779e4c81c">&#9670;&nbsp;</a></span>Calibration() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::drivers::velodyne::Calibration::Calibration </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>calibration_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9477f90dd59b37d950bce4d28e18cc51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9477f90dd59b37d950bce4d28e18cc51">&#9670;&nbsp;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::drivers::velodyne::Calibration::read </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>calibration_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12c51ddcc8ad1f142246f20b074dae9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12c51ddcc8ad1f142246f20b074dae9d">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::drivers::velodyne::Calibration::write </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>calibration_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a33222bb1219d2ee31c27ddabad672a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33222bb1219d2ee31c27ddabad672a04">&#9670;&nbsp;</a></span>initialized_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::drivers::velodyne::Calibration::initialized_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3aaca11c8eb4caf95368b4a47c241f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3aaca11c8eb4caf95368b4a47c241f8">&#9670;&nbsp;</a></span>laser_corrections_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;int, <a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1LaserCorrection.html">LaserCorrection</a>&gt; apollo::drivers::velodyne::Calibration::laser_corrections_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5def5e0ea7cc135977737389cef268d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5def5e0ea7cc135977737389cef268d2">&#9670;&nbsp;</a></span>num_lasers_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int apollo::drivers::velodyne::Calibration::num_lasers_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/drivers/velodyne/velodyne_pointcloud/include/velodyne_pointcloud/<a class="el" href="calibration_8h_source.html">calibration.h</a></li>
 </ul>
 </div><!-- contents -->

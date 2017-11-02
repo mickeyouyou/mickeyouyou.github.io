@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html">SpiralCurve</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html">SpiralCurve</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -75,47 +76,47 @@ $(function() {
 <div class="title">apollo::planning::SpiralCurve Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="spiral__curve_8h_source.html">spiral_curve.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::planning::SpiralCurve:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1planning_1_1SpiralCurve.png" usemap="#apollo::planning::SpiralCurve_map" alt=""/>
-  <map id="apollo::planning::SpiralCurve_map" name="apollo::planning::SpiralCurve_map">
-<area href="classapollo_1_1planning_1_1CubicSpiralCurve.html" alt="apollo::planning::CubicSpiralCurve" shape="rect" coords="0,56,214,80"/>
-<area href="classapollo_1_1planning_1_1QuinticSpiralCurve.html" alt="apollo::planning::QuinticSpiralCurve" shape="rect" coords="224,56,438,80"/>
+<div class="center"><img src="classapollo_1_1planning_1_1SpiralCurve__inherit__graph.png" border="0" usemap="#apollo_1_1planning_1_1SpiralCurve_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1planning_1_1SpiralCurve_inherit__map" id="apollo_1_1planning_1_1SpiralCurve_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1planning_1_1CubicSpiralCurve.html" title="{apollo::planning::CubicSpiral\lCurve\n||+ CubicSpiralCurve()\l+ ~CubicSpiralCurve()\l+ CalculatePath()\l+ GetPathVec()\l+ GetPathVecWithS()\l}" alt="" coords="5,340,196,480"/>
+<area shape="rect" id="node3" href="classapollo_1_1planning_1_1QuinticSpiralCurve.html" title="{apollo::planning::Quintic\lSpiralCurve\n||+ QuinticSpiralCurve()\l+ ~QuinticSpiralCurve()\l+ CalculatePath()\l+ GetPathVec()\l+ GetPathVecWithS()\l}" alt="" coords="220,340,384,480"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::SpiralCurve:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1SpiralCurve__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1SpiralCurve_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ee7bcc63231db7839cd5ef7a2716121"><td class="memItemLeft" align="right" valign="top"><a id="a5ee7bcc63231db7839cd5ef7a2716121"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SpiralCurve</b> (const common::PathPoint &amp;s, const common::PathPoint &amp;e, const std::uint32_t order)</td></tr>
+<tr class="memitem:a5ee7bcc63231db7839cd5ef7a2716121"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a5ee7bcc63231db7839cd5ef7a2716121">SpiralCurve</a> (const common::PathPoint &amp;s, const common::PathPoint &amp;e, const std::uint32_t order)</td></tr>
 <tr class="separator:a5ee7bcc63231db7839cd5ef7a2716121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38672b39887c6fc1a1735e75abae5902"><td class="memItemLeft" align="right" valign="top"><a id="a38672b39887c6fc1a1735e75abae5902"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a38672b39887c6fc1a1735e75abae5902">SetSpiralConfig</a> (const SpiralCurveConfig &amp;spiral_config)</td></tr>
-<tr class="memdesc:a38672b39887c6fc1a1735e75abae5902"><td class="mdescLeft">&#160;</td><td class="mdescRight">: set configuration if desired (default setting was defined in constructor) <br /></td></tr>
+<tr class="memitem:a03757ccb6a9bbf6f6595bc270b6e6922"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a03757ccb6a9bbf6f6595bc270b6e6922">~SpiralCurve</a> ()=default</td></tr>
+<tr class="separator:a03757ccb6a9bbf6f6595bc270b6e6922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38672b39887c6fc1a1735e75abae5902"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a38672b39887c6fc1a1735e75abae5902">SetSpiralConfig</a> (const SpiralCurveConfig &amp;<a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a830afd43513b09a8a76a716d99573d3b">spiral_config</a>)</td></tr>
+<tr class="memdesc:a38672b39887c6fc1a1735e75abae5902"><td class="mdescLeft">&#160;</td><td class="mdescRight">: set configuration if desired (default setting was defined in constructor)  <a href="#a38672b39887c6fc1a1735e75abae5902">More...</a><br /></td></tr>
 <tr class="separator:a38672b39887c6fc1a1735e75abae5902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b27dd179dba84e18eafb935d118e224"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a9b27dd179dba84e18eafb935d118e224">CalculatePath</a> ()=0</td></tr>
 <tr class="memdesc:a9b27dd179dba84e18eafb935d118e224"><td class="mdescLeft">&#160;</td><td class="mdescRight">: default process of calculating path without lookup table  <a href="#a9b27dd179dba84e18eafb935d118e224">More...</a><br /></td></tr>
 <tr class="separator:a9b27dd179dba84e18eafb935d118e224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af027c13311f8bf7c9c348054f6ac8cd8"><td class="memItemLeft" align="right" valign="top"><a id="af027c13311f8bf7c9c348054f6ac8cd8"></a>
-const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#af027c13311f8bf7c9c348054f6ac8cd8">p_params</a> () const</td></tr>
-<tr class="memdesc:af027c13311f8bf7c9c348054f6ac8cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">: output methods <br /></td></tr>
+<tr class="memitem:af027c13311f8bf7c9c348054f6ac8cd8"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#af027c13311f8bf7c9c348054f6ac8cd8">p_params</a> () const</td></tr>
+<tr class="memdesc:af027c13311f8bf7c9c348054f6ac8cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">: output methods  <a href="#af027c13311f8bf7c9c348054f6ac8cd8">More...</a><br /></td></tr>
 <tr class="separator:af027c13311f8bf7c9c348054f6ac8cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a830afd43513b09a8a76a716d99573d3b"><td class="memItemLeft" align="right" valign="top"><a id="a830afd43513b09a8a76a716d99573d3b"></a>
-const SpiralCurveConfig &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>spiral_config</b> () const</td></tr>
+<tr class="memitem:a830afd43513b09a8a76a716d99573d3b"><td class="memItemLeft" align="right" valign="top">const SpiralCurveConfig &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a830afd43513b09a8a76a716d99573d3b">spiral_config</a> () const</td></tr>
 <tr class="separator:a830afd43513b09a8a76a716d99573d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1712a534a59576f6769c6fb59edeb03d"><td class="memItemLeft" align="right" valign="top"><a id="a1712a534a59576f6769c6fb59edeb03d"></a>
-const common::PathPoint &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>start_point</b> () const</td></tr>
+<tr class="memitem:a1712a534a59576f6769c6fb59edeb03d"><td class="memItemLeft" align="right" valign="top">const common::PathPoint &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a1712a534a59576f6769c6fb59edeb03d">start_point</a> () const</td></tr>
 <tr class="separator:a1712a534a59576f6769c6fb59edeb03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20a38a3478625ff2ce160485e3efa106"><td class="memItemLeft" align="right" valign="top"><a id="a20a38a3478625ff2ce160485e3efa106"></a>
-const common::PathPoint &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>end_point</b> () const</td></tr>
+<tr class="memitem:a20a38a3478625ff2ce160485e3efa106"><td class="memItemLeft" align="right" valign="top">const common::PathPoint &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a20a38a3478625ff2ce160485e3efa106">end_point</a> () const</td></tr>
 <tr class="separator:a20a38a3478625ff2ce160485e3efa106"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a85c811e712783aa6d4efb5d9b79f86"><td class="memItemLeft" align="right" valign="top"><a id="a1a85c811e712783aa6d4efb5d9b79f86"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>sg</b> () const</td></tr>
+<tr class="memitem:a1a85c811e712783aa6d4efb5d9b79f86"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a1a85c811e712783aa6d4efb5d9b79f86">sg</a> () const</td></tr>
 <tr class="separator:a1a85c811e712783aa6d4efb5d9b79f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bfe8362a236403ab711577c2cf588f8"><td class="memItemLeft" align="right" valign="top"><a id="a3bfe8362a236403ab711577c2cf588f8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> () const</td></tr>
+<tr class="memitem:a3bfe8362a236403ab711577c2cf588f8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a3bfe8362a236403ab711577c2cf588f8">error</a> () const</td></tr>
 <tr class="separator:a3bfe8362a236403ab711577c2cf588f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f42f327226f8a876c54f3ce8edeb89e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classapollo_1_1common_1_1Status.html">common::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a2f42f327226f8a876c54f3ce8edeb89e">GetPathVec</a> (const std::uint32_t n, std::vector&lt; common::PathPoint &gt; *path_points) const =0</td></tr>
 <tr class="memdesc:a2f42f327226f8a876c54f3ce8edeb89e"><td class="mdescLeft">&#160;</td><td class="mdescRight">: get path vector with sampling size n  <a href="#a2f42f327226f8a876c54f3ce8edeb89e">More...</a><br /></td></tr>
@@ -126,26 +127,81 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> () const<
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac3e79000420b6254971407a0b7ad38e4"><td class="memItemLeft" align="right" valign="top"><a id="ac3e79000420b6254971407a0b7ad38e4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_sg</b> (const double sg)</td></tr>
+<tr class="memitem:ac3e79000420b6254971407a0b7ad38e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#ac3e79000420b6254971407a0b7ad38e4">set_sg</a> (const double <a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a1a85c811e712783aa6d4efb5d9b79f86">sg</a>)</td></tr>
 <tr class="separator:ac3e79000420b6254971407a0b7ad38e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefd5a42b11c8a573f48f0e5ad93933e6"><td class="memItemLeft" align="right" valign="top"><a id="aefd5a42b11c8a573f48f0e5ad93933e6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_error</b> (const double error)</td></tr>
+<tr class="memitem:aefd5a42b11c8a573f48f0e5ad93933e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#aefd5a42b11c8a573f48f0e5ad93933e6">set_error</a> (const double <a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a3bfe8362a236403ab711577c2cf588f8">error</a>)</td></tr>
 <tr class="separator:aefd5a42b11c8a573f48f0e5ad93933e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a537642cd48f79afd758ff3971f56f664"><td class="memItemLeft" align="right" valign="top"><a id="a537642cd48f79afd758ff3971f56f664"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ResultSanityCheck</b> () const</td></tr>
+<tr class="memitem:a537642cd48f79afd758ff3971f56f664"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a537642cd48f79afd758ff3971f56f664">ResultSanityCheck</a> () const</td></tr>
 <tr class="separator:a537642cd48f79afd758ff3971f56f664"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a965121173d4b66ec586dc1ec3572d5a8"><td class="memTemplParams" colspan="2"><a id="a965121173d4b66ec586dc1ec3572d5a8"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a965121173d4b66ec586dc1ec3572d5a8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>PrependToPParams</b> (T begin, T end)</td></tr>
+<tr class="memitem:a965121173d4b66ec586dc1ec3572d5a8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a965121173d4b66ec586dc1ec3572d5a8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a965121173d4b66ec586dc1ec3572d5a8">PrependToPParams</a> (T begin, T end)</td></tr>
 <tr class="separator:a965121173d4b66ec586dc1ec3572d5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a4de75ba28036350c29d75d5fb0be405b"><td class="memItemLeft" align="right" valign="top"><a id="a4de75ba28036350c29d75d5fb0be405b"></a>
-static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>s_two_pi_</b> = 2 * M_PI</td></tr>
+<tr class="memitem:a4de75ba28036350c29d75d5fb0be405b"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralCurve.html#a4de75ba28036350c29d75d5fb0be405b">s_two_pi_</a> = 2 * M_PI</td></tr>
 <tr class="separator:a4de75ba28036350c29d75d5fb0be405b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5ee7bcc63231db7839cd5ef7a2716121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ee7bcc63231db7839cd5ef7a2716121">&#9670;&nbsp;</a></span>SpiralCurve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::SpiralCurve::SpiralCurve </td>
+          <td>(</td>
+          <td class="paramtype">const common::PathPoint &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const common::PathPoint &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::uint32_t&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03757ccb6a9bbf6f6595bc270b6e6922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03757ccb6a9bbf6f6595bc270b6e6922">&#9670;&nbsp;</a></span>~SpiralCurve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::planning::SpiralCurve::~SpiralCurve </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9b27dd179dba84e18eafb935d118e224"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b27dd179dba84e18eafb935d118e224">&#9670;&nbsp;</a></span>CalculatePath()</h2>
@@ -174,6 +230,40 @@ static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>s_
 <dl class="section return"><dt>Returns</dt><dd>: errors of final state: fitted value vs true end point </dd></dl>
 
 <p>Implemented in <a class="el" href="classapollo_1_1planning_1_1QuinticSpiralCurve.html#af35114cc5f2a622e92198f140031e14d">apollo::planning::QuinticSpiralCurve</a>, and <a class="el" href="classapollo_1_1planning_1_1CubicSpiralCurve.html#a1460db41e3cd17aa81190629593e335a">apollo::planning::CubicSpiralCurve</a>.</p>
+
+</div>
+</div>
+<a id="a20a38a3478625ff2ce160485e3efa106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a38a3478625ff2ce160485e3efa106">&#9670;&nbsp;</a></span>end_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const common::PathPoint&amp; apollo::planning::SpiralCurve::end_point </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3bfe8362a236403ab711577c2cf588f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bfe8362a236403ab711577c2cf588f8">&#9670;&nbsp;</a></span>error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::SpiralCurve::error </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -256,6 +346,234 @@ static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>s_
 <dl class="section return"><dt>Returns</dt><dd>: vector of path points </dd></dl>
 
 <p>Implemented in <a class="el" href="classapollo_1_1planning_1_1QuinticSpiralCurve.html#a28de6aad74020fe410bb9d3d463be76d">apollo::planning::QuinticSpiralCurve</a>, and <a class="el" href="classapollo_1_1planning_1_1CubicSpiralCurve.html#ad1f2a87356fbd7269fdbaa149a69c219">apollo::planning::CubicSpiralCurve</a>.</p>
+
+</div>
+</div>
+<a id="af027c13311f8bf7c9c348054f6ac8cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af027c13311f8bf7c9c348054f6ac8cd8">&#9670;&nbsp;</a></span>p_params()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;double&gt;&amp; apollo::planning::SpiralCurve::p_params </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: output methods </p>
+
+</div>
+</div>
+<a id="a965121173d4b66ec586dc1ec3572d5a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a965121173d4b66ec586dc1ec3572d5a8">&#9670;&nbsp;</a></span>PrependToPParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::SpiralCurve::PrependToPParams </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a537642cd48f79afd758ff3971f56f664"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a537642cd48f79afd758ff3971f56f664">&#9670;&nbsp;</a></span>ResultSanityCheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::SpiralCurve::ResultSanityCheck </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefd5a42b11c8a573f48f0e5ad93933e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd5a42b11c8a573f48f0e5ad93933e6">&#9670;&nbsp;</a></span>set_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::SpiralCurve::set_error </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3e79000420b6254971407a0b7ad38e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3e79000420b6254971407a0b7ad38e4">&#9670;&nbsp;</a></span>set_sg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::SpiralCurve::set_sg </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>sg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38672b39887c6fc1a1735e75abae5902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38672b39887c6fc1a1735e75abae5902">&#9670;&nbsp;</a></span>SetSpiralConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::SpiralCurve::SetSpiralConfig </td>
+          <td>(</td>
+          <td class="paramtype">const SpiralCurveConfig &amp;&#160;</td>
+          <td class="paramname"><em>spiral_config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: set configuration if desired (default setting was defined in constructor) </p>
+
+</div>
+</div>
+<a id="a1a85c811e712783aa6d4efb5d9b79f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a85c811e712783aa6d4efb5d9b79f86">&#9670;&nbsp;</a></span>sg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::SpiralCurve::sg </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a830afd43513b09a8a76a716d99573d3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a830afd43513b09a8a76a716d99573d3b">&#9670;&nbsp;</a></span>spiral_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const SpiralCurveConfig&amp; apollo::planning::SpiralCurve::spiral_config </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1712a534a59576f6769c6fb59edeb03d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1712a534a59576f6769c6fb59edeb03d">&#9670;&nbsp;</a></span>start_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const common::PathPoint&amp; apollo::planning::SpiralCurve::start_point </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4de75ba28036350c29d75d5fb0be405b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4de75ba28036350c29d75d5fb0be405b">&#9670;&nbsp;</a></span>s_two_pi_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double apollo::planning::SpiralCurve::s_two_pi_ = 2 * M_PI</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

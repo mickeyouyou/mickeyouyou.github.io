@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1TrajectoryCost.html">TrajectoryCost</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1TrajectoryCost.html">TrajectoryCost</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,22 +74,151 @@ $(function() {
 <div class="title">apollo::planning::TrajectoryCost Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="trajectory__cost_8h_source.html">trajectory_cost.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::TrajectoryCost:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1TrajectoryCost__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1TrajectoryCost_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4c07eeb81fdad6a0b54c23bae52e2a84"><td class="memItemLeft" align="right" valign="top"><a id="a4c07eeb81fdad6a0b54c23bae52e2a84"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TrajectoryCost</b> (const DpPolyPathConfig &amp;config, const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;obstacles, const common::VehicleParam &amp;vehicle_param, const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;heuristic_speed_data)</td></tr>
+<tr class="memitem:a4c07eeb81fdad6a0b54c23bae52e2a84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1TrajectoryCost.html#a4c07eeb81fdad6a0b54c23bae52e2a84">TrajectoryCost</a> (const DpPolyPathConfig &amp;config, const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;obstacles, const common::VehicleParam &amp;vehicle_param, const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;heuristic_speed_data)</td></tr>
 <tr class="separator:a4c07eeb81fdad6a0b54c23bae52e2a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acffc5a2d43173547a9dcea071cd5acda"><td class="memItemLeft" align="right" valign="top"><a id="acffc5a2d43173547a9dcea071cd5acda"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>Calculate</b> (const <a class="el" href="classapollo_1_1planning_1_1QuinticPolynomialCurve1d.html">QuinticPolynomialCurve1d</a> &amp;curve, const double start_s, const double end_s) const</td></tr>
+<tr class="memitem:acffc5a2d43173547a9dcea071cd5acda"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1TrajectoryCost.html#acffc5a2d43173547a9dcea071cd5acda">Calculate</a> (const <a class="el" href="classapollo_1_1planning_1_1QuinticPolynomialCurve1d.html">QuinticPolynomialCurve1d</a> &amp;curve, const double start_s, const double end_s) const</td></tr>
 <tr class="separator:acffc5a2d43173547a9dcea071cd5acda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07056779c8b5ff12451b3edce17fb5fd"><td class="memItemLeft" align="right" valign="top"><a id="a07056779c8b5ff12451b3edce17fb5fd"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>RiskDistanceCost</b> (const double distance) const</td></tr>
+<tr class="memitem:a07056779c8b5ff12451b3edce17fb5fd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1TrajectoryCost.html#a07056779c8b5ff12451b3edce17fb5fd">RiskDistanceCost</a> (const double distance) const</td></tr>
 <tr class="separator:a07056779c8b5ff12451b3edce17fb5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd7410a7fa6f1e963823eb4eaf9eca2c"><td class="memItemLeft" align="right" valign="top"><a id="afd7410a7fa6f1e963823eb4eaf9eca2c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>RegularDistanceCost</b> (const double distance) const</td></tr>
+<tr class="memitem:afd7410a7fa6f1e963823eb4eaf9eca2c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1TrajectoryCost.html#afd7410a7fa6f1e963823eb4eaf9eca2c">RegularDistanceCost</a> (const double distance) const</td></tr>
 <tr class="separator:afd7410a7fa6f1e963823eb4eaf9eca2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4c07eeb81fdad6a0b54c23bae52e2a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c07eeb81fdad6a0b54c23bae52e2a84">&#9670;&nbsp;</a></span>TrajectoryCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::TrajectoryCost::TrajectoryCost </td>
+          <td>(</td>
+          <td class="paramtype">const DpPolyPathConfig &amp;&#160;</td>
+          <td class="paramname"><em>config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;&#160;</td>
+          <td class="paramname"><em>reference_line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;&#160;</td>
+          <td class="paramname"><em>obstacles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const common::VehicleParam &amp;&#160;</td>
+          <td class="paramname"><em>vehicle_param</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;&#160;</td>
+          <td class="paramname"><em>heuristic_speed_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="acffc5a2d43173547a9dcea071cd5acda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acffc5a2d43173547a9dcea071cd5acda">&#9670;&nbsp;</a></span>Calculate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::TrajectoryCost::Calculate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1QuinticPolynomialCurve1d.html">QuinticPolynomialCurve1d</a> &amp;&#160;</td>
+          <td class="paramname"><em>curve</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>start_s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>end_s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd7410a7fa6f1e963823eb4eaf9eca2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd7410a7fa6f1e963823eb4eaf9eca2c">&#9670;&nbsp;</a></span>RegularDistanceCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::TrajectoryCost::RegularDistanceCost </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>distance</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07056779c8b5ff12451b3edce17fb5fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07056779c8b5ff12451b3edce17fb5fd">&#9670;&nbsp;</a></span>RiskDistanceCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::TrajectoryCost::RiskDistanceCost </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>distance</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/tasks/dp_poly_path/<a class="el" href="trajectory__cost_8h_source.html">trajectory_cost.h</a></li>
 </ul>

@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="structapollo_1_1perception_1_1SegmentationOptions.html">SegmentationOptions</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="structapollo_1_1perception_1_1SegmentationOptions.html">SegmentationOptions</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,19 +74,66 @@ $(function() {
 <div class="title">apollo::perception::SegmentationOptions Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="base__segmentation_8h_source.html">base_segmentation.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::SegmentationOptions:</div>
+<div class="dyncontent">
+<div class="center"><img src="structapollo_1_1perception_1_1SegmentationOptions__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1SegmentationOptions_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:abc039dc09ad79510e282274ee9d3e832"><td class="memItemLeft" align="right" valign="top"><a id="abc039dc09ad79510e282274ee9d3e832"></a>
-pcl_util::PointCloudPtr&#160;</td><td class="memItemRight" valign="bottom"><b>origin_cloud</b></td></tr>
+<tr class="memitem:abc039dc09ad79510e282274ee9d3e832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#a574e10478c283f7d1799dc1ee2e2e6ae">pcl_util::PointCloudPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1perception_1_1SegmentationOptions.html#abc039dc09ad79510e282274ee9d3e832">origin_cloud</a></td></tr>
 <tr class="separator:abc039dc09ad79510e282274ee9d3e832"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e96168fd4125c6ff8e52ee46066b629"><td class="memItemLeft" align="right" valign="top"><a id="a5e96168fd4125c6ff8e52ee46066b629"></a>
-pcl_util::PointIndicesPtr&#160;</td><td class="memItemRight" valign="bottom"><b>roi_cloud_indices</b></td></tr>
+<tr class="memitem:a5e96168fd4125c6ff8e52ee46066b629"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#a4386f90f3a1313a17a82d1d48f54f3c7">pcl_util::PointIndicesPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1perception_1_1SegmentationOptions.html#a5e96168fd4125c6ff8e52ee46066b629">roi_cloud_indices</a></td></tr>
 <tr class="separator:a5e96168fd4125c6ff8e52ee46066b629"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e7914ec99d5096f9a9cd6d7c383f340"><td class="memItemLeft" align="right" valign="top"><a id="a5e7914ec99d5096f9a9cd6d7c383f340"></a>
-pcl_util::PointIndicesPtr&#160;</td><td class="memItemRight" valign="bottom"><b>non_ground_indices</b></td></tr>
+<tr class="memitem:a5e7914ec99d5096f9a9cd6d7c383f340"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#a4386f90f3a1313a17a82d1d48f54f3c7">pcl_util::PointIndicesPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1perception_1_1SegmentationOptions.html#a5e7914ec99d5096f9a9cd6d7c383f340">non_ground_indices</a></td></tr>
 <tr class="separator:a5e7914ec99d5096f9a9cd6d7c383f340"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5e7914ec99d5096f9a9cd6d7c383f340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e7914ec99d5096f9a9cd6d7c383f340">&#9670;&nbsp;</a></span>non_ground_indices</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#a4386f90f3a1313a17a82d1d48f54f3c7">pcl_util::PointIndicesPtr</a> apollo::perception::SegmentationOptions::non_ground_indices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc039dc09ad79510e282274ee9d3e832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc039dc09ad79510e282274ee9d3e832">&#9670;&nbsp;</a></span>origin_cloud</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#a574e10478c283f7d1799dc1ee2e2e6ae">pcl_util::PointCloudPtr</a> apollo::perception::SegmentationOptions::origin_cloud</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e96168fd4125c6ff8e52ee46066b629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e96168fd4125c6ff8e52ee46066b629">&#9670;&nbsp;</a></span>roi_cloud_indices</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#a4386f90f3a1313a17a82d1d48f54f3c7">pcl_util::PointIndicesPtr</a> apollo::perception::SegmentationOptions::roi_cloud_indices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>modules/perception/obstacle/lidar/interface/<a class="el" href="base__segmentation_8h_source.html">base_segmentation.h</a></li>
 </ul>

@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1control.html">control</a></li><li class="navelem"><a class="el" href="classapollo_1_1control_1_1HysteresisFilter.html">HysteresisFilter</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1control.html">control</a></li><li class="navelem"><a class="el" href="classapollo_1_1control_1_1HysteresisFilter.html">HysteresisFilter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,13 +74,100 @@ $(function() {
 <div class="title">apollo::control::HysteresisFilter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="hysteresis__filter_8h_source.html">hysteresis_filter.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::control::HysteresisFilter:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1control_1_1HysteresisFilter__coll__graph.png" border="0" usemap="#apollo_1_1control_1_1HysteresisFilter_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3a91660e7fbab8c6e08f6ea780714bec"><td class="memItemLeft" align="right" valign="top"><a id="a3a91660e7fbab8c6e08f6ea780714bec"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>filter</b> (const double input_value, const double threshold, const double hysteresis_upper, const double hysteresis_lower, int *state, double *output_value)</td></tr>
+<tr class="memitem:afedb9fd8e4c88cc7afaf591440df0af3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1control_1_1HysteresisFilter.html#afedb9fd8e4c88cc7afaf591440df0af3">HysteresisFilter</a> ()=default</td></tr>
+<tr class="separator:afedb9fd8e4c88cc7afaf591440df0af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a91660e7fbab8c6e08f6ea780714bec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1control_1_1HysteresisFilter.html#a3a91660e7fbab8c6e08f6ea780714bec">filter</a> (const double input_value, const double threshold, const double hysteresis_upper, const double hysteresis_lower, int *state, double *output_value)</td></tr>
 <tr class="separator:a3a91660e7fbab8c6e08f6ea780714bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afedb9fd8e4c88cc7afaf591440df0af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afedb9fd8e4c88cc7afaf591440df0af3">&#9670;&nbsp;</a></span>HysteresisFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::control::HysteresisFilter::HysteresisFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3a91660e7fbab8c6e08f6ea780714bec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a91660e7fbab8c6e08f6ea780714bec">&#9670;&nbsp;</a></span>filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::control::HysteresisFilter::filter </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>input_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>threshold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>hysteresis_upper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>hysteresis_lower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>output_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/control/common/<a class="el" href="hysteresis__filter_8h_source.html">hysteresis_filter.h</a></li>
 </ul>

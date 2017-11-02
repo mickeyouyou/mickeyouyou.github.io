@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1Status.html">Status</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1Status.html">Status</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -79,13 +80,19 @@ $(function() {
  <a href="classapollo_1_1common_1_1Status.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="common_2status_2status_8h_source.html">status.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::common::Status:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1common_1_1Status__coll__graph.png" border="0" usemap="#apollo_1_1common_1_1Status_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a56bf23a7d4a6f11fe9b972c2d6077d8b"><td class="memItemLeft" align="right" valign="top"><a id="a56bf23a7d4a6f11fe9b972c2d6077d8b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#a56bf23a7d4a6f11fe9b972c2d6077d8b">Status</a> ()</td></tr>
-<tr class="memdesc:a56bf23a7d4a6f11fe9b972c2d6077d8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a success status. <br /></td></tr>
+<tr class="memitem:a56bf23a7d4a6f11fe9b972c2d6077d8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#a56bf23a7d4a6f11fe9b972c2d6077d8b">Status</a> ()</td></tr>
+<tr class="memdesc:a56bf23a7d4a6f11fe9b972c2d6077d8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a success status.  <a href="#a56bf23a7d4a6f11fe9b972c2d6077d8b">More...</a><br /></td></tr>
 <tr class="separator:a56bf23a7d4a6f11fe9b972c2d6077d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40fd73f9c5e8e1f94d3d41dfc049d93b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#a40fd73f9c5e8e1f94d3d41dfc049d93b">~Status</a> ()=default</td></tr>
+<tr class="separator:a40fd73f9c5e8e1f94d3d41dfc049d93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7dc488ffc6ca06c7c9391ca64a47781"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#ad7dc488ffc6ca06c7c9391ca64a47781">Status</a> (ErrorCode <a class="el" href="classapollo_1_1common_1_1Status.html#a5e636caf7047f96f77ceee48e18746c1">code</a>, const std::string &amp;msg)</td></tr>
 <tr class="memdesc:ad7dc488ffc6ca06c7c9391ca64a47781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a status with the specified error code and msg as a human-readable string containing more detailed information.  <a href="#ad7dc488ffc6ca06c7c9391ca64a47781">More...</a><br /></td></tr>
 <tr class="separator:ad7dc488ffc6ca06c7c9391ca64a47781"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,13 +105,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5e636caf7047f96f77ceee48e18746c1"><td class="memItemLeft" align="right" valign="top">ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#a5e636caf7047f96f77ceee48e18746c1">code</a> () const</td></tr>
 <tr class="memdesc:a5e636caf7047f96f77ceee48e18746c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the error code  <a href="#a5e636caf7047f96f77ceee48e18746c1">More...</a><br /></td></tr>
 <tr class="separator:a5e636caf7047f96f77ceee48e18746c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad85d72c8f7ee1126fd82f403e82e978f"><td class="memItemLeft" align="right" valign="top"><a id="ad85d72c8f7ee1126fd82f403e82e978f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#ad85d72c8f7ee1126fd82f403e82e978f">operator==</a> (const <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> &amp;rh) const</td></tr>
-<tr class="memdesc:ad85d72c8f7ee1126fd82f403e82e978f"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines the logic of testing if two <a class="el" href="classapollo_1_1common_1_1Status.html" title="A general class to denote the return status of an API call. It can either be an OK status for success...">Status</a> are equal <br /></td></tr>
+<tr class="memitem:ad85d72c8f7ee1126fd82f403e82e978f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#ad85d72c8f7ee1126fd82f403e82e978f">operator==</a> (const <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> &amp;rh) const</td></tr>
+<tr class="memdesc:ad85d72c8f7ee1126fd82f403e82e978f"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines the logic of testing if two <a class="el" href="classapollo_1_1common_1_1Status.html" title="A general class to denote the return status of an API call. It can either be an OK status for success...">Status</a> are equal  <a href="#ad85d72c8f7ee1126fd82f403e82e978f">More...</a><br /></td></tr>
 <tr class="separator:ad85d72c8f7ee1126fd82f403e82e978f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9f32759e1520ca2fc6e1c2f7632983d"><td class="memItemLeft" align="right" valign="top"><a id="ad9f32759e1520ca2fc6e1c2f7632983d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#ad9f32759e1520ca2fc6e1c2f7632983d">operator!=</a> (const <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> &amp;rh) const</td></tr>
-<tr class="memdesc:ad9f32759e1520ca2fc6e1c2f7632983d"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines the logic of testing if two <a class="el" href="classapollo_1_1common_1_1Status.html" title="A general class to denote the return status of an API call. It can either be an OK status for success...">Status</a> are unequal <br /></td></tr>
+<tr class="memitem:ad9f32759e1520ca2fc6e1c2f7632983d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#ad9f32759e1520ca2fc6e1c2f7632983d">operator!=</a> (const <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> &amp;rh) const</td></tr>
+<tr class="memdesc:ad9f32759e1520ca2fc6e1c2f7632983d"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines the logic of testing if two <a class="el" href="classapollo_1_1common_1_1Status.html" title="A general class to denote the return status of an API call. It can either be an OK status for success...">Status</a> are unequal  <a href="#ad9f32759e1520ca2fc6e1c2f7632983d">More...</a><br /></td></tr>
 <tr class="separator:ad9f32759e1520ca2fc6e1c2f7632983d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f47530f76abb903b9d797792ad63c15"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1Status.html#a4f47530f76abb903b9d797792ad63c15">error_message</a> () const</td></tr>
 <tr class="memdesc:a4f47530f76abb903b9d797792ad63c15"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the error message of the status, empty if the status is OK.  <a href="#a4f47530f76abb903b9d797792ad63c15">More...</a><br /></td></tr>
@@ -125,8 +130,60 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A general class to denote the return status of an API call. It can either be an OK status for success, or a failure status with error message and error code enum. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a56bf23a7d4a6f11fe9b972c2d6077d8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56bf23a7d4a6f11fe9b972c2d6077d8b">&#9670;&nbsp;</a></span>Status() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::common::Status::Status </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a success status. </p>
+
+</div>
+</div>
+<a id="a40fd73f9c5e8e1f94d3d41dfc049d93b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40fd73f9c5e8e1f94d3d41dfc049d93b">&#9670;&nbsp;</a></span>~Status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::common::Status::~Status </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad7dc488ffc6ca06c7c9391ca64a47781"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7dc488ffc6ca06c7c9391ca64a47781">&#9670;&nbsp;</a></span>Status() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7dc488ffc6ca06c7c9391ca64a47781">&#9670;&nbsp;</a></span>Status() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +228,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="adf553e006962246beaf07beefacee1fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf553e006962246beaf07beefacee1fe">&#9670;&nbsp;</a></span>Status() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adf553e006962246beaf07beefacee1fe">&#9670;&nbsp;</a></span>Status() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,6 +371,62 @@ Static Public Member Functions</h2></td></tr>
 
 <p>check whether the return status is OK. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if the code is ErrorCode::OK false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ad9f32759e1520ca2fc6e1c2f7632983d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9f32759e1520ca2fc6e1c2f7632983d">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::common::Status::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> &amp;&#160;</td>
+          <td class="paramname"><em>rh</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>defines the logic of testing if two <a class="el" href="classapollo_1_1common_1_1Status.html" title="A general class to denote the return status of an API call. It can either be an OK status for success...">Status</a> are unequal </p>
+
+</div>
+</div>
+<a id="ad85d72c8f7ee1126fd82f403e82e978f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad85d72c8f7ee1126fd82f403e82e978f">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::common::Status::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> &amp;&#160;</td>
+          <td class="paramname"><em>rh</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>defines the logic of testing if two <a class="el" href="classapollo_1_1common_1_1Status.html" title="A general class to denote the return status of an API call. It can either be an OK status for success...">Status</a> are equal </p>
 
 </div>
 </div>

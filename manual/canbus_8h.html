@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -82,14 +83,37 @@ $(function() {
 <code>#include &quot;<a class="el" href="vehicle__controller_8h_source.html">modules/canbus/vehicle/vehicle_controller.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="apollo__app_8h_source.html">modules/common/apollo_app.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="macro_8h_source.html">modules/common/macro.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="monitor_8h_source.html">modules/common/monitor/monitor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_2monitor_2monitor_8h_source.html">modules/common/monitor/monitor.h</a>&quot;</code><br />
 <code>#include &quot;modules/control/proto/control_cmd.pb.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="can__client_8h_source.html">modules/drivers/canbus/can_client/can_client.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="can__receiver_8h_source.html">modules/drivers/canbus/can_comm/can_receiver.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="can__sender_8h_source.html">modules/drivers/canbus/can_comm/can_sender.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="message__manager_8h_source.html">modules/drivers/canbus/can_comm/message_manager.h</a>&quot;</code><br />
 <code>#include &quot;modules/drivers/canbus/proto/can_card_parameter.pb.h&quot;</code><br />
-<code>#include &quot;modules/hmi/utils/hmi_status_helper.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="hmi__status__helper_8h_source.html">modules/hmi/utils/hmi_status_helper.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for canbus.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="canbus_8h__incl.png" border="0" usemap="#modules_2canbus_2canbus_8h" alt=""/></div>
+<map name="modules_2canbus_2canbus_8h" id="modules_2canbus_2canbus_8h">
+<area shape="rect" id="node8" href="vehicle__controller_8h.html" title="The class of VehicleController. " alt="" coords="720,79,884,117"/>
+<area shape="rect" id="node14" href="can__sender_8h.html" title="Defines SenderMessage class and CanSender class. " alt="" coords="1041,165,1215,204"/>
+<area shape="rect" id="node23" href="macro_8h.html" title="modules/common/macro.h" alt="" coords="39,345,218,371"/>
+<area shape="rect" id="node28" href="can__client_8h.html" title="Defines the CanFrame struct and CanClient interface. " alt="" coords="2039,252,2201,291"/>
+<area shape="rect" id="node37" href="message__manager_8h.html" title="The class of MessageManager. " alt="" coords="1438,165,1656,204"/>
+<area shape="rect" id="node40" href="apollo__app_8h.html" title="modules/common/apollo\l_app.h" alt="" coords="2352,165,2518,204"/>
+<area shape="rect" id="node45" href="hmi__status__helper_8h.html" title="the class of HMIStatusHelper " alt="" coords="2988,252,3138,291"/>
+<area shape="rect" id="node47" href="common_2monitor_2monitor_8h.html" title="modules/common/monitor\l/monitor.h" alt="" coords="3340,165,3514,204"/>
+<area shape="rect" id="node50" href="can__receiver_8h.html" title="Defines CanReceiver class. " alt="" coords="1687,79,1868,117"/>
+<area shape="rect" id="node34" href="protocol__data_8h.html" title="The class of ProtocolData. " alt="" coords="658,252,844,291"/>
+<area shape="rect" id="node20" href="log_8h.html" title="modules/common/log.h" alt="" coords="1183,345,1343,371"/>
+<area shape="rect" id="node25" href="time_8h.html" title="This library provides the utilities to deal with timestamps. currently our assumption is that every t..." alt="" coords="428,252,583,291"/>
+<area shape="rect" id="node32" href="byte_8h.html" title="Defines the Byte class. " alt="" coords="1703,339,1865,377"/>
+<area shape="rect" id="node36" href="canbus__consts_8h.html" title="modules/drivers/canbus\l/common/canbus_consts.h" alt="" coords="661,339,841,377"/>
+<area shape="rect" id="node43" href="common_2status_2status_8h.html" title="modules/common/status\l/status.h" alt="" coords="2377,252,2543,291"/>
+<area shape="rect" id="node48" href="monitor__buffer_8h.html" title="The class of MonitorBuffer. " alt="" coords="3365,252,3540,291"/>
+</map>
+</div>
 </div>
 <p><a href="canbus_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -103,6 +127,8 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceapollo_1_1canbus"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1canbus.html">apollo::canbus</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1canbus"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1canbus.html" title="apollo::canbus ">apollo::canbus</a> <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

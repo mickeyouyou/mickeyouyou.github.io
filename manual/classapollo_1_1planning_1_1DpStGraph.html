@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1DpStGraph.html">DpStGraph</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1DpStGraph.html">DpStGraph</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,16 +74,97 @@ $(function() {
 <div class="title">apollo::planning::DpStGraph Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="dp__st__graph_8h_source.html">dp_st_graph.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::DpStGraph:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1DpStGraph__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1DpStGraph_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a22fa55b8f0c5dd0dfcfd3046706760ef"><td class="memItemLeft" align="right" valign="top"><a id="a22fa55b8f0c5dd0dfcfd3046706760ef"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DpStGraph</b> (const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const <a class="el" href="classapollo_1_1planning_1_1StGraphData.html">StGraphData</a> &amp;st_graph_data, const DpStSpeedConfig &amp;dp_config, const <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> &amp;path_data, const SLBoundary &amp;adc_sl_boundary)</td></tr>
+<tr class="memitem:a22fa55b8f0c5dd0dfcfd3046706760ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStGraph.html#a22fa55b8f0c5dd0dfcfd3046706760ef">DpStGraph</a> (const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const <a class="el" href="classapollo_1_1planning_1_1StGraphData.html">StGraphData</a> &amp;st_graph_data, const DpStSpeedConfig &amp;dp_config, const <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> &amp;path_data, const SLBoundary &amp;adc_sl_boundary)</td></tr>
 <tr class="separator:a22fa55b8f0c5dd0dfcfd3046706760ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8195711dd849d08fad322d990295a825"><td class="memItemLeft" align="right" valign="top"><a id="a8195711dd849d08fad322d990295a825"></a>
-<a class="el" href="classapollo_1_1common_1_1Status.html">apollo::common::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Search</b> (<a class="el" href="classapollo_1_1planning_1_1PathDecision.html">PathDecision</a> *const path_decision, <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> *const speed_data)</td></tr>
+<tr class="memitem:a8195711dd849d08fad322d990295a825"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1common_1_1Status.html">apollo::common::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStGraph.html#a8195711dd849d08fad322d990295a825">Search</a> (<a class="el" href="classapollo_1_1planning_1_1PathDecision.html">PathDecision</a> *const path_decision, <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> *const speed_data)</td></tr>
 <tr class="separator:a8195711dd849d08fad322d990295a825"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a22fa55b8f0c5dd0dfcfd3046706760ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22fa55b8f0c5dd0dfcfd3046706760ef">&#9670;&nbsp;</a></span>DpStGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::DpStGraph::DpStGraph </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;&#160;</td>
+          <td class="paramname"><em>reference_line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1StGraphData.html">StGraphData</a> &amp;&#160;</td>
+          <td class="paramname"><em>st_graph_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DpStSpeedConfig &amp;&#160;</td>
+          <td class="paramname"><em>dp_config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> &amp;&#160;</td>
+          <td class="paramname"><em>path_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const SLBoundary &amp;&#160;</td>
+          <td class="paramname"><em>adc_sl_boundary</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8195711dd849d08fad322d990295a825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8195711dd849d08fad322d990295a825">&#9670;&nbsp;</a></span>Search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1common_1_1Status.html">apollo::common::Status</a> apollo::planning::DpStGraph::Search </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1planning_1_1PathDecision.html">PathDecision</a> *const&#160;</td>
+          <td class="paramname"><em>path_decision</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> *const&#160;</td>
+          <td class="paramname"><em>speed_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/tasks/dp_st_speed/<a class="el" href="dp__st__graph_8h_source.html">dp_st_graph.h</a></li>
 </ul>

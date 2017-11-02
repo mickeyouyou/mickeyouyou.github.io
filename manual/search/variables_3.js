@@ -1,5 +1,31 @@
 var searchData=
 [
-  ['id',['id',['../structapollo_1_1drivers_1_1canbus_1_1CanFrame.html#a81f88bb85d6fe394c6546928094416b5',1,'apollo::drivers::canbus::CanFrame']]],
-  ['is_5fstarted_5f',['is_started_',['../classapollo_1_1drivers_1_1canbus_1_1CanClient.html#afd5b7822dc1d3759554d3ddbbe53330e',1,'apollo::drivers::canbus::CanClient']]]
+  ['calibration_5f',['calibration_',['../classapollo_1_1drivers_1_1velodyne_1_1VelodyneParser.html#aab86532cded97ebf59da501ec56769a0',1,'apollo::drivers::velodyne::VelodyneParser']]],
+  ['calibration_5ffile',['calibration_file',['../structapollo_1_1drivers_1_1velodyne_1_1Config.html#a58402bb41448f8e59ed428f0e89fe186',1,'apollo::drivers::velodyne::Config']]],
+  ['calibration_5fonline',['calibration_online',['../structapollo_1_1drivers_1_1velodyne_1_1Config.html#a215129cb223d01011d09b23d3d48b55d',1,'apollo::drivers::velodyne::Config']]],
+  ['callback_5fthread_5fnum_5f',['callback_thread_num_',['../classapollo_1_1common_1_1ApolloApp.html#ada8f79e96319ae35753d83071fcd7ba2',1,'apollo::common::ApolloApp']]],
+  ['can_5fframe_5fsize',['CAN_FRAME_SIZE',['../namespaceapollo_1_1drivers_1_1canbus.html#ad80edcc500c1581cee4d0fddb76477a7',1,'apollo::drivers::canbus']]],
+  ['can_5fsender_5f',['can_sender_',['../classapollo_1_1canbus_1_1VehicleController.html#adc96ecf041c8d1f15fcb9b81aa44317d',1,'apollo::canbus::VehicleController']]],
+  ['canbus_5fmessage_5flength',['CANBUS_MESSAGE_LENGTH',['../namespaceapollo_1_1drivers_1_1canbus.html#a8345f4fd8d7f7814fae30f339d4c4674',1,'apollo::drivers::canbus']]],
+  ['capacity_5f',['capacity_',['../classapollo_1_1planning_1_1IndexedQueue.html#af81bd2cdf1d53244e97623370e68dd5b',1,'apollo::planning::IndexedQueue']]],
+  ['cell_5fsize_5f',['cell_size_',['../classapollo_1_1perception_1_1HdmapROIFilter.html#ad9909320429a7b58bfc792aa79a1e234',1,'apollo::perception::HdmapROIFilter']]],
+  ['center',['center',['../structapollo_1_1perception_1_1Object.html#acc96c4d54399cfada5c181a0e0ebc6d1',1,'apollo::perception::Object::center()'],['../structapollo_1_1perception_1_1TrackedObject.html#a4e4ff0512252051078b027d47deaa097',1,'apollo::perception::TrackedObject::center()']]],
+  ['cf_5f',['cf_',['../classapollo_1_1control_1_1LatController.html#ad0150e5c241338f2b3f4af7b07db240c',1,'apollo::control::LatController']]],
+  ['clear_5farea_5foverlaps_5f',['clear_area_overlaps_',['../classapollo_1_1hdmap_1_1Path.html#a8ce9ffc67d1d765b51a608b1cff34dd3',1,'apollo::hdmap::Path']]],
+  ['clear_5fareas',['clear_areas',['../structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html#a747320ca6873f248cd8494f37511b7b9',1,'apollo::hdmap::adapter::RoadInternal']]],
+  ['cloud',['cloud',['../structapollo_1_1perception_1_1Object.html#aa88b80759c996e6f11088f9fdb196212',1,'apollo::perception::Object::cloud()'],['../structapollo_1_1perception_1_1cnnseg_1_1Obstacle.html#acc924eb4b36456c9258117eb6d729091',1,'apollo::perception::cnnseg::Obstacle::cloud()']]],
+  ['coef_5f',['coef_',['../classapollo_1_1planning_1_1QuinticPolynomialCurve1d.html#aa69ef0d6d199104c682e53ca8838f68c',1,'apollo::planning::QuinticPolynomialCurve1d']]],
+  ['config_5f',['config_',['../classapollo_1_1drivers_1_1velodyne_1_1VelodyneDriver.html#acee6a4effea31ab657ccf16bd325db20',1,'apollo::drivers::velodyne::VelodyneDriver::config_()'],['../classapollo_1_1drivers_1_1velodyne_1_1VelodyneParser.html#af8f07a973b2480a643020db18066e094',1,'apollo::drivers::velodyne::VelodyneParser::config_()'],['../classapollo_1_1planning_1_1TrafficRule.html#a47ac36c946d3aa54b9ebc6861c503bb7',1,'apollo::planning::TrafficRule::config_()']]],
+  ['consecutive_5finvisible_5fcount_5f',['consecutive_invisible_count_',['../classapollo_1_1perception_1_1ObjectTrack.html#a4afa473636215dcb86e9fb8650b369f6',1,'apollo::perception::ObjectTrack']]],
+  ['cos_5frot_5fcorrection',['cos_rot_correction',['../structapollo_1_1drivers_1_1velodyne_1_1LaserCorrection.html#a18838e34956db8f5975293a050e896b4',1,'apollo::drivers::velodyne::LaserCorrection']]],
+  ['cos_5frot_5ftable_5f',['cos_rot_table_',['../classapollo_1_1drivers_1_1velodyne_1_1VelodyneParser.html#a495e8612efbbadf7fcb47bc0dd9bd991',1,'apollo::drivers::velodyne::VelodyneParser']]],
+  ['cos_5fvert_5fcorrection',['cos_vert_correction',['../structapollo_1_1drivers_1_1velodyne_1_1LaserCorrection.html#a1db1eec1473264bc15cff42b65a2cbca',1,'apollo::drivers::velodyne::LaserCorrection']]],
+  ['cr_5f',['cr_',['../classapollo_1_1control_1_1LatController.html#a722d10e23a5439a19615cde4f6333190',1,'apollo::control::LatController']]],
+  ['crc_5flength',['CRC_LENGTH',['../namespaceapollo_1_1drivers_1_1gnss_1_1novatel.html#a4615958646599e440bc55f45d631ad08',1,'apollo::drivers::gnss::novatel']]],
+  ['crosswalk',['crosswalk',['../structapollo_1_1dreamview_1_1MapElementIds.html#a14d4d3be1c0ed3e852cc64573bec2ce3',1,'apollo::dreamview::MapElementIds']]],
+  ['crosswalk_5foverlaps_5f',['crosswalk_overlaps_',['../classapollo_1_1hdmap_1_1Path.html#a4f63eaea53bea74cfb9d0eb5032da28b',1,'apollo::hdmap::Path']]],
+  ['crosswalks',['crosswalks',['../structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html#acd65ae413f23f1f325552dfe9876c5a2',1,'apollo::hdmap::adapter::RoadInternal']]],
+  ['ctrl_5fstate',['ctrl_state',['../classapollo_1_1monitor_1_1hw_1_1EsdCanDetails.html#a3d2b4feb36479b904dd25e4fdc53a4c5',1,'apollo::monitor::hw::EsdCanDetails']]],
+  ['current_5fobject_5f',['current_object_',['../classapollo_1_1perception_1_1ObjectTrack.html#adac9cbcd89237be9647ccd4e34a7544c',1,'apollo::perception::ObjectTrack']]],
+  ['curve',['curve',['../structapollo_1_1hdmap_1_1adapter_1_1StopLineInternal.html#a74573b9dcce5e1b3a66a3b27a9a084bc',1,'apollo::hdmap::adapter::StopLineInternal']]]
 ];

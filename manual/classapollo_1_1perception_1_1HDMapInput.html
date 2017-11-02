@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1HDMapInput.html">HDMapInput</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1HDMapInput.html">HDMapInput</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,19 +74,97 @@ $(function() {
 <div class="title">apollo::perception::HDMapInput Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="hdmap__input_8h_source.html">hdmap_input.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::HDMapInput:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1HDMapInput__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1HDMapInput_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aff7e9c213d85f2703021091d7d2be6ee"><td class="memItemLeft" align="right" valign="top"><a id="aff7e9c213d85f2703021091d7d2be6ee"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
+<tr class="memitem:aff7e9c213d85f2703021091d7d2be6ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HDMapInput.html#aff7e9c213d85f2703021091d7d2be6ee">Init</a> ()</td></tr>
 <tr class="separator:aff7e9c213d85f2703021091d7d2be6ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3552bd54b1b5c5989596034be6399a5c"><td class="memItemLeft" align="right" valign="top"><a id="a3552bd54b1b5c5989596034be6399a5c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetROI</b> (const <a class="el" href="structapollo_1_1perception_1_1pcl__util_1_1PointD.html">pcl_util::PointD</a> &amp;pointd, HdmapStructPtr *mapptr)</td></tr>
+<tr class="memitem:a3552bd54b1b5c5989596034be6399a5c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HDMapInput.html#a3552bd54b1b5c5989596034be6399a5c">GetROI</a> (const <a class="el" href="structapollo_1_1perception_1_1pcl__util_1_1PointD.html">pcl_util::PointD</a> &amp;pointd, <a class="el" href="namespaceapollo_1_1perception.html#a3743b45af9cf55be395af57632aa922a">HdmapStructPtr</a> *mapptr)</td></tr>
 <tr class="separator:a3552bd54b1b5c5989596034be6399a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a3f604711ae0f213c2dfa282feb5084"><td class="memItemLeft" align="right" valign="top"><a id="a7a3f604711ae0f213c2dfa282feb5084"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetNearestLaneDirection</b> (const <a class="el" href="structapollo_1_1perception_1_1pcl__util_1_1PointD.html">pcl_util::PointD</a> &amp;pointd, Eigen::Vector3d *lane_direction)</td></tr>
+<tr class="memitem:a7a3f604711ae0f213c2dfa282feb5084"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HDMapInput.html#a7a3f604711ae0f213c2dfa282feb5084">GetNearestLaneDirection</a> (const <a class="el" href="structapollo_1_1perception_1_1pcl__util_1_1PointD.html">pcl_util::PointD</a> &amp;pointd, Eigen::Vector3d *lane_direction)</td></tr>
 <tr class="separator:a7a3f604711ae0f213c2dfa282feb5084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7a3f604711ae0f213c2dfa282feb5084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a3f604711ae0f213c2dfa282feb5084">&#9670;&nbsp;</a></span>GetNearestLaneDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HDMapInput::GetNearestLaneDirection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1perception_1_1pcl__util_1_1PointD.html">pcl_util::PointD</a> &amp;&#160;</td>
+          <td class="paramname"><em>pointd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Vector3d *&#160;</td>
+          <td class="paramname"><em>lane_direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3552bd54b1b5c5989596034be6399a5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3552bd54b1b5c5989596034be6399a5c">&#9670;&nbsp;</a></span>GetROI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HDMapInput::GetROI </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1perception_1_1pcl__util_1_1PointD.html">pcl_util::PointD</a> &amp;&#160;</td>
+          <td class="paramname"><em>pointd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceapollo_1_1perception.html#a3743b45af9cf55be395af57632aa922a">HdmapStructPtr</a> *&#160;</td>
+          <td class="paramname"><em>mapptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff7e9c213d85f2703021091d7d2be6ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff7e9c213d85f2703021091d7d2be6ee">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HDMapInput::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/obstacle/onboard/<a class="el" href="hdmap__input_8h_source.html">hdmap_input.h</a></li>
 </ul>

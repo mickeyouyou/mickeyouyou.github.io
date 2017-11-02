@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -75,111 +76,98 @@ $(function() {
 <div class="title">apollo::planning::StBoundary Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="st__boundary_8h_source.html">st_boundary.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::planning::StBoundary:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1planning_1_1StBoundary.png" usemap="#apollo::planning::StBoundary_map" alt=""/>
-  <map id="apollo::planning::StBoundary_map" name="apollo::planning::StBoundary_map">
-<area href="classapollo_1_1common_1_1math_1_1Polygon2d.html" title="The class of polygon in 2-D. " alt="apollo::common::math::Polygon2d" shape="rect" coords="0,0,196,24"/>
+<div class="center"><img src="classapollo_1_1planning_1_1StBoundary__inherit__graph.png" border="0" usemap="#apollo_1_1planning_1_1StBoundary_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1planning_1_1StBoundary_inherit__map" id="apollo_1_1planning_1_1StBoundary_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1common_1_1math_1_1Polygon2d.html" title="The class of polygon in 2&#45;D. " alt="" coords="19,5,184,399"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::StBoundary:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1StBoundary__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1StBoundary_coll__map" alt="Collaboration graph"/></div>
+<map name="apollo_1_1planning_1_1StBoundary_coll__map" id="apollo_1_1planning_1_1StBoundary_coll__map">
+<area shape="rect" id="node2" href="classapollo_1_1common_1_1math_1_1Polygon2d.html" title="The class of polygon in 2&#45;D. " alt="" coords="19,5,184,399"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab624b6931b231b83a6927587c492e9c5"><td class="memItemLeft" align="right" valign="top"><a id="ab624b6931b231b83a6927587c492e9c5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>BoundaryType</b> { <br />
-&#160;&#160;<b>UNKNOWN</b>, 
-<b>STOP</b>, 
-<b>FOLLOW</b>, 
-<b>YIELD</b>, 
+<tr class="memitem:ab624b6931b231b83a6927587c492e9c5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5">BoundaryType</a> { <br />
+&#160;&#160;<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5a696b031073e74bf2cb98e5ef201d4aa3">BoundaryType::UNKNOWN</a>, 
+<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5a615a46af313786fc4e349f34118be111">BoundaryType::STOP</a>, 
+<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5a578d83c6d15737d0c46bd80f0a19263f">BoundaryType::FOLLOW</a>, 
+<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5a18e25ac6cc28c2b91bce1fbe629b682a">BoundaryType::YIELD</a>, 
 <br />
-&#160;&#160;<b>OVERTAKE</b>, 
-<b>KEEP_CLEAR</b>
+&#160;&#160;<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5a96e31478fbef1b7de193a2a275db7e86">BoundaryType::OVERTAKE</a>, 
+<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5a59d22a2d96cde5b45c8dcad11ac064d3">BoundaryType::KEEP_CLEAR</a>
 <br />
  }</td></tr>
 <tr class="separator:ab624b6931b231b83a6927587c492e9c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aff5007daba118509496c07963ab362c3"><td class="memItemLeft" align="right" valign="top"><a id="aff5007daba118509496c07963ab362c3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>StBoundary</b> (const std::vector&lt; std::pair&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a>, <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt;&gt; &amp;point_pairs)</td></tr>
+<tr class="memitem:a132773ce96bd0279f9a74166adc1ab4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a132773ce96bd0279f9a74166adc1ab4e">StBoundary</a> ()=default</td></tr>
+<tr class="separator:a132773ce96bd0279f9a74166adc1ab4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff5007daba118509496c07963ab362c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#aff5007daba118509496c07963ab362c3">StBoundary</a> (const std::vector&lt; std::pair&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a>, <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt;&gt; &amp;point_pairs)</td></tr>
 <tr class="separator:aff5007daba118509496c07963ab362c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ff83134d0807bfad7703533bc0afca0"><td class="memItemLeft" align="right" valign="top"><a id="a9ff83134d0807bfad7703533bc0afca0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>StBoundary</b> (const <a class="el" href="classapollo_1_1common_1_1math_1_1Box2d.html">common::math::Box2d</a> &amp;box)=delete</td></tr>
+<tr class="memitem:a9ff83134d0807bfad7703533bc0afca0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a9ff83134d0807bfad7703533bc0afca0">StBoundary</a> (const <a class="el" href="classapollo_1_1common_1_1math_1_1Box2d.html">common::math::Box2d</a> &amp;box)=delete</td></tr>
 <tr class="separator:a9ff83134d0807bfad7703533bc0afca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae48f9673be1cf2adc84b75f5e2287c2a"><td class="memItemLeft" align="right" valign="top"><a id="ae48f9673be1cf2adc84b75f5e2287c2a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>StBoundary</b> (std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">common::math::Vec2d</a> &gt; <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a7b34b3db0ab1b6ff6e008f1b815d96e6">points</a>)=delete</td></tr>
+<tr class="memitem:ae48f9673be1cf2adc84b75f5e2287c2a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ae48f9673be1cf2adc84b75f5e2287c2a">StBoundary</a> (std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">common::math::Vec2d</a> &gt; <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a7b34b3db0ab1b6ff6e008f1b815d96e6">points</a>)=delete</td></tr>
 <tr class="separator:ae48f9673be1cf2adc84b75f5e2287c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d0bede7fd5ea45c224e39533c83c9e5"><td class="memItemLeft" align="right" valign="top"><a id="a2d0bede7fd5ea45c224e39533c83c9e5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsEmpty</b> () const</td></tr>
+<tr class="memitem:afc674e6e6f77b9bd348e5facd48c1a81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#afc674e6e6f77b9bd348e5facd48c1a81">~StBoundary</a> ()=default</td></tr>
+<tr class="separator:afc674e6e6f77b9bd348e5facd48c1a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d0bede7fd5ea45c224e39533c83c9e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a2d0bede7fd5ea45c224e39533c83c9e5">IsEmpty</a> () const</td></tr>
 <tr class="separator:a2d0bede7fd5ea45c224e39533c83c9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd35eae3ef526c0899dac8216d580690"><td class="memItemLeft" align="right" valign="top"><a id="abd35eae3ef526c0899dac8216d580690"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsPointInBoundary</b> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;st_point) const</td></tr>
+<tr class="memitem:abd35eae3ef526c0899dac8216d580690"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#abd35eae3ef526c0899dac8216d580690">IsPointInBoundary</a> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;st_point) const</td></tr>
 <tr class="separator:abd35eae3ef526c0899dac8216d580690"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6177fa8f37afba06bfb20ceb38bbf5f"><td class="memItemLeft" align="right" valign="top"><a id="ab6177fa8f37afba06bfb20ceb38bbf5f"></a>
-<a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>BottomLeftPoint</b> () const</td></tr>
+<tr class="memitem:ab6177fa8f37afba06bfb20ceb38bbf5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab6177fa8f37afba06bfb20ceb38bbf5f">BottomLeftPoint</a> () const</td></tr>
 <tr class="separator:ab6177fa8f37afba06bfb20ceb38bbf5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a2bf5245596603a47e09fb64863d16d"><td class="memItemLeft" align="right" valign="top"><a id="a4a2bf5245596603a47e09fb64863d16d"></a>
-<a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>BottomRightPoint</b> () const</td></tr>
+<tr class="memitem:a4a2bf5245596603a47e09fb64863d16d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a4a2bf5245596603a47e09fb64863d16d">BottomRightPoint</a> () const</td></tr>
 <tr class="separator:a4a2bf5245596603a47e09fb64863d16d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ab1ceee7a34e76d704a97601c1bc47a"><td class="memItemLeft" align="right" valign="top"><a id="a1ab1ceee7a34e76d704a97601c1bc47a"></a>
-<a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ExpandByS</b> (const double s) const</td></tr>
+<tr class="memitem:a1ab1ceee7a34e76d704a97601c1bc47a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a1ab1ceee7a34e76d704a97601c1bc47a">ExpandByS</a> (const double s) const</td></tr>
 <tr class="separator:a1ab1ceee7a34e76d704a97601c1bc47a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a938c1b38cfee0d51ddc2721257c90bcf"><td class="memItemLeft" align="right" valign="top"><a id="a938c1b38cfee0d51ddc2721257c90bcf"></a>
-<a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ExpandByT</b> (const double t) const</td></tr>
+<tr class="memitem:a938c1b38cfee0d51ddc2721257c90bcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a938c1b38cfee0d51ddc2721257c90bcf">ExpandByT</a> (const double t) const</td></tr>
 <tr class="separator:a938c1b38cfee0d51ddc2721257c90bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b20abe94f84bab8e45a667c80c584b2"><td class="memItemLeft" align="right" valign="top"><a id="a1b20abe94f84bab8e45a667c80c584b2"></a>
-BoundaryType&#160;</td><td class="memItemRight" valign="bottom"><b>boundary_type</b> () const</td></tr>
+<tr class="memitem:a1b20abe94f84bab8e45a667c80c584b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5">BoundaryType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a1b20abe94f84bab8e45a667c80c584b2">boundary_type</a> () const</td></tr>
 <tr class="separator:a1b20abe94f84bab8e45a667c80c584b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0403e57373e87510e0abaf1392e6b2c"><td class="memItemLeft" align="right" valign="top"><a id="ac0403e57373e87510e0abaf1392e6b2c"></a>
-const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>id</b> () const</td></tr>
+<tr class="memitem:ac0403e57373e87510e0abaf1392e6b2c"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ac0403e57373e87510e0abaf1392e6b2c">id</a> () const</td></tr>
 <tr class="separator:ac0403e57373e87510e0abaf1392e6b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59d0001dc2f682111491b5f19f9fc891"><td class="memItemLeft" align="right" valign="top"><a id="a59d0001dc2f682111491b5f19f9fc891"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>characteristic_length</b> () const</td></tr>
+<tr class="memitem:a59d0001dc2f682111491b5f19f9fc891"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a59d0001dc2f682111491b5f19f9fc891">characteristic_length</a> () const</td></tr>
 <tr class="separator:a59d0001dc2f682111491b5f19f9fc891"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2e222876e3285166ac80fcb6de0a026"><td class="memItemLeft" align="right" valign="top"><a id="ae2e222876e3285166ac80fcb6de0a026"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetId</b> (const std::string &amp;id)</td></tr>
+<tr class="memitem:ae2e222876e3285166ac80fcb6de0a026"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ae2e222876e3285166ac80fcb6de0a026">SetId</a> (const std::string &amp;<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ac0403e57373e87510e0abaf1392e6b2c">id</a>)</td></tr>
 <tr class="separator:ae2e222876e3285166ac80fcb6de0a026"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34c88612ab6ef42eef892cfdbbc1b555"><td class="memItemLeft" align="right" valign="top"><a id="a34c88612ab6ef42eef892cfdbbc1b555"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetBoundaryType</b> (const BoundaryType &amp;boundary_type)</td></tr>
+<tr class="memitem:a34c88612ab6ef42eef892cfdbbc1b555"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a34c88612ab6ef42eef892cfdbbc1b555">SetBoundaryType</a> (const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5">BoundaryType</a> &amp;<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a1b20abe94f84bab8e45a667c80c584b2">boundary_type</a>)</td></tr>
 <tr class="separator:a34c88612ab6ef42eef892cfdbbc1b555"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90dafe8cdf9058d06d3d28615679f184"><td class="memItemLeft" align="right" valign="top"><a id="a90dafe8cdf9058d06d3d28615679f184"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetCharacteristicLength</b> (const double characteristic_length)</td></tr>
+<tr class="memitem:a90dafe8cdf9058d06d3d28615679f184"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a90dafe8cdf9058d06d3d28615679f184">SetCharacteristicLength</a> (const double <a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a59d0001dc2f682111491b5f19f9fc891">characteristic_length</a>)</td></tr>
 <tr class="separator:a90dafe8cdf9058d06d3d28615679f184"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af354064345689ff1a75a48aeb9399c2c"><td class="memItemLeft" align="right" valign="top"><a id="af354064345689ff1a75a48aeb9399c2c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetUnblockSRange</b> (const double curr_time, double *s_upper, double *s_lower) const</td></tr>
+<tr class="memitem:af354064345689ff1a75a48aeb9399c2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#af354064345689ff1a75a48aeb9399c2c">GetUnblockSRange</a> (const double curr_time, double *s_upper, double *s_lower) const</td></tr>
 <tr class="separator:af354064345689ff1a75a48aeb9399c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac92ef1799a4a04f621252322bf437594"><td class="memItemLeft" align="right" valign="top"><a id="ac92ef1799a4a04f621252322bf437594"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetBoundarySRange</b> (const double curr_time, double *s_upper, double *s_lower) const</td></tr>
+<tr class="memitem:ac92ef1799a4a04f621252322bf437594"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ac92ef1799a4a04f621252322bf437594">GetBoundarySRange</a> (const double curr_time, double *s_upper, double *s_lower) const</td></tr>
 <tr class="separator:ac92ef1799a4a04f621252322bf437594"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf56a5a041b0f8d63d78ab224bc0c6be"><td class="memItemLeft" align="right" valign="top"><a id="abf56a5a041b0f8d63d78ab224bc0c6be"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>min_s</b> () const</td></tr>
+<tr class="memitem:abf56a5a041b0f8d63d78ab224bc0c6be"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#abf56a5a041b0f8d63d78ab224bc0c6be">min_s</a> () const</td></tr>
 <tr class="separator:abf56a5a041b0f8d63d78ab224bc0c6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3052d83acbb668a8cab7c4081e03bfb5"><td class="memItemLeft" align="right" valign="top"><a id="a3052d83acbb668a8cab7c4081e03bfb5"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>min_t</b> () const</td></tr>
+<tr class="memitem:a3052d83acbb668a8cab7c4081e03bfb5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a3052d83acbb668a8cab7c4081e03bfb5">min_t</a> () const</td></tr>
 <tr class="separator:a3052d83acbb668a8cab7c4081e03bfb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62fd1fda999d33ad402953aea05ba2fe"><td class="memItemLeft" align="right" valign="top"><a id="a62fd1fda999d33ad402953aea05ba2fe"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>max_s</b> () const</td></tr>
+<tr class="memitem:a62fd1fda999d33ad402953aea05ba2fe"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a62fd1fda999d33ad402953aea05ba2fe">max_s</a> () const</td></tr>
 <tr class="separator:a62fd1fda999d33ad402953aea05ba2fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e2646972ec4ce6466db7ea73065b962"><td class="memItemLeft" align="right" valign="top"><a id="a6e2646972ec4ce6466db7ea73065b962"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>max_t</b> () const</td></tr>
+<tr class="memitem:a6e2646972ec4ce6466db7ea73065b962"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a6e2646972ec4ce6466db7ea73065b962">max_t</a> () const</td></tr>
 <tr class="separator:a6e2646972ec4ce6466db7ea73065b962"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a377efa4ea82decb991066c29e7d2f52b"><td class="memItemLeft" align="right" valign="top"><a id="a377efa4ea82decb991066c29e7d2f52b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>Area</b> () const</td></tr>
+<tr class="memitem:a377efa4ea82decb991066c29e7d2f52b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a377efa4ea82decb991066c29e7d2f52b">Area</a> () const</td></tr>
 <tr class="separator:a377efa4ea82decb991066c29e7d2f52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a925b58686466f0d11c8600265cf92371"><td class="memItemLeft" align="right" valign="top"><a id="a925b58686466f0d11c8600265cf92371"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>DistanceS</b> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;st_point) const</td></tr>
+<tr class="memitem:a925b58686466f0d11c8600265cf92371"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a925b58686466f0d11c8600265cf92371">DistanceS</a> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;st_point) const</td></tr>
 <tr class="separator:a925b58686466f0d11c8600265cf92371"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcc0526591382442f1cbfb5bc63bd994"><td class="memItemLeft" align="right" valign="top"><a id="afcc0526591382442f1cbfb5bc63bd994"></a>
-std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>upper_points</b> () const</td></tr>
+<tr class="memitem:afcc0526591382442f1cbfb5bc63bd994"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#afcc0526591382442f1cbfb5bc63bd994">upper_points</a> () const</td></tr>
 <tr class="separator:afcc0526591382442f1cbfb5bc63bd994"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75324b8833bbe5a439991b2d6635b3f8"><td class="memItemLeft" align="right" valign="top"><a id="a75324b8833bbe5a439991b2d6635b3f8"></a>
-std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lower_points</b> () const</td></tr>
+<tr class="memitem:a75324b8833bbe5a439991b2d6635b3f8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a75324b8833bbe5a439991b2d6635b3f8">lower_points</a> () const</td></tr>
 <tr class="separator:a75324b8833bbe5a439991b2d6635b3f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classapollo_1_1common_1_1math_1_1Polygon2d')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html">apollo::common::math::Polygon2d</a></td></tr>
-<tr class="memitem:a37cf2040ad518e9d53860ab414d2a92c inherit pub_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="a37cf2040ad518e9d53860ab414d2a92c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a37cf2040ad518e9d53860ab414d2a92c">Polygon2d</a> ()=default</td></tr>
-<tr class="memdesc:a37cf2040ad518e9d53860ab414d2a92c inherit pub_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty constructor. <br /></td></tr>
+<tr class="memitem:a37cf2040ad518e9d53860ab414d2a92c inherit pub_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a37cf2040ad518e9d53860ab414d2a92c">Polygon2d</a> ()=default</td></tr>
+<tr class="memdesc:a37cf2040ad518e9d53860ab414d2a92c inherit pub_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty constructor.  <a href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a37cf2040ad518e9d53860ab414d2a92c">More...</a><br /></td></tr>
 <tr class="separator:a37cf2040ad518e9d53860ab414d2a92c inherit pub_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb5f3874dfb3b2653b182d70a1dcb37c inherit pub_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#acb5f3874dfb3b2653b182d70a1dcb37c">Polygon2d</a> (const <a class="el" href="classapollo_1_1common_1_1math_1_1Box2d.html">Box2d</a> &amp;box)</td></tr>
 <tr class="memdesc:acb5f3874dfb3b2653b182d70a1dcb37c inherit pub_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which takes a box.  <a href="classapollo_1_1common_1_1math_1_1Polygon2d.html#acb5f3874dfb3b2653b182d70a1dcb37c">More...</a><br /></td></tr>
@@ -268,8 +256,7 @@ std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STP
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acb3b0b92f188644948f704b22ed068b6"><td class="memItemLeft" align="right" valign="top"><a id="acb3b0b92f188644948f704b22ed068b6"></a>
-static <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GenerateStBoundary</b> (const std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt; &amp;lower_points, const std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt; &amp;upper_points)</td></tr>
+<tr class="memitem:acb3b0b92f188644948f704b22ed068b6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#acb3b0b92f188644948f704b22ed068b6">GenerateStBoundary</a> (const std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt; &amp;<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#a75324b8833bbe5a439991b2d6635b3f8">lower_points</a>, const std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt; &amp;<a class="el" href="classapollo_1_1planning_1_1StBoundary.html#afcc0526591382442f1cbfb5bc63bd994">upper_points</a>)</td></tr>
 <tr class="separator:acb3b0b92f188644948f704b22ed068b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classapollo_1_1common_1_1math_1_1Polygon2d')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html">apollo::common::math::Polygon2d</a></td></tr>
 <tr class="memitem:afb796c22bbd6b4f2c901f6bcf9f17ea7 inherit pub_static_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#afb796c22bbd6b4f2c901f6bcf9f17ea7">ComputeConvexHull</a> (const std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt; &amp;<a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a7b34b3db0ab1b6ff6e008f1b815d96e6">points</a>, <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html">Polygon2d</a> *const polygon)</td></tr>
@@ -279,48 +266,671 @@ static <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundar
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html">apollo::common::math::Polygon2d</a></td></tr>
-<tr class="memitem:ae2d05e3fe44829b1e55adc5ab390e8e2 inherit pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="ae2d05e3fe44829b1e55adc5ab390e8e2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildFromPoints</b> ()</td></tr>
+<tr class="memitem:ae2d05e3fe44829b1e55adc5ab390e8e2 inherit pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ae2d05e3fe44829b1e55adc5ab390e8e2">BuildFromPoints</a> ()</td></tr>
 <tr class="separator:ae2d05e3fe44829b1e55adc5ab390e8e2 inherit pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9df2b77e8046164818034c761317a99 inherit pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="ae9df2b77e8046164818034c761317a99"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>Next</b> (int at) const</td></tr>
+<tr class="memitem:ae9df2b77e8046164818034c761317a99 inherit pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ae9df2b77e8046164818034c761317a99">Next</a> (int at) const</td></tr>
 <tr class="separator:ae9df2b77e8046164818034c761317a99 inherit pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d5221e5ec688170f053edfa56025927 inherit pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="a0d5221e5ec688170f053edfa56025927"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>Prev</b> (int at) const</td></tr>
+<tr class="memitem:a0d5221e5ec688170f053edfa56025927 inherit pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a0d5221e5ec688170f053edfa56025927">Prev</a> (int at) const</td></tr>
 <tr class="separator:a0d5221e5ec688170f053edfa56025927 inherit pro_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classapollo_1_1common_1_1math_1_1Polygon2d')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html">apollo::common::math::Polygon2d</a></td></tr>
-<tr class="memitem:aed964a9d643e36ec140c4186e0f2de6b inherit pro_static_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="aed964a9d643e36ec140c4186e0f2de6b"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>ClipConvexHull</b> (const <a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a> &amp;line_segment, std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt; *const <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a7b34b3db0ab1b6ff6e008f1b815d96e6">points</a>)</td></tr>
+<tr class="memitem:aed964a9d643e36ec140c4186e0f2de6b inherit pro_static_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#aed964a9d643e36ec140c4186e0f2de6b">ClipConvexHull</a> (const <a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a> &amp;line_segment, std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt; *const <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a7b34b3db0ab1b6ff6e008f1b815d96e6">points</a>)</td></tr>
 <tr class="separator:aed964a9d643e36ec140c4186e0f2de6b inherit pro_static_methods_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html">apollo::common::math::Polygon2d</a></td></tr>
-<tr class="memitem:a12e60a817a0f39b06b186d0d851056ca inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="a12e60a817a0f39b06b186d0d851056ca"></a>
-std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>points_</b></td></tr>
+<tr class="memitem:a12e60a817a0f39b06b186d0d851056ca inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">Vec2d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a12e60a817a0f39b06b186d0d851056ca">points_</a></td></tr>
 <tr class="separator:a12e60a817a0f39b06b186d0d851056ca inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eb66344f3b0651a2c3aeee668e73833 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="a6eb66344f3b0651a2c3aeee668e73833"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>num_points_</b> = 0</td></tr>
+<tr class="memitem:a6eb66344f3b0651a2c3aeee668e73833 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a6eb66344f3b0651a2c3aeee668e73833">num_points_</a> = 0</td></tr>
 <tr class="separator:a6eb66344f3b0651a2c3aeee668e73833 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab19a56071a05b578c1f0b41113b301f2 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="ab19a56071a05b578c1f0b41113b301f2"></a>
-std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>line_segments_</b></td></tr>
+<tr class="memitem:ab19a56071a05b578c1f0b41113b301f2 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1LineSegment2d.html">LineSegment2d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ab19a56071a05b578c1f0b41113b301f2">line_segments_</a></td></tr>
 <tr class="separator:ab19a56071a05b578c1f0b41113b301f2 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bc63a214d6bd657c15614f9867927d0 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="a3bc63a214d6bd657c15614f9867927d0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_convex_</b> = false</td></tr>
+<tr class="memitem:a3bc63a214d6bd657c15614f9867927d0 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a3bc63a214d6bd657c15614f9867927d0">is_convex_</a> = false</td></tr>
 <tr class="separator:a3bc63a214d6bd657c15614f9867927d0 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6176d1fbbaa4517b651a67c02d68775 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="ad6176d1fbbaa4517b651a67c02d68775"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>area_</b> = 0.0</td></tr>
+<tr class="memitem:ad6176d1fbbaa4517b651a67c02d68775 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ad6176d1fbbaa4517b651a67c02d68775">area_</a> = 0.0</td></tr>
 <tr class="separator:ad6176d1fbbaa4517b651a67c02d68775 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9424d0fdf3c9b444abd806a000568af1 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="a9424d0fdf3c9b444abd806a000568af1"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>min_x_</b> = 0.0</td></tr>
+<tr class="memitem:a9424d0fdf3c9b444abd806a000568af1 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a9424d0fdf3c9b444abd806a000568af1">min_x_</a> = 0.0</td></tr>
 <tr class="separator:a9424d0fdf3c9b444abd806a000568af1 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b5466a61928603775b2d77c5ff343b8 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="a3b5466a61928603775b2d77c5ff343b8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>max_x_</b> = 0.0</td></tr>
+<tr class="memitem:a3b5466a61928603775b2d77c5ff343b8 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a3b5466a61928603775b2d77c5ff343b8">max_x_</a> = 0.0</td></tr>
 <tr class="separator:a3b5466a61928603775b2d77c5ff343b8 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a452552eb677a643cd4ee8a0fd5e74c69 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="a452552eb677a643cd4ee8a0fd5e74c69"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>min_y_</b> = 0.0</td></tr>
+<tr class="memitem:a452552eb677a643cd4ee8a0fd5e74c69 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#a452552eb677a643cd4ee8a0fd5e74c69">min_y_</a> = 0.0</td></tr>
 <tr class="separator:a452552eb677a643cd4ee8a0fd5e74c69 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4e02e547adb26adfcfeec90e6cc2335 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top"><a id="ad4e02e547adb26adfcfeec90e6cc2335"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>max_y_</b> = 0.0</td></tr>
+<tr class="memitem:ad4e02e547adb26adfcfeec90e6cc2335 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1math_1_1Polygon2d.html#ad4e02e547adb26adfcfeec90e6cc2335">max_y_</a> = 0.0</td></tr>
 <tr class="separator:ad4e02e547adb26adfcfeec90e6cc2335 inherit pro_attribs_classapollo_1_1common_1_1math_1_1Polygon2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ab624b6931b231b83a6927587c492e9c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab624b6931b231b83a6927587c492e9c5">&#9670;&nbsp;</a></span>BoundaryType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5">apollo::planning::StBoundary::BoundaryType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab624b6931b231b83a6927587c492e9c5a696b031073e74bf2cb98e5ef201d4aa3"></a>UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab624b6931b231b83a6927587c492e9c5a615a46af313786fc4e349f34118be111"></a>STOP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab624b6931b231b83a6927587c492e9c5a578d83c6d15737d0c46bd80f0a19263f"></a>FOLLOW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab624b6931b231b83a6927587c492e9c5a18e25ac6cc28c2b91bce1fbe629b682a"></a>YIELD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab624b6931b231b83a6927587c492e9c5a96e31478fbef1b7de193a2a275db7e86"></a>OVERTAKE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab624b6931b231b83a6927587c492e9c5a59d22a2d96cde5b45c8dcad11ac064d3"></a>KEEP_CLEAR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a132773ce96bd0279f9a74166adc1ab4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a132773ce96bd0279f9a74166adc1ab4e">&#9670;&nbsp;</a></span>StBoundary() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::StBoundary::StBoundary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff5007daba118509496c07963ab362c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff5007daba118509496c07963ab362c3">&#9670;&nbsp;</a></span>StBoundary() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::StBoundary::StBoundary </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::pair&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a>, <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>point_pairs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ff83134d0807bfad7703533bc0afca0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ff83134d0807bfad7703533bc0afca0">&#9670;&nbsp;</a></span>StBoundary() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::StBoundary::StBoundary </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1common_1_1math_1_1Box2d.html">common::math::Box2d</a> &amp;&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae48f9673be1cf2adc84b75f5e2287c2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae48f9673be1cf2adc84b75f5e2287c2a">&#9670;&nbsp;</a></span>StBoundary() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::StBoundary::StBoundary </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classapollo_1_1common_1_1math_1_1Vec2d.html">common::math::Vec2d</a> &gt;&#160;</td>
+          <td class="paramname"><em>points</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc674e6e6f77b9bd348e5facd48c1a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc674e6e6f77b9bd348e5facd48c1a81">&#9670;&nbsp;</a></span>~StBoundary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::StBoundary::~StBoundary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a377efa4ea82decb991066c29e7d2f52b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a377efa4ea82decb991066c29e7d2f52b">&#9670;&nbsp;</a></span>Area()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::StBoundary::Area </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab6177fa8f37afba06bfb20ceb38bbf5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6177fa8f37afba06bfb20ceb38bbf5f">&#9670;&nbsp;</a></span>BottomLeftPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> apollo::planning::StBoundary::BottomLeftPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a2bf5245596603a47e09fb64863d16d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a2bf5245596603a47e09fb64863d16d">&#9670;&nbsp;</a></span>BottomRightPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> apollo::planning::StBoundary::BottomRightPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b20abe94f84bab8e45a667c80c584b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b20abe94f84bab8e45a667c80c584b2">&#9670;&nbsp;</a></span>boundary_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5">BoundaryType</a> apollo::planning::StBoundary::boundary_type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59d0001dc2f682111491b5f19f9fc891"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59d0001dc2f682111491b5f19f9fc891">&#9670;&nbsp;</a></span>characteristic_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::StBoundary::characteristic_length </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a925b58686466f0d11c8600265cf92371"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a925b58686466f0d11c8600265cf92371">&#9670;&nbsp;</a></span>DistanceS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::StBoundary::DistanceS </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>st_point</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ab1ceee7a34e76d704a97601c1bc47a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ab1ceee7a34e76d704a97601c1bc47a">&#9670;&nbsp;</a></span>ExpandByS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> apollo::planning::StBoundary::ExpandByS </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a938c1b38cfee0d51ddc2721257c90bcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a938c1b38cfee0d51ddc2721257c90bcf">&#9670;&nbsp;</a></span>ExpandByT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> apollo::planning::StBoundary::ExpandByT </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb3b0b92f188644948f704b22ed068b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb3b0b92f188644948f704b22ed068b6">&#9670;&nbsp;</a></span>GenerateStBoundary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> apollo::planning::StBoundary::GenerateStBoundary </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lower_points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>upper_points</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac92ef1799a4a04f621252322bf437594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac92ef1799a4a04f621252322bf437594">&#9670;&nbsp;</a></span>GetBoundarySRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::StBoundary::GetBoundarySRange </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>curr_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>s_upper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>s_lower</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af354064345689ff1a75a48aeb9399c2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af354064345689ff1a75a48aeb9399c2c">&#9670;&nbsp;</a></span>GetUnblockSRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::StBoundary::GetUnblockSRange </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>curr_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>s_upper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>s_lower</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0403e57373e87510e0abaf1392e6b2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0403e57373e87510e0abaf1392e6b2c">&#9670;&nbsp;</a></span>id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string&amp; apollo::planning::StBoundary::id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d0bede7fd5ea45c224e39533c83c9e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d0bede7fd5ea45c224e39533c83c9e5">&#9670;&nbsp;</a></span>IsEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::StBoundary::IsEmpty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd35eae3ef526c0899dac8216d580690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd35eae3ef526c0899dac8216d580690">&#9670;&nbsp;</a></span>IsPointInBoundary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::StBoundary::IsPointInBoundary </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>st_point</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75324b8833bbe5a439991b2d6635b3f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75324b8833bbe5a439991b2d6635b3f8">&#9670;&nbsp;</a></span>lower_points()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a>&gt; apollo::planning::StBoundary::lower_points </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62fd1fda999d33ad402953aea05ba2fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62fd1fda999d33ad402953aea05ba2fe">&#9670;&nbsp;</a></span>max_s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::StBoundary::max_s </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e2646972ec4ce6466db7ea73065b962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e2646972ec4ce6466db7ea73065b962">&#9670;&nbsp;</a></span>max_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::StBoundary::max_t </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf56a5a041b0f8d63d78ab224bc0c6be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf56a5a041b0f8d63d78ab224bc0c6be">&#9670;&nbsp;</a></span>min_s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::StBoundary::min_s </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3052d83acbb668a8cab7c4081e03bfb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3052d83acbb668a8cab7c4081e03bfb5">&#9670;&nbsp;</a></span>min_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::StBoundary::min_t </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34c88612ab6ef42eef892cfdbbc1b555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34c88612ab6ef42eef892cfdbbc1b555">&#9670;&nbsp;</a></span>SetBoundaryType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::StBoundary::SetBoundaryType </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5">BoundaryType</a> &amp;&#160;</td>
+          <td class="paramname"><em>boundary_type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90dafe8cdf9058d06d3d28615679f184"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90dafe8cdf9058d06d3d28615679f184">&#9670;&nbsp;</a></span>SetCharacteristicLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::StBoundary::SetCharacteristicLength </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>characteristic_length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2e222876e3285166ac80fcb6de0a026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2e222876e3285166ac80fcb6de0a026">&#9670;&nbsp;</a></span>SetId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::StBoundary::SetId </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afcc0526591382442f1cbfb5bc63bd994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcc0526591382442f1cbfb5bc63bd994">&#9670;&nbsp;</a></span>upper_points()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a>&gt; apollo::planning::StBoundary::upper_points </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/common/speed/<a class="el" href="st__boundary_8h_source.html">st_boundary.h</a></li>
 </ul>

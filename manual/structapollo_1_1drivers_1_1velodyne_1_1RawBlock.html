@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><b>velodyne</b></li><li class="navelem"><a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1RawBlock.html">RawBlock</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1velodyne.html">velodyne</a></li><li class="navelem"><a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1RawBlock.html">RawBlock</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,26 +79,75 @@ $(function() {
  <a href="structapollo_1_1drivers_1_1velodyne_1_1RawBlock.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="velodyne__parser_8h_source.html">velodyne_parser.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::drivers::velodyne::RawBlock:</div>
+<div class="dyncontent">
+<div class="center"><img src="structapollo_1_1drivers_1_1velodyne_1_1RawBlock__coll__graph.png" border="0" usemap="#apollo_1_1drivers_1_1velodyne_1_1RawBlock_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aee25e36f9a9487f931c90ee4a65ae22e"><td class="memItemLeft" align="right" valign="top"><a id="aee25e36f9a9487f931c90ee4a65ae22e"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1RawBlock.html#aee25e36f9a9487f931c90ee4a65ae22e">laser_block_id</a></td></tr>
-<tr class="memdesc:aee25e36f9a9487f931c90ee4a65ae22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">UPPER_BANK or LOWER_BANK. <br /></td></tr>
+<tr class="memitem:aee25e36f9a9487f931c90ee4a65ae22e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1RawBlock.html#aee25e36f9a9487f931c90ee4a65ae22e">laser_block_id</a></td></tr>
+<tr class="memdesc:aee25e36f9a9487f931c90ee4a65ae22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">UPPER_BANK or LOWER_BANK.  <a href="#aee25e36f9a9487f931c90ee4a65ae22e">More...</a><br /></td></tr>
 <tr class="separator:aee25e36f9a9487f931c90ee4a65ae22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a087cdcc92b9eff06c442f766c9ac9fc5"><td class="memItemLeft" align="right" valign="top"><a id="a087cdcc92b9eff06c442f766c9ac9fc5"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1RawBlock.html#a087cdcc92b9eff06c442f766c9ac9fc5">rotation</a></td></tr>
-<tr class="memdesc:a087cdcc92b9eff06c442f766c9ac9fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">0-35999, divide by 100 to get degrees <br /></td></tr>
+<tr class="memitem:a087cdcc92b9eff06c442f766c9ac9fc5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1RawBlock.html#a087cdcc92b9eff06c442f766c9ac9fc5">rotation</a></td></tr>
+<tr class="memdesc:a087cdcc92b9eff06c442f766c9ac9fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">0-35999, divide by 100 to get degrees  <a href="#a087cdcc92b9eff06c442f766c9ac9fc5">More...</a><br /></td></tr>
 <tr class="separator:a087cdcc92b9eff06c442f766c9ac9fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf9ce272f27aa7553d243087214f001b"><td class="memItemLeft" align="right" valign="top"><a id="aaf9ce272f27aa7553d243087214f001b"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> [BLOCK_DATA_SIZE]</td></tr>
+<tr class="memitem:aaf9ce272f27aa7553d243087214f001b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1velodyne_1_1RawBlock.html#aaf9ce272f27aa7553d243087214f001b">data</a> [BLOCK_DATA_SIZE]</td></tr>
 <tr class="separator:aaf9ce272f27aa7553d243087214f001b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Raw Velodyne data block. </p>
 <p>Each block contains data from either the upper or lower laser bank. The device returns three times as many upper bank blocks.</p>
 <p>use stdint.h types, so things work with both 64 and 32-bit machines </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="aaf9ce272f27aa7553d243087214f001b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9ce272f27aa7553d243087214f001b">&#9670;&nbsp;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t apollo::drivers::velodyne::RawBlock::data[BLOCK_DATA_SIZE]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee25e36f9a9487f931c90ee4a65ae22e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee25e36f9a9487f931c90ee4a65ae22e">&#9670;&nbsp;</a></span>laser_block_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t apollo::drivers::velodyne::RawBlock::laser_block_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UPPER_BANK or LOWER_BANK. </p>
+
+</div>
+</div>
+<a id="a087cdcc92b9eff06c442f766c9ac9fc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a087cdcc92b9eff06c442f766c9ac9fc5">&#9670;&nbsp;</a></span>rotation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t apollo::drivers::velodyne::RawBlock::rotation</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>0-35999, divide by 100 to get degrees </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>modules/drivers/velodyne/velodyne_pointcloud/include/velodyne_pointcloud/<a class="el" href="velodyne__parser_8h_source.html">velodyne_parser.h</a></li>
 </ul>
 </div><!-- contents -->

@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html">PolygonScanConverter</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html">PolygonScanConverter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -81,6 +82,11 @@ $(function() {
  <a href="classapollo_1_1perception_1_1PolygonScanConverter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="polygon__scan__converter_8h_source.html">polygon_scan_converter.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::PolygonScanConverter:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1PolygonScanConverter__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1PolygonScanConverter_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -89,40 +95,188 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aac68440c3cf2105199cf0b7ad19e12aa"><td class="memItemLeft" align="right" valign="top"><a id="aac68440c3cf2105199cf0b7ad19e12aa"></a>
-typedef Eigen::Matrix&lt; double, 2, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Point</b></td></tr>
+<tr class="memitem:aac68440c3cf2105199cf0b7ad19e12aa"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 2, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">Point</a></td></tr>
 <tr class="separator:aac68440c3cf2105199cf0b7ad19e12aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8352e4b8159f903b12a4bf12e188d23d"><td class="memItemLeft" align="right" valign="top"><a id="a8352e4b8159f903b12a4bf12e188d23d"></a>
-typedef std::vector&lt; Point, Eigen::aligned_allocator&lt; Point &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Polygon</b></td></tr>
+<tr class="memitem:a8352e4b8159f903b12a4bf12e188d23d"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">Point</a>, Eigen::aligned_allocator&lt; <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">Point</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#a8352e4b8159f903b12a4bf12e188d23d">Polygon</a></td></tr>
 <tr class="separator:a8352e4b8159f903b12a4bf12e188d23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe7fe2e8fad3abbc9901d1d8ab3365de"><td class="memItemLeft" align="right" valign="top"><a id="afe7fe2e8fad3abbc9901d1d8ab3365de"></a>
-typedef std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Interval</b></td></tr>
+<tr class="memitem:afe7fe2e8fad3abbc9901d1d8ab3365de"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#afe7fe2e8fad3abbc9901d1d8ab3365de">Interval</a></td></tr>
 <tr class="separator:afe7fe2e8fad3abbc9901d1d8ab3365de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1239dabd7217d0c1c74cf44ce03447c"><td class="memItemLeft" align="right" valign="top"><a id="ad1239dabd7217d0c1c74cf44ce03447c"></a>
-typedef std::pair&lt; Point, Point &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Segment</b></td></tr>
+<tr class="memitem:ad1239dabd7217d0c1c74cf44ce03447c"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">Point</a>, <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#ad1239dabd7217d0c1c74cf44ce03447c">Segment</a></td></tr>
 <tr class="separator:ad1239dabd7217d0c1c74cf44ce03447c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26ff6a1ec6e4c81056e54cdc5c97033b"><td class="memItemLeft" align="right" valign="top"><a id="a26ff6a1ec6e4c81056e54cdc5c97033b"></a>
-typedef Bitmap2D::DirectionMajor&#160;</td><td class="memItemRight" valign="bottom"><b>DirectionMajor</b></td></tr>
+<tr class="memitem:a26ff6a1ec6e4c81056e54cdc5c97033b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classapollo_1_1perception_1_1Bitmap2D.html#a1f08e9d744cbedc916e7502820c71e8d">Bitmap2D::DirectionMajor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#a26ff6a1ec6e4c81056e54cdc5c97033b">DirectionMajor</a></td></tr>
 <tr class="separator:a26ff6a1ec6e4c81056e54cdc5c97033b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acf125d72e39d4148a53937eb45b4a843"><td class="memItemLeft" align="right" valign="top"><a id="acf125d72e39d4148a53937eb45b4a843"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (const DirectionMajor major_dir, const Interval &amp;valid_range, const Polygon &amp;polygon, const double step)</td></tr>
+<tr class="memitem:acf125d72e39d4148a53937eb45b4a843"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#acf125d72e39d4148a53937eb45b4a843">Init</a> (const <a class="el" href="classapollo_1_1perception_1_1Bitmap2D.html#a1f08e9d744cbedc916e7502820c71e8d">DirectionMajor</a> major_dir, const <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#afe7fe2e8fad3abbc9901d1d8ab3365de">Interval</a> &amp;valid_range, const <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#a8352e4b8159f903b12a4bf12e188d23d">Polygon</a> &amp;polygon, const double step)</td></tr>
 <tr class="separator:acf125d72e39d4148a53937eb45b4a843"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d871031c7a490323b61a64a93756ac5"><td class="memItemLeft" align="right" valign="top"><a id="a1d871031c7a490323b61a64a93756ac5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertScans</b> (std::vector&lt; std::vector&lt; Interval &gt;&gt; *scans_intervals)</td></tr>
+<tr class="memitem:a1d871031c7a490323b61a64a93756ac5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#a1d871031c7a490323b61a64a93756ac5">ConvertScans</a> (std::vector&lt; std::vector&lt; <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#afe7fe2e8fad3abbc9901d1d8ab3365de">Interval</a> &gt;&gt; *scans_intervals)</td></tr>
 <tr class="separator:a1d871031c7a490323b61a64a93756ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9ed5294288771560af653ca98696fa91"><td class="memItemLeft" align="right" valign="top"><a id="a9ed5294288771560af653ca98696fa91"></a>
-static DirectionMajor&#160;</td><td class="memItemRight" valign="bottom"><b>OppositeDirection</b> (DirectionMajor dir_major)</td></tr>
+<tr class="memitem:a9ed5294288771560af653ca98696fa91"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1perception_1_1Bitmap2D.html#a1f08e9d744cbedc916e7502820c71e8d">DirectionMajor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#a9ed5294288771560af653ca98696fa91">OppositeDirection</a> (<a class="el" href="classapollo_1_1perception_1_1Bitmap2D.html#a1f08e9d744cbedc916e7502820c71e8d">DirectionMajor</a> dir_major)</td></tr>
 <tr class="separator:a9ed5294288771560af653ca98696fa91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>: This is a converter from polygon to scan lines, by which we can build bitmap. Assume major direction as x direction, we scan polygons in x ascending order. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a26ff6a1ec6e4c81056e54cdc5c97033b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ff6a1ec6e4c81056e54cdc5c97033b">&#9670;&nbsp;</a></span>DirectionMajor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classapollo_1_1perception_1_1Bitmap2D.html#a1f08e9d744cbedc916e7502820c71e8d">Bitmap2D::DirectionMajor</a> <a class="el" href="classapollo_1_1perception_1_1Bitmap2D.html#a1f08e9d744cbedc916e7502820c71e8d">apollo::perception::PolygonScanConverter::DirectionMajor</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe7fe2e8fad3abbc9901d1d8ab3365de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe7fe2e8fad3abbc9901d1d8ab3365de">&#9670;&nbsp;</a></span>Interval</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;double, double&gt; <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#afe7fe2e8fad3abbc9901d1d8ab3365de">apollo::perception::PolygonScanConverter::Interval</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac68440c3cf2105199cf0b7ad19e12aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac68440c3cf2105199cf0b7ad19e12aa">&#9670;&nbsp;</a></span>Point</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Eigen::Matrix&lt;double, 2, 1&gt; <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">apollo::perception::PolygonScanConverter::Point</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8352e4b8159f903b12a4bf12e188d23d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8352e4b8159f903b12a4bf12e188d23d">&#9670;&nbsp;</a></span>Polygon</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">Point</a>, Eigen::aligned_allocator&lt;<a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">Point</a>&gt; &gt; <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#a8352e4b8159f903b12a4bf12e188d23d">apollo::perception::PolygonScanConverter::Polygon</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1239dabd7217d0c1c74cf44ce03447c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1239dabd7217d0c1c74cf44ce03447c">&#9670;&nbsp;</a></span>Segment</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;<a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">Point</a>, <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#aac68440c3cf2105199cf0b7ad19e12aa">Point</a>&gt; <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#ad1239dabd7217d0c1c74cf44ce03447c">apollo::perception::PolygonScanConverter::Segment</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1d871031c7a490323b61a64a93756ac5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d871031c7a490323b61a64a93756ac5">&#9670;&nbsp;</a></span>ConvertScans()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::PolygonScanConverter::ConvertScans </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#afe7fe2e8fad3abbc9901d1d8ab3365de">Interval</a> &gt;&gt; *&#160;</td>
+          <td class="paramname"><em>scans_intervals</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf125d72e39d4148a53937eb45b4a843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf125d72e39d4148a53937eb45b4a843">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::PolygonScanConverter::Init </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1perception_1_1Bitmap2D.html#a1f08e9d744cbedc916e7502820c71e8d">DirectionMajor</a>&#160;</td>
+          <td class="paramname"><em>major_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#afe7fe2e8fad3abbc9901d1d8ab3365de">Interval</a> &amp;&#160;</td>
+          <td class="paramname"><em>valid_range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1perception_1_1PolygonScanConverter.html#a8352e4b8159f903b12a4bf12e188d23d">Polygon</a> &amp;&#160;</td>
+          <td class="paramname"><em>polygon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>step</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ed5294288771560af653ca98696fa91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ed5294288771560af653ca98696fa91">&#9670;&nbsp;</a></span>OppositeDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1perception_1_1Bitmap2D.html#a1f08e9d744cbedc916e7502820c71e8d">DirectionMajor</a> apollo::perception::PolygonScanConverter::OppositeDirection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1perception_1_1Bitmap2D.html#a1f08e9d744cbedc916e7502820c71e8d">DirectionMajor</a>&#160;</td>
+          <td class="paramname"><em>dir_major</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/obstacle/lidar/roi_filter/hdmap_roi_filter/<a class="el" href="polygon__scan__converter_8h_source.html">polygon_scan_converter.h</a></li>
 </ul>
 </div><!-- contents -->

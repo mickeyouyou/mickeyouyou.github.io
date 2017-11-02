@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1dreamview.html">dreamview</a></li><li class="navelem"><a class="el" href="classapollo_1_1dreamview_1_1ImageHandler.html">ImageHandler</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1dreamview.html">dreamview</a></li><li class="navelem"><a class="el" href="classapollo_1_1dreamview_1_1ImageHandler.html">ImageHandler</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -81,21 +82,71 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for apollo::dreamview::ImageHandler:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1dreamview_1_1ImageHandler.png" usemap="#apollo::dreamview::ImageHandler_map" alt=""/>
-  <map id="apollo::dreamview::ImageHandler_map" name="apollo::dreamview::ImageHandler_map">
-</map>
- </div></div>
+<div class="center"><img src="classapollo_1_1dreamview_1_1ImageHandler__inherit__graph.png" border="0" usemap="#apollo_1_1dreamview_1_1ImageHandler_inherit__map" alt="Inheritance graph"/></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::dreamview::ImageHandler:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1dreamview_1_1ImageHandler__coll__graph.png" border="0" usemap="#apollo_1_1dreamview_1_1ImageHandler_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5cd7bf93f18ce9ef7b3caa2aa6334cee"><td class="memItemLeft" align="right" valign="top"><a id="a5cd7bf93f18ce9ef7b3caa2aa6334cee"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>handleGet</b> (CivetServer *server, struct mg_connection *conn)</td></tr>
+<tr class="memitem:a0d2126a13938ce9b5ce4d67cadda3fd3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1ImageHandler.html#a0d2126a13938ce9b5ce4d67cadda3fd3">ImageHandler</a> ()</td></tr>
+<tr class="separator:a0d2126a13938ce9b5ce4d67cadda3fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cd7bf93f18ce9ef7b3caa2aa6334cee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1dreamview_1_1ImageHandler.html#a5cd7bf93f18ce9ef7b3caa2aa6334cee">handleGet</a> (CivetServer *server, struct mg_connection *conn)</td></tr>
 <tr class="separator:a5cd7bf93f18ce9ef7b3caa2aa6334cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classapollo_1_1dreamview_1_1ImageHandler.html" title="The ImageHandler, built on top of CivetHandler, converts the received ROS image message to a image st...">ImageHandler</a>, built on top of CivetHandler, converts the received ROS image message to a image stream, wrapped by MJPEG Streaming Protocol. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0d2126a13938ce9b5ce4d67cadda3fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d2126a13938ce9b5ce4d67cadda3fd3">&#9670;&nbsp;</a></span>ImageHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::dreamview::ImageHandler::ImageHandler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5cd7bf93f18ce9ef7b3caa2aa6334cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cd7bf93f18ce9ef7b3caa2aa6334cee">&#9670;&nbsp;</a></span>handleGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::dreamview::ImageHandler::handleGet </td>
+          <td>(</td>
+          <td class="paramtype">CivetServer *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct mg_connection *&#160;</td>
+          <td class="paramname"><em>conn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/dreamview/backend/handlers/<a class="el" href="handlers_2image_8h_source.html">image.h</a></li>
 </ul>
 </div><!-- contents -->

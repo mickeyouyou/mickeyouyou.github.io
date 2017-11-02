@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1monitor.html">monitor</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1monitor_1_1Monitor.html">Monitor</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1monitor.html">monitor</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1monitor_1_1Monitor.html">Monitor</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -77,14 +78,19 @@ $(function() {
 <p>This class help collect and publish MonitorMessage pb to monitor topic. A module who wants to publish message can use macro <code>MONITOR(log_level, log_msg)</code> to record messages, and call Publish to broadcast the message to other modules.  
  <a href="classapollo_1_1common_1_1monitor_1_1Monitor.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="monitor_8h_source.html">monitor.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="common_2monitor_2monitor_8h_source.html">monitor.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::common::monitor::Monitor:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1common_1_1monitor_1_1Monitor__coll__graph.png" border="0" usemap="#apollo_1_1common_1_1monitor_1_1Monitor_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac43a57dab298ca2f90ac8af539bcc3e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1monitor_1_1Monitor.html#ac43a57dab298ca2f90ac8af539bcc3e3">Monitor</a> (const MonitorMessageItem::MessageSource &amp;source)</td></tr>
 <tr class="memdesc:ac43a57dab298ca2f90ac8af539bcc3e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the monitor with the source of the monitor messages. The source is usually the module name who publish the monitor messages.  <a href="#ac43a57dab298ca2f90ac8af539bcc3e3">More...</a><br /></td></tr>
 <tr class="separator:ac43a57dab298ca2f90ac8af539bcc3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a952bf8d22afeffc3b5fe3c824292ab53"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1monitor_1_1Monitor.html#a952bf8d22afeffc3b5fe3c824292ab53">Publish</a> (const std::vector&lt; MessageItem &gt; &amp;messages) const</td></tr>
+<tr class="memitem:a952bf8d22afeffc3b5fe3c824292ab53"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1monitor_1_1Monitor.html#a952bf8d22afeffc3b5fe3c824292ab53">Publish</a> (const std::vector&lt; <a class="el" href="namespaceapollo_1_1common_1_1monitor.html#a6349ccb4c90d645647ffd2949e05ca38">MessageItem</a> &gt; &amp;messages) const</td></tr>
 <tr class="memdesc:a952bf8d22afeffc3b5fe3c824292ab53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish the messages.  <a href="#a952bf8d22afeffc3b5fe3c824292ab53">More...</a><br /></td></tr>
 <tr class="separator:a952bf8d22afeffc3b5fe3c824292ab53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -139,7 +145,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void apollo::common::monitor::Monitor::Publish </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; MessageItem &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceapollo_1_1common_1_1monitor.html#a6349ccb4c90d645647ffd2949e05ca38">MessageItem</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>messages</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -162,7 +168,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>modules/common/monitor/<a class="el" href="monitor_8h_source.html">monitor.h</a></li>
+<li>modules/common/monitor/<a class="el" href="common_2monitor_2monitor_8h_source.html">monitor.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

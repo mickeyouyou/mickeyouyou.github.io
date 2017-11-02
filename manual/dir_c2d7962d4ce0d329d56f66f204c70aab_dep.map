@@ -1,0 +1,13 @@
+<map id="modules/drivers/canbus/can_client" name="modules/drivers/canbus/can_client">
+<area shape="rect" id="node5" href="dir_89e2469f18c5e5da51766ec9b3e212fa.html" title="common" alt="" coords="229,157,302,205"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000056_000061.html" title="3" alt="" coords="306,144,314,157"/>
+<area shape="rect" id="node6" href="dir_9a5e51f49964887903df6eed98080585.html" title="common" alt="" coords="330,157,403,205"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000056_000011.html" title="3" alt="" coords="371,132,379,145"/>
+<area shape="rect" id="node2" href="dir_a11e7db0e7ca72e93e3ffc0f2d7b3d5a.html" title="esd" alt="" coords="229,61,301,109"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000057_000061.html" title="1" alt="" coords="270,132,277,145"/>
+<area shape="rect" id="node3" href="dir_ee47f0919be25b5ada16604d5ff20d32.html" title="fake" alt="" coords="133,61,205,109"/>
+<area shape="rect" id="node4" href="dir_220b21bd29c187bc1ced92fe3c1bb1e4.html" title="socket" alt="" coords="37,61,109,109"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000059_000061.html" title="1" alt="" coords="210,153,217,167"/>
+<area shape="rect" id="clust2" href="dir_c2d7962d4ce0d329d56f66f204c70aab.html" alt="" coords="27,51,419,120"/>
+<area shape="rect" id="clust1" href="dir_6ac68ed414d44d6f54320351cbdbfd7b.html" title="canbus" alt="" coords="16,16,429,131"/>
+</map>

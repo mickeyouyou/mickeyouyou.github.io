@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><b>adapter</b></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ObjectsXmlParser.html">ObjectsXmlParser</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html">adapter</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ObjectsXmlParser.html">ObjectsXmlParser</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,22 +74,170 @@ $(function() {
 <div class="title">apollo::hdmap::adapter::ObjectsXmlParser Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="objects__xml__parser_8h_source.html">objects_xml_parser.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::hdmap::adapter::ObjectsXmlParser:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1hdmap_1_1adapter_1_1ObjectsXmlParser__coll__graph.png" border="0" usemap="#apollo_1_1hdmap_1_1adapter_1_1ObjectsXmlParser_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af4c1ddb8a07576b36bf66b4ce682e5f1"><td class="memItemLeft" align="right" valign="top"><a id="af4c1ddb8a07576b36bf66b4ce682e5f1"></a>
-static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParseCrosswalks</b> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; PbCrosswalk &gt; *crosswalks)</td></tr>
+<tr class="memitem:af4c1ddb8a07576b36bf66b4ce682e5f1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ObjectsXmlParser.html#af4c1ddb8a07576b36bf66b4ce682e5f1">ParseCrosswalks</a> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html#a61d4c07c4df574512549d2c430aa9c82">PbCrosswalk</a> &gt; *crosswalks)</td></tr>
 <tr class="separator:af4c1ddb8a07576b36bf66b4ce682e5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a0c7e4795ef9a88c3c9440432838ec0"><td class="memItemLeft" align="right" valign="top"><a id="a6a0c7e4795ef9a88c3c9440432838ec0"></a>
-static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParseClearAreas</b> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; PbClearArea &gt; *clear_areas)</td></tr>
+<tr class="memitem:a6a0c7e4795ef9a88c3c9440432838ec0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ObjectsXmlParser.html#a6a0c7e4795ef9a88c3c9440432838ec0">ParseClearAreas</a> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html#a5b3fadfdc09237c2d1a4c177df169ff7">PbClearArea</a> &gt; *clear_areas)</td></tr>
 <tr class="separator:a6a0c7e4795ef9a88c3c9440432838ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a688de4288d63e2463681ef0811b4680d"><td class="memItemLeft" align="right" valign="top"><a id="a688de4288d63e2463681ef0811b4680d"></a>
-static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParseSpeedBumps</b> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; PbSpeedBump &gt; *speed_bumps)</td></tr>
+<tr class="memitem:a688de4288d63e2463681ef0811b4680d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ObjectsXmlParser.html#a688de4288d63e2463681ef0811b4680d">ParseSpeedBumps</a> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html#a1fbdc958eca3eaf74689cbe47f0fd72f">PbSpeedBump</a> &gt; *speed_bumps)</td></tr>
 <tr class="separator:a688de4288d63e2463681ef0811b4680d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d9f29ad1791eb9fc73a500d5b1ccbe2"><td class="memItemLeft" align="right" valign="top"><a id="a6d9f29ad1791eb9fc73a500d5b1ccbe2"></a>
-static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParseStopLines</b> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1StopLineInternal.html">StopLineInternal</a> &gt; *stop_lines)</td></tr>
+<tr class="memitem:a6d9f29ad1791eb9fc73a500d5b1ccbe2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1ObjectsXmlParser.html#a6d9f29ad1791eb9fc73a500d5b1ccbe2">ParseStopLines</a> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1StopLineInternal.html">StopLineInternal</a> &gt; *stop_lines)</td></tr>
 <tr class="separator:a6d9f29ad1791eb9fc73a500d5b1ccbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6a0c7e4795ef9a88c3c9440432838ec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a0c7e4795ef9a88c3c9440432838ec0">&#9670;&nbsp;</a></span>ParseClearAreas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> apollo::hdmap::adapter::ObjectsXmlParser::ParseClearAreas </td>
+          <td>(</td>
+          <td class="paramtype">const tinyxml2::XMLElement &amp;&#160;</td>
+          <td class="paramname"><em>xml_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html#a5b3fadfdc09237c2d1a4c177df169ff7">PbClearArea</a> &gt; *&#160;</td>
+          <td class="paramname"><em>clear_areas</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4c1ddb8a07576b36bf66b4ce682e5f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c1ddb8a07576b36bf66b4ce682e5f1">&#9670;&nbsp;</a></span>ParseCrosswalks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> apollo::hdmap::adapter::ObjectsXmlParser::ParseCrosswalks </td>
+          <td>(</td>
+          <td class="paramtype">const tinyxml2::XMLElement &amp;&#160;</td>
+          <td class="paramname"><em>xml_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html#a61d4c07c4df574512549d2c430aa9c82">PbCrosswalk</a> &gt; *&#160;</td>
+          <td class="paramname"><em>crosswalks</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a688de4288d63e2463681ef0811b4680d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a688de4288d63e2463681ef0811b4680d">&#9670;&nbsp;</a></span>ParseSpeedBumps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> apollo::hdmap::adapter::ObjectsXmlParser::ParseSpeedBumps </td>
+          <td>(</td>
+          <td class="paramtype">const tinyxml2::XMLElement &amp;&#160;</td>
+          <td class="paramname"><em>xml_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html#a1fbdc958eca3eaf74689cbe47f0fd72f">PbSpeedBump</a> &gt; *&#160;</td>
+          <td class="paramname"><em>speed_bumps</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d9f29ad1791eb9fc73a500d5b1ccbe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9f29ad1791eb9fc73a500d5b1ccbe2">&#9670;&nbsp;</a></span>ParseStopLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> apollo::hdmap::adapter::ObjectsXmlParser::ParseStopLines </td>
+          <td>(</td>
+          <td class="paramtype">const tinyxml2::XMLElement &amp;&#160;</td>
+          <td class="paramname"><em>xml_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1StopLineInternal.html">StopLineInternal</a> &gt; *&#160;</td>
+          <td class="paramname"><em>stop_lines</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/map/hdmap/adapter/xml_parser/<a class="el" href="objects__xml__parser_8h_source.html">objects_xml_parser.h</a></li>
 </ul>

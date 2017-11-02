@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,25 +75,128 @@ $(function() {
 <div class="title">apollo::perception::TrackerOptions Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="base__tracker_8h_source.html">base_tracker.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::TrackerOptions:</div>
+<div class="dyncontent">
+<div class="center"><img src="structapollo_1_1perception_1_1TrackerOptions__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1TrackerOptions_coll__map" alt="Collaboration graph"/></div>
+<map name="apollo_1_1perception_1_1TrackerOptions_coll__map" id="apollo_1_1perception_1_1TrackerOptions_coll__map">
+<area shape="rect" id="node2" href="classapollo_1_1perception_1_1HDMapInput.html" title="{apollo::perception\l::HDMapInput\n||+ Init()\l+ GetROI()\l+ GetNearestLaneDirection()\l}" alt="" coords="5,5,197,119"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0394486aea9b7f9d80d6f429b30b5185"><td class="memItemLeft" align="right" valign="top"><a id="a0394486aea9b7f9d80d6f429b30b5185"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TrackerOptions</b> (Eigen::Matrix4d *pose)</td></tr>
+<tr class="memitem:ab60be286a13ad451a98fc112d8c9fafe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html#ab60be286a13ad451a98fc112d8c9fafe">TrackerOptions</a> ()=default</td></tr>
+<tr class="separator:ab60be286a13ad451a98fc112d8c9fafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0394486aea9b7f9d80d6f429b30b5185"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html#a0394486aea9b7f9d80d6f429b30b5185">TrackerOptions</a> (Eigen::Matrix4d *pose)</td></tr>
 <tr class="separator:a0394486aea9b7f9d80d6f429b30b5185"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a780759bfef0b3300db2accfe3b0c6cb9"><td class="memItemLeft" align="right" valign="top"><a id="a780759bfef0b3300db2accfe3b0c6cb9"></a>
-std::shared_ptr&lt; Eigen::Matrix4d &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>velodyne_trans</b></td></tr>
+<tr class="memitem:a780759bfef0b3300db2accfe3b0c6cb9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Eigen::Matrix4d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html#a780759bfef0b3300db2accfe3b0c6cb9">velodyne_trans</a></td></tr>
 <tr class="separator:a780759bfef0b3300db2accfe3b0c6cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95fc6bcf0f8abacfddddd17887104d63"><td class="memItemLeft" align="right" valign="top"><a id="a95fc6bcf0f8abacfddddd17887104d63"></a>
-HdmapStructPtr&#160;</td><td class="memItemRight" valign="bottom"><b>hdmap</b> = nullptr</td></tr>
+<tr class="memitem:a95fc6bcf0f8abacfddddd17887104d63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1perception.html#a3743b45af9cf55be395af57632aa922a">HdmapStructPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html#a95fc6bcf0f8abacfddddd17887104d63">hdmap</a> = nullptr</td></tr>
 <tr class="separator:a95fc6bcf0f8abacfddddd17887104d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8da958a5dbea5e35abcef403c67ee07"><td class="memItemLeft" align="right" valign="top"><a id="aa8da958a5dbea5e35abcef403c67ee07"></a>
-<a class="el" href="classapollo_1_1perception_1_1HDMapInput.html">HDMapInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>hdmap_input</b> = NULL</td></tr>
+<tr class="memitem:aa8da958a5dbea5e35abcef403c67ee07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1perception_1_1HDMapInput.html">HDMapInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html#aa8da958a5dbea5e35abcef403c67ee07">hdmap_input</a> = NULL</td></tr>
 <tr class="separator:aa8da958a5dbea5e35abcef403c67ee07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab60be286a13ad451a98fc112d8c9fafe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab60be286a13ad451a98fc112d8c9fafe">&#9670;&nbsp;</a></span>TrackerOptions() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::TrackerOptions::TrackerOptions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0394486aea9b7f9d80d6f429b30b5185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0394486aea9b7f9d80d6f429b30b5185">&#9670;&nbsp;</a></span>TrackerOptions() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::TrackerOptions::TrackerOptions </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Matrix4d *&#160;</td>
+          <td class="paramname"><em>pose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a95fc6bcf0f8abacfddddd17887104d63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95fc6bcf0f8abacfddddd17887104d63">&#9670;&nbsp;</a></span>hdmap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1perception.html#a3743b45af9cf55be395af57632aa922a">HdmapStructPtr</a> apollo::perception::TrackerOptions::hdmap = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8da958a5dbea5e35abcef403c67ee07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8da958a5dbea5e35abcef403c67ee07">&#9670;&nbsp;</a></span>hdmap_input</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1perception_1_1HDMapInput.html">HDMapInput</a>* apollo::perception::TrackerOptions::hdmap_input = NULL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a780759bfef0b3300db2accfe3b0c6cb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a780759bfef0b3300db2accfe3b0c6cb9">&#9670;&nbsp;</a></span>velodyne_trans</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;Eigen::Matrix4d&gt; apollo::perception::TrackerOptions::velodyne_trans</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>modules/perception/obstacle/lidar/interface/<a class="el" href="base__tracker_8h_source.html">base_tracker.h</a></li>
 </ul>

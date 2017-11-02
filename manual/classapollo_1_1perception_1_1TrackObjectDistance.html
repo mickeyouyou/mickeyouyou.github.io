@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html">TrackObjectDistance</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html">TrackObjectDistance</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -75,52 +76,356 @@ $(function() {
 <div class="title">apollo::perception::TrackObjectDistance Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="track__object__distance_8h_source.html">track_object_distance.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::TrackObjectDistance:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1TrackObjectDistance__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1TrackObjectDistance_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a08ea1c8d38b169110d2eb5e4e7e06eec"><td class="memItemLeft" align="right" valign="top"><a id="a08ea1c8d38b169110d2eb5e4e7e06eec"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>Name</b> () const</td></tr>
+<tr class="memitem:a08ea1c8d38b169110d2eb5e4e7e06eec"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#a08ea1c8d38b169110d2eb5e4e7e06eec">Name</a> () const</td></tr>
 <tr class="separator:a08ea1c8d38b169110d2eb5e4e7e06eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9f706f627f5bf5287c93e7f2da03f731"><td class="memItemLeft" align="right" valign="top"><a id="a9f706f627f5bf5287c93e7f2da03f731"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetLocationDistanceWeight</b> (const float &amp;location_distance_weight)</td></tr>
+<tr class="memitem:a9f706f627f5bf5287c93e7f2da03f731"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#a9f706f627f5bf5287c93e7f2da03f731">SetLocationDistanceWeight</a> (const float &amp;location_distance_weight)</td></tr>
 <tr class="separator:a9f706f627f5bf5287c93e7f2da03f731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0356caccec22510ae5c0f0ea023c0031"><td class="memItemLeft" align="right" valign="top"><a id="a0356caccec22510ae5c0f0ea023c0031"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetDirectionDistanceWeight</b> (const float &amp;direction_distance_weight)</td></tr>
+<tr class="memitem:a0356caccec22510ae5c0f0ea023c0031"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#a0356caccec22510ae5c0f0ea023c0031">SetDirectionDistanceWeight</a> (const float &amp;direction_distance_weight)</td></tr>
 <tr class="separator:a0356caccec22510ae5c0f0ea023c0031"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad113cc22d1578a9870cd6c77602b9c90"><td class="memItemLeft" align="right" valign="top"><a id="ad113cc22d1578a9870cd6c77602b9c90"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetBboxSizeDistanceWeight</b> (const float &amp;bbox_size_distance_weight)</td></tr>
+<tr class="memitem:ad113cc22d1578a9870cd6c77602b9c90"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#ad113cc22d1578a9870cd6c77602b9c90">SetBboxSizeDistanceWeight</a> (const float &amp;bbox_size_distance_weight)</td></tr>
 <tr class="separator:ad113cc22d1578a9870cd6c77602b9c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1921d470ed81d3ed1daf805d807f2c02"><td class="memItemLeft" align="right" valign="top"><a id="a1921d470ed81d3ed1daf805d807f2c02"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetPointNumDistanceWeight</b> (const float &amp;point_num_distance_weight)</td></tr>
+<tr class="memitem:a1921d470ed81d3ed1daf805d807f2c02"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#a1921d470ed81d3ed1daf805d807f2c02">SetPointNumDistanceWeight</a> (const float &amp;point_num_distance_weight)</td></tr>
 <tr class="separator:a1921d470ed81d3ed1daf805d807f2c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7f7d78bd51d977a8ed7be834ceba8e0"><td class="memItemLeft" align="right" valign="top"><a id="ae7f7d78bd51d977a8ed7be834ceba8e0"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetHistogramDistanceWeight</b> (const float &amp;histogram_distance_weight)</td></tr>
+<tr class="memitem:ae7f7d78bd51d977a8ed7be834ceba8e0"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#ae7f7d78bd51d977a8ed7be834ceba8e0">SetHistogramDistanceWeight</a> (const float &amp;histogram_distance_weight)</td></tr>
 <tr class="separator:ae7f7d78bd51d977a8ed7be834ceba8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a496c98811c456abab10fd4ef453c34f2"><td class="memItemLeft" align="right" valign="top"><a id="a496c98811c456abab10fd4ef453c34f2"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeDistance</b> (const <a class="el" href="classapollo_1_1perception_1_1ObjectTrack.html">ObjectTrackPtr</a> &amp;track, const Eigen::VectorXf &amp;track_predict, const TrackedObjectPtr &amp;new_object)</td></tr>
+<tr class="memitem:a496c98811c456abab10fd4ef453c34f2"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#a496c98811c456abab10fd4ef453c34f2">ComputeDistance</a> (const <a class="el" href="namespaceapollo_1_1perception.html#a0cb585e66fa3e56832be2964111bba13">ObjectTrackPtr</a> &amp;track, const Eigen::VectorXf &amp;track_predict, const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;new_object)</td></tr>
 <tr class="separator:a496c98811c456abab10fd4ef453c34f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:aacfbe62a58156d66b56fdf1a85a552a8"><td class="memItemLeft" align="right" valign="top"><a id="aacfbe62a58156d66b56fdf1a85a552a8"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>s_location_distance_weight_</b></td></tr>
+<tr class="memitem:aacfbe62a58156d66b56fdf1a85a552a8"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#aacfbe62a58156d66b56fdf1a85a552a8">s_location_distance_weight_</a></td></tr>
 <tr class="separator:aacfbe62a58156d66b56fdf1a85a552a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad63ed2cc28afb0f99aef149eed35caf1"><td class="memItemLeft" align="right" valign="top"><a id="ad63ed2cc28afb0f99aef149eed35caf1"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>s_direction_distance_weight_</b></td></tr>
+<tr class="memitem:ad63ed2cc28afb0f99aef149eed35caf1"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#ad63ed2cc28afb0f99aef149eed35caf1">s_direction_distance_weight_</a></td></tr>
 <tr class="separator:ad63ed2cc28afb0f99aef149eed35caf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42fde7e42ae3bfb4f0adb6af4437986e"><td class="memItemLeft" align="right" valign="top"><a id="a42fde7e42ae3bfb4f0adb6af4437986e"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>s_bbox_size_distance_weight_</b></td></tr>
+<tr class="memitem:a42fde7e42ae3bfb4f0adb6af4437986e"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#a42fde7e42ae3bfb4f0adb6af4437986e">s_bbox_size_distance_weight_</a></td></tr>
 <tr class="separator:a42fde7e42ae3bfb4f0adb6af4437986e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a535704dea436cd4060adf1922b374dfa"><td class="memItemLeft" align="right" valign="top"><a id="a535704dea436cd4060adf1922b374dfa"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>s_point_num_distance_weight_</b></td></tr>
+<tr class="memitem:a535704dea436cd4060adf1922b374dfa"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#a535704dea436cd4060adf1922b374dfa">s_point_num_distance_weight_</a></td></tr>
 <tr class="separator:a535704dea436cd4060adf1922b374dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1f6752b564259ac1affcb4ab02f207b"><td class="memItemLeft" align="right" valign="top"><a id="ac1f6752b564259ac1affcb4ab02f207b"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>s_histogram_distance_weight_</b></td></tr>
+<tr class="memitem:ac1f6752b564259ac1affcb4ab02f207b"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1TrackObjectDistance.html#ac1f6752b564259ac1affcb4ab02f207b">s_histogram_distance_weight_</a></td></tr>
 <tr class="separator:ac1f6752b564259ac1affcb4ab02f207b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a496c98811c456abab10fd4ef453c34f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496c98811c456abab10fd4ef453c34f2">&#9670;&nbsp;</a></span>ComputeDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float apollo::perception::TrackObjectDistance::ComputeDistance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a0cb585e66fa3e56832be2964111bba13">ObjectTrackPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>track</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::VectorXf &amp;&#160;</td>
+          <td class="paramname"><em>track_predict</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08ea1c8d38b169110d2eb5e4e7e06eec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08ea1c8d38b169110d2eb5e4e7e06eec">&#9670;&nbsp;</a></span>Name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string apollo::perception::TrackObjectDistance::Name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad113cc22d1578a9870cd6c77602b9c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad113cc22d1578a9870cd6c77602b9c90">&#9670;&nbsp;</a></span>SetBboxSizeDistanceWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::perception::TrackObjectDistance::SetBboxSizeDistanceWeight </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>bbox_size_distance_weight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0356caccec22510ae5c0f0ea023c0031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0356caccec22510ae5c0f0ea023c0031">&#9670;&nbsp;</a></span>SetDirectionDistanceWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::perception::TrackObjectDistance::SetDirectionDistanceWeight </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>direction_distance_weight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7f7d78bd51d977a8ed7be834ceba8e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7f7d78bd51d977a8ed7be834ceba8e0">&#9670;&nbsp;</a></span>SetHistogramDistanceWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::perception::TrackObjectDistance::SetHistogramDistanceWeight </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>histogram_distance_weight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f706f627f5bf5287c93e7f2da03f731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f706f627f5bf5287c93e7f2da03f731">&#9670;&nbsp;</a></span>SetLocationDistanceWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::perception::TrackObjectDistance::SetLocationDistanceWeight </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>location_distance_weight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1921d470ed81d3ed1daf805d807f2c02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1921d470ed81d3ed1daf805d807f2c02">&#9670;&nbsp;</a></span>SetPointNumDistanceWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::perception::TrackObjectDistance::SetPointNumDistanceWeight </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>point_num_distance_weight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a42fde7e42ae3bfb4f0adb6af4437986e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42fde7e42ae3bfb4f0adb6af4437986e">&#9670;&nbsp;</a></span>s_bbox_size_distance_weight_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::TrackObjectDistance::s_bbox_size_distance_weight_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad63ed2cc28afb0f99aef149eed35caf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad63ed2cc28afb0f99aef149eed35caf1">&#9670;&nbsp;</a></span>s_direction_distance_weight_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::TrackObjectDistance::s_direction_distance_weight_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac1f6752b564259ac1affcb4ab02f207b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1f6752b564259ac1affcb4ab02f207b">&#9670;&nbsp;</a></span>s_histogram_distance_weight_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::TrackObjectDistance::s_histogram_distance_weight_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aacfbe62a58156d66b56fdf1a85a552a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacfbe62a58156d66b56fdf1a85a552a8">&#9670;&nbsp;</a></span>s_location_distance_weight_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::TrackObjectDistance::s_location_distance_weight_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a535704dea436cd4060adf1922b374dfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535704dea436cd4060adf1922b374dfa">&#9670;&nbsp;</a></span>s_point_num_distance_weight_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::TrackObjectDistance::s_point_num_distance_weight_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/obstacle/lidar/tracker/hm_tracker/<a class="el" href="track__object__distance_8h_source.html">track_object_distance.h</a></li>
 </ul>

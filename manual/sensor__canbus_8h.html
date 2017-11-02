@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -77,23 +78,61 @@ $(function() {
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;condition_variable&gt;</code><br />
 <code>#include &quot;ros/include/ros/ros.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="can__client_8h_source.html">modules/drivers/canbus/can_client/can_client.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="can__client__factory_8h_source.html">modules/drivers/canbus/can_client/can_client_factory.h</a>&quot;</code><br />
-<code>#include &quot;modules/drivers/canbus/proto/can_card_parameter.pb.h&quot;</code><br />
-<code>#include &quot;modules/drivers/canbus/proto/sensor_canbus_conf.pb.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="adapter__manager_8h_source.html">modules/common/adapters/adapter_manager.h</a>&quot;</code><br />
 <code>#include &quot;modules/common/adapters/proto/adapter_config.pb.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="apollo__app_8h_source.html">modules/common/apollo_app.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="macro_8h_source.html">modules/common/macro.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="monitor_8h_source.html">modules/common/monitor/monitor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_2monitor_2monitor_8h_source.html">modules/common/monitor/monitor.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="time_8h_source.html">modules/common/time/time.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="common_2util_2util_8h_source.html">modules/common/util/util.h</a>&quot;</code><br />
 <code>#include &quot;modules/control/proto/control_cmd.pb.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="can__client_8h_source.html">modules/drivers/canbus/can_client/can_client.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="can__client__factory_8h_source.html">modules/drivers/canbus/can_client/can_client_factory.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="can__receiver_8h_source.html">modules/drivers/canbus/can_comm/can_receiver.h</a>&quot;</code><br />
-<code>#include &quot;modules/drivers/canbus/sensor_gflags.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="message__manager_8h_source.html">modules/drivers/canbus/can_comm/message_manager.h</a>&quot;</code><br />
-<code>#include &quot;modules/hmi/utils/hmi_status_helper.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="sensor__gflags_8h_source.html">modules/drivers/canbus/sensor_gflags.h</a>&quot;</code><br />
+<code>#include &quot;modules/drivers/canbus/proto/can_card_parameter.pb.h&quot;</code><br />
+<code>#include &quot;modules/drivers/canbus/proto/sensor_canbus_conf.pb.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="hmi__status__helper_8h_source.html">modules/hmi/utils/hmi_status_helper.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for sensor_canbus.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="sensor__canbus_8h__incl.png" border="0" usemap="#modules_2drivers_2canbus_2sensor__canbus_8h" alt=""/></div>
+<map name="modules_2drivers_2canbus_2sensor__canbus_8h" id="modules_2drivers_2canbus_2sensor__canbus_8h">
+<area shape="rect" id="node10" href="adapter__manager_8h.html" title="modules/common/adapters\l/adapter_manager.h" alt="" coords="2668,92,2850,131"/>
+<area shape="rect" id="node15" href="time_8h.html" title="This library provides the utilities to deal with timestamps. currently our assumption is that every t..." alt="" coords="3293,365,3448,404"/>
+<area shape="rect" id="node22" href="macro_8h.html" title="modules/common/macro.h" alt="" coords="3139,459,3317,484"/>
+<area shape="rect" id="node24" href="common_2util_2util_8h.html" title="Some util functions. " alt="" coords="2533,365,2680,404"/>
+<area shape="rect" id="node36" href="apollo__app_8h.html" title="modules/common/apollo\l_app.h" alt="" coords="1289,272,1455,311"/>
+<area shape="rect" id="node39" href="hmi__status__helper_8h.html" title="the class of HMIStatusHelper " alt="" coords="1176,365,1325,404"/>
+<area shape="rect" id="node40" href="common_2monitor_2monitor_8h.html" title="modules/common/monitor\l/monitor.h" alt="" coords="486,272,661,311"/>
+<area shape="rect" id="node43" href="can__client_8h.html" title="Defines the CanFrame struct and CanClient interface. " alt="" coords="990,365,1152,404"/>
+<area shape="rect" id="node46" href="can__client__factory_8h.html" title="Defines the CanClientFactory class. " alt="" coords="1682,265,1844,317"/>
+<area shape="rect" id="node47" href="can__receiver_8h.html" title="Defines CanReceiver class. " alt="" coords="1982,179,2162,217"/>
+<area shape="rect" id="node48" href="message__manager_8h.html" title="The class of MessageManager. " alt="" coords="2121,272,2340,311"/>
+<area shape="rect" id="node49" href="sensor__gflags_8h.html" title="modules/drivers/canbus\l/sensor_gflags.h" alt="" coords="3726,92,3888,131"/>
+<area shape="rect" id="node13" href="adapter_8h.html" title="modules/common/adapters\l/adapter.h" alt="" coords="2872,272,3054,311"/>
+<area shape="rect" id="node21" href="log_8h.html" title="modules/common/log.h" alt="" coords="1490,459,1649,484"/>
+<area shape="rect" id="node31" href="message__adapters_8h.html" title="modules/common/adapters\l/message_adapters.h" alt="" coords="2908,179,3090,217"/>
+<area shape="rect" id="node19" href="config__gflags_8h.html" title="modules/common/configs\l/config_gflags.h" alt="" coords="3614,452,3786,491"/>
+<area shape="rect" id="node27" href="vec2d_8h.html" title="Defines the Vec2d class. " alt="" coords="1817,452,1977,491"/>
+<area shape="rect" id="node38" href="common_2status_2status_8h.html" title="modules/common/status\l/status.h" alt="" coords="296,365,462,404"/>
+<area shape="rect" id="node42" href="monitor__buffer_8h.html" title="The class of MonitorBuffer. " alt="" coords="486,365,661,404"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="sensor__canbus_8h__dep__incl.png" border="0" usemap="#modules_2drivers_2canbus_2sensor__canbus_8hdep" alt=""/></div>
+<map name="modules_2drivers_2canbus_2sensor__canbus_8hdep" id="modules_2drivers_2canbus_2sensor__canbus_8hdep">
+<area shape="rect" id="node2" href="delphi__esr__canbus_8h.html" title="modules/drivers/delphi\l_esr/delphi_esr_canbus.h" alt="" coords="5,92,179,131"/>
+<area shape="rect" id="node3" href="mobileye__canbus_8h.html" title="modules/drivers/mobileye\l/mobileye_canbus.h" alt="" coords="203,92,376,131"/>
+</map>
+</div>
 </div>
 <p><a href="sensor__canbus_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -107,6 +146,8 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceapollo_1_1drivers"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1drivers.html">apollo::drivers</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1drivers"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1drivers.html" title="apollo::drivers ">apollo::drivers</a> <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

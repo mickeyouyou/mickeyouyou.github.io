@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1StGraphData.html">StGraphData</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1StGraphData.html">StGraphData</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,25 +74,137 @@ $(function() {
 <div class="title">apollo::planning::StGraphData Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="st__graph__data_8h_source.html">st_graph_data.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::StGraphData:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1StGraphData__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1StGraphData_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a02399cef39d21d68d2888ae3c3e0931d"><td class="memItemLeft" align="right" valign="top"><a id="a02399cef39d21d68d2888ae3c3e0931d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>StGraphData</b> (const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> *&gt; &amp;st_boundaries, const apollo::common::TrajectoryPoint &amp;init_point, const <a class="el" href="classapollo_1_1planning_1_1SpeedLimit.html">SpeedLimit</a> &amp;speed_limit, const double path_data_length)</td></tr>
+<tr class="memitem:a02399cef39d21d68d2888ae3c3e0931d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StGraphData.html#a02399cef39d21d68d2888ae3c3e0931d">StGraphData</a> (const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> *&gt; &amp;<a class="el" href="classapollo_1_1planning_1_1StGraphData.html#a5581c46d2a6273a6a5a9b136921e45ea">st_boundaries</a>, const apollo::common::TrajectoryPoint &amp;<a class="el" href="classapollo_1_1planning_1_1StGraphData.html#aa4cded6f271ce0327a2d6bbed0e50b00">init_point</a>, const <a class="el" href="classapollo_1_1planning_1_1SpeedLimit.html">SpeedLimit</a> &amp;<a class="el" href="classapollo_1_1planning_1_1StGraphData.html#a52b264acc4be4857c8a3271a408eb84d">speed_limit</a>, const double <a class="el" href="classapollo_1_1planning_1_1StGraphData.html#a2319cb3cc403b078f061d4319d2e4e09">path_data_length</a>)</td></tr>
 <tr class="separator:a02399cef39d21d68d2888ae3c3e0931d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5581c46d2a6273a6a5a9b136921e45ea"><td class="memItemLeft" align="right" valign="top"><a id="a5581c46d2a6273a6a5a9b136921e45ea"></a>
-const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>st_boundaries</b> () const</td></tr>
+<tr class="memitem:a5581c46d2a6273a6a5a9b136921e45ea"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StGraphData.html#a5581c46d2a6273a6a5a9b136921e45ea">st_boundaries</a> () const</td></tr>
 <tr class="separator:a5581c46d2a6273a6a5a9b136921e45ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4cded6f271ce0327a2d6bbed0e50b00"><td class="memItemLeft" align="right" valign="top"><a id="aa4cded6f271ce0327a2d6bbed0e50b00"></a>
-const apollo::common::TrajectoryPoint &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>init_point</b> () const</td></tr>
+<tr class="memitem:aa4cded6f271ce0327a2d6bbed0e50b00"><td class="memItemLeft" align="right" valign="top">const apollo::common::TrajectoryPoint &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StGraphData.html#aa4cded6f271ce0327a2d6bbed0e50b00">init_point</a> () const</td></tr>
 <tr class="separator:aa4cded6f271ce0327a2d6bbed0e50b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52b264acc4be4857c8a3271a408eb84d"><td class="memItemLeft" align="right" valign="top"><a id="a52b264acc4be4857c8a3271a408eb84d"></a>
-const <a class="el" href="classapollo_1_1planning_1_1SpeedLimit.html">SpeedLimit</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>speed_limit</b> () const</td></tr>
+<tr class="memitem:a52b264acc4be4857c8a3271a408eb84d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classapollo_1_1planning_1_1SpeedLimit.html">SpeedLimit</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StGraphData.html#a52b264acc4be4857c8a3271a408eb84d">speed_limit</a> () const</td></tr>
 <tr class="separator:a52b264acc4be4857c8a3271a408eb84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2319cb3cc403b078f061d4319d2e4e09"><td class="memItemLeft" align="right" valign="top"><a id="a2319cb3cc403b078f061d4319d2e4e09"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>path_data_length</b> () const</td></tr>
+<tr class="memitem:a2319cb3cc403b078f061d4319d2e4e09"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1StGraphData.html#a2319cb3cc403b078f061d4319d2e4e09">path_data_length</a> () const</td></tr>
 <tr class="separator:a2319cb3cc403b078f061d4319d2e4e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a02399cef39d21d68d2888ae3c3e0931d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02399cef39d21d68d2888ae3c3e0931d">&#9670;&nbsp;</a></span>StGraphData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::StGraphData::StGraphData </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> *&gt; &amp;&#160;</td>
+          <td class="paramname"><em>st_boundaries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const apollo::common::TrajectoryPoint &amp;&#160;</td>
+          <td class="paramname"><em>init_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1SpeedLimit.html">SpeedLimit</a> &amp;&#160;</td>
+          <td class="paramname"><em>speed_limit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>path_data_length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa4cded6f271ce0327a2d6bbed0e50b00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4cded6f271ce0327a2d6bbed0e50b00">&#9670;&nbsp;</a></span>init_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const apollo::common::TrajectoryPoint&amp; apollo::planning::StGraphData::init_point </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2319cb3cc403b078f061d4319d2e4e09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2319cb3cc403b078f061d4319d2e4e09">&#9670;&nbsp;</a></span>path_data_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::StGraphData::path_data_length </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52b264acc4be4857c8a3271a408eb84d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52b264acc4be4857c8a3271a408eb84d">&#9670;&nbsp;</a></span>speed_limit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classapollo_1_1planning_1_1SpeedLimit.html">SpeedLimit</a>&amp; apollo::planning::StGraphData::speed_limit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5581c46d2a6273a6a5a9b136921e45ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5581c46d2a6273a6a5a9b136921e45ea">&#9670;&nbsp;</a></span>st_boundaries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a>*&gt;&amp; apollo::planning::StGraphData::st_boundaries </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/tasks/st_graph/<a class="el" href="st__graph__data_8h_source.html">st_graph_data.h</a></li>
 </ul>

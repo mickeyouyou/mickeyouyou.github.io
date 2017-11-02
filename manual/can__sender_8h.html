@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -86,12 +87,40 @@ $(function() {
 <code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;gtest/gtest_prod.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="common_2log_8h_source.html">modules/common/log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_8h_source.html">modules/common/log.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="macro_8h_source.html">modules/common/macro.h</a>&quot;</code><br />
 <code>#include &quot;modules/common/proto/error_code.pb.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="time_8h_source.html">modules/common/time/time.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="can__client_8h_source.html">modules/drivers/canbus/can_client/can_client.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="protocol__data_8h_source.html">modules/drivers/canbus/can_comm/protocol_data.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for can_sender.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="can__sender_8h__incl.png" border="0" usemap="#modules_2drivers_2canbus_2can__comm_2can__sender_8h" alt=""/></div>
+<map name="modules_2drivers_2canbus_2can__comm_2can__sender_8h" id="modules_2drivers_2canbus_2can__comm_2can__sender_8h">
+<area shape="rect" id="node10" href="log_8h.html" title="modules/common/log.h" alt="" coords="951,185,1110,211"/>
+<area shape="rect" id="node13" href="macro_8h.html" title="modules/common/macro.h" alt="" coords="748,185,926,211"/>
+<area shape="rect" id="node16" href="time_8h.html" title="This library provides the utilities to deal with timestamps. currently our assumption is that every t..." alt="" coords="759,92,915,131"/>
+<area shape="rect" id="node24" href="can__client_8h.html" title="Defines the CanFrame struct and CanClient interface. " alt="" coords="1617,92,1779,131"/>
+<area shape="rect" id="node31" href="protocol__data_8h.html" title="The class of ProtocolData. " alt="" coords="1069,92,1255,131"/>
+<area shape="rect" id="node21" href="config__gflags_8h.html" title="modules/common/configs\l/config_gflags.h" alt="" coords="5,179,178,217"/>
+<area shape="rect" id="node29" href="byte_8h.html" title="Defines the Byte class. " alt="" coords="1965,179,2127,217"/>
+<area shape="rect" id="node33" href="canbus__consts_8h.html" title="modules/drivers/canbus\l/common/canbus_consts.h" alt="" coords="1215,179,1395,217"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="can__sender_8h__dep__incl.png" border="0" usemap="#modules_2drivers_2canbus_2can__comm_2can__sender_8hdep" alt=""/></div>
+<map name="modules_2drivers_2canbus_2can__comm_2can__sender_8hdep" id="modules_2drivers_2canbus_2can__comm_2can__sender_8hdep">
+<area shape="rect" id="node2" href="vehicle__controller_8h.html" title="The class of VehicleController. " alt="" coords="137,92,301,131"/>
+<area shape="rect" id="node3" href="canbus_8h.html" title="modules/canbus/canbus.h" alt="" coords="5,185,182,211"/>
+<area shape="rect" id="node4" href="abstract__vehicle__factory_8h.html" title="modules/canbus/vehicle\l/abstract_vehicle_factory.h" alt="" coords="256,179,435,217"/>
+<area shape="rect" id="node5" href="lincoln__vehicle__factory_8h.html" title="modules/canbus/vehicle\l/lincoln/lincoln_vehicle\l_factory.h" alt="" coords="137,265,301,317"/>
+<area shape="rect" id="node7" href="lincoln__controller_8h.html" title="The class of LincolnController. " alt="" coords="458,179,635,217"/>
+<area shape="rect" id="node6" href="vehicle__factory_8h.html" title="modules/canbus/vehicle\l/vehicle_factory.h" alt="" coords="325,272,489,311"/>
+</map>
+</div>
 </div>
 <p><a href="can__sender_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -109,20 +138,20 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceapollo_1_1drivers_1_1canbus"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html">apollo::drivers::canbus</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1drivers_1_1canbus"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html" title="apollo::drivers::canbus ">apollo::drivers::canbus</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceapollo_1_1drivers"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1drivers.html">apollo::drivers</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1drivers"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1drivers.html" title="apollo::drivers ">apollo::drivers</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a5edadc7ae5960c06f6684a6b61af2e97"><td class="memItemLeft" align="right" valign="top"><a id="a5edadc7ae5960c06f6684a6b61af2e97"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::drivers::canbus::micros</b> = common::time::micros</td></tr>
+<tr class="memitem:a5edadc7ae5960c06f6684a6b61af2e97"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html#a5edadc7ae5960c06f6684a6b61af2e97">apollo::drivers::canbus::micros</a> = common::time::micros</td></tr>
 <tr class="separator:a5edadc7ae5960c06f6684a6b61af2e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a6e4a04a11a13e7171541887e2eed5183"><td class="memItemLeft" align="right" valign="top"><a id="a6e4a04a11a13e7171541887e2eed5183"></a>
-const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::drivers::canbus::kSenderInterval</b> = 6000</td></tr>
+<tr class="memitem:a6e4a04a11a13e7171541887e2eed5183"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html#a6e4a04a11a13e7171541887e2eed5183">apollo::drivers::canbus::kSenderInterval</a> = 6000</td></tr>
 <tr class="separator:a6e4a04a11a13e7171541887e2eed5183"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

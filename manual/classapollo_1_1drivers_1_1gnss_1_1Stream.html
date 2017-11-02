@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><b>gnss</b></li><li class="navelem"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1gnss.html">gnss</a></li><li class="navelem"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,84 +72,605 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classapollo_1_1drivers_1_1gnss_1_1Stream-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">apollo::drivers::gnss::Stream Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="stream_8h_source.html">stream.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::drivers::gnss::Stream:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1drivers_1_1gnss_1_1Stream.png" usemap="#apollo::drivers::gnss::Stream_map" alt=""/>
-  <map id="apollo::drivers::gnss::Stream_map" name="apollo::drivers::gnss::Stream_map">
-<area href="classapollo_1_1drivers_1_1gnss_1_1TcpStream.html" alt="apollo::drivers::gnss::TcpStream" shape="rect" coords="0,56,190,80"/>
+<div class="center"><img src="classapollo_1_1drivers_1_1gnss_1_1Stream__inherit__graph.png" border="0" usemap="#apollo_1_1drivers_1_1gnss_1_1Stream_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1drivers_1_1gnss_1_1Stream_inherit__map" id="apollo_1_1drivers_1_1gnss_1_1Stream_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1drivers_1_1gnss_1_1TcpStream.html" title="{apollo::drivers::gnss\l::TcpStream\n||+ TcpStream()\l+ ~TcpStream()\l+ connect()\l+ disconnect()\l+ read()\l+ write()\l}" alt="" coords="13,327,153,480"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::drivers::gnss::Stream:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1drivers_1_1gnss_1_1Stream__coll__graph.png" border="0" usemap="#apollo_1_1drivers_1_1gnss_1_1Stream_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aa229e51103f4b18878582d9e9af5b603"><td class="memItemLeft" align="right" valign="top"><a id="aa229e51103f4b18878582d9e9af5b603"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Status</b> { <b>DISCONNECTED</b>, 
-<b>CONNECTED</b>, 
-<b>ERROR</b>
+<tr class="memitem:aa229e51103f4b18878582d9e9af5b603"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603">Status</a> { <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603a99c8ce56e7ab246445d3b134724428f3">Status::DISCONNECTED</a>, 
+<a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603aa5afd6edd5336d91316964e493936858">Status::CONNECTED</a>, 
+<a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603abb1ca97ec761fc37101737ba0aa2e7c5">Status::ERROR</a>
  }</td></tr>
 <tr class="separator:aa229e51103f4b18878582d9e9af5b603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a63d0b479ac3f38ba7e2395d2e7b24c7f"><td class="memItemLeft" align="right" valign="top"><a id="a63d0b479ac3f38ba7e2395d2e7b24c7f"></a>
-Status&#160;</td><td class="memItemRight" valign="bottom"><b>get_status</b> () const</td></tr>
+<tr class="memitem:ae69c412489ca6e47c7e54a09f16c8424"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#ae69c412489ca6e47c7e54a09f16c8424">~Stream</a> ()</td></tr>
+<tr class="separator:ae69c412489ca6e47c7e54a09f16c8424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d0b479ac3f38ba7e2395d2e7b24c7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a63d0b479ac3f38ba7e2395d2e7b24c7f">get_status</a> () const</td></tr>
 <tr class="separator:a63d0b479ac3f38ba7e2395d2e7b24c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3795fcbe833ddd5fb37eb7437f4fd9db"><td class="memItemLeft" align="right" valign="top"><a id="a3795fcbe833ddd5fb37eb7437f4fd9db"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>connect</b> ()=0</td></tr>
+<tr class="memitem:a3795fcbe833ddd5fb37eb7437f4fd9db"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a3795fcbe833ddd5fb37eb7437f4fd9db">connect</a> ()=0</td></tr>
 <tr class="separator:a3795fcbe833ddd5fb37eb7437f4fd9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1f6e92d0868f8a3ad588dcfa3f3fb39"><td class="memItemLeft" align="right" valign="top"><a id="ae1f6e92d0868f8a3ad588dcfa3f3fb39"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>disconnect</b> ()=0</td></tr>
+<tr class="memitem:ae1f6e92d0868f8a3ad588dcfa3f3fb39"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#ae1f6e92d0868f8a3ad588dcfa3f3fb39">disconnect</a> ()=0</td></tr>
 <tr class="separator:ae1f6e92d0868f8a3ad588dcfa3f3fb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaae58b3a4bc8bfcba28f4bd22aa5c055"><td class="memItemLeft" align="right" valign="top"><a id="aaae58b3a4bc8bfcba28f4bd22aa5c055"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>register_login_data</b> (const std::vector&lt; std::string &gt; login_data)</td></tr>
+<tr class="memitem:aaae58b3a4bc8bfcba28f4bd22aa5c055"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aaae58b3a4bc8bfcba28f4bd22aa5c055">register_login_data</a> (const std::vector&lt; std::string &gt; login_data)</td></tr>
 <tr class="separator:aaae58b3a4bc8bfcba28f4bd22aa5c055"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5fe408288c4d4d92f4a95cb4c277ca3"><td class="memItemLeft" align="right" valign="top"><a id="ac5fe408288c4d4d92f4a95cb4c277ca3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>login</b> ()</td></tr>
+<tr class="memitem:ac5fe408288c4d4d92f4a95cb4c277ca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#ac5fe408288c4d4d92f4a95cb4c277ca3">login</a> ()</td></tr>
 <tr class="separator:ac5fe408288c4d4d92f4a95cb4c277ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56c7dac2eb0656bcc499e248785813cd"><td class="memItemLeft" align="right" valign="top"><a id="a56c7dac2eb0656bcc499e248785813cd"></a>
-virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (uint8_t *buffer, size_t max_length)=0</td></tr>
+<tr class="memitem:a56c7dac2eb0656bcc499e248785813cd"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a56c7dac2eb0656bcc499e248785813cd">read</a> (uint8_t *buffer, size_t max_length)=0</td></tr>
 <tr class="separator:a56c7dac2eb0656bcc499e248785813cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fced0c0e5d49b9fb0563cdc1fa766b0"><td class="memItemLeft" align="right" valign="top"><a id="a0fced0c0e5d49b9fb0563cdc1fa766b0"></a>
-virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (const uint8_t *buffer, size_t length)=0</td></tr>
+<tr class="memitem:a0fced0c0e5d49b9fb0563cdc1fa766b0"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a0fced0c0e5d49b9fb0563cdc1fa766b0">write</a> (const uint8_t *buffer, size_t length)=0</td></tr>
 <tr class="separator:a0fced0c0e5d49b9fb0563cdc1fa766b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27c82dd2cd04432de38ff22a9a4f95ab"><td class="memItemLeft" align="right" valign="top"><a id="a27c82dd2cd04432de38ff22a9a4f95ab"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (const std::string &amp;buffer)</td></tr>
+<tr class="memitem:a27c82dd2cd04432de38ff22a9a4f95ab"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a27c82dd2cd04432de38ff22a9a4f95ab">write</a> (const std::string &amp;buffer)</td></tr>
 <tr class="separator:a27c82dd2cd04432de38ff22a9a4f95ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6986f0b3da7bf271825be116108a8a2c"><td class="memItemLeft" align="right" valign="top"><a id="a6986f0b3da7bf271825be116108a8a2c"></a>
-static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>create_tcp</b> (const char *address, uint16_t port, uint32_t timeout_usec=1000000)</td></tr>
+<tr class="memitem:a6986f0b3da7bf271825be116108a8a2c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a6986f0b3da7bf271825be116108a8a2c">create_tcp</a> (const char *address, uint16_t port, uint32_t timeout_usec=1000000)</td></tr>
 <tr class="separator:a6986f0b3da7bf271825be116108a8a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01359a81369d43c85394d93e1f1d977e"><td class="memItemLeft" align="right" valign="top"><a id="a01359a81369d43c85394d93e1f1d977e"></a>
-static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>create_udp</b> (const char *address, uint16_t port, uint32_t timeout_usec=1000000)</td></tr>
+<tr class="memitem:a01359a81369d43c85394d93e1f1d977e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a01359a81369d43c85394d93e1f1d977e">create_udp</a> (const char *address, uint16_t port, uint32_t timeout_usec=1000000)</td></tr>
 <tr class="separator:a01359a81369d43c85394d93e1f1d977e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5d7163721f5842ecb127f4185a51ef7"><td class="memItemLeft" align="right" valign="top"><a id="ac5d7163721f5842ecb127f4185a51ef7"></a>
-static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>create_serial</b> (const char *device_name, uint32_t baud_rate, uint32_t timeout_usec=0)</td></tr>
+<tr class="memitem:ac5d7163721f5842ecb127f4185a51ef7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#ac5d7163721f5842ecb127f4185a51ef7">create_serial</a> (const char *device_name, uint32_t baud_rate, uint32_t timeout_usec=0)</td></tr>
 <tr class="separator:ac5d7163721f5842ecb127f4185a51ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6182c56d9daebede275918862ca1203a"><td class="memItemLeft" align="right" valign="top"><a id="a6182c56d9daebede275918862ca1203a"></a>
-static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>create_ntrip</b> (const std::string &amp;address, uint16_t port, const std::string &amp;mountpoint, const std::string &amp;user, const std::string &amp;passwd, uint32_t timeout_s=30)</td></tr>
+<tr class="memitem:a6182c56d9daebede275918862ca1203a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a6182c56d9daebede275918862ca1203a">create_ntrip</a> (const std::string &amp;address, uint16_t port, const std::string &amp;mountpoint, const std::string &amp;user, const std::string &amp;passwd, uint32_t timeout_s=30)</td></tr>
 <tr class="separator:a6182c56d9daebede275918862ca1203a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9a6888dfdba757bba3cd53d8e6ce0cfd"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>NUM_STATUS</b></td></tr>
+<tr class="memitem:a9a6888dfdba757bba3cd53d8e6ce0cfd"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a9a6888dfdba757bba3cd53d8e6ce0cfd">NUM_STATUS</a></td></tr>
 <tr class="separator:a9a6888dfdba757bba3cd53d8e6ce0cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ae391f1c9f44ccc74d4435a2e4227b450"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#ae391f1c9f44ccc74d4435a2e4227b450">Stream</a> ()</td></tr>
+<tr class="separator:ae391f1c9f44ccc74d4435a2e4227b450"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a3df5633f999c0543a00b558ba702b9e5"><td class="memItemLeft" align="right" valign="top"><a id="a3df5633f999c0543a00b558ba702b9e5"></a>
-Status&#160;</td><td class="memItemRight" valign="bottom"><b>_status</b> = Status::DISCONNECTED</td></tr>
+<tr class="memitem:a3df5633f999c0543a00b558ba702b9e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#a3df5633f999c0543a00b558ba702b9e5">_status</a> = <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603a99c8ce56e7ab246445d3b134724428f3">Status::DISCONNECTED</a></td></tr>
 <tr class="separator:a3df5633f999c0543a00b558ba702b9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="aa229e51103f4b18878582d9e9af5b603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa229e51103f4b18878582d9e9af5b603">&#9670;&nbsp;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603">apollo::drivers::gnss::Stream::Status</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa229e51103f4b18878582d9e9af5b603a99c8ce56e7ab246445d3b134724428f3"></a>DISCONNECTED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa229e51103f4b18878582d9e9af5b603aa5afd6edd5336d91316964e493936858"></a>CONNECTED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa229e51103f4b18878582d9e9af5b603abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae69c412489ca6e47c7e54a09f16c8424"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae69c412489ca6e47c7e54a09f16c8424">&#9670;&nbsp;</a></span>~Stream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::drivers::gnss::Stream::~Stream </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae391f1c9f44ccc74d4435a2e4227b450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae391f1c9f44ccc74d4435a2e4227b450">&#9670;&nbsp;</a></span>Stream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::drivers::gnss::Stream::Stream </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3795fcbe833ddd5fb37eb7437f4fd9db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3795fcbe833ddd5fb37eb7437f4fd9db">&#9670;&nbsp;</a></span>connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool apollo::drivers::gnss::Stream::connect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1TcpStream.html#aba1f9b628e94ff18f24a9c7c8a780bee">apollo::drivers::gnss::TcpStream</a>.</p>
+
+</div>
+</div>
+<a id="a6182c56d9daebede275918862ca1203a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6182c56d9daebede275918862ca1203a">&#9670;&nbsp;</a></span>create_ntrip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a>* apollo::drivers::gnss::Stream::create_ntrip </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>mountpoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>passwd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>timeout_s</em> = <code>30</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5d7163721f5842ecb127f4185a51ef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d7163721f5842ecb127f4185a51ef7">&#9670;&nbsp;</a></span>create_serial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a>* apollo::drivers::gnss::Stream::create_serial </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>device_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>baud_rate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>timeout_usec</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6986f0b3da7bf271825be116108a8a2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6986f0b3da7bf271825be116108a8a2c">&#9670;&nbsp;</a></span>create_tcp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a>* apollo::drivers::gnss::Stream::create_tcp </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>timeout_usec</em> = <code>1000000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01359a81369d43c85394d93e1f1d977e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01359a81369d43c85394d93e1f1d977e">&#9670;&nbsp;</a></span>create_udp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html">Stream</a>* apollo::drivers::gnss::Stream::create_udp </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>timeout_usec</em> = <code>1000000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1f6e92d0868f8a3ad588dcfa3f3fb39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1f6e92d0868f8a3ad588dcfa3f3fb39">&#9670;&nbsp;</a></span>disconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool apollo::drivers::gnss::Stream::disconnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1TcpStream.html#a6b362cc90fcfeac9f5ef0342555aba63">apollo::drivers::gnss::TcpStream</a>.</p>
+
+</div>
+</div>
+<a id="a63d0b479ac3f38ba7e2395d2e7b24c7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63d0b479ac3f38ba7e2395d2e7b24c7f">&#9670;&nbsp;</a></span>get_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603">Status</a> apollo::drivers::gnss::Stream::get_status </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5fe408288c4d4d92f4a95cb4c277ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5fe408288c4d4d92f4a95cb4c277ca3">&#9670;&nbsp;</a></span>login()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::drivers::gnss::Stream::login </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56c7dac2eb0656bcc499e248785813cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c7dac2eb0656bcc499e248785813cd">&#9670;&nbsp;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual size_t apollo::drivers::gnss::Stream::read </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>max_length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1TcpStream.html#a659449410a4a36cabf20815782f791b2">apollo::drivers::gnss::TcpStream</a>.</p>
+
+</div>
+</div>
+<a id="aaae58b3a4bc8bfcba28f4bd22aa5c055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae58b3a4bc8bfcba28f4bd22aa5c055">&#9670;&nbsp;</a></span>register_login_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::drivers::gnss::Stream::register_login_data </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>login_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fced0c0e5d49b9fb0563cdc1fa766b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fced0c0e5d49b9fb0563cdc1fa766b0">&#9670;&nbsp;</a></span>write() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual size_t apollo::drivers::gnss::Stream::write </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1TcpStream.html#af3828f5c2f7495f8edb4c70e81549dc1">apollo::drivers::gnss::TcpStream</a>.</p>
+
+</div>
+</div>
+<a id="a27c82dd2cd04432de38ff22a9a4f95ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27c82dd2cd04432de38ff22a9a4f95ab">&#9670;&nbsp;</a></span>write() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t apollo::drivers::gnss::Stream::write </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3df5633f999c0543a00b558ba702b9e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df5633f999c0543a00b558ba702b9e5">&#9670;&nbsp;</a></span>_status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603">Status</a> apollo::drivers::gnss::Stream::_status = <a class="el" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603a99c8ce56e7ab246445d3b134724428f3">Status::DISCONNECTED</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9a6888dfdba757bba3cd53d8e6ce0cfd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a6888dfdba757bba3cd53d8e6ce0cfd">&#9670;&nbsp;</a></span>NUM_STATUS</h2>
 
@@ -168,7 +690,7 @@ Status&#160;</td><td class="memItemRight" valign="bottom"><b>_status</b> = Statu
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">      <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(Stream::Status::ERROR) + 1</div></div><!-- fragment -->
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">      <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code" href="classapollo_1_1drivers_1_1gnss_1_1Stream.html#aa229e51103f4b18878582d9e9af5b603abb1ca97ec761fc37101737ba0aa2e7c5">Stream::Status::ERROR</a>) + 1</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

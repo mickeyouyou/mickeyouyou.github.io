@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><b>velodyne</b></li><li class="navelem"><a class="el" href="unionapollo_1_1drivers_1_1velodyne_1_1RawDistance.html">RawDistance</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1velodyne.html">velodyne</a></li><li class="navelem"><a class="el" href="unionapollo_1_1drivers_1_1velodyne_1_1RawDistance.html">RawDistance</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -75,20 +76,52 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="velodyne__parser_8h_source.html">velodyne_parser.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::drivers::velodyne::RawDistance:</div>
+<div class="dyncontent">
+<div class="center"><img src="unionapollo_1_1drivers_1_1velodyne_1_1RawDistance__coll__graph.png" border="0" usemap="#apollo_1_1drivers_1_1velodyne_1_1RawDistance_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a63833929cdadaca60844735a756d39a7"><td class="memItemLeft" align="right" valign="top"><a id="a63833929cdadaca60844735a756d39a7"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>raw_distance</b></td></tr>
+<tr class="memitem:a63833929cdadaca60844735a756d39a7"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionapollo_1_1drivers_1_1velodyne_1_1RawDistance.html#a63833929cdadaca60844735a756d39a7">raw_distance</a></td></tr>
 <tr class="separator:a63833929cdadaca60844735a756d39a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3449501e8bb085ac993e123fff69be54"><td class="memItemLeft" align="right" valign="top"><a id="a3449501e8bb085ac993e123fff69be54"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bytes</b> [2]</td></tr>
+<tr class="memitem:a3449501e8bb085ac993e123fff69be54"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionapollo_1_1drivers_1_1velodyne_1_1RawDistance.html#a3449501e8bb085ac993e123fff69be54">bytes</a> [2]</td></tr>
 <tr class="separator:a3449501e8bb085ac993e123fff69be54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>used for unpacking the first two data bytes in a block</p>
 <p>They are packed into the actual data stream misaligned. I doubt this works on big endian machines. </p>
-</div><hr/>The documentation for this union was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3449501e8bb085ac993e123fff69be54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3449501e8bb085ac993e123fff69be54">&#9670;&nbsp;</a></span>bytes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t apollo::drivers::velodyne::RawDistance::bytes[2]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63833929cdadaca60844735a756d39a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63833929cdadaca60844735a756d39a7">&#9670;&nbsp;</a></span>raw_distance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t apollo::drivers::velodyne::RawDistance::raw_distance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this union was generated from the following file:<ul>
 <li>modules/drivers/velodyne/velodyne_pointcloud/include/velodyne_pointcloud/<a class="el" href="velodyne__parser_8h_source.html">velodyne_parser.h</a></li>
 </ul>
 </div><!-- contents -->

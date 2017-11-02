@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1time.html">time</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html">Clock</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1time.html">time</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html">Clock</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -80,43 +81,68 @@ $(function() {
  <a href="classapollo_1_1common_1_1time_1_1Clock.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="time_8h_source.html">time.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::common::time::Clock:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1common_1_1time_1_1Clock__coll__graph.png" border="0" usemap="#apollo_1_1common_1_1time_1_1Clock_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aea5448fb2fa732f456c24dc436fbff4a"><td class="memItemLeft" align="right" valign="top"><a id="aea5448fb2fa732f456c24dc436fbff4a"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a">ClockMode</a> { <b>SYSTEM</b> = 0, 
-<b>MOCK</b> = 1, 
-<b>ROS</b> = 2
+<tr class="memitem:aea5448fb2fa732f456c24dc436fbff4a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a">ClockMode</a> { <a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4aa6abe8f9cc724485ac3cea3b047bfa432">SYSTEM</a> = 0, 
+<a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4aa65e97396b7ddd1526422f4cda036150e">MOCK</a> = 1, 
+<a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4aa5d39179d2e1c78f8de1d2b07be9b76a8">ROS</a> = 2
  }</td></tr>
-<tr class="memdesc:aea5448fb2fa732f456c24dc436fbff4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">PRECISION &gt;= 1000000 means the precision is at least 1us. <br /></td></tr>
+<tr class="memdesc:aea5448fb2fa732f456c24dc436fbff4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">PRECISION &gt;= 1000000 means the precision is at least 1us.  <a href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a">More...</a><br /></td></tr>
 <tr class="separator:aea5448fb2fa732f456c24dc436fbff4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac76653693c878f26c26fdccff24098c2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTimestamp.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#ac76653693c878f26c26fdccff24098c2">Now</a> ()</td></tr>
+<tr class="memitem:ac76653693c878f26c26fdccff24098c2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceapollo_1_1common_1_1time.html#aacf1c652dbeb06360bc386900770b0f2">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#ac76653693c878f26c26fdccff24098c2">Now</a> ()</td></tr>
 <tr class="memdesc:ac76653693c878f26c26fdccff24098c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the current timestamp.  <a href="#ac76653693c878f26c26fdccff24098c2">More...</a><br /></td></tr>
 <tr class="separator:ac76653693c878f26c26fdccff24098c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06cbfbfed4ef5b2c2047e28edb4310b6"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#a06cbfbfed4ef5b2c2047e28edb4310b6">NowInSecond</a> ()</td></tr>
 <tr class="memdesc:a06cbfbfed4ef5b2c2047e28edb4310b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the current time in second.  <a href="#a06cbfbfed4ef5b2c2047e28edb4310b6">More...</a><br /></td></tr>
 <tr class="separator:a06cbfbfed4ef5b2c2047e28edb4310b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab34fe3d1a2021781e237f46f1e8e23cb"><td class="memItemLeft" align="right" valign="top"><a id="ab34fe3d1a2021781e237f46f1e8e23cb"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMode</b> (<a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a">ClockMode</a> <a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#a2f5751d6ceccba4fefe3d4e0285b5998">mode</a>)</td></tr>
+<tr class="memitem:ab34fe3d1a2021781e237f46f1e8e23cb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#ab34fe3d1a2021781e237f46f1e8e23cb">SetMode</a> (<a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a">ClockMode</a> <a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#a2f5751d6ceccba4fefe3d4e0285b5998">mode</a>)</td></tr>
 <tr class="separator:ab34fe3d1a2021781e237f46f1e8e23cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f5751d6ceccba4fefe3d4e0285b5998"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a">ClockMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#a2f5751d6ceccba4fefe3d4e0285b5998">mode</a> ()</td></tr>
 <tr class="memdesc:a2f5751d6ceccba4fefe3d4e0285b5998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current clock mode.  <a href="#a2f5751d6ceccba4fefe3d4e0285b5998">More...</a><br /></td></tr>
 <tr class="separator:a2f5751d6ceccba4fefe3d4e0285b5998"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3df9d2a186c695ef140b3bc7ac7976d0"><td class="memItemLeft" align="right" valign="top"><a id="a3df9d2a186c695ef140b3bc7ac7976d0"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#a3df9d2a186c695ef140b3bc7ac7976d0">SetNow</a> (const <a class="el" href="classDuration.html">Duration</a> &amp;duration)</td></tr>
-<tr class="memdesc:a3df9d2a186c695ef140b3bc7ac7976d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is for mock clock mode only. It will set the timestamp for the mock clock. <br /></td></tr>
+<tr class="memitem:a3df9d2a186c695ef140b3bc7ac7976d0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#a3df9d2a186c695ef140b3bc7ac7976d0">SetNow</a> (const <a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">Duration</a> &amp;duration)</td></tr>
+<tr class="memdesc:a3df9d2a186c695ef140b3bc7ac7976d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is for mock clock mode only. It will set the timestamp for the mock clock.  <a href="#a3df9d2a186c695ef140b3bc7ac7976d0">More...</a><br /></td></tr>
 <tr class="separator:a3df9d2a186c695ef140b3bc7ac7976d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a920eab31ade4dab70de05231312d5358"><td class="memItemLeft" align="right" valign="top">static constexpr int64_t&#160;</td><td class="memItemRight" valign="bottom"><b>PRECISION</b></td></tr>
+<tr class="memitem:a920eab31ade4dab70de05231312d5358"><td class="memItemLeft" align="right" valign="top">static constexpr int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#a920eab31ade4dab70de05231312d5358">PRECISION</a></td></tr>
 <tr class="separator:a920eab31ade4dab70de05231312d5358"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>a singleton clock that can be used to get the current current timestamp. The source can be either system clock or a mock clock. Mock clock is for testing purpose mainly. The mock clock related methods are not thread-safe. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="aea5448fb2fa732f456c24dc436fbff4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea5448fb2fa732f456c24dc436fbff4a">&#9670;&nbsp;</a></span>ClockMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a">apollo::common::time::Clock::ClockMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>PRECISION &gt;= 1000000 means the precision is at least 1us. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aea5448fb2fa732f456c24dc436fbff4aa6abe8f9cc724485ac3cea3b047bfa432"></a>SYSTEM&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aea5448fb2fa732f456c24dc436fbff4aa65e97396b7ddd1526422f4cda036150e"></a>MOCK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aea5448fb2fa732f456c24dc436fbff4aa5d39179d2e1c78f8de1d2b07be9b76a8"></a>ROS&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2f5751d6ceccba4fefe3d4e0285b5998"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f5751d6ceccba4fefe3d4e0285b5998">&#9670;&nbsp;</a></span>mode()</h2>
 
@@ -155,7 +181,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classTimestamp.html">Timestamp</a> apollo::common::time::Clock::Now </td>
+          <td class="memname">static <a class="el" href="namespaceapollo_1_1common_1_1time.html#aacf1c652dbeb06360bc386900770b0f2">Timestamp</a> apollo::common::time::Clock::Now </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -198,6 +224,60 @@ Static Public Attributes</h2></td></tr>
 
 <p>gets the current time in second. </p>
 <dl class="section return"><dt>Returns</dt><dd>the current time in second. </dd></dl>
+
+</div>
+</div>
+<a id="ab34fe3d1a2021781e237f46f1e8e23cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab34fe3d1a2021781e237f46f1e8e23cb">&#9670;&nbsp;</a></span>SetMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void apollo::common::time::Clock::SetMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a">ClockMode</a>&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3df9d2a186c695ef140b3bc7ac7976d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df9d2a186c695ef140b3bc7ac7976d0">&#9670;&nbsp;</a></span>SetNow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void apollo::common::time::Clock::SetNow </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">Duration</a> &amp;&#160;</td>
+          <td class="paramname"><em>duration</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is for mock clock mode only. It will set the timestamp for the mock clock. </p>
 
 </div>
 </div>

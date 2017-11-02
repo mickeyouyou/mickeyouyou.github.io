@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html">SpiralFormula</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html">SpiralFormula</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,6 +74,13 @@ $(function() {
 <div class="title">apollo::planning::SpiralFormula Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="spiral__formula_8h_source.html">spiral_formula.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::SpiralFormula:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1SpiralFormula__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1SpiralFormula_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -121,25 +129,20 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a43c90546c6e1212aed5f54d94da7ff23"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#a43c90546c6e1212aed5f54d94da7ff23">partial_theta_p1_k3</a> (const double s, const double sg)</td></tr>
 <tr class="memdesc:a43c90546c6e1212aed5f54d94da7ff23"><td class="mdescLeft">&#160;</td><td class="mdescRight">: calculate partial derivative given sg (final curve length) at s location; : [in] s - s location with respect to path's own SL coordinate [in] sg - final length of path [in] p - p params  <a href="#a43c90546c6e1212aed5f54d94da7ff23">More...</a><br /></td></tr>
 <tr class="separator:a43c90546c6e1212aed5f54d94da7ff23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d4d4ae67bbb986b6e896c9835ce0476"><td class="memItemLeft" align="right" valign="top"><a id="a3d4d4ae67bbb986b6e896c9835ce0476"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#a3d4d4ae67bbb986b6e896c9835ce0476">partial_theta_p2_k3</a> (const double s, const double sg)</td></tr>
-<tr class="memdesc:a3d4d4ae67bbb986b6e896c9835ce0476"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to p2 <br /></td></tr>
+<tr class="memitem:a3d4d4ae67bbb986b6e896c9835ce0476"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#a3d4d4ae67bbb986b6e896c9835ce0476">partial_theta_p2_k3</a> (const double s, const double sg)</td></tr>
+<tr class="memdesc:a3d4d4ae67bbb986b6e896c9835ce0476"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to p2  <a href="#a3d4d4ae67bbb986b6e896c9835ce0476">More...</a><br /></td></tr>
 <tr class="separator:a3d4d4ae67bbb986b6e896c9835ce0476"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb87b26104e021d690b5e269db4fb7c3"><td class="memItemLeft" align="right" valign="top"><a id="afb87b26104e021d690b5e269db4fb7c3"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#afb87b26104e021d690b5e269db4fb7c3">partial_theta_sg_k3</a> (const double s, const double sg, const std::array&lt; double, 4 &gt; &amp;p)</td></tr>
-<tr class="memdesc:afb87b26104e021d690b5e269db4fb7c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to sg <br /></td></tr>
+<tr class="memitem:afb87b26104e021d690b5e269db4fb7c3"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#afb87b26104e021d690b5e269db4fb7c3">partial_theta_sg_k3</a> (const double s, const double sg, const std::array&lt; double, 4 &gt; &amp;p)</td></tr>
+<tr class="memdesc:afb87b26104e021d690b5e269db4fb7c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to sg  <a href="#afb87b26104e021d690b5e269db4fb7c3">More...</a><br /></td></tr>
 <tr class="separator:afb87b26104e021d690b5e269db4fb7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dc5925fbba76437c87cfc62be0c86a7"><td class="memItemLeft" align="right" valign="top"><a id="a6dc5925fbba76437c87cfc62be0c86a7"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#a6dc5925fbba76437c87cfc62be0c86a7">partial_theta_p3_k5</a> (const double s, const double sg)</td></tr>
-<tr class="memdesc:a6dc5925fbba76437c87cfc62be0c86a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to p3 <br /></td></tr>
+<tr class="memitem:a6dc5925fbba76437c87cfc62be0c86a7"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#a6dc5925fbba76437c87cfc62be0c86a7">partial_theta_p3_k5</a> (const double s, const double sg)</td></tr>
+<tr class="memdesc:a6dc5925fbba76437c87cfc62be0c86a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to p3  <a href="#a6dc5925fbba76437c87cfc62be0c86a7">More...</a><br /></td></tr>
 <tr class="separator:a6dc5925fbba76437c87cfc62be0c86a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bf475e9529e50a4a7cba06f33a290b9"><td class="memItemLeft" align="right" valign="top"><a id="a3bf475e9529e50a4a7cba06f33a290b9"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#a3bf475e9529e50a4a7cba06f33a290b9">partial_theta_p4_k5</a> (const double s, const double sg)</td></tr>
-<tr class="memdesc:a3bf475e9529e50a4a7cba06f33a290b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to p4 <br /></td></tr>
+<tr class="memitem:a3bf475e9529e50a4a7cba06f33a290b9"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#a3bf475e9529e50a4a7cba06f33a290b9">partial_theta_p4_k5</a> (const double s, const double sg)</td></tr>
+<tr class="memdesc:a3bf475e9529e50a4a7cba06f33a290b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to p4  <a href="#a3bf475e9529e50a4a7cba06f33a290b9">More...</a><br /></td></tr>
 <tr class="separator:a3bf475e9529e50a4a7cba06f33a290b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae6417132ea196b68b0c7e6de7f8737e"><td class="memItemLeft" align="right" valign="top"><a id="aae6417132ea196b68b0c7e6de7f8737e"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#aae6417132ea196b68b0c7e6de7f8737e">partial_theta_sg_k5</a> (const double s, const double sg, const std::array&lt; double, 6 &gt; &amp;p)</td></tr>
-<tr class="memdesc:aae6417132ea196b68b0c7e6de7f8737e"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to sg <br /></td></tr>
+<tr class="memitem:aae6417132ea196b68b0c7e6de7f8737e"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1SpiralFormula.html#aae6417132ea196b68b0c7e6de7f8737e">partial_theta_sg_k5</a> (const double s, const double sg, const std::array&lt; double, 6 &gt; &amp;p)</td></tr>
+<tr class="memdesc:aae6417132ea196b68b0c7e6de7f8737e"><td class="mdescLeft">&#160;</td><td class="mdescRight">: partial derivative theta with respect to sg  <a href="#aae6417132ea196b68b0c7e6de7f8737e">More...</a><br /></td></tr>
 <tr class="separator:aae6417132ea196b68b0c7e6de7f8737e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -594,6 +597,208 @@ static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 
 <p>: calculate partial derivative given sg (final curve length) at s location; : [in] s - s location with respect to path's own SL coordinate [in] sg - final length of path [in] p - p params </p>
 <dl class="section return"><dt>Returns</dt><dd>partial theta / partial p1, p2 or p3 : partial derivative theta with respect to p1 </dd></dl>
+
+</div>
+</div>
+<a id="a3d4d4ae67bbb986b6e896c9835ce0476"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d4d4ae67bbb986b6e896c9835ce0476">&#9670;&nbsp;</a></span>partial_theta_p2_k3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double apollo::planning::SpiralFormula::partial_theta_p2_k3 </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>sg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>: partial derivative theta with respect to p2 </p>
+
+</div>
+</div>
+<a id="a6dc5925fbba76437c87cfc62be0c86a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc5925fbba76437c87cfc62be0c86a7">&#9670;&nbsp;</a></span>partial_theta_p3_k5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double apollo::planning::SpiralFormula::partial_theta_p3_k5 </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>sg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>: partial derivative theta with respect to p3 </p>
+
+</div>
+</div>
+<a id="a3bf475e9529e50a4a7cba06f33a290b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf475e9529e50a4a7cba06f33a290b9">&#9670;&nbsp;</a></span>partial_theta_p4_k5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double apollo::planning::SpiralFormula::partial_theta_p4_k5 </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>sg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>: partial derivative theta with respect to p4 </p>
+
+</div>
+</div>
+<a id="afb87b26104e021d690b5e269db4fb7c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb87b26104e021d690b5e269db4fb7c3">&#9670;&nbsp;</a></span>partial_theta_sg_k3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double apollo::planning::SpiralFormula::partial_theta_sg_k3 </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>sg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; double, 4 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>: partial derivative theta with respect to sg </p>
+
+</div>
+</div>
+<a id="aae6417132ea196b68b0c7e6de7f8737e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae6417132ea196b68b0c7e6de7f8737e">&#9670;&nbsp;</a></span>partial_theta_sg_k5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double apollo::planning::SpiralFormula::partial_theta_sg_k5 </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>sg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; double, 6 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>: partial derivative theta with respect to sg </p>
 
 </div>
 </div>

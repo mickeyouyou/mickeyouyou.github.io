@@ -19,7 +19,7 @@ var searchData=
   ['piecewiselineargenerator',['PiecewiseLinearGenerator',['../classapollo_1_1planning_1_1PiecewiseLinearGenerator.html',1,'apollo::planning']]],
   ['piecewiselinearkernel',['PiecewiseLinearKernel',['../classapollo_1_1planning_1_1PiecewiseLinearKernel.html',1,'apollo::planning']]],
   ['planner',['Planner',['../classapollo_1_1planning_1_1Planner.html',1,'apollo::planning']]],
-  ['planning',['Planning',['../classapollo_1_1planning_1_1Planning.html',1,'apollo::planning']]],
+  ['planning',['planning',['../classplanning.html',1,'planning'],['../classapollo_1_1planning_1_1Planning.html',1,'apollo::planning::Planning']]],
   ['planningtestbase',['PlanningTestBase',['../classapollo_1_1planning_1_1PlanningTestBase.html',1,'apollo::planning']]],
   ['pncmap',['PncMap',['../classapollo_1_1hdmap_1_1PncMap.html',1,'apollo::hdmap']]],
   ['pointclouddump',['PointCloudDump',['../classapollo_1_1drivers_1_1velodyne_1_1PointCloudDump.html',1,'apollo::drivers::velodyne']]],

@@ -1,0 +1,11 @@
+<map id="apollo::planning::Task" name="apollo::planning::Task">
+<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1PathDecider.html" title="{apollo::planning::PathDecider\n||+ PathDecider()\l+ ~PathDecider()\l+ Execute()\l}" alt="" coords="5,233,201,333"/>
+<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1PathOptimizer.html" title="{apollo::planning::PathOptimizer\n||+ PathOptimizer()\l+ ~PathOptimizer()\l+ Execute()\l# Process()\l# RecordDebugInfo()\l}" alt="" coords="225,220,432,347"/>
+<area shape="rect" id="node6" href="$classapollo_1_1planning_1_1SpeedDecider.html" title="{apollo::planning::SpeedDecider\n||+ SpeedDecider()\l+ ~SpeedDecider()\l+ Init()\l+ Execute()\l}" alt="" coords="456,227,662,340"/>
+<area shape="rect" id="node7" href="$classapollo_1_1planning_1_1SpeedOptimizer.html" title="{apollo::planning::SpeedOptimizer\n||+ SpeedOptimizer()\l+ ~SpeedOptimizer()\l+ Execute()\l# Process()\l# GenerateStopProfile()\l# RecordSTGraphDebug()\l# RecordDebugInfo()\l}" alt="" coords="686,207,904,360"/>
+<area shape="rect" id="node10" href="$classapollo_1_1planning_1_1TrafficDecider.html" title="Create traffic related decision in this class. The created obstacles is added to obstacles_, and the decision is added to path_obstacles_ Traffic obstacle examples include: " alt="" coords="928,220,1086,347"/>
+<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1DpPolyPathOptimizer.html" title="{apollo::planning::DpPoly\lPathOptimizer\n||+ DpPolyPathOptimizer()\l+ Init()\l}" alt="" coords="153,408,322,508"/>
+<area shape="rect" id="node5" href="$classapollo_1_1planning_1_1QpSplinePathOptimizer.html" title="{apollo::planning::QpSpline\lPathOptimizer\n||+ QpSplinePathOptimizer()\l+ Init()\l}" alt="" coords="346,408,527,508"/>
+<area shape="rect" id="node8" href="$classapollo_1_1planning_1_1DpStSpeedOptimizer.html" title="{apollo::planning::DpStSpeed\lOptimizer\n||+ DpStSpeedOptimizer()\l+ Init()\l}" alt="" coords="568,408,758,508"/>
+<area shape="rect" id="node9" href="$classapollo_1_1planning_1_1QpSplineStSpeedOptimizer.html" title="{apollo::planning::QpSpline\lStSpeedOptimizer\n||+ QpSplineStSpeedOptimizer()\l+ Init()\l}" alt="" coords="782,408,987,508"/>
+</map>

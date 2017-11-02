@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html">DpStCost</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html">DpStCost</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,37 +74,341 @@ $(function() {
 <div class="title">apollo::planning::DpStCost Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="dp__st__cost_8h_source.html">dp_st_cost.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::DpStCost:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1DpStCost__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1DpStCost_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ade45d4dfd374695afe1e1d872885f948"><td class="memItemLeft" align="right" valign="top"><a id="ade45d4dfd374695afe1e1d872885f948"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DpStCost</b> (const DpStSpeedConfig &amp;dp_st_speed_config)</td></tr>
+<tr class="memitem:ade45d4dfd374695afe1e1d872885f948"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html#ade45d4dfd374695afe1e1d872885f948">DpStCost</a> (const DpStSpeedConfig &amp;dp_st_speed_config)</td></tr>
 <tr class="separator:ade45d4dfd374695afe1e1d872885f948"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a401667d7b1f9fff2e9e42e34d577ab53"><td class="memItemLeft" align="right" valign="top"><a id="a401667d7b1f9fff2e9e42e34d577ab53"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>GetObstacleCost</b> (const <a class="el" href="classapollo_1_1planning_1_1StGraphPoint.html">StGraphPoint</a> &amp;point, const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> *&gt; &amp;st_boundaries) const</td></tr>
+<tr class="memitem:a401667d7b1f9fff2e9e42e34d577ab53"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html#a401667d7b1f9fff2e9e42e34d577ab53">GetObstacleCost</a> (const <a class="el" href="classapollo_1_1planning_1_1StGraphPoint.html">StGraphPoint</a> &amp;point, const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> *&gt; &amp;st_boundaries) const</td></tr>
 <tr class="separator:a401667d7b1f9fff2e9e42e34d577ab53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac82811b1208e70ea90f167d0080ef21f"><td class="memItemLeft" align="right" valign="top"><a id="ac82811b1208e70ea90f167d0080ef21f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>GetReferenceCost</b> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;point, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;reference_point) const</td></tr>
+<tr class="memitem:ac82811b1208e70ea90f167d0080ef21f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html#ac82811b1208e70ea90f167d0080ef21f">GetReferenceCost</a> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;point, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;reference_point) const</td></tr>
 <tr class="separator:ac82811b1208e70ea90f167d0080ef21f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0af1497ec848fa85e1ca331df5f74053"><td class="memItemLeft" align="right" valign="top"><a id="a0af1497ec848fa85e1ca331df5f74053"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>GetSpeedCost</b> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second, const double speed_limit) const</td></tr>
+<tr class="memitem:a0af1497ec848fa85e1ca331df5f74053"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html#a0af1497ec848fa85e1ca331df5f74053">GetSpeedCost</a> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second, const double speed_limit) const</td></tr>
 <tr class="separator:a0af1497ec848fa85e1ca331df5f74053"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa98b54e95a1d0db9876ccd06ebb2d353"><td class="memItemLeft" align="right" valign="top"><a id="aa98b54e95a1d0db9876ccd06ebb2d353"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>GetAccelCostByTwoPoints</b> (const double pre_speed, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second) const</td></tr>
+<tr class="memitem:aa98b54e95a1d0db9876ccd06ebb2d353"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html#aa98b54e95a1d0db9876ccd06ebb2d353">GetAccelCostByTwoPoints</a> (const double pre_speed, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second) const</td></tr>
 <tr class="separator:aa98b54e95a1d0db9876ccd06ebb2d353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c3c71326498e0f98d50ee06ad74bbc2"><td class="memItemLeft" align="right" valign="top"><a id="a5c3c71326498e0f98d50ee06ad74bbc2"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>GetAccelCostByThreePoints</b> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;third) const</td></tr>
+<tr class="memitem:a5c3c71326498e0f98d50ee06ad74bbc2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html#a5c3c71326498e0f98d50ee06ad74bbc2">GetAccelCostByThreePoints</a> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;third) const</td></tr>
 <tr class="separator:a5c3c71326498e0f98d50ee06ad74bbc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a695923fe6a87eda2a7fa568749b3d8cd"><td class="memItemLeft" align="right" valign="top"><a id="a695923fe6a87eda2a7fa568749b3d8cd"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>GetJerkCostByTwoPoints</b> (const double pre_speed, const double pre_acc, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;pre_point, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;curr_point) const</td></tr>
+<tr class="memitem:a695923fe6a87eda2a7fa568749b3d8cd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html#a695923fe6a87eda2a7fa568749b3d8cd">GetJerkCostByTwoPoints</a> (const double pre_speed, const double pre_acc, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;pre_point, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;curr_point) const</td></tr>
 <tr class="separator:a695923fe6a87eda2a7fa568749b3d8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a528c6119df795c6808bc88b2241313ea"><td class="memItemLeft" align="right" valign="top"><a id="a528c6119df795c6808bc88b2241313ea"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>GetJerkCostByThreePoints</b> (const double first_speed, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first_point, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second_point, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;third_point) const</td></tr>
+<tr class="memitem:a528c6119df795c6808bc88b2241313ea"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html#a528c6119df795c6808bc88b2241313ea">GetJerkCostByThreePoints</a> (const double first_speed, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first_point, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second_point, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;third_point) const</td></tr>
 <tr class="separator:a528c6119df795c6808bc88b2241313ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf8006b6415e267435d0f1ff96f03107"><td class="memItemLeft" align="right" valign="top"><a id="adf8006b6415e267435d0f1ff96f03107"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>GetJerkCostByFourPoints</b> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;third, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;fourth) const</td></tr>
+<tr class="memitem:adf8006b6415e267435d0f1ff96f03107"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1DpStCost.html#adf8006b6415e267435d0f1ff96f03107">GetJerkCostByFourPoints</a> (const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;first, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;second, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;third, const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;fourth) const</td></tr>
 <tr class="separator:adf8006b6415e267435d0f1ff96f03107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ade45d4dfd374695afe1e1d872885f948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade45d4dfd374695afe1e1d872885f948">&#9670;&nbsp;</a></span>DpStCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::DpStCost::DpStCost </td>
+          <td>(</td>
+          <td class="paramtype">const DpStSpeedConfig &amp;&#160;</td>
+          <td class="paramname"><em>dp_st_speed_config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5c3c71326498e0f98d50ee06ad74bbc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c3c71326498e0f98d50ee06ad74bbc2">&#9670;&nbsp;</a></span>GetAccelCostByThreePoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::DpStCost::GetAccelCostByThreePoints </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>second</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>third</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa98b54e95a1d0db9876ccd06ebb2d353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa98b54e95a1d0db9876ccd06ebb2d353">&#9670;&nbsp;</a></span>GetAccelCostByTwoPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::DpStCost::GetAccelCostByTwoPoints </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>pre_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>second</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf8006b6415e267435d0f1ff96f03107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf8006b6415e267435d0f1ff96f03107">&#9670;&nbsp;</a></span>GetJerkCostByFourPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::DpStCost::GetJerkCostByFourPoints </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>second</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>third</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>fourth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a528c6119df795c6808bc88b2241313ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528c6119df795c6808bc88b2241313ea">&#9670;&nbsp;</a></span>GetJerkCostByThreePoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::DpStCost::GetJerkCostByThreePoints </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>first_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>first_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>second_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>third_point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a695923fe6a87eda2a7fa568749b3d8cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a695923fe6a87eda2a7fa568749b3d8cd">&#9670;&nbsp;</a></span>GetJerkCostByTwoPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::DpStCost::GetJerkCostByTwoPoints </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>pre_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>pre_acc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>pre_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>curr_point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a401667d7b1f9fff2e9e42e34d577ab53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a401667d7b1f9fff2e9e42e34d577ab53">&#9670;&nbsp;</a></span>GetObstacleCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::DpStCost::GetObstacleCost </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1StGraphPoint.html">StGraphPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1StBoundary.html">StBoundary</a> *&gt; &amp;&#160;</td>
+          <td class="paramname"><em>st_boundaries</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac82811b1208e70ea90f167d0080ef21f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac82811b1208e70ea90f167d0080ef21f">&#9670;&nbsp;</a></span>GetReferenceCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::DpStCost::GetReferenceCost </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>reference_point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0af1497ec848fa85e1ca331df5f74053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0af1497ec848fa85e1ca331df5f74053">&#9670;&nbsp;</a></span>GetSpeedCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::planning::DpStCost::GetSpeedCost </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1STPoint.html">STPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>second</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>speed_limit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/tasks/dp_st_speed/<a class="el" href="dp__st__cost_8h_source.html">dp_st_cost.h</a></li>
 </ul>

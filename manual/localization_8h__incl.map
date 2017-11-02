@@ -1,0 +1,9 @@
+<map id="modules/localization/localization.h" name="modules/localization/localization.h">
+<area shape="rect" id="node5" href="$apollo__app_8h.html" title="modules/common/apollo\l_app.h" alt="" coords="437,92,603,131"/>
+<area shape="rect" id="node11" href="$common_2status_2status_8h.html" title="modules/common/status\l/status.h" alt="" coords="749,179,915,217"/>
+<area shape="rect" id="node18" href="$factory_8h.html" title="Defines the Factory class. " alt="" coords="1159,92,1306,131"/>
+<area shape="rect" id="node23" href="$localization__base_8h.html" title="The class of LocalizationBase. " alt="" coords="848,92,990,131"/>
+<area shape="rect" id="node8" href="$log_8h.html" title="modules/common/log.h" alt="" coords="939,185,1099,211"/>
+<area shape="rect" id="node14" href="$hmi__status__helper_8h.html" title="the class of HMIStatusHelper " alt="" coords="91,179,240,217"/>
+<area shape="rect" id="node21" href="$macro_8h.html" title="modules/common/macro.h" alt="" coords="1363,185,1541,211"/>
+</map>

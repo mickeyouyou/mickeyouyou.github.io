@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1HungarianOptimizer.html">HungarianOptimizer</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1HungarianOptimizer.html">HungarianOptimizer</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,19 +74,107 @@ $(function() {
 <div class="title">apollo::perception::HungarianOptimizer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="hungarian__bigraph__matcher_8h_source.html">hungarian_bigraph_matcher.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::HungarianOptimizer:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1HungarianOptimizer__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1HungarianOptimizer_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1f3843ba3cc7000ac40b0ced5e1f3c76"><td class="memItemLeft" align="right" valign="top"><a id="a1f3843ba3cc7000ac40b0ced5e1f3c76"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HungarianOptimizer</b> (const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;costs)</td></tr>
+<tr class="memitem:a1f3843ba3cc7000ac40b0ced5e1f3c76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HungarianOptimizer.html#a1f3843ba3cc7000ac40b0ced5e1f3c76">HungarianOptimizer</a> (const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;costs)</td></tr>
 <tr class="separator:a1f3843ba3cc7000ac40b0ced5e1f3c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a525d29ea1093fee6b1310281719b6d73"><td class="memItemLeft" align="right" valign="top"><a id="a525d29ea1093fee6b1310281719b6d73"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>maximize</b> (std::vector&lt; int &gt; *agent, std::vector&lt; int &gt; *task)</td></tr>
+<tr class="memitem:a525d29ea1093fee6b1310281719b6d73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HungarianOptimizer.html#a525d29ea1093fee6b1310281719b6d73">maximize</a> (std::vector&lt; int &gt; *agent, std::vector&lt; int &gt; *task)</td></tr>
 <tr class="separator:a525d29ea1093fee6b1310281719b6d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac652dda48a0eafe17ef811aa7b311df5"><td class="memItemLeft" align="right" valign="top"><a id="ac652dda48a0eafe17ef811aa7b311df5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>minimize</b> (std::vector&lt; int &gt; *agent, std::vector&lt; int &gt; *task)</td></tr>
+<tr class="memitem:ac652dda48a0eafe17ef811aa7b311df5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HungarianOptimizer.html#ac652dda48a0eafe17ef811aa7b311df5">minimize</a> (std::vector&lt; int &gt; *agent, std::vector&lt; int &gt; *task)</td></tr>
 <tr class="separator:ac652dda48a0eafe17ef811aa7b311df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1f3843ba3cc7000ac40b0ced5e1f3c76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f3843ba3cc7000ac40b0ced5e1f3c76">&#9670;&nbsp;</a></span>HungarianOptimizer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::HungarianOptimizer::HungarianOptimizer </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>costs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a525d29ea1093fee6b1310281719b6d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525d29ea1093fee6b1310281719b6d73">&#9670;&nbsp;</a></span>maximize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HungarianOptimizer::maximize </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>agent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>task</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac652dda48a0eafe17ef811aa7b311df5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac652dda48a0eafe17ef811aa7b311df5">&#9670;&nbsp;</a></span>minimize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HungarianOptimizer::minimize </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>agent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>task</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/obstacle/common/<a class="el" href="hungarian__bigraph__matcher_8h_source.html">hungarian_bigraph_matcher.h</a></li>
 </ul>

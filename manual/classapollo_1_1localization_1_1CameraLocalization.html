@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1localization.html">localization</a></li><li class="navelem"><a class="el" href="classapollo_1_1localization_1_1CameraLocalization.html">CameraLocalization</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1localization.html">localization</a></li><li class="navelem"><a class="el" href="classapollo_1_1localization_1_1CameraLocalization.html">CameraLocalization</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,16 +74,113 @@ $(function() {
 <div class="title">apollo::localization::CameraLocalization Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="camera__localization_8h_source.html">camera_localization.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::localization::CameraLocalization:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1localization_1_1CameraLocalization__coll__graph.png" border="0" usemap="#apollo_1_1localization_1_1CameraLocalization_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acce0e1376be45551f6b3ded1fa78e32a"><td class="memItemLeft" align="right" valign="top"><a id="acce0e1376be45551f6b3ded1fa78e32a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (const std::string &amp;param_path)</td></tr>
+<tr class="memitem:aed243885b6ff0f9cd8a1c0ef38ea80d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1localization_1_1CameraLocalization.html#aed243885b6ff0f9cd8a1c0ef38ea80d1">CameraLocalization</a> ()</td></tr>
+<tr class="separator:aed243885b6ff0f9cd8a1c0ef38ea80d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f886c2739263e6177499b5364a1cd28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1localization_1_1CameraLocalization.html#a7f886c2739263e6177499b5364a1cd28">~CameraLocalization</a> ()</td></tr>
+<tr class="separator:a7f886c2739263e6177499b5364a1cd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acce0e1376be45551f6b3ded1fa78e32a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1localization_1_1CameraLocalization.html#acce0e1376be45551f6b3ded1fa78e32a">init</a> (const std::string &amp;param_path)</td></tr>
 <tr class="separator:acce0e1376be45551f6b3ded1fa78e32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae697591d6ce8c4328c1cc8aa66f63c64"><td class="memItemLeft" align="right" valign="top"><a id="ae697591d6ce8c4328c1cc8aa66f63c64"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>get_ego_position</b> (const cv::Mat &amp;image, const <a class="el" href="structapollo_1_1localization_1_1PosInfo.html">PosInfo</a> &amp;init_pos, <a class="el" href="structapollo_1_1localization_1_1PosInfo.html">PosInfo</a> &amp;res_pos)</td></tr>
+<tr class="memitem:ae697591d6ce8c4328c1cc8aa66f63c64"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1localization_1_1CameraLocalization.html#ae697591d6ce8c4328c1cc8aa66f63c64">get_ego_position</a> (const cv::Mat &amp;image, const <a class="el" href="structapollo_1_1localization_1_1PosInfo.html">PosInfo</a> &amp;init_pos, <a class="el" href="structapollo_1_1localization_1_1PosInfo.html">PosInfo</a> &amp;res_pos)</td></tr>
 <tr class="separator:ae697591d6ce8c4328c1cc8aa66f63c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aed243885b6ff0f9cd8a1c0ef38ea80d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed243885b6ff0f9cd8a1c0ef38ea80d1">&#9670;&nbsp;</a></span>CameraLocalization()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::localization::CameraLocalization::CameraLocalization </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f886c2739263e6177499b5364a1cd28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f886c2739263e6177499b5364a1cd28">&#9670;&nbsp;</a></span>~CameraLocalization()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::localization::CameraLocalization::~CameraLocalization </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae697591d6ce8c4328c1cc8aa66f63c64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae697591d6ce8c4328c1cc8aa66f63c64">&#9670;&nbsp;</a></span>get_ego_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::localization::CameraLocalization::get_ego_position </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1localization_1_1PosInfo.html">PosInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>init_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structapollo_1_1localization_1_1PosInfo.html">PosInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>res_pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acce0e1376be45551f6b3ded1fa78e32a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acce0e1376be45551f6b3ded1fa78e32a">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::localization::CameraLocalization::init </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>param_path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/elo/include/<a class="el" href="camera__localization_8h_source.html">camera_localization.h</a></li>
 </ul>

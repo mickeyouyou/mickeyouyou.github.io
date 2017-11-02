@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1canbus.html">canbus</a></li><li class="navelem"><a class="el" href="classapollo_1_1canbus_1_1AbstractVehicleFactory.html">AbstractVehicleFactory</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1canbus.html">canbus</a></li><li class="navelem"><a class="el" href="classapollo_1_1canbus_1_1AbstractVehicleFactory.html">AbstractVehicleFactory</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -81,18 +82,21 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for apollo::canbus::AbstractVehicleFactory:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1canbus_1_1AbstractVehicleFactory.png" usemap="#apollo::canbus::AbstractVehicleFactory_map" alt=""/>
-  <map id="apollo::canbus::AbstractVehicleFactory_map" name="apollo::canbus::AbstractVehicleFactory_map">
-<area href="classapollo_1_1canbus_1_1LincolnVehicleFactory.html" title="this class is inherited from AbstractVehicleFactory. It can be used to create controller and message ..." alt="apollo::canbus::LincolnVehicleFactory" shape="rect" coords="0,56,233,80"/>
+<div class="center"><img src="classapollo_1_1canbus_1_1AbstractVehicleFactory__inherit__graph.png" border="0" usemap="#apollo_1_1canbus_1_1AbstractVehicleFactory_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1canbus_1_1AbstractVehicleFactory_inherit__map" id="apollo_1_1canbus_1_1AbstractVehicleFactory_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1canbus_1_1LincolnVehicleFactory.html" title="this class is inherited from AbstractVehicleFactory. It can be used to create controller and message ..." alt="" coords="5,180,205,293"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::canbus::AbstractVehicleFactory:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1canbus_1_1AbstractVehicleFactory__coll__graph.png" border="0" usemap="#apollo_1_1canbus_1_1AbstractVehicleFactory_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9e578a9feb5dc15639d3081a8fe11975"><td class="memItemLeft" align="right" valign="top"><a id="a9e578a9feb5dc15639d3081a8fe11975"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1AbstractVehicleFactory.html#a9e578a9feb5dc15639d3081a8fe11975">~AbstractVehicleFactory</a> ()=default</td></tr>
-<tr class="memdesc:a9e578a9feb5dc15639d3081a8fe11975"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
+<tr class="memitem:a9e578a9feb5dc15639d3081a8fe11975"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1AbstractVehicleFactory.html#a9e578a9feb5dc15639d3081a8fe11975">~AbstractVehicleFactory</a> ()=default</td></tr>
+<tr class="memdesc:a9e578a9feb5dc15639d3081a8fe11975"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor  <a href="#a9e578a9feb5dc15639d3081a8fe11975">More...</a><br /></td></tr>
 <tr class="separator:a9e578a9feb5dc15639d3081a8fe11975"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5943746ffa30452bc6078f987ddf723b"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="classapollo_1_1canbus_1_1VehicleController.html">VehicleController</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1AbstractVehicleFactory.html#a5943746ffa30452bc6078f987ddf723b">CreateVehicleController</a> ()=0</td></tr>
 <tr class="memdesc:a5943746ffa30452bc6078f987ddf723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the interface of creating a <a class="el" href="classapollo_1_1canbus_1_1VehicleController.html" title="This is the interface class of vehicle controller. It defines pure virtual functions, and also some implemented common functions. ">VehicleController</a> class  <a href="#a5943746ffa30452bc6078f987ddf723b">More...</a><br /></td></tr>
@@ -100,14 +104,41 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:aa3989b3e19c1686f7d4aa2b21bf9fe18"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; MessageManager&lt;::apollo::canbus::ChassisDetail &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1AbstractVehicleFactory.html#aa3989b3e19c1686f7d4aa2b21bf9fe18">CreateMessageManager</a> ()=0</td></tr>
 <tr class="memdesc:aa3989b3e19c1686f7d4aa2b21bf9fe18"><td class="mdescLeft">&#160;</td><td class="mdescRight">the interface of creating a MessageManager class  <a href="#aa3989b3e19c1686f7d4aa2b21bf9fe18">More...</a><br /></td></tr>
 <tr class="separator:aa3989b3e19c1686f7d4aa2b21bf9fe18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8735aca7dfdbe2b0e4b078d4b603c929"><td class="memItemLeft" align="right" valign="top"><a id="a8735aca7dfdbe2b0e4b078d4b603c929"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1AbstractVehicleFactory.html#a8735aca7dfdbe2b0e4b078d4b603c929">SetVehicleParameter</a> (const VehicleParameter &amp;vehicle_paramter)</td></tr>
-<tr class="memdesc:a8735aca7dfdbe2b0e4b078d4b603c929"><td class="mdescLeft">&#160;</td><td class="mdescRight">set VehicleParameter. <br /></td></tr>
+<tr class="memitem:a8735aca7dfdbe2b0e4b078d4b603c929"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1AbstractVehicleFactory.html#a8735aca7dfdbe2b0e4b078d4b603c929">SetVehicleParameter</a> (const VehicleParameter &amp;vehicle_paramter)</td></tr>
+<tr class="memdesc:a8735aca7dfdbe2b0e4b078d4b603c929"><td class="mdescLeft">&#160;</td><td class="mdescRight">set VehicleParameter.  <a href="#a8735aca7dfdbe2b0e4b078d4b603c929">More...</a><br /></td></tr>
 <tr class="separator:a8735aca7dfdbe2b0e4b078d4b603c929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>this class is the abstract factory following the AbstractFactory design pattern. It can create <a class="el" href="classapollo_1_1canbus_1_1VehicleController.html" title="This is the interface class of vehicle controller. It defines pure virtual functions, and also some implemented common functions. ">VehicleController</a> and MessageManager based on a given VehicleParameter. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9e578a9feb5dc15639d3081a8fe11975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e578a9feb5dc15639d3081a8fe11975">&#9670;&nbsp;</a></span>~AbstractVehicleFactory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::canbus::AbstractVehicleFactory::~AbstractVehicleFactory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>destructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa3989b3e19c1686f7d4aa2b21bf9fe18"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3989b3e19c1686f7d4aa2b21bf9fe18">&#9670;&nbsp;</a></span>CreateMessageManager()</h2>
 
@@ -165,6 +196,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns</dt><dd>a unique pointer that points to the created <a class="el" href="classapollo_1_1canbus_1_1VehicleController.html" title="This is the interface class of vehicle controller. It defines pure virtual functions, and also some implemented common functions. ">VehicleController</a> object. </dd></dl>
 
 <p>Implemented in <a class="el" href="classapollo_1_1canbus_1_1LincolnVehicleFactory.html#aa032bf0732ac02a4e4de3715f836157b">apollo::canbus::LincolnVehicleFactory</a>.</p>
+
+</div>
+</div>
+<a id="a8735aca7dfdbe2b0e4b078d4b603c929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8735aca7dfdbe2b0e4b078d4b603c929">&#9670;&nbsp;</a></span>SetVehicleParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::canbus::AbstractVehicleFactory::SetVehicleParameter </td>
+          <td>(</td>
+          <td class="paramtype">const VehicleParameter &amp;&#160;</td>
+          <td class="paramname"><em>vehicle_paramter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set VehicleParameter. </p>
 
 </div>
 </div>

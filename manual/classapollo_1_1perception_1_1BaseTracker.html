@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1BaseTracker.html">BaseTracker</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1BaseTracker.html">BaseTracker</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,29 +74,192 @@ $(function() {
 <div class="title">apollo::perception::BaseTracker Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="base__tracker_8h_source.html">base_tracker.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::perception::BaseTracker:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1perception_1_1BaseTracker.png" usemap="#apollo::perception::BaseTracker_map" alt=""/>
-  <map id="apollo::perception::BaseTracker_map" name="apollo::perception::BaseTracker_map">
-<area href="classapollo_1_1perception_1_1DummyTracker.html" alt="apollo::perception::DummyTracker" shape="rect" coords="0,56,217,80"/>
-<area href="classapollo_1_1perception_1_1HmObjectTracker.html" alt="apollo::perception::HmObjectTracker" shape="rect" coords="227,56,444,80"/>
+<div class="center"><img src="classapollo_1_1perception_1_1BaseTracker__inherit__graph.png" border="0" usemap="#apollo_1_1perception_1_1BaseTracker_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1perception_1_1BaseTracker_inherit__map" id="apollo_1_1perception_1_1BaseTracker_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1perception_1_1DummyTracker.html" title="{apollo::perception\l::DummyTracker\n||+ DummyTracker()\l+ ~DummyTracker()\l+ Init()\l+ Track()\l+ name()\l}" alt="" coords="5,313,145,453"/>
+<area shape="rect" id="node3" href="classapollo_1_1perception_1_1HmObjectTracker.html" title="{apollo::perception\l::HmObjectTracker\n||+ HmObjectTracker()\l+ ~HmObjectTracker()\l+ Init()\l+ SetMatcherMethod()\l+ SetCollectConsecutiveInvisible\lMaximum()\l+ SetCollectAgeMinimum()\l+ SetHistogramBinSize()\l+ Track()\l+ GetObjectTracks()\l+ name()\l# Initialize()\l# TransformPoseGlobal2Local()\l# ConstructTrackedObjects()\l# ComputeShapeFeatures()\l# TransformTrackedObject()\l# TransformObject()\l# ComputeTracksPredict()\l# UpdateAssignedTracks()\l# UpdateUnassignedTracks()\l# CreateNewTracks()\l# DeleteLostTracks()\l# CollectTrackedResults()\l}" alt="" coords="169,193,384,573"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::BaseTracker:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1BaseTracker__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1BaseTracker_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a50b42e5d4f6224218ed61ff0c26eb85c"><td class="memItemLeft" align="right" valign="top"><a id="a50b42e5d4f6224218ed61ff0c26eb85c"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()=0</td></tr>
+<tr class="memitem:a8fbb9e5aca189f986115d70a189201ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#a8fbb9e5aca189f986115d70a189201ea">BaseTracker</a> ()</td></tr>
+<tr class="separator:a8fbb9e5aca189f986115d70a189201ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea70ce44a62c6d679fdb6ab3821f1dc1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#aea70ce44a62c6d679fdb6ab3821f1dc1">~BaseTracker</a> ()</td></tr>
+<tr class="separator:aea70ce44a62c6d679fdb6ab3821f1dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b42e5d4f6224218ed61ff0c26eb85c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#a50b42e5d4f6224218ed61ff0c26eb85c">Init</a> ()=0</td></tr>
 <tr class="separator:a50b42e5d4f6224218ed61ff0c26eb85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa81127d0902b9a2fbb52aff368439f0"><td class="memItemLeft" align="right" valign="top"><a id="afa81127d0902b9a2fbb52aff368439f0"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Track</b> (const std::vector&lt; ObjectPtr &gt; &amp;objects, double timestamp, const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;options, std::vector&lt; ObjectPtr &gt; *tracked_objects)=0</td></tr>
+<tr class="memitem:afa81127d0902b9a2fbb52aff368439f0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#afa81127d0902b9a2fbb52aff368439f0">Track</a> (const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; &amp;objects, double timestamp, const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;options, std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *tracked_objects)=0</td></tr>
 <tr class="separator:afa81127d0902b9a2fbb52aff368439f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a687a601358203fa1560f6d1f249a5b"><td class="memItemLeft" align="right" valign="top"><a id="a0a687a601358203fa1560f6d1f249a5b"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const =0</td></tr>
+<tr class="memitem:a0a687a601358203fa1560f6d1f249a5b"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#a0a687a601358203fa1560f6d1f249a5b">name</a> () const =0</td></tr>
 <tr class="separator:a0a687a601358203fa1560f6d1f249a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8fbb9e5aca189f986115d70a189201ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fbb9e5aca189f986115d70a189201ea">&#9670;&nbsp;</a></span>BaseTracker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::BaseTracker::BaseTracker </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea70ce44a62c6d679fdb6ab3821f1dc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea70ce44a62c6d679fdb6ab3821f1dc1">&#9670;&nbsp;</a></span>~BaseTracker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::perception::BaseTracker::~BaseTracker </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a50b42e5d4f6224218ed61ff0c26eb85c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50b42e5d4f6224218ed61ff0c26eb85c">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool apollo::perception::BaseTracker::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1perception_1_1DummyTracker.html#aac323e6fb1adb1a22ae2056c170e0e80">apollo::perception::DummyTracker</a>, and <a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a4d1e11104936fc3a96e6760bdc07bdba">apollo::perception::HmObjectTracker</a>.</p>
+
+</div>
+</div>
+<a id="a0a687a601358203fa1560f6d1f249a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a687a601358203fa1560f6d1f249a5b">&#9670;&nbsp;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string apollo::perception::BaseTracker::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1perception_1_1DummyTracker.html#a993e0156265e3515a8568c02b9279581">apollo::perception::DummyTracker</a>, and <a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a85c45dfad82389fbb507943ae919ca78">apollo::perception::HmObjectTracker</a>.</p>
+
+</div>
+</div>
+<a id="afa81127d0902b9a2fbb52aff368439f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa81127d0902b9a2fbb52aff368439f0">&#9670;&nbsp;</a></span>Track()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool apollo::perception::BaseTracker::Track </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>objects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>timestamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *&#160;</td>
+          <td class="paramname"><em>tracked_objects</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1perception_1_1DummyTracker.html#a73369ce666264f76adc479039199ce7b">apollo::perception::DummyTracker</a>, and <a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#ab38504b0f490abbb7d305e1fed6ab36a">apollo::perception::HmObjectTracker</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/obstacle/lidar/interface/<a class="el" href="base__tracker_8h_source.html">base_tracker.h</a></li>
 </ul>

@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1canbus.html">canbus</a></li><li class="navelem"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html">VehicleController</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1canbus.html">canbus</a></li><li class="navelem"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html">VehicleController</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -83,24 +84,29 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for apollo::canbus::VehicleController:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1canbus_1_1VehicleController.png" usemap="#apollo::canbus::VehicleController_map" alt=""/>
-  <map id="apollo::canbus::VehicleController_map" name="apollo::canbus::VehicleController_map">
-<area href="classapollo_1_1canbus_1_1lincoln_1_1LincolnController.html" title="this class implements the vehicle controller for lincoln vehicle. " alt="apollo::canbus::lincoln::LincolnController" shape="rect" coords="0,56,239,80"/>
+<div class="center"><img src="classapollo_1_1canbus_1_1VehicleController__inherit__graph.png" border="0" usemap="#apollo_1_1canbus_1_1VehicleController_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1canbus_1_1VehicleController_inherit__map" id="apollo_1_1canbus_1_1VehicleController_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1canbus_1_1lincoln_1_1LincolnController.html" title="this class implements the vehicle controller for lincoln vehicle. " alt="" coords="37,313,189,480"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::canbus::VehicleController:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1canbus_1_1VehicleController__coll__graph.png" border="0" usemap="#apollo_1_1canbus_1_1VehicleController_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a46bf7ee9f3a694c4f44fbb8d0bb550cb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a46bf7ee9f3a694c4f44fbb8d0bb550cb">~VehicleController</a> ()=default</td></tr>
+<tr class="separator:a46bf7ee9f3a694c4f44fbb8d0bb550cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2e41e8bc7a90cdca15108557ec23659"><td class="memItemLeft" align="right" valign="top">virtual common::ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#aa2e41e8bc7a90cdca15108557ec23659">Init</a> (const VehicleParameter &amp;params, CanSender&lt;::apollo::canbus::ChassisDetail &gt; *const can_sender, MessageManager&lt;::apollo::canbus::ChassisDetail &gt; *const message_manager)=0</td></tr>
 <tr class="memdesc:aa2e41e8bc7a90cdca15108557ec23659"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize the vehicle controller.  <a href="#aa2e41e8bc7a90cdca15108557ec23659">More...</a><br /></td></tr>
 <tr class="separator:aa2e41e8bc7a90cdca15108557ec23659"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6935bb008a8d499716d41b50e24b0edb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a6935bb008a8d499716d41b50e24b0edb">Start</a> ()=0</td></tr>
 <tr class="memdesc:a6935bb008a8d499716d41b50e24b0edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">start the vehicle controller.  <a href="#a6935bb008a8d499716d41b50e24b0edb">More...</a><br /></td></tr>
 <tr class="separator:a6935bb008a8d499716d41b50e24b0edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a790d6bc38c242bf259a6d59e9dd8c1ae"><td class="memItemLeft" align="right" valign="top"><a id="a790d6bc38c242bf259a6d59e9dd8c1ae"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a790d6bc38c242bf259a6d59e9dd8c1ae">Stop</a> ()=0</td></tr>
-<tr class="memdesc:a790d6bc38c242bf259a6d59e9dd8c1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop the vehicle controller. <br /></td></tr>
+<tr class="memitem:a790d6bc38c242bf259a6d59e9dd8c1ae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a790d6bc38c242bf259a6d59e9dd8c1ae">Stop</a> ()=0</td></tr>
+<tr class="memdesc:a790d6bc38c242bf259a6d59e9dd8c1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop the vehicle controller.  <a href="#a790d6bc38c242bf259a6d59e9dd8c1ae">More...</a><br /></td></tr>
 <tr class="separator:a790d6bc38c242bf259a6d59e9dd8c1ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae64672747542e6d7a6e47c7e6163c44b"><td class="memItemLeft" align="right" valign="top">virtual Chassis&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#ae64672747542e6d7a6e47c7e6163c44b">chassis</a> ()=0</td></tr>
 <tr class="memdesc:ae64672747542e6d7a6e47c7e6163c44b"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate and return the chassis.  <a href="#ae64672747542e6d7a6e47c7e6163c44b">More...</a><br /></td></tr>
@@ -108,46 +114,63 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a1414b323a64a19cada021b93ca21c070"><td class="memItemLeft" align="right" valign="top">virtual common::ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a1414b323a64a19cada021b93ca21c070">Update</a> (const control::ControlCommand &amp;command)</td></tr>
 <tr class="memdesc:a1414b323a64a19cada021b93ca21c070"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the vehicle controller.  <a href="#a1414b323a64a19cada021b93ca21c070">More...</a><br /></td></tr>
 <tr class="separator:a1414b323a64a19cada021b93ca21c070"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af26a3f3f091c4e10d78b2901e02dbbf6"><td class="memItemLeft" align="right" valign="top">virtual common::ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#af26a3f3f091c4e10d78b2901e02dbbf6">SetDrivingMode</a> (const Chassis::DrivingMode &amp;driving_mode)</td></tr>
+<tr class="memitem:af26a3f3f091c4e10d78b2901e02dbbf6"><td class="memItemLeft" align="right" valign="top">virtual common::ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#af26a3f3f091c4e10d78b2901e02dbbf6">SetDrivingMode</a> (const Chassis::DrivingMode &amp;<a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a8c4ddc5839627eefd59e64edbadccff5">driving_mode</a>)</td></tr>
 <tr class="memdesc:af26a3f3f091c4e10d78b2901e02dbbf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">set vehicle to appointed driving mode.  <a href="#af26a3f3f091c4e10d78b2901e02dbbf6">More...</a><br /></td></tr>
 <tr class="separator:af26a3f3f091c4e10d78b2901e02dbbf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8c4ddc5839627eefd59e64edbadccff5"><td class="memItemLeft" align="right" valign="top"><a id="a8c4ddc5839627eefd59e64edbadccff5"></a>
-virtual Chassis::DrivingMode&#160;</td><td class="memItemRight" valign="bottom"><b>driving_mode</b> ()</td></tr>
+<tr class="memitem:a8c4ddc5839627eefd59e64edbadccff5"><td class="memItemLeft" align="right" valign="top">virtual Chassis::DrivingMode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a8c4ddc5839627eefd59e64edbadccff5">driving_mode</a> ()</td></tr>
 <tr class="separator:a8c4ddc5839627eefd59e64edbadccff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a042fae407f18cc53d97adf313b4f2d47"><td class="memItemLeft" align="right" valign="top"><a id="a042fae407f18cc53d97adf313b4f2d47"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>set_driving_mode</b> (const Chassis::DrivingMode &amp;driving_mode)</td></tr>
+<tr class="memitem:a042fae407f18cc53d97adf313b4f2d47"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a042fae407f18cc53d97adf313b4f2d47">set_driving_mode</a> (const Chassis::DrivingMode &amp;<a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a8c4ddc5839627eefd59e64edbadccff5">driving_mode</a>)</td></tr>
 <tr class="separator:a042fae407f18cc53d97adf313b4f2d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a70b06159d3c10a8fb3130de57755bf92"><td class="memItemLeft" align="right" valign="top"><a id="a70b06159d3c10a8fb3130de57755bf92"></a>
-canbus::VehicleParameter&#160;</td><td class="memItemRight" valign="bottom"><b>params_</b></td></tr>
+<tr class="memitem:a70b06159d3c10a8fb3130de57755bf92"><td class="memItemLeft" align="right" valign="top">canbus::VehicleParameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a70b06159d3c10a8fb3130de57755bf92">params_</a></td></tr>
 <tr class="separator:a70b06159d3c10a8fb3130de57755bf92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc96ecf041c8d1f15fcb9b81aa44317d"><td class="memItemLeft" align="right" valign="top"><a id="adc96ecf041c8d1f15fcb9b81aa44317d"></a>
-CanSender&lt;::apollo::canbus::ChassisDetail &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>can_sender_</b> = nullptr</td></tr>
+<tr class="memitem:adc96ecf041c8d1f15fcb9b81aa44317d"><td class="memItemLeft" align="right" valign="top">CanSender&lt;::apollo::canbus::ChassisDetail &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#adc96ecf041c8d1f15fcb9b81aa44317d">can_sender_</a> = nullptr</td></tr>
 <tr class="separator:adc96ecf041c8d1f15fcb9b81aa44317d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7921a985d12f4ab3965174de3e76d6d"><td class="memItemLeft" align="right" valign="top"><a id="aa7921a985d12f4ab3965174de3e76d6d"></a>
-MessageManager&lt;::apollo::canbus::ChassisDetail &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>message_manager_</b> = nullptr</td></tr>
+<tr class="memitem:aa7921a985d12f4ab3965174de3e76d6d"><td class="memItemLeft" align="right" valign="top">MessageManager&lt;::apollo::canbus::ChassisDetail &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#aa7921a985d12f4ab3965174de3e76d6d">message_manager_</a> = nullptr</td></tr>
 <tr class="separator:aa7921a985d12f4ab3965174de3e76d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af115cc59f9cf87aaebf3f283f15c443d"><td class="memItemLeft" align="right" valign="top"><a id="af115cc59f9cf87aaebf3f283f15c443d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_initialized_</b> = false</td></tr>
+<tr class="memitem:af115cc59f9cf87aaebf3f283f15c443d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#af115cc59f9cf87aaebf3f283f15c443d">is_initialized_</a> = false</td></tr>
 <tr class="separator:af115cc59f9cf87aaebf3f283f15c443d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99aa8920976a27120d5401653d2b7928"><td class="memItemLeft" align="right" valign="top"><a id="a99aa8920976a27120d5401653d2b7928"></a>
-Chassis::DrivingMode&#160;</td><td class="memItemRight" valign="bottom"><b>driving_mode_</b> = Chassis::COMPLETE_MANUAL</td></tr>
+<tr class="memitem:a99aa8920976a27120d5401653d2b7928"><td class="memItemLeft" align="right" valign="top">Chassis::DrivingMode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#a99aa8920976a27120d5401653d2b7928">driving_mode_</a> = Chassis::COMPLETE_MANUAL</td></tr>
 <tr class="separator:a99aa8920976a27120d5401653d2b7928"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf1c8840b41a46b4cdfc9e7d978ddc2c"><td class="memItemLeft" align="right" valign="top"><a id="adf1c8840b41a46b4cdfc9e7d978ddc2c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_reset_</b> = false</td></tr>
+<tr class="memitem:adf1c8840b41a46b4cdfc9e7d978ddc2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#adf1c8840b41a46b4cdfc9e7d978ddc2c">is_reset_</a> = false</td></tr>
 <tr class="separator:adf1c8840b41a46b4cdfc9e7d978ddc2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf46b0d7fdf41051270b478f6eab9323"><td class="memItemLeft" align="right" valign="top"><a id="adf46b0d7fdf41051270b478f6eab9323"></a>
-std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mode_mutex_</b></td></tr>
+<tr class="memitem:adf46b0d7fdf41051270b478f6eab9323"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1canbus_1_1VehicleController.html#adf46b0d7fdf41051270b478f6eab9323">mode_mutex_</a></td></tr>
 <tr class="separator:adf46b0d7fdf41051270b478f6eab9323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the interface class of vehicle controller. It defines pure virtual functions, and also some implemented common functions. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a46bf7ee9f3a694c4f44fbb8d0bb550cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46bf7ee9f3a694c4f44fbb8d0bb550cb">&#9670;&nbsp;</a></span>~VehicleController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::canbus::VehicleController::~VehicleController </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae64672747542e6d7a6e47c7e6163c44b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae64672747542e6d7a6e47c7e6163c44b">&#9670;&nbsp;</a></span>chassis()</h2>
 
@@ -175,6 +198,31 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mode_mutex_</b>
 <dl class="section return"><dt>Returns</dt><dd>a copy of chassis. Use copy here to avoid multi-thread issues. </dd></dl>
 
 <p>Implemented in <a class="el" href="classapollo_1_1canbus_1_1lincoln_1_1LincolnController.html#a76de17ec6e8c1038a40330f312c7ae3f">apollo::canbus::lincoln::LincolnController</a>.</p>
+
+</div>
+</div>
+<a id="a8c4ddc5839627eefd59e64edbadccff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c4ddc5839627eefd59e64edbadccff5">&#9670;&nbsp;</a></span>driving_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Chassis::DrivingMode apollo::canbus::VehicleController::driving_mode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -229,6 +277,32 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mode_mutex_</b>
 <dl class="section return"><dt>Returns</dt><dd>error_code </dd></dl>
 
 <p>Implemented in <a class="el" href="classapollo_1_1canbus_1_1lincoln_1_1LincolnController.html#a7edde30e2f60ebdb87754e0c6dc50a91">apollo::canbus::lincoln::LincolnController</a>.</p>
+
+</div>
+</div>
+<a id="a042fae407f18cc53d97adf313b4f2d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a042fae407f18cc53d97adf313b4f2d47">&#9670;&nbsp;</a></span>set_driving_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void apollo::canbus::VehicleController::set_driving_mode </td>
+          <td>(</td>
+          <td class="paramtype">const Chassis::DrivingMode &amp;&#160;</td>
+          <td class="paramname"><em>driving_mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -297,6 +371,35 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mode_mutex_</b>
 
 </div>
 </div>
+<a id="a790d6bc38c242bf259a6d59e9dd8c1ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a790d6bc38c242bf259a6d59e9dd8c1ae">&#9670;&nbsp;</a></span>Stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void apollo::canbus::VehicleController::Stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>stop the vehicle controller. </p>
+
+<p>Implemented in <a class="el" href="classapollo_1_1canbus_1_1lincoln_1_1LincolnController.html#a8243f3f1e7b05a766f895b27ac56a393">apollo::canbus::lincoln::LincolnController</a>.</p>
+
+</div>
+</div>
 <a id="a1414b323a64a19cada021b93ca21c070"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1414b323a64a19cada021b93ca21c070">&#9670;&nbsp;</a></span>Update()</h2>
 
@@ -329,6 +432,161 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mode_mutex_</b>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>error_code </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="adc96ecf041c8d1f15fcb9b81aa44317d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc96ecf041c8d1f15fcb9b81aa44317d">&#9670;&nbsp;</a></span>can_sender_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CanSender&lt;::apollo::canbus::ChassisDetail&gt;* apollo::canbus::VehicleController::can_sender_ = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99aa8920976a27120d5401653d2b7928"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99aa8920976a27120d5401653d2b7928">&#9670;&nbsp;</a></span>driving_mode_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Chassis::DrivingMode apollo::canbus::VehicleController::driving_mode_ = Chassis::COMPLETE_MANUAL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af115cc59f9cf87aaebf3f283f15c443d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af115cc59f9cf87aaebf3f283f15c443d">&#9670;&nbsp;</a></span>is_initialized_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::canbus::VehicleController::is_initialized_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf1c8840b41a46b4cdfc9e7d978ddc2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf1c8840b41a46b4cdfc9e7d978ddc2c">&#9670;&nbsp;</a></span>is_reset_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::canbus::VehicleController::is_reset_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7921a985d12f4ab3965174de3e76d6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7921a985d12f4ab3965174de3e76d6d">&#9670;&nbsp;</a></span>message_manager_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MessageManager&lt;::apollo::canbus::ChassisDetail&gt;* apollo::canbus::VehicleController::message_manager_ = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf46b0d7fdf41051270b478f6eab9323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf46b0d7fdf41051270b478f6eab9323">&#9670;&nbsp;</a></span>mode_mutex_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex apollo::canbus::VehicleController::mode_mutex_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a70b06159d3c10a8fb3130de57755bf92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b06159d3c10a8fb3130de57755bf92">&#9670;&nbsp;</a></span>params_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">canbus::VehicleParameter apollo::canbus::VehicleController::params_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

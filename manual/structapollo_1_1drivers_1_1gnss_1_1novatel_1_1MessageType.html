@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><b>gnss</b></li><li class="navelem"><b>novatel</b></li><li class="navelem"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html">MessageType</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1gnss.html">gnss</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1gnss_1_1novatel.html">novatel</a></li><li class="navelem"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html">MessageType</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,32 +75,118 @@ $(function() {
 <div class="title">apollo::drivers::gnss::novatel::MessageType Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="novatel__messages_8h_source.html">novatel_messages.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::drivers::gnss::novatel::MessageType:</div>
+<div class="dyncontent">
+<div class="center"><img src="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType__coll__graph.png" border="0" usemap="#apollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aef3cc3da387e23cdc3199a94333a57e1"><td class="memItemLeft" align="right" valign="top"><a id="aef3cc3da387e23cdc3199a94333a57e1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>MessageFormat</b> { <b>BINARY</b> = 0b00, 
-<b>ASCII</b> = 0b01, 
-<b>ABREVIATED_ASCII</b> = 0b10, 
-<b>NMEA</b> = 0b11
+<tr class="memitem:aef3cc3da387e23cdc3199a94333a57e1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#aef3cc3da387e23cdc3199a94333a57e1">MessageFormat</a> { <a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#aef3cc3da387e23cdc3199a94333a57e1ab67e5e6d2fe7cb6abd91cefaf339c416">BINARY</a> = 0b00, 
+<a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#aef3cc3da387e23cdc3199a94333a57e1a95ea15231193f57512e8831054973188">ASCII</a> = 0b01, 
+<a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#aef3cc3da387e23cdc3199a94333a57e1a1f1cfa958bc48d90e36ba604cddd252f">ABREVIATED_ASCII</a> = 0b10, 
+<a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#aef3cc3da387e23cdc3199a94333a57e1af2e71730cb84c319f70e9e8ec1e7842c">NMEA</a> = 0b11
  }</td></tr>
 <tr class="separator:aef3cc3da387e23cdc3199a94333a57e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4caabc8acdc778f2d105d27a7ba3abc6"><td class="memItemLeft" align="right" valign="top"><a id="a4caabc8acdc778f2d105d27a7ba3abc6"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>ResponseBit</b> { <b>ORIGINAL_MESSAGE</b> = 0b0, 
-<b>RESPONSE_MESSAGE</b> = 0b1
+<tr class="memitem:a4caabc8acdc778f2d105d27a7ba3abc6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a4caabc8acdc778f2d105d27a7ba3abc6">ResponseBit</a> { <a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a4caabc8acdc778f2d105d27a7ba3abc6aedf685384f9c74e1de23dab14e12bea0">ORIGINAL_MESSAGE</a> = 0b0, 
+<a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a4caabc8acdc778f2d105d27a7ba3abc6a12f940817897d494afb130546dfa70bb">RESPONSE_MESSAGE</a> = 0b1
  }</td></tr>
 <tr class="separator:a4caabc8acdc778f2d105d27a7ba3abc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a530afab9a2588edac7632ae3326675ee"><td class="memItemLeft" align="right" valign="top"><a id="a530afab9a2588edac7632ae3326675ee"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>reserved</b>: 5</td></tr>
+<tr class="memitem:a530afab9a2588edac7632ae3326675ee"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a530afab9a2588edac7632ae3326675ee">reserved</a>: 5</td></tr>
 <tr class="separator:a530afab9a2588edac7632ae3326675ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34ff6d118054eb64dcb8b36d367140f5"><td class="memItemLeft" align="right" valign="top"><a id="a34ff6d118054eb64dcb8b36d367140f5"></a>
-MessageFormat&#160;</td><td class="memItemRight" valign="bottom"><b>format</b>: 2</td></tr>
+<tr class="memitem:a34ff6d118054eb64dcb8b36d367140f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#aef3cc3da387e23cdc3199a94333a57e1">MessageFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a34ff6d118054eb64dcb8b36d367140f5">format</a>: 2</td></tr>
 <tr class="separator:a34ff6d118054eb64dcb8b36d367140f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a131e1c503b16bddb9e93b9478e879383"><td class="memItemLeft" align="right" valign="top"><a id="a131e1c503b16bddb9e93b9478e879383"></a>
-ResponseBit&#160;</td><td class="memItemRight" valign="bottom"><b>response</b>: 1</td></tr>
+<tr class="memitem:a131e1c503b16bddb9e93b9478e879383"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a4caabc8acdc778f2d105d27a7ba3abc6">ResponseBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a131e1c503b16bddb9e93b9478e879383">response</a>: 1</td></tr>
 <tr class="separator:a131e1c503b16bddb9e93b9478e879383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="aef3cc3da387e23cdc3199a94333a57e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef3cc3da387e23cdc3199a94333a57e1">&#9670;&nbsp;</a></span>MessageFormat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#aef3cc3da387e23cdc3199a94333a57e1">apollo::drivers::gnss::novatel::MessageType::MessageFormat</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aef3cc3da387e23cdc3199a94333a57e1ab67e5e6d2fe7cb6abd91cefaf339c416"></a>BINARY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aef3cc3da387e23cdc3199a94333a57e1a95ea15231193f57512e8831054973188"></a>ASCII&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aef3cc3da387e23cdc3199a94333a57e1a1f1cfa958bc48d90e36ba604cddd252f"></a>ABREVIATED_ASCII&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aef3cc3da387e23cdc3199a94333a57e1af2e71730cb84c319f70e9e8ec1e7842c"></a>NMEA&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a4caabc8acdc778f2d105d27a7ba3abc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4caabc8acdc778f2d105d27a7ba3abc6">&#9670;&nbsp;</a></span>ResponseBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a4caabc8acdc778f2d105d27a7ba3abc6">apollo::drivers::gnss::novatel::MessageType::ResponseBit</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4caabc8acdc778f2d105d27a7ba3abc6aedf685384f9c74e1de23dab14e12bea0"></a>ORIGINAL_MESSAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4caabc8acdc778f2d105d27a7ba3abc6a12f940817897d494afb130546dfa70bb"></a>RESPONSE_MESSAGE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a34ff6d118054eb64dcb8b36d367140f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34ff6d118054eb64dcb8b36d367140f5">&#9670;&nbsp;</a></span>format</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#aef3cc3da387e23cdc3199a94333a57e1">MessageFormat</a> apollo::drivers::gnss::novatel::MessageType::format</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a530afab9a2588edac7632ae3326675ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530afab9a2588edac7632ae3326675ee">&#9670;&nbsp;</a></span>reserved</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t apollo::drivers::gnss::novatel::MessageType::reserved</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a131e1c503b16bddb9e93b9478e879383"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a131e1c503b16bddb9e93b9478e879383">&#9670;&nbsp;</a></span>response</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a4caabc8acdc778f2d105d27a7ba3abc6">ResponseBit</a> apollo::drivers::gnss::novatel::MessageType::response</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>modules/drivers/gnss/include/gnss/<a class="el" href="novatel__messages_8h_source.html">novatel_messages.h</a></li>
 </ul>

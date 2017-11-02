@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><b>adapter</b></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1SignalsXmlParser.html">SignalsXmlParser</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html">adapter</a></li><li class="navelem"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1SignalsXmlParser.html">SignalsXmlParser</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,19 +74,132 @@ $(function() {
 <div class="title">apollo::hdmap::adapter::SignalsXmlParser Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="signals__xml__parser_8h_source.html">signals_xml_parser.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::hdmap::adapter::SignalsXmlParser:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1hdmap_1_1adapter_1_1SignalsXmlParser__coll__graph.png" border="0" usemap="#apollo_1_1hdmap_1_1adapter_1_1SignalsXmlParser_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aca6e563399a8f96e0f98e08ae0472a1e"><td class="memItemLeft" align="right" valign="top"><a id="aca6e563399a8f96e0f98e08ae0472a1e"></a>
-static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParseTrafficLights</b> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1TrafficLightInternal.html">TrafficLightInternal</a> &gt; *traffic_lights)</td></tr>
+<tr class="memitem:aca6e563399a8f96e0f98e08ae0472a1e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1SignalsXmlParser.html#aca6e563399a8f96e0f98e08ae0472a1e">ParseTrafficLights</a> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1TrafficLightInternal.html">TrafficLightInternal</a> &gt; *traffic_lights)</td></tr>
 <tr class="separator:aca6e563399a8f96e0f98e08ae0472a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53e89ec84e96bd111dcd2f1afa223f8b"><td class="memItemLeft" align="right" valign="top"><a id="a53e89ec84e96bd111dcd2f1afa223f8b"></a>
-static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParseStopSigns</b> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1StopSignInternal.html">StopSignInternal</a> &gt; *stop_signs)</td></tr>
+<tr class="memitem:a53e89ec84e96bd111dcd2f1afa223f8b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1SignalsXmlParser.html#a53e89ec84e96bd111dcd2f1afa223f8b">ParseStopSigns</a> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1StopSignInternal.html">StopSignInternal</a> &gt; *stop_signs)</td></tr>
 <tr class="separator:a53e89ec84e96bd111dcd2f1afa223f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dc29a0ed4949a0eb337d569296f474d"><td class="memItemLeft" align="right" valign="top"><a id="a1dc29a0ed4949a0eb337d569296f474d"></a>
-static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParseYieldSigns</b> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1YieldSignInternal.html">YieldSignInternal</a> &gt; *yield_signs)</td></tr>
+<tr class="memitem:a1dc29a0ed4949a0eb337d569296f474d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1hdmap_1_1adapter_1_1SignalsXmlParser.html#a1dc29a0ed4949a0eb337d569296f474d">ParseYieldSigns</a> (const tinyxml2::XMLElement &amp;xml_node, std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1YieldSignInternal.html">YieldSignInternal</a> &gt; *yield_signs)</td></tr>
 <tr class="separator:a1dc29a0ed4949a0eb337d569296f474d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a53e89ec84e96bd111dcd2f1afa223f8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e89ec84e96bd111dcd2f1afa223f8b">&#9670;&nbsp;</a></span>ParseStopSigns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> apollo::hdmap::adapter::SignalsXmlParser::ParseStopSigns </td>
+          <td>(</td>
+          <td class="paramtype">const tinyxml2::XMLElement &amp;&#160;</td>
+          <td class="paramname"><em>xml_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1StopSignInternal.html">StopSignInternal</a> &gt; *&#160;</td>
+          <td class="paramname"><em>stop_signs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca6e563399a8f96e0f98e08ae0472a1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca6e563399a8f96e0f98e08ae0472a1e">&#9670;&nbsp;</a></span>ParseTrafficLights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> apollo::hdmap::adapter::SignalsXmlParser::ParseTrafficLights </td>
+          <td>(</td>
+          <td class="paramtype">const tinyxml2::XMLElement &amp;&#160;</td>
+          <td class="paramname"><em>xml_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1TrafficLightInternal.html">TrafficLightInternal</a> &gt; *&#160;</td>
+          <td class="paramname"><em>traffic_lights</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1dc29a0ed4949a0eb337d569296f474d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dc29a0ed4949a0eb337d569296f474d">&#9670;&nbsp;</a></span>ParseYieldSigns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classapollo_1_1common_1_1Status.html">Status</a> apollo::hdmap::adapter::SignalsXmlParser::ParseYieldSigns </td>
+          <td>(</td>
+          <td class="paramtype">const tinyxml2::XMLElement &amp;&#160;</td>
+          <td class="paramname"><em>xml_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1YieldSignInternal.html">YieldSignInternal</a> &gt; *&#160;</td>
+          <td class="paramname"><em>yield_signs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/map/hdmap/adapter/xml_parser/<a class="el" href="signals__xml__parser_8h_source.html">signals_xml_parser.h</a></li>
 </ul>

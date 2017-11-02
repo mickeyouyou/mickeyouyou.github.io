@@ -1,0 +1,3 @@
+<map id="apollo::perception::KalmanFilter" name="apollo::perception::KalmanFilter">
+<area shape="rect" id="node2" href="$classapollo_1_1perception_1_1BaseFilter.html" title="{apollo::perception\l::BaseFilter\n|# name_\l|+ BaseFilter()\l+ ~BaseFilter()\l+ Initialize()\l+ Predict()\l+ UpdateWithObject()\l+ UpdateWithoutObject()\l+ GetState()\l+ GetState()\l+ Name()\l}" alt="" coords="44,5,212,199"/>
+</map>

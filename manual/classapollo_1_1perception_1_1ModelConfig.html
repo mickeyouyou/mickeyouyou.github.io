@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html">ModelConfig</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html">ModelConfig</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,46 +74,500 @@ $(function() {
 <div class="title">apollo::perception::ModelConfig Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="config__manager_8h_source.html">config_manager.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::ModelConfig:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1ModelConfig__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1ModelConfig_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad0ba935f00b89f9f11fe810ca6386eb9"><td class="memItemLeft" align="right" valign="top"><a id="ad0ba935f00b89f9f11fe810ca6386eb9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> (const ModelConfigProto &amp;proto)</td></tr>
+<tr class="memitem:a7384977f3265e5f902fe1a9bf5e8ff6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#a7384977f3265e5f902fe1a9bf5e8ff6a">ModelConfig</a> ()</td></tr>
+<tr class="separator:a7384977f3265e5f902fe1a9bf5e8ff6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9143d0d82807a1221d4fdbcedb4f9f7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#a9143d0d82807a1221d4fdbcedb4f9f7d">~ModelConfig</a> ()</td></tr>
+<tr class="separator:a9143d0d82807a1221d4fdbcedb4f9f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ba935f00b89f9f11fe810ca6386eb9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#ad0ba935f00b89f9f11fe810ca6386eb9">Reset</a> (const ModelConfigProto &amp;proto)</td></tr>
 <tr class="separator:ad0ba935f00b89f9f11fe810ca6386eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabe3d00d8bab960a86d4c4d7968bdfc1"><td class="memItemLeft" align="right" valign="top"><a id="aabe3d00d8bab960a86d4c4d7968bdfc1"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
+<tr class="memitem:aabe3d00d8bab960a86d4c4d7968bdfc1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a> () const</td></tr>
 <tr class="separator:aabe3d00d8bab960a86d4c4d7968bdfc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cf5eb4b5ccc1c72fb66391b8c0a7bb7"><td class="memItemLeft" align="right" valign="top"><a id="a3cf5eb4b5ccc1c72fb66391b8c0a7bb7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, int *value) const</td></tr>
+<tr class="memitem:a3cf5eb4b5ccc1c72fb66391b8c0a7bb7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#a3cf5eb4b5ccc1c72fb66391b8c0a7bb7">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, int *value) const</td></tr>
 <tr class="separator:a3cf5eb4b5ccc1c72fb66391b8c0a7bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14835aad0e38299a95b9cc633183fe85"><td class="memItemLeft" align="right" valign="top"><a id="a14835aad0e38299a95b9cc633183fe85"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, std::string *value) const</td></tr>
+<tr class="memitem:a14835aad0e38299a95b9cc633183fe85"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#a14835aad0e38299a95b9cc633183fe85">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, std::string *value) const</td></tr>
 <tr class="separator:a14835aad0e38299a95b9cc633183fe85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4c9ae060c20800d8e1d44ae2ec161b"><td class="memItemLeft" align="right" valign="top"><a id="a9b4c9ae060c20800d8e1d44ae2ec161b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, double *value) const</td></tr>
+<tr class="memitem:a9b4c9ae060c20800d8e1d44ae2ec161b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#a9b4c9ae060c20800d8e1d44ae2ec161b">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, double *value) const</td></tr>
 <tr class="separator:a9b4c9ae060c20800d8e1d44ae2ec161b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af888f01671bd5c15ef6e875e575c461e"><td class="memItemLeft" align="right" valign="top"><a id="af888f01671bd5c15ef6e875e575c461e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, float *value) const</td></tr>
+<tr class="memitem:af888f01671bd5c15ef6e875e575c461e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#af888f01671bd5c15ef6e875e575c461e">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, float *value) const</td></tr>
 <tr class="separator:af888f01671bd5c15ef6e875e575c461e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7f8837963e33139d5ff03aa3bda7994"><td class="memItemLeft" align="right" valign="top"><a id="ab7f8837963e33139d5ff03aa3bda7994"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, bool *value) const</td></tr>
+<tr class="memitem:ab7f8837963e33139d5ff03aa3bda7994"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#ab7f8837963e33139d5ff03aa3bda7994">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, bool *value) const</td></tr>
 <tr class="separator:ab7f8837963e33139d5ff03aa3bda7994"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9aa5e9aeda336fc6cfd046456887b35"><td class="memItemLeft" align="right" valign="top"><a id="af9aa5e9aeda336fc6cfd046456887b35"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, std::vector&lt; int &gt; *values) const</td></tr>
+<tr class="memitem:af9aa5e9aeda336fc6cfd046456887b35"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#af9aa5e9aeda336fc6cfd046456887b35">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, std::vector&lt; int &gt; *values) const</td></tr>
 <tr class="separator:af9aa5e9aeda336fc6cfd046456887b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a968a420206d642e153fce15278c827af"><td class="memItemLeft" align="right" valign="top"><a id="a968a420206d642e153fce15278c827af"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, std::vector&lt; double &gt; *values) const</td></tr>
+<tr class="memitem:a968a420206d642e153fce15278c827af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#a968a420206d642e153fce15278c827af">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, std::vector&lt; double &gt; *values) const</td></tr>
 <tr class="separator:a968a420206d642e153fce15278c827af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8080c26a43c46d162c1d975f99871bb1"><td class="memItemLeft" align="right" valign="top"><a id="a8080c26a43c46d162c1d975f99871bb1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, std::vector&lt; float &gt; *values) const</td></tr>
+<tr class="memitem:a8080c26a43c46d162c1d975f99871bb1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#a8080c26a43c46d162c1d975f99871bb1">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, std::vector&lt; float &gt; *values) const</td></tr>
 <tr class="separator:a8080c26a43c46d162c1d975f99871bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c891c45fca125ec130c7cf40042777d"><td class="memItemLeft" align="right" valign="top"><a id="a9c891c45fca125ec130c7cf40042777d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, std::vector&lt; std::string &gt; *values) const</td></tr>
+<tr class="memitem:a9c891c45fca125ec130c7cf40042777d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#a9c891c45fca125ec130c7cf40042777d">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, std::vector&lt; std::string &gt; *values) const</td></tr>
 <tr class="separator:a9c891c45fca125ec130c7cf40042777d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac48fc578dd04dc7eb340cf053035b10e"><td class="memItemLeft" align="right" valign="top"><a id="ac48fc578dd04dc7eb340cf053035b10e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> (const std::string &amp;name, std::vector&lt; bool &gt; *values) const</td></tr>
+<tr class="memitem:ac48fc578dd04dc7eb340cf053035b10e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#ac48fc578dd04dc7eb340cf053035b10e">GetValue</a> (const std::string &amp;<a class="el" href="classapollo_1_1perception_1_1ModelConfig.html#aabe3d00d8bab960a86d4c4d7968bdfc1">name</a>, std::vector&lt; bool &gt; *values) const</td></tr>
 <tr class="separator:ac48fc578dd04dc7eb340cf053035b10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7384977f3265e5f902fe1a9bf5e8ff6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7384977f3265e5f902fe1a9bf5e8ff6a">&#9670;&nbsp;</a></span>ModelConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::ModelConfig::ModelConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9143d0d82807a1221d4fdbcedb4f9f7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9143d0d82807a1221d4fdbcedb4f9f7d">&#9670;&nbsp;</a></span>~ModelConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::ModelConfig::~ModelConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3cf5eb4b5ccc1c72fb66391b8c0a7bb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cf5eb4b5ccc1c72fb66391b8c0a7bb7">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[1/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14835aad0e38299a95b9cc633183fe85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14835aad0e38299a95b9cc633183fe85">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[2/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b4c9ae060c20800d8e1d44ae2ec161b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b4c9ae060c20800d8e1d44ae2ec161b">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af888f01671bd5c15ef6e875e575c461e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af888f01671bd5c15ef6e875e575c461e">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7f8837963e33139d5ff03aa3bda7994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7f8837963e33139d5ff03aa3bda7994">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9aa5e9aeda336fc6cfd046456887b35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9aa5e9aeda336fc6cfd046456887b35">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[6/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a968a420206d642e153fce15278c827af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a968a420206d642e153fce15278c827af">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[7/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8080c26a43c46d162c1d975f99871bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8080c26a43c46d162c1d975f99871bb1">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; float &gt; *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c891c45fca125ec130c7cf40042777d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c891c45fca125ec130c7cf40042777d">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac48fc578dd04dc7eb340cf053035b10e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac48fc578dd04dc7eb340cf053035b10e">&#9670;&nbsp;</a></span>GetValue() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; bool &gt; *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aabe3d00d8bab960a86d4c4d7968bdfc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabe3d00d8bab960a86d4c4d7968bdfc1">&#9670;&nbsp;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string apollo::perception::ModelConfig::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0ba935f00b89f9f11fe810ca6386eb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ba935f00b89f9f11fe810ca6386eb9">&#9670;&nbsp;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::ModelConfig::Reset </td>
+          <td>(</td>
+          <td class="paramtype">const ModelConfigProto &amp;&#160;</td>
+          <td class="paramname"><em>proto</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/lib/config_manager/<a class="el" href="config__manager_8h_source.html">config_manager.h</a></li>
 </ul>

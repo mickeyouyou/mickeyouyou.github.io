@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><b>routing</b></li><li class="navelem"><a class="el" href="classapollo_1_1routing_1_1Strategy.html">Strategy</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1routing.html">routing</a></li><li class="navelem"><a class="el" href="classapollo_1_1routing_1_1Strategy.html">Strategy</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,22 +74,112 @@ $(function() {
 <div class="title">apollo::routing::Strategy Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="strategy_8h_source.html">strategy.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::routing::Strategy:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1routing_1_1Strategy.png" usemap="#apollo::routing::Strategy_map" alt=""/>
-  <map id="apollo::routing::Strategy_map" name="apollo::routing::Strategy_map">
-<area href="classapollo_1_1routing_1_1AStarStrategy.html" alt="apollo::routing::AStarStrategy" shape="rect" coords="0,56,176,80"/>
+<div class="center"><img src="classapollo_1_1routing_1_1Strategy__inherit__graph.png" border="0" usemap="#apollo_1_1routing_1_1Strategy_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1routing_1_1Strategy_inherit__map" id="apollo_1_1routing_1_1Strategy_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1routing_1_1AStarStrategy.html" title="{apollo::routing::AStarStrategy\n||+ AStarStrategy()\l+ ~AStarStrategy()\l+ Search()\l}" alt="" coords="5,140,201,240"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::routing::Strategy:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1routing_1_1Strategy__coll__graph.png" border="0" usemap="#apollo_1_1routing_1_1Strategy_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a86dc4d47c0feeb568600ba513a9d3604"><td class="memItemLeft" align="right" valign="top"><a id="a86dc4d47c0feeb568600ba513a9d3604"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Search</b> (const <a class="el" href="classapollo_1_1routing_1_1TopoGraph.html">TopoGraph</a> *graph, const <a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html">SubTopoGraph</a> *sub_graph, const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *src_node, const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *dest_node, std::vector&lt; <a class="el" href="classapollo_1_1routing_1_1NodeWithRange.html">NodeWithRange</a> &gt; *const result_nodes)=0</td></tr>
+<tr class="memitem:a5aac1950c9aeeeac3a2e13c4efca4b1b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1Strategy.html#a5aac1950c9aeeeac3a2e13c4efca4b1b">~Strategy</a> ()</td></tr>
+<tr class="separator:a5aac1950c9aeeeac3a2e13c4efca4b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86dc4d47c0feeb568600ba513a9d3604"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1Strategy.html#a86dc4d47c0feeb568600ba513a9d3604">Search</a> (const <a class="el" href="classapollo_1_1routing_1_1TopoGraph.html">TopoGraph</a> *graph, const <a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html">SubTopoGraph</a> *sub_graph, const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *src_node, const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *dest_node, std::vector&lt; <a class="el" href="classapollo_1_1routing_1_1NodeWithRange.html">NodeWithRange</a> &gt; *const result_nodes)=0</td></tr>
 <tr class="separator:a86dc4d47c0feeb568600ba513a9d3604"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5aac1950c9aeeeac3a2e13c4efca4b1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aac1950c9aeeeac3a2e13c4efca4b1b">&#9670;&nbsp;</a></span>~Strategy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::routing::Strategy::~Strategy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a86dc4d47c0feeb568600ba513a9d3604"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86dc4d47c0feeb568600ba513a9d3604">&#9670;&nbsp;</a></span>Search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool apollo::routing::Strategy::Search </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1TopoGraph.html">TopoGraph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1SubTopoGraph.html">SubTopoGraph</a> *&#160;</td>
+          <td class="paramname"><em>sub_graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *&#160;</td>
+          <td class="paramname"><em>src_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *&#160;</td>
+          <td class="paramname"><em>dest_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classapollo_1_1routing_1_1NodeWithRange.html">NodeWithRange</a> &gt; *const&#160;</td>
+          <td class="paramname"><em>result_nodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1routing_1_1AStarStrategy.html#aad1d3fc25515d1fb5bad1d6aae47aba7">apollo::routing::AStarStrategy</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/routing/strategy/<a class="el" href="strategy_8h_source.html">strategy.h</a></li>
 </ul>

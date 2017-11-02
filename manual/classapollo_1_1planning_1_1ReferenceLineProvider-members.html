@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">ReferenceLineProvider</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">ReferenceLineProvider</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,11 +74,13 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>GetReferenceLines</b>() (defined in <a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Init</b>(const hdmap::HDMap *hdmap_, const ReferenceLineSmootherConfig &amp;smoother_config) (defined in <a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Start</b>() (defined in <a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Stop</b>() (defined in <a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>UpdateRoutingResponse</b>(const routing::RoutingResponse &amp;routing) (defined in <a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html#a21b52953f0d40f11ecfc5ce5487b4e28">GetReferenceLines</a>(std::list&lt; ReferenceLine &gt; *reference_lines, std::list&lt; hdmap::RouteSegments &gt; *segments)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html#aac1f20aae374ae5353c32351a0f07d45">HasReferenceLine</a>()</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html#aa35c608ffa14afed220f68c52d68bafd">Init</a>(const hdmap::HDMap *hdmap_, const QpSplineReferenceLineSmootherConfig &amp;smoother_config)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html#a793a9f25dfbe766c80fc543792b07cbd">Start</a>()</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html#a24517d49fdc36edc22838564a503c6a6">Stop</a>()</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html#a607d30f47e713eaf99c8bdf3c7431965">UpdateRoutingResponse</a>(const routing::RoutingResponse &amp;routing)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html#a0f25634f62a8212bce5ddcae6b80ee2d">UpdateVehicleStatus</a>(const common::PointENU &amp;position, double speed)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html#a8e1227a5581b1ab37ad2725a5680d160">~ReferenceLineProvider</a>()</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1ReferenceLineProvider.html">apollo::planning::ReferenceLineProvider</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->

@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">PolynomialXd</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">PolynomialXd</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,17 +74,17 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>DerivedFrom</b>(const PolynomialXd &amp;base) (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>IntegratedFrom</b>(const PolynomialXd &amp;base) (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>IntegratedFrom</b>(const PolynomialXd &amp;base, const double intercept) (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator()</b>(const double value) const (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator[]</b>(const std::uint32_t index) const (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>order</b>() const (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>params</b>() const (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>PolynomialXd</b>()=default (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>PolynomialXd</b>(const std::uint32_t order) (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>PolynomialXd</b>(const std::vector&lt; double &gt; &amp;params) (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SetParams</b>(const std::vector&lt; double &gt; &amp;params) (defined in <a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a>)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#ab05e812f98754ca79e4038dab6f33e30">DerivedFrom</a>(const PolynomialXd &amp;base)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#a6efd46ec180949d406214a2d795daa23">IntegratedFrom</a>(const PolynomialXd &amp;base)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#a740014979aa34b3731c2406727671b66">IntegratedFrom</a>(const PolynomialXd &amp;base, const double intercept)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#aee4e9240352b826f6c7caa44e2a1956a">operator()</a>(const double value) const</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#af81fe7ea3574b4d6d668d1173c8b1571">operator[]</a>(const std::uint32_t index) const</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#ad956d5821b5d55b6341a436149df2687">order</a>() const</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#a55f3c229e0405403a77ef15a9c7dbe1a">params</a>() const</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#aadf2665ef5d19bc8cb0662aa4babbbb8">PolynomialXd</a>()=default</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#a451ef65d48a0d7d70f14747cd3e808b9">PolynomialXd</a>(const std::uint32_t order)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#a77521d3f8d11dac4ca56f92852ec9aed">PolynomialXd</a>(const std::vector&lt; double &gt; &amp;params)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html#ae90668e43dc6cb5ac2b8532729ea71a6">SetParams</a>(const std::vector&lt; double &gt; &amp;params)</td><td class="entry"><a class="el" href="classapollo_1_1planning_1_1PolynomialXd.html">apollo::planning::PolynomialXd</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

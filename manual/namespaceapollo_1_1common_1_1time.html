@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1time.html">time</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common_1_1time.html">time</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -86,51 +87,154 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ab47534306c32e55d0ad9504d34357984"><td class="memItemLeft" align="right" valign="top"><a id="ab47534306c32e55d0ad9504d34357984"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Duration</b> = std::chrono::nanoseconds</td></tr>
+<tr class="memitem:ab47534306c32e55d0ad9504d34357984"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">Duration</a> = std::chrono::nanoseconds</td></tr>
 <tr class="separator:ab47534306c32e55d0ad9504d34357984"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacf1c652dbeb06360bc386900770b0f2"><td class="memItemLeft" align="right" valign="top"><a id="aacf1c652dbeb06360bc386900770b0f2"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Timestamp</b> = std::chrono::time_point&lt; std::chrono::system_clock, <a class="el" href="classDuration.html">Duration</a> &gt;</td></tr>
+<tr class="memitem:aacf1c652dbeb06360bc386900770b0f2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#aacf1c652dbeb06360bc386900770b0f2">Timestamp</a> = std::chrono::time_point&lt; std::chrono::system_clock, <a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">Duration</a> &gt;</td></tr>
 <tr class="separator:aacf1c652dbeb06360bc386900770b0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8e6b148c57b87faf3fc9951a12c5408"><td class="memItemLeft" align="right" valign="top"><a id="ad8e6b148c57b87faf3fc9951a12c5408"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>nanos</b> = std::chrono::nanoseconds</td></tr>
+<tr class="memitem:ad8e6b148c57b87faf3fc9951a12c5408"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#ad8e6b148c57b87faf3fc9951a12c5408">nanos</a> = std::chrono::nanoseconds</td></tr>
 <tr class="separator:ad8e6b148c57b87faf3fc9951a12c5408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9954beb0148e7754cd829584b331a9d8"><td class="memItemLeft" align="right" valign="top"><a id="a9954beb0148e7754cd829584b331a9d8"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>micros</b> = std::chrono::microseconds</td></tr>
+<tr class="memitem:a9954beb0148e7754cd829584b331a9d8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#a9954beb0148e7754cd829584b331a9d8">micros</a> = std::chrono::microseconds</td></tr>
 <tr class="separator:a9954beb0148e7754cd829584b331a9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd7473d79dc68849a2bc564f587e3cb6"><td class="memItemLeft" align="right" valign="top"><a id="abd7473d79dc68849a2bc564f587e3cb6"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>millis</b> = std::chrono::milliseconds</td></tr>
+<tr class="memitem:abd7473d79dc68849a2bc564f587e3cb6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#abd7473d79dc68849a2bc564f587e3cb6">millis</a> = std::chrono::milliseconds</td></tr>
 <tr class="separator:abd7473d79dc68849a2bc564f587e3cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa68443da9f2d36c53ce813cdbc330a89"><td class="memItemLeft" align="right" valign="top"><a id="aa68443da9f2d36c53ce813cdbc330a89"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>seconds</b> = std::chrono::seconds</td></tr>
+<tr class="memitem:aa68443da9f2d36c53ce813cdbc330a89"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#aa68443da9f2d36c53ce813cdbc330a89">seconds</a> = std::chrono::seconds</td></tr>
 <tr class="separator:aa68443da9f2d36c53ce813cdbc330a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d7f2bf89f24e8081df108a18c01cbe0"><td class="memItemLeft" align="right" valign="top"><a id="a8d7f2bf89f24e8081df108a18c01cbe0"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>minutes</b> = std::chrono::minutes</td></tr>
+<tr class="memitem:a8d7f2bf89f24e8081df108a18c01cbe0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#a8d7f2bf89f24e8081df108a18c01cbe0">minutes</a> = std::chrono::minutes</td></tr>
 <tr class="separator:a8d7f2bf89f24e8081df108a18c01cbe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3143a7e27d4839247544c1e8654821e6"><td class="memItemLeft" align="right" valign="top"><a id="a3143a7e27d4839247544c1e8654821e6"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>hours</b> = std::chrono::hours</td></tr>
+<tr class="memitem:a3143a7e27d4839247544c1e8654821e6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#a3143a7e27d4839247544c1e8654821e6">hours</a> = std::chrono::hours</td></tr>
 <tr class="separator:a3143a7e27d4839247544c1e8654821e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1efba42a388eae0545f6a1ccf5ebf2e4"><td class="memTemplParams" colspan="2">template&lt;typename PrecisionDuration &gt; </td></tr>
-<tr class="memitem:a1efba42a388eae0545f6a1ccf5ebf2e4"><td class="memTemplItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#a1efba42a388eae0545f6a1ccf5ebf2e4">AsInt64</a> (const <a class="el" href="classDuration.html">Duration</a> &amp;duration)</td></tr>
+<tr class="memitem:a1efba42a388eae0545f6a1ccf5ebf2e4"><td class="memTemplItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#a1efba42a388eae0545f6a1ccf5ebf2e4">AsInt64</a> (const <a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">Duration</a> &amp;duration)</td></tr>
 <tr class="memdesc:a1efba42a388eae0545f6a1ccf5ebf2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts the input duration (nanos) to a 64 bit integer, with the unit specified by PrecisionDuration.  <a href="#a1efba42a388eae0545f6a1ccf5ebf2e4">More...</a><br /></td></tr>
 <tr class="separator:a1efba42a388eae0545f6a1ccf5ebf2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a653075aa7711173f8a6d01581298ec37"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#a653075aa7711173f8a6d01581298ec37">ToSecond</a> (const <a class="el" href="classDuration.html">Duration</a> &amp;duration)</td></tr>
+<tr class="memitem:a653075aa7711173f8a6d01581298ec37"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#a653075aa7711173f8a6d01581298ec37">ToSecond</a> (const <a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">Duration</a> &amp;duration)</td></tr>
 <tr class="memdesc:a653075aa7711173f8a6d01581298ec37"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts the input duration (nanos) to a double in seconds. The original precision will be preserved.  <a href="#a653075aa7711173f8a6d01581298ec37">More...</a><br /></td></tr>
 <tr class="separator:a653075aa7711173f8a6d01581298ec37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c3c9303944b51b8d00d0cca4b19829a"><td class="memTemplParams" colspan="2"><a id="a1c3c9303944b51b8d00d0cca4b19829a"></a>
-template&lt;typename PrecisionDuration &gt; </td></tr>
-<tr class="memitem:a1c3c9303944b51b8d00d0cca4b19829a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classTimestamp.html">Timestamp</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>FromInt64</b> (int64_t timestamp_value)</td></tr>
+<tr class="memitem:a1c3c9303944b51b8d00d0cca4b19829a"><td class="memTemplParams" colspan="2">template&lt;typename PrecisionDuration &gt; </td></tr>
+<tr class="memitem:a1c3c9303944b51b8d00d0cca4b19829a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1common_1_1time.html#aacf1c652dbeb06360bc386900770b0f2">Timestamp</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#a1c3c9303944b51b8d00d0cca4b19829a">FromInt64</a> (int64_t timestamp_value)</td></tr>
 <tr class="separator:a1c3c9303944b51b8d00d0cca4b19829a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7258e246b176f2b79f6f35526f01e8ef"><td class="memItemLeft" align="right" valign="top"><a id="a7258e246b176f2b79f6f35526f01e8ef"></a>
-<a class="el" href="classTimestamp.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><b>From</b> (double timestamp_value)</td></tr>
+<tr class="memitem:a7258e246b176f2b79f6f35526f01e8ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1common_1_1time.html#aacf1c652dbeb06360bc386900770b0f2">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1time.html#a7258e246b176f2b79f6f35526f01e8ef">From</a> (double timestamp_value)</td></tr>
 <tr class="separator:a7258e246b176f2b79f6f35526f01e8ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespaceapollo_1_1common_1_1time.html" title="apollo::common::time ">apollo::common::time</a> </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="ab47534306c32e55d0ad9504d34357984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab47534306c32e55d0ad9504d34357984">&#9670;&nbsp;</a></span>Duration</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">apollo::common::time::Duration</a> = typedef std::chrono::nanoseconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3143a7e27d4839247544c1e8654821e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3143a7e27d4839247544c1e8654821e6">&#9670;&nbsp;</a></span>hours</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceapollo_1_1common_1_1time.html#a3143a7e27d4839247544c1e8654821e6">apollo::common::time::hours</a> = typedef std::chrono::hours</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9954beb0148e7754cd829584b331a9d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9954beb0148e7754cd829584b331a9d8">&#9670;&nbsp;</a></span>micros</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceapollo_1_1common_1_1time.html#a9954beb0148e7754cd829584b331a9d8">apollo::common::time::micros</a> = typedef std::chrono::microseconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd7473d79dc68849a2bc564f587e3cb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd7473d79dc68849a2bc564f587e3cb6">&#9670;&nbsp;</a></span>millis</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceapollo_1_1common_1_1time.html#abd7473d79dc68849a2bc564f587e3cb6">apollo::common::time::millis</a> = typedef std::chrono::milliseconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d7f2bf89f24e8081df108a18c01cbe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d7f2bf89f24e8081df108a18c01cbe0">&#9670;&nbsp;</a></span>minutes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceapollo_1_1common_1_1time.html#a8d7f2bf89f24e8081df108a18c01cbe0">apollo::common::time::minutes</a> = typedef std::chrono::minutes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8e6b148c57b87faf3fc9951a12c5408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8e6b148c57b87faf3fc9951a12c5408">&#9670;&nbsp;</a></span>nanos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceapollo_1_1common_1_1time.html#ad8e6b148c57b87faf3fc9951a12c5408">apollo::common::time::nanos</a> = typedef std::chrono::nanoseconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa68443da9f2d36c53ce813cdbc330a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa68443da9f2d36c53ce813cdbc330a89">&#9670;&nbsp;</a></span>seconds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceapollo_1_1common_1_1time.html#aa68443da9f2d36c53ce813cdbc330a89">apollo::common::time::seconds</a> = typedef std::chrono::seconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aacf1c652dbeb06360bc386900770b0f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf1c652dbeb06360bc386900770b0f2">&#9670;&nbsp;</a></span>Timestamp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceapollo_1_1common_1_1time.html#aacf1c652dbeb06360bc386900770b0f2">apollo::common::time::Timestamp</a> = typedef std::chrono::time_point&lt;std::chrono::system_clock, <a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">Duration</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a1efba42a388eae0545f6a1ccf5ebf2e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1efba42a388eae0545f6a1ccf5ebf2e4">&#9670;&nbsp;</a></span>AsInt64()</h2>
 
@@ -142,7 +246,7 @@ template&lt;typename PrecisionDuration &gt; </div>
         <tr>
           <td class="memname">int64_t apollo::common::time::AsInt64 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classDuration.html">Duration</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">Duration</a> &amp;&#160;</td>
           <td class="paramname"><em>duration</em></td><td>)</td>
           <td></td>
         </tr>
@@ -168,6 +272,60 @@ template&lt;typename PrecisionDuration &gt; </div>
 
 </div>
 </div>
+<a id="a7258e246b176f2b79f6f35526f01e8ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7258e246b176f2b79f6f35526f01e8ef">&#9670;&nbsp;</a></span>From()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1common_1_1time.html#aacf1c652dbeb06360bc386900770b0f2">Timestamp</a> apollo::common::time::From </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>timestamp_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c3c9303944b51b8d00d0cca4b19829a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3c9303944b51b8d00d0cca4b19829a">&#9670;&nbsp;</a></span>FromInt64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PrecisionDuration &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1common_1_1time.html#aacf1c652dbeb06360bc386900770b0f2">Timestamp</a> apollo::common::time::FromInt64 </td>
+          <td>(</td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"><em>timestamp_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a653075aa7711173f8a6d01581298ec37"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a653075aa7711173f8a6d01581298ec37">&#9670;&nbsp;</a></span>ToSecond()</h2>
 
@@ -180,7 +338,7 @@ template&lt;typename PrecisionDuration &gt; </div>
         <tr>
           <td class="memname">double apollo::common::time::ToSecond </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classDuration.html">Duration</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1common_1_1time.html#ab47534306c32e55d0ad9504d34357984">Duration</a> &amp;&#160;</td>
           <td class="paramname"><em>duration</em></td><td>)</td>
           <td></td>
         </tr>

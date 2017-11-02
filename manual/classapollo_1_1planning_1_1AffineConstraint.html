@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html">AffineConstraint</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html">AffineConstraint</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,28 +74,206 @@ $(function() {
 <div class="title">apollo::planning::AffineConstraint Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="affine__constraint_8h_source.html">affine_constraint.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::AffineConstraint:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1AffineConstraint__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1AffineConstraint_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae8187b6db96ea919f4773deb5768ac5b"><td class="memItemLeft" align="right" valign="top"><a id="ae8187b6db96ea919f4773deb5768ac5b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AffineConstraint</b> (const bool is_equality)</td></tr>
+<tr class="memitem:ae7abc8ee79c9b8f6f1ea0be7d70d17b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#ae7abc8ee79c9b8f6f1ea0be7d70d17b8">AffineConstraint</a> ()=default</td></tr>
+<tr class="separator:ae7abc8ee79c9b8f6f1ea0be7d70d17b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8187b6db96ea919f4773deb5768ac5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#ae8187b6db96ea919f4773deb5768ac5b">AffineConstraint</a> (const bool is_equality)</td></tr>
 <tr class="separator:ae8187b6db96ea919f4773deb5768ac5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28d15ae4f2250d35aa535fc210798871"><td class="memItemLeft" align="right" valign="top"><a id="a28d15ae4f2250d35aa535fc210798871"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AffineConstraint</b> (const Eigen::MatrixXd &amp;constraint_matrix, const Eigen::MatrixXd &amp;constraint_boundary, const bool is_equality)</td></tr>
+<tr class="memitem:a28d15ae4f2250d35aa535fc210798871"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#a28d15ae4f2250d35aa535fc210798871">AffineConstraint</a> (const Eigen::MatrixXd &amp;<a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#aeb96a6570af0660e645a6a25b6f04257">constraint_matrix</a>, const Eigen::MatrixXd &amp;<a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#a022432e78b5bb87e638a8583ce6bbc84">constraint_boundary</a>, const bool is_equality)</td></tr>
 <tr class="separator:a28d15ae4f2250d35aa535fc210798871"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc2922cc85f4b48b4d7e1c49be6cddb1"><td class="memItemLeft" align="right" valign="top"><a id="acc2922cc85f4b48b4d7e1c49be6cddb1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetIsEquality</b> (const double is_equality)</td></tr>
+<tr class="memitem:acc2922cc85f4b48b4d7e1c49be6cddb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#acc2922cc85f4b48b4d7e1c49be6cddb1">SetIsEquality</a> (const double is_equality)</td></tr>
 <tr class="separator:acc2922cc85f4b48b4d7e1c49be6cddb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb96a6570af0660e645a6a25b6f04257"><td class="memItemLeft" align="right" valign="top"><a id="aeb96a6570af0660e645a6a25b6f04257"></a>
-const Eigen::MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>constraint_matrix</b> () const</td></tr>
+<tr class="memitem:aeb96a6570af0660e645a6a25b6f04257"><td class="memItemLeft" align="right" valign="top">const Eigen::MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#aeb96a6570af0660e645a6a25b6f04257">constraint_matrix</a> () const</td></tr>
 <tr class="separator:aeb96a6570af0660e645a6a25b6f04257"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a022432e78b5bb87e638a8583ce6bbc84"><td class="memItemLeft" align="right" valign="top"><a id="a022432e78b5bb87e638a8583ce6bbc84"></a>
-const Eigen::MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>constraint_boundary</b> () const</td></tr>
+<tr class="memitem:a022432e78b5bb87e638a8583ce6bbc84"><td class="memItemLeft" align="right" valign="top">const Eigen::MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#a022432e78b5bb87e638a8583ce6bbc84">constraint_boundary</a> () const</td></tr>
 <tr class="separator:a022432e78b5bb87e638a8583ce6bbc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bc54ad3449725de9b4d0e4693876898"><td class="memItemLeft" align="right" valign="top"><a id="a7bc54ad3449725de9b4d0e4693876898"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>AddConstraint</b> (const Eigen::MatrixXd &amp;constraint_matrix, const Eigen::MatrixXd &amp;constraint_boundary)</td></tr>
+<tr class="memitem:a7bc54ad3449725de9b4d0e4693876898"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#a7bc54ad3449725de9b4d0e4693876898">AddConstraint</a> (const Eigen::MatrixXd &amp;<a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#aeb96a6570af0660e645a6a25b6f04257">constraint_matrix</a>, const Eigen::MatrixXd &amp;<a class="el" href="classapollo_1_1planning_1_1AffineConstraint.html#a022432e78b5bb87e638a8583ce6bbc84">constraint_boundary</a>)</td></tr>
 <tr class="separator:a7bc54ad3449725de9b4d0e4693876898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae7abc8ee79c9b8f6f1ea0be7d70d17b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7abc8ee79c9b8f6f1ea0be7d70d17b8">&#9670;&nbsp;</a></span>AffineConstraint() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::AffineConstraint::AffineConstraint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8187b6db96ea919f4773deb5768ac5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8187b6db96ea919f4773deb5768ac5b">&#9670;&nbsp;</a></span>AffineConstraint() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::AffineConstraint::AffineConstraint </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>is_equality</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28d15ae4f2250d35aa535fc210798871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28d15ae4f2250d35aa535fc210798871">&#9670;&nbsp;</a></span>AffineConstraint() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::AffineConstraint::AffineConstraint </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>constraint_matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>constraint_boundary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>is_equality</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7bc54ad3449725de9b4d0e4693876898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bc54ad3449725de9b4d0e4693876898">&#9670;&nbsp;</a></span>AddConstraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::AffineConstraint::AddConstraint </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>constraint_matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>constraint_boundary</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a022432e78b5bb87e638a8583ce6bbc84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a022432e78b5bb87e638a8583ce6bbc84">&#9670;&nbsp;</a></span>constraint_boundary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Eigen::MatrixXd&amp; apollo::planning::AffineConstraint::constraint_boundary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb96a6570af0660e645a6a25b6f04257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb96a6570af0660e645a6a25b6f04257">&#9670;&nbsp;</a></span>constraint_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Eigen::MatrixXd&amp; apollo::planning::AffineConstraint::constraint_matrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc2922cc85f4b48b4d7e1c49be6cddb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc2922cc85f4b48b4d7e1c49be6cddb1">&#9670;&nbsp;</a></span>SetIsEquality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::AffineConstraint::SetIsEquality </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>is_equality</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/math/smoothing_spline/<a class="el" href="affine__constraint_8h_source.html">affine_constraint.h</a></li>
 </ul>

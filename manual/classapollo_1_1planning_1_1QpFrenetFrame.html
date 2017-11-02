@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1QpFrenetFrame.html">QpFrenetFrame</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1QpFrenetFrame.html">QpFrenetFrame</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,28 +74,191 @@ $(function() {
 <div class="title">apollo::planning::QpFrenetFrame Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="qp__frenet__frame_8h_source.html">qp_frenet_frame.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::QpFrenetFrame:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1QpFrenetFrame__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1QpFrenetFrame_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad352ab1bf30dbf6270c520307c3ec66f"><td class="memItemLeft" align="right" valign="top"><a id="ad352ab1bf30dbf6270c520307c3ec66f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>QpFrenetFrame</b> (const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;speed_data, const common::FrenetFramePoint &amp;init_frenet_point, const double time_resolution)</td></tr>
-<tr class="separator:ad352ab1bf30dbf6270c520307c3ec66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad278285790e86990ccc44bfc6c78118e"><td class="memItemLeft" align="right" valign="top"><a id="ad278285790e86990ccc44bfc6c78118e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (const uint32_t num_points, const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;path_obstacles)</td></tr>
-<tr class="separator:ad278285790e86990ccc44bfc6c78118e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e4b46bcca0e90859642ad465211fe20"><td class="memItemLeft" align="right" valign="top"><a id="a9e4b46bcca0e90859642ad465211fe20"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>LogQpBound</b> (apollo::planning_internal::Debug *planning_debug)</td></tr>
+<tr class="memitem:a013bdc942ec82f6308b26d8f27377f4c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpFrenetFrame.html#a013bdc942ec82f6308b26d8f27377f4c">QpFrenetFrame</a> (const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;speed_data, const common::FrenetFramePoint &amp;init_frenet_point, const double time_resolution, const std::vector&lt; double &gt; &amp;evaluated_s)</td></tr>
+<tr class="separator:a013bdc942ec82f6308b26d8f27377f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a125e5ea88a4187b190a060c402c0767a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpFrenetFrame.html#a125e5ea88a4187b190a060c402c0767a">~QpFrenetFrame</a> ()=default</td></tr>
+<tr class="separator:a125e5ea88a4187b190a060c402c0767a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92b7bafff0781bd85e2b4c5b80fbe440"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpFrenetFrame.html#a92b7bafff0781bd85e2b4c5b80fbe440">Init</a> (const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;path_obstacles)</td></tr>
+<tr class="separator:a92b7bafff0781bd85e2b4c5b80fbe440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e4b46bcca0e90859642ad465211fe20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpFrenetFrame.html#a9e4b46bcca0e90859642ad465211fe20">LogQpBound</a> (apollo::planning_internal::Debug *planning_debug)</td></tr>
 <tr class="separator:a9e4b46bcca0e90859642ad465211fe20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2da926a2993fe3c31afe765edc488e3e"><td class="memItemLeft" align="right" valign="top"><a id="a2da926a2993fe3c31afe765edc488e3e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetMapBound</b> (const double s, std::pair&lt; double, double &gt; *const bound) const</td></tr>
-<tr class="separator:a2da926a2993fe3c31afe765edc488e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af54fada7fb98f076fdfe06e41a02923d"><td class="memItemLeft" align="right" valign="top"><a id="af54fada7fb98f076fdfe06e41a02923d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetStaticObstacleBound</b> (const double s, std::pair&lt; double, double &gt; *const bound) const</td></tr>
-<tr class="separator:af54fada7fb98f076fdfe06e41a02923d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a267c26ba50353afcaca49cdbd5a03a35"><td class="memItemLeft" align="right" valign="top"><a id="a267c26ba50353afcaca49cdbd5a03a35"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetDynamicObstacleBound</b> (const double s, std::pair&lt; double, double &gt; *const bound) const</td></tr>
-<tr class="separator:a267c26ba50353afcaca49cdbd5a03a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2374446d3a33bbb7bc693240ac98567c"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::pair&lt; double, double &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpFrenetFrame.html#a2374446d3a33bbb7bc693240ac98567c">GetMapBound</a> () const</td></tr>
+<tr class="separator:a2374446d3a33bbb7bc693240ac98567c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f00df4798398787a28b6f0a886b2f12"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::pair&lt; double, double &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpFrenetFrame.html#a8f00df4798398787a28b6f0a886b2f12">GetStaticObstacleBound</a> () const</td></tr>
+<tr class="separator:a8f00df4798398787a28b6f0a886b2f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f8ec5f964aa6b58bc69002241efbb7"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::pair&lt; double, double &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpFrenetFrame.html#a93f8ec5f964aa6b58bc69002241efbb7">GetDynamicObstacleBound</a> () const</td></tr>
+<tr class="separator:a93f8ec5f964aa6b58bc69002241efbb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a013bdc942ec82f6308b26d8f27377f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a013bdc942ec82f6308b26d8f27377f4c">&#9670;&nbsp;</a></span>QpFrenetFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::QpFrenetFrame::QpFrenetFrame </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;&#160;</td>
+          <td class="paramname"><em>reference_line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;&#160;</td>
+          <td class="paramname"><em>speed_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const common::FrenetFramePoint &amp;&#160;</td>
+          <td class="paramname"><em>init_frenet_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>time_resolution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>evaluated_s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a125e5ea88a4187b190a060c402c0767a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a125e5ea88a4187b190a060c402c0767a">&#9670;&nbsp;</a></span>~QpFrenetFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::planning::QpFrenetFrame::~QpFrenetFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a93f8ec5f964aa6b58bc69002241efbb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93f8ec5f964aa6b58bc69002241efbb7">&#9670;&nbsp;</a></span>GetDynamicObstacleBound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;std::pair&lt;double, double&gt; &gt;&amp; apollo::planning::QpFrenetFrame::GetDynamicObstacleBound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2374446d3a33bbb7bc693240ac98567c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2374446d3a33bbb7bc693240ac98567c">&#9670;&nbsp;</a></span>GetMapBound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;std::pair&lt;double, double&gt; &gt;&amp; apollo::planning::QpFrenetFrame::GetMapBound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f00df4798398787a28b6f0a886b2f12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f00df4798398787a28b6f0a886b2f12">&#9670;&nbsp;</a></span>GetStaticObstacleBound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;std::pair&lt;double, double&gt; &gt;&amp; apollo::planning::QpFrenetFrame::GetStaticObstacleBound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92b7bafff0781bd85e2b4c5b80fbe440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92b7bafff0781bd85e2b4c5b80fbe440">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::QpFrenetFrame::Init </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;&#160;</td>
+          <td class="paramname"><em>path_obstacles</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e4b46bcca0e90859642ad465211fe20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e4b46bcca0e90859642ad465211fe20">&#9670;&nbsp;</a></span>LogQpBound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::QpFrenetFrame::LogQpBound </td>
+          <td>(</td>
+          <td class="paramtype">apollo::planning_internal::Debug *&#160;</td>
+          <td class="paramname"><em>planning_debug</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/tasks/qp_spline_path/<a class="el" href="qp__frenet__frame_8h_source.html">qp_frenet_frame.h</a></li>
 </ul>

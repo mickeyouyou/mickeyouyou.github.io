@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><b>adapter</b></li><li class="navelem"><a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1LaneInternal.html">LaneInternal</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap.html">hdmap</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html">adapter</a></li><li class="navelem"><a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1LaneInternal.html">LaneInternal</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,25 +74,98 @@ $(function() {
 <div class="title">apollo::hdmap::adapter::LaneInternal Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="common__define_8h_source.html">common_define.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::hdmap::adapter::LaneInternal:</div>
+<div class="dyncontent">
+<div class="center"><img src="structapollo_1_1hdmap_1_1adapter_1_1LaneInternal__coll__graph.png" border="0" usemap="#apollo_1_1hdmap_1_1adapter_1_1LaneInternal_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a91dbaa0c1eb0d95347afdbbef65da24c"><td class="memItemLeft" align="right" valign="top"><a id="a91dbaa0c1eb0d95347afdbbef65da24c"></a>
-PbLane&#160;</td><td class="memItemRight" valign="bottom"><b>lane</b></td></tr>
+<tr class="memitem:a91dbaa0c1eb0d95347afdbbef65da24c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html#a7436d6ea3d979dad52e2978f8d5b4f7f">PbLane</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1LaneInternal.html#a91dbaa0c1eb0d95347afdbbef65da24c">lane</a></td></tr>
 <tr class="separator:a91dbaa0c1eb0d95347afdbbef65da24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe67444fa4edb5774ddfbafe1e0276a5"><td class="memItemLeft" align="right" valign="top"><a id="abe67444fa4edb5774ddfbafe1e0276a5"></a>
-std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>overlap_signals</b></td></tr>
+<tr class="memitem:abe67444fa4edb5774ddfbafe1e0276a5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1LaneInternal.html#abe67444fa4edb5774ddfbafe1e0276a5">overlap_signals</a></td></tr>
 <tr class="separator:abe67444fa4edb5774ddfbafe1e0276a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af42917e6af1a008258d3429747361718"><td class="memItemLeft" align="right" valign="top"><a id="af42917e6af1a008258d3429747361718"></a>
-std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>overlap_objects</b></td></tr>
+<tr class="memitem:af42917e6af1a008258d3429747361718"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1LaneInternal.html#af42917e6af1a008258d3429747361718">overlap_objects</a></td></tr>
 <tr class="separator:af42917e6af1a008258d3429747361718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaa1c49ced7bc18e80fcfdb51427d18a"><td class="memItemLeft" align="right" valign="top"><a id="aeaa1c49ced7bc18e80fcfdb51427d18a"></a>
-std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>overlap_junctions</b></td></tr>
+<tr class="memitem:aeaa1c49ced7bc18e80fcfdb51427d18a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1LaneInternal.html#aeaa1c49ced7bc18e80fcfdb51427d18a">overlap_junctions</a></td></tr>
 <tr class="separator:aeaa1c49ced7bc18e80fcfdb51427d18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a8bb3ef21e7e22780a8a9872635624f"><td class="memItemLeft" align="right" valign="top"><a id="a0a8bb3ef21e7e22780a8a9872635624f"></a>
-std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>overlap_lanes</b></td></tr>
+<tr class="memitem:a0a8bb3ef21e7e22780a8a9872635624f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1LaneInternal.html#a0a8bb3ef21e7e22780a8a9872635624f">overlap_lanes</a></td></tr>
 <tr class="separator:a0a8bb3ef21e7e22780a8a9872635624f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a91dbaa0c1eb0d95347afdbbef65da24c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91dbaa0c1eb0d95347afdbbef65da24c">&#9670;&nbsp;</a></span>lane</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceapollo_1_1hdmap_1_1adapter.html#a7436d6ea3d979dad52e2978f8d5b4f7f">PbLane</a> apollo::hdmap::adapter::LaneInternal::lane</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeaa1c49ced7bc18e80fcfdb51427d18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaa1c49ced7bc18e80fcfdb51427d18a">&#9670;&nbsp;</a></span>overlap_junctions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a>&gt; apollo::hdmap::adapter::LaneInternal::overlap_junctions</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a8bb3ef21e7e22780a8a9872635624f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a8bb3ef21e7e22780a8a9872635624f">&#9670;&nbsp;</a></span>overlap_lanes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a>&gt; apollo::hdmap::adapter::LaneInternal::overlap_lanes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af42917e6af1a008258d3429747361718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af42917e6af1a008258d3429747361718">&#9670;&nbsp;</a></span>overlap_objects</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a>&gt; apollo::hdmap::adapter::LaneInternal::overlap_objects</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe67444fa4edb5774ddfbafe1e0276a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe67444fa4edb5774ddfbafe1e0276a5">&#9670;&nbsp;</a></span>overlap_signals</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structapollo_1_1hdmap_1_1adapter_1_1OverlapWithLane.html">OverlapWithLane</a>&gt; apollo::hdmap::adapter::LaneInternal::overlap_signals</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>modules/map/hdmap/adapter/xml_parser/<a class="el" href="common__define_8h_source.html">common_define.h</a></li>
 </ul>

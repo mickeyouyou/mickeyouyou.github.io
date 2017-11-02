@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><b>routing</b></li><li class="navelem"><a class="el" href="classapollo_1_1routing_1_1BlackListRangeGenerator.html">BlackListRangeGenerator</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1routing.html">routing</a></li><li class="navelem"><a class="el" href="classapollo_1_1routing_1_1BlackListRangeGenerator.html">BlackListRangeGenerator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,16 +74,157 @@ $(function() {
 <div class="title">apollo::routing::BlackListRangeGenerator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="black__list__range__generator_8h_source.html">black_list_range_generator.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::routing::BlackListRangeGenerator:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1routing_1_1BlackListRangeGenerator__coll__graph.png" border="0" usemap="#apollo_1_1routing_1_1BlackListRangeGenerator_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab57cabd242b837a77895487e55069c6d"><td class="memItemLeft" align="right" valign="top"><a id="ab57cabd242b837a77895487e55069c6d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GenerateBlackMapFromRequest</b> (const RoutingRequest &amp;request, const <a class="el" href="classapollo_1_1routing_1_1TopoGraph.html">TopoGraph</a> *graph, <a class="el" href="classapollo_1_1routing_1_1TopoRangeManager.html">TopoRangeManager</a> *const range_manager) const</td></tr>
+<tr class="memitem:a31f271825e98f3ddc0a1192980b9a0da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1BlackListRangeGenerator.html#a31f271825e98f3ddc0a1192980b9a0da">BlackListRangeGenerator</a> ()=default</td></tr>
+<tr class="separator:a31f271825e98f3ddc0a1192980b9a0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f9f8cb6605ea9a86716152a97e69f88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1BlackListRangeGenerator.html#a1f9f8cb6605ea9a86716152a97e69f88">~BlackListRangeGenerator</a> ()=default</td></tr>
+<tr class="separator:a1f9f8cb6605ea9a86716152a97e69f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab57cabd242b837a77895487e55069c6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1BlackListRangeGenerator.html#ab57cabd242b837a77895487e55069c6d">GenerateBlackMapFromRequest</a> (const RoutingRequest &amp;request, const <a class="el" href="classapollo_1_1routing_1_1TopoGraph.html">TopoGraph</a> *graph, <a class="el" href="classapollo_1_1routing_1_1TopoRangeManager.html">TopoRangeManager</a> *const range_manager) const</td></tr>
 <tr class="separator:ab57cabd242b837a77895487e55069c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b5bcad18b598d9e16cdc37c485a7b24"><td class="memItemLeft" align="right" valign="top"><a id="a5b5bcad18b598d9e16cdc37c485a7b24"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddBlackMapFromTerminal</b> (const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *src_node, const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *dest_node, double start_s, double end_s, <a class="el" href="classapollo_1_1routing_1_1TopoRangeManager.html">TopoRangeManager</a> *const range_manager) const</td></tr>
+<tr class="memitem:a5b5bcad18b598d9e16cdc37c485a7b24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1BlackListRangeGenerator.html#a5b5bcad18b598d9e16cdc37c485a7b24">AddBlackMapFromTerminal</a> (const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *src_node, const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *dest_node, double start_s, double end_s, <a class="el" href="classapollo_1_1routing_1_1TopoRangeManager.html">TopoRangeManager</a> *const range_manager) const</td></tr>
 <tr class="separator:a5b5bcad18b598d9e16cdc37c485a7b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a31f271825e98f3ddc0a1192980b9a0da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31f271825e98f3ddc0a1192980b9a0da">&#9670;&nbsp;</a></span>BlackListRangeGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::routing::BlackListRangeGenerator::BlackListRangeGenerator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f9f8cb6605ea9a86716152a97e69f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f9f8cb6605ea9a86716152a97e69f88">&#9670;&nbsp;</a></span>~BlackListRangeGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::routing::BlackListRangeGenerator::~BlackListRangeGenerator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5b5bcad18b598d9e16cdc37c485a7b24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b5bcad18b598d9e16cdc37c485a7b24">&#9670;&nbsp;</a></span>AddBlackMapFromTerminal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::routing::BlackListRangeGenerator::AddBlackMapFromTerminal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *&#160;</td>
+          <td class="paramname"><em>src_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1TopoNode.html">TopoNode</a> *&#160;</td>
+          <td class="paramname"><em>dest_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>start_s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>end_s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1routing_1_1TopoRangeManager.html">TopoRangeManager</a> *const&#160;</td>
+          <td class="paramname"><em>range_manager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab57cabd242b837a77895487e55069c6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab57cabd242b837a77895487e55069c6d">&#9670;&nbsp;</a></span>GenerateBlackMapFromRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::routing::BlackListRangeGenerator::GenerateBlackMapFromRequest </td>
+          <td>(</td>
+          <td class="paramtype">const RoutingRequest &amp;&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1routing_1_1TopoGraph.html">TopoGraph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1routing_1_1TopoRangeManager.html">TopoRangeManager</a> *const&#160;</td>
+          <td class="paramname"><em>range_manager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/routing/core/<a class="el" href="black__list__range__generator_8h_source.html">black_list_range_generator.h</a></li>
 </ul>

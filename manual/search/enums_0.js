@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['clockmode',['ClockMode',['../classapollo_1_1common_1_1time_1_1Clock.html#aea5448fb2fa732f456c24dc436fbff4a',1,'apollo::common::time::Clock']]]
+  ['boundarytype',['BoundaryType',['../classapollo_1_1planning_1_1StBoundary.html#ab624b6931b231b83a6927587c492e9c5',1,'apollo::planning::StBoundary']]]
 ];

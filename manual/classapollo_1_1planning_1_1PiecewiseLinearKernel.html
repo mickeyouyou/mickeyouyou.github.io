@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html">PiecewiseLinearKernel</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html">PiecewiseLinearKernel</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,31 +74,209 @@ $(function() {
 <div class="title">apollo::planning::PiecewiseLinearKernel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="piecewise__linear__kernel_8h_source.html">piecewise_linear_kernel.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::PiecewiseLinearKernel:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1PiecewiseLinearKernel__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1PiecewiseLinearKernel_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a413ba77d38f7ea1f1085ace840ae79ed"><td class="memItemLeft" align="right" valign="top"><a id="a413ba77d38f7ea1f1085ace840ae79ed"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PiecewiseLinearKernel</b> (const uint32_t dimension, const double unit_segment)</td></tr>
+<tr class="memitem:a413ba77d38f7ea1f1085ace840ae79ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html#a413ba77d38f7ea1f1085ace840ae79ed">PiecewiseLinearKernel</a> (const uint32_t dimension, const double unit_segment)</td></tr>
 <tr class="separator:a413ba77d38f7ea1f1085ace840ae79ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f7d4c8dce7fd42a74b38f06b2575ca8"><td class="memItemLeft" align="right" valign="top"><a id="a5f7d4c8dce7fd42a74b38f06b2575ca8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddRegularization</b> (const double param)</td></tr>
+<tr class="memitem:a5f7d4c8dce7fd42a74b38f06b2575ca8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html#a5f7d4c8dce7fd42a74b38f06b2575ca8">AddRegularization</a> (const double param)</td></tr>
 <tr class="separator:a5f7d4c8dce7fd42a74b38f06b2575ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96205b11ec3c60d61bd465ee642a7418"><td class="memItemLeft" align="right" valign="top"><a id="a96205b11ec3c60d61bd465ee642a7418"></a>
-const Eigen::MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>kernel_matrix</b> () const</td></tr>
+<tr class="memitem:a96205b11ec3c60d61bd465ee642a7418"><td class="memItemLeft" align="right" valign="top">const Eigen::MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html#a96205b11ec3c60d61bd465ee642a7418">kernel_matrix</a> () const</td></tr>
 <tr class="separator:a96205b11ec3c60d61bd465ee642a7418"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4e3acf15cbc0fa2dc690ef1d9074994"><td class="memItemLeft" align="right" valign="top"><a id="ac4e3acf15cbc0fa2dc690ef1d9074994"></a>
-const Eigen::MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>offset_matrix</b> () const</td></tr>
+<tr class="memitem:ac4e3acf15cbc0fa2dc690ef1d9074994"><td class="memItemLeft" align="right" valign="top">const Eigen::MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html#ac4e3acf15cbc0fa2dc690ef1d9074994">offset_matrix</a> () const</td></tr>
 <tr class="separator:ac4e3acf15cbc0fa2dc690ef1d9074994"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa62997838d4335aa7c9cd6c43290ba1"><td class="memItemLeft" align="right" valign="top"><a id="afa62997838d4335aa7c9cd6c43290ba1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddSecondOrderDerivativeMatrix</b> (const double init_derivative, const double weight)</td></tr>
+<tr class="memitem:afa62997838d4335aa7c9cd6c43290ba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html#afa62997838d4335aa7c9cd6c43290ba1">AddSecondOrderDerivativeMatrix</a> (const double init_derivative, const double weight)</td></tr>
 <tr class="separator:afa62997838d4335aa7c9cd6c43290ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa26802af3eb35206a487e3e4ae7940cf"><td class="memItemLeft" align="right" valign="top"><a id="aa26802af3eb35206a487e3e4ae7940cf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddThirdOrderDerivativeMatrix</b> (const double init_derivative, const double init_second_derivative, const double weight)</td></tr>
+<tr class="memitem:aa26802af3eb35206a487e3e4ae7940cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html#aa26802af3eb35206a487e3e4ae7940cf">AddThirdOrderDerivativeMatrix</a> (const double init_derivative, const double init_second_derivative, const double weight)</td></tr>
 <tr class="separator:aa26802af3eb35206a487e3e4ae7940cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfac6d47c6b8b7c854c2f912f9b151bf"><td class="memItemLeft" align="right" valign="top"><a id="abfac6d47c6b8b7c854c2f912f9b151bf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>AddReferenceLineKernelMatrix</b> (const std::vector&lt; uint32_t &gt; &amp;index_list, const std::vector&lt; double &gt; &amp;pos_list, const double weight)</td></tr>
+<tr class="memitem:abfac6d47c6b8b7c854c2f912f9b151bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1PiecewiseLinearKernel.html#abfac6d47c6b8b7c854c2f912f9b151bf">AddReferenceLineKernelMatrix</a> (const std::vector&lt; uint32_t &gt; &amp;index_list, const std::vector&lt; double &gt; &amp;pos_list, const double weight)</td></tr>
 <tr class="separator:abfac6d47c6b8b7c854c2f912f9b151bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a413ba77d38f7ea1f1085ace840ae79ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a413ba77d38f7ea1f1085ace840ae79ed">&#9670;&nbsp;</a></span>PiecewiseLinearKernel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::PiecewiseLinearKernel::PiecewiseLinearKernel </td>
+          <td>(</td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>dimension</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>unit_segment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="abfac6d47c6b8b7c854c2f912f9b151bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfac6d47c6b8b7c854c2f912f9b151bf">&#9670;&nbsp;</a></span>AddReferenceLineKernelMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::PiecewiseLinearKernel::AddReferenceLineKernelMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>index_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pos_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f7d4c8dce7fd42a74b38f06b2575ca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f7d4c8dce7fd42a74b38f06b2575ca8">&#9670;&nbsp;</a></span>AddRegularization()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::PiecewiseLinearKernel::AddRegularization </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa62997838d4335aa7c9cd6c43290ba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa62997838d4335aa7c9cd6c43290ba1">&#9670;&nbsp;</a></span>AddSecondOrderDerivativeMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::PiecewiseLinearKernel::AddSecondOrderDerivativeMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>init_derivative</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa26802af3eb35206a487e3e4ae7940cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa26802af3eb35206a487e3e4ae7940cf">&#9670;&nbsp;</a></span>AddThirdOrderDerivativeMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::PiecewiseLinearKernel::AddThirdOrderDerivativeMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>init_derivative</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>init_second_derivative</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96205b11ec3c60d61bd465ee642a7418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96205b11ec3c60d61bd465ee642a7418">&#9670;&nbsp;</a></span>kernel_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Eigen::MatrixXd&amp; apollo::planning::PiecewiseLinearKernel::kernel_matrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4e3acf15cbc0fa2dc690ef1d9074994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4e3acf15cbc0fa2dc690ef1d9074994">&#9670;&nbsp;</a></span>offset_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Eigen::MatrixXd&amp; apollo::planning::PiecewiseLinearKernel::offset_matrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/math/smoothing_spline/<a class="el" href="piecewise__linear__kernel_8h_source.html">piecewise_linear_kernel.h</a></li>
 </ul>

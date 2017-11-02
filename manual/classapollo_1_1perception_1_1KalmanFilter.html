@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html">KalmanFilter</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html">KalmanFilter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -77,151 +78,1218 @@ $(function() {
 <div class="title">apollo::perception::KalmanFilter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="perception_2obstacle_2lidar_2tracker_2hm__tracker_2kalman__filter_8h_source.html">kalman_filter.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::perception::KalmanFilter:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1perception_1_1KalmanFilter.png" usemap="#apollo::perception::KalmanFilter_map" alt=""/>
-  <map id="apollo::perception::KalmanFilter_map" name="apollo::perception::KalmanFilter_map">
-<area href="classapollo_1_1perception_1_1BaseFilter.html" alt="apollo::perception::BaseFilter" shape="rect" coords="0,0,188,24"/>
+<div class="center"><img src="classapollo_1_1perception_1_1KalmanFilter__inherit__graph.png" border="0" usemap="#apollo_1_1perception_1_1KalmanFilter_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1perception_1_1KalmanFilter_inherit__map" id="apollo_1_1perception_1_1KalmanFilter_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1perception_1_1BaseFilter.html" title="{apollo::perception\l::BaseFilter\n|# name_\l|+ BaseFilter()\l+ ~BaseFilter()\l+ Initialize()\l+ Predict()\l+ UpdateWithObject()\l+ UpdateWithoutObject()\l+ GetState()\l+ GetState()\l+ Name()\l}" alt="" coords="44,5,212,199"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::KalmanFilter:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1KalmanFilter__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1KalmanFilter_coll__map" alt="Collaboration graph"/></div>
+<map name="apollo_1_1perception_1_1KalmanFilter_coll__map" id="apollo_1_1perception_1_1KalmanFilter_coll__map">
+<area shape="rect" id="node2" href="classapollo_1_1perception_1_1BaseFilter.html" title="{apollo::perception\l::BaseFilter\n|# name_\l|+ BaseFilter()\l+ ~BaseFilter()\l+ Initialize()\l+ Predict()\l+ UpdateWithObject()\l+ UpdateWithoutObject()\l+ GetState()\l+ GetState()\l+ Name()\l}" alt="" coords="44,5,212,199"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6880e124de96d2e0d8fb254c9d43fa48"><td class="memItemLeft" align="right" valign="top"><a id="a6880e124de96d2e0d8fb254c9d43fa48"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialize</b> (const Eigen::Vector3f &amp;anchor_point, const Eigen::Vector3f &amp;velocity)</td></tr>
+<tr class="memitem:ab9a64d5fa1cb82d77f725610b0b5faca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#ab9a64d5fa1cb82d77f725610b0b5faca">KalmanFilter</a> ()</td></tr>
+<tr class="separator:ab9a64d5fa1cb82d77f725610b0b5faca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e3e22b855f3d12d17eaab1e61a79739"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a0e3e22b855f3d12d17eaab1e61a79739">~KalmanFilter</a> ()</td></tr>
+<tr class="separator:a0e3e22b855f3d12d17eaab1e61a79739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6880e124de96d2e0d8fb254c9d43fa48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a6880e124de96d2e0d8fb254c9d43fa48">Initialize</a> (const Eigen::Vector3f &amp;anchor_point, const Eigen::Vector3f &amp;velocity)</td></tr>
 <tr class="separator:a6880e124de96d2e0d8fb254c9d43fa48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88667d96a36f1ff1bfeba37a7f42d1c0"><td class="memItemLeft" align="right" valign="top"><a id="a88667d96a36f1ff1bfeba37a7f42d1c0"></a>
-Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><b>Predict</b> (const double &amp;time_diff)</td></tr>
+<tr class="memitem:a88667d96a36f1ff1bfeba37a7f42d1c0"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a88667d96a36f1ff1bfeba37a7f42d1c0">Predict</a> (const double &amp;time_diff)</td></tr>
 <tr class="separator:a88667d96a36f1ff1bfeba37a7f42d1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02873e72332b4a656de65d150241fa1b"><td class="memItemLeft" align="right" valign="top"><a id="a02873e72332b4a656de65d150241fa1b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateWithObject</b> (const TrackedObjectPtr &amp;new_object, const TrackedObjectPtr &amp;old_object, const double &amp;time_diff)</td></tr>
+<tr class="memitem:a02873e72332b4a656de65d150241fa1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a02873e72332b4a656de65d150241fa1b">UpdateWithObject</a> (const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;new_object, const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;old_object, const double &amp;time_diff)</td></tr>
 <tr class="separator:a02873e72332b4a656de65d150241fa1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30f8857cfac8650ea2637cf745119b13"><td class="memItemLeft" align="right" valign="top"><a id="a30f8857cfac8650ea2637cf745119b13"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateWithoutObject</b> (const double &amp;time_diff)</td></tr>
+<tr class="memitem:a30f8857cfac8650ea2637cf745119b13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a30f8857cfac8650ea2637cf745119b13">UpdateWithoutObject</a> (const double &amp;time_diff)</td></tr>
 <tr class="separator:a30f8857cfac8650ea2637cf745119b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cad6d074b489180dccd4587ad2c6ce3"><td class="memItemLeft" align="right" valign="top"><a id="a0cad6d074b489180dccd4587ad2c6ce3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetState</b> (Eigen::Vector3f *anchor_point, Eigen::Vector3f *velocity)</td></tr>
+<tr class="memitem:a0cad6d074b489180dccd4587ad2c6ce3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a0cad6d074b489180dccd4587ad2c6ce3">GetState</a> (Eigen::Vector3f *anchor_point, Eigen::Vector3f *velocity)</td></tr>
 <tr class="separator:a0cad6d074b489180dccd4587ad2c6ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d8658a76f4c072ed45c8254d92f91b5"><td class="memItemLeft" align="right" valign="top"><a id="a9d8658a76f4c072ed45c8254d92f91b5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetState</b> (Eigen::Vector3f *anchor_point, Eigen::Vector3f *velocity, Eigen::Vector3f *velocity_accelaration)</td></tr>
+<tr class="memitem:a9d8658a76f4c072ed45c8254d92f91b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a9d8658a76f4c072ed45c8254d92f91b5">GetState</a> (Eigen::Vector3f *anchor_point, Eigen::Vector3f *velocity, Eigen::Vector3f *velocity_accelaration)</td></tr>
 <tr class="separator:a9d8658a76f4c072ed45c8254d92f91b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classapollo_1_1perception_1_1BaseFilter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classapollo_1_1perception_1_1BaseFilter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classapollo_1_1perception_1_1BaseFilter.html">apollo::perception::BaseFilter</a></td></tr>
-<tr class="memitem:a231a762d0c14c6d2b3cd29da09939262 inherit pub_methods_classapollo_1_1perception_1_1BaseFilter"><td class="memItemLeft" align="right" valign="top"><a id="a231a762d0c14c6d2b3cd29da09939262"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>Name</b> ()</td></tr>
+<tr class="memitem:ac1159b20e3466be2c8806a698dcb2bf9 inherit pub_methods_classapollo_1_1perception_1_1BaseFilter"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#ac1159b20e3466be2c8806a698dcb2bf9">BaseFilter</a> ()</td></tr>
+<tr class="separator:ac1159b20e3466be2c8806a698dcb2bf9 inherit pub_methods_classapollo_1_1perception_1_1BaseFilter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817b31995786bd006020b99587699e55 inherit pub_methods_classapollo_1_1perception_1_1BaseFilter"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#a817b31995786bd006020b99587699e55">~BaseFilter</a> ()</td></tr>
+<tr class="separator:a817b31995786bd006020b99587699e55 inherit pub_methods_classapollo_1_1perception_1_1BaseFilter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a231a762d0c14c6d2b3cd29da09939262 inherit pub_methods_classapollo_1_1perception_1_1BaseFilter"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#a231a762d0c14c6d2b3cd29da09939262">Name</a> ()</td></tr>
 <tr class="separator:a231a762d0c14c6d2b3cd29da09939262 inherit pub_methods_classapollo_1_1perception_1_1BaseFilter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acefc7c5bed284b1522d2bafb87c13109"><td class="memItemLeft" align="right" valign="top"><a id="acefc7c5bed284b1522d2bafb87c13109"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUseAdaptive</b> (const bool &amp;use_adaptive)</td></tr>
+<tr class="memitem:acefc7c5bed284b1522d2bafb87c13109"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#acefc7c5bed284b1522d2bafb87c13109">SetUseAdaptive</a> (const bool &amp;use_adaptive)</td></tr>
 <tr class="separator:acefc7c5bed284b1522d2bafb87c13109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23799e6a2538283f64a15f182cf8e4fd"><td class="memItemLeft" align="right" valign="top"><a id="a23799e6a2538283f64a15f182cf8e4fd"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetAssociationScoreMaximum</b> (const double &amp;association_score_maximum)</td></tr>
+<tr class="memitem:a23799e6a2538283f64a15f182cf8e4fd"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a23799e6a2538283f64a15f182cf8e4fd">SetAssociationScoreMaximum</a> (const double &amp;association_score_maximum)</td></tr>
 <tr class="separator:a23799e6a2538283f64a15f182cf8e4fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa184cc29054f06f59c840196b4fe2263"><td class="memItemLeft" align="right" valign="top"><a id="aa184cc29054f06f59c840196b4fe2263"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetBreakdownThresholdMaximum</b> (const double &amp;breakdown_threshold_maximum)</td></tr>
+<tr class="memitem:aa184cc29054f06f59c840196b4fe2263"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#aa184cc29054f06f59c840196b4fe2263">SetBreakdownThresholdMaximum</a> (const double &amp;breakdown_threshold_maximum)</td></tr>
 <tr class="separator:aa184cc29054f06f59c840196b4fe2263"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbad42f060e24703b8a06128fcc6bcd5"><td class="memItemLeft" align="right" valign="top"><a id="adbad42f060e24703b8a06128fcc6bcd5"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>InitParams</b> (const double &amp;measurement_noise, const double &amp;initial_velocity_noise, const double &amp;xy_propagation_noise, const double &amp;z_propagation_noise)</td></tr>
+<tr class="memitem:adbad42f060e24703b8a06128fcc6bcd5"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#adbad42f060e24703b8a06128fcc6bcd5">InitParams</a> (const double &amp;measurement_noise, const double &amp;initial_velocity_noise, const double &amp;xy_propagation_noise, const double &amp;z_propagation_noise)</td></tr>
 <tr class="separator:adbad42f060e24703b8a06128fcc6bcd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a0e73d5f08046bc35de107e944a90ff14"><td class="memItemLeft" align="right" valign="top"><a id="a0e73d5f08046bc35de107e944a90ff14"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Propagate</b> (const double &amp;time_diff)</td></tr>
+<tr class="memitem:a0e73d5f08046bc35de107e944a90ff14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a0e73d5f08046bc35de107e944a90ff14">Propagate</a> (const double &amp;time_diff)</td></tr>
 <tr class="separator:a0e73d5f08046bc35de107e944a90ff14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d0b4a95bb4b68426ec93d86a34273c6"><td class="memItemLeft" align="right" valign="top"><a id="a1d0b4a95bb4b68426ec93d86a34273c6"></a>
-Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeMeasuredVelocity</b> (const TrackedObjectPtr &amp;new_object, const TrackedObjectPtr &amp;old_object, const double &amp;time_diff)</td></tr>
+<tr class="memitem:a1d0b4a95bb4b68426ec93d86a34273c6"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a1d0b4a95bb4b68426ec93d86a34273c6">ComputeMeasuredVelocity</a> (const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;new_object, const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;old_object, const double &amp;time_diff)</td></tr>
 <tr class="separator:a1d0b4a95bb4b68426ec93d86a34273c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a7d83f0248315d07a2c7788399488d"><td class="memItemLeft" align="right" valign="top"><a id="a15a7d83f0248315d07a2c7788399488d"></a>
-Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeMeasuredAnchorPointVelocity</b> (const TrackedObjectPtr &amp;new_object, const TrackedObjectPtr &amp;old_object, const double &amp;time_diff)</td></tr>
+<tr class="memitem:a15a7d83f0248315d07a2c7788399488d"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a15a7d83f0248315d07a2c7788399488d">ComputeMeasuredAnchorPointVelocity</a> (const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;new_object, const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;old_object, const double &amp;time_diff)</td></tr>
 <tr class="separator:a15a7d83f0248315d07a2c7788399488d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe54f9ddd8b722f191f430d270c355b1"><td class="memItemLeft" align="right" valign="top"><a id="afe54f9ddd8b722f191f430d270c355b1"></a>
-Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeMeasuredBboxCenterVelocity</b> (const TrackedObjectPtr &amp;new_object, const TrackedObjectPtr &amp;old_object, const double &amp;time_diff)</td></tr>
+<tr class="memitem:afe54f9ddd8b722f191f430d270c355b1"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#afe54f9ddd8b722f191f430d270c355b1">ComputeMeasuredBboxCenterVelocity</a> (const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;new_object, const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;old_object, const double &amp;time_diff)</td></tr>
 <tr class="separator:afe54f9ddd8b722f191f430d270c355b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b88b5a2fa48f0578e8becd03cafa8e2"><td class="memItemLeft" align="right" valign="top"><a id="a5b88b5a2fa48f0578e8becd03cafa8e2"></a>
-Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeMeasuredBboxCornerVelocity</b> (const TrackedObjectPtr &amp;new_object, const TrackedObjectPtr &amp;old_object, const double &amp;time_diff)</td></tr>
+<tr class="memitem:a5b88b5a2fa48f0578e8becd03cafa8e2"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a5b88b5a2fa48f0578e8becd03cafa8e2">ComputeMeasuredBboxCornerVelocity</a> (const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;new_object, const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;old_object, const double &amp;time_diff)</td></tr>
 <tr class="separator:a5b88b5a2fa48f0578e8becd03cafa8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74618920cc2b072e81655097ce270bd6"><td class="memItemLeft" align="right" valign="top"><a id="a74618920cc2b072e81655097ce270bd6"></a>
-Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><b>SelectMeasuredVelocity</b> (const std::vector&lt; Eigen::Vector3f &gt; &amp;candidates)</td></tr>
+<tr class="memitem:a74618920cc2b072e81655097ce270bd6"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a74618920cc2b072e81655097ce270bd6">SelectMeasuredVelocity</a> (const std::vector&lt; Eigen::Vector3f &gt; &amp;candidates)</td></tr>
 <tr class="separator:a74618920cc2b072e81655097ce270bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d87a58cace7a857daa54d058d04e3fc"><td class="memItemLeft" align="right" valign="top"><a id="a2d87a58cace7a857daa54d058d04e3fc"></a>
-Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><b>SelectMeasuredVelocityAccordingMotionConsistency</b> (const std::vector&lt; Eigen::Vector3f &gt; &amp;candidates)</td></tr>
+<tr class="memitem:a2d87a58cace7a857daa54d058d04e3fc"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a2d87a58cace7a857daa54d058d04e3fc">SelectMeasuredVelocityAccordingMotionConsistency</a> (const std::vector&lt; Eigen::Vector3f &gt; &amp;candidates)</td></tr>
 <tr class="separator:a2d87a58cace7a857daa54d058d04e3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8d892f68eb029f3fe9d81a4b5f0b394"><td class="memItemLeft" align="right" valign="top"><a id="aa8d892f68eb029f3fe9d81a4b5f0b394"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateModel</b> (const Eigen::VectorXf &amp;measured_anchor_point, const Eigen::VectorXf &amp;measured_velocity, const double &amp;time_diff)</td></tr>
+<tr class="memitem:aa8d892f68eb029f3fe9d81a4b5f0b394"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#aa8d892f68eb029f3fe9d81a4b5f0b394">UpdateModel</a> (const Eigen::VectorXf &amp;measured_anchor_point, const Eigen::VectorXf &amp;measured_velocity, const double &amp;time_diff)</td></tr>
 <tr class="separator:aa8d892f68eb029f3fe9d81a4b5f0b394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c4cb6cca65a4c7f6fac655fe9259718"><td class="memItemLeft" align="right" valign="top"><a id="a1c4cb6cca65a4c7f6fac655fe9259718"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeUpdateQuality</b> (const TrackedObjectPtr &amp;new_object, const TrackedObjectPtr &amp;old_object)</td></tr>
+<tr class="memitem:a1c4cb6cca65a4c7f6fac655fe9259718"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a1c4cb6cca65a4c7f6fac655fe9259718">ComputeUpdateQuality</a> (const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;new_object, const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;old_object)</td></tr>
 <tr class="separator:a1c4cb6cca65a4c7f6fac655fe9259718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c9d4285e6adef09929f37cd5ad7bdf2"><td class="memItemLeft" align="right" valign="top"><a id="a9c9d4285e6adef09929f37cd5ad7bdf2"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeUpdateQualityAccordingAssociationScore</b> (const TrackedObjectPtr &amp;new_object)</td></tr>
+<tr class="memitem:a9c9d4285e6adef09929f37cd5ad7bdf2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a9c9d4285e6adef09929f37cd5ad7bdf2">ComputeUpdateQualityAccordingAssociationScore</a> (const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;new_object)</td></tr>
 <tr class="separator:a9c9d4285e6adef09929f37cd5ad7bdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cf9eb084dc270d921411411d3abbec7"><td class="memItemLeft" align="right" valign="top"><a id="a2cf9eb084dc270d921411411d3abbec7"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeUpdateQualityAccordingPointNumChange</b> (const TrackedObjectPtr &amp;new_object, const TrackedObjectPtr &amp;old_object)</td></tr>
+<tr class="memitem:a2cf9eb084dc270d921411411d3abbec7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a2cf9eb084dc270d921411411d3abbec7">ComputeUpdateQualityAccordingPointNumChange</a> (const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;new_object, const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;old_object)</td></tr>
 <tr class="separator:a2cf9eb084dc270d921411411d3abbec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2b01053ebe4fed2954931421386b7bb"><td class="memItemLeft" align="right" valign="top"><a id="ae2b01053ebe4fed2954931421386b7bb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeBreakdownThreshold</b> ()</td></tr>
+<tr class="memitem:ae2b01053ebe4fed2954931421386b7bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#ae2b01053ebe4fed2954931421386b7bb">ComputeBreakdownThreshold</a> ()</td></tr>
 <tr class="separator:ae2b01053ebe4fed2954931421386b7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a3bfda191014f6dad4687e65b91ce6318"><td class="memItemLeft" align="right" valign="top"><a id="a3bfda191014f6dad4687e65b91ce6318"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>age_</b></td></tr>
+<tr class="memitem:a3bfda191014f6dad4687e65b91ce6318"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a3bfda191014f6dad4687e65b91ce6318">age_</a></td></tr>
 <tr class="separator:a3bfda191014f6dad4687e65b91ce6318"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a144f88729173f5cb5b13191949412c4b"><td class="memItemLeft" align="right" valign="top"><a id="a144f88729173f5cb5b13191949412c4b"></a>
-Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><b>velocity_covariance_</b></td></tr>
+<tr class="memitem:a144f88729173f5cb5b13191949412c4b"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a144f88729173f5cb5b13191949412c4b">velocity_covariance_</a></td></tr>
 <tr class="separator:a144f88729173f5cb5b13191949412c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a498de35daca1cb93e1935ce83e1362e7"><td class="memItemLeft" align="right" valign="top"><a id="a498de35daca1cb93e1935ce83e1362e7"></a>
-Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>belief_anchor_point_</b></td></tr>
+<tr class="memitem:a498de35daca1cb93e1935ce83e1362e7"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a498de35daca1cb93e1935ce83e1362e7">belief_anchor_point_</a></td></tr>
 <tr class="separator:a498de35daca1cb93e1935ce83e1362e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47aae9347afb7d653daad070d7f811b2"><td class="memItemLeft" align="right" valign="top"><a id="a47aae9347afb7d653daad070d7f811b2"></a>
-Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>belief_velocity_</b></td></tr>
+<tr class="memitem:a47aae9347afb7d653daad070d7f811b2"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a47aae9347afb7d653daad070d7f811b2">belief_velocity_</a></td></tr>
 <tr class="separator:a47aae9347afb7d653daad070d7f811b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0285b5cf5cbb1a2caf43d039b3a54014"><td class="memItemLeft" align="right" valign="top"><a id="a0285b5cf5cbb1a2caf43d039b3a54014"></a>
-Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>belief_velocity_accelaration_</b></td></tr>
+<tr class="memitem:a0285b5cf5cbb1a2caf43d039b3a54014"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a0285b5cf5cbb1a2caf43d039b3a54014">belief_velocity_accelaration_</a></td></tr>
 <tr class="separator:a0285b5cf5cbb1a2caf43d039b3a54014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f3b0fba86d9afa4d438165905caa54e"><td class="memItemLeft" align="right" valign="top"><a id="a6f3b0fba86d9afa4d438165905caa54e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>update_quality_</b></td></tr>
+<tr class="memitem:a6f3b0fba86d9afa4d438165905caa54e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a6f3b0fba86d9afa4d438165905caa54e">update_quality_</a></td></tr>
 <tr class="separator:a6f3b0fba86d9afa4d438165905caa54e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac85d0212f23e3b9f5ccb3a170b3c706b"><td class="memItemLeft" align="right" valign="top"><a id="ac85d0212f23e3b9f5ccb3a170b3c706b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>breakdown_threshold_</b></td></tr>
+<tr class="memitem:ac85d0212f23e3b9f5ccb3a170b3c706b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#ac85d0212f23e3b9f5ccb3a170b3c706b">breakdown_threshold_</a></td></tr>
 <tr class="separator:ac85d0212f23e3b9f5ccb3a170b3c706b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classapollo_1_1perception_1_1BaseFilter"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classapollo_1_1perception_1_1BaseFilter')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classapollo_1_1perception_1_1BaseFilter.html">apollo::perception::BaseFilter</a></td></tr>
-<tr class="memitem:af8435d2eb70da434c528ee7bed0ee26d inherit pro_attribs_classapollo_1_1perception_1_1BaseFilter"><td class="memItemLeft" align="right" valign="top"><a id="af8435d2eb70da434c528ee7bed0ee26d"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
+<tr class="memitem:af8435d2eb70da434c528ee7bed0ee26d inherit pro_attribs_classapollo_1_1perception_1_1BaseFilter"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#af8435d2eb70da434c528ee7bed0ee26d">name_</a></td></tr>
 <tr class="separator:af8435d2eb70da434c528ee7bed0ee26d inherit pro_attribs_classapollo_1_1perception_1_1BaseFilter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:ae037ebd0e54be79dde5ab0831affec04"><td class="memItemLeft" align="right" valign="top"><a id="ae037ebd0e54be79dde5ab0831affec04"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>s_use_adaptive_</b></td></tr>
+<tr class="memitem:ae037ebd0e54be79dde5ab0831affec04"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#ae037ebd0e54be79dde5ab0831affec04">s_use_adaptive_</a></td></tr>
 <tr class="separator:ae037ebd0e54be79dde5ab0831affec04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a98a7cb350a4cdf1c79d92fa1ddf7ad"><td class="memItemLeft" align="right" valign="top"><a id="a2a98a7cb350a4cdf1c79d92fa1ddf7ad"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>s_association_score_maximum_</b></td></tr>
+<tr class="memitem:a2a98a7cb350a4cdf1c79d92fa1ddf7ad"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a2a98a7cb350a4cdf1c79d92fa1ddf7ad">s_association_score_maximum_</a></td></tr>
 <tr class="separator:a2a98a7cb350a4cdf1c79d92fa1ddf7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c6eca489a104ea422ff5c4c362b037c"><td class="memItemLeft" align="right" valign="top"><a id="a0c6eca489a104ea422ff5c4c362b037c"></a>
-static Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><b>s_propagation_noise_</b></td></tr>
+<tr class="memitem:a0c6eca489a104ea422ff5c4c362b037c"><td class="memItemLeft" align="right" valign="top">static Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a0c6eca489a104ea422ff5c4c362b037c">s_propagation_noise_</a></td></tr>
 <tr class="separator:a0c6eca489a104ea422ff5c4c362b037c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34b85da3a1003c9ed39a1c6aa91a30ad"><td class="memItemLeft" align="right" valign="top"><a id="a34b85da3a1003c9ed39a1c6aa91a30ad"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>s_measurement_noise_</b></td></tr>
+<tr class="memitem:a34b85da3a1003c9ed39a1c6aa91a30ad"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a34b85da3a1003c9ed39a1c6aa91a30ad">s_measurement_noise_</a></td></tr>
 <tr class="separator:a34b85da3a1003c9ed39a1c6aa91a30ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a635cbb4ddab034f26fb9e70d21d001c7"><td class="memItemLeft" align="right" valign="top"><a id="a635cbb4ddab034f26fb9e70d21d001c7"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>s_initial_velocity_noise_</b></td></tr>
+<tr class="memitem:a635cbb4ddab034f26fb9e70d21d001c7"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a635cbb4ddab034f26fb9e70d21d001c7">s_initial_velocity_noise_</a></td></tr>
 <tr class="separator:a635cbb4ddab034f26fb9e70d21d001c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f1512315a878d4c23cf3079c85992f7"><td class="memItemLeft" align="right" valign="top"><a id="a8f1512315a878d4c23cf3079c85992f7"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>s_breakdown_threshold_maximum_</b></td></tr>
+<tr class="memitem:a8f1512315a878d4c23cf3079c85992f7"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1KalmanFilter.html#a8f1512315a878d4c23cf3079c85992f7">s_breakdown_threshold_maximum_</a></td></tr>
 <tr class="separator:a8f1512315a878d4c23cf3079c85992f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_classapollo_1_1perception_1_1BaseFilter"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classapollo_1_1perception_1_1BaseFilter')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classapollo_1_1perception_1_1BaseFilter.html">apollo::perception::BaseFilter</a></td></tr>
-<tr class="memitem:aa6d0fab9059935253472ffa106f6c911 inherit pub_types_classapollo_1_1perception_1_1BaseFilter"><td class="memItemLeft" align="right" valign="top"><a id="aa6d0fab9059935253472ffa106f6c911"></a>
-typedef <a class="el" href="structapollo_1_1perception_1_1Object.html">Object</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectType</b></td></tr>
+<tr class="memitem:aa6d0fab9059935253472ffa106f6c911 inherit pub_types_classapollo_1_1perception_1_1BaseFilter"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structapollo_1_1perception_1_1Object.html">Object</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#aa6d0fab9059935253472ffa106f6c911">ObjectType</a></td></tr>
 <tr class="separator:aa6d0fab9059935253472ffa106f6c911 inherit pub_types_classapollo_1_1perception_1_1BaseFilter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab9a64d5fa1cb82d77f725610b0b5faca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9a64d5fa1cb82d77f725610b0b5faca">&#9670;&nbsp;</a></span>KalmanFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::KalmanFilter::KalmanFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e3e22b855f3d12d17eaab1e61a79739"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e3e22b855f3d12d17eaab1e61a79739">&#9670;&nbsp;</a></span>~KalmanFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::KalmanFilter::~KalmanFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae2b01053ebe4fed2954931421386b7bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b01053ebe4fed2954931421386b7bb">&#9670;&nbsp;</a></span>ComputeBreakdownThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::KalmanFilter::ComputeBreakdownThreshold </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15a7d83f0248315d07a2c7788399488d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15a7d83f0248315d07a2c7788399488d">&#9670;&nbsp;</a></span>ComputeMeasuredAnchorPointVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXf apollo::perception::KalmanFilter::ComputeMeasuredAnchorPointVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>old_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe54f9ddd8b722f191f430d270c355b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe54f9ddd8b722f191f430d270c355b1">&#9670;&nbsp;</a></span>ComputeMeasuredBboxCenterVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXf apollo::perception::KalmanFilter::ComputeMeasuredBboxCenterVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>old_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b88b5a2fa48f0578e8becd03cafa8e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b88b5a2fa48f0578e8becd03cafa8e2">&#9670;&nbsp;</a></span>ComputeMeasuredBboxCornerVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXf apollo::perception::KalmanFilter::ComputeMeasuredBboxCornerVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>old_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d0b4a95bb4b68426ec93d86a34273c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d0b4a95bb4b68426ec93d86a34273c6">&#9670;&nbsp;</a></span>ComputeMeasuredVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXf apollo::perception::KalmanFilter::ComputeMeasuredVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>old_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c4cb6cca65a4c7f6fac655fe9259718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c4cb6cca65a4c7f6fac655fe9259718">&#9670;&nbsp;</a></span>ComputeUpdateQuality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::KalmanFilter::ComputeUpdateQuality </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>old_object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c9d4285e6adef09929f37cd5ad7bdf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c9d4285e6adef09929f37cd5ad7bdf2">&#9670;&nbsp;</a></span>ComputeUpdateQualityAccordingAssociationScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float apollo::perception::KalmanFilter::ComputeUpdateQualityAccordingAssociationScore </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2cf9eb084dc270d921411411d3abbec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cf9eb084dc270d921411411d3abbec7">&#9670;&nbsp;</a></span>ComputeUpdateQualityAccordingPointNumChange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float apollo::perception::KalmanFilter::ComputeUpdateQualityAccordingPointNumChange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>old_object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cad6d074b489180dccd4587ad2c6ce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cad6d074b489180dccd4587ad2c6ce3">&#9670;&nbsp;</a></span>GetState() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::KalmanFilter::GetState </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Vector3f *&#160;</td>
+          <td class="paramname"><em>anchor_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Vector3f *&#160;</td>
+          <td class="paramname"><em>velocity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#ab81901c1ccb15973f10a5b0aa0a8cab3">apollo::perception::BaseFilter</a>.</p>
+
+</div>
+</div>
+<a id="a9d8658a76f4c072ed45c8254d92f91b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d8658a76f4c072ed45c8254d92f91b5">&#9670;&nbsp;</a></span>GetState() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::KalmanFilter::GetState </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Vector3f *&#160;</td>
+          <td class="paramname"><em>anchor_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Vector3f *&#160;</td>
+          <td class="paramname"><em>velocity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Vector3f *&#160;</td>
+          <td class="paramname"><em>velocity_accelaration</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#a1de37f63a6a3b3bf22e3253663da5799">apollo::perception::BaseFilter</a>.</p>
+
+</div>
+</div>
+<a id="a6880e124de96d2e0d8fb254c9d43fa48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6880e124de96d2e0d8fb254c9d43fa48">&#9670;&nbsp;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::KalmanFilter::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector3f &amp;&#160;</td>
+          <td class="paramname"><em>anchor_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Vector3f &amp;&#160;</td>
+          <td class="paramname"><em>velocity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#a5bdab495b4459f5adff15940fea5d55f">apollo::perception::BaseFilter</a>.</p>
+
+</div>
+</div>
+<a id="adbad42f060e24703b8a06128fcc6bcd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbad42f060e24703b8a06128fcc6bcd5">&#9670;&nbsp;</a></span>InitParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::perception::KalmanFilter::InitParams </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>measurement_noise</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>initial_velocity_noise</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>xy_propagation_noise</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>z_propagation_noise</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88667d96a36f1ff1bfeba37a7f42d1c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88667d96a36f1ff1bfeba37a7f42d1c0">&#9670;&nbsp;</a></span>Predict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXf apollo::perception::KalmanFilter::Predict </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#aa0e421bf569f193b95945f38b8b21e0d">apollo::perception::BaseFilter</a>.</p>
+
+</div>
+</div>
+<a id="a0e73d5f08046bc35de107e944a90ff14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e73d5f08046bc35de107e944a90ff14">&#9670;&nbsp;</a></span>Propagate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::KalmanFilter::Propagate </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74618920cc2b072e81655097ce270bd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74618920cc2b072e81655097ce270bd6">&#9670;&nbsp;</a></span>SelectMeasuredVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3f apollo::perception::KalmanFilter::SelectMeasuredVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; Eigen::Vector3f &gt; &amp;&#160;</td>
+          <td class="paramname"><em>candidates</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d87a58cace7a857daa54d058d04e3fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d87a58cace7a857daa54d058d04e3fc">&#9670;&nbsp;</a></span>SelectMeasuredVelocityAccordingMotionConsistency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3f apollo::perception::KalmanFilter::SelectMeasuredVelocityAccordingMotionConsistency </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; Eigen::Vector3f &gt; &amp;&#160;</td>
+          <td class="paramname"><em>candidates</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23799e6a2538283f64a15f182cf8e4fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23799e6a2538283f64a15f182cf8e4fd">&#9670;&nbsp;</a></span>SetAssociationScoreMaximum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::perception::KalmanFilter::SetAssociationScoreMaximum </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>association_score_maximum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa184cc29054f06f59c840196b4fe2263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa184cc29054f06f59c840196b4fe2263">&#9670;&nbsp;</a></span>SetBreakdownThresholdMaximum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool apollo::perception::KalmanFilter::SetBreakdownThresholdMaximum </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>breakdown_threshold_maximum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acefc7c5bed284b1522d2bafb87c13109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acefc7c5bed284b1522d2bafb87c13109">&#9670;&nbsp;</a></span>SetUseAdaptive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void apollo::perception::KalmanFilter::SetUseAdaptive </td>
+          <td>(</td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>use_adaptive</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8d892f68eb029f3fe9d81a4b5f0b394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8d892f68eb029f3fe9d81a4b5f0b394">&#9670;&nbsp;</a></span>UpdateModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::KalmanFilter::UpdateModel </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::VectorXf &amp;&#160;</td>
+          <td class="paramname"><em>measured_anchor_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::VectorXf &amp;&#160;</td>
+          <td class="paramname"><em>measured_velocity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02873e72332b4a656de65d150241fa1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02873e72332b4a656de65d150241fa1b">&#9670;&nbsp;</a></span>UpdateWithObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::KalmanFilter::UpdateWithObject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>old_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#aada7ddc8b19e7e24003b1fb21d288f2d">apollo::perception::BaseFilter</a>.</p>
+
+</div>
+</div>
+<a id="a30f8857cfac8650ea2637cf745119b13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30f8857cfac8650ea2637cf745119b13">&#9670;&nbsp;</a></span>UpdateWithoutObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::KalmanFilter::UpdateWithoutObject </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classapollo_1_1perception_1_1BaseFilter.html#a1072ca163a91e3de63261a63b1d2c993">apollo::perception::BaseFilter</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3bfda191014f6dad4687e65b91ce6318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bfda191014f6dad4687e65b91ce6318">&#9670;&nbsp;</a></span>age_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int apollo::perception::KalmanFilter::age_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a498de35daca1cb93e1935ce83e1362e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a498de35daca1cb93e1935ce83e1362e7">&#9670;&nbsp;</a></span>belief_anchor_point_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d apollo::perception::KalmanFilter::belief_anchor_point_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47aae9347afb7d653daad070d7f811b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47aae9347afb7d653daad070d7f811b2">&#9670;&nbsp;</a></span>belief_velocity_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d apollo::perception::KalmanFilter::belief_velocity_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0285b5cf5cbb1a2caf43d039b3a54014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0285b5cf5cbb1a2caf43d039b3a54014">&#9670;&nbsp;</a></span>belief_velocity_accelaration_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d apollo::perception::KalmanFilter::belief_velocity_accelaration_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac85d0212f23e3b9f5ccb3a170b3c706b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac85d0212f23e3b9f5ccb3a170b3c706b">&#9670;&nbsp;</a></span>breakdown_threshold_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::KalmanFilter::breakdown_threshold_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a98a7cb350a4cdf1c79d92fa1ddf7ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a98a7cb350a4cdf1c79d92fa1ddf7ad">&#9670;&nbsp;</a></span>s_association_score_maximum_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::KalmanFilter::s_association_score_maximum_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f1512315a878d4c23cf3079c85992f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f1512315a878d4c23cf3079c85992f7">&#9670;&nbsp;</a></span>s_breakdown_threshold_maximum_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::KalmanFilter::s_breakdown_threshold_maximum_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a635cbb4ddab034f26fb9e70d21d001c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a635cbb4ddab034f26fb9e70d21d001c7">&#9670;&nbsp;</a></span>s_initial_velocity_noise_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::KalmanFilter::s_initial_velocity_noise_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34b85da3a1003c9ed39a1c6aa91a30ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34b85da3a1003c9ed39a1c6aa91a30ad">&#9670;&nbsp;</a></span>s_measurement_noise_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::KalmanFilter::s_measurement_noise_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c6eca489a104ea422ff5c4c362b037c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c6eca489a104ea422ff5c4c362b037c">&#9670;&nbsp;</a></span>s_propagation_noise_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix3d apollo::perception::KalmanFilter::s_propagation_noise_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae037ebd0e54be79dde5ab0831affec04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae037ebd0e54be79dde5ab0831affec04">&#9670;&nbsp;</a></span>s_use_adaptive_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::KalmanFilter::s_use_adaptive_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f3b0fba86d9afa4d438165905caa54e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3b0fba86d9afa4d438165905caa54e">&#9670;&nbsp;</a></span>update_quality_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double apollo::perception::KalmanFilter::update_quality_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a144f88729173f5cb5b13191949412c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a144f88729173f5cb5b13191949412c4b">&#9670;&nbsp;</a></span>velocity_covariance_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix3d apollo::perception::KalmanFilter::velocity_covariance_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/obstacle/lidar/tracker/hm_tracker/<a class="el" href="perception_2obstacle_2lidar_2tracker_2hm__tracker_2kalman__filter_8h_source.html">kalman_filter.h</a></li>
 </ul>

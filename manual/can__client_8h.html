@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -81,10 +82,41 @@ $(function() {
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;<a class="el" href="common_2log_8h_source.html">modules/common/log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_8h_source.html">modules/common/log.h</a>&quot;</code><br />
 <code>#include &quot;modules/common/proto/error_code.pb.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="byte_8h_source.html">modules/drivers/canbus/common/byte.h</a>&quot;</code><br />
 <code>#include &quot;modules/drivers/canbus/proto/can_card_parameter.pb.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for can_client.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="can__client_8h__incl.png" border="0" usemap="#modules_2drivers_2canbus_2can__client_2can__client_8h" alt=""/></div>
+<map name="modules_2drivers_2canbus_2can__client_2can__client_8h" id="modules_2drivers_2canbus_2can__client_2can__client_8h">
+<area shape="rect" id="node7" href="log_8h.html" title="modules/common/log.h" alt="" coords="770,99,930,124"/>
+<area shape="rect" id="node11" href="byte_8h.html" title="Defines the Byte class. " alt="" coords="400,92,562,131"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="can__client_8h__dep__incl.png" border="0" usemap="#modules_2drivers_2canbus_2can__client_2can__client_8hdep" alt=""/></div>
+<map name="modules_2drivers_2canbus_2can__client_2can__client_8hdep" id="modules_2drivers_2canbus_2can__client_2can__client_8hdep">
+<area shape="rect" id="node2" href="can__sender_8h.html" title="Defines SenderMessage class and CanSender class. " alt="" coords="328,99,502,137"/>
+<area shape="rect" id="node4" href="canbus_8h.html" title="modules/canbus/canbus.h" alt="" coords="459,285,635,311"/>
+<area shape="rect" id="node9" href="can__receiver_8h.html" title="Defines CanReceiver class. " alt="" coords="577,99,757,137"/>
+<area shape="rect" id="node10" href="sensor__canbus_8h.html" title="modules/drivers/canbus\l/sensor_canbus.h" alt="" coords="714,192,876,231"/>
+<area shape="rect" id="node13" href="can__client__factory_8h.html" title="Defines the CanClientFactory class. " alt="" coords="833,92,995,144"/>
+<area shape="rect" id="node14" href="esd__can__client_8h.html" title="Defines the EsdCanClient class which inherits CanClient. " alt="" coords="1018,92,1183,144"/>
+<area shape="rect" id="node15" href="fake__can__client_8h.html" title="Defines the FakeCanClient class which inherites CanClient. " alt="" coords="1206,92,1368,144"/>
+<area shape="rect" id="node16" href="socket__can__client__raw_8h.html" title="Defines the SocketCanClientRaw class which inherites CanClient. " alt="" coords="1392,92,1561,144"/>
+<area shape="rect" id="node3" href="vehicle__controller_8h.html" title="The class of VehicleController. " alt="" coords="264,192,428,231"/>
+<area shape="rect" id="node5" href="abstract__vehicle__factory_8h.html" title="modules/canbus/vehicle\l/abstract_vehicle_factory.h" alt="" coords="256,279,435,317"/>
+<area shape="rect" id="node6" href="lincoln__vehicle__factory_8h.html" title="modules/canbus/vehicle\l/lincoln/lincoln_vehicle\l_factory.h" alt="" coords="137,365,301,417"/>
+<area shape="rect" id="node8" href="lincoln__controller_8h.html" title="The class of LincolnController. " alt="" coords="5,279,182,317"/>
+<area shape="rect" id="node7" href="vehicle__factory_8h.html" title="modules/canbus/vehicle\l/vehicle_factory.h" alt="" coords="325,372,489,411"/>
+<area shape="rect" id="node11" href="delphi__esr__canbus_8h.html" title="modules/drivers/delphi\l_esr/delphi_esr_canbus.h" alt="" coords="684,279,858,317"/>
+<area shape="rect" id="node12" href="mobileye__canbus_8h.html" title="modules/drivers/mobileye\l/mobileye_canbus.h" alt="" coords="882,279,1055,317"/>
+</map>
+</div>
 </div>
 <p><a href="can__client_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -101,6 +133,8 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceapollo_1_1drivers_1_1canbus"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html">apollo::drivers::canbus</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1drivers_1_1canbus"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html" title="apollo::drivers::canbus ">apollo::drivers::canbus</a> <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceapollo_1_1drivers"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1drivers.html">apollo::drivers</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1drivers"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1drivers.html" title="apollo::drivers ">apollo::drivers</a> <br /></td></tr>

@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html">HmObjectTracker</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html">HmObjectTracker</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -75,88 +76,770 @@ $(function() {
 <div class="title">apollo::perception::HmObjectTracker Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="hm__tracker_8h_source.html">hm_tracker.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::perception::HmObjectTracker:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1perception_1_1HmObjectTracker.png" usemap="#apollo::perception::HmObjectTracker_map" alt=""/>
-  <map id="apollo::perception::HmObjectTracker_map" name="apollo::perception::HmObjectTracker_map">
-<area href="classapollo_1_1perception_1_1BaseTracker.html" alt="apollo::perception::BaseTracker" shape="rect" coords="0,0,217,24"/>
+<div class="center"><img src="classapollo_1_1perception_1_1HmObjectTracker__inherit__graph.png" border="0" usemap="#apollo_1_1perception_1_1HmObjectTracker_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1perception_1_1HmObjectTracker_inherit__map" id="apollo_1_1perception_1_1HmObjectTracker_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1perception_1_1BaseTracker.html" title="{apollo::perception\l::BaseTracker\n||+ BaseTracker()\l+ ~BaseTracker()\l+ Init()\l+ Track()\l+ name()\l}" alt="" coords="50,5,176,145"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::HmObjectTracker:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1HmObjectTracker__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1HmObjectTracker_coll__map" alt="Collaboration graph"/></div>
+<map name="apollo_1_1perception_1_1HmObjectTracker_coll__map" id="apollo_1_1perception_1_1HmObjectTracker_coll__map">
+<area shape="rect" id="node2" href="classapollo_1_1perception_1_1BaseTracker.html" title="{apollo::perception\l::BaseTracker\n||+ BaseTracker()\l+ ~BaseTracker()\l+ Init()\l+ Track()\l+ name()\l}" alt="" coords="50,5,176,145"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ade65328c5be07bb900532c9f2a294ea6"><td class="memItemLeft" align="right" valign="top"><a id="ade65328c5be07bb900532c9f2a294ea6"></a>
-typedef std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>TrackObjectPair</b></td></tr>
+<tr class="memitem:ade65328c5be07bb900532c9f2a294ea6"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#ade65328c5be07bb900532c9f2a294ea6">TrackObjectPair</a></td></tr>
 <tr class="separator:ade65328c5be07bb900532c9f2a294ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4d1e11104936fc3a96e6760bdc07bdba"><td class="memItemLeft" align="right" valign="top"><a id="a4d1e11104936fc3a96e6760bdc07bdba"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
+<tr class="memitem:a47533c4b8bdbffb9a094fe2f4be8fb78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a47533c4b8bdbffb9a094fe2f4be8fb78">HmObjectTracker</a> ()</td></tr>
+<tr class="separator:a47533c4b8bdbffb9a094fe2f4be8fb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77b8aabedced259b651465a22f677c4e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a77b8aabedced259b651465a22f677c4e">~HmObjectTracker</a> ()</td></tr>
+<tr class="separator:a77b8aabedced259b651465a22f677c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d1e11104936fc3a96e6760bdc07bdba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a4d1e11104936fc3a96e6760bdc07bdba">Init</a> ()</td></tr>
 <tr class="separator:a4d1e11104936fc3a96e6760bdc07bdba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab11bd35b1cf75d737a7c6b8589eccd4e"><td class="memItemLeft" align="right" valign="top"><a id="ab11bd35b1cf75d737a7c6b8589eccd4e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetMatcherMethod</b> (const std::string &amp;matcher_method_name)</td></tr>
+<tr class="memitem:ab11bd35b1cf75d737a7c6b8589eccd4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#ab11bd35b1cf75d737a7c6b8589eccd4e">SetMatcherMethod</a> (const std::string &amp;matcher_method_name)</td></tr>
 <tr class="separator:ab11bd35b1cf75d737a7c6b8589eccd4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35694f09197358b1be31180ca095eed9"><td class="memItemLeft" align="right" valign="top"><a id="a35694f09197358b1be31180ca095eed9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetCollectConsecutiveInvisibleMaximum</b> (const int &amp;collect_consecutive_invisible_maximum)</td></tr>
+<tr class="memitem:a35694f09197358b1be31180ca095eed9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a35694f09197358b1be31180ca095eed9">SetCollectConsecutiveInvisibleMaximum</a> (const int &amp;collect_consecutive_invisible_maximum)</td></tr>
 <tr class="separator:a35694f09197358b1be31180ca095eed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a496c219a42201fefae2b38c831e8f3cf"><td class="memItemLeft" align="right" valign="top"><a id="a496c219a42201fefae2b38c831e8f3cf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetCollectAgeMinimum</b> (const int &amp;collect_age_minimum)</td></tr>
+<tr class="memitem:a496c219a42201fefae2b38c831e8f3cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a496c219a42201fefae2b38c831e8f3cf">SetCollectAgeMinimum</a> (const int &amp;collect_age_minimum)</td></tr>
 <tr class="separator:a496c219a42201fefae2b38c831e8f3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00534ac1b0060748fa7b10406cd9c252"><td class="memItemLeft" align="right" valign="top"><a id="a00534ac1b0060748fa7b10406cd9c252"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetHistogramBinSize</b> (const int &amp;histogram_bin_size)</td></tr>
+<tr class="memitem:a00534ac1b0060748fa7b10406cd9c252"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a00534ac1b0060748fa7b10406cd9c252">SetHistogramBinSize</a> (const int &amp;histogram_bin_size)</td></tr>
 <tr class="separator:a00534ac1b0060748fa7b10406cd9c252"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab38504b0f490abbb7d305e1fed6ab36a"><td class="memItemLeft" align="right" valign="top"><a id="ab38504b0f490abbb7d305e1fed6ab36a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Track</b> (const std::vector&lt; ObjectPtr &gt; &amp;objects, double timestamp, const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;options, std::vector&lt; ObjectPtr &gt; *tracked_objects)</td></tr>
+<tr class="memitem:ab38504b0f490abbb7d305e1fed6ab36a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#ab38504b0f490abbb7d305e1fed6ab36a">Track</a> (const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; &amp;objects, double timestamp, const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;options, std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *tracked_objects)</td></tr>
 <tr class="separator:ab38504b0f490abbb7d305e1fed6ab36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9620143694d019febf89751bf6ea0f78"><td class="memItemLeft" align="right" valign="top"><a id="a9620143694d019febf89751bf6ea0f78"></a>
-const std::vector&lt; <a class="el" href="classapollo_1_1perception_1_1ObjectTrack.html">ObjectTrackPtr</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectTracks</b> () const</td></tr>
+<tr class="memitem:a9620143694d019febf89751bf6ea0f78"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a0cb585e66fa3e56832be2964111bba13">ObjectTrackPtr</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a9620143694d019febf89751bf6ea0f78">GetObjectTracks</a> () const</td></tr>
 <tr class="separator:a9620143694d019febf89751bf6ea0f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85c45dfad82389fbb507943ae919ca78"><td class="memItemLeft" align="right" valign="top"><a id="a85c45dfad82389fbb507943ae919ca78"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const</td></tr>
+<tr class="memitem:a85c45dfad82389fbb507943ae919ca78"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a85c45dfad82389fbb507943ae919ca78">name</a> () const</td></tr>
 <tr class="separator:a85c45dfad82389fbb507943ae919ca78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classapollo_1_1perception_1_1BaseTracker"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classapollo_1_1perception_1_1BaseTracker')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classapollo_1_1perception_1_1BaseTracker.html">apollo::perception::BaseTracker</a></td></tr>
+<tr class="memitem:a8fbb9e5aca189f986115d70a189201ea inherit pub_methods_classapollo_1_1perception_1_1BaseTracker"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#a8fbb9e5aca189f986115d70a189201ea">BaseTracker</a> ()</td></tr>
+<tr class="separator:a8fbb9e5aca189f986115d70a189201ea inherit pub_methods_classapollo_1_1perception_1_1BaseTracker"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea70ce44a62c6d679fdb6ab3821f1dc1 inherit pub_methods_classapollo_1_1perception_1_1BaseTracker"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#aea70ce44a62c6d679fdb6ab3821f1dc1">~BaseTracker</a> ()</td></tr>
+<tr class="separator:aea70ce44a62c6d679fdb6ab3821f1dc1 inherit pub_methods_classapollo_1_1perception_1_1BaseTracker"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aea7212628236cdb8f7d57336e1ccbf35"><td class="memItemLeft" align="right" valign="top"><a id="aea7212628236cdb8f7d57336e1ccbf35"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Initialize</b> (const std::vector&lt; ObjectPtr &gt; &amp;objects, const double &amp;timestamp, const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;options, std::vector&lt; ObjectPtr &gt; *tracked_objects)</td></tr>
+<tr class="memitem:aea7212628236cdb8f7d57336e1ccbf35"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#aea7212628236cdb8f7d57336e1ccbf35">Initialize</a> (const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; &amp;objects, const double &amp;timestamp, const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;options, std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *tracked_objects)</td></tr>
 <tr class="separator:aea7212628236cdb8f7d57336e1ccbf35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2336efb8cfed9c37efb7ff42f1e40361"><td class="memItemLeft" align="right" valign="top"><a id="a2336efb8cfed9c37efb7ff42f1e40361"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>TransformPoseGlobal2Local</b> (Eigen::Matrix4d *pose)</td></tr>
+<tr class="memitem:a2336efb8cfed9c37efb7ff42f1e40361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a2336efb8cfed9c37efb7ff42f1e40361">TransformPoseGlobal2Local</a> (Eigen::Matrix4d *pose)</td></tr>
 <tr class="separator:a2336efb8cfed9c37efb7ff42f1e40361"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e2b5bfbcfa81a8072a1ca996ac6cd26"><td class="memItemLeft" align="right" valign="top"><a id="a8e2b5bfbcfa81a8072a1ca996ac6cd26"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ConstructTrackedObjects</b> (const std::vector&lt; ObjectPtr &gt; &amp;objects, std::vector&lt; TrackedObjectPtr &gt; *tracked_objects, const Eigen::Matrix4d &amp;pose, const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;options)</td></tr>
+<tr class="memitem:a8e2b5bfbcfa81a8072a1ca996ac6cd26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a8e2b5bfbcfa81a8072a1ca996ac6cd26">ConstructTrackedObjects</a> (const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; &amp;objects, std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &gt; *tracked_objects, const Eigen::Matrix4d &amp;pose, const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;options)</td></tr>
 <tr class="separator:a8e2b5bfbcfa81a8072a1ca996ac6cd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab706da639399dc670b673c1e386deb95"><td class="memItemLeft" align="right" valign="top"><a id="ab706da639399dc670b673c1e386deb95"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeShapeFeatures</b> (TrackedObjectPtr *obj)</td></tr>
+<tr class="memitem:ab706da639399dc670b673c1e386deb95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#ab706da639399dc670b673c1e386deb95">ComputeShapeFeatures</a> (<a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> *obj)</td></tr>
 <tr class="separator:ab706da639399dc670b673c1e386deb95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e3af400fcf1dfbf2776adb4bfe10273"><td class="memItemLeft" align="right" valign="top"><a id="a0e3af400fcf1dfbf2776adb4bfe10273"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>TransformTrackedObject</b> (TrackedObjectPtr *obj, const Eigen::Matrix4d &amp;pose)</td></tr>
+<tr class="memitem:a0e3af400fcf1dfbf2776adb4bfe10273"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a0e3af400fcf1dfbf2776adb4bfe10273">TransformTrackedObject</a> (<a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> *obj, const Eigen::Matrix4d &amp;pose)</td></tr>
 <tr class="separator:a0e3af400fcf1dfbf2776adb4bfe10273"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad24bb0f41257874eb91c4a48dcd24025"><td class="memItemLeft" align="right" valign="top"><a id="ad24bb0f41257874eb91c4a48dcd24025"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>TransformObject</b> (ObjectPtr *obj, const Eigen::Matrix4d &amp;pose)</td></tr>
+<tr class="memitem:ad24bb0f41257874eb91c4a48dcd24025"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#ad24bb0f41257874eb91c4a48dcd24025">TransformObject</a> (<a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> *obj, const Eigen::Matrix4d &amp;pose)</td></tr>
 <tr class="separator:ad24bb0f41257874eb91c4a48dcd24025"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe9b7367b08ad43e7743c25e5dfe8e2f"><td class="memItemLeft" align="right" valign="top"><a id="afe9b7367b08ad43e7743c25e5dfe8e2f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeTracksPredict</b> (std::vector&lt; Eigen::VectorXf &gt; *tracks_predict, const double &amp;time_diff)</td></tr>
+<tr class="memitem:afe9b7367b08ad43e7743c25e5dfe8e2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#afe9b7367b08ad43e7743c25e5dfe8e2f">ComputeTracksPredict</a> (std::vector&lt; Eigen::VectorXf &gt; *tracks_predict, const double &amp;time_diff)</td></tr>
 <tr class="separator:afe9b7367b08ad43e7743c25e5dfe8e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9db3509b65c23f332ebb9fc1a0f8321c"><td class="memItemLeft" align="right" valign="top"><a id="a9db3509b65c23f332ebb9fc1a0f8321c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateAssignedTracks</b> (std::vector&lt; Eigen::VectorXf &gt; *tracks_predict, std::vector&lt; TrackedObjectPtr &gt; *new_objects, const std::vector&lt; TrackObjectPair &gt; &amp;assignments, const double &amp;time_diff)</td></tr>
+<tr class="memitem:a9db3509b65c23f332ebb9fc1a0f8321c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a9db3509b65c23f332ebb9fc1a0f8321c">UpdateAssignedTracks</a> (std::vector&lt; Eigen::VectorXf &gt; *tracks_predict, std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &gt; *new_objects, const std::vector&lt; <a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#ade65328c5be07bb900532c9f2a294ea6">TrackObjectPair</a> &gt; &amp;assignments, const double &amp;time_diff)</td></tr>
 <tr class="separator:a9db3509b65c23f332ebb9fc1a0f8321c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec77fdfc208e007d772aefcbd79a48a4"><td class="memItemLeft" align="right" valign="top"><a id="aec77fdfc208e007d772aefcbd79a48a4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateUnassignedTracks</b> (const std::vector&lt; Eigen::VectorXf &gt; &amp;tracks_predict, const std::vector&lt; int &gt; &amp;unassigned_tracks, const double &amp;time_diff)</td></tr>
+<tr class="memitem:aec77fdfc208e007d772aefcbd79a48a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#aec77fdfc208e007d772aefcbd79a48a4">UpdateUnassignedTracks</a> (const std::vector&lt; Eigen::VectorXf &gt; &amp;tracks_predict, const std::vector&lt; int &gt; &amp;unassigned_tracks, const double &amp;time_diff)</td></tr>
 <tr class="separator:aec77fdfc208e007d772aefcbd79a48a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14bacedecc2b7c773978894cfe51c088"><td class="memItemLeft" align="right" valign="top"><a id="a14bacedecc2b7c773978894cfe51c088"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CreateNewTracks</b> (const std::vector&lt; TrackedObjectPtr &gt; &amp;new_objects, const std::vector&lt; int &gt; &amp;unassigned_objects)</td></tr>
+<tr class="memitem:a14bacedecc2b7c773978894cfe51c088"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a14bacedecc2b7c773978894cfe51c088">CreateNewTracks</a> (const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &gt; &amp;new_objects, const std::vector&lt; int &gt; &amp;unassigned_objects)</td></tr>
 <tr class="separator:a14bacedecc2b7c773978894cfe51c088"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eec53e42cba640ede5ba0957cfb93f2"><td class="memItemLeft" align="right" valign="top"><a id="a2eec53e42cba640ede5ba0957cfb93f2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteLostTracks</b> ()</td></tr>
+<tr class="memitem:a2eec53e42cba640ede5ba0957cfb93f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a2eec53e42cba640ede5ba0957cfb93f2">DeleteLostTracks</a> ()</td></tr>
 <tr class="separator:a2eec53e42cba640ede5ba0957cfb93f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a206fefe2c35f97551f54d7a30bb27fd8"><td class="memItemLeft" align="right" valign="top"><a id="a206fefe2c35f97551f54d7a30bb27fd8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CollectTrackedResults</b> (std::vector&lt; ObjectPtr &gt; *tracked_objects)</td></tr>
+<tr class="memitem:a206fefe2c35f97551f54d7a30bb27fd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#a206fefe2c35f97551f54d7a30bb27fd8">CollectTrackedResults</a> (std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *tracked_objects)</td></tr>
 <tr class="separator:a206fefe2c35f97551f54d7a30bb27fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ade65328c5be07bb900532c9f2a294ea6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade65328c5be07bb900532c9f2a294ea6">&#9670;&nbsp;</a></span>TrackObjectPair</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;int, int&gt; <a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#ade65328c5be07bb900532c9f2a294ea6">apollo::perception::HmObjectTracker::TrackObjectPair</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a47533c4b8bdbffb9a094fe2f4be8fb78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47533c4b8bdbffb9a094fe2f4be8fb78">&#9670;&nbsp;</a></span>HmObjectTracker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::HmObjectTracker::HmObjectTracker </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77b8aabedced259b651465a22f677c4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b8aabedced259b651465a22f677c4e">&#9670;&nbsp;</a></span>~HmObjectTracker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::perception::HmObjectTracker::~HmObjectTracker </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a206fefe2c35f97551f54d7a30bb27fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a206fefe2c35f97551f54d7a30bb27fd8">&#9670;&nbsp;</a></span>CollectTrackedResults()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::CollectTrackedResults </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *&#160;</td>
+          <td class="paramname"><em>tracked_objects</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab706da639399dc670b673c1e386deb95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab706da639399dc670b673c1e386deb95">&#9670;&nbsp;</a></span>ComputeShapeFeatures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::ComputeShapeFeatures </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe9b7367b08ad43e7743c25e5dfe8e2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe9b7367b08ad43e7743c25e5dfe8e2f">&#9670;&nbsp;</a></span>ComputeTracksPredict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::ComputeTracksPredict </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf &gt; *&#160;</td>
+          <td class="paramname"><em>tracks_predict</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e2b5bfbcfa81a8072a1ca996ac6cd26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e2b5bfbcfa81a8072a1ca996ac6cd26">&#9670;&nbsp;</a></span>ConstructTrackedObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::ConstructTrackedObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>objects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &gt; *&#160;</td>
+          <td class="paramname"><em>tracked_objects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix4d &amp;&#160;</td>
+          <td class="paramname"><em>pose</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14bacedecc2b7c773978894cfe51c088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14bacedecc2b7c773978894cfe51c088">&#9670;&nbsp;</a></span>CreateNewTracks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::CreateNewTracks </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>new_objects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>unassigned_objects</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2eec53e42cba640ede5ba0957cfb93f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eec53e42cba640ede5ba0957cfb93f2">&#9670;&nbsp;</a></span>DeleteLostTracks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::DeleteLostTracks </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9620143694d019febf89751bf6ea0f78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9620143694d019febf89751bf6ea0f78">&#9670;&nbsp;</a></span>GetObjectTracks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="namespaceapollo_1_1perception.html#a0cb585e66fa3e56832be2964111bba13">ObjectTrackPtr</a>&gt;&amp; apollo::perception::HmObjectTracker::GetObjectTracks </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d1e11104936fc3a96e6760bdc07bdba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d1e11104936fc3a96e6760bdc07bdba">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HmObjectTracker::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#a50b42e5d4f6224218ed61ff0c26eb85c">apollo::perception::BaseTracker</a>.</p>
+
+</div>
+</div>
+<a id="aea7212628236cdb8f7d57336e1ccbf35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea7212628236cdb8f7d57336e1ccbf35">&#9670;&nbsp;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HmObjectTracker::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>objects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>timestamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *&#160;</td>
+          <td class="paramname"><em>tracked_objects</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85c45dfad82389fbb507943ae919ca78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85c45dfad82389fbb507943ae919ca78">&#9670;&nbsp;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string apollo::perception::HmObjectTracker::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#a0a687a601358203fa1560f6d1f249a5b">apollo::perception::BaseTracker</a>.</p>
+
+</div>
+</div>
+<a id="a496c219a42201fefae2b38c831e8f3cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496c219a42201fefae2b38c831e8f3cf">&#9670;&nbsp;</a></span>SetCollectAgeMinimum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HmObjectTracker::SetCollectAgeMinimum </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>collect_age_minimum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35694f09197358b1be31180ca095eed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35694f09197358b1be31180ca095eed9">&#9670;&nbsp;</a></span>SetCollectConsecutiveInvisibleMaximum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HmObjectTracker::SetCollectConsecutiveInvisibleMaximum </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>collect_consecutive_invisible_maximum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00534ac1b0060748fa7b10406cd9c252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00534ac1b0060748fa7b10406cd9c252">&#9670;&nbsp;</a></span>SetHistogramBinSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HmObjectTracker::SetHistogramBinSize </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>histogram_bin_size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab11bd35b1cf75d737a7c6b8589eccd4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab11bd35b1cf75d737a7c6b8589eccd4e">&#9670;&nbsp;</a></span>SetMatcherMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HmObjectTracker::SetMatcherMethod </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>matcher_method_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab38504b0f490abbb7d305e1fed6ab36a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab38504b0f490abbb7d305e1fed6ab36a">&#9670;&nbsp;</a></span>Track()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::perception::HmObjectTracker::Track </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>objects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>timestamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1perception_1_1TrackerOptions.html">TrackerOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *&#160;</td>
+          <td class="paramname"><em>tracked_objects</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classapollo_1_1perception_1_1BaseTracker.html#afa81127d0902b9a2fbb52aff368439f0">apollo::perception::BaseTracker</a>.</p>
+
+</div>
+</div>
+<a id="ad24bb0f41257874eb91c4a48dcd24025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24bb0f41257874eb91c4a48dcd24025">&#9670;&nbsp;</a></span>TransformObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::TransformObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix4d &amp;&#160;</td>
+          <td class="paramname"><em>pose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2336efb8cfed9c37efb7ff42f1e40361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2336efb8cfed9c37efb7ff42f1e40361">&#9670;&nbsp;</a></span>TransformPoseGlobal2Local()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::TransformPoseGlobal2Local </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Matrix4d *&#160;</td>
+          <td class="paramname"><em>pose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e3af400fcf1dfbf2776adb4bfe10273"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e3af400fcf1dfbf2776adb4bfe10273">&#9670;&nbsp;</a></span>TransformTrackedObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::TransformTrackedObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix4d &amp;&#160;</td>
+          <td class="paramname"><em>pose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9db3509b65c23f332ebb9fc1a0f8321c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9db3509b65c23f332ebb9fc1a0f8321c">&#9670;&nbsp;</a></span>UpdateAssignedTracks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::UpdateAssignedTracks </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf &gt; *&#160;</td>
+          <td class="paramname"><em>tracks_predict</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a76ee906ec2f48a2da38317e4e2a1be4c">TrackedObjectPtr</a> &gt; *&#160;</td>
+          <td class="paramname"><em>new_objects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classapollo_1_1perception_1_1HmObjectTracker.html#ade65328c5be07bb900532c9f2a294ea6">TrackObjectPair</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>assignments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec77fdfc208e007d772aefcbd79a48a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec77fdfc208e007d772aefcbd79a48a4">&#9670;&nbsp;</a></span>UpdateUnassignedTracks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::perception::HmObjectTracker::UpdateUnassignedTracks </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; Eigen::VectorXf &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tracks_predict</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>unassigned_tracks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>time_diff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/obstacle/lidar/tracker/hm_tracker/<a class="el" href="hm__tracker_8h_source.html">hm_tracker.h</a></li>
 </ul>

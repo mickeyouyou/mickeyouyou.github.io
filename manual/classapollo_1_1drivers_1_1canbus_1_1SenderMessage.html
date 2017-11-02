@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html">canbus</a></li><li class="navelem"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html">SenderMessage</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html">canbus</a></li><li class="navelem"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html">SenderMessage</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,6 +79,11 @@ $(function() {
  <a href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="can__sender_8h_source.html">can_sender.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::drivers::canbus::SenderMessage&lt; SensorType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1drivers_1_1canbus_1_1SenderMessage__coll__graph.png" border="0" usemap="#apollo_1_1drivers_1_1canbus_1_1SenderMessage_3_01SensorType_01_4_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -87,16 +93,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac9853b3ad4206b27f0a28fe815921a80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html#ac9853b3ad4206b27f0a28fe815921a80">SenderMessage</a> (const uint32_t <a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html#ad733dd02c508708c53cb84e26318e6ab">message_id</a>, <a class="el" href="classapollo_1_1drivers_1_1canbus_1_1ProtocolData.html">ProtocolData</a>&lt; SensorType &gt; *protocol_data, bool init_with_one)</td></tr>
 <tr class="memdesc:ac9853b3ad4206b27f0a28fe815921a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which takes message ID and protocol data and and indicator whether to initialize all bits of the .  <a href="#ac9853b3ad4206b27f0a28fe815921a80">More...</a><br /></td></tr>
 <tr class="separator:ac9853b3ad4206b27f0a28fe815921a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c6642a41a9dcf057f00f8e365b4f22f"><td class="memItemLeft" align="right" valign="top"><a id="a1c6642a41a9dcf057f00f8e365b4f22f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html#a1c6642a41a9dcf057f00f8e365b4f22f">~SenderMessage</a> ()=default</td></tr>
-<tr class="memdesc:a1c6642a41a9dcf057f00f8e365b4f22f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="memitem:a1c6642a41a9dcf057f00f8e365b4f22f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html#a1c6642a41a9dcf057f00f8e365b4f22f">~SenderMessage</a> ()=default</td></tr>
+<tr class="memdesc:a1c6642a41a9dcf057f00f8e365b4f22f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a1c6642a41a9dcf057f00f8e365b4f22f">More...</a><br /></td></tr>
 <tr class="separator:a1c6642a41a9dcf057f00f8e365b4f22f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2cdba313a273c2589e0789954b5cbfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html#aa2cdba313a273c2589e0789954b5cbfe">UpdateCurrPeriod</a> (const int32_t delta_period)</td></tr>
 <tr class="memdesc:aa2cdba313a273c2589e0789954b5cbfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the current period for sending messages by a difference.  <a href="#aa2cdba313a273c2589e0789954b5cbfe">More...</a><br /></td></tr>
 <tr class="separator:aa2cdba313a273c2589e0789954b5cbfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55cd7476839a3546d8f4b4e4c018755b"><td class="memItemLeft" align="right" valign="top"><a id="a55cd7476839a3546d8f4b4e4c018755b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html#a55cd7476839a3546d8f4b4e4c018755b">Update</a> ()</td></tr>
-<tr class="memdesc:a55cd7476839a3546d8f4b4e4c018755b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the protocol data. But the updating process depends on the real type of protocol data which inherites <a class="el" href="classapollo_1_1drivers_1_1canbus_1_1ProtocolData.html" title="This is the base class of protocol data. ">ProtocolData</a>. <br /></td></tr>
+<tr class="memitem:a55cd7476839a3546d8f4b4e4c018755b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html#a55cd7476839a3546d8f4b4e4c018755b">Update</a> ()</td></tr>
+<tr class="memdesc:a55cd7476839a3546d8f4b4e4c018755b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the protocol data. But the updating process depends on the real type of protocol data which inherites <a class="el" href="classapollo_1_1drivers_1_1canbus_1_1ProtocolData.html" title="This is the base class of protocol data. ">ProtocolData</a>.  <a href="#a55cd7476839a3546d8f4b4e4c018755b">More...</a><br /></td></tr>
 <tr class="separator:a55cd7476839a3546d8f4b4e4c018755b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17294b5582f57b0661aa84d8901df0c0"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structapollo_1_1drivers_1_1canbus_1_1CanFrame.html">CanFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html#a17294b5582f57b0661aa84d8901df0c0">CanFrame</a> ()</td></tr>
 <tr class="memdesc:a17294b5582f57b0661aa84d8901df0c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the CAN frame to send.  <a href="#a17294b5582f57b0661aa84d8901df0c0">More...</a><br /></td></tr>
@@ -199,6 +203,35 @@ template&lt;typename SensorType &gt; </div>
 
 </div>
 </div>
+<a id="a1c6642a41a9dcf057f00f8e365b4f22f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c6642a41a9dcf057f00f8e365b4f22f">&#9670;&nbsp;</a></span>~SenderMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SensorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html">apollo::drivers::canbus::SenderMessage</a>&lt; SensorType &gt;::~<a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html">SenderMessage</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a17294b5582f57b0661aa84d8901df0c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a17294b5582f57b0661aa84d8901df0c0">&#9670;&nbsp;</a></span>CanFrame()</h2>
@@ -263,6 +296,27 @@ template&lt;typename SensorType &gt; </div>
 
 <p>Get the message ID. </p>
 <dl class="section return"><dt>Returns</dt><dd>The message ID. </dd></dl>
+
+</div>
+</div>
+<a id="a55cd7476839a3546d8f4b4e4c018755b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55cd7476839a3546d8f4b4e4c018755b">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SensorType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classapollo_1_1drivers_1_1canbus_1_1SenderMessage.html">apollo::drivers::canbus::SenderMessage</a>&lt; SensorType &gt;::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update the protocol data. But the updating process depends on the real type of protocol data which inherites <a class="el" href="classapollo_1_1drivers_1_1canbus_1_1ProtocolData.html" title="This is the base class of protocol data. ">ProtocolData</a>. </p>
 
 </div>
 </div>

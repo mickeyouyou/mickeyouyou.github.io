@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1VehicleConfigHelper.html">VehicleConfigHelper</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1common.html">common</a></li><li class="navelem"><a class="el" href="classapollo_1_1common_1_1VehicleConfigHelper.html">VehicleConfigHelper</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -75,12 +76,16 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="vehicle__config__helper_8h_source.html">vehicle_config_helper.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::common::VehicleConfigHelper:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1common_1_1VehicleConfigHelper__coll__graph.png" border="0" usemap="#apollo_1_1common_1_1VehicleConfigHelper_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a81a5dd920a5f7fee60e034100a341cc0"><td class="memItemLeft" align="right" valign="top"><a id="a81a5dd920a5f7fee60e034100a341cc0"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1VehicleConfigHelper.html#a81a5dd920a5f7fee60e034100a341cc0">Init</a> ()</td></tr>
-<tr class="memdesc:a81a5dd920a5f7fee60e034100a341cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize vehicle configurations with default configuration file pointed by gflags FLAGS_vehicle_config_path. The code will crash if FLAGS_vehicle_config_path does not exit or it points to a file with invalid format. <br /></td></tr>
+<tr class="memitem:a81a5dd920a5f7fee60e034100a341cc0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1VehicleConfigHelper.html#a81a5dd920a5f7fee60e034100a341cc0">Init</a> ()</td></tr>
+<tr class="memdesc:a81a5dd920a5f7fee60e034100a341cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize vehicle configurations with default configuration file pointed by gflags FLAGS_vehicle_config_path. The code will crash if FLAGS_vehicle_config_path does not exit or it points to a file with invalid format.  <a href="#a81a5dd920a5f7fee60e034100a341cc0">More...</a><br /></td></tr>
 <tr class="separator:a81a5dd920a5f7fee60e034100a341cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47b3933dffbffba1af99e24da97a0b2b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1common_1_1VehicleConfigHelper.html#a47b3933dffbffba1af99e24da97a0b2b">Init</a> (const VehicleConfig &amp;config)</td></tr>
 <tr class="memdesc:a47b3933dffbffba1af99e24da97a0b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize vehicle configurations with <code>config</code>.  <a href="#a47b3933dffbffba1af99e24da97a0b2b">More...</a><br /></td></tr>
@@ -123,8 +128,35 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 </div>
 </div>
+<a id="a81a5dd920a5f7fee60e034100a341cc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81a5dd920a5f7fee60e034100a341cc0">&#9670;&nbsp;</a></span>Init() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void apollo::common::VehicleConfigHelper::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize vehicle configurations with default configuration file pointed by gflags FLAGS_vehicle_config_path. The code will crash if FLAGS_vehicle_config_path does not exit or it points to a file with invalid format. </p>
+
+</div>
+</div>
 <a id="a47b3933dffbffba1af99e24da97a0b2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47b3933dffbffba1af99e24da97a0b2b">&#9670;&nbsp;</a></span>Init() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b3933dffbffba1af99e24da97a0b2b">&#9670;&nbsp;</a></span>Init() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,7 +190,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </div>
 </div>
 <a id="aceda8dbb2cfbede6d1d7295db8dbc9fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aceda8dbb2cfbede6d1d7295db8dbc9fd">&#9670;&nbsp;</a></span>Init() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aceda8dbb2cfbede6d1d7295db8dbc9fd">&#9670;&nbsp;</a></span>Init() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

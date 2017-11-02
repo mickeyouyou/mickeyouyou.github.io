@@ -1,0 +1,15 @@
+<map id="modules/control/controller/lat_controller.h" name="modules/control/controller/lat_controller.h">
+<area shape="rect" id="node7" href="$interpolation__1d_8h.html" title="modules/control/common\l/interpolation_1d.h" alt="" coords="370,92,541,131"/>
+<area shape="rect" id="node11" href="$trajectory__analyzer_8h.html" title="Defines the TrajectoryAnalyzer class. " alt="" coords="1068,92,1238,131"/>
+<area shape="rect" id="node27" href="$controller_8h.html" title="Defines the Controller base class. " alt="" coords="2039,179,2213,217"/>
+<area shape="rect" id="node30" href="$digital__filter_8h.html" title="Defines the DigitalFilter class. " alt="" coords="667,92,818,131"/>
+<area shape="rect" id="node32" href="$digital__filter__coefficients_8h.html" title="Functions to generate coefficients for digital filter. " alt="" coords="539,352,716,391"/>
+<area shape="rect" id="node33" href="$mean__filter_8h.html" title="Defines the MeanFilter class. " alt="" coords="841,92,992,131"/>
+<area shape="rect" id="node14" href="$vehicle__state_8h.html" title="Declaration of the class VehicleState. " alt="" coords="1262,179,1433,217"/>
+<area shape="rect" id="node17" href="$macro_8h.html" title="modules/common/macro.h" alt="" coords="956,272,1134,297"/>
+<area shape="rect" id="node19" href="$box2d_8h.html" title="The class of Box2d. Here, the x/y axes are respectively Forward/Left, as opposed to what happens in e..." alt="" coords="1385,265,1545,304"/>
+<area shape="rect" id="node21" href="$vec2d_8h.html" title="Defines the Vec2d class. " alt="" coords="1421,439,1581,477"/>
+<area shape="rect" id="node24" href="$common_2status_2status_8h.html" title="modules/common/status\l/status.h" alt="" coords="1569,265,1734,304"/>
+<area shape="rect" id="node20" href="$aabox2d_8h.html" title="Defines the AABox2d class. " alt="" coords="1212,352,1372,391"/>
+<area shape="rect" id="node23" href="$line__segment2d_8h.html" title="Define the LineSegment2d class. " alt="" coords="1396,352,1556,391"/>
+</map>

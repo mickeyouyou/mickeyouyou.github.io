@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1control.html">control</a></li><li class="navelem"><a class="el" href="classapollo_1_1control_1_1DigitalFilter.html">DigitalFilter</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1control.html">control</a></li><li class="navelem"><a class="el" href="classapollo_1_1control_1_1DigitalFilter.html">DigitalFilter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,15 +79,21 @@ $(function() {
  <a href="classapollo_1_1control_1_1DigitalFilter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="digital__filter_8h_source.html">digital_filter.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::control::DigitalFilter:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1control_1_1DigitalFilter__coll__graph.png" border="0" usemap="#apollo_1_1control_1_1DigitalFilter_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a021b960dc7ea7de618e4bb51d4770e8c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1control_1_1DigitalFilter.html#a021b960dc7ea7de618e4bb51d4770e8c">DigitalFilter</a> ()=default</td></tr>
+<tr class="separator:a021b960dc7ea7de618e4bb51d4770e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acab223b7a27711b06e38f360b447a797"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1control_1_1DigitalFilter.html#acab223b7a27711b06e38f360b447a797">DigitalFilter</a> (const std::vector&lt; double &gt; &amp;<a class="el" href="classapollo_1_1control_1_1DigitalFilter.html#a731319c7b25df3b84cc4b0c3384597f2">denominators</a>, const std::vector&lt; double &gt; &amp;<a class="el" href="classapollo_1_1control_1_1DigitalFilter.html#a00583cbaea0ee890e9c64c179a1da85c">numerators</a>)</td></tr>
 <tr class="memdesc:acab223b7a27711b06e38f360b447a797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a <a class="el" href="classapollo_1_1control_1_1DigitalFilter.html" title="The DigitalFilter class is used to pass signals with a frequency lower than a certain cutoff frequenc...">DigitalFilter</a> with given denominators and numerators.  <a href="#acab223b7a27711b06e38f360b447a797">More...</a><br /></td></tr>
 <tr class="separator:acab223b7a27711b06e38f360b447a797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1d9ee5c65a090b302c066066e384ec9"><td class="memItemLeft" align="right" valign="top"><a id="ab1d9ee5c65a090b302c066066e384ec9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1control_1_1DigitalFilter.html#ab1d9ee5c65a090b302c066066e384ec9">~DigitalFilter</a> ()=default</td></tr>
-<tr class="memdesc:ab1d9ee5c65a090b302c066066e384ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
+<tr class="memitem:ab1d9ee5c65a090b302c066066e384ec9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1control_1_1DigitalFilter.html#ab1d9ee5c65a090b302c066066e384ec9">~DigitalFilter</a> ()=default</td></tr>
+<tr class="memdesc:ab1d9ee5c65a090b302c066066e384ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#ab1d9ee5c65a090b302c066066e384ec9">More...</a><br /></td></tr>
 <tr class="separator:ab1d9ee5c65a090b302c066066e384ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26bc85fef942c9319d7fe21c86b7fe23"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1control_1_1DigitalFilter.html#a26bc85fef942c9319d7fe21c86b7fe23">Filter</a> (const double x_insert)</td></tr>
 <tr class="memdesc:a26bc85fef942c9319d7fe21c86b7fe23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a new measurement with the filter.  <a href="#a26bc85fef942c9319d7fe21c86b7fe23">More...</a><br /></td></tr>
@@ -116,8 +123,33 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classapollo_1_1control_1_1DigitalFilter.html" title="The DigitalFilter class is used to pass signals with a frequency lower than a certain cutoff frequenc...">DigitalFilter</a> class is used to pass signals with a frequency lower than a certain cutoff frequency and attenuates signals with frequencies higher than the cutoff frequency. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a021b960dc7ea7de618e4bb51d4770e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a021b960dc7ea7de618e4bb51d4770e8c">&#9670;&nbsp;</a></span>DigitalFilter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::control::DigitalFilter::DigitalFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acab223b7a27711b06e38f360b447a797"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acab223b7a27711b06e38f360b447a797">&#9670;&nbsp;</a></span>DigitalFilter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acab223b7a27711b06e38f360b447a797">&#9670;&nbsp;</a></span>DigitalFilter() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,6 +182,33 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ab1d9ee5c65a090b302c066066e384ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d9ee5c65a090b302c066066e384ec9">&#9670;&nbsp;</a></span>~DigitalFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::control::DigitalFilter::~DigitalFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default destructor. </p>
 
 </div>
 </div>

@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -82,6 +83,16 @@ $(function() {
 <code>#include &quot;<a class="el" href="euler__angles__zxy_8h_source.html">modules/common/math/euler_angles_zxy.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="math__utils_8h_source.html">modules/common/math/math_utils.h</a>&quot;</code><br />
 <code>#include &quot;modules/common/proto/geometry.pb.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for quaternion.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="quaternion_8h__incl.png" border="0" usemap="#modules_2common_2math_2quaternion_8h" alt=""/></div>
+<map name="modules_2common_2math_2quaternion_8h" id="modules_2common_2math_2quaternion_8h">
+<area shape="rect" id="node5" href="euler__angles__zxy_8h.html" title="Defines the EulerAnglesZXY class. " alt="" coords="197,92,357,131"/>
+<area shape="rect" id="node6" href="math__utils_8h.html" title="Math&#45;related util functions. " alt="" coords="315,179,475,217"/>
+<area shape="rect" id="node9" href="vec2d_8h.html" title="Defines the Vec2d class. " alt="" coords="444,265,604,304"/>
+</map>
+</div>
 </div>
 <p><a href="quaternion_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -90,28 +101,25 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceapollo_1_1common_1_1math"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1math.html">apollo::common::math</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1common_1_1math"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1common_1_1math.html" title="apollo::common::math ">apollo::common::math</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceapollo_1_1common"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common.html">apollo::common</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1common"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1common.html" title="apollo::common ">apollo::common</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adf26d9d02b4866a3f4a916f31c730c1f"><td class="memItemLeft" align="right" valign="top"><a id="adf26d9d02b4866a3f4a916f31c730c1f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::common::math::QuaternionToHeading</b> (const double qw, const double qx, const double qy, const double qz)</td></tr>
+<tr class="memitem:adf26d9d02b4866a3f4a916f31c730c1f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1math.html#adf26d9d02b4866a3f4a916f31c730c1f">apollo::common::math::QuaternionToHeading</a> (const double qw, const double qx, const double qy, const double qz)</td></tr>
 <tr class="separator:adf26d9d02b4866a3f4a916f31c730c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6bf641fda71008e0a021c73894316dc"><td class="memTemplParams" colspan="2"><a id="ae6bf641fda71008e0a021c73894316dc"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae6bf641fda71008e0a021c73894316dc"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>apollo::common::math::QuaternionToHeading</b> (const Eigen::Quaternion&lt; T &gt; &amp;q)</td></tr>
+<tr class="memitem:ae6bf641fda71008e0a021c73894316dc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae6bf641fda71008e0a021c73894316dc"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1math.html#ae6bf641fda71008e0a021c73894316dc">apollo::common::math::QuaternionToHeading</a> (const Eigen::Quaternion&lt; T &gt; &amp;q)</td></tr>
 <tr class="separator:ae6bf641fda71008e0a021c73894316dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a458191f03f21afc817f52992795808b9"><td class="memTemplParams" colspan="2"><a id="a458191f03f21afc817f52992795808b9"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a458191f03f21afc817f52992795808b9"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Quaternion&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>apollo::common::math::HeadingToQuaternion</b> (const double heading)</td></tr>
+<tr class="memitem:a458191f03f21afc817f52992795808b9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a458191f03f21afc817f52992795808b9"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Quaternion&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1math.html#a458191f03f21afc817f52992795808b9">apollo::common::math::HeadingToQuaternion</a> (const double heading)</td></tr>
 <tr class="separator:a458191f03f21afc817f52992795808b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58419798e10fea36a76ca8657eb073c9"><td class="memItemLeft" align="right" valign="top"><a id="a58419798e10fea36a76ca8657eb073c9"></a>
-Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::common::math::QuaternionRotate</b> (const Quaternion &amp;orientation, const Eigen::Vector3d &amp;original)</td></tr>
+<tr class="memitem:a58419798e10fea36a76ca8657eb073c9"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1math.html#a58419798e10fea36a76ca8657eb073c9">apollo::common::math::QuaternionRotate</a> (const Quaternion &amp;orientation, const Eigen::Vector3d &amp;original)</td></tr>
 <tr class="separator:a58419798e10fea36a76ca8657eb073c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcb4963c456b3ffd6e087631e4e0ff48"><td class="memItemLeft" align="right" valign="top"><a id="adcb4963c456b3ffd6e087631e4e0ff48"></a>
-Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><b>apollo::common::math::InverseQuaternionRotate</b> (const Quaternion &amp;orientation, const Eigen::Vector3d &amp;rotated)</td></tr>
+<tr class="memitem:adcb4963c456b3ffd6e087631e4e0ff48"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1math.html#adcb4963c456b3ffd6e087631e4e0ff48">apollo::common::math::InverseQuaternionRotate</a> (const Quaternion &amp;orientation, const Eigen::Vector3d &amp;rotated)</td></tr>
 <tr class="separator:adcb4963c456b3ffd6e087631e4e0ff48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

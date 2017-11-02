@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html">canbus</a></li><li class="navelem"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">CanSender</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers.html">drivers</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1drivers_1_1canbus.html">canbus</a></li><li class="navelem"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">CanSender</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -75,13 +76,13 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#a382a0eeded150995abc87717195b759b">AddMessage</a>(uint32_t message_id, ProtocolData&lt; SensorType &gt; *protocol_data, bool init_one=false)</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#a9129bac009c9df357e30b25d91f347ca">CanSender</a>()=default</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>enable_log</b>() const (defined in <a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a>)</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>FRIEND_TEST</b>(CanSenderTest, OneRunCase) (defined in <a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a>)</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#a05f9e20222e82d3ed0c962dd290fc05c">enable_log</a>() const</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#a773f86b8af57196197ccce2982cb22b0">FRIEND_TEST</a>(CanSenderTest, OneRunCase)</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#aeb57940af73e4b92f94f14be098ee3ff">Init</a>(CanClient *can_client, bool enable_log)</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#a6e4dd2181c090ca21bd77b54d205c627">IsRunning</a>() const</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#a77de92a70996d3cc056dfe04ee1979bd">Start</a>()</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#a231187d8b7fb117d6bc1ff56993aca71">Stop</a>()</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Update</b>() (defined in <a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a>)</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#a16efc6ce386f70a1ef144c91a85e22e6">Update</a>()</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html#afe66cf8e007ba93bf9a2f1ae98c28cfe">~CanSender</a>()=default</td><td class="entry"><a class="el" href="classapollo_1_1drivers_1_1canbus_1_1CanSender.html">apollo::drivers::canbus::CanSender&lt; SensorType &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->

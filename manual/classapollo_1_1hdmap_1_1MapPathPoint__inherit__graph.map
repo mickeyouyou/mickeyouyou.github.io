@@ -1,0 +1,4 @@
+<map id="apollo::hdmap::MapPathPoint" name="apollo::hdmap::MapPathPoint">
+<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1ReferencePoint.html" title="{apollo::planning::Reference\lPoint\n||+ ReferencePoint()\l+ ReferencePoint()\l+ kappa()\l+ dkappa()\l+ lower_bound()\l+ upper_bound()\l+ DebugString()\l+ RemoveDuplicates()\l}" alt="" coords="12,568,195,748"/>
+<area shape="rect" id="node2" href="$classapollo_1_1common_1_1math_1_1Vec2d.html" title="Implements a class of 2&#45;dimensional vectors. " alt="" coords="27,5,180,252"/>
+</map>

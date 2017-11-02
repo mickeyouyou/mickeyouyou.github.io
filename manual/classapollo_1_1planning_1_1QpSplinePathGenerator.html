@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1QpSplinePathGenerator.html">QpSplinePathGenerator</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1QpSplinePathGenerator.html">QpSplinePathGenerator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,19 +74,123 @@ $(function() {
 <div class="title">apollo::planning::QpSplinePathGenerator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="qp__spline__path__generator_8h_source.html">qp_spline_path_generator.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::QpSplinePathGenerator:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1QpSplinePathGenerator__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1QpSplinePathGenerator_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2e348552829e915299aa4879024023b2"><td class="memItemLeft" align="right" valign="top"><a id="a2e348552829e915299aa4879024023b2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>QpSplinePathGenerator</b> (<a class="el" href="classapollo_1_1planning_1_1Spline1dGenerator.html">Spline1dGenerator</a> *spline_generator_, const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const QpSplinePathConfig &amp;qp_spline_path_config)</td></tr>
-<tr class="separator:a2e348552829e915299aa4879024023b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d34b339d88794fcfcf1bcd1eebaf110"><td class="memItemLeft" align="right" valign="top"><a id="a0d34b339d88794fcfcf1bcd1eebaf110"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDebugLogger</b> (apollo::planning_internal::Debug *debug)</td></tr>
+<tr class="memitem:a9e6bd7f133375536013e302ef2175195"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpSplinePathGenerator.html#a9e6bd7f133375536013e302ef2175195">QpSplinePathGenerator</a> (<a class="el" href="classapollo_1_1planning_1_1Spline1dGenerator.html">Spline1dGenerator</a> *spline_generator, const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;reference_line, const QpSplinePathConfig &amp;qp_spline_path_config, const SLBoundary &amp;adc_sl_boundary)</td></tr>
+<tr class="separator:a9e6bd7f133375536013e302ef2175195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d34b339d88794fcfcf1bcd1eebaf110"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpSplinePathGenerator.html#a0d34b339d88794fcfcf1bcd1eebaf110">SetDebugLogger</a> (apollo::planning_internal::Debug *debug)</td></tr>
 <tr class="separator:a0d34b339d88794fcfcf1bcd1eebaf110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa166ae3b474b345a65883fd28909175e"><td class="memItemLeft" align="right" valign="top"><a id="aa166ae3b474b345a65883fd28909175e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Generate</b> (const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;obstacles, const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;speed_data, const common::TrajectoryPoint &amp;init_point, <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> *const path_data)</td></tr>
+<tr class="memitem:aa166ae3b474b345a65883fd28909175e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1QpSplinePathGenerator.html#aa166ae3b474b345a65883fd28909175e">Generate</a> (const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;obstacles, const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;speed_data, const common::TrajectoryPoint &amp;init_point, <a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> *const path_data)</td></tr>
 <tr class="separator:aa166ae3b474b345a65883fd28909175e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9e6bd7f133375536013e302ef2175195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e6bd7f133375536013e302ef2175195">&#9670;&nbsp;</a></span>QpSplinePathGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::QpSplinePathGenerator::QpSplinePathGenerator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1planning_1_1Spline1dGenerator.html">Spline1dGenerator</a> *&#160;</td>
+          <td class="paramname"><em>spline_generator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1ReferenceLine.html">ReferenceLine</a> &amp;&#160;</td>
+          <td class="paramname"><em>reference_line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QpSplinePathConfig &amp;&#160;</td>
+          <td class="paramname"><em>qp_spline_path_config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const SLBoundary &amp;&#160;</td>
+          <td class="paramname"><em>adc_sl_boundary</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa166ae3b474b345a65883fd28909175e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa166ae3b474b345a65883fd28909175e">&#9670;&nbsp;</a></span>Generate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::QpSplinePathGenerator::Generate </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="classapollo_1_1planning_1_1PathObstacle.html">PathObstacle</a> *&gt; &amp;&#160;</td>
+          <td class="paramname"><em>obstacles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classapollo_1_1planning_1_1SpeedData.html">SpeedData</a> &amp;&#160;</td>
+          <td class="paramname"><em>speed_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const common::TrajectoryPoint &amp;&#160;</td>
+          <td class="paramname"><em>init_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classapollo_1_1planning_1_1PathData.html">PathData</a> *const&#160;</td>
+          <td class="paramname"><em>path_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d34b339d88794fcfcf1bcd1eebaf110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d34b339d88794fcfcf1bcd1eebaf110">&#9670;&nbsp;</a></span>SetDebugLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::QpSplinePathGenerator::SetDebugLogger </td>
+          <td>(</td>
+          <td class="paramtype">apollo::planning_internal::Debug *&#160;</td>
+          <td class="paramname"><em>debug</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/tasks/qp_spline_path/<a class="el" href="qp__spline__path__generator_8h_source.html">qp_spline_path_generator.h</a></li>
 </ul>

@@ -11,6 +11,8 @@ var searchData=
   ['vehiclecontroller',['VehicleController',['../classapollo_1_1canbus_1_1VehicleController.html',1,'apollo::canbus']]],
   ['vehiclefactory',['VehicleFactory',['../classapollo_1_1canbus_1_1VehicleFactory.html',1,'apollo::canbus']]],
   ['vehiclestate',['VehicleState',['../classapollo_1_1common_1_1VehicleState.html',1,'apollo::common']]],
+  ['velodyne16driver',['Velodyne16Driver',['../classapollo_1_1drivers_1_1velodyne_1_1Velodyne16Driver.html',1,'apollo::drivers::velodyne']]],
+  ['velodyne16parser',['Velodyne16Parser',['../classapollo_1_1drivers_1_1velodyne_1_1Velodyne16Parser.html',1,'apollo::drivers::velodyne']]],
   ['velodyne64driver',['Velodyne64Driver',['../classapollo_1_1drivers_1_1velodyne_1_1Velodyne64Driver.html',1,'apollo::drivers::velodyne']]],
   ['velodyne64parser',['Velodyne64Parser',['../classapollo_1_1drivers_1_1velodyne_1_1Velodyne64Parser.html',1,'apollo::drivers::velodyne']]],
   ['velodynedriver',['VelodyneDriver',['../classapollo_1_1drivers_1_1velodyne_1_1VelodyneDriver.html',1,'apollo::drivers::velodyne']]],

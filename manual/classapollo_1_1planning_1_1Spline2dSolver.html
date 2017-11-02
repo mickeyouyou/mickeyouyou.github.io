@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1Spline2dSolver.html">Spline2dSolver</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1planning.html">planning</a></li><li class="navelem"><a class="el" href="classapollo_1_1planning_1_1Spline2dSolver.html">Spline2dSolver</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,31 +74,174 @@ $(function() {
 <div class="title">apollo::planning::Spline2dSolver Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="spline__2d__solver_8h_source.html">spline_2d_solver.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::planning::Spline2dSolver:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1planning_1_1Spline2dSolver__coll__graph.png" border="0" usemap="#apollo_1_1planning_1_1Spline2dSolver_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a99b3b63c4c7b6875729c75408f608def"><td class="memItemLeft" align="right" valign="top"><a id="a99b3b63c4c7b6875729c75408f608def"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Spline2dSolver</b> (const std::vector&lt; double &gt; &amp;t_knots, const uint32_t order)</td></tr>
+<tr class="memitem:a99b3b63c4c7b6875729c75408f608def"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1Spline2dSolver.html#a99b3b63c4c7b6875729c75408f608def">Spline2dSolver</a> (const std::vector&lt; double &gt; &amp;t_knots, const uint32_t order)</td></tr>
 <tr class="separator:a99b3b63c4c7b6875729c75408f608def"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c2861589202764c20a2ff27afdc892b"><td class="memItemLeft" align="right" valign="top"><a id="a1c2861589202764c20a2ff27afdc892b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> (const std::vector&lt; double &gt; &amp;t_knots, const uint32_t order)</td></tr>
+<tr class="memitem:a1c2861589202764c20a2ff27afdc892b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1Spline2dSolver.html#a1c2861589202764c20a2ff27afdc892b">Reset</a> (const std::vector&lt; double &gt; &amp;t_knots, const uint32_t order)</td></tr>
 <tr class="separator:a1c2861589202764c20a2ff27afdc892b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7009c13ae3c0bf8ebca2a37d974fd597"><td class="memItemLeft" align="right" valign="top"><a id="a7009c13ae3c0bf8ebca2a37d974fd597"></a>
-<a class="el" href="classapollo_1_1planning_1_1Spline2dConstraint.html">Spline2dConstraint</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mutable_constraint</b> ()</td></tr>
+<tr class="memitem:a7009c13ae3c0bf8ebca2a37d974fd597"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1Spline2dConstraint.html">Spline2dConstraint</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1Spline2dSolver.html#a7009c13ae3c0bf8ebca2a37d974fd597">mutable_constraint</a> ()</td></tr>
 <tr class="separator:a7009c13ae3c0bf8ebca2a37d974fd597"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0de5e1c3f32f3670c465d9bbc80d6be1"><td class="memItemLeft" align="right" valign="top"><a id="a0de5e1c3f32f3670c465d9bbc80d6be1"></a>
-<a class="el" href="classapollo_1_1planning_1_1Spline2dKernel.html">Spline2dKernel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mutable_kernel</b> ()</td></tr>
+<tr class="memitem:a0de5e1c3f32f3670c465d9bbc80d6be1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1Spline2dKernel.html">Spline2dKernel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1Spline2dSolver.html#a0de5e1c3f32f3670c465d9bbc80d6be1">mutable_kernel</a> ()</td></tr>
 <tr class="separator:a0de5e1c3f32f3670c465d9bbc80d6be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a492fc74b6797c1c5676cb2e0a9e5f29a"><td class="memItemLeft" align="right" valign="top"><a id="a492fc74b6797c1c5676cb2e0a9e5f29a"></a>
-<a class="el" href="classapollo_1_1planning_1_1Spline2d.html">Spline2d</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mutable_spline</b> ()</td></tr>
+<tr class="memitem:a492fc74b6797c1c5676cb2e0a9e5f29a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapollo_1_1planning_1_1Spline2d.html">Spline2d</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1Spline2dSolver.html#a492fc74b6797c1c5676cb2e0a9e5f29a">mutable_spline</a> ()</td></tr>
 <tr class="separator:a492fc74b6797c1c5676cb2e0a9e5f29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c77e3ccb516eaea5340c4050589a5b9"><td class="memItemLeft" align="right" valign="top"><a id="a2c77e3ccb516eaea5340c4050589a5b9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Solve</b> ()</td></tr>
+<tr class="memitem:a2c77e3ccb516eaea5340c4050589a5b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1Spline2dSolver.html#a2c77e3ccb516eaea5340c4050589a5b9">Solve</a> ()</td></tr>
 <tr class="separator:a2c77e3ccb516eaea5340c4050589a5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b878cd34db9bb6b544c58eb11ffd389"><td class="memItemLeft" align="right" valign="top"><a id="a9b878cd34db9bb6b544c58eb11ffd389"></a>
-const <a class="el" href="classapollo_1_1planning_1_1Spline2d.html">Spline2d</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>spline</b> () const</td></tr>
+<tr class="memitem:a9b878cd34db9bb6b544c58eb11ffd389"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classapollo_1_1planning_1_1Spline2d.html">Spline2d</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1planning_1_1Spline2dSolver.html#a9b878cd34db9bb6b544c58eb11ffd389">spline</a> () const</td></tr>
 <tr class="separator:a9b878cd34db9bb6b544c58eb11ffd389"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a99b3b63c4c7b6875729c75408f608def"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99b3b63c4c7b6875729c75408f608def">&#9670;&nbsp;</a></span>Spline2dSolver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::planning::Spline2dSolver::Spline2dSolver </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>t_knots</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7009c13ae3c0bf8ebca2a37d974fd597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7009c13ae3c0bf8ebca2a37d974fd597">&#9670;&nbsp;</a></span>mutable_constraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1Spline2dConstraint.html">Spline2dConstraint</a>* apollo::planning::Spline2dSolver::mutable_constraint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0de5e1c3f32f3670c465d9bbc80d6be1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0de5e1c3f32f3670c465d9bbc80d6be1">&#9670;&nbsp;</a></span>mutable_kernel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1Spline2dKernel.html">Spline2dKernel</a>* apollo::planning::Spline2dSolver::mutable_kernel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a492fc74b6797c1c5676cb2e0a9e5f29a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a492fc74b6797c1c5676cb2e0a9e5f29a">&#9670;&nbsp;</a></span>mutable_spline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classapollo_1_1planning_1_1Spline2d.html">Spline2d</a>* apollo::planning::Spline2dSolver::mutable_spline </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c2861589202764c20a2ff27afdc892b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c2861589202764c20a2ff27afdc892b">&#9670;&nbsp;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apollo::planning::Spline2dSolver::Reset </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>t_knots</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c77e3ccb516eaea5340c4050589a5b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c77e3ccb516eaea5340c4050589a5b9">&#9670;&nbsp;</a></span>Solve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::planning::Spline2dSolver::Solve </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b878cd34db9bb6b544c58eb11ffd389"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b878cd34db9bb6b544c58eb11ffd389">&#9670;&nbsp;</a></span>spline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classapollo_1_1planning_1_1Spline2d.html">Spline2d</a>&amp; apollo::planning::Spline2dSolver::spline </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/planning/math/smoothing_spline/<a class="el" href="spline__2d__solver_8h_source.html">spline_2d_solver.h</a></li>
 </ul>

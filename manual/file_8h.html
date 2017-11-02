@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -81,10 +82,40 @@ $(function() {
 <code>#include &lt;cstdio&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;google/protobuf/io/zero_copy_stream_impl.h&quot;</code><br />
 <code>#include &quot;google/protobuf/text_format.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="common_2log_8h_source.html">modules/common/log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_8h_source.html">modules/common/log.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="string__util_8h_source.html">modules/common/util/string_util.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for file.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="file_8h__incl.png" border="0" usemap="#modules_2common_2util_2file_8h" alt=""/></div>
+<map name="modules_2common_2util_2file_8h" id="modules_2common_2util_2file_8h">
+<area shape="rect" id="node13" href="log_8h.html" title="modules/common/log.h" alt="" coords="1146,99,1305,124"/>
+<area shape="rect" id="node16" href="string__util_8h.html" title="Some string util functions. " alt="" coords="1329,92,1477,131"/>
+<area shape="rect" id="node18" href="string__util__internal_8h.html" title="Some string util internal helpers. " alt="" coords="1460,179,1607,217"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="file_8h__dep__incl.png" border="0" usemap="#modules_2common_2util_2file_8hdep" alt=""/></div>
+<map name="modules_2common_2util_2file_8hdep" id="modules_2common_2util_2file_8hdep">
+<area shape="rect" id="node2" href="adapter_8h.html" title="modules/common/adapters\l/adapter.h" alt="" coords="601,92,783,131"/>
+<area shape="rect" id="node12" href="planning__test__base_8h.html" title="modules/planning/integration\l_tests/planning_test_base.h" alt="" coords="826,359,1018,397"/>
+<area shape="rect" id="node3" href="adapter__manager_8h.html" title="modules/common/adapters\l/adapter_manager.h" alt="" coords="473,265,655,304"/>
+<area shape="rect" id="node13" href="message__adapters_8h.html" title="modules/common/adapters\l/message_adapters.h" alt="" coords="601,179,783,217"/>
+<area shape="rect" id="node4" href="sim__control_8h.html" title="modules/dreamview/backend\l/sim_control/sim_control.h" alt="" coords="224,359,418,397"/>
+<area shape="rect" id="node7" href="simulation__world__service_8h.html" title="modules/dreamview/backend\l/simulation_world/simulation\l_world_service.h" alt="" coords="5,352,199,404"/>
+<area shape="rect" id="node8" href="sensor__canbus_8h.html" title="modules/drivers/canbus\l/sensor_canbus.h" alt="" coords="640,359,802,397"/>
+<area shape="rect" id="node11" href="delphi__esr__message__manager_8h.html" title="The class of DelphiESRMessageManager. " alt="" coords="442,352,616,404"/>
+<area shape="rect" id="node5" href="simulation__world__updater_8h.html" title="modules/dreamview/backend\l/simulation_world/simulation\l_world_updater.h" alt="" coords="89,452,283,504"/>
+<area shape="rect" id="node6" href="dreamview_8h.html" title="modules/dreamview/backend\l/dreamview.h" alt="" coords="156,552,350,591"/>
+<area shape="rect" id="node9" href="delphi__esr__canbus_8h.html" title="modules/drivers/delphi\l_esr/delphi_esr_canbus.h" alt="" coords="442,459,616,497"/>
+<area shape="rect" id="node10" href="mobileye__canbus_8h.html" title="modules/drivers/mobileye\l/mobileye_canbus.h" alt="" coords="640,459,813,497"/>
+</map>
+</div>
 </div>
 <p><a href="file_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -93,15 +124,16 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceapollo_1_1common_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1util.html">apollo::common::util</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1common_1_1util"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1common_1_1util.html" title="apollo::common::util ">apollo::common::util</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceapollo"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo.html">apollo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceapollo_1_1common"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common.html">apollo::common</a></td></tr>
 <tr class="memdesc:namespaceapollo_1_1common"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceapollo_1_1common.html" title="apollo::common ">apollo::common</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abee0d4b667bb332ec42899f149f1ce9c"><td class="memTemplParams" colspan="2"><a id="abee0d4b667bb332ec42899f149f1ce9c"></a>
-template&lt;typename MessageType &gt; </td></tr>
-<tr class="memitem:abee0d4b667bb332ec42899f149f1ce9c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>apollo::common::util::SetProtoToASCIIFile</b> (const MessageType &amp;message, int file_descriptor)</td></tr>
+<tr class="memitem:abee0d4b667bb332ec42899f149f1ce9c"><td class="memTemplParams" colspan="2">template&lt;typename MessageType &gt; </td></tr>
+<tr class="memitem:abee0d4b667bb332ec42899f149f1ce9c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1util.html#abee0d4b667bb332ec42899f149f1ce9c">apollo::common::util::SetProtoToASCIIFile</a> (const MessageType &amp;message, int file_descriptor)</td></tr>
 <tr class="separator:abee0d4b667bb332ec42899f149f1ce9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a7913b4a9dfe5f66964be7211a794e4"><td class="memTemplParams" colspan="2">template&lt;typename MessageType &gt; </td></tr>
 <tr class="memitem:a2a7913b4a9dfe5f66964be7211a794e4"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1util.html#a2a7913b4a9dfe5f66964be7211a794e4">apollo::common::util::SetProtoToASCIIFile</a> (const MessageType &amp;message, const std::string &amp;file_name)</td></tr>
@@ -135,6 +167,9 @@ template&lt;typename MessageType &gt; </td></tr>
 <tr class="memitem:af10634bad53a14f83061e47627dd59df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1util.html#af10634bad53a14f83061e47627dd59df">apollo::common::util::RemoveAllFiles</a> (const std::string &amp;directory_path)</td></tr>
 <tr class="memdesc:af10634bad53a14f83061e47627dd59df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all the files under a specified directory. Note that sub-directories are NOT affected.  <a href="namespaceapollo_1_1common_1_1util.html#af10634bad53a14f83061e47627dd59df">More...</a><br /></td></tr>
 <tr class="separator:af10634bad53a14f83061e47627dd59df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e16641c2486af6e12e5104decefad64"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapollo_1_1common_1_1util.html#a1e16641c2486af6e12e5104decefad64">apollo::common::util::ListSubDirectories</a> (const std::string &amp;directory_path)</td></tr>
+<tr class="memdesc:a1e16641c2486af6e12e5104decefad64"><td class="mdescLeft">&#160;</td><td class="mdescRight">List sub-directories.  <a href="namespaceapollo_1_1common_1_1util.html#a1e16641c2486af6e12e5104decefad64">More...</a><br /></td></tr>
+<tr class="separator:a1e16641c2486af6e12e5104decefad64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

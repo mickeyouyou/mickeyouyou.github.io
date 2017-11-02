@@ -7,6 +7,7 @@ var searchData=
   ['indexedlist_3c_20std_3a_3astring_2c_20obstacle_20_3e',['IndexedList&lt; std::string, Obstacle &gt;',['../classapollo_1_1planning_1_1IndexedList.html',1,'apollo::planning']]],
   ['indexedqueue',['IndexedQueue',['../classapollo_1_1planning_1_1IndexedQueue.html',1,'apollo::planning']]],
   ['indexedqueue_3c_20uint32_5ft_2c_20frame_20_3e',['IndexedQueue&lt; uint32_t, Frame &gt;',['../classapollo_1_1planning_1_1IndexedQueue.html',1,'apollo::planning']]],
+  ['infocollector',['InfoCollector',['../classapollo_1_1data_1_1InfoCollector.html',1,'apollo::data']]],
   ['input',['Input',['../classapollo_1_1drivers_1_1velodyne_1_1Input.html',1,'apollo::drivers::velodyne']]],
   ['inscov',['InsCov',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1InsCov.html',1,'apollo::drivers::gnss::novatel']]],
   ['inspva',['InsPva',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1InsPva.html',1,'apollo::drivers::gnss::novatel']]],

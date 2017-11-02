@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1BaseSegmentation.html">BaseSegmentation</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1perception.html">perception</a></li><li class="navelem"><a class="el" href="classapollo_1_1perception_1_1BaseSegmentation.html">BaseSegmentation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,29 +74,192 @@ $(function() {
 <div class="title">apollo::perception::BaseSegmentation Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="base__segmentation_8h_source.html">base_segmentation.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for apollo::perception::BaseSegmentation:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classapollo_1_1perception_1_1BaseSegmentation.png" usemap="#apollo::perception::BaseSegmentation_map" alt=""/>
-  <map id="apollo::perception::BaseSegmentation_map" name="apollo::perception::BaseSegmentation_map">
-<area href="classapollo_1_1perception_1_1CNNSegmentation.html" alt="apollo::perception::CNNSegmentation" shape="rect" coords="0,56,234,80"/>
-<area href="classapollo_1_1perception_1_1DummySegmentation.html" alt="apollo::perception::DummySegmentation" shape="rect" coords="244,56,478,80"/>
+<div class="center"><img src="classapollo_1_1perception_1_1BaseSegmentation__inherit__graph.png" border="0" usemap="#apollo_1_1perception_1_1BaseSegmentation_inherit__map" alt="Inheritance graph"/></div>
+<map name="apollo_1_1perception_1_1BaseSegmentation_inherit__map" id="apollo_1_1perception_1_1BaseSegmentation_inherit__map">
+<area shape="rect" id="node2" href="classapollo_1_1perception_1_1CNNSegmentation.html" title="{apollo::perception\l::CNNSegmentation\n||+ CNNSegmentation()\l+ ~CNNSegmentation()\l+ Init()\l+ Segment()\l+ name()\l+ range()\l+ width()\l+ height()\l}" alt="" coords="5,193,166,373"/>
+<area shape="rect" id="node3" href="classapollo_1_1perception_1_1DummySegmentation.html" title="{apollo::perception\l::DummySegmentation\n||+ DummySegmentation()\l+ ~DummySegmentation()\l+ Init()\l+ Segment()\l+ name()\l}" alt="" coords="190,213,368,353"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for apollo::perception::BaseSegmentation:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1perception_1_1BaseSegmentation__coll__graph.png" border="0" usemap="#apollo_1_1perception_1_1BaseSegmentation_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6a79672215af8ce159e591862df41f9d"><td class="memItemLeft" align="right" valign="top"><a id="a6a79672215af8ce159e591862df41f9d"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()=0</td></tr>
+<tr class="memitem:a2d1b4fbc064603f2ff490cdd79247e23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseSegmentation.html#a2d1b4fbc064603f2ff490cdd79247e23">BaseSegmentation</a> ()</td></tr>
+<tr class="separator:a2d1b4fbc064603f2ff490cdd79247e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16915d998f7e8ae8f27ea86214ad3027"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseSegmentation.html#a16915d998f7e8ae8f27ea86214ad3027">~BaseSegmentation</a> ()</td></tr>
+<tr class="separator:a16915d998f7e8ae8f27ea86214ad3027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a79672215af8ce159e591862df41f9d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseSegmentation.html#a6a79672215af8ce159e591862df41f9d">Init</a> ()=0</td></tr>
 <tr class="separator:a6a79672215af8ce159e591862df41f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab149eb954ee47e93447bb3c1ce939f7f"><td class="memItemLeft" align="right" valign="top"><a id="ab149eb954ee47e93447bb3c1ce939f7f"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Segment</b> (const pcl_util::PointCloudPtr &amp;cloud, const pcl_util::PointIndices &amp;valid_indices, const <a class="el" href="structapollo_1_1perception_1_1SegmentationOptions.html">SegmentationOptions</a> &amp;options, std::vector&lt; ObjectPtr &gt; *objects)=0</td></tr>
+<tr class="memitem:ab149eb954ee47e93447bb3c1ce939f7f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseSegmentation.html#ab149eb954ee47e93447bb3c1ce939f7f">Segment</a> (const <a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#a574e10478c283f7d1799dc1ee2e2e6ae">pcl_util::PointCloudPtr</a> &amp;cloud, const <a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#ae507190fa2f450f9a64cd0564e3916cc">pcl_util::PointIndices</a> &amp;valid_indices, const <a class="el" href="structapollo_1_1perception_1_1SegmentationOptions.html">SegmentationOptions</a> &amp;options, std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *objects)=0</td></tr>
 <tr class="separator:ab149eb954ee47e93447bb3c1ce939f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e12236b24e8bfd9e17e091963df9574"><td class="memItemLeft" align="right" valign="top"><a id="a2e12236b24e8bfd9e17e091963df9574"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> () const =0</td></tr>
+<tr class="memitem:a2e12236b24e8bfd9e17e091963df9574"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1perception_1_1BaseSegmentation.html#a2e12236b24e8bfd9e17e091963df9574">name</a> () const =0</td></tr>
 <tr class="separator:a2e12236b24e8bfd9e17e091963df9574"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2d1b4fbc064603f2ff490cdd79247e23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d1b4fbc064603f2ff490cdd79247e23">&#9670;&nbsp;</a></span>BaseSegmentation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::perception::BaseSegmentation::BaseSegmentation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16915d998f7e8ae8f27ea86214ad3027"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16915d998f7e8ae8f27ea86214ad3027">&#9670;&nbsp;</a></span>~BaseSegmentation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual apollo::perception::BaseSegmentation::~BaseSegmentation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6a79672215af8ce159e591862df41f9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a79672215af8ce159e591862df41f9d">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool apollo::perception::BaseSegmentation::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1perception_1_1DummySegmentation.html#a69d70acdf2228ec59dc9de0c78ecde8f">apollo::perception::DummySegmentation</a>, and <a class="el" href="classapollo_1_1perception_1_1CNNSegmentation.html#ae5a0bc327b134802cecfb17790fe561b">apollo::perception::CNNSegmentation</a>.</p>
+
+</div>
+</div>
+<a id="a2e12236b24e8bfd9e17e091963df9574"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e12236b24e8bfd9e17e091963df9574">&#9670;&nbsp;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string apollo::perception::BaseSegmentation::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1perception_1_1DummySegmentation.html#a667ec45596be982f92506b839090aeb7">apollo::perception::DummySegmentation</a>, and <a class="el" href="classapollo_1_1perception_1_1CNNSegmentation.html#ae40549e6b6b7d69857b4b738e995c29e">apollo::perception::CNNSegmentation</a>.</p>
+
+</div>
+</div>
+<a id="ab149eb954ee47e93447bb3c1ce939f7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab149eb954ee47e93447bb3c1ce939f7f">&#9670;&nbsp;</a></span>Segment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool apollo::perception::BaseSegmentation::Segment </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#a574e10478c283f7d1799dc1ee2e2e6ae">pcl_util::PointCloudPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>cloud</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceapollo_1_1perception_1_1pcl__util.html#ae507190fa2f450f9a64cd0564e3916cc">pcl_util::PointIndices</a> &amp;&#160;</td>
+          <td class="paramname"><em>valid_indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structapollo_1_1perception_1_1SegmentationOptions.html">SegmentationOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceapollo_1_1perception.html#a3e70cf2478236cb038dabf87dd340878">ObjectPtr</a> &gt; *&#160;</td>
+          <td class="paramname"><em>objects</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classapollo_1_1perception_1_1DummySegmentation.html#a131028f89db942a1cb25bb8e3dfc2c15">apollo::perception::DummySegmentation</a>, and <a class="el" href="classapollo_1_1perception_1_1CNNSegmentation.html#a139830d503d1b17677d707b2cbadea17">apollo::perception::CNNSegmentation</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/perception/obstacle/lidar/interface/<a class="el" href="base__segmentation_8h_source.html">base_segmentation.h</a></li>
 </ul>

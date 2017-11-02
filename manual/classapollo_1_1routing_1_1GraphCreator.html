@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Apollo
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Open source self driving car software</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>apollo</b></li><li class="navelem"><b>routing</b></li><li class="navelem"><a class="el" href="classapollo_1_1routing_1_1GraphCreator.html">GraphCreator</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceapollo.html">apollo</a></li><li class="navelem"><a class="el" href="namespaceapollo_1_1routing.html">routing</a></li><li class="navelem"><a class="el" href="classapollo_1_1routing_1_1GraphCreator.html">GraphCreator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,16 +74,101 @@ $(function() {
 <div class="title">apollo::routing::GraphCreator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="graph__creator_8h_source.html">graph_creator.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for apollo::routing::GraphCreator:</div>
+<div class="dyncontent">
+<div class="center"><img src="classapollo_1_1routing_1_1GraphCreator__coll__graph.png" border="0" usemap="#apollo_1_1routing_1_1GraphCreator_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a53a9a0949e041f3836423008f65f4b75"><td class="memItemLeft" align="right" valign="top"><a id="a53a9a0949e041f3836423008f65f4b75"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GraphCreator</b> (const std::string &amp;base_map_file_path, const std::string &amp;dump_topo_file_path, const RoutingConfig *routing_conf)</td></tr>
+<tr class="memitem:a53a9a0949e041f3836423008f65f4b75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1GraphCreator.html#a53a9a0949e041f3836423008f65f4b75">GraphCreator</a> (const std::string &amp;base_map_file_path, const std::string &amp;dump_topo_file_path, const RoutingConfig *routing_conf)</td></tr>
 <tr class="separator:a53a9a0949e041f3836423008f65f4b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f99c6b14fc1307e48e319df74ae3d12"><td class="memItemLeft" align="right" valign="top"><a id="a8f99c6b14fc1307e48e319df74ae3d12"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ()</td></tr>
+<tr class="memitem:add4e53f750a63800e574cf0441d09984"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1GraphCreator.html#add4e53f750a63800e574cf0441d09984">~GraphCreator</a> ()=default</td></tr>
+<tr class="separator:add4e53f750a63800e574cf0441d09984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f99c6b14fc1307e48e319df74ae3d12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapollo_1_1routing_1_1GraphCreator.html#a8f99c6b14fc1307e48e319df74ae3d12">Create</a> ()</td></tr>
 <tr class="separator:a8f99c6b14fc1307e48e319df74ae3d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a53a9a0949e041f3836423008f65f4b75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53a9a0949e041f3836423008f65f4b75">&#9670;&nbsp;</a></span>GraphCreator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::routing::GraphCreator::GraphCreator </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>base_map_file_path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>dump_topo_file_path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const RoutingConfig *&#160;</td>
+          <td class="paramname"><em>routing_conf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add4e53f750a63800e574cf0441d09984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add4e53f750a63800e574cf0441d09984">&#9670;&nbsp;</a></span>~GraphCreator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">apollo::routing::GraphCreator::~GraphCreator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8f99c6b14fc1307e48e319df74ae3d12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f99c6b14fc1307e48e319df74ae3d12">&#9670;&nbsp;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool apollo::routing::GraphCreator::Create </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>modules/routing/topo_creator/<a class="el" href="graph__creator_8h_source.html">graph_creator.h</a></li>
 </ul>
