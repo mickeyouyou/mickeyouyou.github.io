@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classapollo_1_1perception_1_1BaseSegmentation.html" title="apollo::perception\l::BaseSegmentation" alt="" coords="5,37,147,76"/>
+<area shape="rect" id="node2" href="$classapollo_1_1perception_1_1CNNSegmentation.html" title="apollo::perception\l::CNNSegmentation" alt="" coords="203,5,343,44"/>
+<area shape="rect" id="node3" href="$classapollo_1_1perception_1_1DummySegmentation.html" title="apollo::perception\l::DummySegmentation" alt="" coords="195,68,352,107"/>
+</map>

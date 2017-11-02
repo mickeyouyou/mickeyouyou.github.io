@@ -1,0 +1,5 @@
+<map id="apollo::planning::SpeedOptimizer" name="apollo::planning::SpeedOptimizer">
+<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1DpStSpeedOptimizer.html" title="{apollo::planning::DpStSpeed\lOptimizer\n||+ DpStSpeedOptimizer()\l+ Init()\l}" alt="" coords="5,408,196,508"/>
+<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1QpSplineStSpeedOptimizer.html" title="{apollo::planning::QpSpline\lStSpeedOptimizer\n||+ QpSplineStSpeedOptimizer()\l+ Init()\l}" alt="" coords="219,408,424,508"/>
+<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1Task.html" title="{apollo::planning::Task\n|# is_init_\l# frame_\l# reference_line_info_\l|+ Task()\l+ ~Task()\l+ Name()\l+ Execute()\l+ Init()\l}" alt="" coords="135,5,288,159"/>
+</map>

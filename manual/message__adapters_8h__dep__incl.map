@@ -1,0 +1,12 @@
+<map id="modules/common/adapters/message_adapters.h" name="modules/common/adapters/message_adapters.h">
+<area shape="rect" id="node2" href="$adapter__manager_8h.html" title="modules/common/adapters\l/adapter_manager.h" alt="" coords="438,92,620,131"/>
+<area shape="rect" id="node3" href="$sim__control_8h.html" title="modules/dreamview/backend\l/sim_control/sim_control.h" alt="" coords="224,185,418,224"/>
+<area shape="rect" id="node6" href="$simulation__world__service_8h.html" title="modules/dreamview/backend\l/simulation_world/simulation\l_world_service.h" alt="" coords="5,179,199,231"/>
+<area shape="rect" id="node7" href="$sensor__canbus_8h.html" title="modules/drivers/canbus\l/sensor_canbus.h" alt="" coords="640,185,802,224"/>
+<area shape="rect" id="node10" href="$delphi__esr__message__manager_8h.html" title="The class of DelphiESRMessageManager. " alt="" coords="442,179,616,231"/>
+<area shape="rect" id="node11" href="$planning__test__base_8h.html" title="modules/planning/integration\l_tests/planning_test_base.h" alt="" coords="826,185,1018,224"/>
+<area shape="rect" id="node4" href="$simulation__world__updater_8h.html" title="modules/dreamview/backend\l/simulation_world/simulation\l_world_updater.h" alt="" coords="89,279,283,331"/>
+<area shape="rect" id="node5" href="$dreamview_8h.html" title="modules/dreamview/backend\l/dreamview.h" alt="" coords="156,379,350,417"/>
+<area shape="rect" id="node8" href="$delphi__esr__canbus_8h.html" title="modules/drivers/delphi\l_esr/delphi_esr_canbus.h" alt="" coords="442,285,616,324"/>
+<area shape="rect" id="node9" href="$mobileye__canbus_8h.html" title="modules/drivers/mobileye\l/mobileye_canbus.h" alt="" coords="640,285,813,324"/>
+</map>

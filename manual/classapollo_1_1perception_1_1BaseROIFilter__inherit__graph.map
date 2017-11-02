@@ -1,0 +1,4 @@
+<map id="apollo::perception::BaseROIFilter" name="apollo::perception::BaseROIFilter">
+<area shape="rect" id="node2" href="$classapollo_1_1perception_1_1DummyROIFilter.html" title="{apollo::perception\l::DummyROIFilter\n||+ DummyROIFilter()\l+ ~DummyROIFilter()\l+ Init()\l+ Filter()\l+ name()\l}" alt="" coords="5,247,154,387"/>
+<area shape="rect" id="node3" href="$classapollo_1_1perception_1_1HdmapROIFilter.html" title="This is ROI(Region of Interest) Filter based on HD map, which can figure out which point is in the re..." alt="" coords="179,193,426,440"/>
+</map>

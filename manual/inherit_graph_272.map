@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classapollo_1_1planning_1_1Task.html" title="apollo::planning::Task" alt="" coords="5,115,155,140"/>
+<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1PathDecider.html" title="apollo::planning::PathDecider" alt="" coords="214,16,410,41"/>
+<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1PathOptimizer.html" title="apollo::planning::PathOptimizer" alt="" coords="208,65,415,91"/>
+<area shape="rect" id="node6" href="$classapollo_1_1planning_1_1SpeedDecider.html" title="apollo::planning::SpeedDecider" alt="" coords="208,115,415,140"/>
+<area shape="rect" id="node7" href="$classapollo_1_1planning_1_1SpeedOptimizer.html" title="apollo::planning::SpeedOptimizer" alt="" coords="203,164,421,189"/>
+<area shape="rect" id="node10" href="$classapollo_1_1planning_1_1TrafficDecider.html" title="Create traffic related decision in this class. The created obstacles is added to obstacles_, and the decision is added to path_obstacles_ Traffic obstacle examples include: " alt="" coords="232,213,391,252"/>
+<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1DpPolyPathOptimizer.html" title="apollo::planning::DpPoly\lPathOptimizer" alt="" coords="481,5,646,44"/>
+<area shape="rect" id="node5" href="$classapollo_1_1planning_1_1QpSplinePathOptimizer.html" title="apollo::planning::QpSpline\lPathOptimizer" alt="" coords="475,68,652,107"/>
+<area shape="rect" id="node8" href="$classapollo_1_1planning_1_1DpStSpeedOptimizer.html" title="apollo::planning::DpStSpeed\lOptimizer" alt="" coords="469,148,659,187"/>
+<area shape="rect" id="node9" href="$classapollo_1_1planning_1_1QpSplineStSpeedOptimizer.html" title="apollo::planning::QpSpline\lStSpeedOptimizer" alt="" coords="475,211,652,249"/>
+</map>

@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['rad_5fto_5fraw',['RAD_TO_RAW',['../classapollo_1_1common_1_1math_1_1Angle.html#a1896b945a13577295437f40fd26e4850',1,'apollo::common::math::Angle']]],
+  ['range_5f',['range_',['../classapollo_1_1perception_1_1HdmapROIFilter.html#a61a82f29ff8cd8ebd819b4e52683f156',1,'apollo::perception::HdmapROIFilter']]],
+  ['raw_5fdistance',['raw_distance',['../unionapollo_1_1drivers_1_1velodyne_1_1RawDistance.html#a63833929cdadaca60844735a756d39a7',1,'apollo::drivers::velodyne::RawDistance']]],
+  ['raw_5fpi',['RAW_PI',['../classapollo_1_1common_1_1math_1_1Angle.html#a8889caa2aca3a2800da4977940d456d0',1,'apollo::common::math::Angle']]],
+  ['raw_5fpi_5f2',['RAW_PI_2',['../classapollo_1_1common_1_1math_1_1Angle.html#a970e31f48afa95625461a8e25b28af1a',1,'apollo::common::math::Angle']]],
+  ['raw_5fto_5fdeg',['RAW_TO_DEG',['../classapollo_1_1common_1_1math_1_1Angle.html#a3c1949b953a1917d0d4cc9ed353f6daa',1,'apollo::common::math::Angle']]],
+  ['raw_5fto_5frad',['RAW_TO_RAD',['../classapollo_1_1common_1_1math_1_1Angle.html#aecafd8a46cc30fcd14d4e00e08ddb9c7',1,'apollo::common::math::Angle']]],
+  ['real_5fperiod',['real_period',['../structapollo_1_1drivers_1_1canbus_1_1CheckIdArg.html#a3bb3a525456473db718a73261b4d5067',1,'apollo::drivers::canbus::CheckIdArg']]],
+  ['ref_5fcenter',['ref_center',['../structapollo_1_1perception_1_1ObjectBuilderOptions.html#aae7be46b64b32b4d1f622bdda53d18e1',1,'apollo::perception::ObjectBuilderOptions']]],
+  ['reference_5fline_5finfo_5f',['reference_line_info_',['../classapollo_1_1planning_1_1Task.html#a6e28e1cfd83b50fa13d3cfd920361a45',1,'apollo::planning::Task']]],
+  ['reserved',['reserved',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a530afab9a2588edac7632ae3326675ee',1,'apollo::drivers::gnss::novatel::MessageType::reserved()'],['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1LongHeader.html#a271655627eaab4d5ddf9a9feb36bf338',1,'apollo::drivers::gnss::novatel::LongHeader::reserved()'],['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1BestPos.html#a550178e2f221eda9ba55cf02ebd6ac13',1,'apollo::drivers::gnss::novatel::BestPos::reserved()'],['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1BestVel.html#a11bd2933c5cbc5a3f3be706ecb7e5a76',1,'apollo::drivers::gnss::novatel::BestVel::reserved()']]],
+  ['response',['response',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1MessageType.html#a131e1c503b16bddb9e93b9478e879383',1,'apollo::drivers::gnss::novatel::MessageType']]],
+  ['result',['result',['../classapollo_1_1monitor_1_1hw_1_1EsdCanDetails.html#a3ca35a8b80d12f393c052a07f8fae7ad',1,'apollo::monitor::hw::EsdCanDetails']]],
+  ['right_5fboundary',['right_boundary',['../structapollo_1_1perception_1_1RoadBoundary.html#a7033aef78b3d4d250171f30afde68eba',1,'apollo::perception::RoadBoundary']]],
+  ['right_5fwidth_5f',['right_width_',['../classapollo_1_1hdmap_1_1Path.html#ab4fae2451a858dbdfe25ed60971f7050',1,'apollo::hdmap::Path']]],
+  ['ring',['ring',['../structapollo_1_1perception_1_1pcl__util_1_1PointXYZIRT.html#a04fcab520f0a86574dcdc556fc9a64cb',1,'apollo::perception::pcl_util::PointXYZIRT::ring()'],['../structapollo_1_1perception_1_1pcl__util_1_1PointXYZIRTd.html#a74aa4b2298b37689d941155450623de6',1,'apollo::perception::pcl_util::PointXYZIRTd::ring()']]],
+  ['road',['road',['../structapollo_1_1hdmap_1_1adapter_1_1RoadInternal.html#a73ce72737dfc5b8dc313f0095b841937',1,'apollo::hdmap::adapter::RoadInternal']]],
+  ['road_5fboundary',['road_boundary',['../structapollo_1_1perception_1_1HdmapStruct.html#a6b3216c9fa1d70ff31ee841110a04596',1,'apollo::perception::HdmapStruct']]],
+  ['road_5fids',['road_ids',['../structapollo_1_1hdmap_1_1adapter_1_1JunctionInternal.html#a114b65c29711c615ea8704be90dd8b29',1,'apollo::hdmap::adapter::JunctionInternal']]],
+  ['roi_5fcloud_5findices',['roi_cloud_indices',['../structapollo_1_1perception_1_1SegmentationOptions.html#a5e96168fd4125c6ff8e52ee46066b629',1,'apollo::perception::SegmentationOptions']]],
+  ['roll',['roll',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1InsPva.html#a63f6e017a288183d470526cb70626195',1,'apollo::drivers::gnss::novatel::InsPva::roll()'],['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1InsPvaX.html#a6ada173b29efcb152454eba5db3c70ea',1,'apollo::drivers::gnss::novatel::InsPvaX::roll()']]],
+  ['roll_5fstd',['roll_std',['../structapollo_1_1drivers_1_1gnss_1_1novatel_1_1InsPvaX.html#a8ed00094a4d0b6bc0187011857f7211d',1,'apollo::drivers::gnss::novatel::InsPvaX']]],
+  ['rot_5fcorrection',['rot_correction',['../structapollo_1_1drivers_1_1velodyne_1_1LaserCorrection.html#a7331e285ef13e1513b68ae3860225c17',1,'apollo::drivers::velodyne::LaserCorrection']]],
+  ['rotation',['rotation',['../structapollo_1_1drivers_1_1velodyne_1_1RawBlock.html#a087cdcc92b9eff06c442f766c9ac9fc5',1,'apollo::drivers::velodyne::RawBlock']]],
+  ['rpm',['rpm',['../structapollo_1_1drivers_1_1velodyne_1_1Config.html#a4e80e7de609d1e664d180925f1f4e28c',1,'apollo::drivers::velodyne::Config']]]
+];

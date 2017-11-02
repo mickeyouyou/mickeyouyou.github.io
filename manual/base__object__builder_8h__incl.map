@@ -1,0 +1,10 @@
+<map id="modules/perception/obstacle/lidar/interface/base_object_builder.h" name="modules/perception/obstacle/lidar/interface/base_object_builder.h">
+<area shape="rect" id="node4" href="$macro_8h.html" title="modules/common/macro.h" alt="" coords="5,212,184,237"/>
+<area shape="rect" id="node6" href="$registerer_8h.html" title="modules/perception\l/lib/base/registerer.h" alt="" coords="396,112,537,151"/>
+<area shape="rect" id="node12" href="$pcl__types_8h.html" title="modules/perception\l/lib/pcl_util/pcl_types.h" alt="" coords="1372,292,1527,331"/>
+<area shape="rect" id="node19" href="$object_8h.html" title="modules/perception\l/obstacle/base/object.h" alt="" coords="978,112,1136,151"/>
+<area shape="rect" id="node25" href="$geometry__util_8h.html" title="modules/perception\l/obstacle/common/geometry\l_util.h" alt="" coords="1395,105,1584,157"/>
+<area shape="rect" id="node9" href="$log_8h.html" title="modules/common/log.h" alt="" coords="208,212,367,237"/>
+<area shape="rect" id="node23" href="$types_8h.html" title="modules/perception\l/obstacle/base/types.h" alt="" coords="1083,205,1237,244"/>
+<area shape="rect" id="node24" href="$define_8h.html" title="modules/perception\l/common/define.h" alt="" coords="1091,292,1229,331"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="apollo::planning::QuinticPolynomialCurve1d" name="apollo::planning::QuinticPolynomialCurve1d">
+<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1QuinticSpiralPath.html" title="{apollo::planning::Quintic\lSpiralPath\n|+ THETA0\l+ KAPPA0\l+ DKAPPA0\l+ THETA1\l+ KAPPA1\l+ DKAPPA1\l+ DELTA_S\l|+ QuinticSpiralPath()\l+ QuinticSpiralPath()\l+ ComputeCartesianDeviationX()\l+ ComputeCartesianDeviationY()\l+ DeriveKappaDerivative()\l+ DeriveCartesianDeviation()\l}" alt="" coords="5,609,223,843"/>
+<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1PolynomialCurve1d.html" title="{apollo::planning::Polynomial\lCurve1d\n||+ PolynomialCurve1d()\l+ ~PolynomialCurve1d()\l}" alt="" coords="20,180,208,280"/>
+<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1Curve1d.html" title="{apollo::planning::Curve1d\n||+ Curve1d()\l+ ~Curve1d()\l+ Evaluate()\l+ param_length()\l+ to_string()\l}" alt="" coords="28,5,200,132"/>
+</map>

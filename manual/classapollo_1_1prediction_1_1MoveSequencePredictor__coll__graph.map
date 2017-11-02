@@ -1,0 +1,4 @@
+<map id="apollo::prediction::MoveSequencePredictor" name="apollo::prediction::MoveSequencePredictor">
+<area shape="rect" id="node2" href="$classapollo_1_1prediction_1_1SequencePredictor.html" title="{apollo::prediction\l::SequencePredictor\n|# adc_lane_id_\l# adc_lane_s_\l# adc_position_\l|+ SequencePredictor()\l+ ~SequencePredictor()\l+ Predict()\l# FilterLaneSequences()\l# GetADC()\l# GetLaneChangeType()\l# GetLaneChangeDistanceWithADC()\l# SameLaneSequence()\l# Clear()\l# ToString()\l}" alt="" coords="5,233,251,467"/>
+<area shape="rect" id="node3" href="$classapollo_1_1prediction_1_1Predictor.html" title="{apollo::prediction\l::Predictor\n|# trajectories_\l|+ Predictor()\l+ ~Predictor()\l+ trajectories()\l+ Predict()\l+ NumOfTrajectories()\l+ Clear()\l# SetEqualProbability()\l# GenerateTrajectory()\l}" alt="" coords="49,5,207,185"/>
+</map>

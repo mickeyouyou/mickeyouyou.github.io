@@ -1,0 +1,5 @@
+<map id="apollo::planning::QuinticSpiralPath" name="apollo::planning::QuinticSpiralPath">
+<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1QuinticPolynomialCurve1d.html" title="{apollo::planning::Quintic\lPolynomialCurve1d\n|# param_\l# coef_\l# start_condition_\l# end_condition_\l|+ QuinticPolynomialCurve1d()\l+ QuinticPolynomialCurve1d()\l+ QuinticPolynomialCurve1d()\l+ QuinticPolynomialCurve1d()\l+ ~QuinticPolynomialCurve1d()\l+ Evaluate()\l+ param_length()\l+ to_string()\l# compute_coefficients()\l}" alt="" coords="11,328,217,561"/>
+<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1PolynomialCurve1d.html" title="{apollo::planning::Polynomial\lCurve1d\n||+ PolynomialCurve1d()\l+ ~PolynomialCurve1d()\l}" alt="" coords="20,180,208,280"/>
+<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1Curve1d.html" title="{apollo::planning::Curve1d\n||+ Curve1d()\l+ ~Curve1d()\l+ Evaluate()\l+ param_length()\l+ to_string()\l}" alt="" coords="28,5,200,132"/>
+</map>

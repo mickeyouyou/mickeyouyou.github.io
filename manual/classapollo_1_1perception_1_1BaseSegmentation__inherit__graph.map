@@ -1,0 +1,4 @@
+<map id="apollo::perception::BaseSegmentation" name="apollo::perception::BaseSegmentation">
+<area shape="rect" id="node2" href="$classapollo_1_1perception_1_1CNNSegmentation.html" title="{apollo::perception\l::CNNSegmentation\n||+ CNNSegmentation()\l+ ~CNNSegmentation()\l+ Init()\l+ Segment()\l+ name()\l+ range()\l+ width()\l+ height()\l}" alt="" coords="5,193,166,373"/>
+<area shape="rect" id="node3" href="$classapollo_1_1perception_1_1DummySegmentation.html" title="{apollo::perception\l::DummySegmentation\n||+ DummySegmentation()\l+ ~DummySegmentation()\l+ Init()\l+ Segment()\l+ name()\l}" alt="" coords="190,213,368,353"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classapollo_1_1perception_1_1BaseObjectBuilder.html" title="apollo::perception\l::BaseObjectBuilder" alt="" coords="5,37,145,76"/>
+<area shape="rect" id="node2" href="$classapollo_1_1perception_1_1DummyObjectBuilder.html" title="apollo::perception\l::DummyObjectBuilder" alt="" coords="193,5,347,44"/>
+<area shape="rect" id="node3" href="$classapollo_1_1perception_1_1MinBoxObjectBuilder.html" title="apollo::perception\l::MinBoxObjectBuilder" alt="" coords="193,68,346,107"/>
+</map>

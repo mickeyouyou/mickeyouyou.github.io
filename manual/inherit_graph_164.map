@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classapollo_1_1monitor_1_1RecurrentRunner.html" title="apollo::monitor::Recurrent\lRunner" alt="" coords="5,33,180,72"/>
+<area shape="rect" id="node2" href="$classapollo_1_1monitor_1_1HardwareMonitor.html" title="apollo::monitor::Hardware\lMonitor" alt="" coords="243,5,417,44"/>
+<area shape="rect" id="node4" href="$classapollo_1_1monitor_1_1ModuleMonitor.html" title="apollo::monitor::ModuleMonitor" alt="" coords="228,68,432,93"/>
+<area shape="rect" id="node3" href="$classapollo_1_1monitor_1_1CanMonitor.html" title="apollo::monitor::CanMonitor" alt="" coords="480,12,666,37"/>
+</map>

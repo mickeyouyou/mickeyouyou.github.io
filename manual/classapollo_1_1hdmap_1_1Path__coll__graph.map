@@ -1,0 +1,3 @@
+<map id="apollo::hdmap::Path" name="apollo::hdmap::Path">
+<area shape="rect" id="node2" href="$classapollo_1_1hdmap_1_1PathApproximation.html" title="{apollo::hdmap::PathApproximation\n|# max_error_\l# max_sqr_error_\l# num_points_\l# original_ids_\l# segments_\l# max_error_per_segment_\l# projections_\l# max_projection_\l# num_projection_samples_\l# original_projections_\l# max_original_projections\l_to_left_\l# min_original_projections\l_to_right_\l# sampled_max_original\l_projections_to_left_\l|+ PathApproximation()\l+ PathApproximation()\l+ max_error()\l+ original_ids()\l+ segments()\l+ GetProjection()\l+ OverlapWith()\l# Init()\l# is_within_max_error()\l# compute_max_error()\l# InitDilute()\l# InitProjections()\l}" alt="" coords="5,5,230,425"/>
+</map>

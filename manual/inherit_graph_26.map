@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classapollo_1_1common_1_1util_1_1Factory.html" title="apollo::common::util\l::Factory\&lt; CANCardParameter\l::CANCardBrand, CanClient \&gt;" alt="" coords="5,5,209,57"/>
+<area shape="rect" id="node2" href="$classapollo_1_1drivers_1_1canbus_1_1CanClientFactory.html" title="CanClientFactory inherites apollo::common::util::Facotory. " alt="" coords="257,12,412,51"/>
+</map>

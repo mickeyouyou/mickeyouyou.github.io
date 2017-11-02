@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classapollo_1_1planning_1_1Curve1d.html" title="apollo::planning::Curve1d" alt="" coords="5,44,178,69"/>
+<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1PolynomialCurve1d.html" title="apollo::planning::Polynomial\lCurve1d" alt="" coords="226,37,413,76"/>
+<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1QuarticPolynomialCurve1d.html" title="apollo::planning::Quartic\lPolynomialCurve1d" alt="" coords="461,5,626,44"/>
+<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1QuinticPolynomialCurve1d.html" title="apollo::planning::Quintic\lPolynomialCurve1d" alt="" coords="462,68,626,107"/>
+<area shape="rect" id="node5" href="$classapollo_1_1planning_1_1QuinticSpiralPath.html" title="apollo::planning::Quintic\lSpiralPath" alt="" coords="674,68,838,107"/>
+</map>

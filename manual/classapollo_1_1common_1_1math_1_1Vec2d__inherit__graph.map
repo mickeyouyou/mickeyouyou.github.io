@@ -1,0 +1,5 @@
+<map id="apollo::common::math::Vec2d" name="apollo::common::math::Vec2d">
+<area shape="rect" id="node2" href="$classapollo_1_1hdmap_1_1MapPathPoint.html" title="{apollo::hdmap::MapPathPoint\n|# heading_\l# lane_waypoints_\l|+ MapPathPoint()\l+ MapPathPoint()\l+ MapPathPoint()\l+ MapPathPoint()\l+ heading()\l+ set_heading()\l+ lane_waypoints()\l+ add_lane_waypoint()\l+ add_lane_waypoints()\l+ clear_lane_waypoints()\l+ DebugString()\l}" alt="" coords="5,300,202,520"/>
+<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1STPoint.html" title="{apollo::planning::STPoint\n||+ STPoint()\l+ STPoint()\l+ STPoint()\l+ s()\l+ t()\l+ set_s()\l+ set_t()\l+ DebugString()\l}" alt="" coords="225,327,395,493"/>
+<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1ReferencePoint.html" title="{apollo::planning::Reference\lPoint\n||+ ReferencePoint()\l+ ReferencePoint()\l+ kappa()\l+ dkappa()\l+ lower_bound()\l+ upper_bound()\l+ DebugString()\l+ RemoveDuplicates()\l}" alt="" coords="12,568,195,748"/>
+</map>

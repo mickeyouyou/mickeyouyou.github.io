@@ -1,0 +1,6 @@
+<map id="apollo::control::LatController" name="apollo::control::LatController">
+<area shape="rect" id="node2" href="$classapollo_1_1control_1_1Controller.html" title="base class for all controllers. " alt="" coords="5,39,206,192"/>
+<area shape="rect" id="node3" href="$classapollo_1_1control_1_1MeanFilter.html" title="The MeanFilter class is used to smoothen a series of noisy numbers, such as sensor data or the output..." alt="" coords="230,59,405,172"/>
+<area shape="rect" id="node4" href="$classapollo_1_1control_1_1TrajectoryAnalyzer.html" title="process point query and conversion related to trajectory " alt="" coords="429,12,681,219"/>
+<area shape="rect" id="node5" href="$classapollo_1_1control_1_1DigitalFilter.html" title="The DigitalFilter class is used to pass signals with a frequency lower than a certain cutoff frequenc..." alt="" coords="704,5,853,225"/>
+</map>

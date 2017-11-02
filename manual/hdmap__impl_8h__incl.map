@@ -1,0 +1,11 @@
+<map id="modules/map/hdmap/hdmap_impl.h" name="modules/map/hdmap/hdmap_impl.h">
+<area shape="rect" id="node6" href="$aabox2d_8h.html" title="Defines the AABox2d class. " alt="" coords="632,352,792,391"/>
+<area shape="rect" id="node7" href="$vec2d_8h.html" title="Defines the Vec2d class. " alt="" coords="627,439,787,477"/>
+<area shape="rect" id="node9" href="$aaboxkdtree2d_8h.html" title="Defines the templated AABoxKDTree2dNode class. " alt="" coords="872,179,1032,217"/>
+<area shape="rect" id="node17" href="$line__segment2d_8h.html" title="Define the LineSegment2d class. " alt="" coords="347,352,507,391"/>
+<area shape="rect" id="node18" href="$polygon2d_8h.html" title="Define the Polygon2d class. " alt="" coords="296,179,456,217"/>
+<area shape="rect" id="node20" href="$hdmap__common_8h.html" title="modules/map/hdmap/hdmap\l_common.h" alt="" coords="1556,92,1746,131"/>
+<area shape="rect" id="node12" href="$log_8h.html" title="modules/common/log.h" alt="" coords="928,272,1088,297"/>
+<area shape="rect" id="node15" href="$math__utils_8h.html" title="Math&#45;related util functions. " alt="" coords="1213,265,1373,304"/>
+<area shape="rect" id="node19" href="$box2d_8h.html" title="The class of Box2d. Here, the x/y axes are respectively Forward/Left, as opposed to what happens in e..." alt="" coords="195,265,355,304"/>
+</map>
