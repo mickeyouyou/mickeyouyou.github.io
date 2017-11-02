@@ -1,9 +1,0 @@
-<map id="modules/routing/strategy/a_star_strategy.h" name="modules/routing/strategy/a_star_strategy.h">
-<area shape="rect" id="node5" href="$strategy_8h.html" title="modules/routing/strategy\l/strategy.h" alt="" coords="479,92,647,131"/>
-<area shape="rect" id="node6" href="$sub__topo__graph_8h.html" title="modules/routing/graph\l/sub_topo_graph.h" alt="" coords="413,179,567,217"/>
-<area shape="rect" id="node11" href="$topo__node_8h.html" title="modules/routing/graph\l/topo_node.h" alt="" coords="331,352,485,391"/>
-<area shape="rect" id="node15" href="$topo__graph_8h.html" title="modules/routing/graph\l/topo_graph.h" alt="" coords="577,265,731,304"/>
-<area shape="rect" id="node9" href="$node__with__range_8h.html" title="modules/routing/graph\l/node_with_range.h" alt="" coords="163,265,317,304"/>
-<area shape="rect" id="node13" href="$topo__range_8h.html" title="modules/routing/graph\l/topo_range.h" alt="" coords="137,439,291,477"/>
-<area shape="rect" id="node16" href="$log_8h.html" title="modules/common/log.h" alt="" coords="1059,359,1219,384"/>
-</map>

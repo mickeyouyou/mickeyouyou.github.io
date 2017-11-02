@@ -1,9 +1,0 @@
-<map id="modules/monitor/hardware/annotations.h" name="modules/monitor/hardware/annotations.h">
-<area shape="rect" id="node2" href="$hardware__checker_8h.html" title="modules/monitor/hardware\l/hardware_checker.h" alt="" coords="481,92,661,131"/>
-<area shape="rect" id="node5" href="$esdcan__checker_8h.html" title="modules/monitor/hardware\l/can/esdcan/esdcan_checker.h" alt="" coords="533,279,737,317"/>
-<area shape="rect" id="node7" href="$socketcan__checker_8h.html" title="modules/monitor/hardware\l/can/socketcan/socketcan\l_checker.h" alt="" coords="672,179,851,231"/>
-<area shape="rect" id="node3" href="$can__checker__factory_8h.html" title="modules/monitor/hardware\l/can/can_checker_factory.h" alt="" coords="414,185,597,224"/>
-<area shape="rect" id="node4" href="$esdcan__test_8h.html" title="modules/monitor/hardware\l/can/esdcan/esdcan_test.h" alt="" coords="6,185,186,224"/>
-<area shape="rect" id="node8" href="$hardware__check__utils_8h.html" title="modules/monitor/hardware\l/hardware_check_utils.h" alt="" coords="211,185,390,224"/>
-<area shape="rect" id="node6" href="$esdcan__utils_8h.html" title="modules/monitor/hardware\l/can/esdcan/esdcan_utils.h" alt="" coords="5,279,188,317"/>
-</map>

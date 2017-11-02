@@ -1,4 +1,0 @@
-<map id="apollo::prediction::Container" name="apollo::prediction::Container">
-<area shape="rect" id="node2" href="$classapollo_1_1prediction_1_1ObstaclesContainer.html" title="{apollo::prediction\l::ObstaclesContainer\n||+ ObstaclesContainer()\l+ ~ObstaclesContainer()\l+ Insert()\l+ InsertPerceptionObstacle()\l+ GetObstacle()\l+ Clear()\l}" alt="" coords="5,167,197,320"/>
-<area shape="rect" id="node3" href="$classapollo_1_1prediction_1_1PoseContainer.html" title="{apollo::prediction\l::PoseContainer\n|+ ID\l+ type_\l|+ PoseContainer()\l+ ~PoseContainer()\l+ Insert()\l+ ToPerceptionObstacle()\l+ GetTimestamp()\l}" alt="" coords="220,167,392,320"/>
-</map>

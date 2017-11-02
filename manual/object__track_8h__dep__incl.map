@@ -1,6 +1,0 @@
-<map id="modules/perception/obstacle/lidar/tracker/hm_tracker/object_track.h" name="modules/perception/obstacle/lidar/tracker/hm_tracker/object_track.h">
-<area shape="rect" id="node2" href="$base__matcher_8h.html" title="modules/perception\l/obstacle/lidar/tracker\l/hm_tracker/base_matcher.h" alt="" coords="128,112,319,164"/>
-<area shape="rect" id="node3" href="$hm__tracker_8h.html" title="modules/perception\l/obstacle/lidar/tracker\l/hm_tracker/hm_tracker.h" alt="" coords="5,219,178,271"/>
-<area shape="rect" id="node5" href="$track__object__distance_8h.html" title="modules/perception\l/obstacle/lidar/tracker\l/hm_tracker/track_object\l_distance.h" alt="" coords="343,105,510,171"/>
-<area shape="rect" id="node4" href="$hungarian__matcher_8h.html" title="modules/perception\l/obstacle/lidar/tracker\l/hm_tracker/hungarian_matcher.h" alt="" coords="201,219,422,271"/>
-</map>

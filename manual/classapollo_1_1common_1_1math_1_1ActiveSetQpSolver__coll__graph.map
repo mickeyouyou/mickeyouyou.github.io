@@ -1,3 +1,0 @@
-<map id="apollo::common::math::ActiveSetQpSolver" name="apollo::common::math::ActiveSetQpSolver">
-<area shape="rect" id="node2" href="$classapollo_1_1common_1_1math_1_1QpSolver.html" title="{apollo::common::math\l::QpSolver\n|# params_\l# kernel_matrix_\l# offset_\l# affine_inequality_matrix_\l# affine_inequality_boundary_\l# affine_equality_matrix_\l# affine_equality_boundary_\l|+ QpSolver()\l+ ~QpSolver()\l+ set_pos_semi_definite\l_hessian()\l+ set_pos_definite_hessian()\l+ EnableCholeskyRefactorisation()\l+ SetTerminationTolerance()\l+ Solve()\l+ params()\l+ kernel_matrix()\l+ offset()\l+ affine_equality_matrix()\l+ affine_equality_boundary()\l+ affine_inequality_matrix()\l+ affine_inequality_boundary()\l# sanity_check()\l}" alt="" coords="5,5,232,372"/>
-</map>

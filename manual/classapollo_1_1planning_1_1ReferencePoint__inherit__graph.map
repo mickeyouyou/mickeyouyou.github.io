@@ -1,4 +1,0 @@
-<map id="apollo::planning::ReferencePoint" name="apollo::planning::ReferencePoint">
-<area shape="rect" id="node2" href="$classapollo_1_1hdmap_1_1MapPathPoint.html" title="{apollo::hdmap::MapPathPoint\n|# heading_\l# lane_waypoints_\l|+ MapPathPoint()\l+ MapPathPoint()\l+ MapPathPoint()\l+ MapPathPoint()\l+ heading()\l+ set_heading()\l+ lane_waypoints()\l+ add_lane_waypoint()\l+ add_lane_waypoints()\l+ clear_lane_waypoints()\l+ DebugString()\l}" alt="" coords="5,300,202,520"/>
-<area shape="rect" id="node3" href="$classapollo_1_1common_1_1math_1_1Vec2d.html" title="Implements a class of 2&#45;dimensional vectors. " alt="" coords="27,5,180,252"/>
-</map>

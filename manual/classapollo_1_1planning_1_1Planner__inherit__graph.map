@@ -1,4 +1,0 @@
-<map id="apollo::planning::Planner" name="apollo::planning::Planner">
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1EMPlanner.html" title="EMPlanner is an expectation maximization planner. " alt="" coords="5,180,193,293"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1RTKReplayPlanner.html" title="RTKReplayPlanner is a derived class of Planner. It reads a recorded trajectory from a trajectory file..." alt="" coords="218,167,408,307"/>
-</map>

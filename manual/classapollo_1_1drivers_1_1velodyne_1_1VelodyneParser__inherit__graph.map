@@ -1,4 +1,0 @@
-<map id="apollo::drivers::velodyne::VelodyneParser" name="apollo::drivers::velodyne::VelodyneParser">
-<area shape="rect" id="node2" href="$classapollo_1_1drivers_1_1velodyne_1_1Velodyne16Parser.html" title="{apollo::drivers::velodyne\l::Velodyne16Parser\n||+ Velodyne16Parser()\l+ ~Velodyne16Parser()\l+ generate_pointcloud()\l+ order()\l}" alt="" coords="5,427,170,553"/>
-<area shape="rect" id="node3" href="$classapollo_1_1drivers_1_1velodyne_1_1Velodyne64Parser.html" title="{apollo::drivers::velodyne\l::Velodyne64Parser\n||+ Velodyne64Parser()\l+ ~Velodyne64Parser()\l+ generate_pointcloud()\l+ order()\l+ setup()\l}" alt="" coords="195,420,360,560"/>
-</map>

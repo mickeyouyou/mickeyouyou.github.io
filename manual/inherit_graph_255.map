@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1planning_1_1SpiralCurve.html" title="apollo::planning::Spiral\lCurve" alt="" coords="5,37,162,76"/>
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1CubicSpiralCurve.html" title="apollo::planning::CubicSpiral\lCurve" alt="" coords="210,5,400,44"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1QuinticSpiralCurve.html" title="apollo::planning::Quintic\lSpiralCurve" alt="" coords="223,68,387,107"/>
-</map>

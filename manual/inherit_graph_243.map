@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1planning_1_1Planner.html" title="Planner is a base class for specific planners. It contains a pure virtual function Plan which must be..." alt="" coords="5,33,173,59"/>
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1EMPlanner.html" title="EMPlanner is an expectation maximization planner. " alt="" coords="222,5,411,31"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1RTKReplayPlanner.html" title="RTKReplayPlanner is a derived class of Planner. It reads a recorded trajectory from a trajectory file..." alt="" coords="221,55,412,93"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1perception_1_1BaseROIFilter.html" title="apollo::perception\l::BaseROIFilter" alt="" coords="5,37,132,76"/>
-<area shape="rect" id="node2" href="$classapollo_1_1perception_1_1DummyROIFilter.html" title="apollo::perception\l::DummyROIFilter" alt="" coords="180,5,308,44"/>
-<area shape="rect" id="node3" href="$classapollo_1_1perception_1_1HdmapROIFilter.html" title="This is ROI(Region of Interest) Filter based on HD map, which can figure out which point is in the re..." alt="" coords="181,68,307,107"/>
-</map>

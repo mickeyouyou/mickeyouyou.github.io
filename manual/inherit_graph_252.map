@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1planning_1_1ReferenceLineSmoother.html" title="apollo::planning::Reference\lLineSmoother" alt="" coords="5,37,189,76"/>
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1QpSplineReferenceLineSmoother.html" title="apollo::planning::QpSpline\lReferenceLineSmoother" alt="" coords="237,5,414,44"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1SpiralReferenceLineSmoother.html" title="apollo::planning::Spiral\lReferenceLineSmoother" alt="" coords="243,68,408,107"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="apollo::monitor::HwCheckerInterface" name="apollo::monitor::HwCheckerInterface">
-<area shape="rect" id="node2" href="$classapollo_1_1monitor_1_1hw_1_1EsdCanChecker.html" title="{apollo::monitor::hw\l::EsdCanChecker\n|+ ESD_CAN_NAME\l|+ EsdCanChecker()\l+ ~EsdCanChecker()\l+ get_name()\l+ get_id()\l+ run_check()\l+ esdcan_result_to_hw\l_status()\l+ esdcan_result_to_message()\l}" alt="" coords="5,173,210,353"/>
-<area shape="rect" id="node3" href="$classapollo_1_1monitor_1_1hw_1_1SocketCanChecker.html" title="{apollo::monitor::hw\l::SocketCanChecker\n|+ SOCKET_CAN_NAME\l|+ SocketCanChecker()\l+ ~SocketCanChecker()\l+ get_name()\l+ get_id()\l+ run_check()\l+ socketcan_result_to\l_hw_status()\l+ socketcan_result_to\l_message()\l}" alt="" coords="234,167,403,360"/>
-</map>

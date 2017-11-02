@@ -1,6 +1,0 @@
-<map id="modules/perception/obstacle/lidar/interface/base_roi_filter.h" name="modules/perception/obstacle/lidar/interface/base_roi_filter.h">
-<area shape="rect" id="node2" href="$dummy__algorithms_8h.html" title="modules/perception\l/obstacle/lidar/dummy\l/dummy_algorithms.h" alt="" coords="5,112,156,164"/>
-<area shape="rect" id="node3" href="$hdmap__roi__filter_8h.html" title="modules/perception\l/obstacle/lidar/roi\l_filter/hdmap_roi_filter\l/hdmap_roi_filter.h" alt="" coords="180,105,333,171"/>
-<area shape="rect" id="node4" href="$lidar__process_8h.html" title="modules/perception\l/obstacle/onboard/lidar\l_process.h" alt="" coords="357,112,514,164"/>
-<area shape="rect" id="node5" href="$perception_8h.html" title="modules/perception\l/perception.h" alt="" coords="367,219,504,257"/>
-</map>

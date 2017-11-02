@@ -1,9 +1,0 @@
-<map id="modules/perception/obstacle/lidar/tracker/hm_tracker/object_track.h" name="modules/perception/obstacle/lidar/tracker/hm_tracker/object_track.h">
-<area shape="rect" id="node8" href="$macro_8h.html" title="modules/common/macro.h" alt="" coords="684,119,862,144"/>
-<area shape="rect" id="node10" href="$object_8h.html" title="modules/perception\l/obstacle/base/object.h" alt="" coords="766,305,924,344"/>
-<area shape="rect" id="node22" href="$base__filter_8h.html" title="modules/perception\l/obstacle/lidar/tracker\l/hm_tracker/base_filter.h" alt="" coords="1108,105,1276,157"/>
-<area shape="rect" id="node23" href="$tracked__object_8h.html" title="modules/perception\l/obstacle/lidar/tracker\l/hm_tracker/tracked_object.h" alt="" coords="962,205,1155,257"/>
-<area shape="rect" id="node13" href="$pcl__types_8h.html" title="modules/perception\l/lib/pcl_util/pcl_types.h" alt="" coords="448,479,603,517"/>
-<area shape="rect" id="node20" href="$types_8h.html" title="modules/perception\l/obstacle/base/types.h" alt="" coords="563,392,717,431"/>
-<area shape="rect" id="node21" href="$define_8h.html" title="modules/perception\l/common/define.h" alt="" coords="627,479,765,517"/>
-</map>

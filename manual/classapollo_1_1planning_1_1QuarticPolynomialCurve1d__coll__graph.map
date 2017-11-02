@@ -1,4 +1,0 @@
-<map id="apollo::planning::QuarticPolynomialCurve1d" name="apollo::planning::QuarticPolynomialCurve1d">
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1PolynomialCurve1d.html" title="{apollo::planning::Polynomial\lCurve1d\n||+ PolynomialCurve1d()\l+ ~PolynomialCurve1d()\l}" alt="" coords="16,180,203,280"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1Curve1d.html" title="{apollo::planning::Curve1d\n||+ Curve1d()\l+ ~Curve1d()\l+ Evaluate()\l+ param_length()\l+ to_string()\l}" alt="" coords="23,5,196,132"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="modules/planning/math/smoothing_spline/spline_2d_kernel.h" name="modules/planning/math/smoothing_spline/spline_2d_kernel.h">
-<area shape="rect" id="node4" href="$vec2d_8h.html" title="Defines the Vec2d class. " alt="" coords="435,105,594,144"/>
-<area shape="rect" id="node7" href="$spline__2d_8h.html" title=": piecewise smoothing spline 2d class " alt="" coords="159,105,360,144"/>
-<area shape="rect" id="node9" href="$polynomial__xd_8h.html" title="modules/planning/math\l/polynomial_xd.h" alt="" coords="111,292,270,331"/>
-<area shape="rect" id="node11" href="$spline__2d__seg_8h.html" title="modules/planning/math\l/smoothing_spline/spline\l_2d_seg.h" alt="" coords="60,192,227,244"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="modules/planning/math/spiral_curve/spiral_curve.h" name="modules/planning/math/spiral_curve/spiral_curve.h">
-<area shape="rect" id="node2" href="$cubic__spiral__curve_8h.html" title=": path class includes the basic parameters for defining a path from initial point to end point &#160;descr..." alt="" coords="5,105,176,157"/>
-<area shape="rect" id="node3" href="$quintic__spiral__curve_8h.html" title=": header file for path class &#160;description: x_p (s) = int_0^s cos( theta_p (s)) ds y_p (s) = int_0^s s..." alt="" coords="201,105,360,157"/>
-</map>

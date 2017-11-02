@@ -1,5 +1,0 @@
-<map id="apollo::monitor::RecurrentRunner" name="apollo::monitor::RecurrentRunner">
-<area shape="rect" id="node2" href="$classapollo_1_1monitor_1_1HardwareMonitor.html" title="{apollo::monitor::Hardware\lMonitor\n|# status_\l|+ HardwareMonitor()\l}" alt="" coords="11,180,185,267"/>
-<area shape="rect" id="node4" href="$classapollo_1_1monitor_1_1ModuleMonitor.html" title="{apollo::monitor::ModuleMonitor\n|# status_\l|+ ModuleMonitor()\l}" alt="" coords="209,187,413,260"/>
-<area shape="rect" id="node3" href="$classapollo_1_1monitor_1_1CanMonitor.html" title="{apollo::monitor::CanMonitor\n||+ RunOnce()\l}" alt="" coords="5,315,190,388"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="modules/drivers/mobileye" name="modules/drivers/mobileye">
-<area shape="rect" id="node2" href="dir_71ce5f3d6780f17e63a029d1562460f3.html" title="protocol" alt="" coords="37,157,109,205"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000070_000071.html" title="14" alt="" coords="75,132,90,145"/>
-<area shape="rect" id="node3" href="dir_6ac68ed414d44d6f54320351cbdbfd7b.html" title="canbus" alt="" coords="73,253,145,301"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000070_000055.html" title="16" alt="" coords="122,231,137,244"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000071_000055.html" title="14" alt="" coords="94,226,109,240"/>
-<area shape="rect" id="clust2" href="dir_74831b5c66846d359f118ccb5ce77f83.html" alt="" coords="27,51,123,216"/>
-<area shape="rect" id="clust1" href="dir_fa7c3dda3a065b7e0bb8d7e2b3a94e74.html" title="drivers" alt="" coords="16,16,133,227"/>
-</map>

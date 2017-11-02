@@ -1,8 +1,0 @@
-<map id="modules/drivers/gnss/include/util/macros.h" name="modules/drivers/gnss/include/util/macros.h">
-<area shape="rect" id="node2" href="$parser_8h.html" title="modules/drivers/gnss\l/include/gnss/parser.h" alt="" coords="81,92,232,131"/>
-<area shape="rect" id="node5" href="$stream_8h.html" title="modules/drivers/gnss\l/include/gnss/stream.h" alt="" coords="256,92,411,131"/>
-<area shape="rect" id="node7" href="$time__conversion_8h.html" title="modules/drivers/gnss\l/include/util/time_conversion.h" alt="" coords="435,92,635,131"/>
-<area shape="rect" id="node3" href="$data__parser_8h.html" title="modules/drivers/gnss\l/src/data_parser.h" alt="" coords="5,179,153,217"/>
-<area shape="rect" id="node4" href="$tf__broadcaster_8h.html" title="modules/drivers/gnss\l/src/tf_broadcaster.h" alt="" coords="60,265,207,304"/>
-<area shape="rect" id="node6" href="$raw__stream_8h.html" title="modules/drivers/gnss\l/src/raw_stream.h" alt="" coords="260,179,407,217"/>
-</map>

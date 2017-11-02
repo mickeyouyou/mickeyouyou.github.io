@@ -1,4 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1planning_1_1IndexedList.html" title="apollo::planning::Indexed\lList\&lt; std::string, Obstacle \&gt;" alt="" coords="5,12,188,51"/>
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1ThreadSafeIndexedList.html" title="apollo::planning::Thread\lSafeIndexedList\&lt; std::\lstring, Obstacle \&gt;" alt="" coords="236,5,401,57"/>
-</map>

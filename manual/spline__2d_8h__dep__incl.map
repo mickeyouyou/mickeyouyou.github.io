@@ -1,7 +1,0 @@
-<map id="modules/planning/math/smoothing_spline/spline_2d.h" name="modules/planning/math/smoothing_spline/spline_2d.h">
-<area shape="rect" id="node2" href="$spline__2d__constraint_8h.html" title="modules/planning/math\l/smoothing_spline/spline\l_2d_constraint.h" alt="" coords="5,92,173,144"/>
-<area shape="rect" id="node3" href="$spline__2d__solver_8h.html" title="modules/planning/math\l/smoothing_spline/spline\l_2d_solver.h" alt="" coords="127,192,294,244"/>
-<area shape="rect" id="node6" href="$spline__2d__kernel_8h.html" title="modules/planning/math\l/smoothing_spline/spline\l_2d_kernel.h" alt="" coords="248,92,415,144"/>
-<area shape="rect" id="node4" href="$qp__spline__reference__line__smoother_8h.html" title="modules/planning/reference\l_line/qp_spline_reference\l_line_smoother.h" alt="" coords="52,292,238,344"/>
-<area shape="rect" id="node5" href="$reference__line__provider_8h.html" title="Declaration of the class ReferenceLineProvider. " alt="" coords="108,392,312,431"/>
-</map>

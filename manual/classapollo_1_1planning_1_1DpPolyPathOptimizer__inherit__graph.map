@@ -1,4 +1,0 @@
-<map id="apollo::planning::DpPolyPathOptimizer" name="apollo::planning::DpPolyPathOptimizer">
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1PathOptimizer.html" title="{apollo::planning::PathOptimizer\n||+ PathOptimizer()\l+ ~PathOptimizer()\l+ Execute()\l# Process()\l# RecordDebugInfo()\l}" alt="" coords="5,207,212,333"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1Task.html" title="{apollo::planning::Task\n|# is_init_\l# frame_\l# reference_line_info_\l|+ Task()\l+ ~Task()\l+ Name()\l+ Execute()\l+ Init()\l}" alt="" coords="32,5,185,159"/>
-</map>

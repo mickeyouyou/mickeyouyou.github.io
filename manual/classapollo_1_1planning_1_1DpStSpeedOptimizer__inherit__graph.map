@@ -1,4 +1,0 @@
-<map id="apollo::planning::DpStSpeedOptimizer" name="apollo::planning::DpStSpeedOptimizer">
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1SpeedOptimizer.html" title="{apollo::planning::SpeedOptimizer\n||+ SpeedOptimizer()\l+ ~SpeedOptimizer()\l+ Execute()\l# Process()\l# GenerateStopProfile()\l# RecordSTGraphDebug()\l# RecordDebugInfo()\l}" alt="" coords="5,207,223,360"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1Task.html" title="{apollo::planning::Task\n|# is_init_\l# frame_\l# reference_line_info_\l|+ Task()\l+ ~Task()\l+ Name()\l+ Execute()\l+ Init()\l}" alt="" coords="38,5,191,159"/>
-</map>

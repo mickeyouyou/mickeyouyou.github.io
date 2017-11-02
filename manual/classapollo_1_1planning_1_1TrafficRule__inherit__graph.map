@@ -1,8 +1,0 @@
-<map id="apollo::planning::TrafficRule" name="apollo::planning::TrafficRule">
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1BacksideVehicle.html" title="{apollo::planning::Backside\lVehicle\n||+ BacksideVehicle()\l+ ~BacksideVehicle()\l+ ApplyRule()\l}" alt="" coords="5,167,182,280"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1ClearZone.html" title="{apollo::planning::ClearZone\n||+ ClearZone()\l+ ~ClearZone()\l+ ApplyRule()\l}" alt="" coords="205,173,390,273"/>
-<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1Crosswalk.html" title="{apollo::planning::Crosswalk\n||+ Crosswalk()\l+ ~Crosswalk()\l+ ApplyRule()\l}" alt="" coords="414,173,597,273"/>
-<area shape="rect" id="node5" href="$classapollo_1_1planning_1_1ObjectPriority.html" title="{apollo::planning::Object\lPriority\n||+ ObjectPriority()\l+ ~ObjectPriority()\l+ ApplyRule()\l}" alt="" coords="621,167,782,280"/>
-<area shape="rect" id="node6" href="$classapollo_1_1planning_1_1Rerouting.html" title="{apollo::planning::Rerouting\n||+ Rerouting()\l+ ~Rerouting()\l+ ApplyRule()\l}" alt="" coords="806,173,986,273"/>
-<area shape="rect" id="node7" href="$classapollo_1_1planning_1_1SignalLight.html" title="{apollo::planning::Signal\lLight\n||+ SignalLight()\l+ ~SignalLight()\l+ ApplyRule()\l}" alt="" coords="1010,167,1169,280"/>
-</map>

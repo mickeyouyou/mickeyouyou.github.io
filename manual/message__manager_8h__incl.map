@@ -1,9 +1,0 @@
-<map id="modules/drivers/canbus/can_comm/message_manager.h" name="modules/drivers/canbus/can_comm/message_manager.h">
-<area shape="rect" id="node9" href="$log_8h.html" title="modules/common/log.h" alt="" coords="999,185,1158,211"/>
-<area shape="rect" id="node13" href="$time_8h.html" title="This library provides the utilities to deal with timestamps. currently our assumption is that every t..." alt="" coords="701,92,856,131"/>
-<area shape="rect" id="node23" href="$protocol__data_8h.html" title="The class of ProtocolData. " alt="" coords="1148,92,1334,131"/>
-<area shape="rect" id="node27" href="$byte_8h.html" title="Defines the Byte class. " alt="" coords="1402,92,1564,131"/>
-<area shape="rect" id="node18" href="$config__gflags_8h.html" title="modules/common/configs\l/config_gflags.h" alt="" coords="263,179,436,217"/>
-<area shape="rect" id="node20" href="$macro_8h.html" title="modules/common/macro.h" alt="" coords="460,185,639,211"/>
-<area shape="rect" id="node25" href="$canbus__consts_8h.html" title="modules/drivers/canbus\l/common/canbus_consts.h" alt="" coords="1182,179,1362,217"/>
-</map>

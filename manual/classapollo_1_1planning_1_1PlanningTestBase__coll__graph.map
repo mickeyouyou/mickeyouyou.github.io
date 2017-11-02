@@ -1,4 +1,0 @@
-<map id="apollo::planning::PlanningTestBase" name="apollo::planning::PlanningTestBase">
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1Planning.html" title="{apollo::planning::Planning\n||+ Name()\l+ Init()\l+ Start()\l+ Stop()\l+ Plan()\l+ RunOnce()\l+ InitFrame()\l+ IsVehicleStateValid()\l+ SetLastPublishableTrajectory()\l}" alt="" coords="122,235,336,415"/>
-<area shape="rect" id="node4" href="$classapollo_1_1common_1_1ApolloApp.html" title="The base module class to define the interface of an Apollo app. An Apollo app runs infinitely until b..." alt="" coords="128,5,330,185"/>
-</map>

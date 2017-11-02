@@ -1,9 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1planning_1_1TrafficRule.html" title="apollo::planning::TrafficRule" alt="" coords="5,145,191,171"/>
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1BacksideVehicle.html" title="apollo::planning::Backside\lVehicle" alt="" coords="244,5,420,44"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1ClearZone.html" title="apollo::planning::ClearZone" alt="" coords="239,68,424,93"/>
-<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1Crosswalk.html" title="apollo::planning::Crosswalk" alt="" coords="240,117,423,143"/>
-<area shape="rect" id="node5" href="$classapollo_1_1planning_1_1ObjectPriority.html" title="apollo::planning::Object\lPriority" alt="" coords="251,167,412,205"/>
-<area shape="rect" id="node6" href="$classapollo_1_1planning_1_1Rerouting.html" title="apollo::planning::Rerouting" alt="" coords="242,229,422,255"/>
-<area shape="rect" id="node7" href="$classapollo_1_1planning_1_1SignalLight.html" title="apollo::planning::Signal\lLight" alt="" coords="252,279,411,317"/>
-</map>

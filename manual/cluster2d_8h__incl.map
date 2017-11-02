@@ -1,9 +1,0 @@
-<map id="modules/perception/obstacle/lidar/segmentation/cnnseg/cluster2d.h" name="modules/perception/obstacle/lidar/segmentation/cnnseg/cluster2d.h">
-<area shape="rect" id="node5" href="$log_8h.html" title="modules/common/log.h" alt="" coords="63,119,222,144"/>
-<area shape="rect" id="node8" href="$pcl__types_8h.html" title="modules/perception\l/lib/pcl_util/pcl_types.h" alt="" coords="516,292,671,331"/>
-<area shape="rect" id="node15" href="$object_8h.html" title="modules/perception\l/obstacle/base/object.h" alt="" coords="657,112,815,151"/>
-<area shape="rect" id="node22" href="$disjoint__set_8h.html" title="modules/perception\l/obstacle/common/disjoint_set.h" alt="" coords="838,112,1049,151"/>
-<area shape="rect" id="node23" href="$perception_2obstacle_2lidar_2segmentation_2cnnseg_2util_8h.html" title="modules/perception\l/obstacle/lidar/segmentation\l/cnnseg/util.h" alt="" coords="1158,105,1346,157"/>
-<area shape="rect" id="node20" href="$types_8h.html" title="modules/perception\l/obstacle/base/types.h" alt="" coords="659,205,813,244"/>
-<area shape="rect" id="node21" href="$define_8h.html" title="modules/perception\l/common/define.h" alt="" coords="695,292,833,331"/>
-</map>

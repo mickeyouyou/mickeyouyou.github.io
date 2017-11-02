@@ -1,8 +1,0 @@
-<map id="modules/calibration/lidar_ex_checker/lidar_ex_checker.h" name="modules/calibration/lidar_ex_checker/lidar_ex_checker.h">
-<area shape="rect" id="node8" href="$apollo__app_8h.html" title="modules/common/apollo\l_app.h" alt="" coords="476,105,642,144"/>
-<area shape="rect" id="node20" href="$macro_8h.html" title="modules/common/macro.h" alt="" coords="1503,112,1681,137"/>
-<area shape="rect" id="node24" href="$pcl__types_8h.html" title="modules/perception\l/lib/pcl_util/pcl_types.h" alt="" coords="2041,105,2196,144"/>
-<area shape="rect" id="node11" href="$log_8h.html" title="modules/common/log.h" alt="" coords="32,199,192,224"/>
-<area shape="rect" id="node14" href="$common_2status_2status_8h.html" title="modules/common/status\l/status.h" alt="" coords="536,192,702,231"/>
-<area shape="rect" id="node17" href="$hmi__status__helper_8h.html" title="the class of HMIStatusHelper " alt="" coords="725,192,875,231"/>
-</map>

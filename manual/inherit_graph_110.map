@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1drivers_1_1velodyne_1_1VelodyneParser.html" title="Velodyne data conversion class. " alt="" coords="5,37,170,76"/>
-<area shape="rect" id="node2" href="$classapollo_1_1drivers_1_1velodyne_1_1Velodyne16Parser.html" title="apollo::drivers::velodyne\l::Velodyne16Parser" alt="" coords="218,5,384,44"/>
-<area shape="rect" id="node3" href="$classapollo_1_1drivers_1_1velodyne_1_1Velodyne64Parser.html" title="apollo::drivers::velodyne\l::Velodyne64Parser" alt="" coords="218,68,384,107"/>
-</map>

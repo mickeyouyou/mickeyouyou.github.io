@@ -1,3 +1,0 @@
-<map id="apollo::drivers::velodyne::Velodyne16Driver" name="apollo::drivers::velodyne::Velodyne16Driver">
-<area shape="rect" id="node2" href="$classapollo_1_1drivers_1_1velodyne_1_1VelodyneDriver.html" title="{apollo::drivers::velodyne\l::VelodyneDriver\n|# config_\l# input_\l# output_\l# topic_\l# basetime_\l# last_gps_time_\l|+ VelodyneDriver()\l+ ~VelodyneDriver()\l+ poll()\l+ init()\l# poll_standard()\l# set_base_time()\l# set_base_time_from\l_nmea_time()\l# update_gps_top_hour()\l}" alt="" coords="10,5,181,265"/>
-</map>

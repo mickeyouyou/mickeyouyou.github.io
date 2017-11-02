@@ -1,5 +1,0 @@
-<map id="apollo::planning::SpeedDecider" name="apollo::planning::SpeedDecider">
-<area shape="rect" id="node2" href="$classapollo_1_1planning_1_1Task.html" title="{apollo::planning::Task\n|# is_init_\l|+ Task()\l+ ~Task()\l+ Name()\l+ Execute()\l+ Init()\l}" alt="" coords="131,300,281,427"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1Frame.html" title="{apollo::planning::Frame\n||+ Frame()\l+ SetPrediction()\l+ SetPlanningStartPoint()\l+ SetVehicleInitPose()\l+ PlanningStartPoint()\l+ Init()\l+ SequenceNum()\l+ UpdateRoutingResponse()\l+ routing_response()\l+ DebugString()\land 8 more...\l+ SetMap()\l+ Rerouting()\l}" alt="" coords="5,5,196,239"/>
-<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1ReferenceLineInfo.html" title="{apollo::planning::Reference\lLineInfo\n||+ ReferenceLineInfo()\l+ Init()\l+ AddObstacles()\l+ AddObstacle()\l+ path_decision()\l+ path_decision()\l+ reference_line()\l+ init_adc_point()\l+ SetTrajectory()\l+ trajectory()\land 16 more...\l}" alt="" coords="220,12,403,232"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1canbus_1_1AbstractVehicleFactory.html" title="this class is the abstract factory following the AbstractFactory design pattern. It can create Vehicl..." alt="" coords="5,5,169,44"/>
-<area shape="rect" id="node2" href="$classapollo_1_1canbus_1_1LincolnVehicleFactory.html" title="this class is inherited from AbstractVehicleFactory. It can be used to create controller and message ..." alt="" coords="217,5,417,44"/>
-</map>

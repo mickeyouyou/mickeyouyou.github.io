@@ -1,4 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1common_1_1util_1_1Factory.html" title="apollo::common::util\l::Factory\&lt; VehicleParameter\l::VehicleBrand, AbstractVehicleFactory \&gt;" alt="" coords="5,5,267,57"/>
-<area shape="rect" id="node2" href="$classapollo_1_1canbus_1_1VehicleFactory.html" title="This class is a factory class that will generate different vehicle factories based on the vehicle bra..." alt="" coords="315,19,517,44"/>
-</map>

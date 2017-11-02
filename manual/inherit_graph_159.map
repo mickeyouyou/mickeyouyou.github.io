@@ -1,4 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1localization_1_1LocalizationBase.html" title="base class for Localization factory " alt="" coords="5,5,136,44"/>
-<area shape="rect" id="node2" href="$classapollo_1_1localization_1_1RTKLocalization.html" title="generate localization info based on RTK " alt="" coords="184,5,314,44"/>
-</map>

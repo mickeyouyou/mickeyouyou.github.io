@@ -1,7 +1,0 @@
-<map id="modules/control/controller/controller_agent.h" name="modules/control/controller/controller_agent.h">
-<area shape="rect" id="node9" href="$factory_8h.html" title="Defines the Factory class. " alt="" coords="252,92,399,131"/>
-<area shape="rect" id="node17" href="$controller_8h.html" title="Defines the Controller base class. " alt="" coords="1038,92,1212,131"/>
-<area shape="rect" id="node12" href="$log_8h.html" title="modules/common/log.h" alt="" coords="246,185,405,211"/>
-<area shape="rect" id="node15" href="$macro_8h.html" title="modules/common/macro.h" alt="" coords="430,185,608,211"/>
-<area shape="rect" id="node20" href="$common_2status_2status_8h.html" title="modules/common/status\l/status.h" alt="" coords="1296,179,1462,217"/>
-</map>

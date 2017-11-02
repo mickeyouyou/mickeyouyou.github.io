@@ -1,8 +1,0 @@
-<map id="modules/routing/graph/node_with_range.h" name="modules/routing/graph/node_with_range.h">
-<area shape="rect" id="node2" href="$result__generator_8h.html" title="modules/routing/core\l/result_generator.h" alt="" coords="5,92,151,131"/>
-<area shape="rect" id="node3" href="$navigator_8h.html" title="modules/routing/core\l/navigator.h" alt="" coords="21,179,167,217"/>
-<area shape="rect" id="node5" href="$sub__topo__graph_8h.html" title="modules/routing/graph\l/sub_topo_graph.h" alt="" coords="227,92,381,131"/>
-<area shape="rect" id="node4" href="$routing_8h.html" title="modules/routing/routing.h" alt="" coords="8,272,180,297"/>
-<area shape="rect" id="node6" href="$strategy_8h.html" title="modules/routing/strategy\l/strategy.h" alt="" coords="220,179,387,217"/>
-<area shape="rect" id="node7" href="$a__star__strategy_8h.html" title="modules/routing/strategy\l/a_star_strategy.h" alt="" coords="220,265,387,304"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="modules/drivers/velodyne/velodyne_pointcloud/include/velodyne_pointcloud/calibration.h" name="modules/drivers/velodyne/velodyne_pointcloud/include/velodyne_pointcloud/calibration.h">
-<area shape="rect" id="node2" href="$online__calibration_8h.html" title="modules/drivers/velodyne\l/velodyne_pointcloud/include\l/velodyne_pointcloud/online\l_calibration.h" alt="" coords="74,105,267,171"/>
-<area shape="rect" id="node3" href="$velodyne__parser_8h.html" title="modules/drivers/velodyne\l/velodyne_pointcloud/include\l/velodyne_pointcloud/velodyne\l_parser.h" alt="" coords="135,219,339,284"/>
-<area shape="rect" id="node4" href="$convert_8h.html" title="modules/drivers/velodyne\l/velodyne_pointcloud/include\l/velodyne_pointcloud/convert.h" alt="" coords="5,332,210,384"/>
-<area shape="rect" id="node5" href="$pointcloud__dump_8h.html" title="modules/drivers/velodyne\l/velodyne_pointcloud/include\l/velodyne_pointcloud/pointcloud_dump.h" alt="" coords="235,332,498,384"/>
-</map>

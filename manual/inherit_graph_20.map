@@ -1,6 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1common_1_1math_1_1Vec2d.html" title="Implements a class of 2&#45;dimensional vectors. " alt="" coords="5,31,158,69"/>
-<area shape="rect" id="node2" href="$classapollo_1_1hdmap_1_1MapPathPoint.html" title="apollo::hdmap::MapPathPoint" alt="" coords="206,12,402,37"/>
-<area shape="rect" id="node4" href="$classapollo_1_1planning_1_1STPoint.html" title="apollo::planning::STPoint" alt="" coords="219,61,389,87"/>
-<area shape="rect" id="node3" href="$classapollo_1_1planning_1_1ReferencePoint.html" title="apollo::planning::Reference\lPoint" alt="" coords="450,5,634,44"/>
-</map>

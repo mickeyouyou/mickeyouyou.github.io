@@ -1,9 +1,0 @@
-<map id="modules/perception/obstacle/lidar/visualizer/opengl_visualizer/opengl_visualizer.h" name="modules/perception/obstacle/lidar/visualizer/opengl_visualizer/opengl_visualizer.h">
-<area shape="rect" id="node6" href="$pcl__types_8h.html" title="modules/perception\l/lib/pcl_util/pcl_types.h" alt="" coords="905,519,1060,557"/>
-<area shape="rect" id="node13" href="$glfw__viewer_8h.html" title="modules/perception\l/obstacle/lidar/visualizer\l/opengl_visualizer/glfw\l_viewer.h" alt="" coords="725,119,888,184"/>
-<area shape="rect" id="node17" href="$camera_8h.html" title="modules/perception\l/obstacle/lidar/visualizer\l/opengl_visualizer/camera.h" alt="" coords="648,239,835,291"/>
-<area shape="rect" id="node18" href="$frame__content_8h.html" title="modules/perception\l/obstacle/lidar/visualizer\l/opengl_visualizer/frame\l_content.h" alt="" coords="458,232,624,297"/>
-<area shape="rect" id="node22" href="$object_8h.html" title="modules/perception\l/obstacle/base/object.h" alt="" coords="462,345,620,384"/>
-<area shape="rect" id="node26" href="$types_8h.html" title="modules/perception\l/obstacle/base/types.h" alt="" coords="328,432,482,471"/>
-<area shape="rect" id="node27" href="$define_8h.html" title="modules/perception\l/common/define.h" alt="" coords="336,519,474,557"/>
-</map>

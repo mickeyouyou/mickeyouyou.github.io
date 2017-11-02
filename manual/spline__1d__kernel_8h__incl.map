@@ -1,6 +1,0 @@
-<map id="modules/planning/math/smoothing_spline/spline_1d_kernel.h" name="modules/planning/math/smoothing_spline/spline_1d_kernel.h">
-<area shape="rect" id="node4" href="$spline__1d_8h.html" title=": piecewise smoothing spline class " alt="" coords="169,105,369,144"/>
-<area shape="rect" id="node5" href="$polynomial__xd_8h.html" title="modules/planning/math\l/polynomial_xd.h" alt="" coords="384,292,543,331"/>
-<area shape="rect" id="node7" href="$affine__constraint_8h.html" title="modules/planning/math\l/smoothing_spline/affine\l_constraint.h" alt="" coords="420,192,585,244"/>
-<area shape="rect" id="node8" href="$spline__1d__seg_8h.html" title=": polynomial smoothing spline " alt="" coords="228,192,395,244"/>
-</map>

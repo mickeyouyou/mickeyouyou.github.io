@@ -1,4 +1,0 @@
-<map id="apollo::control::Controller" name="apollo::control::Controller">
-<area shape="rect" id="node2" href="$classapollo_1_1control_1_1LatController.html" title="LQR&#45;Based lateral controller, to compute steering target. For more details, please refer to &quot;Vehicle ..." alt="" coords="5,207,232,667"/>
-<area shape="rect" id="node3" href="$classapollo_1_1control_1_1LonController.html" title="Longitudinal controller, to compute brake / throttle values. " alt="" coords="255,353,459,520"/>
-</map>

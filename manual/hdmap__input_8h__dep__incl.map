@@ -1,8 +1,0 @@
-<map id="modules/perception/obstacle/onboard/hdmap_input.h" name="modules/perception/obstacle/onboard/hdmap_input.h">
-<area shape="rect" id="node2" href="$base__tracker_8h.html" title="modules/perception\l/obstacle/lidar/interface\l/base_tracker.h" alt="" coords="198,112,356,164"/>
-<area shape="rect" id="node4" href="$hm__tracker_8h.html" title="modules/perception\l/obstacle/lidar/tracker\l/hm_tracker/hm_tracker.h" alt="" coords="5,219,178,271"/>
-<area shape="rect" id="node5" href="$lidar__process_8h.html" title="modules/perception\l/obstacle/onboard/lidar\l_process.h" alt="" coords="376,219,532,271"/>
-<area shape="rect" id="node7" href="$hdmap__roi__filter_8h.html" title="modules/perception\l/obstacle/lidar/roi\l_filter/hdmap_roi_filter\l/hdmap_roi_filter.h" alt="" coords="430,105,583,171"/>
-<area shape="rect" id="node3" href="$dummy__algorithms_8h.html" title="modules/perception\l/obstacle/lidar/dummy\l/dummy_algorithms.h" alt="" coords="201,219,352,271"/>
-<area shape="rect" id="node6" href="$perception_8h.html" title="modules/perception\l/perception.h" alt="" coords="385,319,523,357"/>
-</map>

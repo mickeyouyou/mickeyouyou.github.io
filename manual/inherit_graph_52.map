@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classapollo_1_1control_1_1PIDController.html" title="A proportional–integral–derivative controller for speed and steering using defualt integral hold..." alt="" coords="5,31,197,56"/>
-<area shape="rect" id="node2" href="$classapollo_1_1control_1_1PIDBCController.html" title="A proportional–integral–derivative controller for speed and steering with backward&#45;caculation&#45;anti&#45;..." alt="" coords="245,5,455,31"/>
-<area shape="rect" id="node3" href="$classapollo_1_1control_1_1PIDICController.html" title="A proportional–integral–derivative controller for speed and steering with integral&#45;clamping&#45;anti&#45;wi..." alt="" coords="248,55,453,80"/>
-</map>
