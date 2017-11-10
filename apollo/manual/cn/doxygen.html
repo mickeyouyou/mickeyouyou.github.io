@@ -1,0 +1,97 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo 本地手册生成</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo 本地手册生成</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年10月23日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Doxygen生成文档"><span class="toc-text">Doxygen生成文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装doxygen"><span class="toc-text">安装doxygen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成源码文档"><span class="toc-text">生成源码文档</span></a></li></ol></li></ol>
+<h1 id="Doxygen生成文档"><a href="#Doxygen生成文档" class="headerlink" title="Doxygen生成文档"></a>Doxygen生成文档</h1><p>如何阅读代码？这是一个问题，我们提供doxygen配置，让你在下载代码后，在本地就可以生成一个代码手册。</p>
+<h2 id="安装doxygen"><a href="#安装doxygen" class="headerlink" title="安装doxygen"></a>安装doxygen</h2><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> svn co https://doxygen.svn.sourceforge.net/svnroot/doxygen/trunk doxygen-svn</span></div><div class="line"> </div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> doxygen-svn</span></div><div class="line"><span class="meta">$</span><span class="bash"> ./configure –prefix=/home/user1/bin</span></div><div class="line"><span class="meta">$</span><span class="bash"> make</span></div><div class="line"> </div><div class="line"><span class="meta">$</span><span class="bash"> make install</span></div></pre></td></tr></table></figure>
+<h2 id="生成源码文档"><a href="#生成源码文档" class="headerlink" title="生成源码文档"></a>生成源码文档</h2><p>拉取Apollo代码（如果已经执行，直接忽略）：<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">git clone https://github.com/ApolloAuto/apollo.git apollo</div><div class="line">cd apollo</div></pre></td></tr></table></figure></p>
+<p>Apollo项目的目录中，含有<code>apollo.doxygen</code>的渲染配置文件。<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> doxygen apollo.doxygen</span></div></pre></td></tr></table></figure></p>
+<p>生成完毕之后，查看<code>apollo/docs/doxygen/html</code>目录，即生成基于代码的文档。方面在本地查看HTML格式的文档。</p>
+
+
+<!--<a href="http://yoursite.com/apollo/manual/cn/doxygen.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

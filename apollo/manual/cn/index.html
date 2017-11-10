@@ -44,14 +44,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文档目录"><span class="toc-text">文档目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo参考文档"><span class="toc-text">Apollo参考文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-Apollo-自动驾驶公开课"><span class="toc-text">Hello Apollo 自动驾驶公开课</span></a></li></ol>
-<p>一张图了解Apollo最新进展：</p>
-<p><img src="http://7xk16m.com1.z0.glb.clouddn.com/MacHi%202017-10-31%2018-30-29.png" width="99%"></p>
-<ul>
-<li>蓝色：1.0开放的模块</li>
-<li>黄色：1.5开放的模块</li>
-<li>深蓝色：2.0将要开放的能力</li>
-</ul>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文档目录"><span class="toc-text">文档目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo参考文档"><span class="toc-text">Apollo参考文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li></ol>
 <p>本文档是在线手册的预览（Preview）版本，覆盖开发者多个阶段，不同功能模块，不同适配平台。 为了给开发者在短时间内一个宏观的认识，建设的在线文档站点。</p>
 <h2 id="文档目录"><a href="#文档目录" class="headerlink" title="文档目录"></a>文档目录</h2><ul>
 <li>介绍</li>
@@ -62,7 +55,7 @@
 </ul>
 </li>
 <li>代码<ul>
-<li><a href="./doxygen.html">Doxygen生成文档</a> </li>
+<li><a href="./doxygen.html">阅读Doxygen生成的文档</a> </li>
 <li><a href="./words.html">Apollo相关名词解释</a></li>
 <li><a href="./question.html">Apollo代码阅读笔记</a></li>
 <li><a href="./from_apollo_main_macro_to_all_modules.html">从ApolloApp类、APOLLO_MAIN宏探究Apollo所有模块</a></li>
@@ -73,17 +66,23 @@
 </li>
 <li><a href="./module_planning.html">决策规划模块(planning)</a></li>
 <li><a href="./module_canbus.html">CAN总线控制模块(canbus)</a></li>
+</ul>
+<ul>
+<li>common 公有的源码模块</li>
 <li>localization 定位模块</li>
+<li>map 地图模块</li>
 <li>perception 感知模块</li>
 <li>planning 规划决策模块</li>
 <li>prediction 预测模块</li>
-<li>common 公有的源码模块 </li>
 <li>control 控制模块</li>
+<li>routing 导航模块</li>
 <li>dreamview 可视化模块</li>
 <li>drivers 驱动模块</li>
 <li>hmi 人机交互模块</li>
+<li>e2e End-2-End模块</li>
+<li>elo 自定位模块</li>
+<li>tools 通用监控与可视化工具  </li>
 <li>monitor 监控模块</li>
-<li>tools 通用监控与可视化工具 </li>
 </ul>
 </li>
 </ul>
@@ -141,17 +140,9 @@
 <li><a href="https://console.bce.baidu.com/apollo/task/overview?locale=zh-cn#/apollo/home" target="_blank" rel="external">数据开放平台</a></li>
 <li><a href="http://www.fzb.me/2017-9-25-driving-by-wire-tech.html" target="_blank" rel="external">线控车辆控制组件与自动驾驶的控制</a></li>
 </ul>
-<h2 id="Hello-Apollo-自动驾驶公开课"><a href="#Hello-Apollo-自动驾驶公开课" class="headerlink" title="Hello Apollo 自动驾驶公开课"></a>Hello Apollo 自动驾驶公开课</h2><p>第一站：上海技术沙龙，如下三个主题的分享(<a href="https://pan.baidu.com/s/1boKLJSr" target="_blank" rel="external">资源pdf</a>)：</p>
-<ul>
-<li><a href="www.infoq.com/cn/presentations/apollo-automatic-driving-and-following-vehicle-scheme">Apollo自动驾驶及跟车方案设计思路</a></li>
-<li><a href="http://www.infoq.com/cn/presentations/apollo-map-service-and-cloud-simulation-platform" target="_blank" rel="external">Apollo高精地图服务介绍及云端仿真平台应用</a></li>
-<li><a href="www.infoq.com/cn/presentations/end-to-end-automatic-driving-scheme-based-on-deep-learning">基于深度学习的End-to-End自动驾驶方案</a></li>
-</ul>
-<p><a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="external"><img src="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" width="99.9999%"></a></p>
-<p align="center"> <a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="external">点击查看大图</a></p>
 
 
-<!--<a href="http://yoursite.com/apollo/index.html#disqus_thread" class="article-comment-link">Comments</a>
+<!--<a href="http://yoursite.com/apollo/manual/cn/index.html#disqus_thread" class="article-comment-link">Comments</a>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

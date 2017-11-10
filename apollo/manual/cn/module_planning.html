@@ -1,0 +1,102 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>决策规划模块</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">决策规划模块</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年8月14日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DP-path"><span class="toc-text">DP path</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QP-path"><span class="toc-text">QP path</span></a></li></ol>
+<p>整体决策规划流程：</p>
+<p>先对自动驾驶汽车接受的所有传感器数据进行筛选和聚合，如将导航、感知、预测甚至定位数据等接进来，然后在决策规划模块里，先会对这些数据进行自动驾驶汽车眼里时间的重构，基于此运用不同的优化器：</p>
+<ul>
+<li>DP：基于动态规划器</li>
+<li>QP：基于二次规划的规划器</li>
+</ul>
+<p>进行不停的相互反复迭代，为自动驾驶汽车规划处一条最高质量，最安全，也最光滑的汽车路径，所以Apollo决策规划是一个具有工业级的系统架构。</p>
+<h3 id="DP-path"><a href="#DP-path" class="headerlink" title="DP path"></a>DP path</h3><h3 id="QP-path"><a href="#QP-path" class="headerlink" title="QP path"></a>QP path</h3><p>配置文件：<br><figure class="highlight plain"><figcaption><span>modules/planning/conf/planning_config.pb.txt </span></figcaption><table><tr><td class="code"><pre><div class="line">planner_type : EM</div><div class="line">em_planner_config &#123;</div><div class="line">    task : TRAFFIC_DECIDER</div><div class="line">    task : PATH_DECIDER</div><div class="line">    task : DP_POLY_PATH_OPTIMIZER</div><div class="line">    task : DP_ST_SPEED_OPTIMIZER</div><div class="line">    task : QP_SPLINE_PATH_OPTIMIZER</div><div class="line">    task : QP_SPLINE_ST_SPEED_OPTIMIZER</div><div class="line"></div><div class="line">    dp_poly_path_config &#123;</div><div class="line">        sample_level: 8</div><div class="line">        sample_points_num_each_level: 9</div><div class="line">        step_length_max: 15.0</div><div class="line">        step_length_min: 8.0</div><div class="line">        lateral_sample_offset: 0.5</div><div class="line">        lateral_adjust_coeff: 0.5</div><div class="line">        eval_time_interval: 0.1</div><div class="line">        path_resolution: 0.1</div><div class="line">        obstacle_ignore_distance: 20.0</div><div class="line">        obstacle_collision_distance: 0.2</div><div class="line">        obstacle_risk_distance: 2.0</div><div class="line">        obstacle_collision_cost: 1e3</div><div class="line">    &#125;</div><div class="line">    dp_st_speed_config &#123;</div><div class="line">        total_path_length: 80</div><div class="line">        total_time: 8.0</div><div class="line">        matrix_dimension_s: 200</div><div class="line">        matrix_dimension_t: 20</div><div class="line"></div><div class="line">        speed_weight: 0.0</div><div class="line">        accel_weight: 10.0</div><div class="line">        jerk_weight: 10.0</div><div class="line">        obstacle_weight: 1.0</div><div class="line">        reference_weight: 0.0</div><div class="line">        go_down_buffer: 5.0</div><div class="line">        go_up_buffer: 5.0</div><div class="line"></div><div class="line">        default_obstacle_cost: 1e10</div><div class="line">        obstacle_cost_factor: -300</div><div class="line"></div><div class="line">        default_speed_cost: 1.0</div><div class="line">        exceed_speed_penalty: 10.0</div><div class="line">        low_speed_penalty: 2.5</div><div class="line"></div><div class="line">        accel_penalty: 2.0</div><div class="line">        decel_penalty: 2.0</div><div class="line"></div><div class="line">        positive_jerk_coeff: 1.0</div><div class="line">        negative_jerk_coeff: 300.0</div><div class="line"></div><div class="line">        max_speed: 20.0</div><div class="line">        max_acceleration: 4.5</div><div class="line">        max_deceleration: -4.5</div><div class="line"></div><div class="line">        st_boundary_config &#123;</div><div class="line">            boundary_buffer: 0.1</div><div class="line">            centric_acceleration_limit: 1.0</div><div class="line">            minimal_kappa: 0.00001</div><div class="line">            point_extension: 1.0</div><div class="line">            lowest_speed: 2.5</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    qp_spline_path_config &#123;</div><div class="line">        spline_order: 6</div><div class="line">        number_of_knots: 6</div><div class="line">        number_of_fx_constraint_knots: 13</div><div class="line">        time_resolution: 0.1</div><div class="line">        regularization_weight: 0.1</div><div class="line">        derivative_weight: 10.0</div><div class="line">        second_derivative_weight: 1.0</div><div class="line">        third_derivative_weight: 1.0</div><div class="line">        reference_line_weight: 0.5</div><div class="line">        num_refline_point: 10</div><div class="line">        num_output: 100</div><div class="line">        cross_lane_extension_buffer: 0.2</div><div class="line">    &#125;</div><div class="line">    qp_spline_st_speed_config &#123;</div><div class="line">        total_path_length: 80.0</div><div class="line">        total_time: 8.0</div><div class="line">        output_time_resolution: 0.05</div><div class="line">        number_of_discrete_graph_s: 80</div><div class="line">        number_of_discrete_graph_t: 4</div><div class="line">        number_of_evaluated_graph_t: 50</div><div class="line">        spline_order: 6</div><div class="line">        speed_kernel_weight: 0.0</div><div class="line">        accel_kernel_weight: 1000.0</div><div class="line">        jerk_kernel_weight: 500.0</div><div class="line">        follow_weight: 2.0</div><div class="line">        stop_weight: 0.2</div><div class="line">        cruise_weight: 0.3</div><div class="line">        max_speed: 20.0</div><div class="line">        preferred_max_acceleration: 1.2</div><div class="line">        preferred_min_deceleration: -1.8</div><div class="line">        max_acceleration: 2.0</div><div class="line">        min_deceleration: -4.5</div><div class="line">        follow_drag_distance: 17.0</div><div class="line"></div><div class="line">        st_boundary_config &#123;</div><div class="line">            boundary_buffer: 0.1</div><div class="line">            centric_acceleration_limit: 1.0</div><div class="line">            minimal_kappa: 0.00001</div><div class="line">            point_extension: 1.0</div><div class="line">            lowest_speed: 2.5</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">reference_line_smoother_config &#123;</div><div class="line">    num_spline: 7</div><div class="line">    spline_order: 7</div><div class="line">    num_evaluated_points: 36</div><div class="line">    boundary_bound: 0.2</div><div class="line">    derivative_bound: 1.0</div><div class="line">    second_derivative_bound: 1.0</div><div class="line">    third_derivative_bound: 1.0</div><div class="line">    ref_line_weight: 0.0</div><div class="line">    derivative_weight: 0.0</div><div class="line">    second_derivative_weight: 0.0</div><div class="line">    third_derivative_weight: 100.0</div><div class="line">    num_of_total_points: 500</div><div class="line">&#125;</div><div class="line"></div><div class="line">rule_config : &#123;</div><div class="line">    name: &quot;BackSideVehicles&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>注册规划器：<ul>
+<li>注册RTKReplay规划器</li>
+<li>注册EM(Exactation Max)规划器</li>
+</ul>
+</li>
+<li>初始化框架</li>
+<li>初始化方法：<ul>
+<li>加载上述配置文件(planning_config.pb.txt)</li>
+<li>加载对应的Planner如默认EMPlanner</li>
+<li>使用配置文件初始化EMPlanner初始化方法<ul>
+<li>根据配置任务（Task），加载任务对象</li>
+<li>任务对象以此调用，初始化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>相关的任务：<br>DP：基于动态规划器<br>QP：基于二次规划的规划器</p>
+
+
+<!--<a href="http://yoursite.com/apollo/manual/cn/module_planning.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
