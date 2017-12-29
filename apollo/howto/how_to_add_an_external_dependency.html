@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,7 +44,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加外部依赖"><span class="toc-text">如何添加外部依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用Bazel添加外部依赖-Use-Bazel-to-Add-an-External-Dependency"><span class="toc-text">使用Bazel添加外部依赖 Use Bazel to Add an External Dependency</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加外部依赖"><span class="toc-text"><a href="#&#x5982;&#x4F55;&#x6DFB;&#x52A0;&#x5916;&#x90E8;&#x4F9D;&#x8D56;" class="headerlink" title="&#x5982;&#x4F55;&#x6DFB;&#x52A0;&#x5916;&#x90E8;&#x4F9D;&#x8D56;"></a>&#x5982;&#x4F55;&#x6DFB;&#x52A0;&#x5916;&#x90E8;&#x4F9D;&#x8D56;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用Bazel添加外部依赖-Use-Bazel-to-Add-an-External-Dependency"><span class="toc-text"><a href="#&#x4F7F;&#x7528;Bazel&#x6DFB;&#x52A0;&#x5916;&#x90E8;&#x4F9D;&#x8D56;-Use-Bazel-to-Add-an-External-Dependency" class="headerlink" title="&#x4F7F;&#x7528;Bazel&#x6DFB;&#x52A0;&#x5916;&#x90E8;&#x4F9D;&#x8D56; Use Bazel to Add an External Dependency"></a>&#x4F7F;&#x7528;Bazel&#x6DFB;&#x52A0;&#x5916;&#x90E8;&#x4F9D;&#x8D56; Use Bazel to Add an External Dependency</span></a></li></ol></li></ol>
 <h2 id="如何添加外部依赖"><a href="#如何添加外部依赖" class="headerlink" title="如何添加外部依赖"></a>如何添加外部依赖</h2><p>设计和实现目标，是最小化必须预先安装在系统中的依赖关系。 如果依赖某个模块，首先考虑通过“apt-get install”安装，其次考虑使用Bazel作为包/依赖关系管理系统。</p>
 <p>比如你要在空间中添加Bazel没有原始编译的名为<code>foo</code>的规则，按照如下步骤进行：</p>
 <ul>
@@ -54,7 +54,7 @@
 <li>如果你的代码依赖<code>foo</code>,将<code>@foo://:&lt;foo_target&gt;</code>放在依赖处；</li>
 </ul>
 <h3 id="使用Bazel添加外部依赖-Use-Bazel-to-Add-an-External-Dependency"><a href="#使用Bazel添加外部依赖-Use-Bazel-to-Add-an-External-Dependency" class="headerlink" title="使用Bazel添加外部依赖 Use Bazel to Add an External Dependency"></a>使用Bazel添加外部依赖 Use Bazel to Add an External Dependency</h3><p>如果使用Bazel添加工作空间规则<code>foo</code> ，且依赖于<code>foo</code>，Bazel将从指定的资源位置，拉取<code>foo</code>源码，用<code>foo.BUILD</code>提供的命令编译。如果<code>foo</code>原生支持Bazel，只需要一个工作空间规则。</p>
-<p>如下连接提供Bazel添加依赖的详细信息：<br><a href="https://bazel.build/versions/master/docs/be/workspace.html" target="_blank" rel="external">Workspace Rules</a>,<br><a href="Working with external dependencies">Working with external dependencies</a>.</p>
+<p>如下连接提供Bazel添加依赖的详细信息：<br><a href="https://bazel.build/versions/master/docs/be/workspace.html" target="_blank" rel="noopener">Workspace Rules</a>,<br><a href="Working with external dependencies">Working with external dependencies</a>.</p>
 
 
 <!--<a href="http://yoursite.com/apollo/howto/how_to_add_an_external_dependency.html#disqus_thread" class="article-comment-link">Comments</a>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,11 +44,11 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何保存与加载Docker镜像"><span class="toc-text">如何保存与加载Docker镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#保存Docker镜像"><span class="toc-text">保存Docker镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加载Docker镜像"><span class="toc-text">加载Docker镜像</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何保存与加载Docker镜像"><span class="toc-text"><a href="#&#x5982;&#x4F55;&#x4FDD;&#x5B58;&#x4E0E;&#x52A0;&#x8F7D;Docker&#x955C;&#x50CF;" class="headerlink" title="&#x5982;&#x4F55;&#x4FDD;&#x5B58;&#x4E0E;&#x52A0;&#x8F7D;Docker&#x955C;&#x50CF;"></a>&#x5982;&#x4F55;&#x4FDD;&#x5B58;&#x4E0E;&#x52A0;&#x8F7D;Docker&#x955C;&#x50CF;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#保存Docker镜像"><span class="toc-text"><a href="#&#x4FDD;&#x5B58;Docker&#x955C;&#x50CF;" class="headerlink" title="&#x4FDD;&#x5B58;Docker&#x955C;&#x50CF;"></a>&#x4FDD;&#x5B58;Docker&#x955C;&#x50CF;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加载Docker镜像"><span class="toc-text"><a href="#&#x52A0;&#x8F7D;Docker&#x955C;&#x50CF;" class="headerlink" title="&#x52A0;&#x8F7D;Docker&#x955C;&#x50CF;"></a>&#x52A0;&#x8F7D;Docker&#x955C;&#x50CF;</span></a></li></ol></li></ol>
 <h1 id="如何保存与加载Docker镜像"><a href="#如何保存与加载Docker镜像" class="headerlink" title="如何保存与加载Docker镜像"></a>如何保存与加载Docker镜像</h1><p>考虑到Docker镜像超过1G的情况，所以最好在Wifi环境下生成或者下载好Docker镜像，然后再拷贝到车上。</p>
 <h2 id="保存Docker镜像"><a href="#保存Docker镜像" class="headerlink" title="保存Docker镜像"></a>保存Docker镜像</h2><p>生成或者下载之后，你可以将Docker镜像在本地以压缩文件(tar)方式保存。<br>比如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># docker save -o &lt;save image to path&gt; &lt;image name&gt;</div><div class="line">docker save -o apollo_img.tar apolloauto/apollo:release-latest</div></pre></td></tr></table></figure>
-<h2 id="加载Docker镜像"><a href="#加载Docker镜像" class="headerlink" title="加载Docker镜像"></a>加载Docker镜像</h2><p>拷贝压缩文件到车上，可以从该文件中加载到Docker镜像<br>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># docker load -i &lt;path to image tar file&gt;</div><div class="line">docker load -i apollo_img.tar</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># docker save -o &lt;save image to path&gt; &lt;image name&gt;</span><br><span class="line">docker save -o apollo_img.tar apolloauto/apollo:release-latest</span><br></pre></td></tr></table></figure>
+<h2 id="加载Docker镜像"><a href="#加载Docker镜像" class="headerlink" title="加载Docker镜像"></a>加载Docker镜像</h2><p>拷贝压缩文件到车上，可以从该文件中加载到Docker镜像<br>比如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># docker load -i &lt;path to image tar file&gt;</span><br><span class="line">docker load -i apollo_img.tar</span><br></pre></td></tr></table></figure></p>
 
 
 <!--<a href="http://yoursite.com/apollo/howto/how_to_save_load_docker_image_locally.html#disqus_thread" class="article-comment-link">Comments</a>

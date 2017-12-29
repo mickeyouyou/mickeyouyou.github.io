@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,7 +44,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#速度-Speed"><span class="toc-text">速度(Speed)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子油门"><span class="toc-text">电子油门</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转向-Steering-Angle"><span class="toc-text">转向(Steering Angle)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子助力转向（EPS）"><span class="toc-text">电子助力转向（EPS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线控转向"><span class="toc-text">线控转向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#制动"><span class="toc-text">制动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#线控液压制动器-EHB"><span class="toc-text">线控液压制动器(EHB)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子机械制动-EMB"><span class="toc-text">电子机械制动(EMB)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo与线控控制组件的交互"><span class="toc-text">Apollo与线控控制组件的交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用参考"><span class="toc-text">引用参考</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#速度-Speed"><span class="toc-text"><a href="#&#x901F;&#x5EA6;-Speed" class="headerlink" title="&#x901F;&#x5EA6;(Speed)"></a>&#x901F;&#x5EA6;(Speed)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子油门"><span class="toc-text"><a href="#&#x7535;&#x5B50;&#x6CB9;&#x95E8;" class="headerlink" title="&#x7535;&#x5B50;&#x6CB9;&#x95E8;"></a><strong>&#x7535;&#x5B50;&#x6CB9;&#x95E8;</strong></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转向-Steering-Angle"><span class="toc-text"><a href="#&#x8F6C;&#x5411;-Steering-Angle" class="headerlink" title="&#x8F6C;&#x5411;(Steering Angle)"></a>&#x8F6C;&#x5411;(Steering Angle)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电子助力转向（EPS）"><span class="toc-text"><a href="#&#x7535;&#x5B50;&#x52A9;&#x529B;&#x8F6C;&#x5411;&#xFF08;EPS&#xFF09;" class="headerlink" title="&#x7535;&#x5B50;&#x52A9;&#x529B;&#x8F6C;&#x5411;&#xFF08;EPS&#xFF09;"></a>&#x7535;&#x5B50;&#x52A9;&#x529B;&#x8F6C;&#x5411;&#xFF08;EPS&#xFF09;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线控转向"><span class="toc-text"><a href="#&#x7EBF;&#x63A7;&#x8F6C;&#x5411;" class="headerlink" title="&#x7EBF;&#x63A7;&#x8F6C;&#x5411;"></a>&#x7EBF;&#x63A7;&#x8F6C;&#x5411;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#制动"><span class="toc-text"><a href="#&#x5236;&#x52A8;" class="headerlink" title="&#x5236;&#x52A8;"></a>&#x5236;&#x52A8;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#线控液压制动器-EHB"><span class="toc-text"><a href="#&#x7EBF;&#x63A7;&#x6DB2;&#x538B;&#x5236;&#x52A8;&#x5668;-EHB" class="headerlink" title="&#x7EBF;&#x63A7;&#x6DB2;&#x538B;&#x5236;&#x52A8;&#x5668;(EHB)"></a>&#x7EBF;&#x63A7;&#x6DB2;&#x538B;&#x5236;&#x52A8;&#x5668;(EHB)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子机械制动-EMB"><span class="toc-text"><a href="#&#x7535;&#x5B50;&#x673A;&#x68B0;&#x5236;&#x52A8;-EMB" class="headerlink" title="&#x7535;&#x5B50;&#x673A;&#x68B0;&#x5236;&#x52A8;(EMB)"></a>&#x7535;&#x5B50;&#x673A;&#x68B0;&#x5236;&#x52A8;(EMB)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo与线控控制组件的交互"><span class="toc-text"><a href="#Apollo&#x4E0E;&#x7EBF;&#x63A7;&#x63A7;&#x5236;&#x7EC4;&#x4EF6;&#x7684;&#x4EA4;&#x4E92;" class="headerlink" title="Apollo&#x4E0E;&#x7EBF;&#x63A7;&#x63A7;&#x5236;&#x7EC4;&#x4EF6;&#x7684;&#x4EA4;&#x4E92;"></a>Apollo&#x4E0E;&#x7EBF;&#x63A7;&#x63A7;&#x5236;&#x7EC4;&#x4EF6;&#x7684;&#x4EA4;&#x4E92;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用参考"><span class="toc-text"><a href="#&#x5F15;&#x7528;&#x53C2;&#x8003;" class="headerlink" title="&#x5F15;&#x7528;&#x53C2;&#x8003;"></a>&#x5F15;&#x7528;&#x53C2;&#x8003;</span></a></li></ol>
 <p>Apollo项目中，对参考车辆的要求：“Drive-by-wire”，线控车辆。本文从自动驾驶控制考虑，介绍车辆线控的三个方面：速度(Speed)、转向(Steering Angle)和刹车制动（Break）。</p>
 <p>对于车辆控制的疑问有很多。比如转向，具体跟车辆的交互，是传入转向角度还是力度？刹车制动是由IPC告诉硬件多少力度呢，还是智能到具体的制动百分比就可以？要实现这些控制指令，首先与参考车辆的底盘组组件有很大的关系，要了解与车辆底盘的各个组件交互，就要先了解这些控制组件。</p>
 <h3 id="速度-Speed"><a href="#速度-Speed" class="headerlink" title="速度(Speed)"></a>速度(Speed)</h3><p>传统发动机节气门操纵机构是通过拉索或者拉杆，一端联接油门踏板，另一端联接节气门连动板而工作。但这种传统油门应用范畴受到限制并缺乏精确性。</p>
@@ -53,7 +53,7 @@
 <p>电子油门通过用导线来代替拉索或者拉杆，在节气门安装微型电动机，用来驱动节气门开度。一般而言，增减油门就是指通过油门踏板改变发动机节气门开度，从而控制可燃混合气的流量，改变发动机的转速和功率，以适应汽车行驶的需要。</p>
 <p>电子油门的主要功能是把驾驶员踩下油门踏板的角度转换成与其成正比的电压信号，同时把油门踏板的各种特殊位置制成接触开关，把怠速、高负荷、加减速等发动机工况变成电脉冲信号输送给电控发动机的控制器 ECU，以达到供油、喷油与变速等的优化自动控制。</p>
 <p><img src="http://www.bosch-mobility-solutions.cn/media/cn/highlights/bosch_connected_mobility_active_gas_pedal_technical_details_en.jpg" width="99%"></p>
-<p align="center"><a href="http://www.bosch-mobility-solutions.cn/cn/highlights/connected-mobility/active-gas-pedal/" target="_blank" rel="external">博世智能电子油门踏板</a></p>
+<p align="center"><a href="http://www.bosch-mobility-solutions.cn/cn/highlights/connected-mobility/active-gas-pedal/" target="_blank" rel="noopener">博世智能电子油门踏板</a></p>
 
 <p>电子油门控制系统主要由油门踏板、踏板位移传感器、ECU（电控单元）、数据总线、伺服电动机和节气门执行机构组成。位移传感器安装在油门踏板内部，随时监测油门踏板的位置。当监测到油门踏板高度位置有变化，会瞬间将此信息送往ECU，ECU对该信息和其它系统传来的数据信息进行运算处理，计算出一个控制信号，通过线路送到伺服电动机继电器，伺服电动机驱动节气门执行机构，数据总线则是负责系统ECU与其它ECU之间的通讯。在自适应巡航中，则由ESP（ESC）中的ECU来控制电机，进而控制进气门开合幅度，最终控制车速。</p>
 <p><strong>与自动驾驶控制关系</strong></p>
@@ -61,7 +61,7 @@
 <h3 id="转向-Steering-Angle"><a href="#转向-Steering-Angle" class="headerlink" title="转向(Steering Angle)"></a>转向(Steering Angle)</h3><h4 id="电子助力转向（EPS）"><a href="#电子助力转向（EPS）" class="headerlink" title="电子助力转向（EPS）"></a>电子助力转向（EPS）</h4><p>了解车、开过车的朋友，多少知道点电子助力转向（EPS），如果没有这个助力，为上吨重的车辆转向过程是很费力的，EPS根据驾驶员的转角来增加转向力，达到转向目的。</p>
 <h4 id="线控转向"><a href="#线控转向" class="headerlink" title="线控转向"></a>线控转向</h4><p>线控转向技术最先来自航空技术，如今慢慢在汽车行业出现。飞机使用线控技术是因为需要用很快的控制速度，更能灵敏地控制飞机很强的机动性、很高的速度。线控转向取消了方向盘与车轮之间的机械连接，用传感器获得方向盘的转角数据，然后ECU（电子计算单元）将其折算为具体的驱动力数据，用电机推动转向机转动车轮。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG112.jpeg" width="60%"></p>
-<p align="center">日产旗下的<a href="http://www.infiniti.com.cn/vehicles/new-vehicles/Q50/features.html" target="_blank" rel="external">英菲尼迪Q50</a>是首批使用线控转向的量产车辆</p>
+<p align="center">日产旗下的<a href="http://www.infiniti.com.cn/vehicles/new-vehicles/Q50/features.html" target="_blank" rel="noopener">英菲尼迪Q50</a>是首批使用线控转向的量产车辆</p>
 
 <p>线控转向的缺点是需要模拟一个方向盘的力回馈，因为方向盘没有和机械部分连接，驾驶者感觉不到路面传导来的阻力，会失去路感，不过在无人车上，就无需考虑这个了。在Q50L上线控转向还保留机械装置，保证即使电子系统全部失效，依然可以正常转向。</p>
 <p>Question：控制命令中转向角度还是力度？</p>
@@ -127,7 +127,7 @@
 <li>根据预测给出的转向目标、转向速率做响应的调整</li>
 <li>如果有信号灯，设置喇叭（horn）、信号灯(turningSignal)、灯光光束(Beam)等</li>
 </ul>
-<p>以Lincoln为参考车辆实现的自动驾驶状态的控制序列：<br><figure class="highlight cpp"><figcaption><span>apollo/modules/canbus/vehicle/lincoln/lincoln_controller.cc Update</span></figcaption><table><tr><td class="code"><pre><div class="line">ErrorCode LincolnController::EnableAutoMode() &#123;</div><div class="line">  <span class="keyword">if</span> (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE) &#123;</div><div class="line">    AINFO &lt;&lt; <span class="string">"already in COMPLETE_AUTO_DRIVE mode"</span>;</div><div class="line">    <span class="keyword">return</span> ErrorCode::OK;</div><div class="line">  &#125;</div><div class="line">  brake_60_-&gt;set_enable();<span class="comment">// 制动可用</span></div><div class="line">  throttle_62_-&gt;set_enable(); <span class="comment">// 气节门可用</span></div><div class="line">  steering_64_-&gt;set_enable(); <span class="comment">// 转向请求可用</span></div><div class="line"></div><div class="line">  can_sender_-&gt;Update();</div><div class="line">  <span class="keyword">const</span> <span class="keyword">int32_t</span> flag =</div><div class="line">      CHECK_RESPONSE_STEER_UNIT_FLAG | CHECK_RESPONSE_SPEED_UNIT_FLAG;</div><div class="line">  <span class="keyword">if</span> (!CheckResponse(flag, <span class="literal">true</span>)) &#123;</div><div class="line">    AERROR &lt;&lt; <span class="string">"Failed to switch to COMPLETE_AUTO_DRIVE mode."</span>;</div><div class="line">    Emergency();</div><div class="line">    <span class="keyword">return</span> ErrorCode::CANBUS_ERROR;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    set_driving_mode(Chassis::COMPLETE_AUTO_DRIVE);</div><div class="line">    AINFO &lt;&lt; <span class="string">"Switch to COMPLETE_AUTO_DRIVE mode ok."</span>;</div><div class="line">    <span class="keyword">return</span> ErrorCode::OK;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以Lincoln为参考车辆实现的自动驾驶状态的控制序列：<br><figure class="highlight cpp"><figcaption><span>apollo/modules/canbus/vehicle/lincoln/lincoln_controller.cc Update</span></figcaption><table><tr><td class="code"><pre><span class="line">ErrorCode LincolnController::EnableAutoMode() &#123;</span><br><span class="line">  <span class="keyword">if</span> (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE) &#123;</span><br><span class="line">    AINFO &lt;&lt; <span class="string">"already in COMPLETE_AUTO_DRIVE mode"</span>;</span><br><span class="line">    <span class="keyword">return</span> ErrorCode::OK;</span><br><span class="line">  &#125;</span><br><span class="line">  brake_60_-&gt;set_enable();<span class="comment">// 制动可用</span></span><br><span class="line">  throttle_62_-&gt;set_enable(); <span class="comment">// 气节门可用</span></span><br><span class="line">  steering_64_-&gt;set_enable(); <span class="comment">// 转向请求可用</span></span><br><span class="line"></span><br><span class="line">  can_sender_-&gt;Update();</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int32_t</span> flag =</span><br><span class="line">      CHECK_RESPONSE_STEER_UNIT_FLAG | CHECK_RESPONSE_SPEED_UNIT_FLAG;</span><br><span class="line">  <span class="keyword">if</span> (!CheckResponse(flag, <span class="literal">true</span>)) &#123;</span><br><span class="line">    AERROR &lt;&lt; <span class="string">"Failed to switch to COMPLETE_AUTO_DRIVE mode."</span>;</span><br><span class="line">    Emergency();</span><br><span class="line">    <span class="keyword">return</span> ErrorCode::CANBUS_ERROR;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    set_driving_mode(Chassis::COMPLETE_AUTO_DRIVE);</span><br><span class="line">    AINFO &lt;&lt; <span class="string">"Switch to COMPLETE_AUTO_DRIVE mode ok."</span>;</span><br><span class="line">    <span class="keyword">return</span> ErrorCode::OK;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在与底盘各组件交互的过程中，组件控制需要基于ProtocolData实现与各组件的控制协议，确保控制命令在个性化平台上，兼容处理无误。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/MacHi%202017-09-27%2016-03-14.png" width="99%"></p>
 <p align="center">Apollo实现的众多Lincoln数据协议</p>
@@ -138,26 +138,26 @@
 <li>参考车辆需要基于ProtocolData基类实现自己的数据协议；</li>
 </ul>
 <h3 id="引用参考"><a href="#引用参考" class="headerlink" title="引用参考"></a>引用参考</h3><ul>
-<li><a href="https://www.zhihu.com/question/23704461" target="_blank" rel="external">汽车刹车的原理是什么？</a></li>
-<li><a href="http://www.infiniti-cdn.net/content/dam/Infiniti/China/Homepage/brochure/Q50_Brochure_v1.pdf" target="_blank" rel="external">Q50_产品手册_v1.pdf</a></li>
-<li><a href="https://www.leiphone.com/news/201703/eoBgkp3qJLEkXLH1.html" target="_blank" rel="external">新能源汽车和自动驾驶技术需要什么样的制动系统？</a> </li>
-<li><a href="http://auto2015.bosch.com.cn/ebrochures2015/automated/cc/cc_at/ibooster/datesheet_ibooster_cn.pdf" target="_blank" rel="external">底盘控制系统iBooster ‒ 不依赖真空源的机电伺服助力机构pdf</a></li>
-<li><a href="http://auto.163.com/14/0505/17/9RGFDJHM00084TUP.html" target="_blank" rel="external">自动驾驶的又一步 博世iBooster技术解读</a></li>
-<li><a href="http://auto.163.com/14/0414/18/9PQFVFQK00084TUP_all.html" target="_blank" rel="external">从战斗机到Q50 英菲尼迪DAS转向技术体验（全文）</a></li>
-<li><a href="http://www.chinabaike.com/t/9675/2013/0910/1523950.html" target="_blank" rel="external">BOSCH第九代ESP控制系统简介</a></li>
-<li><a href="http://www.elecfans.com/baike/qichedianzi/cheshendianzixitong/20100311187330.html" target="_blank" rel="external">车辆EMB制动系统的发展历程简述</a></li>
+<li><a href="https://www.zhihu.com/question/23704461" target="_blank" rel="noopener">汽车刹车的原理是什么？</a></li>
+<li><a href="http://www.infiniti-cdn.net/content/dam/Infiniti/China/Homepage/brochure/Q50_Brochure_v1.pdf" target="_blank" rel="noopener">Q50_产品手册_v1.pdf</a></li>
+<li><a href="https://www.leiphone.com/news/201703/eoBgkp3qJLEkXLH1.html" target="_blank" rel="noopener">新能源汽车和自动驾驶技术需要什么样的制动系统？</a> </li>
+<li><a href="http://auto2015.bosch.com.cn/ebrochures2015/automated/cc/cc_at/ibooster/datesheet_ibooster_cn.pdf" target="_blank" rel="noopener">底盘控制系统iBooster ‒ 不依赖真空源的机电伺服助力机构pdf</a></li>
+<li><a href="http://auto.163.com/14/0505/17/9RGFDJHM00084TUP.html" target="_blank" rel="noopener">自动驾驶的又一步 博世iBooster技术解读</a></li>
+<li><a href="http://auto.163.com/14/0414/18/9PQFVFQK00084TUP_all.html" target="_blank" rel="noopener">从战斗机到Q50 英菲尼迪DAS转向技术体验（全文）</a></li>
+<li><a href="http://www.chinabaike.com/t/9675/2013/0910/1523950.html" target="_blank" rel="noopener">BOSCH第九代ESP控制系统简介</a></li>
+<li><a href="http://www.elecfans.com/baike/qichedianzi/cheshendianzixitong/20100311187330.html" target="_blank" rel="noopener">车辆EMB制动系统的发展历程简述</a></li>
 </ul>
-<p><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">planning->control:车道规划
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op1=>operation: 摩擦片制动|past
+op2=>operation: 鼓式、盘式制动器
+op3=>operation: 机械、电子ABS制动
+op4=>operation: EHB、EMB线控制动
+op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">planning->control:车道规划
 Note right of planning:（定位、感知、预测）
 control->canbus: 车道规划、车辆状态、HMI自动状态切换
 #Note right of control:HMI自动状态切换
 Note right of canbus: 底盘各组件接受执行
 canbus->control: 给出底盘状态反馈
-control-->planning:none</textarea><textarea id="sequence-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op1=>operation: 摩擦片制动|past
-op2=>operation: 鼓式、盘式制动器
-op3=>operation: 机械、电子ABS制动
-op4=>operation: EHB、EMB线控制动
-op1(right)->op2(right)->op3(right)->op4(right)</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
+control-->planning:none</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></p>
 
 
 <!--<a href="http://yoursite.com/2017-9-25-driving-by-wire-tech.html#disqus_thread" class="article-comment-link">Comments</a>

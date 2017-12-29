@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,13 +44,13 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Doxygen生成文档"><span class="toc-text">Doxygen生成文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装doxygen"><span class="toc-text">安装doxygen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成源码文档"><span class="toc-text">生成源码文档</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Doxygen生成文档"><span class="toc-text"><a href="#Doxygen&#x751F;&#x6210;&#x6587;&#x6863;" class="headerlink" title="Doxygen&#x751F;&#x6210;&#x6587;&#x6863;"></a>Doxygen&#x751F;&#x6210;&#x6587;&#x6863;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装doxygen"><span class="toc-text"><a href="#&#x5B89;&#x88C5;doxygen" class="headerlink" title="&#x5B89;&#x88C5;doxygen"></a>&#x5B89;&#x88C5;doxygen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成源码文档"><span class="toc-text"><a href="#&#x751F;&#x6210;&#x6E90;&#x7801;&#x6587;&#x6863;" class="headerlink" title="&#x751F;&#x6210;&#x6E90;&#x7801;&#x6587;&#x6863;"></a>&#x751F;&#x6210;&#x6E90;&#x7801;&#x6587;&#x6863;</span></a></li></ol></li></ol>
 <h1 id="Doxygen生成文档"><a href="#Doxygen生成文档" class="headerlink" title="Doxygen生成文档"></a>Doxygen生成文档</h1><blockquote>
 <p>如果查看代码结构，只需要安装doxygen即可。</p>
 </blockquote>
-<h2 id="安装doxygen"><a href="#安装doxygen" class="headerlink" title="安装doxygen"></a>安装doxygen</h2><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> svn co https://doxygen.svn.sourceforge.net/svnroot/doxygen/trunk doxygen-svn</span></div><div class="line"> </div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> doxygen-svn</span></div><div class="line"><span class="meta">$</span><span class="bash"> ./configure –prefix=/home/user1/bin</span></div><div class="line"><span class="meta">$</span><span class="bash"> make</span></div><div class="line"> </div><div class="line"><span class="meta">$</span><span class="bash"> make install</span></div></pre></td></tr></table></figure>
-<h2 id="生成源码文档"><a href="#生成源码文档" class="headerlink" title="生成源码文档"></a>生成源码文档</h2><p>拉取Apollo代码（如果已经执行，直接忽略）：<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">git clone https://github.com/ApolloAuto/apollo.git apollo</div><div class="line">cd apollo</div></pre></td></tr></table></figure></p>
-<p>Apollo项目的目录中，含有<code>apollo.doxygen</code>的渲染配置文件。<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> doxygen apollo.doxygen</span></div></pre></td></tr></table></figure></p>
+<h2 id="安装doxygen"><a href="#安装doxygen" class="headerlink" title="安装doxygen"></a>安装doxygen</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> svn co https://doxygen.svn.sourceforge.net/svnroot/doxygen/trunk doxygen-svn</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> doxygen-svn</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure –prefix=/home/user1/bin</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">$</span><span class="bash"> make install</span></span><br></pre></td></tr></table></figure>
+<h2 id="生成源码文档"><a href="#生成源码文档" class="headerlink" title="生成源码文档"></a>生成源码文档</h2><p>拉取Apollo代码（如果已经执行，直接忽略）：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/ApolloAuto/apollo.git apollo</span><br><span class="line">cd apollo</span><br></pre></td></tr></table></figure></p>
+<p>Apollo项目的目录中，含有<code>apollo.doxygen</code>的渲染配置文件。<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> doxygen apollo.doxygen</span></span><br></pre></td></tr></table></figure></p>
 <p>生成完毕之后，查看<code>apollo/docs/doxygen/html</code>目录，即生成基于代码的文档。方面在本地查看HTML格式的文档。</p>
 
 

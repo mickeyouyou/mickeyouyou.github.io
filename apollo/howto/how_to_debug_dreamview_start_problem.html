@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,11 +44,11 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动Dreamview步骤"><span class="toc-text">启动Dreamview步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dreamview启动失败"><span class="toc-text">Dreamview启动失败</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动Dreamview步骤"><span class="toc-text"><a href="#&#x542F;&#x52A8;Dreamview&#x6B65;&#x9AA4;" class="headerlink" title="&#x542F;&#x52A8;Dreamview&#x6B65;&#x9AA4;"></a>&#x542F;&#x52A8;Dreamview&#x6B65;&#x9AA4;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dreamview启动失败"><span class="toc-text"><a href="#Dreamview&#x542F;&#x52A8;&#x5931;&#x8D25;" class="headerlink" title="Dreamview&#x542F;&#x52A8;&#x5931;&#x8D25;"></a>Dreamview&#x542F;&#x52A8;&#x5931;&#x8D25;</span></a></li></ol>
 <h3 id="启动Dreamview步骤"><a href="#启动Dreamview步骤" class="headerlink" title="启动Dreamview步骤"></a>启动Dreamview步骤</h3><p>如果你在使用 <code>docker/scripts/dev</code>目录的脚本启动Dreamview的过程遇到问题，第一步如下表确认输入的正确命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ bash docker/scripts/dev_start.sh</div><div class="line">$ bash docker/scripts/dev_into.sh</div><div class="line">$ <span class="built_in">cd</span> /apollo</div><div class="line">$ bash apollo.sh build</div><div class="line">$ bash scripts/dreamview.sh</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash docker/scripts/dev_start.sh</span><br><span class="line">$ bash docker/scripts/dev_into.sh</span><br><span class="line">$ <span class="built_in">cd</span> /apollo</span><br><span class="line">$ bash apollo.sh build</span><br><span class="line">$ bash scripts/dreamview.sh</span><br></pre></td></tr></table></figure>
 <h3 id="Dreamview启动失败"><a href="#Dreamview启动失败" class="headerlink" title="Dreamview启动失败"></a>Dreamview启动失败</h3><p>如果Dreamview启动失败，使用一下脚本检查Dreamview启动日志，并重启Dreamview。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># 检查 dreamview 启动日志</span></div><div class="line">$ cat data/<span class="built_in">log</span>/dreamview.out</div><div class="line">terminate called after throwing an instance of <span class="string">'CivetException'</span></div><div class="line">  what():  null context when constructing CivetServer. Possible problem binding to port.</div><div class="line"></div><div class="line">$ sudo apt-get install psmisc</div><div class="line"></div><div class="line"><span class="comment"># 检查dreamview是否已在其他终端运行</span></div><div class="line">$ sudo lsof -i :8888</div><div class="line"></div><div class="line"><span class="comment"># kill other running/pending dreamview</span></div><div class="line">$ sudo fuser -k 8888/tcp</div><div class="line"></div><div class="line"><span class="comment"># restart dreamview again</span></div><div class="line">$ bash scripts/dreamview.sh</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查 dreamview 启动日志</span></span><br><span class="line">$ cat data/<span class="built_in">log</span>/dreamview.out</span><br><span class="line">terminate called after throwing an instance of <span class="string">'CivetException'</span></span><br><span class="line">  what():  null context when constructing CivetServer. Possible problem binding to port.</span><br><span class="line"></span><br><span class="line">$ sudo apt-get install psmisc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查dreamview是否已在其他终端运行</span></span><br><span class="line">$ sudo lsof -i :8888</span><br><span class="line"></span><br><span class="line"><span class="comment"># kill other running/pending dreamview</span></span><br><span class="line">$ sudo fuser -k 8888/tcp</span><br><span class="line"></span><br><span class="line"><span class="comment"># restart dreamview again</span></span><br><span class="line">$ bash scripts/dreamview.sh</span><br></pre></td></tr></table></figure>
 
 
 <!--<a href="http://yoursite.com/apollo/howto/how_to_debug_dreamview_start_problem.html#disqus_thread" class="article-comment-link">Comments</a>

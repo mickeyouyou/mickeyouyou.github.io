@@ -1,0 +1,135 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo 硬件接入标准建议</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo 硬件接入标准建议</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年11月21日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#认证类型"><span class="toc-text"><a href="#&#x8BA4;&#x8BC1;&#x7C7B;&#x578B;" class="headerlink" title="&#x8BA4;&#x8BC1;&#x7C7B;&#x578B;"></a>&#x8BA4;&#x8BC1;&#x7C7B;&#x578B;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件类型"><span class="toc-text"><a href="#&#x786C;&#x4EF6;&#x7C7B;&#x578B;" class="headerlink" title="&#x786C;&#x4EF6;&#x7C7B;&#x578B;"></a>&#x786C;&#x4EF6;&#x7C7B;&#x578B;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件电气指标"><span class="toc-text"><a href="#&#x786C;&#x4EF6;&#x7535;&#x6C14;&#x6307;&#x6807;" class="headerlink" title="&#x786C;&#x4EF6;&#x7535;&#x6C14;&#x6307;&#x6807;"></a>&#x786C;&#x4EF6;&#x7535;&#x6C14;&#x6307;&#x6807;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#激光雷达（LiDAR）"><span class="toc-text"><a href="#&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#xFF08;LiDAR&#xFF09;" class="headerlink" title="&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#xFF08;LiDAR&#xFF09;"></a>&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#xFF08;LiDAR&#xFF09;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#传感器指标"><span class="toc-text"><a href="#&#x4F20;&#x611F;&#x5668;&#x6307;&#x6807;" class="headerlink" title="&#x4F20;&#x611F;&#x5668;&#x6307;&#x6807;"></a>&#x4F20;&#x611F;&#x5668;&#x6307;&#x6807;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线束："><span class="toc-text"><a href="#&#x7EBF;&#x675F;&#xFF1A;" class="headerlink" title="&#x7EBF;&#x675F;&#xFF1A;"></a>&#x7EBF;&#x675F;&#xFF1A;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电气指标："><span class="toc-text"><a href="#&#x7535;&#x6C14;&#x6307;&#x6807;&#xFF1A;" class="headerlink" title="&#x7535;&#x6C14;&#x6307;&#x6807;&#xFF1A;"></a>&#x7535;&#x6C14;&#x6307;&#x6807;&#xFF1A;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出项："><span class="toc-text"><a href="#&#x8F93;&#x51FA;&#x9879;&#xFF1A;" class="headerlink" title="&#x8F93;&#x51FA;&#x9879;&#xFF1A;"></a>&#x8F93;&#x51FA;&#x9879;&#xFF1A;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相机-Camera"><span class="toc-text"><a href="#&#x76F8;&#x673A;-Camera" class="headerlink" title="&#x76F8;&#x673A;(Camera)"></a>&#x76F8;&#x673A;(Camera)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPS"><span class="toc-text"><a href="#GPS" class="headerlink" title="GPS"></a>GPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IMU"><span class="toc-text"><a href="#IMU" class="headerlink" title="IMU"></a>IMU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#毫米波雷达（Radar）"><span class="toc-text"><a href="#&#x6BEB;&#x7C73;&#x6CE2;&#x96F7;&#x8FBE;&#xFF08;Radar&#xFF09;" class="headerlink" title="&#x6BEB;&#x7C73;&#x6CE2;&#x96F7;&#x8FBE;&#xFF08;Radar&#xFF09;"></a>&#x6BEB;&#x7C73;&#x6CE2;&#x96F7;&#x8FBE;&#xFF08;Radar&#xFF09;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算单元（Computing-Unit）"><span class="toc-text"><a href="#&#x8BA1;&#x7B97;&#x5355;&#x5143;&#xFF08;Computing-Unit&#xFF09;" class="headerlink" title="&#x8BA1;&#x7B97;&#x5355;&#x5143;&#xFF08;Computing Unit&#xFF09;"></a>&#x8BA1;&#x7B97;&#x5355;&#x5143;&#xFF08;Computing Unit&#xFF09;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制器-Control"><span class="toc-text"><a href="#&#x63A7;&#x5236;&#x5668;-Control" class="headerlink" title="&#x63A7;&#x5236;&#x5668;(Control)"></a>&#x63A7;&#x5236;&#x5668;(Control)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件物理特性与结构指标"><span class="toc-text"><a href="#&#x786C;&#x4EF6;&#x7269;&#x7406;&#x7279;&#x6027;&#x4E0E;&#x7ED3;&#x6784;&#x6307;&#x6807;" class="headerlink" title="&#x786C;&#x4EF6;&#x7269;&#x7406;&#x7279;&#x6027;&#x4E0E;&#x7ED3;&#x6784;&#x6307;&#x6807;"></a>&#x786C;&#x4EF6;&#x7269;&#x7406;&#x7279;&#x6027;&#x4E0E;&#x7ED3;&#x6784;&#x6307;&#x6807;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传感器指标-1"><span class="toc-text"><a href="#&#x4F20;&#x611F;&#x5668;&#x6307;&#x6807;-1" class="headerlink" title="&#x4F20;&#x611F;&#x5668;&#x6307;&#x6807;"></a>&#x4F20;&#x611F;&#x5668;&#x6307;&#x6807;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体场景工况表现"><span class="toc-text"><a href="#&#x5177;&#x4F53;&#x573A;&#x666F;&#x5DE5;&#x51B5;&#x8868;&#x73B0;" class="headerlink" title="&#x5177;&#x4F53;&#x573A;&#x666F;&#x5DE5;&#x51B5;&#x8868;&#x73B0;"></a>&#x5177;&#x4F53;&#x573A;&#x666F;&#x5DE5;&#x51B5;&#x8868;&#x73B0;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件接口"><span class="toc-text"><a href="#&#x8F6F;&#x4EF6;&#x63A5;&#x53E3;" class="headerlink" title="&#x8F6F;&#x4EF6;&#x63A5;&#x53E3;"></a>&#x8F6F;&#x4EF6;&#x63A5;&#x53E3;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#供应能力"><span class="toc-text"><a href="#&#x4F9B;&#x5E94;&#x80FD;&#x529B;" class="headerlink" title="&#x4F9B;&#x5E94;&#x80FD;&#x529B;"></a>&#x4F9B;&#x5E94;&#x80FD;&#x529B;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件前处理能力"><span class="toc-text"><a href="#&#x8F6F;&#x4EF6;&#x524D;&#x5904;&#x7406;&#x80FD;&#x529B;" class="headerlink" title="&#x8F6F;&#x4EF6;&#x524D;&#x5904;&#x7406;&#x80FD;&#x529B;"></a>&#x8F6F;&#x4EF6;&#x524D;&#x5904;&#x7406;&#x80FD;&#x529B;</span></a></li></ol>
+<p>我们在与硬件（传感器、控制、计算单元）厂商合作交流时，他们提供的产品种类繁多，参数不一，如何确定某一型号的设备能否接入Apollo是个复杂的过程。如果有一套Apollo硬件接入标准，方便我们认证的同时，也方便供应商对照执行。</p>
+<p>这里针对的有意向接入Apollo开放平台的某一个硬件设备，从如下多个方面，衡量该设备是否可以接入Apollo开放平台：</p>
+<h2 id="认证类型"><a href="#认证类型" class="headerlink" title="认证类型"></a>认证类型</h2><ol>
+<li>Demo级，面向demo车研发的入门认证。</li>
+<li>测试级，面向小规模车辆试生产的测试和采集车的中级认证。</li>
+<li>量产级，量产车规级的认证。</li>
+</ol>
+<p>优先支持Demo、测试级类型的认证，支持Demo与测试。</p>
+<h2 id="硬件类型"><a href="#硬件类型" class="headerlink" title="硬件类型"></a>硬件类型</h2><p>该标准包含以下接入的设备类型：</p>
+<ul>
+<li>激光雷达（LiDAR）</li>
+<li>相机(Camera)</li>
+<li>GPS</li>
+<li>IMU</li>
+<li>毫米波雷达（Radar）</li>
+<li>计算单元（Computing Unit）</li>
+<li>控制器(Control)</li>
+</ul>
+<h2 id="硬件电气指标"><a href="#硬件电气指标" class="headerlink" title="硬件电气指标"></a>硬件电气指标</h2><p>硬件设备的提供的物理电气指标：电压，电流，温度，湿度，抗高压冲击能力，连续工作时长，寿命等。以下分设备类型详细描述： </p>
+<h3 id="激光雷达（LiDAR）"><a href="#激光雷达（LiDAR）" class="headerlink" title="激光雷达（LiDAR）"></a>激光雷达（LiDAR）</h3><h4 id="传感器指标"><a href="#传感器指标" class="headerlink" title="传感器指标"></a>传感器指标</h4><p>以Velodyne HDL-64E为例：</p>
+<ul>
+<li>激光光束数量：64 channels</li>
+<li>精度： ±2.0 cm </li>
+<li>水平视野：+2.0° to -24.9° (26.9°)</li>
+<li>水平角度分辨率：0.4°</li>
+<li>垂直视野：360°</li>
+<li>垂直角度分辨率： 0.08° – 0.35°</li>
+<li>旋转率：5Hz-20Hz</li>
+</ul>
+<h4 id="线束："><a href="#线束：" class="headerlink" title="线束："></a>线束：</h4><ul>
+<li>激光产品分类：</li>
+<li>激光波长：930nm</li>
+<li>光束尺寸：</li>
+</ul>
+<h4 id="电气指标："><a href="#电气指标：" class="headerlink" title="电气指标："></a>电气指标：</h4><ul>
+<li>功率：60W</li>
+<li>操作电压：12V-32V</li>
+<li>重量：12.7kg</li>
+<li>尺寸：直径215毫米x 高度283毫米</li>
+<li>工作温度：-10°C至+ 60°C</li>
+<li>存储温度：-40°C至+ 85°C</li>
+</ul>
+<h4 id="输出项："><a href="#输出项：" class="headerlink" title="输出项："></a>输出项：</h4><ul>
+<li>生成的3D激光雷达数据点：<ul>
+<li>单返回模式：~1,300,000点/秒</li>
+<li>双返回模式：~2,200,000点/秒</li>
+</ul>
+</li>
+<li>100Mp 以太网络连接  </li>
+</ul>
+<h3 id="相机-Camera"><a href="#相机-Camera" class="headerlink" title="相机(Camera)"></a>相机(Camera)</h3><h3 id="GPS"><a href="#GPS" class="headerlink" title="GPS"></a>GPS</h3><h3 id="IMU"><a href="#IMU" class="headerlink" title="IMU"></a>IMU</h3><h3 id="毫米波雷达（Radar）"><a href="#毫米波雷达（Radar）" class="headerlink" title="毫米波雷达（Radar）"></a>毫米波雷达（Radar）</h3><h3 id="计算单元（Computing-Unit）"><a href="#计算单元（Computing-Unit）" class="headerlink" title="计算单元（Computing Unit）"></a>计算单元（Computing Unit）</h3><h3 id="控制器-Control"><a href="#控制器-Control" class="headerlink" title="控制器(Control)"></a>控制器(Control)</h3><h2 id="硬件物理特性与结构指标"><a href="#硬件物理特性与结构指标" class="headerlink" title="硬件物理特性与结构指标"></a>硬件物理特性与结构指标</h2><p>如重量，大小，材质，抗震，防污，抗变形能力等。</p>
+<h2 id="传感器指标-1"><a href="#传感器指标-1" class="headerlink" title="传感器指标"></a>传感器指标</h2><p>如信噪比，影像畸变，探测范围，准确度，采样频率等。 </p>
+<h2 id="具体场景工况表现"><a href="#具体场景工况表现" class="headerlink" title="具体场景工况表现"></a>具体场景工况表现</h2><p>如晴天，雨天，雾霾，强逆光，夜晚有路灯，无路灯等。</p>
+<h2 id="软件接口"><a href="#软件接口" class="headerlink" title="软件接口"></a>软件接口</h2><p>数据格式是否符合Apollo规范。 </p>
+<h2 id="供应能力"><a href="#供应能力" class="headerlink" title="供应能力"></a>供应能力</h2><p>如生产与供货能速度，数量，质量，价格等。</p>
+<h2 id="软件前处理能力"><a href="#软件前处理能力" class="headerlink" title="软件前处理能力"></a>软件前处理能力</h2><p>如针对能提供一些前置识别或计算能力的感知模块，需要过亮哥那边的认证<br>感知：</p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.velodynelidar.com/hdl-64e.html" target="_blank" rel="noopener">Velodyne HDL-64E</a></li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/apollo/hardware-stadard.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

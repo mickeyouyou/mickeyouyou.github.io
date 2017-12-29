@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,9 +44,9 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#加密算法"><span class="toc-text">加密算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#salt"><span class="toc-text">salt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密文安全性"><span class="toc-text">密文安全性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考文档"><span class="toc-text">参考文档</span></a></li></ol>
-<p>在现在的linux和unix系统中，用户的密码都保存在shadow文件中，因为密码关系到系统的安全，所以只有root用户才有读shadow文件的权限。<br>/etc/passwd<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">➜  cat /etc/passwd</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</div><div class="line">bin:x:2:2:bin:/bin:/usr/sbin/nologin</div><div class="line">sys:x:3:3:sys:/dev:/usr/sbin/nologin</div><div class="line">sync:x:4:65534:sync:/bin:/bin/sync</div><div class="line">zongbao:x:1000:1000:fengzongbao,,,:/home/zongbao:/bin/zsh</div></pre></td></tr></table></figure></p>
-<p>shadow中存放的内容是有着一定的格式的，如下：<br>/etc/shadow<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">➜  sudo cat /etc/shadow </div><div class="line">root:!:16398:0:99999:7:::</div><div class="line">daemon:*:16273:0:99999:7:::</div><div class="line">bin:*:16273:0:99999:7:::</div><div class="line">sys:*:16273:0:99999:7:::</div><div class="line">sync:*:16273:0:99999:7:::</div><div class="line">zongbao:$6$NOOoCLdzq4JKnxF.$Cdz0/CbZQRjVJ1vfxMJBlloK1wVEa/czY/63WLBqKWFGjtHk2TPfhveu.ErfDF1gV2YahACNQ/UgEwVOT4qkC/:16569:0:99999:7:::</div></pre></td></tr></table></figure></p>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#加密算法"><span class="toc-text"><a href="#&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;" class="headerlink" title="&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;"></a>&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#salt"><span class="toc-text"><a href="#salt" class="headerlink" title="salt"></a>salt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密文安全性"><span class="toc-text"><a href="#&#x5BC6;&#x6587;&#x5B89;&#x5168;&#x6027;" class="headerlink" title="&#x5BC6;&#x6587;&#x5B89;&#x5168;&#x6027;"></a>&#x5BC6;&#x6587;&#x5B89;&#x5168;&#x6027;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考文档"><span class="toc-text"><a href="#&#x53C2;&#x8003;&#x6587;&#x6863;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x6863;"></a>&#x53C2;&#x8003;&#x6587;&#x6863;</span></a></li></ol>
+<p>在现在的linux和unix系统中，用户的密码都保存在shadow文件中，因为密码关系到系统的安全，所以只有root用户才有读shadow文件的权限。<br>/etc/passwd<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">➜  cat /etc/passwd</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</span><br><span class="line">bin:x:2:2:bin:/bin:/usr/sbin/nologin</span><br><span class="line">sys:x:3:3:sys:/dev:/usr/sbin/nologin</span><br><span class="line">sync:x:4:65534:sync:/bin:/bin/sync</span><br><span class="line">zongbao:x:1000:1000:fengzongbao,,,:/home/zongbao:/bin/zsh</span><br></pre></td></tr></table></figure></p>
+<p>shadow中存放的内容是有着一定的格式的，如下：<br>/etc/shadow<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">➜  sudo cat /etc/shadow </span><br><span class="line">root:!:16398:0:99999:7:::</span><br><span class="line">daemon:*:16273:0:99999:7:::</span><br><span class="line">bin:*:16273:0:99999:7:::</span><br><span class="line">sys:*:16273:0:99999:7:::</span><br><span class="line">sync:*:16273:0:99999:7:::</span><br><span class="line">zongbao:$6$NOOoCLdzq4JKnxF.$Cdz0/CbZQRjVJ1vfxMJBlloK1wVEa/czY/63WLBqKWFGjtHk2TPfhveu.ErfDF1gV2YahACNQ/UgEwVOT4qkC/:16569:0:99999:7:::</span><br></pre></td></tr></table></figure></p>
 <p>用冒号分割后的具体意义如下：</p>
 <ul>
 <li><strong>username</strong>：用户名</li>
@@ -70,7 +70,7 @@
 <h4 id="密文安全性"><a href="#密文安全性" class="headerlink" title="密文安全性"></a>密文安全性</h4><p>要用到<code>SHA256</code>或者<code>SHA512</code>的密码加密，glic版本需大于2.7。<br>底层用到的</p>
 <p>这样的密码还安全吗？答案不是绝对的，如果有不怀好意的人拿到了比如说上面的<code>hash</code>还是可以用字典暴力破解。</p>
 <h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><blockquote>
-<p><a href="http://man7.org/linux/man-pages/man3/crypt.3.html" target="_blank" rel="external">http://man7.org/linux/man-pages/man3/crypt.3.html</a></p>
+<p><a href="http://man7.org/linux/man-pages/man3/crypt.3.html" target="_blank" rel="noopener">http://man7.org/linux/man-pages/man3/crypt.3.html</a></p>
 </blockquote>
 
 

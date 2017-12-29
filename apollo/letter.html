@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,16 +44,16 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码的查看方式"><span class="toc-text">代码的查看方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于提问与解决"><span class="toc-text">关于提问与解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方式1"><span class="toc-text">方式1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方式2"><span class="toc-text">方式2</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码的查看方式"><span class="toc-text"><a href="#&#x4EE3;&#x7801;&#x7684;&#x67E5;&#x770B;&#x65B9;&#x5F0F;" class="headerlink" title="&#x4EE3;&#x7801;&#x7684;&#x67E5;&#x770B;&#x65B9;&#x5F0F;"></a>&#x4EE3;&#x7801;&#x7684;&#x67E5;&#x770B;&#x65B9;&#x5F0F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于提问与解决"><span class="toc-text"><a href="#&#x5173;&#x4E8E;&#x63D0;&#x95EE;&#x4E0E;&#x89E3;&#x51B3;" class="headerlink" title="&#x5173;&#x4E8E;&#x63D0;&#x95EE;&#x4E0E;&#x89E3;&#x51B3;"></a>&#x5173;&#x4E8E;&#x63D0;&#x95EE;&#x4E0E;&#x89E3;&#x51B3;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方式1"><span class="toc-text"><a href="#&#x65B9;&#x5F0F;1" class="headerlink" title="&#x65B9;&#x5F0F;1"></a><strong>&#x65B9;&#x5F0F;1</strong></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方式2"><span class="toc-text"><a href="#&#x65B9;&#x5F0F;2" class="headerlink" title="&#x65B9;&#x5F0F;2"></a><strong>&#x65B9;&#x5F0F;2</strong></span></a></li></ol></li></ol>
 <p>Hi，关心Apollo的小伙伴，你好~作为300多人中的一份子，感谢你参加10.27在上海举行的#Hello Apollo自动驾驶公开课#沙龙活动。</p>
 <p>我是Apollo技术布道师、研发工程师，<strong>冯宗宝</strong>。如果你已经加入到微信开发者交流群“Apollo开发者交流上海”，那我们应该已经见过面了。</p>
 <p>在沙龙分享之后，不知道大家对Apollo的认识了解程度如何。容我再次回顾并介绍下Apollo，无人驾驶开放平台。</p>
 <p>Apollo在7月5号开放发布之后，目前已经迭代到1.5版本，开放能力包括地图、定位、感知、规划、控制、端到端、HMI等，开放的云服务有：高精地图、仿真开放平台、数据开放平台、DuerOS等。具体的开放架构如下：<br><img src="http://7xk16m.com1.z0.glb.clouddn.com/MacHi%202017-10-31%2018-30-29.png" width="99%"></p>
 <p>除了代码能力部分，我们还开放服务平台：</p>
 <ul>
-<li>Apollo数据开放平台：<a href="http://apollo.auto/opendata_cn.html" target="_blank" rel="external">http://apollo.auto/opendata_cn.html</a></li>
-<li>Apollo仿真开放平台：<a href="http://apollo.auto/platform/simulation_cn.html" target="_blank" rel="external">http://apollo.auto/platform/simulation_cn.html</a></li>
-<li>Apollo标定服务平台：<a href="http://apollo.auto/platform/perception_cn.html" target="_blank" rel="external">http://apollo.auto/platform/perception_cn.html</a></li>
+<li>Apollo数据开放平台：<a href="http://apollo.auto/opendata_cn.html" target="_blank" rel="noopener">http://apollo.auto/opendata_cn.html</a></li>
+<li>Apollo仿真开放平台：<a href="http://apollo.auto/platform/simulation_cn.html" target="_blank" rel="noopener">http://apollo.auto/platform/simulation_cn.html</a></li>
+<li>Apollo标定服务平台：<a href="http://apollo.auto/platform/perception_cn.html" target="_blank" rel="noopener">http://apollo.auto/platform/perception_cn.html</a></li>
 </ul>
 <p>平台的使用，与代码能力一样，均是免费的。</p>
 <p>在交流的过程中，大家都比较关心代码的阅读、使用等问题，下面从两个方面给大家带来一些建议，希望有所帮助。</p>
@@ -61,7 +61,7 @@
 <blockquote>
 <p>doxygen 一个基于代码库生成的文档工具。</p>
 </blockquote>
-<p>具体的方式可以参考：<a href="http://www.fzb.me/apollo/doxygen.html" target="_blank" rel="external">http://www.fzb.me/apollo/doxygen.html</a><br>比如在线的Reference代码结构图查看等，可以访问我的博客地址，这只是一个预览版本，后续的更新版本，我们将放置在Apollo官网的开发者社区。它提供类继承关系，UML方式的代码结构关系查看。<br><a href="http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html" target="_blank" rel="external">http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html</a></p>
+<p>具体的方式可以参考：<a href="http://www.fzb.me/apollo/doxygen.html" target="_blank" rel="noopener">http://www.fzb.me/apollo/doxygen.html</a><br>比如在线的Reference代码结构图查看等，可以访问我的博客地址，这只是一个预览版本，后续的更新版本，我们将放置在Apollo官网的开发者社区。它提供类继承关系，UML方式的代码结构关系查看。<br><a href="http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html" target="_blank" rel="noopener">http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html</a></p>
 <p>关于预览图：</p>
 <p><img src="http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp__inherit__graph.png" width="99%"></p>
 <h3 id="关于提问与解决"><a href="#关于提问与解决" class="headerlink" title="关于提问与解决"></a>关于提问与解决</h3><p>如果你在使用Apollo平台的过程中遇到任何问题，首先最直接考虑的绝对是代码，可以深入到代码库中，找寻你疑惑的答案。同时我们已将部分文档中文化，你可以在代码库相应的模块找到。</p>

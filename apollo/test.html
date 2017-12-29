@@ -1,0 +1,163 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年11月21日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#激光雷达介绍"><span class="toc-text"><a href="#&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x4ECB;&#x7ECD;"></a>&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x4ECB;&#x7ECD;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Velodyne旋转式选择标准"><span class="toc-text"><a href="#Velodyne&#x65CB;&#x8F6C;&#x5F0F;&#x9009;&#x62E9;&#x6807;&#x51C6;" class="headerlink" title="Velodyne&#x65CB;&#x8F6C;&#x5F0F;&#x9009;&#x62E9;&#x6807;&#x51C6;"></a>Velodyne&#x65CB;&#x8F6C;&#x5F0F;&#x9009;&#x62E9;&#x6807;&#x51C6;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部固定角度式"><span class="toc-text"><a href="#&#x5C40;&#x90E8;&#x56FA;&#x5B9A;&#x89D2;&#x5EA6;&#x5F0F;" class="headerlink" title="&#x5C40;&#x90E8;&#x56FA;&#x5B9A;&#x89D2;&#x5EA6;&#x5F0F;"></a>&#x5C40;&#x90E8;&#x56FA;&#x5B9A;&#x89D2;&#x5EA6;&#x5F0F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flash-Lidar"><span class="toc-text"><a href="#Flash-Lidar" class="headerlink" title="Flash Lidar"></a>Flash Lidar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MEMS-Flash"><span class="toc-text"><a href="#MEMS-Flash" class="headerlink" title="MEMS + Flash"></a>MEMS + Flash</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Camera"><span class="toc-text"><a href="#Camera" class="headerlink" title="Camera"></a>Camera</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPS、IMU"><span class="toc-text"><a href="#GPS&#x3001;IMU" class="headerlink" title="GPS&#x3001;IMU"></a>GPS&#x3001;IMU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Radar"><span class="toc-text"><a href="#Radar" class="headerlink" title="Radar"></a>Radar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ultrasonic-radar-超声波雷达"><span class="toc-text"><a href="#Ultrasonic-radar-&#x8D85;&#x58F0;&#x6CE2;&#x96F7;&#x8FBE;" class="headerlink" title="Ultrasonic radar &#x8D85;&#x58F0;&#x6CE2;&#x96F7;&#x8FBE;"></a>Ultrasonic radar &#x8D85;&#x58F0;&#x6CE2;&#x96F7;&#x8FBE;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#共性指标（电气、物理指标等）"><span class="toc-text"><a href="#&#x5171;&#x6027;&#x6307;&#x6807;&#xFF08;&#x7535;&#x6C14;&#x3001;&#x7269;&#x7406;&#x6307;&#x6807;&#x7B49;&#xFF09;" class="headerlink" title="&#x5171;&#x6027;&#x6307;&#x6807;&#xFF08;&#x7535;&#x6C14;&#x3001;&#x7269;&#x7406;&#x6307;&#x6807;&#x7B49;&#xFF09;"></a>&#x5171;&#x6027;&#x6307;&#x6807;&#xFF08;&#x7535;&#x6C14;&#x3001;&#x7269;&#x7406;&#x6307;&#x6807;&#x7B49;&#xFF09;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新版设备接入流程"><span class="toc-text"><a href="#&#x66F4;&#x65B0;&#x7248;&#x8BBE;&#x5907;&#x63A5;&#x5165;&#x6D41;&#x7A0B;" class="headerlink" title="&#x66F4;&#x65B0;&#x7248;&#x8BBE;&#x5907;&#x63A5;&#x5165;&#x6D41;&#x7A0B;"></a>&#x66F4;&#x65B0;&#x7248;&#x8BBE;&#x5907;&#x63A5;&#x5165;&#x6D41;&#x7A0B;</span></a></li></ol>
+<p>硬件团队结构介绍：主要Experts在美研</p>
+<ul>
+<li>Helen<ul>
+<li>Andrew:focus计算单元，</li>
+<li>Yaoming:Sensor(主要为LiDAR,Camera)，Apollo Fund公司评估</li>
+<li>郑楠（北京）<ul>
+<li>领昌：相机选型，采集盒子</li>
+<li>石峰：PM硬件选型，相关公司投资评估</li>
+<li>部分新人：电路设计</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>硬件组可以支持的类型：</p>
+<ul>
+<li>Lidar （Ethernet）</li>
+<li>Camera </li>
+<li>GPS\IMU </li>
+<li>Radar 毫米波雷达</li>
+<li>Ultrasonic radar(超声波雷达)</li>
+</ul>
+<h2 id="激光雷达介绍"><a href="#激光雷达介绍" class="headerlink" title="激光雷达介绍"></a>激光雷达介绍</h2><p>以Velodyne 64线 为例：<br>Field view：360°*26° 水平方向360°，垂直方向26°，<br>Resulotion：水平方向0.09° 垂直方向0.3°</p>
+<h3 id="Velodyne旋转式选择标准"><a href="#Velodyne旋转式选择标准" class="headerlink" title="Velodyne旋转式选择标准"></a>Velodyne旋转式选择标准</h3><ul>
+<li>field view 360°*26°</li>
+<li>dataset format</li>
+<li>驱动配置支持</li>
+<li>输出格式 以Velodyne为例：100万点/帧 除xyz之外，附带timestamp</li>
+<li>电气指标</li>
+<li>物理指标</li>
+<li>支持车规级</li>
+<li>是否稳定</li>
+</ul>
+<p><strong>360度选装激光雷达致命缺陷：</strong></p>
+<ul>
+<li>组装耗时，不适合量产</li>
+<li>垂直角度只有0.3°，不能有效看到远距离的物体</li>
+</ul>
+<h3 id="局部固定角度式"><a href="#局部固定角度式" class="headerlink" title="局部固定角度式"></a>局部固定角度式</h3><p>朝一定角度发射激光束:</p>
+<ul>
+<li>接口不一定是（Ethernet），CAN</li>
+<li>距离+反射率，200m对应的反射率 车（905nm波长的光，不管白车黑车）：40%，墙90%，人：40%，有效距离内，达到40%的目标（200m）。<br>正前方，200m,侧方，后方 50m，最后做一次融合（Apollo目前并没有适配，小厂的适配方向）</li>
+</ul>
+<h3 id="Flash-Lidar"><a href="#Flash-Lidar" class="headerlink" title="Flash Lidar"></a>Flash Lidar</h3><ul>
+<li>面光投影</li>
+<li>1550 nm 可以看很远，但是成本很高（两维）</li>
+</ul>
+<h3 id="MEMS-Flash"><a href="#MEMS-Flash" class="headerlink" title="MEMS + Flash"></a>MEMS + Flash</h3><p>比较有希望，明年会有公司推出相关的产品，会成为趋势，但离我们现在比较早。</p>
+<p><strong>Apollo目前支持的是360°激光雷达，不支持局部角度的激光雷达。</strong><br>与Velodyne同类型的产品，比如禾赛科技、速腾、北科天绘的产品，可以为开发者增加可选项。（这些激光雷达用于障碍物检测可以，识别还不确定）<br>TODO需要@李冲冲 禾赛激光雷达测试结果</p>
+<h2 id="Camera"><a href="#Camera" class="headerlink" title="Camera"></a>Camera</h2><ul>
+<li><strong>目前Apollo中的Camera使用，主要功能在检测红绿灯；</strong></li>
+<li>后续版本2.5，3.0需要有障碍物感知识别、动态范围105DB</li>
+<li>目前使用的Camera品牌：LI On-semi安森美</li>
+<li>曝光次数：两次曝光</li>
+</ul>
+<p>如何选择：</p>
+<ul>
+<li>分辨率，动态范围 &gt;150DB，大于两次曝光，目前发现两次曝光也不够，下一阶段推动到三次曝光，动态范围</li>
+<li>像素3*3 micro 像素不能太大，像素决定分辨率，像素越大，分辨率越小；红绿灯感知的（@王亮感知）多少距离，30个像素；<ul>
+<li>安森美 ,1920 <em> 1080   3</em>3 micro/pix </li>
+<li>sony 2.9* 2.9 micro / pix 不确定</li>
+</ul>
+</li>
+<li>目前使用的是USB Camera(不符合车轨，不太稳定，后续2.0，3.0需要制定)，硬件结构必须使用 FPD-Link FAKRA</li>
+<li>参考角度：6mm 水平70°，垂直30多度 25mm </li>
+</ul>
+<h2 id="GPS、IMU"><a href="#GPS、IMU" class="headerlink" title="GPS、IMU"></a>GPS、IMU</h2><ul>
+<li>接口为USB；</li>
+<li>NovAtel SPAN-IGM-A1(成本较高，2万左右，需要有低成本的方案)；</li>
+<li>星道，星数，频率，额外的参数需要一位GPS专家（1204入职）提供；</li>
+</ul>
+<h2 id="Radar"><a href="#Radar" class="headerlink" title="Radar"></a>Radar</h2><ul>
+<li>接口适配CAN</li>
+<li>目前使用的品牌是大陆 Dephi</li>
+</ul>
+<h2 id="Ultrasonic-radar-超声波雷达"><a href="#Ultrasonic-radar-超声波雷达" class="headerlink" title="Ultrasonic radar 超声波雷达"></a>Ultrasonic radar 超声波雷达</h2><p>近距离碰撞要求（如金龙阿波龙车身周围16个超声波雷达），价格低，可选择的范围大。</p>
+<ul>
+<li>接口适配CAN</li>
+<li>参考存货量</li>
+</ul>
+<h2 id="共性指标（电气、物理指标等）"><a href="#共性指标（电气、物理指标等）" class="headerlink" title="共性指标（电气、物理指标等）"></a>共性指标（电气、物理指标等）</h2><p>Computer platform @andrew 可以作为接口人，指定或输出具体物理指标的给出。</p>
+<h2 id="更新版设备接入流程"><a href="#更新版设备接入流程" class="headerlink" title="更新版设备接入流程"></a>更新版设备接入流程</h2><ol>
+<li>硬件Checklist，计算单元等联系Andrew</li>
+<li>硬件测试流程 mayu<br>先看产品指标（厂商的测试指标）、实际产品应用情况，通过这些指标和应用情况，基本确定需求的满足情况。一旦满足，再结合感知提供的测试角度，用实际算法评估 by 李冲冲</li>
+<li>为传感器编写适用于Apollo的硬件驱动 具体的可以联系CarOS manager 陈卓</li>
+<li>为硬件设备提供感知算法的适配，适配的过程 需要用到第一步冲冲提到的为该设备指定的测试指标 wangliang</li>
+<li>根据硬件设备是否需要地图地图数据，如需使用，联系 songshiyu支持</li>
+</ol>
+
+
+<!--<a href="http://yoursite.com/apollo/test.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,7 +44,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo与线控控制组件的交互"><span class="toc-text">Apollo与线控控制组件的交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo与线控控制组件的交互"><span class="toc-text"><a href="#Apollo&#x4E0E;&#x7EBF;&#x63A7;&#x63A7;&#x5236;&#x7EC4;&#x4EF6;&#x7684;&#x4EA4;&#x4E92;" class="headerlink" title="Apollo&#x4E0E;&#x7EBF;&#x63A7;&#x63A7;&#x5236;&#x7EC4;&#x4EF6;&#x7684;&#x4EA4;&#x4E92;"></a>Apollo&#x4E0E;&#x7EBF;&#x63A7;&#x63A7;&#x5236;&#x7EC4;&#x4EF6;&#x7684;&#x4EA4;&#x4E92;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li></ol>
 <h3 id="Apollo与线控控制组件的交互"><a href="#Apollo与线控控制组件的交互" class="headerlink" title="Apollo与线控控制组件的交互"></a>Apollo与线控控制组件的交互</h3><p>Apollo自动驾驶中，数据主要来源于传感器的原始数据，包括图像、激光雷达、雷达等。end-to-end输入以图像为主。输出是车辆的控制决策指令，如方向盘角度、加速、刹车。</p>
 <p>策略规划（planning）</p>
 <ul>
@@ -83,7 +83,7 @@
 <li>根据预测给出的转向目标、转向速率做响应的调整</li>
 <li>如果有信号灯，设置喇叭（horn）、信号灯(turningSignal)、灯光光束(Beam)等</li>
 </ul>
-<p>以Lincoln为参考车辆实现的自动驾驶状态的控制序列：<br><figure class="highlight cpp"><figcaption><span>apollo/modules/canbus/vehicle/lincoln/lincoln_controller.cc Update</span></figcaption><table><tr><td class="code"><pre><div class="line">ErrorCode LincolnController::EnableAutoMode() &#123;</div><div class="line">  <span class="keyword">if</span> (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE) &#123;</div><div class="line">    AINFO &lt;&lt; <span class="string">"already in COMPLETE_AUTO_DRIVE mode"</span>;</div><div class="line">    <span class="keyword">return</span> ErrorCode::OK;</div><div class="line">  &#125;</div><div class="line">  brake_60_-&gt;set_enable();<span class="comment">// 制动可用</span></div><div class="line">  throttle_62_-&gt;set_enable(); <span class="comment">// 气节门可用</span></div><div class="line">  steering_64_-&gt;set_enable(); <span class="comment">// 转向请求可用</span></div><div class="line"></div><div class="line">  can_sender_-&gt;Update();</div><div class="line">  <span class="keyword">const</span> <span class="keyword">int32_t</span> flag =</div><div class="line">      CHECK_RESPONSE_STEER_UNIT_FLAG | CHECK_RESPONSE_SPEED_UNIT_FLAG;</div><div class="line">  <span class="keyword">if</span> (!CheckResponse(flag, <span class="literal">true</span>)) &#123;</div><div class="line">    AERROR &lt;&lt; <span class="string">"Failed to switch to COMPLETE_AUTO_DRIVE mode."</span>;</div><div class="line">    Emergency();</div><div class="line">    <span class="keyword">return</span> ErrorCode::CANBUS_ERROR;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    set_driving_mode(Chassis::COMPLETE_AUTO_DRIVE);</div><div class="line">    AINFO &lt;&lt; <span class="string">"Switch to COMPLETE_AUTO_DRIVE mode ok."</span>;</div><div class="line">    <span class="keyword">return</span> ErrorCode::OK;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以Lincoln为参考车辆实现的自动驾驶状态的控制序列：<br><figure class="highlight cpp"><figcaption><span>apollo/modules/canbus/vehicle/lincoln/lincoln_controller.cc Update</span></figcaption><table><tr><td class="code"><pre><span class="line">ErrorCode LincolnController::EnableAutoMode() &#123;</span><br><span class="line">  <span class="keyword">if</span> (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE) &#123;</span><br><span class="line">    AINFO &lt;&lt; <span class="string">"already in COMPLETE_AUTO_DRIVE mode"</span>;</span><br><span class="line">    <span class="keyword">return</span> ErrorCode::OK;</span><br><span class="line">  &#125;</span><br><span class="line">  brake_60_-&gt;set_enable();<span class="comment">// 制动可用</span></span><br><span class="line">  throttle_62_-&gt;set_enable(); <span class="comment">// 气节门可用</span></span><br><span class="line">  steering_64_-&gt;set_enable(); <span class="comment">// 转向请求可用</span></span><br><span class="line"></span><br><span class="line">  can_sender_-&gt;Update();</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int32_t</span> flag =</span><br><span class="line">      CHECK_RESPONSE_STEER_UNIT_FLAG | CHECK_RESPONSE_SPEED_UNIT_FLAG;</span><br><span class="line">  <span class="keyword">if</span> (!CheckResponse(flag, <span class="literal">true</span>)) &#123;</span><br><span class="line">    AERROR &lt;&lt; <span class="string">"Failed to switch to COMPLETE_AUTO_DRIVE mode."</span>;</span><br><span class="line">    Emergency();</span><br><span class="line">    <span class="keyword">return</span> ErrorCode::CANBUS_ERROR;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    set_driving_mode(Chassis::COMPLETE_AUTO_DRIVE);</span><br><span class="line">    AINFO &lt;&lt; <span class="string">"Switch to COMPLETE_AUTO_DRIVE mode ok."</span>;</span><br><span class="line">    <span class="keyword">return</span> ErrorCode::OK;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在与底盘各组件交互的过程中，组件控制需要基于ProtocolData实现与各组件的控制协议，确保控制命令在个性化平台上，兼容处理无误。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/MacHi%202017-09-27%2016-03-14.png" width="99%"></p>
 <p align="center">Apollo实现的众多Lincoln数据协议</p>
@@ -97,7 +97,7 @@ control->canbus: 车道规划、车辆状态、HMI自动状态切换
 #Note right of control:HMI自动状态切换
 Note right of canbus: 底盘各组件接受执行
 canbus->control: 给出底盘状态反馈
-control-->planning:none</textarea><textarea id="sequence-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></li>
+control-->planning:none</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></li>
 </ul>
 
 

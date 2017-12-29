@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,13 +44,13 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试步骤"><span class="toc-text">调试步骤:</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-text"><a href="#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试步骤"><span class="toc-text"><a href="#&#x8C03;&#x8BD5;&#x6B65;&#x9AA4;" class="headerlink" title="&#x8C03;&#x8BD5;&#x6B65;&#x9AA4;:"></a>&#x8C03;&#x8BD5;&#x6B65;&#x9AA4;:</span></a></li></ol>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>不能与ESD CAN卡通讯</p>
-<h3 id="调试步骤"><a href="#调试步骤" class="headerlink" title="调试步骤:"></a>调试步骤:</h3><p>1、确保CAN 驱动（内核模块）已经加载，可以运行如下命令确认：<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">lsmod |grep can</div></pre></td></tr></table></figure></p>
+<h3 id="调试步骤"><a href="#调试步骤" class="headerlink" title="调试步骤:"></a>调试步骤:</h3><p>1、确保CAN 驱动（内核模块）已经加载，可以运行如下命令确认：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsmod |grep can</span><br></pre></td></tr></table></figure></p>
 <p>如果加载了CAN驱动程序，您应该会看到有关内核驱动程序的信息，如版本号。 </p>
-<p>2、确认CAN设备可见，并已具备合适的权限。运行如下命令查看：<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">ls -l /dev/can0</div></pre></td></tr></table></figure></p>
+<p>2、确认CAN设备可见，并已具备合适的权限。运行如下命令查看：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls -l /dev/can0</span><br></pre></td></tr></table></figure></p>
 <p>3、如果有任何相关CAN的错误信息，可以从内核日志（<code>dmesg |grep -i can</code>）和系统日志(<code>grep -i can /var/log/syslog</code>)获取。</p>
-<p>4、在目录<code>monitor/hwmonitor/hw/esdcan/esdcan_tools/</code>下，运行Apollo子程序<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">esdcan_test_app</div></pre></td></tr></table></figure></p>
+<p>4、在目录<code>monitor/hwmonitor/hw/esdcan/esdcan_tools/</code>下，运行Apollo子程序<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">esdcan_test_app</span><br></pre></td></tr></table></figure></p>
 <p>会打印详细统计和状态信息。更多使用方式：</p>
 <ul>
 <li>调试工具帮助：<code>esdcan_test_app --help</code>。</li>

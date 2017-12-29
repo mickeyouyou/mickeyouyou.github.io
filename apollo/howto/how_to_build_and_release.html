@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,23 +44,23 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Docker"><span class="toc-text">安装 Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译与发布"><span class="toc-text">编译与发布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动容器"><span class="toc-text">启动容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入容器"><span class="toc-text">进入容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译模块"><span class="toc-text">编译模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布二进制版本"><span class="toc-text">发布二进制版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成发布版本镜像"><span class="toc-text">生成发布版本镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#推送镜像"><span class="toc-text">推送镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#法律免责声明"><span class="toc-text">法律免责声明</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Docker"><span class="toc-text"><a href="#&#x5B89;&#x88C5;-Docker" class="headerlink" title="&#x5B89;&#x88C5; Docker"></a><span id="docker">&#x5B89;&#x88C5; Docker</span></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译与发布"><span class="toc-text"><a href="#&#x7F16;&#x8BD1;&#x4E0E;&#x53D1;&#x5E03;" class="headerlink" title="&#x7F16;&#x8BD1;&#x4E0E;&#x53D1;&#x5E03;"></a><span id="build_release">&#x7F16;&#x8BD1;&#x4E0E;&#x53D1;&#x5E03;</span></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动容器"><span class="toc-text"><a href="#&#x542F;&#x52A8;&#x5BB9;&#x5668;" class="headerlink" title="&#x542F;&#x52A8;&#x5BB9;&#x5668;"></a>&#x542F;&#x52A8;&#x5BB9;&#x5668;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入容器"><span class="toc-text"><a href="#&#x8FDB;&#x5165;&#x5BB9;&#x5668;" class="headerlink" title="&#x8FDB;&#x5165;&#x5BB9;&#x5668;"></a>&#x8FDB;&#x5165;&#x5BB9;&#x5668;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译模块"><span class="toc-text"><a href="#&#x7F16;&#x8BD1;&#x6A21;&#x5757;" class="headerlink" title="&#x7F16;&#x8BD1;&#x6A21;&#x5757;"></a>&#x7F16;&#x8BD1;&#x6A21;&#x5757;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布二进制版本"><span class="toc-text"><a href="#&#x53D1;&#x5E03;&#x4E8C;&#x8FDB;&#x5236;&#x7248;&#x672C;" class="headerlink" title="&#x53D1;&#x5E03;&#x4E8C;&#x8FDB;&#x5236;&#x7248;&#x672C;"></a>&#x53D1;&#x5E03;&#x4E8C;&#x8FDB;&#x5236;&#x7248;&#x672C;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成发布版本镜像"><span class="toc-text"><a href="#&#x751F;&#x6210;&#x53D1;&#x5E03;&#x7248;&#x672C;&#x955C;&#x50CF;" class="headerlink" title="&#x751F;&#x6210;&#x53D1;&#x5E03;&#x7248;&#x672C;&#x955C;&#x50CF;"></a>&#x751F;&#x6210;&#x53D1;&#x5E03;&#x7248;&#x672C;&#x955C;&#x50CF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#推送镜像"><span class="toc-text"><a href="#&#x63A8;&#x9001;&#x955C;&#x50CF;" class="headerlink" title="&#x63A8;&#x9001;&#x955C;&#x50CF;"></a>&#x63A8;&#x9001;&#x955C;&#x50CF;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text"><a href="#&#x6D4B;&#x8BD5;" class="headerlink" title="&#x6D4B;&#x8BD5;"></a><span id="test">&#x6D4B;&#x8BD5;</span></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#法律免责声明"><span class="toc-text"><a href="#&#x6CD5;&#x5F8B;&#x514D;&#x8D23;&#x58F0;&#x660E;" class="headerlink" title="&#x6CD5;&#x5F8B;&#x514D;&#x8D23;&#x58F0;&#x660E;"></a>&#x6CD5;&#x5F8B;&#x514D;&#x8D23;&#x58F0;&#x660E;</span></a></li></ol>
 <h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a><span id="docker">安装 Docker</span></h2><p>构建Apollo需要的Ubuntu版本至少为14.04。Docker容器是构建Apollo项目环境最简单的方法。</p>
-<p><a href="https://docs.docker.com/" target="_blank" rel="external">Docker 教程参考</a>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo docker/scripts/install_docker.sh</div></pre></td></tr></table></figure>
-<h2 id="编译与发布"><a href="#编译与发布" class="headerlink" title="编译与发布"></a><span id="build_release">编译与发布</span></h2><h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><p>我们提供的镜像名称为 <em>dev-latest</em>，容器将apollo仓库挂载到目录<code>/apollo</code>;<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/dev_start.sh</div></pre></td></tr></table></figure></p>
-<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/dev_into.sh</div></pre></td></tr></table></figure>
-<h3 id="编译模块"><a href="#编译模块" class="headerlink" title="编译模块"></a>编译模块</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo.sh build</div></pre></td></tr></table></figure>
-<h3 id="发布二进制版本"><a href="#发布二进制版本" class="headerlink" title="发布二进制版本"></a>发布二进制版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo.sh release</div></pre></td></tr></table></figure>
+<p><a href="https://docs.docker.com/" target="_blank" rel="noopener">Docker 教程参考</a>.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker/scripts/install_docker.sh</span><br></pre></td></tr></table></figure>
+<h2 id="编译与发布"><a href="#编译与发布" class="headerlink" title="编译与发布"></a><span id="build_release">编译与发布</span></h2><h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><p>我们提供的镜像名称为 <em>dev-latest</em>，容器将apollo仓库挂载到目录<code>/apollo</code>;<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash docker/scripts/dev_start.sh</span><br></pre></td></tr></table></figure></p>
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash docker/scripts/dev_into.sh</span><br></pre></td></tr></table></figure>
+<h3 id="编译模块"><a href="#编译模块" class="headerlink" title="编译模块"></a>编译模块</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash apollo.sh build</span><br></pre></td></tr></table></figure>
+<h3 id="发布二进制版本"><a href="#发布二进制版本" class="headerlink" title="发布二进制版本"></a>发布二进制版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash apollo.sh release</span><br></pre></td></tr></table></figure>
 <p>这将生成一个包含ROS环境，运行脚本，二进制文件和依赖共享库（.so文件）的发行版目录。</p>
-<p>要创建不包括专有软件（如ESD CAN库）的版本，请执行以下操作：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo.sh release_noproprietary</div></pre></td></tr></table></figure></p>
-<h3 id="生成发布版本镜像"><a href="#生成发布版本镜像" class="headerlink" title="生成发布版本镜像"></a>生成发布版本镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo_docker.sh gen</div></pre></td></tr></table></figure>
+<p>要创建不包括专有软件（如ESD CAN库）的版本，请执行以下操作：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash apollo.sh release_noproprietary</span><br></pre></td></tr></table></figure></p>
+<h3 id="生成发布版本镜像"><a href="#生成发布版本镜像" class="headerlink" title="生成发布版本镜像"></a>生成发布版本镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash apollo_docker.sh gen</span><br></pre></td></tr></table></figure>
 <p>这将创建一个新的Docker映像与发行目录。 发行版将被命名为 <em>release-yyyymmdd_hhmm </em>。 同时，最新的内置映像将被标记为 <em>release-latest</em>。 <strong>docker_release需要在容器外，也就是主机执行。</strong></p>
-<h3 id="推送镜像"><a href="#推送镜像" class="headerlink" title="推送镜像"></a>推送镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash apollo_docker.sh push</div></pre></td></tr></table></figure>
+<h3 id="推送镜像"><a href="#推送镜像" class="headerlink" title="推送镜像"></a>推送镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash apollo_docker.sh push</span><br></pre></td></tr></table></figure>
 <p>该命令将你的最新版本的Docker镜像推送到docker 库。</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><span id="test">测试</span></h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/release_start.sh [release tag]</div></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><span id="test">测试</span></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash docker/scripts/release_start.sh [release tag]</span><br></pre></td></tr></table></figure>
 <p><em>HMI</em>将自动自动，可以通过任意浏览器输入 <em>localhost:8887</em>进入控制界面。如有需要，也可以进入发布的容器中快速修复。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/release_into.sh</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash docker/scripts/release_into.sh</span><br></pre></td></tr></table></figure>
 <h2 id="法律免责声明"><a href="#法律免责声明" class="headerlink" title="法律免责声明"></a>法律免责声明</h2><p>您构建的docker 镜像可能包含由ESD Electronics提供的ESD CAN库文件（特此称为ESD)，您应该通过ESD的许可协议获得。 许可协议应授予您（作为个人或商业实体）使用ESD提供的所述软件的权利; 然而，您可能需要ESD明确的重新分配许可，以发布任何其他第三方用户的Docker镜像。 这种许可协议完全在您和ESD之间，并且不在Apollo项目的许可条款中（参见Apollo顶级目录下的LICENSE文件）。</p>
 
 

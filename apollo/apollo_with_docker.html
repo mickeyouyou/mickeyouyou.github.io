@@ -1,0 +1,99 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo平台中涉及到的Docker</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo平台中涉及到的Docker</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年11月21日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用Docker"><span class="toc-text"><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528;Docker" class="headerlink" title="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528;Docker?"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528;Docker?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo中使用Docker"><span class="toc-text"><a href="#Apollo&#x4E2D;&#x4F7F;&#x7528;Docker" class="headerlink" title="Apollo&#x4E2D;&#x4F7F;&#x7528;Docker"></a>Apollo&#x4E2D;&#x4F7F;&#x7528;Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据开放平台"><span class="toc-text"><a href="#&#x6570;&#x636E;&#x5F00;&#x653E;&#x5E73;&#x53F0;" class="headerlink" title="&#x6570;&#x636E;&#x5F00;&#x653E;&#x5E73;&#x53F0;"></a>&#x6570;&#x636E;&#x5F00;&#x653E;&#x5E73;&#x53F0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真开放平台"><span class="toc-text"><a href="#&#x4EFF;&#x771F;&#x5F00;&#x653E;&#x5E73;&#x53F0;" class="headerlink" title="&#x4EFF;&#x771F;&#x5F00;&#x653E;&#x5E73;&#x53F0;"></a>&#x4EFF;&#x771F;&#x5F00;&#x653E;&#x5E73;&#x53F0;</span></a></li></ol></li></ol>
+<p>经常会有同学问到关于Docker的问题，通过整理，将其中的一些通用问题整理归类，以备后用。</p>
+<h2 id="为什么要使用Docker"><a href="#为什么要使用Docker" class="headerlink" title="为什么要使用Docker?"></a>为什么要使用Docker?</h2><p>这个问题要从以往的软件环境搭建痛点来说:</p>
+<ul>
+<li>统一代码运行环境，减少开发和测试的复杂度<br>Apollo基础镜像分为线下（dev）、持续集成(CI)、线上(run)，使用Docker将差异化环境统一。将程序的依赖使用相对路径，与程序一起打包上线。类似的思路，现在很多公司都将docker用在这个地方，但我觉得如果docker更加稳定后应用场景会更多，更通用</li>
+<li>集群管理可视化更加高效，开源的容器编排工具Kubernetes，可视化工具提供了强大的支持</li>
+<li>云平台，测试机云平台可以利用docker技术提升整个集群的利用效率，榨干每一台机器的能力</li>
+<li>开源社区强大，外围工具很多，如上下游服务组件如：etcd和Consul</li>
+<li>需求迭代迅速，流量变化迅速的互联网web服务后端（易发布，易扩容）</li>
+</ul>
+<h2 id="Apollo中使用Docker"><a href="#Apollo中使用Docker" class="headerlink" title="Apollo中使用Docker"></a>Apollo中使用Docker</h2><p>镜像的拉取，即环境的安装过程。其中提交到Docker Hubs的基础镜像:</p>
+<ul>
+<li>dev-x86_64-20171122_1537-ci 2 GB 7 days ago</li>
+<li>dev-x86_64-20171122_1537 4 GB 7 days ago</li>
+<li>run-x86_64-20171122_1537 3 GB 7 days ago</li>
+</ul>
+<p>发布，即环境的迭代过程。</p>
+<p>除了以上的使用场景，在Apollo开放平台上来说，我们也需要用户提交镜像级别的内容，方便云端进行模块检测。</p>
+<h3 id="数据开放平台"><a href="#数据开放平台" class="headerlink" title="数据开放平台"></a>数据开放平台</h3><p>数据开放平台主要有两方面的实践：</p>
+<ul>
+<li>数据集</li>
+<li>计算平台</li>
+</ul>
+<h3 id="仿真开放平台"><a href="#仿真开放平台" class="headerlink" title="仿真开放平台"></a>仿真开放平台</h3><p>需要有Image镜像提交，所以用户在创建好自己的<br>Apollo，</p>
+<p>这是一份详细的关于Apollo中设计Docker的介绍性文档，希望对你有所帮助。</p>
+
+
+<!--<a href="http://yoursite.com/apollo/apollo_with_docker.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

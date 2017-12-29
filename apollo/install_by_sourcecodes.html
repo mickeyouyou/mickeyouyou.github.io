@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3.2" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,31 +44,31 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROS"><span class="toc-text">ROS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kernel"><span class="toc-text">Kernel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo"><span class="toc-text">Apollo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo-Ros"><span class="toc-text">Apollo Ros</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run"><span class="toc-text">Run</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-text"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROS"><span class="toc-text"><a href="#ROS" class="headerlink" title="ROS"></a>ROS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kernel"><span class="toc-text"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo"><span class="toc-text"><a href="#Apollo" class="headerlink" title="Apollo"></a>Apollo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apollo-Ros"><span class="toc-text"><a href="#Apollo-Ros" class="headerlink" title="Apollo Ros"></a>Apollo Ros</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run"><span class="toc-text"><a href="#Run" class="headerlink" title="Run"></a>Run</span></a></li></ol>
 <p>以下，从操作系统、ROS、Apollo Kernel、Apollo、Apollo ROS几个方面介绍Apollo的编译安装过程。</p>
-<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p>Apollo运行的操作系统目前支持安装原版ubuntu 14.04<br><a href="http://www.ubuntu.org.cn/download/alternative-downloads" target="_blank" rel="external">http://www.ubuntu.org.cn/download/alternative-downloads</a></p>
-<h3 id="ROS"><a href="#ROS" class="headerlink" title="ROS"></a>ROS</h3><p>安装对应ubuntu 14.04的indigo版ROS<br><a href="http://wiki.ros.org/indigo/Installation/Ubuntu" target="_blank" rel="external">http://wiki.ros.org/indigo/Installation/Ubuntu</a></p>
-<h3 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h3><p>安装<a href="https://github.com/ApolloAuto/apollo-kernel" target="_blank" rel="external">Apollo Kernel</a>为运行Apollo软件提供了kernel层面的支持。从这里下载linux-4.4.32-apollo-1.0.0.tar.gz：<br><a href="https://github.com/ApolloAuto/apollo-kernel/releases" target="_blank" rel="external">https://github.com/ApolloAuto/apollo-kernel/releases</a><br>解压安装：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">tar zxvf linux-4.4.32-apollo-1.0.0.tar.gz</div><div class="line"><span class="built_in">cd</span> install</div><div class="line">sudo ./install_kernel.sh</div></pre></td></tr></table></figure></p>
+<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p>Apollo运行的操作系统目前支持安装原版ubuntu 14.04<br><a href="http://www.ubuntu.org.cn/download/alternative-downloads" target="_blank" rel="noopener">http://www.ubuntu.org.cn/download/alternative-downloads</a></p>
+<h3 id="ROS"><a href="#ROS" class="headerlink" title="ROS"></a>ROS</h3><p>安装对应ubuntu 14.04的indigo版ROS<br><a href="http://wiki.ros.org/indigo/Installation/Ubuntu" target="_blank" rel="noopener">http://wiki.ros.org/indigo/Installation/Ubuntu</a></p>
+<h3 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h3><p>安装<a href="https://github.com/ApolloAuto/apollo-kernel" target="_blank" rel="noopener">Apollo Kernel</a>为运行Apollo软件提供了kernel层面的支持。从这里下载linux-4.4.32-apollo-1.0.0.tar.gz：<br><a href="https://github.com/ApolloAuto/apollo-kernel/releases" target="_blank" rel="noopener">https://github.com/ApolloAuto/apollo-kernel/releases</a><br>解压安装：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar zxvf linux-4.4.32-apollo-1.0.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> install</span><br><span class="line">sudo ./install_kernel.sh</span><br></pre></td></tr></table></figure></p>
 <p>重启系统。</p>
-<h3 id="Apollo"><a href="#Apollo" class="headerlink" title="Apollo"></a>Apollo</h3><p>安装Apollo<br><a href="https://github.com/ApolloAuto/apollo" target="_blank" rel="external">https://github.com/ApolloAuto/apollo</a><br>下载资源：</p>
-<p><code>git clone https://github.com/ApolloAuto/apollo.git</code><br>安装docker环境：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/apollo</div><div class="line">bash docker/scripts/install_docker.sh</div></pre></td></tr></table></figure></p>
-<p>先注销再重新登录，然后测试一下docker是否安装成功：<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">docker ps</div></pre></td></tr></table></figure></p>
-<p>设置环境：<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">bash docker/scripts/dev_start.sh</div><div class="line">bash docker/scripts/dev_into.sh</div></pre></td></tr></table></figure></p>
-<p>编译：<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">bash apollo.sh build</div></pre></td></tr></table></figure></p>
-<h3 id="Apollo-Ros"><a href="#Apollo-Ros" class="headerlink" title="Apollo Ros"></a>Apollo Ros</h3><p>5.安装Apollo ROS支持<br><a href="https://github.com/ApolloAuto/apollo-platform" target="_blank" rel="external">https://github.com/ApolloAuto/apollo-platform</a><br>相对于原版ROS，做出了如下改进：</p>
+<h3 id="Apollo"><a href="#Apollo" class="headerlink" title="Apollo"></a>Apollo</h3><p>安装Apollo<br><a href="https://github.com/ApolloAuto/apollo" target="_blank" rel="noopener">https://github.com/ApolloAuto/apollo</a><br>下载资源：</p>
+<p><code>git clone https://github.com/ApolloAuto/apollo.git</code><br>安装docker环境：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/apollo</span><br><span class="line">bash docker/scripts/install_docker.sh</span><br></pre></td></tr></table></figure></p>
+<p>先注销再重新登录，然后测试一下docker是否安装成功：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure></p>
+<p>设置环境：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash docker/scripts/dev_start.sh</span><br><span class="line">bash docker/scripts/dev_into.sh</span><br></pre></td></tr></table></figure></p>
+<p>编译：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash apollo.sh build</span><br></pre></td></tr></table></figure></p>
+<h3 id="Apollo-Ros"><a href="#Apollo-Ros" class="headerlink" title="Apollo Ros"></a>Apollo Ros</h3><p>5.安装Apollo ROS支持<br><a href="https://github.com/ApolloAuto/apollo-platform" target="_blank" rel="noopener">https://github.com/ApolloAuto/apollo-platform</a><br>相对于原版ROS，做出了如下改进：</p>
 <ul>
 <li>增强了ROS的去中心化特性；</li>
 <li>基于共享内存的更高效的通信；</li>
 <li>支持Protobuf；</li>
 </ul>
-<p>从这里下载ros-indigo-apollo-1.0.0.x86_64.tar.gz：<br><a href="https://github.com/ApolloAuto/apollo-platform/releases" target="_blank" rel="external">https://github.com/ApolloAuto/apollo-platform/releases</a><br>解压缩：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">tar zxvf ros-indigo-apollo-1.0.0.x86_64.tar.gz</div></pre></td></tr></table></figure>
-<p>将解压后的文件夹ros拷贝到apollo工程中：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">rsync -av ros/ ~/apollo/third_party/ros_x86_64</div><div class="line"><span class="built_in">source</span> ~/apollo/third_party/ros_x86_64/setup.bash</div></pre></td></tr></table></figure></p>
-<h3 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h3><p>运行Apollo<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/apollo</div><div class="line">bash scripts/hmi.sh</div></pre></td></tr></table></figure></p>
-<p>在浏览器输入<a href="http://localhost:8887后回车，在Debug中开启Dreamview，然后点击右上方的Dreamview。" target="_blank" rel="external">http://localhost:8887后回车，在Debug中开启Dreamview，然后点击右上方的Dreamview。</a><br>在另一个终端里输入：<br><code>rosbag play -l ./docs/demo_guide/demo.bag</code><br>然后即可看到界面播放demo.bag数据。</p>
+<p>从这里下载ros-indigo-apollo-1.0.0.x86_64.tar.gz：<br><a href="https://github.com/ApolloAuto/apollo-platform/releases" target="_blank" rel="noopener">https://github.com/ApolloAuto/apollo-platform/releases</a><br>解压缩：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar zxvf ros-indigo-apollo-1.0.0.x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+<p>将解压后的文件夹ros拷贝到apollo工程中：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rsync -av ros/ ~/apollo/third_party/ros_x86_64</span><br><span class="line"><span class="built_in">source</span> ~/apollo/third_party/ros_x86_64/setup.bash</span><br></pre></td></tr></table></figure></p>
+<h3 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h3><p>运行Apollo<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/apollo</span><br><span class="line">bash scripts/hmi.sh</span><br></pre></td></tr></table></figure></p>
+<p>在浏览器输入<a href="http://localhost:8887后回车，在Debug中开启Dreamview，然后点击右上方的Dreamview。" target="_blank" rel="noopener">http://localhost:8887后回车，在Debug中开启Dreamview，然后点击右上方的Dreamview。</a><br>在另一个终端里输入：<br><code>rosbag play -l ./docs/demo_guide/demo.bag</code><br>然后即可看到界面播放demo.bag数据。</p>
 <p>参考：</p>
 <ul>
-<li><a href="http://www.infoq.com/cn/presentations/ros-in-baidu-automatic-driving?utm_source=infoq&amp;utm_medium=related_content_link&amp;utm_campaign=relatedContent_news_clk" target="_blank" rel="external">ROS在百度自动驾驶的探索和实践</a></li>
+<li><a href="http://www.infoq.com/cn/presentations/ros-in-baidu-automatic-driving?utm_source=infoq&amp;utm_medium=related_content_link&amp;utm_campaign=relatedContent_news_clk" target="_blank" rel="noopener">ROS在百度自动驾驶的探索和实践</a></li>
 </ul>
 
 
