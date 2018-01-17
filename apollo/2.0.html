@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo2.0新增功能与模块解析</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo2.0新增内容与模块解析</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,7 +31,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo2.0新增功能与模块解析</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo2.0新增内容与模块解析</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -44,69 +44,75 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新能力"><span class="toc-text"><a href="#&#x65B0;&#x80FD;&#x529B;" class="headerlink" title="&#x65B0;&#x80FD;&#x529B;"></a>&#x65B0;&#x80FD;&#x529B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#增加了交通灯监测；"><span class="toc-text"><a href="#&#x589E;&#x52A0;&#x4E86;&#x4EA4;&#x901A;&#x706F;&#x76D1;&#x6D4B;&#xFF1B;" class="headerlink" title="&#x589E;&#x52A0;&#x4E86;&#x4EA4;&#x901A;&#x706F;&#x76D1;&#x6D4B;&#xFF1B;"></a>&#x589E;&#x52A0;&#x4E86;&#x4EA4;&#x901A;&#x706F;&#x76D1;&#x6D4B;&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加障碍物分类，支持的分类有：车辆、行人、自行车、未知；"><span class="toc-text"><a href="#&#x589E;&#x52A0;&#x969C;&#x788D;&#x7269;&#x5206;&#x7C7B;&#xFF0C;&#x652F;&#x6301;&#x7684;&#x5206;&#x7C7B;&#x6709;&#xFF1A;&#x8F66;&#x8F86;&#x3001;&#x884C;&#x4EBA;&#x3001;&#x81EA;&#x884C;&#x8F66;&#x3001;&#x672A;&#x77E5;&#xFF1B;" class="headerlink" title="&#x589E;&#x52A0;&#x969C;&#x788D;&#x7269;&#x5206;&#x7C7B;&#xFF0C;&#x652F;&#x6301;&#x7684;&#x5206;&#x7C7B;&#x6709;&#xFF1A;&#x8F66;&#x8F86;&#x3001;&#x884C;&#x4EBA;&#x3001;&#x81EA;&#x884C;&#x8F66;&#x3001;&#x672A;&#x77E5;&#xFF1B;"></a>&#x589E;&#x52A0;&#x969C;&#x788D;&#x7269;&#x5206;&#x7C7B;&#xFF0C;&#x652F;&#x6301;&#x7684;&#x5206;&#x7C7B;&#x6709;&#xFF1A;&#x8F66;&#x8F86;&#x3001;&#x884C;&#x4EBA;&#x3001;&#x81EA;&#x884C;&#x8F66;&#x3001;&#x672A;&#x77E5;&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新决策规划能力，支持车道变换；"><span class="toc-text"><a href="#&#x66F4;&#x65B0;&#x51B3;&#x7B56;&#x89C4;&#x5212;&#x80FD;&#x529B;&#xFF0C;&#x652F;&#x6301;&#x8F66;&#x9053;&#x53D8;&#x6362;&#xFF1B;" class="headerlink" title="&#x66F4;&#x65B0;&#x51B3;&#x7B56;&#x89C4;&#x5212;&#x80FD;&#x529B;&#xFF0C;&#x652F;&#x6301;&#x8F66;&#x9053;&#x53D8;&#x6362;&#xFF1B;"></a>&#x66F4;&#x65B0;&#x51B3;&#x7B56;&#x89C4;&#x5212;&#x80FD;&#x529B;&#xFF0C;&#x652F;&#x6301;&#x8F66;&#x9053;&#x53D8;&#x6362;&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加基于定位算法融合的点云；"><span class="toc-text"><a href="#&#x589E;&#x52A0;&#x57FA;&#x4E8E;&#x5B9A;&#x4F4D;&#x7B97;&#x6CD5;&#x878D;&#x5408;&#x7684;&#x70B9;&#x4E91;&#xFF1B;" class="headerlink" title="&#x589E;&#x52A0;&#x57FA;&#x4E8E;&#x5B9A;&#x4F4D;&#x7B97;&#x6CD5;&#x878D;&#x5408;&#x7684;&#x70B9;&#x4E91;&#xFF1B;"></a>&#x589E;&#x52A0;&#x57FA;&#x4E8E;&#x5B9A;&#x4F4D;&#x7B97;&#x6CD5;&#x878D;&#x5408;&#x7684;&#x70B9;&#x4E91;&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加控制算法MPC；"><span class="toc-text"><a href="#&#x589E;&#x52A0;&#x63A7;&#x5236;&#x7B97;&#x6CD5;MPC&#xFF1B;" class="headerlink" title="&#x589E;&#x52A0;&#x63A7;&#x5236;&#x7B97;&#x6CD5;MPC&#xFF1B;"></a>&#x589E;&#x52A0;&#x63A7;&#x5236;&#x7B97;&#x6CD5;MPC&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为交通预测增加RNN模型；"><span class="toc-text"><a href="#&#x4E3A;&#x4EA4;&#x901A;&#x9884;&#x6D4B;&#x589E;&#x52A0;RNN&#x6A21;&#x578B;&#xFF1B;" class="headerlink" title="&#x4E3A;&#x4EA4;&#x901A;&#x9884;&#x6D4B;&#x589E;&#x52A0;RNN&#x6A21;&#x578B;&#xFF1B;"></a>&#x4E3A;&#x4EA4;&#x901A;&#x9884;&#x6D4B;&#x589E;&#x52A0;RNN&#x6A21;&#x578B;&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集成-HMI-和-DreamView；"><span class="toc-text"><a href="#&#x96C6;&#x6210;-HMI-&#x548C;-DreamView&#xFF1B;" class="headerlink" title="&#x96C6;&#x6210; HMI &#x548C; DreamView&#xFF1B;"></a>&#x96C6;&#x6210; HMI &#x548C; DreamView&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重新设计了DreamView，升级增加调试工具；"><span class="toc-text"><a href="#&#x91CD;&#x65B0;&#x8BBE;&#x8BA1;&#x4E86;DreamView&#xFF0C;&#x5347;&#x7EA7;&#x589E;&#x52A0;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#xFF1B;" class="headerlink" title="&#x91CD;&#x65B0;&#x8BBE;&#x8BA1;&#x4E86;DreamView&#xFF0C;&#x5347;&#x7EA7;&#x589E;&#x52A0;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#xFF1B;"></a>&#x91CD;&#x65B0;&#x8BBE;&#x8BA1;&#x4E86;DreamView&#xFF0C;&#x5347;&#x7EA7;&#x589E;&#x52A0;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加调试脚本，见目录：modules-tools"><span class="toc-text"><a href="#&#x589E;&#x52A0;&#x8C03;&#x8BD5;&#x811A;&#x672C;&#xFF0C;&#x89C1;&#x76EE;&#x5F55;&#xFF1A;modules-tools" class="headerlink" title="&#x589E;&#x52A0;&#x8C03;&#x8BD5;&#x811A;&#x672C;&#xFF0C;&#x89C1;&#x76EE;&#x5F55;&#xFF1A;modules/tools;"></a>&#x589E;&#x52A0;&#x8C03;&#x8BD5;&#x811A;&#x672C;&#xFF0C;&#x89C1;&#x76EE;&#x5F55;&#xFF1A;<code>modules/tools</code>;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加通过安全OTA升级docker镜像"><span class="toc-text"><a href="#&#x589E;&#x52A0;&#x901A;&#x8FC7;&#x5B89;&#x5168;OTA&#x5347;&#x7EA7;docker&#x955C;&#x50CF;" class="headerlink" title="&#x589E;&#x52A0;&#x901A;&#x8FC7;&#x5B89;&#x5168;OTA&#x5347;&#x7EA7;docker&#x955C;&#x50CF;;"></a>&#x589E;&#x52A0;&#x901A;&#x8FC7;&#x5B89;&#x5168;OTA&#x5347;&#x7EA7;docker&#x955C;&#x50CF;;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加USB-摄像头和毫米波雷达硬件支持；"><span class="toc-text"><a href="#&#x589E;&#x52A0;USB-&#x6444;&#x50CF;&#x5934;&#x548C;&#x6BEB;&#x7C73;&#x6CE2;&#x96F7;&#x8FBE;&#x786C;&#x4EF6;&#x652F;&#x6301;&#xFF1B;" class="headerlink" title="&#x589E;&#x52A0;USB &#x6444;&#x50CF;&#x5934;&#x548C;&#x6BEB;&#x7C73;&#x6CE2;&#x96F7;&#x8FBE;&#x786C;&#x4EF6;&#x652F;&#x6301;&#xFF1B;"></a>&#x589E;&#x52A0;USB &#x6444;&#x50CF;&#x5934;&#x548C;&#x6BEB;&#x7C73;&#x6CE2;&#x96F7;&#x8FBE;&#x786C;&#x4EF6;&#x652F;&#x6301;&#xFF1B;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块解析"><span class="toc-text"><a href="#&#x6A21;&#x5757;&#x89E3;&#x6790;" class="headerlink" title="&#x6A21;&#x5757;&#x89E3;&#x6790;"></a>&#x6A21;&#x5757;&#x89E3;&#x6790;</span></a></li></ol>
-<p>Github代码库最新能力：<br>2.0概述：带来首次完整开放的无人驾驶系统以及简单城市道路的自动驾驶能力；</p>
-<p>2.0新增能力详细部分如上。基于上述新增能力，新增部分代码：</p>
+
+<p>2.0概述：带来首次完整开放的无人驾驶系统以及简单城市道路的自动驾驶能力；</p>
+<p>关于2.0更新内容，可以划分为如下两部分：能力升级与开发者友好。</p>
+<p><strong>能力升级</strong></p>
 <ul>
-<li>增加了交通灯监测；</li>
-<li>增加障碍物分类，支持的分类有：车辆、行人、自行车、未知；</li>
-<li>更新决策规划能力，支持车道变换；</li>
-<li>增加基于定位算法融合的点云；</li>
-<li>增加控制算法MPC；</li>
-<li>为交通预测增加RNN模型；</li>
-<li>集成 HMI 和 DreamView；</li>
-<li>重新设计了DreamView，升级增加调试工具；</li>
-<li>增加调试脚本，见目录：modules/tools;</li>
-<li>增加通过安全OTA升级docker镜像;</li>
-<li>增加USB 摄像头和毫米波雷达硬件支持；</li>
+<li>感知：<ul>
+<li>增加USB 摄像头和毫米波雷达硬件支持，6nm与25nm摄像头用于交通灯监测；</li>
+<li>增加障碍物分类，支持的分类有：车辆、行人、自行车、未知，感知能力获得更大提升；</li>
 </ul>
-<p>总结下：<br>增加更多调试工具、调试信息更接近，对开发者更加友好；</p>
-<h2 id="新能力"><a href="#新能力" class="headerlink" title="新能力"></a>新能力</h2><h3 id="增加了交通灯监测；"><a href="#增加了交通灯监测；" class="headerlink" title="增加了交通灯监测；"></a>增加了交通灯监测；</h3><p>交通灯的监测定义：</p>
-<figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">TrafficLight</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Color</span> </span>&#123;</span><br><span class="line">        UNKNOWN = <span class="number">0</span>;</span><br><span class="line">        RED = <span class="number">1</span>;</span><br><span class="line">        YELLOW = <span class="number">2</span>;</span><br><span class="line">        GREEN = <span class="number">3</span>;</span><br><span class="line">        BLACK = <span class="number">4</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">optional</span> Color color = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// Traffic light string-ID in the map data.</span></span><br><span class="line">    <span class="keyword">optional</span> <span class="built_in">string</span> id = <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// How confidence about the detected results, between 0 and 1.</span></span><br><span class="line">    <span class="keyword">optional</span> <span class="built_in">double</span> confidence = <span class="number">3</span> [default = <span class="number">1.0</span>];</span><br><span class="line">    <span class="comment">// Duration of the traffic light since detected.</span></span><br><span class="line">    <span class="keyword">optional</span> <span class="built_in">double</span> tracking_time = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">TrafficLightDetection</span> </span>&#123;</span><br><span class="line">    <span class="keyword">optional</span> apollo.common.Header header = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">repeated</span> TrafficLight traffic_light = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">optional</span> TrafficLightDebug traffic_light_debug = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">optional</span> <span class="built_in">bool</span> contain_lights = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>新增的交通灯监测类:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fengzongbao@baidu ~/apollo/modules/perception [master]</span><br><span class="line">± % tree -L 1 traffic_light                                                                                                               !485</span><br><span class="line">traffic_light</span><br><span class="line">├── base</span><br><span class="line">├── interface</span><br><span class="line">├── onboard</span><br><span class="line">├── preprocessor</span><br><span class="line">├── projection</span><br><span class="line">├── recognizer</span><br><span class="line">├── rectify</span><br><span class="line">├── reviser</span><br><span class="line">├── util</span><br><span class="line">└── visualizer</span><br><span class="line"></span><br><span class="line">10 directories, 0 files</span><br></pre></td></tr></table></figure>
-<p>关于信号灯识别的细节，可以查看文档：<a href="https://github.com/ApolloAuto/apollo/blob/master/docs/specs/traffic_light.md" target="_blank" rel="noopener">Traffic Light Perception</a></p>
-<h3 id="增加障碍物分类，支持的分类有：车辆、行人、自行车、未知；"><a href="#增加障碍物分类，支持的分类有：车辆、行人、自行车、未知；" class="headerlink" title="增加障碍物分类，支持的分类有：车辆、行人、自行车、未知；"></a>增加障碍物分类，支持的分类有：车辆、行人、自行车、未知；</h3><figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Type</span> </span>&#123;</span><br><span class="line">  UNKNOWN = <span class="number">0</span>;</span><br><span class="line">  UNKNOWN_MOVABLE = <span class="number">1</span>;</span><br><span class="line">  UNKNOWN_UNMOVABLE = <span class="number">2</span>;</span><br><span class="line">  PEDESTRIAN = <span class="number">3</span>;  <span class="comment">// Pedestrian, usually determined by moving behaviour.</span></span><br><span class="line">  BICYCLE = <span class="number">4</span>;  <span class="comment">// bike, motor bike</span></span><br><span class="line">  VEHICLE = <span class="number">5</span>;  <span class="comment">// Passenger car or truck.</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">optional</span> Type type = <span class="number">10</span>;  <span class="comment">// obstacle type</span></span><br></pre></td></tr></table></figure>
-<h3 id="更新决策规划能力，支持车道变换；"><a href="#更新决策规划能力，支持车道变换；" class="headerlink" title="更新决策规划能力，支持车道变换；"></a>更新决策规划能力，支持车道变换；</h3><h3 id="增加基于定位算法融合的点云；"><a href="#增加基于定位算法融合的点云；" class="headerlink" title="增加基于定位算法融合的点云；"></a>增加基于定位算法融合的点云；</h3><h3 id="增加控制算法MPC；"><a href="#增加控制算法MPC；" class="headerlink" title="增加控制算法MPC；"></a>增加控制算法MPC；</h3><p>新增控制算法:MPC，默认未启用，启用请参考：<a href="https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_add_a_new_control_algorithm.md" target="_blank" rel="noopener">How to Add a New Control Algorithm</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fengzongbao@baidu ~/apollo/modules/control [master]</span><br><span class="line">± % tree controller                                                                                                                       !492</span><br><span class="line">controller</span><br><span class="line">├── BUILD</span><br><span class="line">├── controller.h</span><br><span class="line">├── controller_agent.cc</span><br><span class="line">├── controller_agent.h</span><br><span class="line">├── lat_controller.cc</span><br><span class="line">├── lat_controller.h</span><br><span class="line">├── lat_controller_test.cc</span><br><span class="line">├── lon_controller.cc</span><br><span class="line">├── lon_controller.h</span><br><span class="line">├── lon_controller_test.cc</span><br><span class="line">├── mpc_controller.cc</span><br><span class="line">├── mpc_controller.h</span><br><span class="line">└── mpc_controller_test.cc</span><br></pre></td></tr></table></figure>
-<h3 id="为交通预测增加RNN模型；"><a href="#为交通预测增加RNN模型；" class="headerlink" title="为交通预测增加RNN模型；"></a>为交通预测增加RNN模型；</h3><h3 id="集成-HMI-和-DreamView；"><a href="#集成-HMI-和-DreamView；" class="headerlink" title="集成 HMI 和 DreamView；"></a>集成 HMI 和 DreamView；</h3><p>之前的版本中，HMI与DreamView分别占有一个端口，分别执行交互与仿真部分的内容。在2.0版本中进行了整合。</p>
-<p>现在，在编译完Apollo之后，只需要进入一个8888端口即可。</p>
+</li>
+<li>决策规划：更新决策规划能力，支持车道变换；</li>
+<li>定位：增加基于定位算法融合的点云；</li>
+<li>控制：增加控制算法MPC；</li>
+<li>预测：为交通预测增加RNN模型；</li>
+</ul>
+<p><strong>开发者友好</strong></p>
+<ul>
+<li>集成 HMI 和 DreamView，重新设计了DreamView，增加UI调试工具；</li>
+<li>增加更多开发者友好的调试脚本，见目录：modules/tools;</li>
+<li>增加通过安全OTA升级docker镜像;</li>
+</ul>
+<p>总结下：</p>
+<ul>
+<li>2.0的发布吊起更多开发者的激情，帮助我们优化Apollo；</li>
+<li>增加更多调试工具、调试信息更接近，对开发者更加友好；</li>
+</ul>
+<p>横向方向盘、纵向刹车、紧急状态、停车等指令控制；</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG48.jpeg" width="99%"></p>
+<p>之前的版本中，HMI与DreamView分别占有一个端口，分别执行交互与仿真部分的内容。在2.0版本中进行了整合。现在，在编译完Apollo之后，只需要启动一个端口（8888）即可。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># start module monitor</span><br><span class="line">bash scripts/bootstrap.sh</span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/demo_guide/images/apollo_bootstrap_screen.png" width="99%"></p>
-<h3 id="重新设计了DreamView，升级增加调试工具；"><a href="#重新设计了DreamView，升级增加调试工具；" class="headerlink" title="重新设计了DreamView，升级增加调试工具；"></a>重新设计了DreamView，升级增加调试工具；</h3><p>方便开发者调试，增加了部分调试工具，</p>
-<p>在“Task”界面，通过打开“PNC Monitor”即可打开调试界面，如下图所示：<br><a href="http://7xk16m.com1.z0.glb.clouddn.com/WechatIMG13.jpeg" target="_blank" rel="noopener"><img src="http://7xk16m.com1.z0.glb.clouddn.com/WechatIMG13.jpeg" width="99%"></a></p>
-<h3 id="增加调试脚本，见目录：modules-tools"><a href="#增加调试脚本，见目录：modules-tools" class="headerlink" title="增加调试脚本，见目录：modules/tools;"></a>增加调试脚本，见目录：<code>modules/tools</code>;</h3><p>大部分工具脚本是用python写成，依赖编译生成的proto模块。使用基于apollo根目录。</p>
+<p>重新设计了DreamView，升级增加调试工具；方便开发者调试，增加了部分调试工具，在“Task”界面，通过打开“PNC Monitor”即可打开调试界面，如下图所示：<br><a href="http://7xk16m.com1.z0.glb.clouddn.com/WechatIMG13.jpeg" target="_blank" rel="noopener"><img src="http://7xk16m.com1.z0.glb.clouddn.com/WechatIMG13.jpeg" width="99%"></a></p>
+<p>增加调试脚本，见目录：<code>modules/tools</code>。大部分工具脚本是用python写成，依赖编译生成的proto模块。使用基于apollo根目录。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编译python 需要的类 Compile everything including python proto libs.</span></span><br><span class="line">apollo.sh build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境常量PYTHONPATH Setup PYTHONPATH properly.</span></span><br><span class="line"><span class="built_in">source</span> scripts/apollo_base.sh</span><br></pre></td></tr></table></figure>
 <p>使用：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># topic诊断信息</span><br><span class="line">bash scripts/diagnostics.sh</span><br></pre></td></tr></table></figure>
 <p>示例：<br><img src="http://7xk16m.com1.z0.glb.clouddn.com/WechatIMG14.jpeg" width="99%"></p>
-<h3 id="增加通过安全OTA升级docker镜像"><a href="#增加通过安全OTA升级docker镜像" class="headerlink" title="增加通过安全OTA升级docker镜像;"></a>增加通过安全OTA升级docker镜像;</h3><p>通过OTA获取最新发布版本（release）的docker镜像。</p>
+<p>增加通过安全OTA升级docker镜像，通过OTA获取最新发布版本（release）的docker镜像。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash scripts/ota.sh update | download | setup</span><br></pre></td></tr></table></figure>
-<h3 id="增加USB-摄像头和毫米波雷达硬件支持；"><a href="#增加USB-摄像头和毫米波雷达硬件支持；" class="headerlink" title="增加USB 摄像头和毫米波雷达硬件支持；"></a>增加USB 摄像头和毫米波雷达硬件支持；</h3><h2 id="模块解析"><a href="#模块解析" class="headerlink" title="模块解析"></a>模块解析</h2><p>运行在Apollo 2.0驱动的自动驾驶车辆上的核心软件模块包括：</p>
+<p>运行在Apollo 2.0驱动的自动驾驶车辆上的核心软件模块包括：</p>
 <p><strong>Perception</strong>：感知模块识别车辆周围的世界。 里面有两个重要的子模块：</p>
 <ul>
 <li>障碍物检测</li>
 <li>交通灯检测</li>
 </ul>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG42.jpeg" width="99%"></p>
+<p>交通灯的监测定义：</p>
+<figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">TrafficLight</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Color</span> </span>&#123;</span><br><span class="line">        UNKNOWN = <span class="number">0</span>;</span><br><span class="line">        RED = <span class="number">1</span>;</span><br><span class="line">        YELLOW = <span class="number">2</span>;</span><br><span class="line">        GREEN = <span class="number">3</span>;</span><br><span class="line">        BLACK = <span class="number">4</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">optional</span> Color color = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// Traffic light string-ID in the map data.</span></span><br><span class="line">    <span class="keyword">optional</span> <span class="built_in">string</span> id = <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// How confidence about the detected results, between 0 and 1.</span></span><br><span class="line">    <span class="keyword">optional</span> <span class="built_in">double</span> confidence = <span class="number">3</span> [default = <span class="number">1.0</span>];</span><br><span class="line">    <span class="comment">// Duration of the traffic light since detected.</span></span><br><span class="line">    <span class="keyword">optional</span> <span class="built_in">double</span> tracking_time = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">TrafficLightDetection</span> </span>&#123;</span><br><span class="line">    <span class="keyword">optional</span> apollo.common.Header header = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">repeated</span> TrafficLight traffic_light = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">optional</span> TrafficLightDebug traffic_light_debug = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">optional</span> <span class="built_in">bool</span> contain_lights = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新增的交通灯监测类:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fengzongbao@baidu ~/apollo/modules/perception [master]</span><br><span class="line">± % tree -L 1 traffic_light                                                                                                               !485</span><br><span class="line">traffic_light</span><br><span class="line">├── base</span><br><span class="line">├── interface</span><br><span class="line">├── onboard</span><br><span class="line">├── preprocessor</span><br><span class="line">├── projection</span><br><span class="line">├── recognizer</span><br><span class="line">├── rectify</span><br><span class="line">├── reviser</span><br><span class="line">├── util</span><br><span class="line">└── visualizer</span><br><span class="line"></span><br><span class="line">10 directories, 0 files</span><br></pre></td></tr></table></figure>
+<p>关于信号灯识别的细节，可以查看文档：<a href="https://github.com/ApolloAuto/apollo/blob/master/docs/specs/traffic_light.md" target="_blank" rel="noopener">Traffic Light Perception</a></p>
 <p><strong>Prediction</strong>：预测模块预测未来的感知障碍物的运动轨迹。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG43.jpeg" width="99%"></p>
-<p>在MLP模型的基础上，增加RNN模型的障碍物预测。</p>
-<blockquote>
+<p>在MLP模型的基础上，为交通预测增加RNN模型。</p>
 <p>RNN算法可用于对目标进行时空域的统一建模。引入RNN，使得我们可以更精准的预测无人车周围所有障碍物未来一段时间内的行动轨迹，从而为决策系统提供更准确、有效的参考信息。 by 潘屹峰</p>
-</blockquote>
-<p>Routing — The routing module tells the autonomous vehicle how to reach its destination via a series of lanes or roads.</p>
+<p><strong>Routing</strong>:路由模块告诉自主车辆如何通过一系列车道或道路到达目的地。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG45.jpeg" width="99%"></p>
 <p><strong>Planning</strong>：为无人车规划时间与空间的轨迹信息</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG41.jpeg" width="99%"></p>
 <ul>
 <li>traffic_decider：交通流处理逻辑。</li>
+<li><strong>NEW：</strong>更新决策规划能力，支持车道变换；</li>
 </ul>
 <p><strong>Control</strong>：控制模块根据决策规划的轨迹（包含时间、空间信息）通过生成诸如节气门，制动和转向的控制命令。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG40.jpeg" width="99%"></p>
 <blockquote>
 <p>filter目录已删除。</p>
 </blockquote>
+<p><strong>new</strong>新增控制算法:MPC，默认未启用，启用请参考：<a href="https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_add_a_new_control_algorithm.md" target="_blank" rel="noopener">How to Add a New Control Algorithm</a></p>
 <p><strong>CanBus</strong>:传递控制指令到车辆的接口层，同时也回传底盘信息给Apollo。<br><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG38.jpeg" width="99%"></p>
 <p><strong>HD-Map</strong>: 高精地图模块更像是一个类库，但它不是发布和订阅消息，而是经常用作地图查询引擎，提供关于道路的临时结构化信息。</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG46.jpeg" width="99%"></p>
@@ -122,6 +128,7 @@
 <li>rtk:差分法定位</li>
 <li>msf:多传感器融合定位</li>
 </ul>
+<p><strong>NEW：</strong>增加基于定位算法融合的点云；</p>
 <p>参考</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/OpenDRIVE_(specification" target="_blank" rel="noopener">OpenDRIVE_(specification)</a>)</li>

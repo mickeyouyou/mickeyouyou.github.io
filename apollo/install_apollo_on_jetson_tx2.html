@@ -58,7 +58,7 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo parted /dev/sda/ mklabel gpt</span><br></pre></td></tr></table></figure>
 <ol>
-<li>挂载</li>
+<li>挂载<br>划分分区：<br>Partion</li>
 </ol>
 <p>视频参考：<a href="https://www.youtube.com/watch?v=KxZ-e6G7INg" target="_blank" rel="noopener">Install Samsung SSD on NVIDIA Jetson TX2</a></p>
 <h2 id="重新编译内核，支持Docker"><a href="#重新编译内核，支持Docker" class="headerlink" title="重新编译内核，支持Docker"></a>重新编译内核，支持Docker</h2><p>等于自己执行了安装Docker的步骤过程。</p>
@@ -75,6 +75,8 @@
 <h2 id="编译Apollo"><a href="#编译Apollo" class="headerlink" title="编译Apollo"></a>编译Apollo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash apollo.sh build</span><br></pre></td></tr></table></figure>
 <p>运行Demo</p>
 <p>##FAQ</p>
+<p>如果前面第一个操作有问题，导致屏幕蓝屏，或者黑屏只显示鼠标等。需要重置 dpkg 后再试，总之按提示操作就好了。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg --configure -a</span><br></pre></td></tr></table></figure>
 
 
 <!--<a href="http://yoursite.com/apollo/install_apollo_on_jetson_tx2.html#disqus_thread" class="article-comment-link">Comments</a>
