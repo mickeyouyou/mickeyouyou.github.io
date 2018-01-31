@@ -66,8 +66,10 @@
 <li><p>重新编译内核rebuild the tx2 kernal to suport docker:<br>原生tx2不支持docker，所以需要重新编译内核，将docker所需的模块加载，可以参考下面两个链接来定制自己的支持docker的内核：</p>
 <h1 id="支持Docker的内核配置文件，"><a href="#支持Docker的内核配置文件，" class="headerlink" title="支持Docker的内核配置文件，"></a>支持Docker的内核配置文件，</h1><p><a href="https://github.com/Technica-Corporation/Tegra-Docker" target="_blank" rel="noopener">https://github.com/Technica-Corporation/Tegra-Docker</a></p>
 <h1 id="下载、自编译、拷贝内核到TX2"><a href="#下载、自编译、拷贝内核到TX2" class="headerlink" title="下载、自编译、拷贝内核到TX2"></a>下载、自编译、拷贝内核到TX2</h1><p><a href="https://github.com/jetsonhacks/buildJetsonTX2Kernel" target="_blank" rel="noopener">https://github.com/jetsonhacks/buildJetsonTX2Kernel</a></p>
-<p>最方便直接的步骤就是直接使用链接1发布的config文件，拷贝到链接2的src中，</p>
 <h1 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h1><p>bash getKernelSources.sh</p>
+<p>拷贝内核配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp  Tegra-Docker/kernel_config/config /usr/scr/kernel/kernel-4.4/.config</span><br></pre></td></tr></table></figure>
+<p>Tegra-Docker中kernel_config/config文件，到/usr/src/kernel/kernel-4.4/.config</p>
 <h1 id="根据内核配置文件，编译内核"><a href="#根据内核配置文件，编译内核" class="headerlink" title="根据内核配置文件，编译内核"></a>根据内核配置文件，编译内核</h1><p>bash makeKernal.sh</p>
 <h1 id="拷贝镜像到TX2"><a href="#拷贝镜像到TX2" class="headerlink" title="拷贝镜像到TX2"></a>拷贝镜像到TX2</h1><p>bash copyImage.sh</p>
 </li>
