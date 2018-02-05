@@ -49,31 +49,38 @@
 <p><img src="http://7xk16m.com1.z0.glb.clouddn.com/WechatIMG37.jpeg" width="99%"></p>
 <p>本文档是在线手册的预览（Preview）版本，覆盖开发者多个阶段，不同功能模块，不同适配平台。 为了给开发者在短时间内一个宏观的认识，建设的在线文档站点。</p>
 <h2 id="文档目录"><a href="#文档目录" class="headerlink" title="文档目录"></a>文档目录</h2><ul>
-<li>介绍</li>
 <li>安装 <ul>
 <li><a href="./hardware_system_installation_guide_1.5.html">参考硬件的安装（v1.5）</a></li>
 <li><a href="./install_by_sourcecodes.html">软件部分编译安装</a></li>
 <li><a href="./case_by_install.html">安装过程中遇到的case与解决办法</a></li>
+<li><a href="./installation_offline.html">离线安装Guide</a></li>
 </ul>
 </li>
 <li>代码<ul>
-<li><a href="./doxygen.html">Doxygen生成文档</a> </li>
+<li><a href="./doxygen.html">使用Doxygen生成代码结构文档</a> </li>
 <li><a href="./words.html">Apollo相关名词解释</a></li>
-<li><a href="./question.html">Apollo代码阅读笔记</a></li>
+<li><a href="./question.html">Apollo Common</a></li>
 <li><a href="./from_apollo_main_macro_to_all_modules.html">从ApolloApp类、APOLLO_MAIN宏探究Apollo所有模块</a></li>
-<li>核心模块<ul>
+<li><a href="./adapter.html">Adapter适配器</a></li>
+<li>模块解析<ul>
 <li><a href="./module_perception.html">感知模块(perception)</a><ul>
 <li><a href="./3d_obstacle_perception.html">3D 障碍物感知</a> </li>
+<li><a href="./traffic_light.html">交通灯识别</a></li>
 </ul>
 </li>
 <li><a href="./module_planning.html">决策规划模块(planning)</a></li>
 <li><a href="./module_canbus.html">CAN总线控制模块(canbus)</a></li>
-<li>localization 定位模块</li>
-<li>perception 感知模块</li>
-<li>planning 规划决策模块</li>
+<li>localization 定位模块<ul>
+<li>RTK</li>
+<li>MSF</li>
+</ul>
+</li>
 <li>prediction 预测模块</li>
-<li>common 公有的源码模块 </li>
-<li>control 控制模块</li>
+<li>control 控制模块<ul>
+<li>MPC</li>
+<li>Lattice</li>
+</ul>
+</li>
 <li>dreamview 可视化模块</li>
 <li>drivers 驱动模块</li>
 <li>hmi 人机交互模块</li>
@@ -127,7 +134,7 @@
 </li>
 <li><a href="./faq.html">FAQ</a></li>
 </ul>
-<h2 id="Apollo参考文档"><a href="#Apollo参考文档" class="headerlink" title="Apollo参考文档"></a>Apollo参考文档</h2><p>开发者可以在下载代码库后，参照<a href="./doxygen.html">Doxygen生成文档</a> 生成基于最新代码库的参考文档。当然，我们也提供基于最新发布版本的在线版：<a href="http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html" target="_blank" rel="noopener">http://www.fzb.me/manual/classapollo_1_1common_1_1ApolloApp.html</a></p>
+<h2 id="Apollo参考文档"><a href="#Apollo参考文档" class="headerlink" title="Apollo参考文档"></a>Apollo参考文档</h2><p>开发者可以在下载代码库后，参照<a href="./doxygen.html">Doxygen生成文档</a> 生成基于最新代码库的参考文档。当然，我们也提供基于最新发布版本的在线版：<a href="https://apolloauto.github.io/doxygen/apollo/classapollo_1_1common_1_1ApolloApp.html" target="_blank" rel="noopener">https://apolloauto.github.io/doxygen/apollo/classapollo_1_1common_1_1ApolloApp.html</a></p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><ul>
 <li><a href="./hardware_system_installation_guide.html">Apollo 1.0 硬件安装指南</a></li>
 <li><a href="./hardware_system_installation_guide_1.5.html">Apollo 1.5 硬件安装指南</a></li>
@@ -143,8 +150,12 @@
 <li><a href="http://www.infoq.com/cn/presentations/apollo-map-service-and-cloud-simulation-platform" target="_blank" rel="noopener">Apollo高精地图服务介绍及云端仿真平台应用</a></li>
 <li><a href="http://www.infoq.com/cn/presentations/end-to-end-automatic-driving-scheme-based-on-deep-learning" target="_blank" rel="noopener">基于深度学习的End-to-End自动驾驶方案</a></li>
 </ul>
-<p><a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="noopener"><img src="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" width="99.9999%"></a></p>
+<p>第二站：深圳技术沙龙</p>
+<ul>
+<li><p><a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="noopener"><img src="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" width="99.9999%"></a></p>
 <p align="center"> <a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="noopener">点击查看大图</a></p>
+</li>
+</ul>
 
 
 <!--<a href="http://yoursite.com/apollo/index.html#disqus_thread" class="article-comment-link">Comments</a>
