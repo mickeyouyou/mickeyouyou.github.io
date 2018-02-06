@@ -1,0 +1,76 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo Common module</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo Common module</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年11月21日
+
+
+
+
+ </div>
+--->
+</div>
+
+
+<p>车辆状态：<br><figure class="highlight plain"><figcaption><span>modules/common/proto/vehicle_state.proto</span></figcaption><table><tr><td class="code"><pre><span class="line">message VehicleState &#123;</span><br><span class="line">  optional double x = 1 [default =0.0];</span><br><span class="line">  optional double y = 2 [default =0.0];</span><br><span class="line">  optional double z = 3 [default =0.0];</span><br><span class="line">  optional double timestamp = 4 [default =0.0];</span><br><span class="line">  optional double roll = 5 [default =0.0];</span><br><span class="line">  optional double pitch = 6 [default =0.0];</span><br><span class="line">  optional double yaw = 7 [default =0.0];</span><br><span class="line">  optional double heading = 8 [default =0.0];</span><br><span class="line">  optional double kappa = 9 [default =0.0];</span><br><span class="line">  optional double linear_velocity = 10 [default =0.0];</span><br><span class="line">  optional double angular_velocity = 11 [default =0.0];</span><br><span class="line">  optional double linear_acceleration = 12 [default =0.0];</span><br><span class="line">  optional apollo.canbus.Chassis.GearPosition gear = 13;</span><br><span class="line">  optional apollo.canbus.Chassis.DrivingMode driving_mode = 14;</span><br><span class="line">  optional apollo.localization.Pose pose = 15;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+
+<!--<a href="http://yoursite.com/apollo/module_common.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
