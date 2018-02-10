@@ -1,0 +1,100 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo Prediction</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo Prediction</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2018年2月6日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text"><a href="#Input" class="headerlink" title="Input"></a>Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text"><a href="#Output" class="headerlink" title="Output"></a>Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Functionalities"><span class="toc-text"><a href="#Functionalities" class="headerlink" title="Functionalities"></a>Functionalities</span></a></li></ol>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>  The prediction module receives the obstacles from the perception module with<br>  their basic perception information including positions, headings, velocities,<br>  accelerations, and generates the predicted trajectories with probabilities for the obstacles.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><ul>
+<li>Obstacles from perception module</li>
+<li>Localizaton from localization module</li>
+</ul>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><ul>
+<li>Obstacles additionally with predicted trajectories</li>
+</ul>
+<h2 id="Functionalities"><a href="#Functionalities" class="headerlink" title="Functionalities"></a>Functionalities</h2><ul>
+<li><p>Container</p>
+<p>  Container stores input data from subscribed channels. Current supported<br>  inputs are <strong><em>perception obstacles</em></strong> and <strong><em>vehicle localization</em></strong>.</p>
+</li>
+<li><p>Evaluator</p>
+<p>  Evaluator predicts path and speed separately for any given obstacles. An<br>  evaluator evaluates a path by outputing a probability for it (lane<br>  sequence) using the given model stored in <em>prediction/data/</em>.</p>
+</li>
+<li><p>Predictor</p>
+<p>  Predictor generates predicted trajectories for obstacles. Currently<br>  supported predictor includes:</p>
+<ul>
+<li>Lane sequence: obstacle moves following the lanes</li>
+<li>Free movement: obstacle moves freely</li>
+<li>Regional movement: obstacle moves in a possible region </li>
+</ul>
+</li>
+</ul>
+<p>入口<code>prediction.cc</code></p>
+
+
+<!--<a href="http://yoursite.com/apollo/module_prediction.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>

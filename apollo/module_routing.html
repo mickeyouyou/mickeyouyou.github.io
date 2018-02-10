@@ -1,0 +1,88 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Routing模块</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Routing模块</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2018年2月9日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text"><a href="#Input" class="headerlink" title="Input"></a>Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text"><a href="#Output" class="headerlink" title="Output"></a>Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-text"><a href="#&#x6570;&#x636E;&#x7ED3;&#x6784;" class="headerlink" title="&#x6570;&#x636E;&#x7ED3;&#x6784;"></a>&#x6570;&#x636E;&#x7ED3;&#x6784;</span></a></li></ol>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>  Routing module generates high level navigation information based on request.</p>
+<p>  Routing module depends on a routing topology file, usually named <code>routing_map.*</code> in apollo.<br>  The routing map can be genreated by command<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash scripts/generate_routing_topo_graph.sh</span><br></pre></td></tr></table></figure></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><ul>
+<li>Map data</li>
+<li>Routing request (Start and end location)</li>
+</ul>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><ul>
+<li>Routing navigation information</li>
+</ul>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>主要由RoutingRequest和RoutingResponse两个部分构成：<br><figure class="highlight plain"><figcaption><span>modules/routing/proto/routing.proto</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// 导航请求</span><br><span class="line">message RoutingRequest &#123;</span><br><span class="line">  optional apollo.common.Header header = 1;</span><br><span class="line">  // at least two points. The first is start point, the end is final point.</span><br><span class="line">  // The routing must go through each point in waypoint.</span><br><span class="line">  // 至少两个点，即起点与终点，导航线路穿过其中的点。</span><br><span class="line">  repeated LaneWaypoint waypoint = 2;</span><br><span class="line">  repeated LaneSegment blacklisted_lane = 3;</span><br><span class="line">  repeated string blacklisted_road = 4;</span><br><span class="line">  optional bool broadcast = 5 [default = true];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message LaneWaypoint &#123;</span><br><span class="line">  optional string id = 1;</span><br><span class="line">  optional double s = 2;</span><br><span class="line">  optional apollo.common.PointENU pose = 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 导航结果</span><br><span class="line">message RoutingResponse &#123;</span><br><span class="line">  optional apollo.common.Header header = 1;</span><br><span class="line">  repeated RoadSegment road = 2;</span><br><span class="line">  optional Measurement measurement = 3;</span><br><span class="line">  optional RoutingRequest routing_request = 4;</span><br><span class="line"></span><br><span class="line">  // the map version which is used to build road graph</span><br><span class="line">  optional bytes map_version = 5;</span><br><span class="line">  optional apollo.common.StatusPb status = 6;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中PointENU的定义:<br><figure class="highlight plain"><figcaption><span>modules/common/proto/geometry.proto</span></figcaption><table><tr><td class="code"><pre><span class="line">// A point in the map reference frame. The map defines an origin, whose</span><br><span class="line">// coordinate is (0, 0, 0).</span><br><span class="line">// Most modules, including localization, perception, and prediction, generate</span><br><span class="line">// results based on the map reference frame.</span><br><span class="line">// Currently, the map uses Universal Transverse Mercator (UTM) projection. See</span><br><span class="line">// the link below for the definition of map origin.</span><br><span class="line">//   https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system</span><br><span class="line">// The z field of PointENU can be omitted. If so, it is a 2D location and we do</span><br><span class="line">// not care its height.</span><br><span class="line">message PointENU &#123;</span><br><span class="line">  optional double x = 1 [default = nan];  // East from the origin, in meters.</span><br><span class="line">  optional double y = 2 [default = nan];  // North from the origin, in meters.</span><br><span class="line">  optional double z = 3 [default = 0.0];  // Up from the WGS-84 ellipsoid, in</span><br><span class="line">                                          // meters.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>构造导航请求：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// <span class="keyword">in</span> /apollo directory</span><br><span class="line">bash scripts/mock_routing_request.sh</span><br></pre></td></tr></table></figure></p>
+<p>测试数据：<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">header &#123;</span><br><span class="line">    timestamp_sec: 1173545118.51</span><br><span class="line">    module_name: "routing"</span><br><span class="line">    sequence_num: 1</span><br><span class="line">&#125;</span><br><span class="line">waypoint &#123;</span><br><span class="line">    pose &#123;</span><br><span class="line">        x: 587696.82286</span><br><span class="line">        y: 4141446.66696</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">waypoint &#123;</span><br><span class="line">    pose &#123;</span><br><span class="line">        x: 586948.740120</span><br><span class="line">        y: 4141171.118641</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+
+<!--<a href="http://yoursite.com/apollo/module_routing.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
