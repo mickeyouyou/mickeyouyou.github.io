@@ -46,7 +46,7 @@
 
 
 <p>We’re trying to simulate our own algorithms for perception, planning etc. Currently we want to test these without vehicle hardware(only a computer). However we can’t figure out how we should initiate the simulation in dreamview. As far as we know, when running “rosbag play demo_2.0.bag” dreamveiw just plays back what’s recorded earlier by the Apollo team.</p>
-<p>tl.dr: How do you test your own algorithms using dreamview?</p>
+<p>How do you test your own algorithms using dreamview?</p>
 <p>Suppose you’d like to test your own planning algorithm,</p>
 <p>filter out planning topic in the rosbag<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag filter demo_2.0.bag demo_2.0_np.bag <span class="string">'topic != "/apollo/planning"'</span></span><br></pre></td></tr></table></figure></p>
 <p>replay rosbag<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag play demo_2.0_np.bag</span><br></pre></td></tr></table></figure></p>
