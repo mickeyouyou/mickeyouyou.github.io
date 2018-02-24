@@ -405,7 +405,7 @@
 </ul>
 <h5 id="接线"><a href="#接线" class="headerlink" title="接线"></a>接线</h5><p>按照以下步骤将ProPak6 GNSS接收器和IMU连接到Apollo系统：</p>
 <p>1.使用IMU-IGM-A1附带的分接电缆连接IMU主端口和ProPak6 COM3/IMU端口。<br>2.使用USB-MicroUSB转换线，连接IPC的USB端口和ProPak6的MicroUSB端口。<br>3.将IMU-IGM-A1分离电缆的另一端连接到车辆电源。<br>4.将GNSS天线连接到Propak6。<br>5.连接Propak6电源线。</p>
-<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/wiring.png" alt="wiring"></p>
+<p><img alt="wiring" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/wiring.png" width="99%"></p>
 <p>更多有关 NovAtel SPAN ProPak6的信息, 参见:</p>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/online_icon.png" alt="online_icon">NovAtel ProPak6 安装操作手册:</p>
 <p><a href="https://www.novatel.com/assets/Documents/Manuals/OM-20000148.pdf" target="_blank" rel="noopener">https://www.novatel.com/assets/Documents/Manuals/OM-20000148.pdf</a></p>
@@ -414,15 +414,14 @@
 <p>这种结构需要为LiDAR提供刚性支撑，同时将LiDAR提升到地面以上的某个高度，避免来自liDAR的激光束被车辆前部或后部阻挡。</p>
 <p>LiDAR所需的实际高度取决于车辆的设计和LiDAR相对于车辆的安装点。激光器的垂直倾斜角度通常在相对于地平线的±2〜-24.8度的范围内。为了充分利用检测角度范围，在林肯MKZ上，我们建议将LiDAR安装在1.8米的最小高度（从地面到LiDAR的底部）。</p>
 <h4 id="接线-1"><a href="#接线-1" class="headerlink" title="接线"></a>接线</h4><p>每个HDL-64E S3 LiDAR包括一个将LiDAR连接到电源的电缆组件，计算机（用于数据传输的以太网和用于LiDAR配置的串行端口）和GPS时间同步源。</p>
-<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/HDL64_Cable_whitened_labeled.png" alt="LiDAR_Cable"></p>
+<p><img alt="LiDAR_Cable" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/HDL64_Cable_whitened_labeled.png" width="99%"></p>
 <ol>
 <li><p>连接到LiDAR</p>
-<p>将电源和信号电缆连接到LiDAR上的匹配端口</p>
-<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/HDL64_Cabling.JPG" alt="HDL64_Cabling"></p>
+<p>将电源和信号电缆连接到LiDAR上的匹配端口<br><img alt="HDL64_Cabling" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/HDL64_Cabling.JPG" width="99%"></p>
 </li>
 <li><p>连接到电源</p>
 <p>两根AWG 16线为HDL-64E S3提供所需电力。 所需电压/电流：12V/3A。 要连接电源，请与电线完全接触并拧紧螺丝。</p>
-<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/HDL64_PowerCable.JPG" alt="HDL64_Power_Cable"></p>
+<p><img alt="HDL64_Power_Cable" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/HDL64_PowerCable.JPG" width="99%"></p>
 </li>
 <li><p>连接到IPC</p>
 <p>与IPC的连接是通过以太网线。将电缆束中的以太网线水晶头插入IPC上的以太网端口。</p>
@@ -434,11 +433,11 @@
 </blockquote>
 <p>a. SPAN-IGM-A1</p>
 <p> 如果您配置了[配置GPS和IMU]（＃configuration-the-gps-and-imu）中指定的SPAN-IGM-A1，GPRMC信号将通过用户端口电缆从主端口从GPS接收器发送。 PPS信号通过Aux端口上标有“PPS”和“PPS dgnd”的电缆发送。 下图中的虚线框是HDL64E S3 LiDAR和SPAN-IGM-A1 GPS接收机附带的可用连接。 剩余的连接需要由用户进行。</p>
-<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/LiDAR_A1_wiring.png" alt="Wiring_Schematics_IGM_A1"></p>
+<p><img alt="Wiring_Schematics_IGM_A1" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/LiDAR_A1_wiring.png" width="99%"></p>
 <p>b. Propak 6 和 IMU-IGM-A1</p>
 <p> 如果您配置了[配置GPS和IMU]（＃configuration-the-gps-and-imu）中指定的Propak 6，GPRMC信号将通过COM2端口从GPS接收器发送。PPS信号通过IO端口发送。 </p>
 <p> 下图中的虚线框是HDL-64E S3 LiDAR和Propak 6 GPS接收机附带的可用连接。 剩余的连接需要由用户进行。</p>
-<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/LiDAR_PP6_wiring.png" alt="Wiring_Schematics_PP6"></p>
+<p><img alt="Wiring_Schematics_PP6" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/LiDAR_PP6_wiring.png" width="99%"></p>
 </li>
 <li><p>通过串口连接进行LiDAR配置<br>一些低级的参数可以通过串口进行配置。<br>在Velodyne提供的电缆束内，有两对红色/黑色电缆，如下表所示。 较厚的一对（AWG 16）用于为LiDAR系统供电。 较薄的一对用于串行连接。 将黑线（串行输入）连接到RX，将红线连接到串行电缆的地线。 将串行电缆与USB串行适配器连接至所选择的计算机。</p>
 </li>
@@ -451,7 +450,7 @@
 <li>COM 端口默认程序<br>Baudrate: 9600<br>Parity: None<br>Data bits: 8<br>Stop bits: 1</li>
 <li><p>COM端口程序，从如下链接下载 Termite3.2 并安装<br><a href="http://www.compuphase.com/software_termite.htm" target="_blank" rel="noopener">http://www.compuphase.com/software_termite.htm</a></p>
 </li>
-<li><p>HDL-64E S3和笔记本电脑之间的COM端口连接<br><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/Serial cable connected to laptop.png" alt="Serial cable connected to laptop.png"></p>
+<li><p>HDL-64E S3和笔记本电脑之间的COM端口连接<br><img alt="Serial cable connected to laptop.png" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/Serial cable connected to laptop.png" width="99%"></p>
 </li>
 <li><p>在笔记本运行 <strong>Termite 3.2</strong></p>
 </li>
@@ -465,17 +464,14 @@
 </ol>
 <h4 id="安装IPC"><a href="#安装IPC" class="headerlink" title="安装IPC"></a>安装IPC</h4><p>步骤如下:</p>
 <ol>
-<li><p>使用电压转换器/调节器，将车辆的12 VDC输出转换为所需的电压。根据Neousys的建议，使用12 VDC至19 VDC转换器，最大输出电流为20 A.</p>
-<p>  <img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/voltage_converter2.jpg" alt="voltage_regulater_converter"></p>
-<p>  首先，将两条19 VDC输出线连接到IPC的电源连接器（绿色如下图所示）。</p>
+<li><p>使用电压转换器/调节器，将车辆的12 VDC输出转换为所需的电压。根据Neousys的建议，使用12 VDC至19 VDC转换器，最大输出电流为20 A.<br><img alt="voltage_regulater_converter" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/voltage_converter2.jpg" width="99%"><br>首先，将两条19 VDC输出线连接到IPC的电源连接器（绿色如下图所示）。</p>
 <p>  <img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/ipc_power_RB.png" alt="ipc_power_RB"></p>
 <p>  其次，将12 VDC输入的两条电缆连接到车辆的电源面板。 如果导线的尺寸太厚，则电线应分开成几根线，并分别连接到相应的端口。</p>
 <p>  <img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/warning_icon.png" alt="warning">这一步非常有必要。 如果输入电压低于所需极限。 很可能导致系统故障。</p>
 </li>
 </ol>
 <ol>
-<li><p>将板载计算机系统6108GC放在主干箱内（推荐）。</p>
-<p> 例如，阿波罗1.5使用4x4螺钉将6108GC螺栓固定在后备箱的箱板上。 <img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/Mount_ipc_on_carpet.JPG" alt="IPC-bolt_down-936x720"></p>
+<li><p>将板载计算机系统6108GC放在主干箱内（推荐）。例如，阿波罗1.5使用4x4螺钉将6108GC螺栓固定在后备箱的箱板上。<br><img alt="IPC-bolt_down-936x720" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/Mount_ipc_on_carpet.JPG" width="99%"></p>
 </li>
 <li><p>安装IPC，使其前后两侧（所有端口位于）面对右侧（乘客）或左侧（驱动器）的主干。<br>这种定位使得连接所有电缆更容易。<br>有关更多信息，请参见：</p>
 </li>
@@ -490,7 +486,7 @@
 <li>控制器局域网（CAN）电缆</li>
 <li>从4G路由器到IPC的以太网电缆<br>-（可选）监视器、键盘、鼠标<br>a. 将电源线连接到工控机（如图所示）：<br>b. 将电源线的另一端连接到车辆电池（如图所示）：</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/IPC-power-cable.jpg" alt="IPC-power-cable"></p>
+<p><img alt="IPC-power-cable" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/IPC-power-cable.jpg" width="99%"></p>
 <p>c. 连接DB9电缆工控机和可（如图所示）：</p>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/DB9_cable.png" alt="DB9_cable"></p>
 <p>d. 连接:</p>
@@ -498,7 +494,7 @@
 <li>从4G路由器到IPC的以太网电缆</li>
 <li>全球定位系统接收机<br>-（可选）监视器：</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/cable_connected_incar.JPG" alt="IPC-power-842x636"></p>
+<p><img alt="IPC-power-842x636" src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/cable_connected_incar.JPG" width="99%"></p>
 <h4 id="杠杆臂测量"><a href="#杠杆臂测量" class="headerlink" title="杠杆臂测量"></a>杠杆臂测量</h4><p>步骤如下:</p>
 <ol>
 <li>在接受测量之前，打开IPC。</li>
@@ -506,7 +502,7 @@
 </ol>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/online_icon.png" alt="online_icon">NovAtel ProPak6 安装与操作手册:</p>
 <p><a href="https://www.novatel.com/assets/Documents/Manuals/OM-20000148.pdf" target="_blank" rel="noopener">https://www.novatel.com/assets/Documents/Manuals/OM-20000148.pdf</a></p>
-<p><img src="images/online_icon.png" alt="online_icon">NovAtel SPAN-IGM-A1 产品主页:</p>
+<p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/quickstart/images/online_icon.png" alt="online_icon">NovAtel SPAN-IGM-A1 产品主页:</p>
 <p><a href="https://www.novatel.com/products/span-gnss-inertial-systems/span-combined-systems/span-igm-a1/" target="_blank" rel="noopener">https://www.novatel.com/products/span-gnss-inertial-systems/span-combined-systems/span-igm-a1/</a></p>
 <h4 id="配置GPS、IMU"><a href="#配置GPS、IMU" class="headerlink" title="配置GPS、IMU"></a>配置GPS、IMU</h4><p>GPS 和IMU 配置如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WIFICONFIGSTATE OFF</span><br><span class="line">UNLOGALLTHISPORT</span><br><span class="line">SETIMUTOANTOFFSET0.00 1.10866 1.14165 0.05 0.05 0.08</span><br><span class="line">SETINSOFFSET0 0 0</span><br><span class="line">LOGCOM2 GPRMC ONTIME 1.0 0.25</span><br><span class="line">EVENTOUTCONTROLMARK2 ENABLE POSITIVE 999999990 10</span><br><span class="line">EVENTOUTCONTROLMARK1 ENABLE POSITIVE 500000000 500000000</span><br><span class="line">LOGNCOM1 GPGGA ONTIME 1.0</span><br><span class="line"></span><br><span class="line">logbestgnssposb ontime 0.5</span><br><span class="line">logbestgnssvelb ontime 0.5</span><br><span class="line">logbestposb ontime 0.5</span><br><span class="line">logINSPVASB ontime 0.01</span><br><span class="line">logCORRIMUDATASB ontime 0.01</span><br><span class="line">logINSCOVSB ontime 1</span><br><span class="line">logmark1pvab onnew</span><br><span class="line"></span><br><span class="line">logimutoantoffsetsb once</span><br><span class="line">logvehiclebodyrotationb onchanged</span><br><span class="line"></span><br><span class="line">SAVECONFIG</span><br></pre></td></tr></table></figure></p>
 <p>ProPak6配置如下:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WIFICONFIG STATE OFF</span><br><span class="line">CONNECTIMU COM3 IMU_ADIS16488</span><br><span class="line">INSCOMMAND ENABLE</span><br><span class="line">SETIMUORIENTATION 5</span><br><span class="line">ALIGNMENTMODE AUTOMATIC  </span><br><span class="line">SETIMUTOANTOFFSET 0.00 1.10866 1.14165 0.05 0.05 0.08</span><br><span class="line">VEHICLEBODYROTATION 0 0 0</span><br><span class="line"> </span><br><span class="line">COM COM1 9600 N 8 1 N OFF OFF</span><br><span class="line">COM COM2 9600 N 8 1 N OFF OFF</span><br><span class="line">INTERFACEMODE COM1 NOVATEL NOVATEL OFF</span><br><span class="line">LOG COM2 GPRMC ONTIME 1 0.25</span><br><span class="line">PPSCONTROL ENABLE POSITIVE 1.0 10000</span><br><span class="line">MARKCONTROL MARK1 ENABLE POSITIVE</span><br><span class="line">EVENTINCONTROL MARK1 ENABLE POSITIVE 0 2</span><br><span class="line"> </span><br><span class="line">interfacemode usb2 rtcmv3 none off</span><br><span class="line">rtksource auto any</span><br><span class="line">psrdiffsource auto any</span><br><span class="line"> </span><br><span class="line">SAVECONFIG</span><br></pre></td></tr></table></figure></p>
