@@ -1,0 +1,113 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo主动监控Monitor、Data模块</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo主动监控Monitor、Data模块</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2018年2月27日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件监控"><span class="toc-text"><a href="#&#x786C;&#x4EF6;&#x76D1;&#x63A7;" class="headerlink" title="&#x786C;&#x4EF6;&#x76D1;&#x63A7;"></a>&#x786C;&#x4EF6;&#x76D1;&#x63A7;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程监控"><span class="toc-text"><a href="#&#x8FDB;&#x7A0B;&#x76D1;&#x63A7;" class="headerlink" title="&#x8FDB;&#x7A0B;&#x76D1;&#x63A7;"></a>&#x8FDB;&#x7A0B;&#x76D1;&#x63A7;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topic监控"><span class="toc-text"><a href="#Topic&#x76D1;&#x63A7;" class="headerlink" title="Topic&#x76D1;&#x63A7;"></a>Topic&#x76D1;&#x63A7;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概要监控"><span class="toc-text"><a href="#&#x6982;&#x8981;&#x76D1;&#x63A7;" class="headerlink" title="&#x6982;&#x8981;&#x76D1;&#x63A7;"></a>&#x6982;&#x8981;&#x76D1;&#x63A7;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态信息报告"><span class="toc-text"><a href="#&#x9759;&#x6001;&#x4FE1;&#x606F;&#x62A5;&#x544A;" class="headerlink" title="&#x9759;&#x6001;&#x4FE1;&#x606F;&#x62A5;&#x544A;"></a>&#x9759;&#x6001;&#x4FE1;&#x606F;&#x62A5;&#x544A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#车辆状态报告"><span class="toc-text"><a href="#&#x8F66;&#x8F86;&#x72B6;&#x6001;&#x62A5;&#x544A;" class="headerlink" title="&#x8F66;&#x8F86;&#x72B6;&#x6001;&#x62A5;&#x544A;"></a>&#x8F66;&#x8F86;&#x72B6;&#x6001;&#x62A5;&#x544A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol>
+<p>监控模块包含系统级软件如代码以检查硬件和监控系统健康状况。</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG141.jpeg" width="99%"></p>
+<p>监控的状态有：</p>
+<ul>
+<li>硬件状态<ul>
+<li>简要状态</li>
+<li>硬件状态</li>
+<li>Topic状态</li>
+</ul>
+</li>
+<li>模块状态<ul>
+<li>简要状态</li>
+<li>进程状态</li>
+<li>Topic状态</li>
+</ul>
+</li>
+</ul>
+<h2 id="硬件监控"><a href="#硬件监控" class="headerlink" title="硬件监控"></a>硬件监控</h2><p>硬件相关监控，如CAN卡、GPS状态检查，检查结果将报告给HMI。</p>
+<p>系统状态对象在文件<code>modules/monitor/proto/system_status.proto</code>中配置<br><figure class="highlight plain"><figcaption><span>modules/monitor/proto/system_status.proto</span></figcaption><table><tr><td class="code"><pre><span class="line">message HardwareStatus &#123;</span><br><span class="line">  // Overall status summary.</span><br><span class="line">  optional Summary summary = 1 [default = UNKNOWN];</span><br><span class="line">  // Additional message for current status.</span><br><span class="line">  optional string msg = 2;</span><br><span class="line"></span><br><span class="line">  // Detailed status.</span><br><span class="line">  enum Status &#123;</span><br><span class="line">    OK = 0;</span><br><span class="line">    // HW device is present and in working order, but not ready for service</span><br><span class="line">    // (e.g., no GPS lock).</span><br><span class="line">    NOT_READY = 1;</span><br><span class="line">    // HW is not present.</span><br><span class="line">    NOT_PRESENT = 2;</span><br><span class="line">    // HW error, can&apos;t be used.</span><br><span class="line">    ERR = 3;</span><br><span class="line">    // GPS positioning is unstable.</span><br><span class="line">    GPS_UNSTABLE_WARNING = 4;</span><br><span class="line">    GPS_UNSTABLE_ERROR = 5;</span><br><span class="line"></span><br><span class="line">    UNDEF = -1;</span><br><span class="line">  &#125;</span><br><span class="line">  optional Status status = 3 [default = UNDEF];</span><br><span class="line">  optional double gps_unstable_start_time = 4;</span><br><span class="line"></span><br><span class="line">  optional TopicStatus topic_status = 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="进程监控"><a href="#进程监控" class="headerlink" title="进程监控"></a>进程监控</h2><p>检查一个进程运行与否。这些检查的进程可以配置在<code>apollo::monitor::ProcessConf</code> 工作原理类似于：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps aux | grep &lt;keyword1&gt; | grep &lt;keyword2&gt; | ...</span><br></pre></td></tr></table></figure></p>
+<p>详细实现过程：<br> <code>/proc</code> 文件系统是提供了有关系统中进程的信息。遍历获取该目录下的进程ID，并以此获取对应内容；</p>
+<p>配置文件：<br><figure class="highlight plain"><figcaption><span>modules/monitor/conf/monitor_conf.pb.txt</span></figcaption><table><tr><td class="code"><pre><span class="line">modules &#123;</span><br><span class="line">  name: &quot;canbus&quot;</span><br><span class="line">  process_conf &#123;</span><br><span class="line">    process_cmd_keywords: &quot;modules/canbus/canbus&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">modules &#123;</span><br><span class="line">  name: &quot;radar&quot;</span><br><span class="line">  process_conf &#123;</span><br><span class="line">    process_cmd_keywords: &quot;modules/drivers/radar/conti_radar/conti_radar&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  topic_conf &#123;</span><br><span class="line">    type: CONTI_RADAR</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">modules &#123;</span><br><span class="line">  name: &quot;localization&quot;</span><br><span class="line">  process_conf &#123;</span><br><span class="line">    process_cmd_keywords: &quot;modules/localization/localization&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  topic_conf &#123;</span><br><span class="line">    type: LOCALIZATION</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">modules &#123;</span><br><span class="line">  name: &quot;perception&quot;</span><br><span class="line">  process_conf &#123;</span><br><span class="line">    process_cmd_keywords: &quot;modules/perception/perception&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  topic_conf &#123;</span><br><span class="line">    type: PERCEPTION_OBSTACLES</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">modules &#123;</span><br><span class="line">  name: &quot;prediction&quot;</span><br><span class="line">  process_conf &#123;</span><br><span class="line">    process_cmd_keywords: &quot;modules/prediction/prediction&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  topic_conf &#123;</span><br><span class="line">    type: PREDICTION</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">modules &#123;</span><br><span class="line">  name: &quot;planning&quot;</span><br><span class="line">  process_conf &#123;</span><br><span class="line">    process_cmd_keywords: &quot;modules/planning/planning&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  topic_conf &#123;</span><br><span class="line">    type: PLANNING_TRAJECTORY</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">modules &#123;</span><br><span class="line">  name: &quot;control&quot;</span><br><span class="line">  process_conf &#123;</span><br><span class="line">    process_cmd_keywords: &quot;modules/control/control&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  topic_conf &#123;</span><br><span class="line">    type: CONTROL_COMMAND</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">modules &#123;</span><br><span class="line">  name: &quot;record_bag&quot;</span><br><span class="line">  process_conf &#123;</span><br><span class="line">    process_cmd_keywords: &quot;rosbag/record&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">hardware &#123;</span><br><span class="line">  name: &quot;velodyne&quot;</span><br><span class="line">  topic_conf &#123;</span><br><span class="line">    type: POINT_CLOUD</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>有这么几类的配置配型：</p>
+<ul>
+<li>进程监控配置；</li>
+<li>Topic监控配置；</li>
+<li>或者两者兼有；</li>
+</ul>
+<p>处理逻辑：<br><figure class="highlight cpp"><figcaption><span>modules/monitor/software/process_monitor.cc</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> ProcessMonitor::RunOnce(<span class="keyword">const</span> <span class="keyword">double</span> current_time) &#123;</span><br><span class="line">  <span class="comment">// Get running processes.</span></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="built_in">std</span>::<span class="built_in">string</span>&gt; running_processes;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> procs = common::util::ListSubDirectories(<span class="string">"/proc"</span>);</span><br><span class="line">  <span class="comment">// 遍历执行文件系统/proc的进程与命令</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;proc : procs) &#123;</span><br><span class="line">    <span class="comment">// Get process command string.</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> cmd_string;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> cmd_file = common::util::StrCat(<span class="string">"/proc/"</span>, proc, <span class="string">"/cmdline"</span>);</span><br><span class="line">    <span class="keyword">if</span> (common::util::GetContent(cmd_file, &amp;cmd_string)) &#123;</span><br><span class="line">      running_processes.emplace(proc, cmd_string);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<span class="keyword">module</span> : MonitorManager::GetConfig().modules()) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">module</span>.has_process_conf()) &#123;</span><br><span class="line">      <span class="comment">// 检查、更新配置的进程监控模块</span></span><br><span class="line">      UpdateModule(<span class="keyword">module</span>.name(), <span class="keyword">module</span>.process_conf(), running_processes);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Topic监控"><a href="#Topic监控" class="headerlink" title="Topic监控"></a>Topic监控</h2><p>检查一个给出的Topic是否被正常更新。可以在<code>apollo::monitor::TopicConf</code>中配置。</p>
+<figure class="highlight cpp"><figcaption><span>modules/monitor/software/topic_monitor.cc</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> TopicMonitor::RunOnce(<span class="keyword">const</span> <span class="keyword">double</span> current_time) &#123;</span><br><span class="line">  <span class="keyword">auto</span> *adapter = GetAdapterByMessageType(config_.type());</span><br><span class="line">  <span class="keyword">if</span> (!adapter-&gt;HasReceived()) &#123;</span><br><span class="line">    status_-&gt;set_message_delay(<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">double</span> delay = adapter-&gt;GetDelaySec();</span><br><span class="line">  <span class="keyword">if</span> (delay &gt; config_.acceptable_delay()) &#123;</span><br><span class="line">    status_-&gt;set_message_delay(delay);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    status_-&gt;clear_message_delay();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="概要监控"><a href="#概要监控" class="headerlink" title="概要监控"></a>概要监控</h2><p>汇总了所有指定的监控的结果，简单总结为OK,WARN,ERROR,FATAL等状态。</p>
+<p>主要流程：<br>1、判断模块模块进程、Topic装填，汇总模块状态信息；<br>2、汇总硬件状态；</p>
+<h2 id="静态信息报告"><a href="#静态信息报告" class="headerlink" title="静态信息报告"></a>静态信息报告</h2><p>将以低频率方式发布静态信息 (apollo::data::StaticInfo) ，<br>你可以从”rostopic echo “或者已录制的rosbag中，得到如车辆元信息或者用户信息。</p>
+<h2 id="车辆状态报告"><a href="#车辆状态报告" class="headerlink" title="车辆状态报告"></a>车辆状态报告</h2><p>它将关键车辆状态（apollo::common::VehicleState）报告给远程，以便可以从服务器监控正在运行的车辆。 注意这是一项高级功能，默认情况下禁用。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-proc.html" target="_blank" rel="noopener">使用 /proc 文件系统来访问 Linux 内核的内容</a></li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/apollo/module_monitor_data.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</body>
+</html>
