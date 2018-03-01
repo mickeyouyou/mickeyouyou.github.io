@@ -44,25 +44,41 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#地图的数据格式"><span class="toc-text"><a href="#&#x5730;&#x56FE;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;" class="headerlink" title="&#x5730;&#x56FE;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;"></a>&#x5730;&#x56FE;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-a-different-map"><span class="toc-text"><a href="#Use-a-different-map" class="headerlink" title="Use a different map"></a>Use a different map</span></a></li></ol></li></ol>
-<h1 id="地图的数据格式"><a href="#地图的数据格式" class="headerlink" title="地图的数据格式"></a>地图的数据格式</h1><p>A bundle of correlated maps are organized as a directory, with a structure like:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;map_dir&gt;                        # Defined by FLAGS_map_dir</span><br><span class="line">  |-- base_map.xml               # Defined by FLAGS_base_map_filename</span><br><span class="line">  |-- routing_map.bin            # Defined by FLAGS_routing_map_filename</span><br><span class="line">  |-- sim_map.bin                # Defined by FLAGS_sim_map_filename</span><br><span class="line">  |-- default_end_way_point.txt  # Defined by FLAGS_end_way_point_filename</span><br></pre></td></tr></table></figure>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#地图的数据格式"><span class="toc-text"><a href="#&#x5730;&#x56FE;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;" class="headerlink" title="&#x5730;&#x56FE;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;"></a>&#x5730;&#x56FE;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#格式"><span class="toc-text"><a href="#&#x683C;&#x5F0F;" class="headerlink" title="&#x683C;&#x5F0F;"></a>&#x683C;&#x5F0F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坐标"><span class="toc-text"><a href="#&#x5750;&#x6807;" class="headerlink" title="&#x5750;&#x6807;"></a>&#x5750;&#x6807;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#车道"><span class="toc-text"><a href="#&#x8F66;&#x9053;" class="headerlink" title="&#x8F66;&#x9053;"></a>&#x8F66;&#x9053;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路口区域（juction）"><span class="toc-text"><a href="#&#x8DEF;&#x53E3;&#x533A;&#x57DF;&#xFF08;juction&#xFF09;" class="headerlink" title="&#x8DEF;&#x53E3;&#x533A;&#x57DF;&#xFF08;juction&#xFF09;"></a>&#x8DEF;&#x53E3;&#x533A;&#x57DF;&#xFF08;juction&#xFF09;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高精地图的使用"><span class="toc-text"><a href="#&#x9AD8;&#x7CBE;&#x5730;&#x56FE;&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="&#x9AD8;&#x7CBE;&#x5730;&#x56FE;&#x7684;&#x4F7F;&#x7528;"></a>&#x9AD8;&#x7CBE;&#x5730;&#x56FE;&#x7684;&#x4F7F;&#x7528;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol>
+<p>关于百度高精地图，开发者会提问很多关于制作、使用的问题。下面会基于目前Apollo开放的地图数据部分，讲解下高精地图的数据格式。</p>
+<h2 id="地图的数据格式"><a href="#地图的数据格式" class="headerlink" title="地图的数据格式"></a>地图的数据格式</h2><p>一段道路的相关高精度地图可以放置在如下结构的目录中：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;map_dir&gt;                        # Defined by FLAGS_map_dir</span><br><span class="line">  |-- base_map.xml               # Defined by FLAGS_base_map_filename</span><br><span class="line">  |-- routing_map.bin            # Defined by FLAGS_routing_map_filename</span><br><span class="line">  |-- sim_map.bin                # Defined by FLAGS_sim_map_filename</span><br><span class="line">  |-- default_end_way_point.txt  # Defined by FLAGS_end_way_point_filename</span><br></pre></td></tr></table></figure></p>
 <p>可以将可用地图文件名指定为备选列表：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--base_map_filename=&quot;base.xml|base.bin|base.txt&quot;</span><br></pre></td></tr></table></figure></p>
 <p>然后Apollo会找到第一个可用的文件加载。一般来说，我们遵循以下扩展模式：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x.xml  # An OpenDrive formatted map.</span><br><span class="line">x.bin  # A binary pb map.</span><br><span class="line">x.txt  # A text pb map.</span><br></pre></td></tr></table></figure>
 <p>不管原始数据格式为什么，在Apollo内部的数据地图的格式为proto。</p>
-<h2 id="Use-a-different-map"><a href="#Use-a-different-map" class="headerlink" title="Use a different map"></a>Use a different map</h2><ol>
-<li><p>[Prefered] Change global flagfile: <em>modules/common/data/global_flagfile.txt</em></p>
-<p>Note that it’s the basement of all modules’ flagfile, which keeps the whole<br>system in one page.</p>
+<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>百度高精地图数据格式采用（XML）文件格式的数据组织方式，是基于国际通用的OpenDrive规范，并根据百度自动驾驶业务需求拓展修改而成。</p>
+<h3 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h3><p>百度高精地图坐标采用WGS84经纬度坐标表示。</p>
+<h3 id="车道"><a href="#车道" class="headerlink" title="车道"></a>车道</h3><p><strong>道路的reference line 存储在ID为0的车道中，其他车道只存储当前车道的一个边界。例如，reference line右侧的车道只存储车道的右侧边界。</strong></p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG145.jpeg" width="99%"><br>车道 ID 的命名规则:</p>
+<ul>
+<li>lane section 内唯一</li>
+<li>数值连续的</li>
+<li>reference line 所在 lane 的 ID 为 0</li>
+<li>reference line 左侧 lane 的 ID 向左侧依次递增 (正t轴方向) </li>
+<li>reference line 右侧 lane 的 ID 向右侧依次递减(负 t 轴方向) </li>
+<li>reference line 必须定义在<code>&lt;center&gt;</code>节点内</li>
+</ul>
+<p>车道总数目没有限制。Reference line 自身必须为 Lane 0。</p>
+<h3 id="路口区域（juction）"><a href="#路口区域（juction）" class="headerlink" title="路口区域（juction）"></a>路口区域（juction）</h3><p>基本的原理比较简单，路口区域用junction结构表达。在Junction内，incoming Road通过Connecting Roads与out-going道路相连。下图展示了一个比较复杂的路口：</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG146.jpeg" width="99%"></p>
+<h2 id="高精地图的使用"><a href="#高精地图的使用" class="headerlink" title="高精地图的使用"></a>高精地图的使用</h2><ol>
+<li><p><strong>首选</strong>更改全局 flagfile: <em><strong> modules/common/data/global_flagfile.txt </strong></em>这是所有模块的基本flag文件，保持了整体系统的统一。</p>
 </li>
-<li><p>Pass as flag, which only affect individual process:</p>
+<li><p>作为flag标记传递，这样只影响单个进程</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;binary&gt; --map_dir=/path/to/your/map</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Override in the module’s own flagfile, which generally located at<br><em>modules/<module_name>/conf/<module_name>.conf</module_name></module_name></em></p>
-<p>Obviously it also only affect single module.</p>
+<li><p>覆盖模块所属的flag文件，生成位置：<br><em>modules/<module_name>/conf/<module_name>.conf</module_name></module_name></em><br>明显地，这个文件也只影响单个模块</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--flagfile=modules/common/data/global_flagfile.txt</span><br><span class="line"></span><br><span class="line"># Override values from the global flagfile.</span><br><span class="line">--map_dir=/path/to/your/map</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.opendrive.org/docs/OpenDRIVEFormatSpecRev1.4H.pdf" target="_blank" rel="noopener"></a></li>
+</ul>
 
 
 <!--<a href="http://yoursite.com/apollo/module_hdmap.html#disqus_thread" class="article-comment-link">Comments</a>
