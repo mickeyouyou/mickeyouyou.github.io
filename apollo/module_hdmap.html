@@ -52,7 +52,7 @@
 
 <h3 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h3><p>百度高精地图坐标采用WGS84经纬度坐标表示。</p>
 <h3 id="车道"><a href="#车道" class="headerlink" title="车道"></a>车道</h3><p><strong>道路的reference line 存储在ID为0的车道中，其他车道只存储当前车道的一个边界。例如，reference line右侧的车道只存储车道的右侧边界。</strong></p>
-<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG145.jpeg" width="99%"><br>车道 ID 的命名规则:</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG145.jpeg" width="79%"><br>车道 ID 的命名规则:</p>
 <ul>
 <li>lane section 内唯一</li>
 <li>数值连续的</li>
@@ -68,9 +68,8 @@
 <p>可以将可用地图文件名指定为备选列表：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--base_map_filename=&quot;base.xml|base.bin|base.txt&quot;</span><br></pre></td></tr></table></figure></p>
 <p>然后Apollo会找到第一个可用的文件加载。一般来说，我们遵循以下扩展模式：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x.xml  # An OpenDrive formatted map.</span><br><span class="line">x.bin  # A binary pb map.</span><br><span class="line">x.txt  # A text pb map.</span><br></pre></td></tr></table></figure>
-<p>不管原始数据格式为什么，在Apollo内部的数据地图的格式为proto。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// This message defines how we project the ellipsoidal Earth surface to a plane.</span><br><span class="line">message Projection &#123;</span><br><span class="line">  // PROJ.4 setting:</span><br><span class="line">  // &quot;+proj=tmerc +lat_0=&#123;origin.lat&#125; +lon_0=&#123;origin.lon&#125; +k=&#123;scale_factor&#125; +ellps=WGS84 +no_defs&quot;</span><br><span class="line">  optional string proj = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message Header &#123;</span><br><span class="line">  optional bytes version = 1;</span><br><span class="line">  optional bytes date = 2;</span><br><span class="line">  optional Projection projection = 3;//坐标系转换</span><br><span class="line">  optional bytes district = 4;</span><br><span class="line">  optional bytes generation = 5;</span><br><span class="line">  optional bytes rev_major = 6;</span><br><span class="line">  optional bytes rev_minor = 7;</span><br><span class="line">  optional double left = 8;</span><br><span class="line">  optional double top = 9;</span><br><span class="line">  optional double right = 10;</span><br><span class="line">  optional double bottom = 11;</span><br><span class="line">  optional bytes vendor = 12;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message Map &#123;</span><br><span class="line">  optional Header header = 1;</span><br><span class="line"></span><br><span class="line">  repeated Crosswalk crosswalk = 2;// 人行道</span><br><span class="line">  repeated Junction junction = 3;//路口区域</span><br><span class="line">  repeated Lane lane = 4;//车道</span><br><span class="line">  repeated StopSign stop_sign = 5;//停止线</span><br><span class="line">  repeated Signal signal = 6;//信号灯</span><br><span class="line">  repeated YieldSign yield = 7;//让路标志</span><br><span class="line">  repeated Overlap overlap = 8;//重叠区域</span><br><span class="line">  repeated ClearArea clear_area = 9;//禁停区域</span><br><span class="line">  repeated SpeedBump speed_bump = 10;//减速带</span><br><span class="line">  repeated Road road = 11;//道路</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>重点介绍车道与路口部分。</p>
+<p>不管原始数据格式为什么，在Apollo内部的数据地图的格式为proto。以下为Apollo高精地图的对象定义：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// This message defines how we project the ellipsoidal Earth surface to a plane.</span><br><span class="line">message Projection &#123;</span><br><span class="line">  // PROJ.4 setting:</span><br><span class="line">  // &quot;+proj=tmerc +lat_0=&#123;origin.lat&#125; +lon_0=&#123;origin.lon&#125; +k=&#123;scale_factor&#125; +ellps=WGS84 +no_defs&quot;</span><br><span class="line">  optional string proj = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message Header &#123;</span><br><span class="line">  optional bytes version = 1;</span><br><span class="line">  optional bytes date = 2;</span><br><span class="line">  optional Projection projection = 3;//坐标系转换</span><br><span class="line">  optional bytes district = 4;</span><br><span class="line">  optional bytes generation = 5;</span><br><span class="line">  optional bytes rev_major = 6;</span><br><span class="line">  optional bytes rev_minor = 7;</span><br><span class="line">  optional double left = 8;</span><br><span class="line">  optional double top = 9;</span><br><span class="line">  optional double right = 10;</span><br><span class="line">  optional double bottom = 11;</span><br><span class="line">  optional bytes vendor = 12;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message Map &#123;</span><br><span class="line">  optional Header header = 1;</span><br><span class="line"></span><br><span class="line">  repeated Crosswalk crosswalk = 2;// 人行道</span><br><span class="line">  repeated Junction junction = 3;//路口区域</span><br><span class="line">  repeated Lane lane = 4;//车道</span><br><span class="line">  repeated StopSign stop_sign = 5;//停止线</span><br><span class="line">  repeated Signal signal = 6;//信号灯</span><br><span class="line">  repeated YieldSign yield = 7;//让路标志</span><br><span class="line">  repeated Overlap overlap = 8;//重叠区域</span><br><span class="line">  repeated ClearArea clear_area = 9;//禁停区域</span><br><span class="line">  repeated SpeedBump speed_bump = 10;//减速带</span><br><span class="line">  repeated Road road = 11;//道路</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中重点介绍车道与路口部分。</p>
 <p>那接下来我们就看下从XML解析到proto的过程。</p>
 <h2 id="高精地图的使用"><a href="#高精地图的使用" class="headerlink" title="高精地图的使用"></a>高精地图的使用</h2><ol>
 <li><p><strong>首选</strong>更改全局 flagfile: <em><strong> modules/common/data/global_flagfile.txt </strong></em>这是所有模块的基本flag文件，保持了整体系统的统一。</p>
@@ -111,11 +110,10 @@ op1(yes)->geo</textarea><textarea id="flowchart-0-options" style="display: none"
 -->
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
-</div>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
 
-<img src="https://dn-coding-net-production-static.qbox.me/static/3c014d76335271b74510d8857e2f7892.png" width="50px"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
