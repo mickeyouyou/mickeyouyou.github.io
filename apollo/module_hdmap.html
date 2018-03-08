@@ -68,6 +68,11 @@
 <p>车道总数目没有限制。Reference line 自身必须为 Lane 0。</p>
 <h3 id="路口区域（juction）"><a href="#路口区域（juction）" class="headerlink" title="路口区域（juction）"></a>路口区域（juction）</h3><p>基本的原理比较简单，路口区域用junction结构表达。在Junction内，incoming Road通过Connecting Roads与out-going道路相连。下图展示了一个比较复杂的路口：</p>
 <p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG146.jpeg" width="79%"></p>
+<p>在最新的镜像中，Apollo在启动镜像时，会挂载所有地图：</p>
+<ul>
+<li>map_volume-sunnyvale_big_loop-latest</li>
+<li>map_volume-sunnyvale_loop-latest</li>
+</ul>
 <p>一段道路的相关高精度地图可以放置在如下结构的目录中：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;map_dir&gt;                        # Defined by FLAGS_map_dir</span><br><span class="line">  |-- base_map.xml               # Defined by FLAGS_base_map_filename</span><br><span class="line">  |-- routing_map.bin            # Defined by FLAGS_routing_map_filename</span><br><span class="line">  |-- sim_map.bin                # Defined by FLAGS_sim_map_filename</span><br><span class="line">  |-- default_end_way_point.txt  # Defined by FLAGS_end_way_point_filename</span><br></pre></td></tr></table></figure></p>
 <p>可以将可用地图文件名指定为备选列表：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--base_map_filename=&quot;base.xml|base.bin|base.txt&quot;</span><br></pre></td></tr></table></figure></p>
 <p>然后Apollo会找到第一个可用的文件加载。一般来说，我们遵循以下扩展模式：</p>
