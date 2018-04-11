@@ -1,0 +1,104 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Apollo 适配Pandora指南</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Apollo 适配Pandora指南</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2017年9月21日
+
+
+
+
+ </div>
+--->
+</div>
+
+
+<p>产品手册：待禾赛补充</p>
+<ol>
+<li><p>将下载后的pandora_driver和pandora_pointcloud下的文件同步到${ROS_ROOT}下，以apollo_dev image为例， </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rsync -avP pandora_driver/* /home/tmp/ros/</span><br><span class="line">rsync -avP pandora_pointcloud/* /home/tmp/ros/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将scripts下的启停脚本同步到/apollo/scripts/下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rsync -avP scripts/* /apollo/scripts/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将hesai外参文件覆盖velodyne64的外参，  rsync -avP velodyne64_novatel_extrinsics_example.yaml   /apollo/modules/calibration/data/mkz8/velodyne_params/</p>
+</li>
+<li><p>启动服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /apollo; ./scripts/pandora_driver.sh</span><br><span class="line">cd /apollo; ./scripts/pandora_compensator.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查</p>
+</li>
+</ol>
+<p>（1）进程检查： 检查是否有<code>pandora_node</code>和 <code>compensator_node</code>存在<br>（2）topic检查：检查是否有以下topic及hz和时间戳是否正常</p>
+<p><code>/apollo/sensor/velodyne64/PointCloud2</code></p>
+<p><code>/apollo/sensor/velodyne64/compensator/PointCloud2</code></p>
+<p>为了最快兼容apollo2.0，提交的产出里做了如下修改：</p>
+<ul>
+<li>修改topic名称，使pandora driver复用velodyne64相关topic</li>
+<li>修改frameid，使pandora driver复用velodyne64的frameid</li>
+<li>复用velodyne64的外参文件名称，内容修改为hesai40的外参</li>
+</ul>
+<p>［注意事项］</p>
+<ul>
+<li>确保velodyne服务没有启动</li>
+<li>pandora lidar需要放到192.168.20网段，lidar默认ip是192.168.20.51  如果异常，可以抓来自这个ip的udp包</li>
+<li>目前只有一段路是基于pandora 点云做了反射值地图，除该段路外其他地方定位可能不稳定</li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/apollo/apollo_and_pandora.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>
