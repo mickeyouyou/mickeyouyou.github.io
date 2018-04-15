@@ -1,0 +1,83 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>基于PaddlePaddle的自动驾驶end-to-end模型</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">基于PaddlePaddle的自动驾驶end-to-end模型</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2018年4月13日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景介绍"><span class="toc-text"><a href="#&#x80CC;&#x666F;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x80CC;&#x666F;&#x4ECB;&#x7ECD;"></a>&#x80CC;&#x666F;&#x4ECB;&#x7ECD;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练数据"><span class="toc-text"><a href="#&#x8BAD;&#x7EC3;&#x6570;&#x636E;" class="headerlink" title="&#x8BAD;&#x7EC3;&#x6570;&#x636E;"></a>&#x8BAD;&#x7EC3;&#x6570;&#x636E;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练模型"><span class="toc-text"><a href="#&#x8BAD;&#x7EC3;&#x6A21;&#x578B;" class="headerlink" title="&#x8BAD;&#x7EC3;&#x6A21;&#x578B;"></a>&#x8BAD;&#x7EC3;&#x6A21;&#x578B;</span></a></li></ol>
+<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p><img src="" alt="树莓派小车"></p>
+<p>硬件配置：</p>
+<h3 id="训练数据"><a href="#训练数据" class="headerlink" title="训练数据"></a>训练数据</h3><p>输入数据：使用基于树莓派的智能小车使用人为操控的方式录制视频内容，以此视频内容按帧的输出图像。<br>Key-Value格式，以时间戳UTC time为索引检索一幅图像，Key:UTC time， Value:320<em>320</em>3像素矩阵。</p>
+<p>输出数据：对应图像频率车辆后轮的转速、前轮的转角。</p>
+<p>数据集说明：</p>
+<h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><p>参考：</p>
+<ul>
+<li><a href="http://data.apollo.auto/help?name=data_intro_roadhacker&amp;data_key=road_hackers&amp;data_type=0&amp;locale=zh-cn&amp;lang=en" target="_blank" rel="noopener">Road Hackers</a></li>
+<li><a href="http://paddlepaddle.org/docs/develop/models/image_classification/README.html" target="_blank" rel="noopener">PaddlePaddle 图像分类</a></li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/2018-4-13-end-to-end-model-based-on-paddlepaddle.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>
