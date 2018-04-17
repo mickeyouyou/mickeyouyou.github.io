@@ -1,0 +1,98 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>speed_limit_decider</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">speed_limit_decider</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2018年4月27日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text"><a href="#&#x6982;&#x8FF0;" class="headerlink" title="&#x6982;&#x8FF0;"></a>&#x6982;&#x8FF0;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#速度限制决策"><span class="toc-text"><a href="#&#x901F;&#x5EA6;&#x9650;&#x5236;&#x51B3;&#x7B56;" class="headerlink" title="&#x901F;&#x5EA6;&#x9650;&#x5236;&#x51B3;&#x7B56;"></a>&#x901F;&#x5EA6;&#x9650;&#x5236;&#x51B3;&#x7B56;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从地图获取限速；"><span class="toc-text"><a href="#&#x4ECE;&#x5730;&#x56FE;&#x83B7;&#x53D6;&#x9650;&#x901F;&#xFF1B;" class="headerlink" title="&#x4ECE;&#x5730;&#x56FE;&#x83B7;&#x53D6;&#x9650;&#x901F;&#xFF1B;"></a>&#x4ECE;&#x5730;&#x56FE;&#x83B7;&#x53D6;&#x9650;&#x901F;&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从路径曲率计算限速；"><span class="toc-text"><a href="#&#x4ECE;&#x8DEF;&#x5F84;&#x66F2;&#x7387;&#x8BA1;&#x7B97;&#x9650;&#x901F;&#xFF1B;" class="headerlink" title="&#x4ECE;&#x8DEF;&#x5F84;&#x66F2;&#x7387;&#x8BA1;&#x7B97;&#x9650;&#x901F;&#xFF1B;"></a>&#x4ECE;&#x8DEF;&#x5F84;&#x66F2;&#x7387;&#x8BA1;&#x7B97;&#x9650;&#x901F;&#xFF1B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从绕行的障碍物获取限速"><span class="toc-text"><a href="#&#x4ECE;&#x7ED5;&#x884C;&#x7684;&#x969C;&#x788D;&#x7269;&#x83B7;&#x53D6;&#x9650;&#x901F;" class="headerlink" title="&#x4ECE;&#x7ED5;&#x884C;&#x7684;&#x969C;&#x788D;&#x7269;&#x83B7;&#x53D6;&#x9650;&#x901F;"></a>&#x4ECE;&#x7ED5;&#x884C;&#x7684;&#x969C;&#x788D;&#x7269;&#x83B7;&#x53D6;&#x9650;&#x901F;</span></a></li></ol></li></ol>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>车辆在道路上行走的模型，是一个三维模型，为了准确地描述这个模型，我们将这个三维问题，转换为两个二维模型：</p>
+<ul>
+<li>SL坐标系，车辆行进的方向为S方向，垂直S的方向为L方向；</li>
+<li>ST坐标系，横向为时间，纵向为路径；</li>
+</ul>
+<p>在SL坐标系中，完成对路径的规划；接着有关速度的限制，是在ST坐标系中完成的。</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG257.jpeg" width="99%"></p>
+<p align="center">SL坐标系</p>
+
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG258.jpeg" width="69%"></p>
+<p align="center">ST坐标系</p>
+
+<h2 id="速度限制决策"><a href="#速度限制决策" class="headerlink" title="速度限制决策"></a>速度限制决策</h2><p>目前处理的限速主要分为来自地图的限速标识、曲率限速、绕行障碍物限速三个方面。主要逻辑在<code>apollo::planning::speedLimitDecider::GetSpeedLimits()</code>，下面是详细的逻辑介绍：</p>
+<h3 id="从地图获取限速；"><a href="#从地图获取限速；" class="headerlink" title="从地图获取限速；"></a>从地图获取限速；</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// (1) speed limit from map</span></span><br><span class="line"><span class="keyword">double</span> speed_limit_on_reference_line =</span><br><span class="line">    reference_line_.GetSpeedLimitFromS(frenet_point_s);</span><br></pre></td></tr></table></figure>
+<p><code>apollo::planning::Reference::GetSpeedLimitFromS()</code>方法中有两部分逻辑:</p>
+<ul>
+<li>车道的限速</li>
+<li>配置的最高限速（31.3km/h）</li>
+</ul>
+<h3 id="从路径曲率计算限速；"><a href="#从路径曲率计算限速；" class="headerlink" title="从路径曲率计算限速；"></a>从路径曲率计算限速；</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// (2) speed limit from path curvature</span></span><br><span class="line"><span class="comment">//  -- 2.1: limit by centripetal force (acceleration)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> centri_acc_speed_limit =</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">sqrt</span>(GetCentricAccLimit(<span class="built_in">std</span>::<span class="built_in">fabs</span>(avg_kappa[i])) /</span><br><span class="line">              <span class="built_in">std</span>::fmax(<span class="built_in">std</span>::<span class="built_in">fabs</span>(avg_kappa[i]),</span><br><span class="line">                        st_boundary_config_.minimal_kappa()));</span><br><span class="line"> </span><br><span class="line"><span class="comment">// -- 2.2: limit by centripetal jerk</span></span><br><span class="line"><span class="keyword">double</span> centri_jerk_speed_limit = <span class="built_in">std</span>::numeric_limits&lt;<span class="keyword">double</span>&gt;::max();</span><br><span class="line"><span class="keyword">if</span> (i + <span class="number">1</span> &lt; discretized_path_points.size()) &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">double</span> ds = discretized_path_points.at(i + <span class="number">1</span>).s() -</span><br><span class="line">                    discretized_path_points.at(i).s();</span><br><span class="line">  DCHECK_GE(ds, <span class="number">0.0</span>);</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">double</span> kEpsilon = <span class="number">1e-9</span>;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">double</span> centri_jerk =</span><br><span class="line">      <span class="built_in">std</span>::<span class="built_in">fabs</span>(avg_kappa[i + <span class="number">1</span>] - avg_kappa[i]) / (ds + kEpsilon);</span><br><span class="line">  centri_jerk_speed_limit = <span class="built_in">std</span>::fmax(</span><br><span class="line">      <span class="number">10.0</span>, st_boundary_config_.centri_jerk_speed_coeff() / centri_jerk);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="从绕行的障碍物获取限速"><a href="#从绕行的障碍物获取限速" class="headerlink" title="从绕行的障碍物获取限速"></a>从绕行的障碍物获取限速</h3><p>（如果设置了遇到障碍物降速）</p>
+<p>判断障碍物是否在规划线路上（纵向）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ref line:</span></span><br><span class="line"><span class="comment"> * -------------------------------</span></span><br><span class="line"><span class="comment"> *    start_s   end_s</span></span><br><span class="line"><span class="comment"> * ------|  adc   |---------------</span></span><br><span class="line"><span class="comment"> * ------------|  obstacle |------</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">if</span> (frenet_point_s + vehicle_param_.front_edge_to_center() &lt;</span><br><span class="line">        const_path_obstacle-&gt;PerceptionSLBoundary().start_s() ||</span><br><span class="line">    frenet_point_s - vehicle_param_.back_edge_to_center() &gt;</span><br><span class="line">        const_path_obstacle-&gt;PerceptionSLBoundary().end_s()) &#123;</span><br><span class="line">  <span class="keyword">continue</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>横向判断障碍物与车辆的关系</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// obstacle is on the right of ego vehicle (at path point i)</span></span><br><span class="line"><span class="keyword">bool</span> is_close_on_left =</span><br><span class="line">    (nudge.type() == ObjectNudge::LEFT_NUDGE) &amp;&amp;</span><br><span class="line">    (frenet_point_l - vehicle_param_.right_edge_to_center() - kRange &lt;</span><br><span class="line">     const_path_obstacle-&gt;PerceptionSLBoundary().end_l());</span><br><span class="line"></span><br><span class="line"><span class="comment">// obstacle is on the left of ego vehicle (at path point i)</span></span><br><span class="line"><span class="keyword">bool</span> is_close_on_right =</span><br><span class="line">    (nudge.type() == ObjectNudge::RIGHT_NUDGE) &amp;&amp;</span><br><span class="line">    (const_path_obstacle-&gt;PerceptionSLBoundary().start_l() - kRange &lt;</span><br><span class="line">     frenet_point_l + vehicle_param_.left_edge_to_center());</span><br></pre></td></tr></table></figure>
+
+
+<!--<a href="http://yoursite.com/apollo/speed_limit_decider.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

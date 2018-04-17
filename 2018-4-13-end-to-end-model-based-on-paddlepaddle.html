@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>基于PaddlePaddle的自动驾驶end-to-end模型</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>基于树莓派的自动驾驶</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,7 +31,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">基于PaddlePaddle的自动驾驶end-to-end模型</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">基于树莓派的自动驾驶</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -44,16 +44,37 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景介绍"><span class="toc-text"><a href="#&#x80CC;&#x666F;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x80CC;&#x666F;&#x4ECB;&#x7ECD;"></a>&#x80CC;&#x666F;&#x4ECB;&#x7ECD;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练数据"><span class="toc-text"><a href="#&#x8BAD;&#x7EC3;&#x6570;&#x636E;" class="headerlink" title="&#x8BAD;&#x7EC3;&#x6570;&#x636E;"></a>&#x8BAD;&#x7EC3;&#x6570;&#x636E;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练模型"><span class="toc-text"><a href="#&#x8BAD;&#x7EC3;&#x6A21;&#x578B;" class="headerlink" title="&#x8BAD;&#x7EC3;&#x6A21;&#x578B;"></a>&#x8BAD;&#x7EC3;&#x6A21;&#x578B;</span></a></li></ol>
-<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p><img src="" alt="树莓派小车"></p>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景介绍"><span class="toc-text"><a href="#&#x80CC;&#x666F;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x80CC;&#x666F;&#x4ECB;&#x7ECD;"></a>&#x80CC;&#x666F;&#x4ECB;&#x7ECD;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方案选择"><span class="toc-text"><a href="#&#x65B9;&#x6848;&#x9009;&#x62E9;" class="headerlink" title="&#x65B9;&#x6848;&#x9009;&#x62E9;"></a>&#x65B9;&#x6848;&#x9009;&#x62E9;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#规则系统"><span class="toc-text"><a href="#&#x89C4;&#x5219;&#x7CFB;&#x7EDF;" class="headerlink" title="&#x89C4;&#x5219;&#x7CFB;&#x7EDF;"></a>&#x89C4;&#x5219;&#x7CFB;&#x7EDF;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#端到端"><span class="toc-text"><a href="#&#x7AEF;&#x5230;&#x7AEF;" class="headerlink" title="&#x7AEF;&#x5230;&#x7AEF;"></a>&#x7AEF;&#x5230;&#x7AEF;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练数据"><span class="toc-text"><a href="#&#x8BAD;&#x7EC3;&#x6570;&#x636E;" class="headerlink" title="&#x8BAD;&#x7EC3;&#x6570;&#x636E;"></a>&#x8BAD;&#x7EC3;&#x6570;&#x636E;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练模型"><span class="toc-text"><a href="#&#x8BAD;&#x7EC3;&#x6A21;&#x578B;" class="headerlink" title="&#x8BAD;&#x7EC3;&#x6A21;&#x578B;"></a>&#x8BAD;&#x7EC3;&#x6A21;&#x578B;</span></a></li></ol>
+<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><ul>
+<li>沿车道线行走， 不得超出车道线范围。（20分）</li>
+<li>识别红绿灯， 且能做出红灯停， 绿灯行的正确决策（20分）</li>
+<li>智能跟车， 能够判断前车距离， 保持车距（20分）</li>
+<li>障碍物躲避， 能够躲避前方障碍物。 （20分）</li>
+<li>自动倒车入库， 能够识别车库的二维码标识， 且能够自动倒车入库（20分）</li>
+</ul>
+<p align="center">树莓派小车</p>
+
 <p>硬件配置：</p>
-<h3 id="训练数据"><a href="#训练数据" class="headerlink" title="训练数据"></a>训练数据</h3><p>输入数据：使用基于树莓派的智能小车使用人为操控的方式录制视频内容，以此视频内容按帧的输出图像。<br>Key-Value格式，以时间戳UTC time为索引检索一幅图像，Key:UTC time， Value:320<em>320</em>3像素矩阵。</p>
+<h3 id="方案选择"><a href="#方案选择" class="headerlink" title="方案选择"></a>方案选择</h3><p>目前有两种方案，一种是Rule-Based,另外一种方法是End-to-End，这两种方法因为处理过程的透明化区分为白盒和黑盒的方案。本质上有很大差异。而我们的选择会根据场景，对以上两种方法做融合处理。</p>
+<h4 id="规则系统"><a href="#规则系统" class="headerlink" title="规则系统"></a>规则系统</h4><p><img src="http://7xk16m.com1.z0.glb.clouddn.com/WechatIMG254.jpeg" width="49%"><br>车道识别，保证车辆运行在车道内，保证完成第一项。</p>
+<p>发送启动命令，车辆在直行的过程中得到车前方障碍物的距离信息，在一定阈值范围内开始通过视觉判断障碍物类型，如果提取到白色色块（障碍物），需要重新规划路线绕开该障碍物。如果是一定规则的April Tag（跟车，在单个车道方向），保持速度，（横向如何保证？）</p>
+<p>在行驶的过程中，从图像边缘提取红绿灯信息。遵循红绿灯交通规则。</p>
+<p>如果从图像中提取到倒车入库的April tag 信息，执行倒车入库。</p>
+<h4 id="端到端"><a href="#端到端" class="headerlink" title="端到端"></a>端到端</h4><p>End-to-End是否能覆盖所有场景？该模型可以很好的解决在车道上的直线行驶、跟车、红绿灯模型、障碍物多笔，但是可以解决比如倒车入库这样的场景吗?</p>
+<p>这个问题也没有完全标准的答案，这样场景化的功能在Apollo 端到端模块中的实现方式是规则系统+端到端融合方式。</p>
+<blockquote>
+<p>规则系统无法触及未知场景和端到端模型探索边界是相同的。</p>
+</blockquote>
+<p>TX2</p>
+<h3 id="训练数据"><a href="#训练数据" class="headerlink" title="训练数据"></a>训练数据</h3><p>输入数据：使用基于树莓派的智能小车使用人为操控的方式录制视频内容，以此视频内容按帧的输出图像。</p>
+<p>Key-Value格式，以时间戳UTC time为索引检索一幅图像，Key:UTC time， Value:320<em>320</em>3像素矩阵。</p>
 <p>输出数据：对应图像频率车辆后轮的转速、前轮的转角。</p>
-<p>数据集说明：</p>
+<p>数据集说明：这部分需要用户自己先通过手动驾驶的方式，自动跑一遍，然后再根据视频切分制作对应的数据集。</p>
 <h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><p>参考：</p>
 <ul>
 <li><a href="http://data.apollo.auto/help?name=data_intro_roadhacker&amp;data_key=road_hackers&amp;data_type=0&amp;locale=zh-cn&amp;lang=en" target="_blank" rel="noopener">Road Hackers</a></li>
 <li><a href="http://paddlepaddle.org/docs/develop/models/image_classification/README.html" target="_blank" rel="noopener">PaddlePaddle 图像分类</a></li>
+<li><a href="https://medium.com/@kastsiukavets.alena/behavioral-cloning-transfer-learning-with-feature-extraction-a17b0ebabf67" target="_blank" rel="noopener">Behavioral Cloning — Transfer Learning with Feature Extraction</a></li>
 </ul>
 
 
