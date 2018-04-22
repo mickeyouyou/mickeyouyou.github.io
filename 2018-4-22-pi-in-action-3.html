@@ -1,0 +1,106 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>树莓派智能车系列【coding】</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">树莓派智能车系列【coding】</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2018年4月22日
+
+
+
+
+ </div>
+--->
+</div>
+
+
+<p>Hi all 欢迎继续关注树莓派智能车系列的第三篇，主要内容是从一辆车从踏上赛道的开始，所要考虑的执行过程。</p>
+<p>今天，大家趁着周末，第一次聚在一起，对将要开始的内容作了两次深入的讨论，形成了初步的共识。从车辆踏上赛道开始，应该有如下数据流的循环处理过程：</p>
+<ul>
+<li>车辆异常情况检查（电压、左右轮转速）；</li>
+<li>从车辆平台获取超声波雷达的障碍物距离数据；</li>
+<li>实时监测车辆与车道线的关系，这个关系可以是夹角，因为识别出来才能在正确的车道线基础上做调整；（基本原则，不跨越白色实现，不长期骑白色虚线行驶）</li>
+<li>从车道线处理过后的帧中，处理障碍物数据，这个障碍物有可能是AprilTag的车辆、有可能是白色色块的障碍物；</li>
+<li>每5帧，检测红绿灯。每过5帧，将该帧传送到红绿灯识别方法，如果识别到红灯，执行减速停车；</li>
+<li>每5帧，监测用于倒车入库的AprilTag二维码，该场景的特征是同时出现两组tag，ID分别为0、1；除了ID信息，还应该包含距离信息，这个距离决定了处理倒车入库的角度和方向；</li>
+</ul>
+<p>考虑车辆如何行驶在车道内（实时帧分析，获取到车道的曲线，解析为对应的曲率）即将要遇到的情况，比如按照模块分工，即车道线识别、AprilTag与障碍物识别、红绿灯识别、车辆底层控制四个方向，正好成为每个人的分工。在大的方向上，就成了两个方向，特征提取与车辆执行层：</p>
+<ul>
+<li>特征提取<ul>
+<li>车道线监测=》车道线曲率，计算出前轮的转角；</li>
+<li>红绿灯识别（无停止线）；</li>
+<li>AprilTag识别（无方向变化的跟车、倒车入库）；<ul>
+<li>除了从Tag中提取到对应的ID之外，还需要从中提取到对应的距离信息，跟车场景中也许不需要用到，但是在倒车场景中，需要用到该距离信息；</li>
+</ul>
+</li>
+<li>障碍物（白色色块）识别；</li>
+</ul>
+</li>
+<li>车辆执行层<ul>
+<li>输出后轮转速与前轮转角；</li>
+<li>无障碍物竞速</li>
+<li>红灯停车逻辑</li>
+<li>倒车入位</li>
+</ul>
+</li>
+</ul>
+<p><strong>AprilTag</strong></p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/image2018-4-1213_52_13.png" width="69%"></p>
+<p></p><p align="center">倒车入库的位置信息</p><br>包含的ID信息，主要提取倒车入库的位置信息：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># python tag_detect.py                                                                                                               !1918</span></span><br><span class="line">         Family: tag36h11</span><br><span class="line">             ID: 0</span><br><span class="line">  Hamming error: 0</span><br><span class="line">       Goodness: 0.0</span><br><span class="line">Decision margin: 62.7689971924</span><br><span class="line">     Homography: [[-7.11234349e-01 -1.15897468e-01 -2.81505192e+00]</span><br><span class="line">                  [-8.16611658e-03 -8.03960266e-01 -2.60463754e+00]</span><br><span class="line">                  [ 5.52334927e-06 -8.89687750e-05 -2.09412832e-03]]</span><br><span class="line">         Center: [1344.25951802 1243.78125148]</span><br><span class="line">        Corners: [[ 988.67907715  891.49371338]</span><br><span class="line">                  [1705.50463867  904.58624268]</span><br><span class="line">                  [1672.5880127  1569.06921387]</span><br><span class="line">                  [1014.20739746 1553.68725586]]</span><br></pre></td></tr></table></figure><p></p>
+
+
+<!--<a href="http://yoursite.com/2018-4-22-pi-in-action-3.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

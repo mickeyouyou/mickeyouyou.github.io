@@ -44,13 +44,18 @@
 --->
 </div>
 
-
-<p>We’re trying to simulate our own algorithms for perception, planning etc. Currently we want to test these without vehicle hardware(only a computer). However we can’t figure out how we should initiate the simulation in dreamview. As far as we know, when running “rosbag play demo_2.0.bag” dreamveiw just plays back what’s recorded earlier by the Apollo team.</p>
-<p>How do you test your own algorithms using dreamview?</p>
-<p>Suppose you’d like to test your own planning algorithm,</p>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rosfilter-bag"><span class="toc-text"><a href="#Rosfilter-bag" class="headerlink" title="Rosfilter bag"></a>Rosfilter bag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-Routing"><span class="toc-text"><a href="#Generate-Routing" class="headerlink" title="Generate Routing"></a>Generate Routing</span></a></li></ol>
+<p>We’re trying to simulate our own algorithms for perception, planning etc. Currently we want to test these without vehicle hardware(only a computer). However we can’t figure out how we should initiate the simulation in dreamview. As far as we know, when running <code>rosbag play demo_2.0.bag</code> dreamveiw just plays back what’s recorded earlier by the Apollo team.</p>
+<p>How do you test your own algorithms using dreamview?<br>there are two ways:</p>
+<ul>
+<li>rosfilter bag</li>
+<li>send routing request</li>
+</ul>
+<h3 id="Rosfilter-bag"><a href="#Rosfilter-bag" class="headerlink" title="Rosfilter bag"></a>Rosfilter bag</h3><p>Suppose you’d like to test your own planning algorithm,</p>
 <p>filter out planning topic in the rosbag<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag filter demo_2.0.bag demo_2.0_np.bag <span class="string">'topic != "/apollo/planning"'</span></span><br></pre></td></tr></table></figure></p>
 <p>replay rosbag<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag play demo_2.0_np.bag</span><br></pre></td></tr></table></figure></p>
 <p>start your own planning node with your own algorithm</p>
+<h3 id="Generate-Routing"><a href="#Generate-Routing" class="headerlink" title="Generate Routing"></a>Generate Routing</h3><p>After you filtered the planning in the rosbag and started your own planning, you can click Default Routing in the Dreaview to generate a routing message.</p>
 <p>Have fun!</p>
 <p>参考:<a href="https://github.com/ApolloAuto/apollo/issues/2908" target="_blank" rel="noopener">https://github.com/ApolloAuto/apollo/issues/2908</a></p>
 

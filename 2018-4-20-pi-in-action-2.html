@@ -1,0 +1,116 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>树莓派智能车系列之「车」</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">树莓派智能车系列之「车」</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2018年4月20日
+
+
+
+
+ </div>
+--->
+</div>
+
+
+<p>上回说到做基于树莓派智能车最基础的人，这次说我们的主角，车辆：</p>
+<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/f13c37b634b415ba2ba65826d.jpeg" width="69%"></p>
+<p>正如上面图中所示，主要的参考硬件有：</p>
+<ul>
+<li><a href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.39982e8dULcX7h&amp;id=556110269103&amp;_u=sp1e2hr22ba" target="_blank" rel="noopener">小车底盘</a><ol>
+<li>铝合金底盘</li>
+<li>舵机与转向机构</li>
+<li>编码电机 x 2</li>
+<li>亚克力安装架</li>
+<li>Arduino可编程主控</li>
+<li>驱动板</li>
+<li>电源模块</li>
+<li>电池</li>
+<li>充电器</li>
+<li>数据线 </li>
+</ol>
+</li>
+<li>3D打印部件  <ol>
+<li>树莓派安装架</li>
+<li>摄像头安装架</li>
+<li>超声波传感器安装架    </li>
+</ol>
+</li>
+<li>独立传感器   <ol>
+<li><a href="https://detail.tmall.com/item.htm?spm=a230r.1.14.6.797b69a5TXwejN&amp;id=543531241934&amp;cm_id=140105335569ed55e27b&amp;abbucket=18" target="_blank" rel="noopener">超声波传感器</a>   </li>
+<li><a href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.7b8c2e8d1k64gN&amp;id=537191521576&amp;_u=cp1e2hr228f" target="_blank" rel="noopener">树莓派摄像头</a>   </li>
+</ol>
+</li>
+<li>树莓派处理器  <ol>
+<li><a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-13364715743.6.5de66b45oQ99Hv&amp;id=530854033802" target="_blank" rel="noopener">树莓派移动供电模块</a></li>
+<li><a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-13364715743.10.5de66b45oQ99Hv&amp;id=528450292169" target="_blank" rel="noopener">树莓派3b</a> </li>
+<li><a href="https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-1961485079.33.49471d2bHutCzP&amp;id=41336166274" target="_blank" rel="noopener">16G sd卡</a>   </li>
+<li><a href="https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-1961485079.30.49471d2bHutCzP&amp;id=529754108982" target="_blank" rel="noopener">固定电源</a></li>
+</ol>
+</li>
+</ul>
+<p>【车辆的组装】</p>
+<p>因为当天有Apollo发布会的事情，车辆的安装就是由一位组内的同学，女同学完成的，很酷。</p>
+<p>【下一步】</p>
+<p>大家都提到分工，对接下来自己完成的部分非常感兴趣，这也是驱动我们向前走的一种力量源泉。</p>
+<p>当天下午5点，我们举行了一次会议，主要讨论了接下来的安排，计划周日当天开始一些准备工作，比如图像特征提取的内容，比如车道线、红绿灯、April Tag、障碍物白色色块的提取等，作为之后命中场景的重要条件。大家挑选自己想做的场景，开始对应场景的规则逻辑的编写。</p>
+<p>在编写逻辑代码之前，有一项重要的内容，就是测试视频，我们需要先用车辆在赛道上面跑一圈，将录制的视频拆分成图片，作为测试的数据集。</p>
+<p>我说过，我们有参加过比赛的队员，也可以在开始之前，分享一下相关的经验，图像特征提取的方法等等。这虽然是一个小组在做事情，也是大家相互学习的过程。</p>
+
+
+<!--<a href="http://yoursite.com/2018-4-20-pi-in-action-2.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>
