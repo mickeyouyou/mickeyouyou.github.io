@@ -1,0 +1,88 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>智能车赛事感想</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">智能车赛事感想</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2018年5月19日
+
+
+
+
+ </div>
+--->
+</div>
+
+
+<blockquote>
+<p>终于结束了,在比赛进行到最后的关键时期，队员基本与时间赛跑。最后的结果还是不错的，尽管我们在正式比赛前一天才达到我们心目中的理想目标。</p>
+</blockquote>
+<p>我总结的第一句，过程艰难。如果你有机会实践一遍，这几种的任何一个节点都可以成为挑战与优化的对象。</p>
+<p><strong>基础节点投入失衡</strong></p>
+<p>车道线检测如此基础的模块，应该在评分机制上给多一些，当然，我们的基于图像的拟合效果，尽管最后没有在黑马奖展示，但我们感到满意，另外我们应该也是实现红绿灯识别的唯一一支队伍。关于这一点，我觉得跟主办方的示例方案有关系，因为主办方在示例的案例中有写“舍弃红绿灯模块”，但这个模块中是占到20分左右的。</p>
+<p>有具体的积分规则，时间、赛道的运行情况、智能跟车、停车入库，障碍物避让等功能让我们觉得规则的方案，是解决这个“面向赛道、面向规则”场景比较好的方法。也许是熬夜降低了我们对质量的要求，我们四个人感觉效果还可以。起初，我们想大而全地搞定所有模块，真正将车道线检测做到目标效果，是在昨晚，当时可以绕着赛道运行6圈。</p>
+<p>让人欣慰的是，有很多队伍车道线监测的方法有驾驶区域的，有灰度鸟瞰图之后窗口化选择车道线的，窗口化选择可驾驶区域的，但偏离赛道后回到赛道的少之又少。我很骄傲我们团队的监测做到了这一点。</p>
+<p><img src="http://7xk16m.com1.z0.glb.clouddn.com/894570cf7677ba32a7321c222.png" width="99%"></p>
+<p>端到端是另外一个方案，他的优劣已经很明显。实现起来也简单，可以称得上是无人驾驶届上手的好方法，同事也是赛事的常客。</p>
+<p><strong>控制不够精细</strong></p>
+<p>抛开车辆平台，以上的各个检测识别功能，也就是感知能力，跟车辆的控制逻辑密切相关。但我们往往忽略了最重要的控制算法。一个问题，如何让一辆车平稳运行？控制逻辑做不够精细，就像新手开车是一样的。新手需要在开车的经验中不断感受车辆的反馈状况，渐渐地变成老司机，渐渐地拥有老司机平滑的控制。有个队的执行逻辑简单有效，非常适合赛事竞速逻辑：直线疯狂加速，遇到转弯急刹和转角像车祸前兆，这个控制逻辑在乘用车上是走不通的，体感会非常差。</p>
+<p>再次，抛开上面感知、规划层，另外一个控制不够精准的原因是，我们对车辆平台的理解太浅了。如何达到精细化的控制？至少控制指令中应该包含车辆行驶的历程轨迹。这样才能根据时间判断出车辆在上一时刻的决策，上一时刻的决策内容，可以给一些权重，比如前一帧的控制指令占比0.5,再前一帧的角度控制指令占比0.3，再前一时刻占比0.2，以此类推。这是我们实现控制的大致方案，当然其中也尝试过一些其他的尝试，比如PID控制，但效果没有想象中好，这个跟车辆的控制有关。</p>
+<p><img src="http://7xk16m.com1.z0.glb.clouddn.com/WechatIMG290.jpeg" width="99%"></p>
+<p>这跟我们目前的对车辆的理解有关系，所以以后还是多增加些对车辆平台的了解。</p>
+
+
+<!--<a href="http://yoursite.com/2018-5-19-pi-in-auto-final.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>
