@@ -1,0 +1,126 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Self-driving challenge in a week</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Self-driving challenge in a week</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2018年5月26日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#硬件"><span class="toc-text"><a href="#&#x786C;&#x4EF6;" class="headerlink" title="&#x786C;&#x4EF6;"></a>&#x786C;&#x4EF6;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具与轮子"><span class="toc-text"><a href="#&#x5DE5;&#x5177;&#x4E0E;&#x8F6E;&#x5B50;" class="headerlink" title="&#x5DE5;&#x5177;&#x4E0E;&#x8F6E;&#x5B50;"></a>&#x5DE5;&#x5177;&#x4E0E;&#x8F6E;&#x5B50;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="[&#x53C2;&#x8003;]"></a>[&#x53C2;&#x8003;]</span></a></li></ol>
+<p>如何用一场线下比赛挑战人类老司机？</p>
+<p>当我到贵阳科学城，看到来自各个国家的小伙伴，听到要挑战人类老司机的情况时，太不可思议了。要知道，10多年前，DARPA的比赛，也只是在跟环境做挑战，跟老司机的挑战，倒是让我想起了电动无人车赛事Formula E。</p>
+<p>我再整理下我刚刚听到的这个消息，7天，完成无人车的改造，完成以下场景的任务，还要跟人类老司机的成绩较量。</p>
+<p>这些任务包括：</p>
+<ul>
+<li>起点起步</li>
+<li>行人避让</li>
+<li>非机动车避让</li>
+<li>通过公交车站</li>
+<li>掉头行驶</li>
+<li>通过快速干道</li>
+<li>S型转弯</li>
+<li>终点停车</li>
+<li>GPS盲区</li>
+<li>施工绕行</li>
+<li>自动泊车</li>
+<li>斜坡</li>
+<li>路测加油</li>
+<li>事故车绕行   </li>
+</ul>
+<p>每项任务都有命题人的考量，按照长安大学交通信息工程及控制王博士，也是本次比赛的指导所言，对于无人车而来，每增加一个场景，就以为需要增加相应的节点（ROS Node），处理相应的场景识别逻辑。</p>
+<blockquote>
+<p>也就是说，这种情况下，并非目前所有的自动驾驶框架都能拿来即用，都要做些场景适配，这是前提。</p>
+</blockquote>
+<p>看完这些任务，你就能知道，这些项目基本上都是为无人车设置的。GPS跟人驾驶，其实并没有非常大的关系，导航时会用到地图，但人类司机也会按照最基本的道路驾驶，而不是开到草坪上还不刹车。</p>
+<p>而人类司机的考核应该是哪些？我在朋友圈第一次发这个消息的时候，也有同学提到这个问题，这人类司机也得看什么类型司机，新手司机，就应该把现在考驾照的那些科目拿过来。如果是老司机，那就是F1中的摩纳哥赛道，78圈的比赛圈数，让你考虑的不仅是车技，还有轮胎等等策略。</p>
+<p>所以，任务列表并没有考虑参赛两方的针对情况，</p>
+<p>按照目前的情况，是不可能完成的任务。这是我听到</p>
+<p>如果期限是7天，一辆标准的自动驾驶实现方案应该是怎样的？我体验了#贵阳的无人驾驶全球挑战赛#，全球化的氛围感觉缩小了世界，开放的交流也感觉从未有过的程度。</p>
+<p>这里只有个人，没有公司名义，哪怕是CEO，他们也以顾问的形式加入家里，为开发者提供需要的帮助。</p>
+<p>如果从以下几个方面再次优化，会更加趋近完美：</p>
+<ul>
+<li>硬件；</li>
+<li>环境</li>
+<li>参赛队伍；</li>
+</ul>
+<h3 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h3><p>传感器与车辆都属于硬件范围，两者正好是输入与输出的两端。传感器负责基础数据的收集，车辆负责最终控制指令的执行，</p>
+<p>从人类驾驶的方案上来说，上面的评分标准会有扣分项吗，我觉得很少。这个概率太小了，那这个标准跟人工驾驶的方案比，追求很高，比赛的上限就是对无人驾驶技术的最高挑战。</p>
+<p>如果技术可以到达这种程度，人工驾驶的司机报名，也许反而没有那么积极了。假如AlphaGo在没有完成与李世石、柯洁之前，认为总会给人类选手押注更多，选手也更加</p>
+<p><strong>与时间一搏</strong></p>
+<p>正好在播《春光奏鸣曲》，以前看这些音乐家的神火，尤其李斯特的部分觉得挺乱的，果然，感情生活更是。这不是重点，乔治亚这位投机取巧的画家，在肖邦的评价下评价不错。而她，是这么说的“都是为了赶时间拿到酬劳”，这让我想到在比赛最后的时间，战斗力越强的情况。</p>
+<h3 id="工具与轮子"><a href="#工具与轮子" class="headerlink" title="工具与轮子"></a>工具与轮子</h3><blockquote>
+<p>非常遗憾，大家最终的选择并非Apollo，不过，我问了几位参赛的同学或者导师，“如果Apollo举办这样的赛事，你会参加吗？”，我听到的答案没有拒绝而且很积极的给我名片。让我印象深刻的是DYNAMOVE的CEO，Rohan Rao，他在听完我说的之后，立即给我他的邮箱，让我提前通知他。</p>
+</blockquote>
+<p>选手们非常有才，为他们集体组队对抗人类司机的选择感到动容的同时，也为熬夜感同身受。</p>
+<p>我们创造轮子，创造工具的同时，如果不能够让使用者体会到这种使用的快感，我们也应该开始反思。</p>
+<p>就在周末，我对AutoWare也做了一个深度的使用体验，观点只局限在该Blog，该文章中。</p>
+<p>ROS</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="[参考]"></a>[参考]</h3><ul>
+<li><a href="https://roscon.ros.org/2017/presentations/ROSCon%202017%20Autoware.pdf" target="_blank" rel="noopener">[pdf]Autoware: ROS-based OSS for Urban Self-driving Mobility</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%91%A9%E7%BA%B3%E5%93%A5%E8%B5%9B%E9%81%93" target="_blank" rel="noopener">F1 摩纳哥赛道</a></li>
+<li><a href="https://cn.linkedin.com/in/%E6%8C%AF-%E7%8E%8B-59b297141" target="_blank" rel="noopener">王博士</a></li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/2018-5-26-self-driving-games-in-a-week.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>
