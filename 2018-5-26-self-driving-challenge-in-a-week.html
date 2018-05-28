@@ -44,7 +44,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#硬件"><span class="toc-text"><a href="#&#x786C;&#x4EF6;" class="headerlink" title="&#x786C;&#x4EF6;"></a>&#x786C;&#x4EF6;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具与轮子"><span class="toc-text"><a href="#&#x5DE5;&#x5177;&#x4E0E;&#x8F6E;&#x5B50;" class="headerlink" title="&#x5DE5;&#x5177;&#x4E0E;&#x8F6E;&#x5B50;"></a>&#x5DE5;&#x5177;&#x4E0E;&#x8F6E;&#x5B50;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="[&#x53C2;&#x8003;]"></a>[&#x53C2;&#x8003;]</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#赛制"><span class="toc-text"><a href="#&#x8D5B;&#x5236;" class="headerlink" title="&#x8D5B;&#x5236;"></a>&#x8D5B;&#x5236;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬件"><span class="toc-text"><a href="#&#x786C;&#x4EF6;" class="headerlink" title="&#x786C;&#x4EF6;"></a>&#x786C;&#x4EF6;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对的工具就是加速的轮子"><span class="toc-text"><a href="#&#x5BF9;&#x7684;&#x5DE5;&#x5177;&#x5C31;&#x662F;&#x52A0;&#x901F;&#x7684;&#x8F6E;&#x5B50;" class="headerlink" title="&#x5BF9;&#x7684;&#x5DE5;&#x5177;&#x5C31;&#x662F;&#x52A0;&#x901F;&#x7684;&#x8F6E;&#x5B50;"></a>&#x5BF9;&#x7684;&#x5DE5;&#x5177;&#x5C31;&#x662F;&#x52A0;&#x901F;&#x7684;&#x8F6E;&#x5B50;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="[&#x53C2;&#x8003;]"></a>[&#x53C2;&#x8003;]</span></a></li></ol>
 <p>用一场线下比赛挑战人类老司机？</p>
 <blockquote>
 <p>本次比赛，虽然参加的是学生为主，但辅助的导师也并非等闲。有大学教授、研究生，有公司CEO、工程师等。结果我们知道，最后没有挑战成功，我试着从工程师的角度，重新剖析下，如何才能让这个挑战变得可行？</p>
@@ -52,7 +52,7 @@
 <p>当我到贵阳科学城，看到来自各个国家的小伙伴，听到要挑战人类老司机这个很突然的消息时，觉得太不可思议。要知道，10多年前，DARPA的比赛，也只是在挑战环境而已。而现在做的，是先挑战某些场景任务，然后再跟老司机的挑战。</p>
 <p>我认为还是没有完全理解这其中的问题，我再展开描述下。7天要完成的任务包括：无人车的改造、完成场景任务，最后跟人类老司机的成绩较量。</p>
 <p>按照目前的情况，是不可能完成的任务。“不难，就不叫挑战赛了”，从这个角度，这个比赛就应该从Racing 改称为Challenge。我从三方面<strong>赛制 </strong>、<strong>标准硬件</strong> 与<strong>工具</strong>三方面讲述下这种不可能性。</p>
-<p><img src="http://www.cbdio.com/image/attachement/jpg/site2/20180525/f4285315404f1c726ac53c.jpg" width="79%"></p>
+<h3 id="赛制"><a href="#赛制" class="headerlink" title="赛制"></a>赛制</h3><p><img src="http://www.cbdio.com/image/attachement/jpg/site2/20180525/f4285315404f1c726ac53c.jpg" width="79%"></p>
 <p align="center">本次任务包括场景</p>
 
 <p>每项任务都有对自动驾驶技术的考量，每个场景都有对于无人车而来，每增加一个场景，就以为需要增加相应的节点（ROS Node，以参赛同学的方案），处理相应的场景识别逻辑。</p>
@@ -72,25 +72,14 @@
 <p>根据我了解到的情况，大家在硬件方面花了不少的时间。至少前三天都在解决CAN、执行等方面的问题。问题不应该是这样的，车辆的不同，EUC等的执行器确实要跟车辆有个适配的过程，理想的情况应该是线控车辆调试完毕，即通过控制命令完成对横、纵方向上的控制验证。</p>
 <p>我离开赛场之前的第二圈，我上车体验了下，此时的速度控制，在一些特殊的场景下，还是没有做到足够的平滑。在速度由大变小的过程中，不够连续是明显的体感不佳的原因。而速度的减弱与刹车执行是有很大关系的。所以到此时，大伙已经不关心这个存在已经很久的问题了。</p>
 <p>另外一方面，其实是软件问题了，比如比赛的最后一天，我看见还有一辆车在重新安装软件，GPU版本适配不加，最后使用CPU运行，速度不尽如人意。这方面与<strong>与时间博弈</strong>的问题，可以提前规划分工。</p>
-<p>写这篇短文的时候，电视正好在播《春光奏鸣曲》，以前看这些音乐家的神火，尤其李斯特的部分觉得挺乱的，果然，感情生活更是。这不是重点，乔治亚这位投机取巧的画家，在肖邦的评价下评价不错。而她，是这么说的“都是为了赶时间拿到酬劳”，这让我想到在比赛最后的时间，战斗力越强的情况。</p>
-<h3 id="工具与轮子"><a href="#工具与轮子" class="headerlink" title="工具与轮子"></a>工具与轮子</h3><blockquote>
-<p>非常遗憾，大家最终的选择并非Apollo，不过，我问了几位参赛的同学或者导师，“如果Apollo举办这样的赛事，你会参加吗？”，我听到的答案没有拒绝而且很积极的给我名片。让我印象深刻的是DYNAMOVE的CEO，Rohan Rao，他在听完我的介绍之后，立即给我他的邮箱，让我提前通知他。</p>
-</blockquote>
+<p>写这篇短文的时候，电视正好在播《春光奏鸣曲》，以前看这些音乐家的故事，尤其李斯特的部分觉得挺乱的，果然，感情生活更是。这不是重点，乔治亚这位投机取巧的画家，在肖邦的评价下评价不错。而她，是这么说的“都是为了赶时间拿到酬劳”，这让我想到在比赛最后的时间，战斗力越强的情况。</p>
+<h3 id="对的工具就是加速的轮子"><a href="#对的工具就是加速的轮子" class="headerlink" title="对的工具就是加速的轮子"></a>对的工具就是加速的轮子</h3><p>非常遗憾，这次比赛大家最终的选择并非Apollo，不过，我问了几位参赛的同学或者导师，“如果Apollo举办这样的赛事，你会参加吗？”，我听到的答案没有拒绝而且很积极的给我名片。让我印象深刻的是DYNAMOVE的CEO，Rohan Rao，他在听完我的介绍之后，立即给我他的邮箱，让我提前通知他。</p>
+<p>我们倡导开放，提出开源的轮子，的同时，如果不能够让使用者体会到这种使用的快感，我们也应该开始反思。反思在开发者使用中的阻碍，在国际群体中的社区建设。</p>
+<p>如前文所说，并没有一个框架解决拿来即用，解决所有问题。比如这次赛事中使用的挥旗启动、公交站避让等任务。如果使用AutoWare，可以在众多Packages的基础上，增加部分节点来解决这些场景的进入问题。</p>
+<p>基于线控车辆，对控制的执行，表现做得还不够精细，也许从控制量上也可以体现出来。<br>AutoWare速度与姿态描述主要使用geometry_msgs/Twist，一个包含三维线速度和角速度。比如线速度控制车辆纵向上的速度变化，而角速度要跟车辆的转向关联起来，还需要二次计算。</p>
+<p>Apollo对于包含与时间相关轨迹点的控制描述：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">trajectory_point &#123;</span><br><span class="line">  path_point &#123;</span><br><span class="line">    x: -124.367072419</span><br><span class="line">    y: 364.831849142</span><br><span class="line">    z: -31.332377322</span><br><span class="line">    theta: -1.81237826921</span><br><span class="line">    kappa: -0.00252617800322</span><br><span class="line">    s: 0</span><br><span class="line">    dkappa: 0</span><br><span class="line">  &#125;</span><br><span class="line">  v: 1.62222218513</span><br><span class="line">  a: 0.786162598236</span><br><span class="line">  relative_time: -0.089999914169311523</span><br><span class="line">&#125;</span><br><span class="line">trajectory_point &#123;</span><br><span class="line">  path_point &#123;</span><br><span class="line">    x: -124.371192947</span><br><span class="line">    y: 364.815408289</span><br><span class="line">    z: -31.3321617292</span><br><span class="line">    theta: -1.81246574077</span><br><span class="line">    kappa: -0.00248790128945</span><br><span class="line">    s: 0.016305555109999981</span><br><span class="line">    dkappa: 0.00234746462335</span><br><span class="line">  &#125;</span><br><span class="line">  v: 1.63055551052</span><br><span class="line">  a: 0.823007905434</span><br><span class="line">  relative_time: -0.079999923706054688</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也许Apollo可以带来一些变化。这个说得再好，还是需要各位上车，体验调试过程中的问题，才能体会。</p>
 <p>参赛的同学真的非常有才有活力，为他们集体组队对抗人类司机的选择感到动容的同时，也因为工程师这种不解决问题，不优化得到一个更好的版本二不休不眠的精神感同身受。</p>
-<p>我们创造轮子，创造工具的同时，如果不能够让使用者体会到这种使用的快感，我们也应该开始反思。</p>
-<p>如前文所说，并没有一个框架解决拿来即用，解决所有问题。比如这次赛事中使用的挥旗启动、公交站避让等任务。好在我们可以在AutoWare的基础上增加部分节点来解决这些问题。</p>
-<p>就在周末，我对AutoWare也做了一个初步的使用体验，观点只局限在该Blog，该文章中。</p>
-<p>ROS<br>基于ROS的仿真</p>
-<p>如果是使用Apollo，可以带来哪些变化？</p>
-<p>也许Apollo可以带来一些变化，一方面，</p>
-<p>如果从以下几个方面再次优化，会更加趋近完美：</p>
-<ul>
-<li>硬件；</li>
-<li>环境；</li>
-<li>赛制；</li>
-<li>参赛队伍；</li>
-<li>熟练地运用好工具；</li>
-</ul>
 <p>最后，“开放的交流”真的是非常不错的学习环境，技术不再是单纯的交流语言，可以是足球，可以是兴趣，还可以是其他，总有话题把异国的同学勾搭在一起。这里只有个人，没有公司名义，哪怕是CEO，他们也以顾问的形式加入家里，为开发者提供需要的帮助。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="[参考]"></a>[参考]</h3><ul>
 <li><a href="https://roscon.ros.org/2017/presentations/ROSCon%202017%20Autoware.pdf" target="_blank" rel="noopener">[pdf]Autoware: ROS-based OSS for Urban Self-driving Mobility</a></li>
