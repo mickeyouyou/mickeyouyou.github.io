@@ -55,6 +55,7 @@
 <li><a href="./install_apollo_on_jetson_tx2.html">Apollo在Nvidia Jetson TX2的适配安装</a></li>
 <li><a href="./installation_offline.html">离线安装Guide</a></li>
 <li><a href="./case_by_install.html">安装过程中遇到的case与解决办法</a></li>
+<li><a href="./add_new_vehicle.html">从CANBUS到控制，如何新增一辆新车？</a></li>
 </ul>
 </li>
 <li>下一步<ul>
@@ -140,6 +141,169 @@
 </ul>
 <p><a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="noopener"><img src="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" width="99.9999%"></a></p>
 <p align="center"> <a href="http://7tsys1.com1.z0.glb.clouddn.com/apollo_eco_1111506321824_.jpg" target="_blank" rel="noopener">点击查看大图</a></p>
+
+
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">MODULE</th>
+<th style="text-align:center">Class</th>
+<th style="text-align:left">Topic</th>
+<th style="text-align:center">Period(ms)</th>
+<th style="text-align:center">Frequecy(HZ)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CHASSIS</td>
+<td style="text-align:center">chassis_pb2.Chassis()</td>
+<td style="text-align:left">/apollo/canbus/chassis</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">CONTROL</td>
+<td style="text-align:center">control_cmd_pb2.ControlCommand()</td>
+<td style="text-align:left">/apollo/control</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">LOCALIZATION</td>
+<td style="text-align:center">localization_pb2.LocalizationEstimate()</td>
+<td style="text-align:left">/apollo/localization/pose</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">PLANNING</td>
+<td style="text-align:center">planning_pb2.ADCTrajectory()</td>
+<td style="text-align:left">/apollo/planning</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">PERCEPTION</td>
+<td style="text-align:center">perception_obstacle_pb2.PerceptionObstacles()</td>
+<td style="text-align:left">/apollo/perception/obstacles</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">PREDICTION</td>
+<td style="text-align:center">prediction_obstacle_pb2.PredictionObstacles()</td>
+<td style="text-align:left">/apollo/prediction</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">PAD</td>
+<td style="text-align:center">pad_msg_pb2.PadMessage()</td>
+<td style="text-align:left">/apollo/control/pad</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">ODOMETRY</td>
+<td style="text-align:center">gps_pb2.Gps()</td>
+<td style="text-align:left">/apollo/sensor/gnss/odometry</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">IMU</td>
+<td style="text-align:center">imu_pb2.CorrectedImu()</td>
+<td style="text-align:left">/apollo/sensor/gnss/corrected_imu</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">ROUTING_RES</td>
+<td style="text-align:center">routing_pb2.RoutingResponse()</td>
+<td style="text-align:left">/apollo/routing_response</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1000</td>
+</tr>
+<tr>
+<td style="text-align:center">ROUTING_REQ</td>
+<td style="text-align:center">routing_pb2.RoutingRequest()</td>
+<td style="text-align:left">/apollo/routing_request</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1000</td>
+</tr>
+<tr>
+<td style="text-align:center">MOBILEYE</td>
+<td style="text-align:center">mobileye_pb2.Mobileye()</td>
+<td style="text-align:left">/apollo/sensor/mobileye</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">DELPHI_ESR</td>
+<td style="text-align:center">delphi_esr_pb2.DelphiESR()</td>
+<td style="text-align:left">/apollo/sensor/delphi_esr</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">CONTI_RADAR</td>
+<td style="text-align:center">conti_radar_pb2.ContiRadar()</td>
+<td style="text-align:left">/apollo/sensor/conti_radar</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">50</td>
+</tr>
+<tr>
+<td style="text-align:center">SIGNAL_LIGHT</td>
+<td style="text-align:center">traffic_light_detection_pb2.TrafficLightDetection()</td>
+<td style="text-align:left">/apollo/perception/traffic_light</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">DRIVE_EVENT</td>
+<td style="text-align:center">drive_event_pb2.DriveEvent()</td>
+<td style="text-align:left">/apollo/drive_event</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">SYSTEM_STATUS</td>
+<td style="text-align:center">system_status_pb2.SystemStatus()</td>
+<td style="text-align:left">/apollo/monitor/system_status</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">NAVIGATION</td>
+<td style="text-align:center">navigation_pb2.NavigationInfo()</td>
+<td style="text-align:left">/apollo/navigation</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1000</td>
+</tr>
+<tr>
+<td style="text-align:center">RELATIVE_MAP</td>
+<td style="text-align:center">navigation_pb2.MapMsg()</td>
+<td style="text-align:left">/apollo/relative_map</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">GUARDIAN</td>
+<td style="text-align:center">guardian_pb2.GuardianCommand()</td>
+<td style="text-align:left">/apollo/guardian</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">MONITOR</td>
+<td style="text-align:center">monitor_log_pb2.MonitorMessage()</td>
+<td style="text-align:left">/apollo/monitor</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">100</td>
+</tr>
+</tbody>
+</table>
 
 
 <!--<a href="http://yoursite.com/apollo/index.html#disqus_thread" class="article-comment-link">Comments</a>
