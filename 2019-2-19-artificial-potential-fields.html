@@ -1,7 +1,7 @@
 <html>
 <head>
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>人工势场法（Artificial Potential Fields）规划方法介绍</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>人工势场法（Artificial Potential Fields）规划方法</title>
 	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -31,7 +31,7 @@
 <body>
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">人工势场法（Artificial Potential Fields）规划方法介绍</h2>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">人工势场法（Artificial Potential Fields）规划方法</h2>
 <!---
 <div style="text-align:center;margin-top: -10px;">
 <div class="article-category">
@@ -44,38 +44,38 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引力场"><span class="toc-text"><a href="#&#x5F15;&#x529B;&#x573A;" class="headerlink" title="&#x5F15;&#x529B;&#x573A;"></a>&#x5F15;&#x529B;&#x573A;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#斥力场"><span class="toc-text"><a href="#&#x65A5;&#x529B;&#x573A;" class="headerlink" title="&#x65A5;&#x529B;&#x573A;"></a>&#x65A5;&#x529B;&#x573A;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Total-Potential-Fuction"><span class="toc-text"><a href="#Total-Potential-Fuction" class="headerlink" title="Total Potential Fuction"></a>Total Potential Fuction</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引力场"><span class="toc-text"><a href="#&#x5F15;&#x529B;&#x573A;" class="headerlink" title="&#x5F15;&#x529B;&#x573A;"></a>&#x5F15;&#x529B;&#x573A;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#斥力场"><span class="toc-text"><a href="#&#x65A5;&#x529B;&#x573A;" class="headerlink" title="&#x65A5;&#x529B;&#x573A;"></a>&#x65A5;&#x529B;&#x573A;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Total-Potential-Fuction"><span class="toc-text"><a href="#Total-Potential-Fuction" class="headerlink" title="Total Potential Fuction"></a>Total Potential Fuction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降"><span class="toc-text"><a href="#&#x68AF;&#x5EA6;&#x4E0B;&#x964D;" class="headerlink" title="&#x68AF;&#x5EA6;&#x4E0B;&#x964D;"></a>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#海森矩阵"><span class="toc-text"><a href="#&#x6D77;&#x68EE;&#x77E9;&#x9635;" class="headerlink" title="&#x6D77;&#x68EE;&#x77E9;&#x9635;"></a>&#x6D77;&#x68EE;&#x77E9;&#x9635;</span></a></li></ol>
 <p>人工势场法的规划，类似一种机器人在虚拟力场下运动。如图所示，机器人在一个二维环境下运动，图中指示了机器人自身、障碍物、和目标点之间的相对位置。</p>
 <p><img src="https://wx2.sinaimg.cn/mw690/4b1ff580ly1g0bu3ij29pj20zg0nldv6.jpg" width="70%"></p>
 <p>这个图比较清晰地说明了人工势场法的作用，物体在初始点的一个较高“山头”上，要达到的目标点在“山脚”下，这就形成了一种势场，物体在这种势的引导下，避开障碍物，到达目标点。</p>
-<p>人工势场包括引力场和斥力场，其中目标点对物体产生引力，引导物体朝向其运动（类似A*算法中的启发函数H）。障碍物对物体产生斥力，避免物体与之发生碰撞。</p>
+<p>人工势场包括引力场和斥力场，其中目标点对物体产生引力，引导物体朝向其运动（类似A*算法中的启发函数Heuristic Functions）。障碍物对物体产生斥力，避免物体与之发生碰撞。</p>
 <p>物体在路径上的每一点所受的合力等于这一点所有引力与斥力的和。所以问题的关键是如何构建引力场和斥力场。</p>
 <span>$$\\
-U(q) = U_{att}(q) + U_{rep}(q)$$</span><!-- Has MathJax -->
+U(q) = U_{att}(q) + U_{rep}(q) \tag{1}$$</span><!-- Has MathJax -->
 <p><img src="http://wx3.sinaimg.cn/orj360/4b1ff580ly1g0btc3zubeg20zi0nn4qp.gif"></p>
 <h3 id="引力场"><a href="#引力场" class="headerlink" title="引力场"></a>引力场</h3><p>常用的引力函数:</p>
 <p>Conial Potenial:<br><span>$$\\
-U(q) = &epsi;d(q, q_{goal})$$</span><!-- Has MathJax --></p>
+U(q) = \zeta d(q, q_{goal}) \tag{2}$$</span><!-- Has MathJax --></p>
 <span>$$\\
-\nabla U(q) =  \frac &epsi;{d(q, q_{goal})}(q - q_{goal})$$</span><!-- Has MathJax -->
+\nabla U(q) =  \frac \zeta {d(q, q_{goal})}(q - q_{goal}) \tag{3}$$</span><!-- Has MathJax -->
 <p>Quadratic Potential:<br><span>$$\\
-U_{att}(q) = \frac 12 &epsi; d^2(q, q_{goal})$$</span><!-- Has MathJax --><br>这里ε是尺度因子，$d^2（q*q_{goal})$表示物体当前状态与目标的距离。根据引力场，引力就是引力场对距离的导数，作为梯度存在:<br><span>$$\\
-F_{att}(q) = \nabla U_{att}(q) = \nabla (\frac 12 &epsi; d^2(q, q_{goal})) = \frac 12 &epsi; \nabla d^2(q, q_{goal}) = &epsi; (q- q_{goal})$$</span><!-- Has MathJax --></p>
+U_{att}(q) = \frac 12 \zeta  d^2(q, q_{goal}) \tag{4}$$</span><!-- Has MathJax --><br>这里$\zeta$ (zeta)是尺度因子，$d^2（q*q_{goal})$表示物体当前状态与目标的距离。(不同文章中使用参数有所不同，有使用$\eta$（zeta）的情况，但笔者认为因为表示的是距离，还是使用参数d更适合一些。)根据引力场，引力就是引力场对距离的导数，作为梯度存在:<br><span>$$\\
+F_{att}(q) = \nabla U_{att}(q) = \nabla (\frac 12 \zeta d^2(q, q_{goal})) = \frac 12 \zeta \nabla d^2(q, q_{goal}) =\zeta (q- q_{goal}) \tag{5}$$</span><!-- Has MathJax --></p>
 <p>Combined Potential</p>
 <span>$$\\
 U_{att}(q)=\left\{
 \begin{aligned}
-\frac 12 &epsi; d^2(q, q_{goal}), d(q,q_{goal}) \le d_{goal}^* \\
-d_{goal}^* &epsi; d(q, q_{goal}) - \frac 12 &epsi; (d_{goal}^*), d(q,q_{goal}) &gt;d_{goal}^*
+\frac 12 \zeta d^2(q, q_{goal}), d(q,q_{goal}) \le d_{goal}^* \\
+d_{goal}^* \zeta d(q, q_{goal}) - \frac 12 \zeta (d_{goal}^*), d(q,q_{goal}) &gt;d_{goal}^*
 \end{aligned}
-\right.$$</span><!-- Has MathJax -->
+\right.\tag{6}$$</span><!-- Has MathJax -->
 <span>$$\\
 \nabla U_{att}(q)=\left\{
 \begin{aligned}
-&epsi;(q-q_{goal}), d(q,q_{goal}) \le d_{goal}^* \\
-\frac {d_{goal}^* &epsi; d(q, q_{goal})}{d(q, q_{goal})}, d(q,q_{goal}) &gt;d_{goal}^*
+\zeta (q-q_{goal}), d(q,q_{goal}) \le d_{goal}^* \\
+\frac {d_{goal}^* \zeta d(q, q_{goal})}{d(q, q_{goal})}, d(q,q_{goal}) &gt;d_{goal}^*
 \end{aligned}
-\right.$$</span><!-- Has MathJax -->
+\right.\tag{7}$$</span><!-- Has MathJax -->
 <h3 id="斥力场"><a href="#斥力场" class="headerlink" title="斥力场"></a>斥力场</h3><p><img src="https://wx1.sinaimg.cn/mw690/4b1ff580ly1g0c02lcs8xj20ab07bgmd.jpg"></p>
 <span>$$\\
 U_{rep}(q)=\left\{
@@ -83,22 +83,41 @@ U_{rep}(q)=\left\{
 \frac 12 \eta (\frac i{D(q)} - \frac 1{Q^*})^2, D(q) \le Q^* \\
 0, D(q) &gt; Q^*
 \end{aligned}
-\right.$$</span><!-- Has MathJax -->
+\right.\tag{8}$$</span><!-- Has MathJax -->
 <p>whose gradient is :<br><span>$$\\
 \nabla U_{rep}(q)=\left\{
 \begin{aligned}
 \eta (\frac 1{Q^*} - \frac 1{D(q)}) \frac 1{D^2(q)} \nabla D(q), D(q) \le Q^*\\
 0, D(q) &gt;Q^*
 \end{aligned}
-\right.$$</span><!-- Has MathJax --></p>
+\right.\tag{9}$$</span><!-- Has MathJax --></p>
 <h3 id="Total-Potential-Fuction"><a href="#Total-Potential-Fuction" class="headerlink" title="Total Potential Fuction"></a>Total Potential Fuction</h3><span>$$\\
-U(q) = U_{att}(q) + U_{rep}(q)$$</span><!-- Has MathJax -->
+U(q) = U_{att}(q) + U_{rep}(q) \tag{10}$$</span><!-- Has MathJax -->
 <span>$$\\
-F(q) = - \nabla U(q)$$</span><!-- Has MathJax -->
+F(q) = - \nabla U(q) \tag{11}$$</span><!-- Has MathJax -->
+<h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>梯度下降法（Gradient descent）是一个一阶最优化算法，通常也称为最速下降法。要使用梯度下降法找到一个函数的局部极小值，必须向函数上当前点对应梯度（或者是近似梯度）的反方向的规定步长距离点进行迭代搜索。如果相反地向梯度正方向迭代进行搜索，则会接近函数的局部极大值点；这个过程则被称为梯度上升法。</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Gradient_descent.png" width="50%"></p>
+<p>上图示例了这一过程，这里假设函数定义在平面上，并且函数图像是一个碗形。蓝色的曲线是等高线（水平集），即函数F为常数的集合构成的曲线。红色的箭头指向该点梯度的反方向。（一点处的梯度方向与通过该点的等高线垂直）。沿着梯度下降方向，将最终到达碗底，即函数F值最小的点。</p>
+<p>一个简单获取势场底部的方法：<br><span>$$\\
+\dot c(t) = - \nabla U(c(t)) \tag{12}$$</span><!-- Has MathJax --></p>
+<p>关于梯度下降的部分之后继续补充。</p>
+<h3 id="海森矩阵"><a href="#海森矩阵" class="headerlink" title="海森矩阵"></a>海森矩阵</h3><p>考虑这样的一个问题，在一个一维方程中，我们怎样知道在一个最优解？</p>
+<p>海森矩阵是一个多变量实值函数的二阶偏导数组成的方块矩阵。被应用与牛顿法解决大规模优化问题。此处，为二阶导数的m×m矩阵。</p>
+<p>如果Hessian是非奇异的（Det(H)≠0），临界点是a唯一的点：</p>
+<ul>
+<li>如果H是正定（x^t H x&gt; 0），则最小</li>
+<li>如果H为负定，则为最大值</li>
+<li>如果H是无限期的，那就是马鞍点（Saddle Point）</li>
+</ul>
+<p>Gradient Descent:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">– q(0)=qstart</span><br><span class="line">– i = 0</span><br><span class="line">– while || ∇ U(q(i)) || &gt; ε do</span><br><span class="line">    • q(i+1) = q(i) - α(i)∇ U(q(i))</span><br><span class="line">    • i=i+1</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://wx2.sinaimg.cn/mw690/4b1ff580ly1g0c3a3hhynj20ho0523zw.jpg"></p>
 <p><strong>Reference</strong></p>
 <ul>
 <li><a href="https://blog.csdn.net/junshen1314/article/details/50472410" target="_blank" rel="noopener">路径规划-人工势场法(Artifical Potential Field)</a></li>
 <li><a href="https://www.cs.cmu.edu/~motionplanning/lecture/Chap4-Potential-Field_howie.pdf" target="_blank" rel="noopener">Robotic Motion Planning:Potential Functions</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%B5%B7%E6%A3%AE%E7%9F%A9%E9%98%B5" target="_blank" rel="noopener">海森矩阵</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" target="_blank" rel="noopener">梯度下降法</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5" target="_blank" rel="noopener">雅克比矩阵</a></li>
 </ul>
 
 
