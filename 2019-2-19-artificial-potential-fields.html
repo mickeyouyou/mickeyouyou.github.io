@@ -1,0 +1,145 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>人工势场法（Artificial Potential Fields）规划方法介绍</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">人工势场法（Artificial Potential Fields）规划方法介绍</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2019年2月19日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引力场"><span class="toc-text"><a href="#&#x5F15;&#x529B;&#x573A;" class="headerlink" title="&#x5F15;&#x529B;&#x573A;"></a>&#x5F15;&#x529B;&#x573A;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#斥力场"><span class="toc-text"><a href="#&#x65A5;&#x529B;&#x573A;" class="headerlink" title="&#x65A5;&#x529B;&#x573A;"></a>&#x65A5;&#x529B;&#x573A;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Total-Potential-Fuction"><span class="toc-text"><a href="#Total-Potential-Fuction" class="headerlink" title="Total Potential Fuction"></a>Total Potential Fuction</span></a></li></ol>
+<p>人工势场法的规划，类似一种机器人在虚拟力场下运动。如图所示，机器人在一个二维环境下运动，图中指示了机器人自身、障碍物、和目标点之间的相对位置。</p>
+<p><img src="https://wx2.sinaimg.cn/mw690/4b1ff580ly1g0bu3ij29pj20zg0nldv6.jpg" width="70%"></p>
+<p>这个图比较清晰地说明了人工势场法的作用，物体在初始点的一个较高“山头”上，要达到的目标点在“山脚”下，这就形成了一种势场，物体在这种势的引导下，避开障碍物，到达目标点。</p>
+<p>人工势场包括引力场和斥力场，其中目标点对物体产生引力，引导物体朝向其运动（类似A*算法中的启发函数H）。障碍物对物体产生斥力，避免物体与之发生碰撞。</p>
+<p>物体在路径上的每一点所受的合力等于这一点所有引力与斥力的和。所以问题的关键是如何构建引力场和斥力场。</p>
+<span>$$\\
+U(q) = U_{att}(q) + U_{rep}(q)$$</span><!-- Has MathJax -->
+<p><img src="http://wx3.sinaimg.cn/orj360/4b1ff580ly1g0btc3zubeg20zi0nn4qp.gif"></p>
+<h3 id="引力场"><a href="#引力场" class="headerlink" title="引力场"></a>引力场</h3><p>常用的引力函数:</p>
+<p>Conial Potenial:<br><span>$$\\
+U(q) = &epsi;d(q, q_{goal})$$</span><!-- Has MathJax --></p>
+<span>$$\\
+\nabla U(q) =  \frac &epsi;{d(q, q_{goal})}(q - q_{goal})$$</span><!-- Has MathJax -->
+<p>Quadratic Potential:<br><span>$$\\
+U_{att}(q) = \frac 12 &epsi; d^2(q, q_{goal})$$</span><!-- Has MathJax --><br>这里ε是尺度因子，$d^2（q*q_{goal})$表示物体当前状态与目标的距离。根据引力场，引力就是引力场对距离的导数，作为梯度存在:<br><span>$$\\
+F_{att}(q) = \nabla U_{att}(q) = \nabla (\frac 12 &epsi; d^2(q, q_{goal})) = \frac 12 &epsi; \nabla d^2(q, q_{goal}) = &epsi; (q- q_{goal})$$</span><!-- Has MathJax --></p>
+<p>Combined Potential</p>
+<span>$$\\
+U_{att}(q)=\left\{
+\begin{aligned}
+\frac 12 &epsi; d^2(q, q_{goal}), d(q,q_{goal}) \le d_{goal}^* \\
+d_{goal}^* &epsi; d(q, q_{goal}) - \frac 12 &epsi; (d_{goal}^*), d(q,q_{goal}) &gt;d_{goal}^*
+\end{aligned}
+\right.$$</span><!-- Has MathJax -->
+<span>$$\\
+\nabla U_{att}(q)=\left\{
+\begin{aligned}
+&epsi;(q-q_{goal}), d(q,q_{goal}) \le d_{goal}^* \\
+\frac {d_{goal}^* &epsi; d(q, q_{goal})}{d(q, q_{goal})}, d(q,q_{goal}) &gt;d_{goal}^*
+\end{aligned}
+\right.$$</span><!-- Has MathJax -->
+<h3 id="斥力场"><a href="#斥力场" class="headerlink" title="斥力场"></a>斥力场</h3><p><img src="https://wx1.sinaimg.cn/mw690/4b1ff580ly1g0c02lcs8xj20ab07bgmd.jpg"></p>
+<span>$$\\
+U_{rep}(q)=\left\{
+\begin{aligned}
+\frac 12 \eta (\frac i{D(q)} - \frac 1{Q^*})^2, D(q) \le Q^* \\
+0, D(q) &gt; Q^*
+\end{aligned}
+\right.$$</span><!-- Has MathJax -->
+<p>whose gradient is :<br><span>$$\\
+\nabla U_{rep}(q)=\left\{
+\begin{aligned}
+\eta (\frac 1{Q^*} - \frac 1{D(q)}) \frac 1{D^2(q)} \nabla D(q), D(q) \le Q^*\\
+0, D(q) &gt;Q^*
+\end{aligned}
+\right.$$</span><!-- Has MathJax --></p>
+<h3 id="Total-Potential-Fuction"><a href="#Total-Potential-Fuction" class="headerlink" title="Total Potential Fuction"></a>Total Potential Fuction</h3><span>$$\\
+U(q) = U_{att}(q) + U_{rep}(q)$$</span><!-- Has MathJax -->
+<span>$$\\
+F(q) = - \nabla U(q)$$</span><!-- Has MathJax -->
+<p><strong>Reference</strong></p>
+<ul>
+<li><a href="https://blog.csdn.net/junshen1314/article/details/50472410" target="_blank" rel="noopener">路径规划-人工势场法(Artifical Potential Field)</a></li>
+<li><a href="https://www.cs.cmu.edu/~motionplanning/lecture/Chap4-Potential-Field_howie.pdf" target="_blank" rel="noopener">Robotic Motion Planning:Potential Functions</a></li>
+</ul>
+
+
+<!--<a href="http://yoursite.com/2019-2-19-artificial-potential-fields.html#disqus_thread" class="article-comment-link">Comments</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>
