@@ -44,16 +44,19 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引力场"><span class="toc-text"><a href="#&#x5F15;&#x529B;&#x573A;" class="headerlink" title="&#x5F15;&#x529B;&#x573A;"></a>&#x5F15;&#x529B;&#x573A;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#斥力场"><span class="toc-text"><a href="#&#x65A5;&#x529B;&#x573A;" class="headerlink" title="&#x65A5;&#x529B;&#x573A;"></a>&#x65A5;&#x529B;&#x573A;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Total-Potential-Fuction"><span class="toc-text"><a href="#Total-Potential-Fuction" class="headerlink" title="Total Potential Fuction"></a>Total Potential Fuction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降"><span class="toc-text"><a href="#&#x68AF;&#x5EA6;&#x4E0B;&#x964D;" class="headerlink" title="&#x68AF;&#x5EA6;&#x4E0B;&#x964D;"></a>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#海森矩阵"><span class="toc-text"><a href="#&#x6D77;&#x68EE;&#x77E9;&#x9635;" class="headerlink" title="&#x6D77;&#x68EE;&#x77E9;&#x9635;"></a>&#x6D77;&#x68EE;&#x77E9;&#x9635;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象距离计算"><span class="toc-text"><a href="#&#x5BF9;&#x8C61;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;" class="headerlink" title="&#x5BF9;&#x8C61;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;"></a>&#x5BF9;&#x8C61;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引力函数"><span class="toc-text"><a href="#&#x5F15;&#x529B;&#x51FD;&#x6570;" class="headerlink" title="&#x5F15;&#x529B;&#x51FD;&#x6570;"></a>&#x5F15;&#x529B;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#斥力函数"><span class="toc-text"><a href="#&#x65A5;&#x529B;&#x51FD;&#x6570;" class="headerlink" title="&#x65A5;&#x529B;&#x51FD;&#x6570;"></a>&#x65A5;&#x529B;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降"><span class="toc-text"><a href="#&#x68AF;&#x5EA6;&#x4E0B;&#x964D;" class="headerlink" title="&#x68AF;&#x5EA6;&#x4E0B;&#x964D;"></a>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#海森矩阵"><span class="toc-text"><a href="#&#x6D77;&#x68EE;&#x77E9;&#x9635;" class="headerlink" title="&#x6D77;&#x68EE;&#x77E9;&#x9635;"></a>&#x6D77;&#x68EE;&#x77E9;&#x9635;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象距离计算"><span class="toc-text"><a href="#&#x5BF9;&#x8C61;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;" class="headerlink" title="&#x5BF9;&#x8C61;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;"></a>&#x5BF9;&#x8C61;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部极小值问题"><span class="toc-text"><a href="#&#x5C40;&#x90E8;&#x6781;&#x5C0F;&#x503C;&#x95EE;&#x9898;" class="headerlink" title="&#x5C40;&#x90E8;&#x6781;&#x5C0F;&#x503C;&#x95EE;&#x9898;"></a>&#x5C40;&#x90E8;&#x6781;&#x5C0F;&#x503C;&#x95EE;&#x9898;</span></a></li></ol>
+<p>人工势场法是由Khatib1986年提出的，其思想是通过障碍物的斥力场和目标位置的引力场共同作用形成一个虚拟的人工势场，再搜索一条势函数下降的方向，通过这种方式来寻找一条无碰撞的最优路径。实现该思想的具体方法是在机器人运动的环境中首先创建一个势场，记为$U$，这个势场分为两个部分:</p>
+<ul>
+<li>1)<strong>由目标位置产生的引力场，它的方向指向目标位置(Goal)</strong>;</li>
+<li>2)<strong>由障碍物产生的斥力场，方向背离障碍物(Obstacle)</strong>。</li>
+</ul>
+<p>整个势能$U$是引力部分和斥力部分势能的叠加。移动机器人在势场合力的作用下，绕开它运动线路上的障碍物，向目标移动。</p>
 <p>人工势场法的规划，类似一种机器人在虚拟力场下运动。如图所示，机器人在一个二维环境下运动，图中指示了机器人自身、障碍物、和目标点之间的相对位置。</p>
 <p><img src="https://wx2.sinaimg.cn/mw690/4b1ff580ly1g0bu3ij29pj20zg0nldv6.jpg" width="70%"></p>
 <p>这个图比较清晰地说明了人工势场法的作用，物体在初始点的一个较高“山头”上，要达到的目标点在“山脚”下，这就形成了一种势场，物体在这种势的引导下，避开障碍物，到达目标点。</p>
 <p>人工势场包括引力场和斥力场，其中目标点对物体产生引力，引导物体朝向其运动（类似A*算法中的启发函数Heuristic Functions）。障碍物对物体产生斥力，避免物体与之发生碰撞。</p>
 <p>物体在路径上的每一点所受的合力等于这一点所有引力与斥力的和。所以问题的关键是如何构建引力场和斥力场。</p>
-<span>$$\\
-U(q) = U_{att}(q) + U_{rep}(q)$$</span><!-- Has MathJax -->
-<p><img src="http://wx3.sinaimg.cn/orj360/4b1ff580ly1g0btc3zubeg20zi0nn4qp.gif"></p>
-<h3 id="引力场"><a href="#引力场" class="headerlink" title="引力场"></a>引力场</h3><p>常用的引力函数:</p>
+<h3 id="引力函数"><a href="#引力函数" class="headerlink" title="引力函数"></a>引力函数</h3><p>人工势场中的函数与距离有一定关系，引力函数受移动机器人与目标点之间距离的影响，当目标点与移动机器人的距离增大时，其所受的势能增大；当目标点与机器人的距离越近时，其所受的势能减小。<strong>当机器人势能为零时，表明机器人达到目标点(另外一种情况是陷入局部最优，后面会提及)</strong>。常用的引力函数:</p>
 <p>Conial Potenial:<br><span>$$\\
 U(q) = \zeta d(q, q_{goal})$$</span><!-- Has MathJax --></p>
 <span>$$\\
@@ -81,7 +84,8 @@ d_{goal}^* \zeta d(q, q_{goal}) - \frac 12 \zeta (d_{goal}^*), d(q,q_{goal}) &gt
 \frac {d_{goal}^* \zeta d(q, q_{goal})}{d(q, q_{goal})}, d(q,q_{goal}) &gt;d_{goal}^*
 \end{aligned}
 \right.\tag{7}$$</span><!-- Has MathJax -->
-<h3 id="斥力场"><a href="#斥力场" class="headerlink" title="斥力场"></a>斥力场</h3><p><img src="https://wx1.sinaimg.cn/mw690/4b1ff580ly1g0c02lcs8xj20ab07bgmd.jpg"></p>
+<h3 id="斥力函数"><a href="#斥力函数" class="headerlink" title="斥力函数"></a>斥力函数</h3><p>在一个势场中，障碍物所形成额势场会对机器人产生排斥作用，且它们之间距离越近，障碍物对机器人的排斥作用越强烈，反之则越小。这种势场的原理与电势场具有相似之处，都与其之间的距离成反比。</p>
+<p><img src="https://wx1.sinaimg.cn/mw690/4b1ff580ly1g0c02lcs8xj20ab07bgmd.jpg"></p>
 <span>$$\\
 U_{rep}(q)=\left\{
 \begin{aligned}
@@ -96,10 +100,12 @@ U_{rep}(q)=\left\{
 0, D(q) &gt;Q^*
 \end{aligned}
 \right.\tag{9}$$</span><!-- Has MathJax --></p>
-<h3 id="Total-Potential-Fuction"><a href="#Total-Potential-Fuction" class="headerlink" title="Total Potential Fuction"></a>Total Potential Fuction</h3><span>$$\\
+<p>总势能</p>
+<span>$$\\
 U(q) = U_{att}(q) + U_{rep}(q) \tag{10}$$</span><!-- Has MathJax -->
 <span>$$\\
 F(q) = - \nabla U(q) \tag{11}$$</span><!-- Has MathJax -->
+<p><img src="https://wx1.sinaimg.cn/mw690/4b1ff580ly1g0d15pekl3j206q045mx3.jpg"></p>
 <h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>梯度下降法（Gradient descent）是一个一阶最优化算法，通常也称为最速下降法。要使用梯度下降法找到一个函数的局部极小值，必须向函数上当前点对应梯度（或者是近似梯度）的反方向的规定步长距离点进行迭代搜索。如果相反地向梯度正方向迭代进行搜索，则会接近函数的局部极大值点；这个过程则被称为梯度上升法。</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Gradient_descent.png" width="50%"></p>
 <p>上图示例了这一过程，这里假设函数定义在平面上，并且函数图像是一个碗形。蓝色的曲线是等高线（水平集），即函数F为常数的集合构成的曲线。红色的箭头指向该点梯度的反方向。（一点处的梯度方向与通过该点的等高线垂直）。沿着梯度下降方向，将最终到达碗底，即函数F值最小的点。</p>
@@ -139,15 +145,16 @@ U_{rep}(q) = \sum_{i=0}^n U_{rep_i}(q) \tag{16}$$</span><!-- Has MathJax -->
 <li>定义一个连接性（4点连接、8点连接）;</li>
 <li>障碍物起始于 a 1；自由空间为零；</li>
 </ul>
+<h3 id="局部极小值问题"><a href="#局部极小值问题" class="headerlink" title="局部极小值问题"></a>局部极小值问题</h3><p>人工势场法局部极小值：当机器人运行到某一点是，机器人所受斥力等于所受引力，使得全局合力等于零，从而导致机器人停在当前位置，无法移动。如何解决？当机器人陷入局部极小点时可以暂时建立一个中间目标点，使得机器人移动到该中间目标点，逃出陷阱，然后继续向最终目标点移动。如何设置中间目标点，这篇文章提供了一种方法：<a href="http://www.jsjkx.com/jsjkx/ch/reader/create_pdf.aspx?file_no=20161254&amp;year_id=2016&amp;quarter_id=12&amp;falg=1" target="_blank" rel="noopener">徐飞.基于改进人工势场法的机器人避障及路径规划研究</a>，供参考。</p>
 <p><strong>Reference</strong></p>
 <ul>
 <li><a href="https://blog.csdn.net/junshen1314/article/details/50472410" target="_blank" rel="noopener">路径规划-人工势场法(Artifical Potential Field)</a></li>
-<li><a href="http://www.stae.com.cn/ch/reader/create_pdf.aspx?file_no=1605812&amp;year_id=2016&amp;quarter_id=33&amp;falg=1" target="_blank" rel="noopener">尹新城，胡勇，牛会敏.未知环境中机器人避障路径规划研究.科学技术与工程,2016 16卷33期;(221-225)</a></li>
+<li><a href="http://www.stae.com.cn/ch/reader/create_pdf.aspx?file_no=1605812&amp;year_id=2016&amp;quarter_id=33&amp;falg=1" target="_blank" rel="noopener">尹新城，胡勇，牛会敏.未知环境中机器人避障路径规划研究[J].科学技术与工程,2016 16卷33期:221-225</a></li>
+<li><a href="http://www.jsjkx.com/jsjkx/ch/reader/create_pdf.aspx?file_no=20161254&amp;year_id=2016&amp;quarter_id=12&amp;falg=1" target="_blank" rel="noopener">徐飞.基于改进人工势场法的机器人避障及路径规划研究[J].计算机科学，2016 vol.43 No 12:293-296</a></li>
 <li><a href="https://www.cs.cmu.edu/~motionplanning/lecture/Chap4-Potential-Field_howie.pdf" target="_blank" rel="noopener">Robotic Motion Planning:Potential Functions</a></li>
 <li><a href="https://www.dis.uniroma1.it/~oriolo/amr/slides/MotionPlanning3_Slides.pdf" target="_blank" rel="noopener">Motion Planning 3 Artificial Potential Fields</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E6%B5%B7%E6%A3%AE%E7%9F%A9%E9%98%B5" target="_blank" rel="noopener">海森矩阵</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" target="_blank" rel="noopener">梯度下降法</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5" target="_blank" rel="noopener">雅克比矩阵</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%B5%B7%E6%A3%AE%E7%9F%A9%E9%98%B5" target="_blank" rel="noopener">海森矩阵</a> 、<a href="https://zh.wikipedia.org/wiki/%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5" target="_blank" rel="noopener">雅克比矩阵</a>、<a href="https://zh.wikipedia.org/wiki/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" target="_blank" rel="noopener">梯度下降法</a></li>
+<li><a href="https://d3c33hcgiwev3.cloudfront.net/_c23336610a5ae9de241495b790ffcefe_week4.pdf?Expires=1550793600&amp;Signature=gsHQ1fkF0t3ToH4fm1a9bYocQtBsKKDlHmqswfZQv4O2RNywCzWQ2e4umXnSBt3DmQzMhW2NTVV4ZSo~0t2FpIGmaNxQPEOg6Br4OPHp1-g8BS6Cu8~TlKXMrWySmRGr1rkHaL7zSTX2wrhpdRYIej4YEfE8jTl3Jluq0~hGF2Q_&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank" rel="noopener">Robotics: Computational Motion Planning</a></li>
 </ul>
 
 
