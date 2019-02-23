@@ -107,7 +107,7 @@ U(q) = U_{att}(q) + U_{rep}(q) \tag{10}$$</span><!-- Has MathJax -->
 F(q) = - \nabla U(q) \tag{11}$$</span><!-- Has MathJax -->
 <p><img src="https://wx1.sinaimg.cn/mw690/4b1ff580ly1g0d15pekl3j206q045mx3.jpg"></p>
 <h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>梯度下降法（Gradient descent）是一个一阶最优化算法，通常也称为最速下降法。要使用梯度下降法找到一个函数的局部极小值，必须向函数上当前点对应梯度（或者是近似梯度）的反方向的规定步长距离点进行迭代搜索。如果相反地向梯度正方向迭代进行搜索，则会接近函数的局部极大值点；这个过程则被称为梯度上升法。</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Gradient_descent.png" width="50%"></p>
+<p><img src="https://wx1.sinaimg.cn/large/006lQLfVgy1g0gdzao0o2j30hl09w134.jpg" width="50%"></p>
 <p>上图示例了这一过程，这里假设函数定义在平面上，并且函数图像是一个碗形。蓝色的曲线是等高线（水平集），即函数F为常数的集合构成的曲线。红色的箭头指向该点梯度的反方向。（一点处的梯度方向与通过该点的等高线垂直）。沿着梯度下降方向，将最终到达碗底，即函数F值最小的点。</p>
 <p>一个简单获取势场底部的方法：<br><span>$$\\
 \dot c(t) = - \nabla U(c(t)) \tag{12}$$</span><!-- Has MathJax --></p>
