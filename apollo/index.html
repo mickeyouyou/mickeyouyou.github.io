@@ -44,12 +44,11 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文档目录"><span class="toc-text"><a href="#&#x6587;&#x6863;&#x76EE;&#x5F55;" class="headerlink" title="&#x6587;&#x6863;&#x76EE;&#x5F55;"></a>&#x6587;&#x6863;&#x76EE;&#x5F55;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo参考文档"><span class="toc-text"><a href="#Apollo&#x53C2;&#x8003;&#x6587;&#x6863;" class="headerlink" title="Apollo&#x53C2;&#x8003;&#x6587;&#x6863;"></a>Apollo&#x53C2;&#x8003;&#x6587;&#x6863;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text"><a href="#&#x5B9E;&#x8DF5;" class="headerlink" title="&#x5B9E;&#x8DF5;"></a>&#x5B9E;&#x8DF5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-Apollo-自动驾驶公开课"><span class="toc-text"><a href="#Hello-Apollo-&#x81EA;&#x52A8;&#x9A7E;&#x9A76;&#x516C;&#x5F00;&#x8BFE;" class="headerlink" title="Hello Apollo &#x81EA;&#x52A8;&#x9A7E;&#x9A76;&#x516C;&#x5F00;&#x8BFE;"></a>Hello Apollo &#x81EA;&#x52A8;&#x9A7E;&#x9A76;&#x516C;&#x5F00;&#x8BFE;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Module-Topic-and-Frequecy"><span class="toc-text"><a href="#Module-Topic-and-Frequecy" class="headerlink" title="Module Topic and Frequecy"></a>Module Topic and Frequecy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Module-parameter"><span class="toc-text"><a href="#Module-parameter" class="headerlink" title="Module parameter"></a>Module parameter</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文档目录"><span class="toc-text"><a href="#&#x6587;&#x6863;&#x76EE;&#x5F55;" class="headerlink" title="&#x6587;&#x6863;&#x76EE;&#x5F55;"></a>&#x6587;&#x6863;&#x76EE;&#x5F55;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo参考文档"><span class="toc-text"><a href="#Apollo&#x53C2;&#x8003;&#x6587;&#x6863;" class="headerlink" title="Apollo&#x53C2;&#x8003;&#x6587;&#x6863;"></a>Apollo&#x53C2;&#x8003;&#x6587;&#x6863;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text"><a href="#&#x5B9E;&#x8DF5;" class="headerlink" title="&#x5B9E;&#x8DF5;"></a>&#x5B9E;&#x8DF5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-Topic-and-Frequecy"><span class="toc-text"><a href="#Module-Topic-and-Frequecy" class="headerlink" title="Module Topic and Frequecy"></a>Module Topic and Frequecy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-flow"><span class="toc-text"><a href="#Data-flow" class="headerlink" title="Data flow"></a>Data flow</span></a></li></ol>
 <p>一张图了解Apollo最新进展：</p>
 <p>本文档是在线手册的预览（Preview）版本，覆盖开发者多个阶段，不同功能模块，不同适配平台。 为给开发者在短时间内一个宏观的认识，建设的在线文档站点。</p>
 <h2 id="文档目录"><a href="#文档目录" class="headerlink" title="文档目录"></a>文档目录</h2><ul>
 <li>安装 <ul>
-<li><a href="./hardware_system_installation_guide_1.5.html">参考硬件的安装（v1.5）</a></li>
 <li><a href="./install_by_sourcecodes.html">软件部分编译安装</a></li>
 <li><a href="./install_apollo_on_jetson_tx2.html">Apollo在Nvidia Jetson TX2的适配安装</a></li>
 <li><a href="./installation_offline.html">离线安装Guide</a></li>
@@ -64,7 +63,6 @@
 </ul>
 </li>
 <li>再下一步<ul>
-<li><a href="./question.html">Apollo Common</a></li>
 <li><a href="./from_apollo_main_macro_to_all_modules.html">从ApolloApp类、APOLLO_MAIN宏到Apollo模块</a></li>
 <li><a href="./adapter.html">Adapter适配器</a></li>
 <li>模块解析<ul>
@@ -75,15 +73,15 @@
 </ul>
 </li>
 <li><a href="./module_routing.html">Routing导航模块</a></li>
-<li><a href="./module_perception.html">感知模块(perception)</a><ul>
+<li><a href="./module_perception.html">Perception感知模块</a><ul>
 <li><a href="./3d_obstacle_perception.html">3D 障碍物感知</a> </li>
 <li><a href="./traffic_light.html">交通灯识别</a></li>
 </ul>
 </li>
 <li><a href="./module_prediction.html">Prediction 预测模块</a></li>
-<li><a href="./module_planning.html">决策规划模块(planning)</a><ul>
+<li><a href="./module_planning.html">Planning决策规划模块</a><ul>
 <li><a href="./reference_line.html">参考线</a></li>
-<li>EM</li>
+<li><a href="https://arxiv.org/abs/1807.08048" target="_blank" rel="noopener">Baidu Apollo EM Planner</a></li>
 <li>Lattice</li>
 </ul>
 </li>
@@ -108,10 +106,9 @@
 </li>
 <li>再下一步<ul>
 <li><a href="./howto/how_to_debug_your_own_planning_algorithm.html">在Apollo中调试决策规划算法</a></li>
-<li><a href="./howto/how_to_document_code.html">Apollo注释规范</a></li>
-<li><a href="./howto/how_to_add_an_external_dependency.html">如何添加外部依赖</a></li>
-<li><a href="./howto/how_to_style_check_to_one_dir.html">如何对目录做代码规范检查</a></li>
-<li><a href="./howto/how_to_save_load_docker_image_locally.html">如何在本地保存与加载Docker镜像</a></li>
+<li><a href="./howto/how_to_add_an_external_dependency.html">添加外部依赖</a></li>
+<li><a href="./howto/how_to_style_check_to_one_dir.html">对目录做代码规范检查</a></li>
+<li><a href="./howto/how_to_save_load_docker_image_locally.html">在本地保存与加载Docker镜像</a></li>
 <li><a href="./howto/how_to_build_and_release.html">如何编译与发布</a></li>
 <li><a href="./howto">其他HowTo</a></li>
 </ul>
@@ -128,17 +125,7 @@
 <li><a href="https://console.bce.baidu.com/apollo/task/overview?locale=zh-cn#/apollo/home" target="_blank" rel="noopener">数据开放平台</a></li>
 <li><a href="http://www.fzb.me/2017-9-25-driving-by-wire-tech.html" target="_blank" rel="noopener">线控车辆控制组件与自动驾驶的控制</a></li>
 </ul>
-<h2 id="Hello-Apollo-自动驾驶公开课"><a href="#Hello-Apollo-自动驾驶公开课" class="headerlink" title="Hello Apollo 自动驾驶公开课"></a>Hello Apollo 自动驾驶公开课</h2><p>第一站：上海技术沙龙，如下三个主题的分享(<a href="https://pan.baidu.com/s/1boKLJSr" target="_blank" rel="noopener">资源pdf</a>)：</p>
-<ul>
-<li><a href="http://www.infoq.com/cn/presentations/apollo-automatic-driving-and-following-vehicle-scheme" target="_blank" rel="noopener">Apollo自动驾驶及跟车方案设计思路</a></li>
-<li><a href="http://www.infoq.com/cn/presentations/apollo-map-service-and-cloud-simulation-platform" target="_blank" rel="noopener">Apollo高精地图服务介绍及云端仿真平台应用</a></li>
-<li><a href="http://www.infoq.com/cn/presentations/end-to-end-automatic-driving-scheme-based-on-deep-learning" target="_blank" rel="noopener">基于深度学习的End-to-End自动驾驶方案</a></li>
-</ul>
-<p>第二站：深圳技术沙龙</p>
-<ul>
-<li><a href="http://www.sohu.com/a/214741612_355140" target="_blank" rel="noopener">详解百度Apollo感知技术、高精地图和小度车载系统</a></li>
-</ul>
-<h3 id="Module-Topic-and-Frequecy"><a href="#Module-Topic-and-Frequecy" class="headerlink" title="Module Topic and Frequecy"></a>Module Topic and Frequecy</h3><table>
+<h2 id="Module-Topic-and-Frequecy"><a href="#Module-Topic-and-Frequecy" class="headerlink" title="Module Topic and Frequecy"></a>Module Topic and Frequecy</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">MODULE</th>
@@ -305,24 +292,19 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Module-parameter"><a href="#Module-parameter" class="headerlink" title="Module parameter"></a>Module parameter</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">MODULE</th>
-<th style="text-align:center">Parameter</th>
-<th style="text-align:left">Time or Range</th>
-<th style="text-align:center">Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Perception</td>
-<td style="text-align:center"></td>
-<td style="text-align:left"></td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
+<h2 id="Data-flow"><a href="#Data-flow" class="headerlink" title="Data flow"></a>Data flow</h2><p><img src="https://media.githubusercontent.com/media/ApolloAuto/apollo/master/docs/specs/images/Apollo_3.0_SW.png" width="90%"></p>
+<p>1、Map data<br>As you know, for different goals, apollo use different format and different map file, mainly categoried by :</p>
+<ul>
+<li>base map</li>
+<li>routing map</li>
+<li>simulation map</li>
+<li>some default routing waypoint </li>
+</ul>
+<p>that will contains the elements that road on in the real world, Like Road lanes lane mark and so on . On this basis, a number of auxiliary elements have been added, such as auxiliary roads such as the middle line of the road, such as the Routing Planning module. </p>
+<p>2、Routing Request from Dreamview like this.or from a file <code>default_end_waypoint.txt</code> in map directory.<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">waypoint &#123;</span><br><span class="line">    pose &#123;</span><br><span class="line">        x: 587696.82286</span><br><span class="line">        y: 4141446.66696</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">waypoint &#123;</span><br><span class="line">    pose &#123;</span><br><span class="line">        x: 586948.740120</span><br><span class="line">        y: 4141171.118641</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、Get a RoutingRespose as a result, data struct like this :</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">header &#123;</span><br><span class="line">  timestamp_sec: 1533844120.2057884</span><br><span class="line">  module_name: &quot;routing&quot;</span><br><span class="line">  sequence_num: 1</span><br><span class="line">&#125;</span><br><span class="line">road &#123;</span><br><span class="line">  id: &quot;2896&quot;</span><br><span class="line">  passage &#123;</span><br><span class="line">    segment &#123;</span><br><span class="line">      id: &quot;2896_1_-1&quot;</span><br><span class="line">      start_s: 3.9204489256831567</span><br><span class="line">      end_s: 7.14577</span><br><span class="line">    &#125;</span><br><span class="line">    can_exit: true</span><br><span class="line">    change_lane_type: FORWARD</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">road &#123;</span><br><span class="line">  id: &quot;2895&quot;</span><br><span class="line">  passage &#123;</span><br><span class="line">    segment &#123;</span><br><span class="line">      id: &quot;2895_1_-1&quot;</span><br><span class="line">      start_s: 0</span><br><span class="line">      end_s: 18.4625</span><br><span class="line">    &#125;</span><br><span class="line">    can_exit: true</span><br><span class="line">    change_lane_type: FORWARD</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">measurement &#123;</span><br><span class="line">  distance: 284.34704237235405 // test data not corrent </span><br><span class="line">&#125;</span><br><span class="line">routing_request &#123;</span><br><span class="line">  header &#123;</span><br><span class="line">    timestamp_sec: 1533844120.2038052</span><br><span class="line">    module_name: &quot;dreamview&quot;</span><br><span class="line">    sequence_num: 1</span><br><span class="line">  &#125;</span><br><span class="line">  waypoint &#123;</span><br><span class="line">    id: &quot;2896_1_-1&quot;</span><br><span class="line">    s: 3.9204489256831567</span><br><span class="line">    pose &#123;</span><br><span class="line">      x: 586420.32695324044</span><br><span class="line">      y: 4140565.8413469042</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  waypoint &#123;</span><br><span class="line">    id: &quot;2922_1_-1&quot;</span><br><span class="line">    s: 30.496601298037231</span><br><span class="line">    pose &#123;</span><br><span class="line">      x: 586466.290268646</span><br><span class="line">      y: 4140842.8926803083</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">map_version: &quot;1.500000&quot;</span><br><span class="line">status &#123;</span><br><span class="line">  error_code: OK</span><br><span class="line">  msg: &quot;Success!&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，也可以通过在Dreamview中选择巡航点的当时，下发RoutingRequest，这样返回的RoutingRespone就会带着原请求字段返回。比如以上测试数据中的module_name: “dreamview”。</p>
 
 
 <!--<a href="http://yoursite.com/apollo/index.html#disqus_thread" class="article-comment-link">Comments</a>
