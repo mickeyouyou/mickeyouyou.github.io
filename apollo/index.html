@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-	   <link href="/css/main.css?v=3" rel="stylesheet" type="text/css" />
+	   <link href="/css/main.css?v=4.2" rel="stylesheet" type="text/css" />
     
         <script src="/js/util.js"></script>
         <script>
@@ -23,7 +23,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
 
     
-	<link rel="shortcut icon" type="image/x-icon" href="/rocket_128px_1215034_easyicon.net.ico?v=3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	   <link rel="shortcut icon" type="image/x-icon" href="/rocket_128px_1215034_easyicon.net.ico?v=4.2"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -44,25 +44,24 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文档目录"><span class="toc-text"><a href="#&#x6587;&#x6863;&#x76EE;&#x5F55;" class="headerlink" title="&#x6587;&#x6863;&#x76EE;&#x5F55;"></a>&#x6587;&#x6863;&#x76EE;&#x5F55;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo参考文档"><span class="toc-text"><a href="#Apollo&#x53C2;&#x8003;&#x6587;&#x6863;" class="headerlink" title="Apollo&#x53C2;&#x8003;&#x6587;&#x6863;"></a>Apollo&#x53C2;&#x8003;&#x6587;&#x6863;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text"><a href="#&#x5B9E;&#x8DF5;" class="headerlink" title="&#x5B9E;&#x8DF5;"></a>&#x5B9E;&#x8DF5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-Topic-and-Frequecy"><span class="toc-text"><a href="#Module-Topic-and-Frequecy" class="headerlink" title="Module Topic and Frequecy"></a>Module Topic and Frequecy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-flow"><span class="toc-text"><a href="#Data-flow" class="headerlink" title="Data flow"></a>Data flow</span></a></li></ol>
-<p>一张图了解Apollo最新进展：</p>
-<p>本文档是在线手册的预览（Preview）版本，覆盖开发者多个阶段，不同功能模块，不同适配平台。 为给开发者在短时间内一个宏观的认识，建设的在线文档站点。</p>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文档目录"><span class="toc-text"><a href="#&#x6587;&#x6863;&#x76EE;&#x5F55;" class="headerlink" title="&#x6587;&#x6863;&#x76EE;&#x5F55;"></a>&#x6587;&#x6863;&#x76EE;&#x5F55;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo参考文档"><span class="toc-text"><a href="#Apollo&#x53C2;&#x8003;&#x6587;&#x6863;" class="headerlink" title="Apollo&#x53C2;&#x8003;&#x6587;&#x6863;"></a>Apollo&#x53C2;&#x8003;&#x6587;&#x6863;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-Topic-and-Frequecy"><span class="toc-text"><a href="#Module-Topic-and-Frequecy" class="headerlink" title="Module Topic and Frequecy"></a>Module Topic and Frequecy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-flow"><span class="toc-text"><a href="#Data-flow" class="headerlink" title="Data flow"></a>Data flow</span></a></li></ol>
+<p>本文档是在线手册的预览（Preview）版本，覆盖开发者多个阶段(因为部分内容合入到了代码库，所以就删除了这些内容，可以在GitHub看到最新的内容)，不同功能模块，不同适配平台。 给你在短时间内一个宏观的认识，由我来维护的一个在线文档站点，为Apollo开发者查漏补缺。当然，Apollo社区生龙活虎的猛士很多，提供的内容很丰富，这也是我们期望看到的，right?</p>
 <h2 id="文档目录"><a href="#文档目录" class="headerlink" title="文档目录"></a>文档目录</h2><ul>
 <li>安装 <ul>
 <li><a href="./install_by_sourcecodes.html">软件部分编译安装</a></li>
 <li><a href="./install_apollo_on_jetson_tx2.html">Apollo在Nvidia Jetson TX2的适配安装</a></li>
-<li><a href="./installation_offline.html">离线安装Guide</a></li>
-<li><a href="./case_by_install.html">安装过程中遇到的case与解决办法</a></li>
+<li><a href="./installation_offline.html">Apollo离线安装指南</a></li>
+<li><a href="./case_by_install.html">安装异常Case与解决办法</a></li>
 <li><a href="./add_new_vehicle.html">从CANBUS到控制，如何新增一辆新车？</a></li>
 </ul>
 </li>
-<li>下一步<ul>
+<li>编译相关<ul>
 <li><a href="./doxygen.html">使用Doxygen生成代码结构文档</a> </li>
 <li><a href="http://blog.csdn.net/davidhopper/article/details/79349927" target="_blank" rel="noopener">使用Visual Studio Code编译Apollo项目</a></li>
 <li><a href="./words.html">Apollo相关名词解释</a></li>
 </ul>
 </li>
-<li>再下一步<ul>
+<li>代码与理论相关<ul>
 <li><a href="./from_apollo_main_macro_to_all_modules.html">从ApolloApp类、APOLLO_MAIN宏到Apollo模块</a></li>
 <li><a href="./adapter.html">Adapter适配器</a></li>
 <li>模块解析<ul>
@@ -104,7 +103,7 @@
 </li>
 </ul>
 </li>
-<li>再下一步<ul>
+<li>社区<ul>
 <li><a href="./howto/how_to_debug_your_own_planning_algorithm.html">在Apollo中调试决策规划算法</a></li>
 <li><a href="./howto/how_to_add_an_external_dependency.html">添加外部依赖</a></li>
 <li><a href="./howto/how_to_style_check_to_one_dir.html">对目录做代码规范检查</a></li>
@@ -113,18 +112,14 @@
 <li><a href="./howto">其他HowTo</a></li>
 </ul>
 </li>
-<li><a href="./faq.html">FAQ</a></li>
-</ul>
-<h2 id="Apollo参考文档"><a href="#Apollo参考文档" class="headerlink" title="Apollo参考文档"></a>Apollo参考文档</h2><p>开发者可以在下载代码库后，参照<a href="./doxygen.html">Doxygen生成文档</a> 生成基于最新代码库的参考文档。当然，我们也提供基于最新发布版本的在线版：<a href="https://apolloauto.github.io/doxygen/apollo/classapollo_1_1common_1_1ApolloApp.html" target="_blank" rel="noopener">https://apolloauto.github.io/doxygen/apollo/classapollo_1_1common_1_1ApolloApp.html</a></p>
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><ul>
-<li><a href="./hardware_system_installation_guide.html">Apollo 1.0 硬件安装指南</a></li>
-<li><a href="./hardware_system_installation_guide_1.5.html">Apollo 1.5 硬件安装指南</a></li>
-<li><a href="./2.0.html">Apollo 2.0新增部分</a></li>
+<li>实践<ul>
 <li><a href="./install_by_sourcecodes.html">Apollo 软件部分编译安装实践</a></li>
-<li><a href="./platform_sim.html">仿真平台</a></li>
-<li><a href="https://console.bce.baidu.com/apollo/task/overview?locale=zh-cn#/apollo/home" target="_blank" rel="noopener">数据开放平台</a></li>
 <li><a href="http://www.fzb.me/2017-9-25-driving-by-wire-tech.html" target="_blank" rel="noopener">线控车辆控制组件与自动驾驶的控制</a></li>
 </ul>
+</li>
+<li><a href="./faq.html">FAQ</a></li>
+</ul>
+<h2 id="Apollo参考文档"><a href="#Apollo参考文档" class="headerlink" title="Apollo参考文档"></a>Apollo参考文档</h2><p>开发者可以在下载代码库后，参照<a href="./doxygen.html">Doxygen生成文档</a> 生成基于最新代码库的参考文档。（一般比较鸡肋，如果可以看源码，为什么还要去看这个呢，略微有些多余）当然，我们也提供基于最新发布版本的在线版：<a href="https://apolloauto.github.io/doxygen/apollo/classapollo_1_1common_1_1ApolloApp.html" target="_blank" rel="noopener">https://apolloauto.github.io/doxygen/apollo/classapollo_1_1common_1_1ApolloApp.html</a></p>
 <h2 id="Module-Topic-and-Frequecy"><a href="#Module-Topic-and-Frequecy" class="headerlink" title="Module Topic and Frequecy"></a>Module Topic and Frequecy</h2><table>
 <thead>
 <tr>
@@ -304,27 +299,69 @@
 <p>2、Routing Request from Dreamview like this.or from a file <code>default_end_waypoint.txt</code> in map directory.<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">waypoint &#123;</span><br><span class="line">    pose &#123;</span><br><span class="line">        x: 587696.82286</span><br><span class="line">        y: 4141446.66696</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">waypoint &#123;</span><br><span class="line">    pose &#123;</span><br><span class="line">        x: 586948.740120</span><br><span class="line">        y: 4141171.118641</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2、Get a RoutingRespose as a result, data struct like this :</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">header &#123;</span><br><span class="line">  timestamp_sec: 1533844120.2057884</span><br><span class="line">  module_name: &quot;routing&quot;</span><br><span class="line">  sequence_num: 1</span><br><span class="line">&#125;</span><br><span class="line">road &#123;</span><br><span class="line">  id: &quot;2896&quot;</span><br><span class="line">  passage &#123;</span><br><span class="line">    segment &#123;</span><br><span class="line">      id: &quot;2896_1_-1&quot;</span><br><span class="line">      start_s: 3.9204489256831567</span><br><span class="line">      end_s: 7.14577</span><br><span class="line">    &#125;</span><br><span class="line">    can_exit: true</span><br><span class="line">    change_lane_type: FORWARD</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">road &#123;</span><br><span class="line">  id: &quot;2895&quot;</span><br><span class="line">  passage &#123;</span><br><span class="line">    segment &#123;</span><br><span class="line">      id: &quot;2895_1_-1&quot;</span><br><span class="line">      start_s: 0</span><br><span class="line">      end_s: 18.4625</span><br><span class="line">    &#125;</span><br><span class="line">    can_exit: true</span><br><span class="line">    change_lane_type: FORWARD</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">measurement &#123;</span><br><span class="line">  distance: 284.34704237235405 // test data not corrent </span><br><span class="line">&#125;</span><br><span class="line">routing_request &#123;</span><br><span class="line">  header &#123;</span><br><span class="line">    timestamp_sec: 1533844120.2038052</span><br><span class="line">    module_name: &quot;dreamview&quot;</span><br><span class="line">    sequence_num: 1</span><br><span class="line">  &#125;</span><br><span class="line">  waypoint &#123;</span><br><span class="line">    id: &quot;2896_1_-1&quot;</span><br><span class="line">    s: 3.9204489256831567</span><br><span class="line">    pose &#123;</span><br><span class="line">      x: 586420.32695324044</span><br><span class="line">      y: 4140565.8413469042</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  waypoint &#123;</span><br><span class="line">    id: &quot;2922_1_-1&quot;</span><br><span class="line">    s: 30.496601298037231</span><br><span class="line">    pose &#123;</span><br><span class="line">      x: 586466.290268646</span><br><span class="line">      y: 4140842.8926803083</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">map_version: &quot;1.500000&quot;</span><br><span class="line">status &#123;</span><br><span class="line">  error_code: OK</span><br><span class="line">  msg: &quot;Success!&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然，也可以通过在Dreamview中选择巡航点的当时，下发RoutingRequest，这样返回的RoutingRespone就会带着原请求字段返回。比如以上测试数据中的module_name: “dreamview”。</p>
+<p>当然，也可以通过在Dreamview中选择巡航点的当时，下发RoutingRequest，这样返回的RoutingRespone就会带着原请求字段返回。比如以上测试数据中的module_name: “dreamview”.</p>
 
 
-<!--<a href="http://yoursite.com/apollo/index.html#disqus_thread" class="article-comment-link">Comments</a>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'mickeyouyou'; // required: replace example with your forum shortname
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">如果你有不同看法？</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+  
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
--->
 <div style="display:none">
 <script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
-</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</div>
+
+
+
+
+    
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+
+
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'mickeyouyou',
+            repo: 'blog_comment',
+            
+            lang: "en" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '27804beebc0d0aa2ae7271191fd5adac6d1b8cb7',
+            
+                client_id: '57e78fbfba943c338437'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+          function showGitment(){
+            document.getElementById("gitment-display-button").style.display = "none";
+            document.getElementById("gitment-container").style.display = "block";
+            renderGitment();
+          }
+      
+      </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
 
 
 
