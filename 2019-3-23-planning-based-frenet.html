@@ -121,8 +121,7 @@ C_d = k_jJ_t(d(t)) + k_tT + k_dd_1^2 \tag{15}$$</span><!-- Has MathJax -->
 C_s = k_jJ_t(s(t)) + k_tT + k_{\dot{s}}(\dot{s_1} - \dot{s_c})^2 \tag{16}$$</span><!-- Has MathJax --><br>其中 $\dot{s_c}$ 是我们想要保持的纵向速度，第三个惩罚项的引入实际上是为了让目标配置中的纵向速度尽可能接近设定速度，该情景下的目标配置集为：</p>
 <span>$$\\
 [\dot{s_1}, \ddot{s_1}, T]_{ij} = [[\dot{s_c} + \Delta\dot{s_i}], 0, T_j] \tag{17}$$</span><!-- Has MathJax -->
-<p>即优化过程中的可变参数为 $\Delta\dot{s_i}$ 和 $T_j$ ，同样，也可以通过设置 $\Delta T$ 和  $\Delta\Delta\dot{s_i}$ 来设置轨迹采样的密度，从而获得一个有限的纵向轨迹集合：</p>
-<p>其中，绿线即为纵向最优轨迹。以上我们分别讨论了横向和纵向的最优轨迹搜索方法，在应用中，我们将两个方向的损失函数合并为一个，即：</p>
+<p>即优化过程中的可变参数为 $\Delta\dot{s_i}$ 和 $T_j$ ，同样，也可以通过设置 $\Delta T$ 和  $\Delta\Delta\dot{s_i}$ 来设置轨迹采样的密度，从而获得一个有限的纵向轨迹集合：<br><img src="https://wx3.sinaimg.cn/mw690/4b1ff580ly1g1d67sn3zpj21es0u07hz.jpg"><br>其中，绿线即为纵向最优轨迹。以上我们分别讨论了横向和纵向的最优轨迹搜索方法，在应用中，我们将两个方向的损失函数合并为一个，即：</p>
 <span>$$\\
 C_{total} = k_{lat}C_d + k_{lon}C_s \tag{18}$$</span><!-- Has MathJax -->
 <p>这样，我们就可以通过最小化 $C_{total}$ 得到优化轨迹集合（我们不能得到“最优”的轨迹多项式参数，还可以得到“次优”，“次次优”轨迹等等）。</p>
@@ -134,7 +133,7 @@ C_{total} = k_{lat}C_d + k_{lon}C_s \tag{18}$$</span><!-- Has MathJax -->
 <li>轨迹的曲率是否超过最大曲率</li>
 <li>轨迹是否会引起碰撞（事故）</li>
 </ul>
-<p>通常来说，障碍物规避又和目标行为预测等有关联，本身即使一个复杂的课题，高级自动驾驶系统通常具备对目标行为的预测能力，从而确定轨迹是否会发生事故。在本节中，我们关注的重点是无人车的动作规划，故后面的实例仅涉及静态障碍物的规避和动作规划。</p>
+<p>通常来说，障碍物规避又和目标行为预测等有关联，本身即使一个复杂的课题，高级自动驾驶系统通常具备对目标行为的预测能力，从而确定轨迹是否会发生事故。</p>
 <p><strong>Appendix :Paper ‘Optimal Trajectory Generation for Dynamic Street Scenarios in a Frene´t Frame’</strong></p>
 <ul>
 <li><p>The paper discusses some topics like:</p>
