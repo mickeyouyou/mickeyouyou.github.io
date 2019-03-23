@@ -58,7 +58,7 @@
 <p>假设上游模块（行为规划层）要求当前车辆在 $t8$ 越过虚线完成一次变道，<strong>即车辆在横向上需要完成一个 $Δd$ 以及纵向上完成一个 Δs的移动，则可以将 s 和 d分别表示为关于 t 的函数： s(t) 和d(t)</strong> （上图右图），那么 $d$,$s$ 关于时间 $t$ 的最优轨迹应该选择哪一条呢？通过这种转换，原来的动作规划问题被解耦成两个独立的优化问题，对于横向和纵向的轨迹优化，我们选取损失函数 $C$ ，将使得$C$最小的轨迹作为最终规划的动作序列。而Werling方法中损失函数的定义，则与我们前面提到的加加速度 Jerk 相关。</p>
 <h2 id="Jerk最小化和五次轨迹多项式求解"><a href="#Jerk最小化和五次轨迹多项式求解" class="headerlink" title="Jerk最小化和五次轨迹多项式求解"></a>Jerk最小化和五次轨迹多项式求解</h2><p>由于我们将轨迹优化问题分割成了 $s$ 和 $d$ 两个方向，所以Jerk最小化可以分别从横向和纵向进行，令 $p$ 为我们考量的配置（即 $s$ 或 $d$），加加速度$J_t$关于配置 $p$ 在时间段 $t_1-t_0$  内累计的Jerk的表达式为：<br><span>$$\\
 J_t(p(t)) =  \intop\nolimits_{t_0}^{t_1} p(\tau)^2d\tau \tag{2}$$</span><!-- Has MathJax --></p>
-<p>现在我们的任务是找出能够使得 $J_t(p(t))$ 最小的 $p(t)$ ，Takahashi的文章——《<em>Local path planning and motion control for AGV in positioning</em>》中已经证明，<strong>任何Jerk最优化问题中的解都可以使用一个5次多项式来表示</strong>：<br><span>$$\\
+<p>现在我们的任务是找出能够使得 $J_t(p(t))$ 最小的 $p(t)$ ，Takahashi的文章——《<em>Local path planning and motion control for AGV in positioning</em>》中已经证明，<strong>任何Jerk最优化问题中的解都可以使用一个五次多项式来表示</strong>：<br><span>$$\\
 p(t) =\alpha_0 + \alpha_1t + \alpha_2t^2 + \alpha_3t^3 + \alpha_4t^4 + \alpha_5t^5 \tag{3}$$</span><!-- Has MathJax --></p>
 <p>要解这个方程组需要一些初始配置和目标配置，以横向路径规划为例，初始配置为$D_0 =[d_0, \dot{d_0}, \ddot{d_0}]$，即 $t_0$时刻车辆的横向偏移，横向速度和横向加速度为$d_0, \dot{d_0}, \ddot{d_0}$，即可得方程组：</p>
 <span>$$\\
@@ -67,30 +67,38 @@ d(t_0) =\alpha_{d0} + \alpha_{d1}t_0 + \alpha_{d2}t_0^2 + \alpha_{d3}t_0^3 + \al
 \dot{d}(t_0) =\alpha_{d1} + 2\alpha_{d2}t_0 + 3\alpha_{d3}t_0^2 + 4\alpha_{d4}t_0^3 + 5\alpha_{d5}t_0^4 \tag{5}$$</span><!-- Has MathJax -->
 <span>$$\\
 \ddot{d}(t_0) =2\alpha_{d2} + 6\alpha_{d3}t_0 + 12\alpha_{d4}t_0^2 + 20\alpha_{d5}t_0^3 \tag{6}$$</span><!-- Has MathJax -->
-<p>为了区分横向和纵向，我们使用 $\alpha<em>{di}$和$\alpha</em>{si}$来分别表示 d 和 s 方向的多项式系数，同理，根据横向的目标配置$D_1 =[d_1, \dot{d_1}, \ddot{d_1}]$可得方程组：</p>
+<p>为了区分横向和纵向，我们使用 $\alpha_{di}$和</p>
+<p>$\alpha_{si}$来分别表示 d 和 s 方向的多项式系数，同理，根据横向的目标配置$D_1 =[d_1, \dot{d_1}, \ddot{d_1}]$可得方程组：</p>
 <span>$$\\
 d(t_1) =\alpha_{d0} + \alpha_{d1}t_1 + \alpha_{d2}t_1^2 + \alpha_{d3}t_1^3 + \alpha_{d4}t_1^4 + \alpha_{d5}t_1^5 \tag{7}$$</span><!-- Has MathJax -->
 <span>$$\\
 \dot{d}(t_1) =\alpha_{d1} + 2\alpha_{d2}t_1 + 3\alpha_{d3}t_1^2 + 4\alpha_{d4}t_1^3 + 5\alpha_{d5}t_1^4 \tag{8}$$</span><!-- Has MathJax -->
 <span>$$\\
 \ddot{d}(t_1) =2\alpha_{d2} + 6\alpha_{d3}t_1 + 12\alpha_{d4}t_1^2 + 20\alpha_{d5}t_1^3 \tag{9}$$</span><!-- Has MathJax -->
-<p>我们通过令 $t<em>0=0$ 来简化这个六元方程组的求解，可直接求得 $\alpha</em>{d0}$,$\alpha<em>{d1}$ 和$\alpha</em>{d2}$ 为：</p>
+<p>我们通过令 </p>
+<p>$t_0=0$ </p>
+<p>来简化这个六元方程组的求解，可直接求得 $\alpha_{d0}$，</p>
+<p>$\alpha_{d1}$ 和</p>
+<p>$\alpha_{d2}$ 为：</p>
 <span>$$\\
 \alpha_{d0} = d(t0) \tag{10}$$</span><!-- Has MathJax -->
 <span>$$\\
 \alpha_{d1} = \dot{d}(t_0) \tag{11}$$</span><!-- Has MathJax -->
 <span>$$\\
 \alpha_{d2} = \ddot{d}(t_0) \tag{12}$$</span><!-- Has MathJax -->
-<p>令$T=t_1 − t<em>0$ ，剩余的三个系数 $\alpha</em>{d3}$, $\alpha<em>{d4}$, $\alpha</em>{d5}$ ，可通过解如下矩阵方程得到：</p>
+<p>令</p>
+<p>$T=t_1 − t_0$</p>
+<p>剩余的三个系数 $\alpha_{d3}$, </p>
+<p>$\alpha_{d4}$, </p>
+<p>$\alpha_{d5}$ ，可通过解如下矩阵方程得到：</p>
 <span>$$\\
 \begin{bmatrix}T^3&amp;T^4&amp;T^5\\3T^2&amp;4T^3&amp;5T^4\\6T&amp;12T^2&amp;20T^3\end{bmatrix}  \times  \begin{bmatrix}\alpha_{d3}\\\alpha_{d4}\\\alpha_{d5}\end{bmatrix} =  \begin{bmatrix}d(t_1) - (d(t_0) + \dot{d}(t_0)T + \frac{1}{2}\ddot{d}(t_0)T^2 )\\\dot{d}(t_1) - (\dot{d}(t_0) + \ddot{d}(t_0)T)\\\ddot{d}(t_1) - \ddot{d}(t_0)\end{bmatrix} \tag{13}$$</span><!-- Has MathJax -->
 <p>该方程的解可以通过Python的Numpy中的 <em><code>np.linalg.solve</code></em>简单求得。至此，我们在给定任意的初始配置 $D_0 =[d_0, \dot{d_0}, \ddot{d_0}]$ ，目标配置 $D_1 =[d_1, \dot{d_1}, \ddot{d_1}]$ 以及制动时间 T 的情况下，可以求得对应的 d 方向关于时间 t的五次多项式的系数，同理，可以使用相同的方法来求解纵向（即 s方向）的五次多项式系数。那么问题来了，我们如何去确定最优的轨迹呢？ <strong>Werling方法的思路是通过一组目标配置来求得轨迹的备选集合，然后在备选集合中基于Jerk最小化的原则选择最优轨迹</strong> ，我们仍然以 d 方向的优化轨迹为例讲解。</p>
 <p>我们可以取如下目标配置集合来计算出一组备选的多项式集合：</p>
 <span>$$\\
 [d_1, \dot{d_1}, \ddot{d_1}, T]_{ij} = [d_i, 0, 0, T_j] \tag{14}$$</span><!-- Has MathJax -->
-<p>对于优化问题而言，我们实际上希望车辆最终沿着参考线（道路中心线）平行的方向行驶，所以我们令 $\dot{d_i} = \ddot{d_i} = 0$，那么目标配置只涉及 $d_i$ 和 $T_j$ </p>
-<p>两个变量的组合，而这两个变量在无人驾驶的应用场景中实际上是受限的，我们可以通过定义($d<em>{min}$, $d</em>{max}$) 和 $(T<em>{min}, T</em>{max})$ </p>
-<p>来约束目标配置的取值范围，通过 $\Delta d$ 和 $\Delta T$ 来限制采样密度，从而在每一个制动周期获得一个有限的备选轨迹集合，如下图所示：</p>
+<p>对于优化问题而言，我们实际上希望车辆最终沿着参考线（道路中心线）平行的方向行驶，所以我们令 $\dot{d_i} = \ddot{d_i} = 0$，那么目标配置只涉及 $d_i$ 和 $T_j$</p>
+<p>两个变量的组合，而这两个变量在无人驾驶的应用场景中实际上是受限的，我们可以通过定义<br><span>$($d_{min}$, $d_{max}$)$</span><!-- Has MathJax --><br>和<br><span>$($T_{min}, T_{max}$)$</span><!-- Has MathJax --><br>来约束目标配置的取值范围，通过 $\Delta d$ 和 $\Delta T$来限制采样密度，从而在每一个制动周期获得一个有限的备选轨迹集合，如下图所示：</p>
 <p><img src="https://wx3.sinaimg.cn/mw690/4b1ff580ly1g1d2oanaxkj21gl0u0aul.jpg"></p>
 <p>要在备选集合中选择最优轨迹（即上图中的绿色轨迹），我们需要设计损失函数，对于不同的场景，损失函数也不相同，以横向轨迹为例，在较高速度的情况下，损失函数为：</p>
 <span>$$\\
