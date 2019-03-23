@@ -44,7 +44,7 @@
 --->
 </div>
 
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Frenet坐标系下规划的优势"><span class="toc-text"><a href="#Frenet&#x5750;&#x6807;&#x7CFB;&#x4E0B;&#x89C4;&#x5212;&#x7684;&#x4F18;&#x52BF;" class="headerlink" title="Frenet&#x5750;&#x6807;&#x7CFB;&#x4E0B;&#x89C4;&#x5212;&#x7684;&#x4F18;&#x52BF;"></a>Frenet&#x5750;&#x6807;&#x7CFB;&#x4E0B;&#x89C4;&#x5212;&#x7684;&#x4F18;&#x52BF;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jerk最小化和五次轨迹多项式求解"><span class="toc-text"><a href="#Jerk&#x6700;&#x5C0F;&#x5316;&#x548C;&#x4E94;&#x6B21;&#x8F68;&#x8FF9;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x89E3;" class="headerlink" title="Jerk&#x6700;&#x5C0F;&#x5316;&#x548C;&#x4E94;&#x6B21;&#x8F68;&#x8FF9;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x89E3;"></a>Jerk&#x6700;&#x5C0F;&#x5316;&#x548C;&#x4E94;&#x6B21;&#x8F68;&#x8FF9;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x89E3;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事故避免（Collision-Avoiding）"><span class="toc-text"><a href="#&#x4E8B;&#x6545;&#x907F;&#x514D;&#xFF08;Collision-Avoiding&#xFF09;" class="headerlink" title="&#x4E8B;&#x6545;&#x907F;&#x514D;&#xFF08;Collision Avoiding&#xFF09;"></a>&#x4E8B;&#x6545;&#x907F;&#x514D;&#xFF08;Collision Avoiding&#xFF09;</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Frenet坐标系下规划的优势"><span class="toc-text"><a href="#Frenet&#x5750;&#x6807;&#x7CFB;&#x4E0B;&#x89C4;&#x5212;&#x7684;&#x4F18;&#x52BF;" class="headerlink" title="Frenet&#x5750;&#x6807;&#x7CFB;&#x4E0B;&#x89C4;&#x5212;&#x7684;&#x4F18;&#x52BF;"></a>Frenet&#x5750;&#x6807;&#x7CFB;&#x4E0B;&#x89C4;&#x5212;&#x7684;&#x4F18;&#x52BF;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jerk最小化和五次轨迹多项式求解"><span class="toc-text"><a href="#Jerk&#x6700;&#x5C0F;&#x5316;&#x548C;&#x4E94;&#x6B21;&#x8F68;&#x8FF9;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x89E3;" class="headerlink" title="Jerk&#x6700;&#x5C0F;&#x5316;&#x548C;&#x4E94;&#x6B21;&#x8F68;&#x8FF9;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x89E3;"></a>Jerk&#x6700;&#x5C0F;&#x5316;&#x548C;&#x4E94;&#x6B21;&#x8F68;&#x8FF9;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x89E3;</span></a></li></ol>
 <blockquote>
 <p>本文大部分引用了来自Adam的文章：<a href="https://blog.csdn.net/adamshan/article/details/80779615" target="_blank" rel="noopener">https://blog.csdn.net/adamshan/article/details/80779615</a> 感谢原作 Adam shan</p>
 </blockquote>
@@ -67,36 +67,31 @@ d(t_0) =\alpha_{d0} + \alpha_{d1}t_0 + \alpha_{d2}t_0^2 + \alpha_{d3}t_0^3 + \al
 \dot{d}(t_0) =\alpha_{d1} + 2\alpha_{d2}t_0 + 3\alpha_{d3}t_0^2 + 4\alpha_{d4}t_0^3 + 5\alpha_{d5}t_0^4 \tag{5}$$</span><!-- Has MathJax -->
 <span>$$\\
 \ddot{d}(t_0) =2\alpha_{d2} + 6\alpha_{d3}t_0 + 12\alpha_{d4}t_0^2 + 20\alpha_{d5}t_0^3 \tag{6}$$</span><!-- Has MathJax -->
-<p>为了区分横向和纵向，我们使用 $\alpha_{di}$</p>
-<p>和</p>
-<p>$\alpha_{si}$</p>
-<p>来分别表示 d 和 s 方向的多项式系数，同理，根据横向的目标配置$D_1 =[d_1, \dot{d_1}, \ddot{d_1}]$可得方程组：</p>
+<p>为了区分横向和纵向，我们使用 $\alpha<em>{di}$和$\alpha</em>{si}$来分别表示 d 和 s 方向的多项式系数，同理，根据横向的目标配置$D_1 =[d_1, \dot{d_1}, \ddot{d_1}]$可得方程组：</p>
 <span>$$\\
 d(t_1) =\alpha_{d0} + \alpha_{d1}t_1 + \alpha_{d2}t_1^2 + \alpha_{d3}t_1^3 + \alpha_{d4}t_1^4 + \alpha_{d5}t_1^5 \tag{7}$$</span><!-- Has MathJax -->
 <span>$$\\
 \dot{d}(t_1) =\alpha_{d1} + 2\alpha_{d2}t_1 + 3\alpha_{d3}t_1^2 + 4\alpha_{d4}t_1^3 + 5\alpha_{d5}t_1^4 \tag{8}$$</span><!-- Has MathJax -->
 <span>$$\\
 \ddot{d}(t_1) =2\alpha_{d2} + 6\alpha_{d3}t_1 + 12\alpha_{d4}t_1^2 + 20\alpha_{d5}t_1^3 \tag{9}$$</span><!-- Has MathJax -->
-<p>我们通过令 $t_0=0$ </p>
-<p>来简化这个六元方程组的求解，可直接求得 $\alpha_{d0}$,</p>
-<p>$\alpha_{d1}$ 和</p>
-<p>$\alpha_{d2}$ 为：</p>
+<p>我们通过令 $t<em>0=0$ 来简化这个六元方程组的求解，可直接求得 $\alpha</em>{d0}$,$\alpha<em>{d1}$ 和$\alpha</em>{d2}$ 为：</p>
 <span>$$\\
 \alpha_{d0} = d(t0) \tag{10}$$</span><!-- Has MathJax -->
 <span>$$\\
 \alpha_{d1} = \dot{d}(t_0) \tag{11}$$</span><!-- Has MathJax -->
 <span>$$\\
 \alpha_{d2} = \ddot{d}(t_0) \tag{12}$$</span><!-- Has MathJax -->
-<p>令$T=t_1 − t_0$ </p>
-<p>，剩余的三个系数 $\alpha_{d3}$,</p>
-<p>$\alpha_{d4}$,</p>
-<p>$\alpha_{d5}$ ，可通过解如下矩阵方程得到：</p>
+<p>令$T=t_1 − t<em>0$ ，剩余的三个系数 $\alpha</em>{d3}$, $\alpha<em>{d4}$, $\alpha</em>{d5}$ ，可通过解如下矩阵方程得到：</p>
 <span>$$\\
 \begin{bmatrix}T^3&amp;T^4&amp;T^5\\3T^2&amp;4T^3&amp;5T^4\\6T&amp;12T^2&amp;20T^3\end{bmatrix}  \times  \begin{bmatrix}\alpha_{d3}\\\alpha_{d4}\\\alpha_{d5}\end{bmatrix} =  \begin{bmatrix}d(t_1) - (d(t_0) + \dot{d}(t_0)T + \frac{1}{2}\ddot{d}(t_0)T^2 )\\\dot{d}(t_1) - (\dot{d}(t_0) + \ddot{d}(t_0)T)\\\ddot{d}(t_1) - \ddot{d}(t_0)\end{bmatrix} \tag{13}$$</span><!-- Has MathJax -->
-<p>该方程的解可以通过Python的Numpy中的 <code>np.linalg.solve</code>简单求得。至此，我们在给定任意的初始配置 $D_0 =[d_0, \dot{d_0}, \ddot{d_0}]$ ，目标配置 $D_1 =[d_1, \dot{d_1}, \ddot{d_1}]$ 以及制动时间 T 的情况下，可以求的对应的 d 方向关于时间 t的五次多项式的系数，同理，可以使用相同的方法来求解纵向（即 s方向）的五次多项式系数。那么问题来了，我们如何去确定最优的轨迹呢？ Werling方法的思路是通过一组目标配置来求得轨迹的备选集合，然后在备选集合中基于Jerk最小化的原则选择最优轨迹 ，我们仍然以 d 方向的优化轨迹为例讲解：</p>
-<p>我们可以取如下目标配置集合来计算出一组备选的多项式集合：<br><span>$$\\
-[d_1, \dot{d_1}, \ddot{d_1}, T]_{ij} = [d_i, 0, 0, T_j] \tag{14}$$</span><!-- Has MathJax --></p>
-<p>对于优化问题而言，我们实际上希望车辆最终沿着参考线（道路中心线）平行的方向行驶，所以我们令 $\dot{d_i} = \ddot{d_i} = 0$，那么目标配置只涉及 $d_i$ 和 $T_j$ 两个变量的组合，而这两个变量在无人驾驶的应用场景中实际上是受限的，我们可以通过定义 (dmin,dmax) 和 (Tmin,Tmax) 来约束目标配置的取值范围，通过 $Δd$ 和 $ΔT$ 来限制采样密度，从而在每一个制动周期获得一个有限的备选轨迹集合，如下图所示：</p>
+<p>该方程的解可以通过Python的Numpy中的 <em><code>np.linalg.solve</code></em>简单求得。至此，我们在给定任意的初始配置 $D_0 =[d_0, \dot{d_0}, \ddot{d_0}]$ ，目标配置 $D_1 =[d_1, \dot{d_1}, \ddot{d_1}]$ 以及制动时间 T 的情况下，可以求得对应的 d 方向关于时间 t的五次多项式的系数，同理，可以使用相同的方法来求解纵向（即 s方向）的五次多项式系数。那么问题来了，我们如何去确定最优的轨迹呢？ <strong>Werling方法的思路是通过一组目标配置来求得轨迹的备选集合，然后在备选集合中基于Jerk最小化的原则选择最优轨迹</strong> ，我们仍然以 d 方向的优化轨迹为例讲解。</p>
+<p>我们可以取如下目标配置集合来计算出一组备选的多项式集合：</p>
+<span>$$\\
+[d_1, \dot{d_1}, \ddot{d_1}, T]_{ij} = [d_i, 0, 0, T_j] \tag{14}$$</span><!-- Has MathJax -->
+<p>对于优化问题而言，我们实际上希望车辆最终沿着参考线（道路中心线）平行的方向行驶，所以我们令 $\dot{d_i} = \ddot{d_i} = 0$，那么目标配置只涉及 $d_i$ 和 $T_j$ </p>
+<p>两个变量的组合，而这两个变量在无人驾驶的应用场景中实际上是受限的，我们可以通过定义($d<em>{min}$, $d</em>{max}$) 和 $(T<em>{min}, T</em>{max})$ </p>
+<p>来约束目标配置的取值范围，通过 $\Delta d$ 和 $\Delta T$ 来限制采样密度，从而在每一个制动周期获得一个有限的备选轨迹集合，如下图所示：</p>
+<p><img src="https://wx3.sinaimg.cn/mw690/4b1ff580ly1g1d2oanaxkj21gl0u0aul.jpg"></p>
 <p>要在备选集合中选择最优轨迹（即上图中的绿色轨迹），我们需要设计损失函数，对于不同的场景，损失函数也不相同，以横向轨迹为例，在较高速度的情况下，损失函数为：</p>
 <span>$$\\
 C_d = k_jJ_t(d(t)) + k_tT + k_dd_1^2 \tag{15}$$</span><!-- Has MathJax -->
@@ -106,28 +101,109 @@ C_d = k_jJ_t(d(t)) + k_tT + k_dd_1^2 \tag{15}$$</span><!-- Has MathJax -->
 <li>$k_tT$ ：制动应当迅速，时间短； </li>
 <li>$k_dd_1^2$ ：目标状态不应偏离道路中心线太远</li>
 </ul>
-<p>其中 $k_j$,$k_t$ 和 $k_d$ 是这三个惩罚项的系数，它们的比值大小决定了我们的损失函数更加注重哪一个方面的优化，由此我们可以算出所有备选轨迹的损失，取损失最小的备选轨迹作为我们最终的横向轨迹。</p>
-<p>值得注意的是，以上的损失函数仅适用于相对高速度的场景，在极端低速的情况下，车辆的制动能力是不完整的，我们不再将d表示为关于时间t的五次多项式，损失函数也会略有不同，但是这种基于有限采样轨迹，通过优化损失函数搜索最优轨迹的方法仍然是一样的，在此不再赘述。</p>
+<p>其中 $k_j$，$k_t$ 和 $k_d$ 是这三个惩罚项的系数，它们的比值大小决定了我们的损失函数更加注重哪一个方面的优化，由此我们可以算出所有备选轨迹的损失，取损失最小的备选轨迹作为我们最终的横向轨迹。</p>
+<p>值得注意的是，以上的损失函数仅适用于相对高速度的场景，在极端低速的情况下，车辆的制动能力是不完整的，我们不再将d表示为关于时间t的五次多项式，损失函数也会略有不同，但是这种基于有限采样轨迹，通过优化损失函数搜索最优轨迹的方法仍然是一样的。</p>
 <p>讨论完横向的轨迹优化问题，我们再来看看纵向的轨迹优化，在不同的场景下纵向轨迹的优化的损失函数也各不相同，Werling方法中将纵向轨迹的优化场景大致分成如下三类： </p>
 <ul>
 <li>跟车 </li>
 <li>汇流和停车 </li>
 <li>车速保持</li>
 </ul>
-<p>在本文中我们详细了解车速保持场景下的纵向轨迹优化，在高速公路等应用场景中，目标配置中并不需要考虑目标位置（即 s1 ），所以在该场景下，目标配置仍然是 (s0,s0˙,s0¨) ，目标配置变成了 (s1˙,s1¨) ，损失函数为：<br><span>$$\\
-C_s = k_jJ_t(s(t)) + k_tT + k_{\dot{s}}(\dot{s_1} - \dot{s_c})^2 \tag{9}$$</span><!-- Has MathJax --><br>其中 sc˙ 是我们想要保持的纵向速度，第三个惩罚项的引入实际上是为了让目标配置中的纵向速度尽可能接近设定速度，该情景下的目标配置集为：</p>
+<p>在本文中我们详细了解车速保持场景下的纵向轨迹优化，在高速公路等应用场景中，目标配置中并不需要考虑目标位置（即 $s_1$ ），所以在该场景下，目标配置仍然是 $(s_0, \dot{s_0}, \ddot{s_0})$ ，目标配置变成了 $(\dot{s_1}, \ddot{s_1})$ ，损失函数为：<br><span>$$\\
+C_s = k_jJ_t(s(t)) + k_tT + k_{\dot{s}}(\dot{s_1} - \dot{s_c})^2 \tag{16}$$</span><!-- Has MathJax --><br>其中 $\dot{s_c}$ 是我们想要保持的纵向速度，第三个惩罚项的引入实际上是为了让目标配置中的纵向速度尽可能接近设定速度，该情景下的目标配置集为：</p>
 <span>$$\\
-[\dot{s_1}, \ddot{s_1}, T]_{ij} = [[\dot{s_c} + \Delta\dot{s_i}], 0, T_j] \tag{9}$$</span><!-- Has MathJax -->
-<p>即优化过程中的可变参数为 Δsi˙ 和 Tj ，同样，也可以通过设置 ΔT 和 ΔΔsi˙ 来设置轨迹采样的密度，从而获得一个有限的纵向轨迹集合：</p>
+[\dot{s_1}, \ddot{s_1}, T]_{ij} = [[\dot{s_c} + \Delta\dot{s_i}], 0, T_j] \tag{17}$$</span><!-- Has MathJax -->
+<p>即优化过程中的可变参数为 $\Delta\dot{s_i}$ 和 $T_j$ ，同样，也可以通过设置 $\Delta T$ 和  $\Delta\Delta\dot{s_i}$ 来设置轨迹采样的密度，从而获得一个有限的纵向轨迹集合：</p>
 <p>其中，绿线即为纵向最优轨迹。以上我们分别讨论了横向和纵向的最优轨迹搜索方法，在应用中，我们将两个方向的损失函数合并为一个，即：</p>
 <span>$$\\
-C_{total} = k_{lat}C_d + k_{lon}C_s \tag{9}$$</span><!-- Has MathJax -->
-<p>这样，我们就可以通过最小化 Ctotal 得到优化轨迹集合（我们不能得到“最优”的轨迹多项式参数，还可以得到“次优”，“次次优”轨迹等等）。</p>
-<h2 id="事故避免（Collision-Avoiding）"><a href="#事故避免（Collision-Avoiding）" class="headerlink" title="事故避免（Collision Avoiding）"></a>事故避免（Collision Avoiding）</h2><p>显然，我们上面的轨迹优化损失函数中并没有包含关于障碍物躲避的相关惩罚，并且我们的损失函数中也没有包含最大速度，最大加速度和最大曲率等制动限制，也就是说我们的优化轨迹集合并没有考虑障碍物规避和制动限制因素，不将障碍物避免加入到损失函数中的一个重要的原因在于碰撞惩罚项的引入将代入大量需要人工调整的参数（即权重），是的损失函数的设计变得复杂 ，Werling方法将这些因素的考量独立出来，在完成优化轨迹以后进行。具体来说，我们会在完成所有备选轨迹的损失计算以后进行一次轨迹检查，过滤掉不符合制动限制的，可能碰撞障碍物的轨迹，检查内容包括：</p>
-<p>s方向上的速度是否超过设定的最大限速<br>s方向的加速度是否超过设定的最大加速度<br>轨迹的曲率是否超过最大曲率<br>轨迹是否会引起碰撞（事故）</p>
+C_{total} = k_{lat}C_d + k_{lon}C_s \tag{18}$$</span><!-- Has MathJax -->
+<p>这样，我们就可以通过最小化 $C_{total}$ 得到优化轨迹集合（我们不能得到“最优”的轨迹多项式参数，还可以得到“次优”，“次次优”轨迹等等）。</p>
+<p><strong>避免碰撞（Collision Avoiding）</strong></p>
+<p>显然，我们上面的轨迹优化损失函数中并没有包含关于障碍物躲避的相关惩罚，并且我们的损失函数中也没有包含最大速度，最大加速度和最大曲率等制动限制，也就是说我们的优化轨迹集合并没有考虑障碍物规避和制动限制因素，不将障碍物避免加入到损失函数中的一个重要的原因在于碰撞惩罚项的引入将代入大量需要人工调整的参数（即权重），是的损失函数的设计变得复杂 ，Werling方法将这些因素的考量独立出来，在完成优化轨迹以后进行。具体来说，我们会在完成所有备选轨迹的损失计算以后进行一次轨迹检查，过滤掉不符合制动限制的，可能碰撞障碍物的轨迹，检查内容包括：</p>
+<ul>
+<li>s方向上的速度是否超过设定的最大限速</li>
+<li>s方向的加速度是否超过设定的最大加速度</li>
+<li>轨迹的曲率是否超过最大曲率</li>
+<li>轨迹是否会引起碰撞（事故）</li>
+</ul>
 <p>通常来说，障碍物规避又和目标行为预测等有关联，本身即使一个复杂的课题，高级自动驾驶系统通常具备对目标行为的预测能力，从而确定轨迹是否会发生事故。在本节中，我们关注的重点是无人车的动作规划，故后面的实例仅涉及静态障碍物的规避和动作规划。</p>
-<span>$$\\
-C_{total} = k_{lat}C_d + k_{lon}C_s \tag{9}$$</span><!-- Has MathJax -->
+<p><strong>Appendix :Paper ‘Optimal Trajectory Generation for Dynamic Street Scenarios in a Frene´t Frame’</strong></p>
+<ul>
+<li><p>The paper discusses some topics like:</p>
+<ul>
+<li>Cost Functions.</li>
+<li>Differences between high speed and low speed trajectory generation.</li>
+<li>Implementation of specific maneuvers relevant to highway driving like following, merging, and velocity keeping.</li>
+<li>How to combining lateral and longitudinal trajectories.</li>
+<li>A derivation of the transformation from Frenet coordinates to global coordinates (in the appendix).</li>
+</ul>
+</li>
+<li><p>Abstract</p>
+<ul>
+<li>semi-reactive trajectory generation method</li>
+<li>be tightly integrated into the behavioral layer</li>
+<li>realize long-term objectives (such as velocity keeping, merging, following, stopping)</li>
+<li>combine with a reactive collision avoidance</li>
+<li>Frenét-Frame</li>
+</ul>
+</li>
+<li><p>Related work</p>
+<ul>
+<li>[11], [19], [2], [4]: fail to model the inherent unpredictability of other traffic, and the resulting uncertainty, given that they <strong>rely on precise prediction</strong> of other traffic participant’s motions over a long time period.</li>
+<li>[16], [1], [7]: The trajectories are represented parametrically. A finite set of trajectories is computed, typically by forward integration of the differential equations that describe vehicle dynamics.While this reduces the solution space and allows for fast planning, it may introduce <strong>suboptimality</strong>.</li>
+<li>[9]: a tree of trajectories is sampled by simulating the closed loop system using the <strong>rapidly exploring random tree algorithm</strong> [10].</li>
+<li>[17]: in a similar spirit to our method but only considers the free problem that is <strong>not constrained by obstacle</strong>.</li>
+<li>We propose a <strong>local method</strong>, which is capable of realizing <strong>high-level decisions</strong> made by an upstream, <strong>behavioral layer</strong> (long-term objectives) and also <strong>performs (reactive) emergency obstacle avoidance</strong> in unexpected critical situations.</li>
+</ul>
+</li>
+<li><p>Optimal control approach</p>
+<ul>
+<li>system inputs or curvature to be <strong>polynomials</strong>.</li>
+<li>cost functional is compliance with <strong>Bellman’s principle</strong> of optimality.</li>
+<li>making the best compromise between the <strong>jerk</strong> and the <strong>time</strong>.</li>
+<li>not limited to a certain function class, the problem becomes highly <strong>complicated</strong> and can be solved numerically at best.</li>
+</ul>
+</li>
+</ul>
+<p>A quintic polynomial through the same points and the same time interval will always lead to a smaller cost.</p>
+<ul>
+<li>Generation of lateral movement<ul>
+<li>High speed trajectories<ul>
+<li>at high speed, d(t) and s(t) can be chosen independently.</li>
+<li>cost function: g(T)=T, h(d1)=d1^2.</li>
+<li>process:<ol>
+<li>calculate its coefficients and T minimizing.</li>
+<li>check it against collision.</li>
+<li>if not, check and find the second best and collision-free trajectory.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Low speed trajectories<ul>
+<li>at low speed, we must consider the non-holonomic property (invalid curvatures) of the car.</li>
+<li>cost function: see in the paper.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Generation of longitudianal movement<ul>
+<li>Following<ul>
+<li>safe distance (constant time gap law)</li>
+</ul>
+</li>
+<li>Merging</li>
+<li>Stopping</li>
+<li>Velocity keeping</li>
+</ul>
+</li>
+<li>Combining lateral and longitudinal trajectories<ul>
+<li>check aginst outsized acceleration values first.</li>
+<li>derive higher order infomation (heading, curvature, velocity, acceleration)</li>
+<li>calculate the conjoint cost: Cost_total = w_lat <em> Cost_lat + w_lon </em> Cost_lon</li>
+<li>for collison dectection: we add a certain safety distance to the size of our car on each side.</li>
+</ul>
+</li>
+</ul>
 <p><img src="https://wx3.sinaimg.cn/mw690/4b1ff580ly1g1cycmjjw0g20hs0dcb29.gif" width="59%"></p>
 
 
