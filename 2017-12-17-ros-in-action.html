@@ -57,7 +57,7 @@
 <li>框架级的架构 ROS/Android</li>
 <li>应用级的架构 Apollo</li>
 </ul>
-<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/WechatIMG826.jpeg" width="99%"></p>
+<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG826.jpeg" width="99%"></p>
 <p>系统架构：分层</p>
 <ul>
 <li>Kernel <ul>
@@ -95,7 +95,7 @@
 <li>社区级 Community level</li>
 </ul>
 <h3 id="计算图级-Computation-Graph-level"><a href="#计算图级-Computation-Graph-level" class="headerlink" title="计算图级 Computation Graph level"></a>计算图级 Computation Graph level</h3><p>计算图是ROS处理数据的一种点对点的网络形式。程序运行时，所有进程以及他们所进行的数据处理，将会通过一种点对点的网络形式表现出来。这一级主要包括几个重要概念：节点（<code>node</code>）、节点管理器（<code>Master</code>）、消息（<code>message</code>）、主题（<code>topic</code>）、服务（<code>service</code>）、消息包（<code>Bag</code>）。</p>
-<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/758868-20150925105038615-629544316.png" width="39%"></p>
+<p><img src="http://psbdjnqe8.bkt.clouddn.com/758868-20150925105038615-629544316.png" width="39%"></p>
 <h4 id="节点-Node"><a href="#节点-Node" class="headerlink" title="节点 Node"></a>节点 Node</h4><p>节点是主要的计算执行进程。一个功能包可以有多个节点功能，就是说可以有多个main入口。如果你想要有一个可以与其他节点交互的进程，那么需要创建一个节点，并将节点链接到ROS网络。通常情况下，系统包含能够实现不同功能的多个节点，为了减少系统的风险，最好每个节点的功能都是功能较为单一的，而不是在系统中创建一个保罗万象的大节点。节点能够使用如roscpp（C++）或rospy（python）的ros客户端库编写节点程序。</p>
 <p>（节点是ros中非常重要的一个概念，为了帮助初学者理解这个概念，这里举一个通俗的例子：</p>
 <p>例如，咱们有一个机器人，和一个遥控器，那么这个机器人和遥控器开始工作后，就是两个节点。遥控器起到了下达指 令的作用；机器人负责监听遥控器下达的指令，完成相应动作。从这里我们可以看出，节点是一个能执行特定工作任务的工作单元，并且能够相互通信，从而实现一个机器人系统整体的功能。在这里我们把遥控器和机器人简单定义为两个节点，实际上在机器人中根据控制器、传感器、执行机构等不同组成模块，还可以将其进一步细分为更多的节点，这个是根据用户编写的程序来定义的。）</p>
@@ -109,7 +109,7 @@
 <p>ROS的控制器给ROS的节点存储了主题和服务的注册信息。节点与控制器通信从而报告它们的注册信息。当这些节点与控制器通信的时候，它们可以接收关于其他以注册及节点的信息并且建立与其它以注册节点之间的联系。当这些注册信息改变时控制器也会回馈这些节点，同时允许节点动态创建与新节点之间的连接。</p>
 <p>节点与节点之间的连接是直接的，控制器仅仅提供了查询信息，就像一个DNS服务器。节点订阅一个主题将会要求建立一个与出版该主题的节点的连接，并且将会在同意连接协议的基础上建立该连接。<br>另：ROS控制器控制服务：</p>
 <h4 id="参数服务器-Parameter-Server"><a href="#参数服务器-Parameter-Server" class="headerlink" title="参数服务器 Parameter Server"></a>参数服务器 Parameter Server</h4><p>参数服务器是共享的，多变量的字典，可以通过网络API访问。节点使用参数服务器存储参数，但参数服务器不是为了高性能运算而设计，所以最好用于静态、非二进制数据，比如配置参数。参数服务器使得参数全局可见，便于更改。<br>参数服务器使用了通用XML语言的RPC互联网传输机制，运行再ROSMaster中，这也使得参数服务器的API可以通过XMLRPC的库访问。</p>
-<h3 id="文件系统级-FileSystem-level"><a href="#文件系统级-FileSystem-level" class="headerlink" title="文件系统级 FileSystem level"></a>文件系统级 FileSystem level</h3><p><img src="http://7tsys1.com1.z0.glb.clouddn.com/758868-20150925095308225-1946665651.png" width="39%"></p>
+<h3 id="文件系统级-FileSystem-level"><a href="#文件系统级-FileSystem-level" class="headerlink" title="文件系统级 FileSystem level"></a>文件系统级 FileSystem level</h3><p><img src="http://psbdjnqe8.bkt.clouddn.com/758868-20150925095308225-1946665651.png" width="39%"></p>
 <h4 id="功能包（Package）"><a href="#功能包（Package）" class="headerlink" title="功能包（Package）"></a>功能包（Package）</h4><p>功能包是ROS中软件组织的基本形式。一个功能包具有最小的结构和最少的内容，用于创建ROS程序。它可以包含ROS运行的进程（节点），配置文件等。</p>
 <h4 id="功能包清单（Manifest）"><a href="#功能包清单（Manifest）" class="headerlink" title="功能包清单（Manifest）"></a>功能包清单（Manifest）</h4><p>功能包清单提供关于功能包，许可信息，依赖关系，编译标志等的信息。功能包清单是一个manifests.xml文件，通过这个文件能够实现功能包的管理。</p>
 <h4 id="功能包集（Stack）"><a href="#功能包集（Stack）" class="headerlink" title="功能包集（Stack）"></a>功能包集（Stack）</h4><p>如果你将几个具有某些功能的功能包组织在一起，那么你将会获得一个功能包集。在ROS系统中，存在大量的不同用途的功能包集例如导航功能包集。</p>

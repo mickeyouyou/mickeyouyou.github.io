@@ -79,7 +79,7 @@
 <h3 id="Access-Control-Allow-Origin"><a href="#Access-Control-Allow-Origin" class="headerlink" title="Access-Control-Allow-Origin"></a>Access-Control-Allow-Origin</h3><p>Access-Control-Allow-Origin是HTML5中定义的一种服务器端返回Response header，用来解决资源（比如字体、ajax请求）的跨域权限问题。</p>
 <p>它定义了该资源允许被哪个域引用，或者被所有域引用。google字体使用<code>*</code>表示字体资源允许被所有域引用，也就是说你为了让你的接口、资源在二级域名下面的所有子站使用，你就可以在响应的header中设置该值为<code>*</code>:</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">"Access-Control-Allow-Origin:*"</span>);</span><br></pre></td></tr></table></figure>
-<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/header.jpg" width="90%"></p>
+<p><img src="http://psbdjnqe8.bkt.clouddn.com/header.jpg" width="90%"></p>
 <p>但是，该域值却不能使用正则。这是比较坑的地方。所以我们需要另外一种思路，就是根据<code>Request Headers</code>的内容，决定一些需要的<code>Response Headers</code>的内容，这里定义规则如下：</p>
 <p>根据Request的Origin: 进行决策，在Origin来自<code>*.example.com</code>（包括<code>www.example.com; example.com;</code>）时,<code>Response Header</code>中增加<code>Access-Control-Allow-Origin:</code>头的内容保持和<code>Requset Headers</code>中的<code>Origin:</code> 头URI中的protocol, domain, port内容，并一致。</p>
 <h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><p>JSONP是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小。</p>

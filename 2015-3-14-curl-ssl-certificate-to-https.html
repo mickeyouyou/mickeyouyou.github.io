@@ -62,7 +62,7 @@
 <p>由定义可以看出，只有pfx格式的数字证书是包含有私钥的，cer格式的数字证书里面只有公钥没有私钥。</p>
 <p> 在pfx证书的导入过程中有一项是“标志此密钥是可导出的。这将您在稍候备份或传输密钥”。一般是不选中的，如果选中，别人就有机会备份你的密钥了。如果是不选中，其实密钥也导入了，只是不能再次被导出。这就保证了密钥的安全。</p>
 <p>如果导入过程中没有选中这一项，做证书备份时“导出私钥”这一项是灰色的，不能选。只能导出cer格式的公钥。如果导入时选中该项，则在导出时“导出私钥”这一项就是可选的。</p>
-<p><img src="http://7tsys1.com1.z0.glb.clouddn.com/Selection_061.png" width="90%"></p>
+<p><img src="http://psbdjnqe8.bkt.clouddn.com/Selection_061.png" width="90%"></p>
 <p>上图，如果要导出私钥（pfx),是需要输入密码的，这个密码就是对私钥再次加密，这样就保证了私钥的安全，别人即使拿到了你的证书备份（pfx),不知道加密私钥的密码，也是无法导入证书的。相反，如果只是导入导出cer格式的证书，是不会提示你输入密码的。因为公钥一般来说是对外公开的，不用加密<br>由于php的curl只支持pem格式、der、eng格式，而之前生成的是p12的格式，所以需要转换一下</p>
 <h4 id="PKCS-12-到-PEM-的转换"><a href="#PKCS-12-到-PEM-的转换" class="headerlink" title="PKCS#12 到 PEM 的转换"></a>PKCS#12 到 PEM 的转换</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">openssl pkcs12 -nocerts -nodes -in cert.p12 -out private.pem</span><br></pre></td></tr></table></figure>
 <p>验证<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">openssl pkcs12 -clcerts -nokeys -in cert.p12 -out cert.pem</span><br></pre></td></tr></table></figure></p>
