@@ -52,7 +52,7 @@
 </ul>
 <p>整个势能$U$是引力部分和斥力部分势能的叠加。移动机器人在势场合力的作用下，绕开它运动线路上的障碍物，向目标移动。</p>
 <p>人工势场法的规划，类似一种机器人在虚拟力场下运动。如图所示，机器人在一个二维环境下运动，图中指示了机器人自身、障碍物、和目标点之间的相对位置。</p>
-<p><img src="https://wx2.sinaimg.cn/mw690/4b1ff580ly1g0bu3ij29pj20zg0nldv6.jpg" width="70%"></p>
+<p><img src="https://i.loli.net/2019/05/31/5cf0d8e78382811536.jpg" width="70%"></p>
 <p>这个图比较清晰地说明了人工势场法的作用，物体在初始点的一个较高“山头”上，要达到的目标点在“山脚”下，这就形成了一种势场，物体在这种势的引导下，避开障碍物，到达目标点。</p>
 <p>人工势场包括引力场和斥力场，其中目标点对物体产生引力，引导物体朝向其运动（类似A*算法中的启发函数Heuristic Functions）。障碍物对物体产生斥力，避免物体与之发生碰撞。</p>
 <p>物体在路径上的每一点所受的合力等于这一点所有引力与斥力的和。所以问题的关键是如何构建引力场和斥力场。</p>
@@ -85,7 +85,7 @@ d_{goal}^* \zeta d(q, q_{goal}) - \frac 12 \zeta (d_{goal}^*), d(q,q_{goal}) &gt
 \end{aligned}
 \right.\tag{7}$$</span><!-- Has MathJax -->
 <h3 id="斥力函数"><a href="#斥力函数" class="headerlink" title="斥力函数"></a>斥力函数</h3><p>在一个势场中，障碍物所形成额势场会对机器人产生排斥作用，且它们之间距离越近，障碍物对机器人的排斥作用越强烈，反之则越小。这种势场的原理与电势场具有相似之处，都与其之间的距离成反比。</p>
-<p><img src="https://wx1.sinaimg.cn/mw690/4b1ff580ly1g0c02lcs8xj20ab07bgmd.jpg"></p>
+<p><img src="https://i.loli.net/2019/05/31/5cf0d90ec0d2e53681.jpg"></p>
 <span>$$\\
 U_{rep}(q)=\left\{
 \begin{aligned}
@@ -105,9 +105,9 @@ U_{rep}(q)=\left\{
 U(q) = U_{att}(q) + U_{rep}(q) \tag{10}$$</span><!-- Has MathJax -->
 <span>$$\\
 F(q) = - \nabla U(q) \tag{11}$$</span><!-- Has MathJax -->
-<p><img src="https://wx1.sinaimg.cn/mw690/4b1ff580ly1g0d15pekl3j206q045mx3.jpg"></p>
+<p><img src="https://i.loli.net/2019/05/31/5cf0d931d509078096.jpg"></p>
 <h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>梯度下降法（Gradient descent）是一个一阶最优化算法，通常也称为最速下降法。要使用梯度下降法找到一个函数的局部极小值，必须向函数上当前点对应梯度（或者是近似梯度）的反方向的规定步长距离点进行迭代搜索。如果相反地向梯度正方向迭代进行搜索，则会接近函数的局部极大值点；这个过程则被称为梯度上升法。</p>
-<p><img src="https://wx1.sinaimg.cn/large/006lQLfVgy1g0gdzao0o2j30hl09w134.jpg" width="50%"></p>
+<p><img src="https://i.loli.net/2019/05/31/5cf0d9465ac8944631.jpg" width="50%"></p>
 <p>上图示例了这一过程，这里假设函数定义在平面上，并且函数图像是一个碗形。蓝色的曲线是等高线（水平集），即函数F为常数的集合构成的曲线。红色的箭头指向该点梯度的反方向。（一点处的梯度方向与通过该点的等高线垂直）。沿着梯度下降方向，将最终到达碗底，即函数F值最小的点。</p>
 <p>一个简单获取势场底部的方法：<br><span>$$\\
 \dot c(t) = - \nabla U(c(t)) \tag{12}$$</span><!-- Has MathJax --></p>
@@ -121,11 +121,11 @@ F(q) = - \nabla U(q) \tag{11}$$</span><!-- Has MathJax -->
 <li>如果H是无限期的，那就是马鞍点（Saddle Point）</li>
 </ul>
 <p>Gradient Descent:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">– q(0)=qstart</span><br><span class="line">– i = 0</span><br><span class="line">– while || ∇ U(q(i)) || &gt; ε do</span><br><span class="line">    • q(i+1) = q(i) - α(i)∇ U(q(i))</span><br><span class="line">    • i=i+1</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://wx2.sinaimg.cn/mw690/4b1ff580ly1g0c3a3hhynj20ho0523zw.jpg"></p>
+<p><img src="https://i.loli.net/2019/05/31/5cf0d99a8e3ef12102.jpg"></p>
 <blockquote>
 <p>在空间$\mathcal{C}$中构建势场,所以点代表了机器人被目标点$q_g$所吸引，并被障碍区域（$\mathcal{CO}$）重新驱动。</p>
 </blockquote>
-<h3 id="对象距离计算"><a href="#对象距离计算" class="headerlink" title="对象距离计算"></a>对象距离计算</h3><p><img src="https://wx1.sinaimg.cn/mw690/4b1ff580ly1g0c543dssyj20e50avt99.jpg" width="50%"><br><span>$$\\
+<h3 id="对象距离计算"><a href="#对象距离计算" class="headerlink" title="对象距离计算"></a>对象距离计算</h3><p><img src="https://i.loli.net/2019/05/31/5cf0d9ad42af189868.jpg" width="50%"><br><span>$$\\
 d_i(q) = \min_{c\in \mathcal{CO_i}} d(q,c) \tag{13}$$</span><!-- Has MathJax --></p>
 <span>$$\\
 \nabla d_i(q) = \frac {q-c}{d(q,c)} \tag{14}$$</span><!-- Has MathJax -->
@@ -138,7 +138,7 @@ U_{rep_i}(q)=\left\{
 \right.\tag{15}$$</span><!-- Has MathJax -->
 <span>$$\\
 U_{rep}(q) = \sum_{i=0}^n U_{rep_i}(q) \tag{16}$$</span><!-- Has MathJax -->
-<p>从传感器的部署位置，计算与障碍物的距离。<br><img src="https://wx2.sinaimg.cn/mw690/4b1ff580ly1g0c5rdxhv4j20rd0et77a.jpg" width="70%"></p>
+<p>从传感器的部署位置，计算与障碍物的距离。<br><img src="https://i.loli.net/2019/05/31/5cf0d9c72b4f222411.jpg" width="70%"></p>
 <p>可以使用网格作为计算距离的一个参考。使用离散版本的空间并从那里开始工作，使用Brushfire 算法是一种做法：</p>
 <ul>
 <li>定义一个空间网格；</li>
