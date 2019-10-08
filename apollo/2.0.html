@@ -76,7 +76,7 @@
 <li>增加更多调试工具、调试信息更接近，对开发者更加友好；</li>
 </ul>
 <p>横向方向盘、纵向刹车、紧急状态、停车等指令控制；</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG48.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG48.jpeg" width="99%"></p>
 <p>之前的版本中，HMI与DreamView分别占有一个端口，分别执行交互与仿真部分的内容。在2.0版本中进行了整合。现在，在编译完Apollo之后，只需要启动一个端口（8888）即可。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># start module monitor</span><br><span class="line">bash scripts/bootstrap.sh</span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/ApolloAuto/apollo/master/docs/demo_guide/images/apollo_bootstrap_screen.png" width="99%"></p>
@@ -94,33 +94,33 @@
 <li>障碍物检测</li>
 <li>交通灯检测</li>
 </ul>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG42.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG42.jpeg" width="99%"></p>
 <p>交通灯的监测定义：</p>
 <figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line">message TrafficLight &#123;</span><br><span class="line">    enum Color &#123;</span><br><span class="line">        UNKNOWN = 0;</span><br><span class="line">        RED = 1;</span><br><span class="line">        YELLOW = 2;</span><br><span class="line">        GREEN = 3;</span><br><span class="line">        BLACK = 4;</span><br><span class="line">    &#125;;</span><br><span class="line">    optional Color color = 1;</span><br><span class="line">    // Traffic light string-ID in the map data.</span><br><span class="line">    optional string id = 2;</span><br><span class="line">    // How confidence about the detected results, between 0 and 1.</span><br><span class="line">    optional double confidence = 3 [default = 1.0];</span><br><span class="line">    // Duration of the traffic light since detected.</span><br><span class="line">    optional double tracking_time = 4;</span><br><span class="line">&#125;</span><br><span class="line">message TrafficLightDetection &#123;</span><br><span class="line">    optional apollo.common.Header header = 2;</span><br><span class="line">    repeated TrafficLight traffic_light = 1;</span><br><span class="line">    optional TrafficLightDebug traffic_light_debug = 3;</span><br><span class="line">    optional bool contain_lights = 4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>新增的交通灯监测类:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fengzongbao@baidu ~/apollo/modules/perception [master]</span><br><span class="line">± % tree -L 1 traffic_light                                                                                                               !485</span><br><span class="line">traffic_light</span><br><span class="line">├── base</span><br><span class="line">├── interface</span><br><span class="line">├── onboard</span><br><span class="line">├── preprocessor</span><br><span class="line">├── projection</span><br><span class="line">├── recognizer</span><br><span class="line">├── rectify</span><br><span class="line">├── reviser</span><br><span class="line">├── util</span><br><span class="line">└── visualizer</span><br><span class="line"></span><br><span class="line">10 directories, 0 files</span><br></pre></td></tr></table></figure>
 <p>关于信号灯识别的细节，可以查看文档：<a href="https://github.com/ApolloAuto/apollo/blob/master/docs/specs/traffic_light.md" target="_blank" rel="noopener">Traffic Light Perception</a></p>
 <p><strong>Prediction</strong>：预测模块预测未来的感知障碍物的运动轨迹。</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG43.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG43.jpeg" width="99%"></p>
 <p>在MLP模型的基础上，为交通预测增加RNN模型。</p>
 <p>RNN算法可用于对目标进行时空域的统一建模。引入RNN，使得我们可以更精准的预测无人车周围所有障碍物未来一段时间内的行动轨迹，从而为决策系统提供更准确、有效的参考信息。 by 潘屹峰</p>
 <p><strong>Routing</strong>:路由模块告诉自主车辆如何通过一系列车道或道路到达目的地。</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG45.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG45.jpeg" width="99%"></p>
 <p><strong>Planning</strong>：为无人车规划时间与空间的轨迹信息</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG41.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG41.jpeg" width="99%"></p>
 <ul>
 <li>traffic_decider：交通流处理逻辑。</li>
 <li><strong>NEW：</strong>更新决策规划能力，支持车道变换；</li>
 </ul>
 <p><strong>Control</strong>：控制模块根据决策规划的轨迹（包含时间、空间信息）通过生成诸如节气门，制动和转向的控制命令。</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG40.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG40.jpeg" width="99%"></p>
 <blockquote>
 <p>filter目录已删除。</p>
 </blockquote>
 <p><strong>new</strong>新增控制算法:MPC，默认未启用，启用请参考：<a href="https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_add_a_new_control_algorithm.md" target="_blank" rel="noopener">How to Add a New Control Algorithm</a></p>
-<p><strong>CanBus</strong>:传递控制指令到车辆的接口层，同时也回传底盘信息给Apollo。<br><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG38.jpeg" width="99%"></p>
+<p><strong>CanBus</strong>:传递控制指令到车辆的接口层，同时也回传底盘信息给Apollo。<br><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG38.jpeg" width="99%"></p>
 <p><strong>HD-Map</strong>: 高精地图模块更像是一个类库，但它不是发布和订阅消息，而是经常用作地图查询引擎，提供关于道路的临时结构化信息。</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG46.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG46.jpeg" width="99%"></p>
 <ul>
 <li>demo：高精地图的demo数据，opendrive开放格式规范，xml数据格式；</li>
 <li>adapter:xml数据解析、坐标系转换、openDrive数据数据解析、protobuf数据格式化</li>
@@ -128,7 +128,7 @@
 <li>proto:</li>
 </ul>
 <p><strong>Localization</strong>: 定位模块利用GPS，LiDAR和IMU等各种传感器数据源评估无人车的位置。</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG47.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG47.jpeg" width="99%"></p>
 <ul>
 <li>rtk:差分法定位</li>
 <li>msf:多传感器融合定位</li>

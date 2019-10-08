@@ -196,7 +196,7 @@
 <p>基本的成帧协议定义了帧类型有操作码、有效载荷的长度，指定位置的”Extension data”和”Application data”，统称为”Payload data”。保留了一些特殊位和操作码供后期扩展。</p>
 <p>在打开握手完成后，终端发送一个关闭帧之前的任何时间里，数据帧可能由客户端或服务器的任何一方发送（见5.5.1节）。</p>
 <h3 id="基本的帧协议"><a href="#基本的帧协议" class="headerlink" title="基本的帧协议"></a>基本的帧协议</h3><p>用于数据传输部分的有线格式用ABNF描述，细节在本节。（注意，不像本文档中的其他章节，本节的ABNF是作用于一组比特位上。每组比特位的长度在注释里指示。当在有线上编码后，最重要的比特的最左边的ABNF）。帧的一个高层概览见下图。当下图与ABNF有冲突时，图是权威的。</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/Selection_062.png" alt="enter image description here"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/Selection_062.png" alt="enter image description here"></p>
 <p><strong><code>FIN</code></strong>： 1bit<br>表示此帧是否是消息的最后帧。第一帧也可能是最后帧。<br><strong><code>RSV1，RSV2，RSV3</code></strong>： 各1bit<br>必须是0，除非协商了扩展定义了非0的意义。如果接收到非0，且没有协商扩展定义  此值的意义，接收端必须使WebSocket连接失败。<br><strong><code>Opcode</code></strong>： 4bit<br>定义了”Payloaddata”的解释。如果接收到未知的操作码，接收端必须使WebSocket       连接失败。下面的值是定义了的。</p>
 <ul>
 <li>%x0 表示一个后续帧</li>

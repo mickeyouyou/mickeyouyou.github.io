@@ -1,0 +1,125 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>基于速度矢量的路径规划 velocity vector planning</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=4.3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	   <link rel="shortcut icon" type="image/x-icon" href="/rocket_128px_1215034_easyicon.net.ico?v=4.3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">基于速度矢量的路径规划 velocity vector planning</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2019年8月5日
+
+
+
+
+ </div>
+--->
+</div>
+
+
+<p>问题阐述：</p>
+<p>人工势场法：</p>
+<p>其中存在的问题：</p>
+<p>速度矢量：</p>
+<p>更平滑更新尝试：</p>
+<p>w = 10, wp = 0.25 * w:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">attractive : Vector deltaX:10.0, deltaY:0.0, length:10.0, direction:[1.0, 0.0]</span><br><span class="line">t_vec length:0.11180339887498938, distance2obstacle:0.8499999999999999</span><br><span class="line">v_pi:Vector deltaX:1.6958015277130467, deltaY:1.9671297721471344, length:2.5971796937950864, direction:[0.6529396220694628, 0.7574099616005768]</span><br><span class="line">dot production result v_g:[[-1.96712977]</span><br><span class="line"> [ 1.69580153]]</span><br><span class="line">dot production result v_gg:[[ 1.96712977]</span><br><span class="line"> [-1.69580153]]</span><br><span class="line">m :-1.3905572527246988</span><br><span class="line">n:1.3905572527246988</span><br><span class="line">v_g_l:Vector deltaX:5.108989499280293, deltaY:-4.4043012924830105, length:6.74534236186154, direction:[0.7574099616005768, -0.6529396220694627]</span><br><span class="line">repulsion: Vector deltaX:5.108989499280293, deltaY:-4.4043012924830105, length:6.74534236186154, direction:[0.7574099616005768, -0.6529396220694627]</span><br><span class="line">combined velocity:Vector deltaX:15.108989499280293, deltaY:-4.4043012924830105, length:15.737834462349948, direction:[0.9600424718804828, -0.2798543410162015]</span><br><span class="line">current_position:Vector deltaX:1.1651089894992803, deltaY:1.495595698707517, length:1.8958600822329847, direction:[0.614554312535021, 0.7888745127994742]</span><br><span class="line">attractive : Vector deltaX:9.999860858906581, deltaY:0.05275227490965401, length:10.000000000000002, direction:[0.999986085890658, 0.0052752274909654]</span><br><span class="line">t_vec length:0.09636104713243815, distance2obstacle:0.8349026274271675</span><br><span class="line">v_pi:Vector deltaX:1.973973925173492, deltaY:2.2898097532012507, length:3.023210505922539, direction:[0.6529396220694628, 0.7574099616005768]</span><br><span class="line">dot production result v_g:[[-2.28980975]</span><br><span class="line"> [ 1.97397393]]</span><br><span class="line">dot production result v_gg:[[ 2.28980975]</span><br><span class="line"> [-1.97397393]]</span><br><span class="line">m :-1.6186586186422636 </span><br><span class="line">n:1.6186586186422636</span><br><span class="line">v_g_l:Vector deltaX:6.922576902441918, deltaY:-5.967738709001654, length:9.139801763120415, direction:[0.7574099616005768, -0.6529396220694628]</span><br><span class="line">repulsion: Vector deltaX:6.922576902441918, deltaY:-5.967738709001654, length:9.139801763120415, direction:[0.7574099616005768, -0.6529396220694628]</span><br><span class="line">combined velocity:Vector deltaX:16.922437761348498, deltaY:-5.9149864340919995, length:17.926404109642455, direction:[0.9439951067624358, -0.32995944964279705]</span><br><span class="line">current_position:Vector deltaX:1.182031427260629, deltaY:1.489680712273425, length:1.9016695084980613, direction:[0.6215756323474931, 0.7833541557123535]</span><br></pre></td></tr></table></figure></p>
+<p>参考文献</p>
+<ul>
+<li><a href="http://kns.cnki.net/kcms/detail/detail.aspx?filename=1011252245.nh&amp;dbcode=CMFD&amp;dbname=CMFD2011&amp;v=" target="_blank" rel="noopener">基于速度矢量场的航路规划技术研究</a></li>
+</ul>
+
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">如果你有不同看法？</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+  
+
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div>
+
+
+
+
+    
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+
+
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.href, 
+            owner: 'mickeyouyou',
+            repo: 'blog_comment',
+            
+            lang: "en" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '27804beebc0d0aa2ae7271191fd5adac6d1b8cb7',
+            
+                client_id: '57e78fbfba943c338437'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+          function showGitment(){
+            document.getElementById("gitment-display-button").style.display = "none";
+            document.getElementById("gitment-container").style.display = "block";
+            renderGitment();
+          }
+      
+      </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+
+
+
+</body>
+</html>

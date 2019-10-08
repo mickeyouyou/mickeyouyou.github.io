@@ -51,11 +51,11 @@
 <li>ST坐标系，横向为时间，纵向为路径；</li>
 </ul>
 <p>在SL坐标系中，完成对路径的规划；接着有关速度的限制，是在ST坐标系中完成的。</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG257.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG257.jpeg" width="99%"></p>
 <p align="center">SL坐标系</p>
 
 <p>以下是在Apollo项目中定义的SL边界，对大家理解障碍物有帮助：<br><figure class="highlight plain"><figcaption><span>modules/planning/proto/sl_boundary.proto</span></figcaption><table><tr><td class="code"><pre><span class="line">/////////////////////////////////////////////////////////////////</span><br><span class="line">// The start_s and end_s are longitudinal values.</span><br><span class="line">// start_s &lt;= end_s.</span><br><span class="line">//</span><br><span class="line">//              end_s</span><br><span class="line">//                ^</span><br><span class="line">//                |</span><br><span class="line">//          S  direction</span><br><span class="line">//                |</span><br><span class="line">//            start_s</span><br><span class="line">//</span><br><span class="line">// The start_l and end_l are lateral values.</span><br><span class="line">// start_l &lt;= end_l. Left side of the reference line is positive,</span><br><span class="line">// and right side of the reference line is negative.</span><br><span class="line">//  end_l  &lt;-----L direction---- start_l</span><br><span class="line">/////////////////////////////////////////////////////////////////</span><br><span class="line"></span><br><span class="line">message SLBoundary &#123;</span><br><span class="line">  optional double start_s = 1;</span><br><span class="line">  optional double end_s = 2;</span><br><span class="line">  optional double start_l = 3;</span><br><span class="line">  optional double end_l = 4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG258.jpeg" width="69%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG258.jpeg" width="69%"></p>
 <p align="center">ST坐标系</p>
 
 <h2 id="速度限制决策"><a href="#速度限制决策" class="headerlink" title="速度限制决策"></a>速度限制决策</h2><p>目前处理的限速主要分为来自地图的限速标识、曲率限速、绕行障碍物限速三个方面。主要逻辑在<code>apollo::planning::speedLimitDecider::GetSpeedLimits()</code>，下面是详细的逻辑介绍：</p>

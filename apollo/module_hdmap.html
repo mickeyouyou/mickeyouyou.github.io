@@ -51,10 +51,10 @@
 <p>主要改动和扩展了以下几个方面：<strong>一是地图元素形状的表述方式。以车道边界为例，标准OpenDRIVE采用基于Reference Line的曲线方程和偏移的方式来表达边界形状，而Apollo OpenDrive采用绝对坐标序列的方式描述边界形状；</strong>二是元素类型的扩展。例如新增了对于禁停区、人行横道、减速带等元素的独立描述；三是扩展了对于元素之间相互关系的描述。比如新增了junction与junction内元素的关联关系等；除此之外还有一些配合无人驾驶算法的扩展，比如增加了车道中心线到真实道路边界的距离、停止线与红绿灯的关联关系等。改动和扩展后的规格在实现上更加的简单，同时也兼顾了无人驾驶的应用需求。</p>
 <h2 id="Apollo高精地图规范"><a href="#Apollo高精地图规范" class="headerlink" title="Apollo高精地图规范"></a>Apollo高精地图规范</h2><h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>百度高精地图数据格式采用（XML）文件格式的数据组织方式，是基于国际通用的OpenDrive规范，并根据百度自动驾驶业务需求拓展修改而成。</p>
 <p>Apollo高精地图文件的整体结构如下所示：</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG208.jpeg" width="99%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG208.jpeg" width="99%"></p>
 <h3 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h3><p>百度高精地图坐标采用WGS84经纬度坐标表示。WGS84为一种大地坐标系，也是目前广泛使用的GPS全球卫星定位系统使用的坐标系。</p>
 <h3 id="车道"><a href="#车道" class="headerlink" title="车道"></a>车道</h3><p><strong>道路的reference line 存储在ID为0的车道中，其他车道只存储当前车道的一个边界。例如，reference line右侧的车道只存储车道的右侧边界。</strong></p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG145.jpeg" width="79%"><br>车道 ID 的命名规则:</p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG145.jpeg" width="79%"><br>车道 ID 的命名规则:</p>
 <ul>
 <li>lane section 内唯一</li>
 <li>数值连续的</li>
@@ -65,7 +65,7 @@
 </ul>
 <p>车道总数目没有限制。Reference line 自身必须为 Lane 0。</p>
 <h3 id="路口区域（juction）"><a href="#路口区域（juction）" class="headerlink" title="路口区域（juction）"></a>路口区域（juction）</h3><p>基本的原理比较简单，路口区域用junction结构表达。在Junction内，incoming Road通过Connecting Roads与out-going道路相连。下图展示了一个比较复杂的路口：</p>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG146.jpeg" width="79%"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG146.jpeg" width="79%"></p>
 <h2 id="高精地图在Apollo的存在形式"><a href="#高精地图在Apollo的存在形式" class="headerlink" title="高精地图在Apollo的存在形式"></a>高精地图在Apollo的存在形式</h2><p>在Apollo发布的Docker镜像中，也包含了地图的部分。Apollo在启动时，你可以按照如下方式为启动的镜像挂载地图：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apollo@baidu:~/apollo$ bash docker/scripts/dev_start.sh --map sunnyvale_big_loop</span><br></pre></td></tr></table></figure>
 <p>如果不指定挂载的地图，默认挂载以下地图：</p>
@@ -73,7 +73,7 @@
 <li>map_volume-sunnyvale_big_loop-latest</li>
 <li>map_volume-sunnyvale_loop-latest</li>
 </ul>
-<p><img src="http://psbdjnqe8.bkt.clouddn.com/background.jpg" width="99%" alt="sunnyvale big loop"></p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/background.jpg" width="99%" alt="sunnyvale big loop"></p>
 <p align="center">sunnyvale区域地图</p>
 
 <p>一段道路的相关自动驾驶地图可以放置在如下结构的目录中：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sunnyvale_big_loop</span><br><span class="line">├── background.jpg</span><br><span class="line">├── background.png</span><br><span class="line">├── base_map.bin</span><br><span class="line">├── base_map.lb1</span><br><span class="line">├── base_map.txt</span><br><span class="line">├── base_map.xml               <span class="comment"># Defined by FLAGS_base_map_filename</span></span><br><span class="line">├── default_end_way_point.txt  <span class="comment"># Defined by FLAGS_end_way_point_filename</span></span><br><span class="line">├── grid_map</span><br><span class="line">├── local_map</span><br><span class="line">├── map.json</span><br><span class="line">├── routing_map.bin            <span class="comment"># Defined by FLAGS_routing_map_filename</span></span><br><span class="line">├── routing_map.txt</span><br><span class="line">├── sim_map.bin                <span class="comment"># Defined by FLAGS_sim_map_filename</span></span><br><span class="line">├── sim_map.txt</span><br><span class="line">└── speed_control.pb.txt</span><br></pre></td></tr></table></figure></p>

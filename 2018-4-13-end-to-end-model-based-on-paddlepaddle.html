@@ -56,7 +56,7 @@
 
 <p>硬件配置：</p>
 <h3 id="方案选择"><a href="#方案选择" class="headerlink" title="方案选择"></a>方案选择</h3><p>目前有两种方案，一种是Rule-Based,另外一种方法是End-to-End，这两种方法因为处理过程的透明化区分为白盒和黑盒的方案。本质上有很大差异。而我们的选择会根据场景，对以上两种方法做融合处理。</p>
-<h4 id="规则系统"><a href="#规则系统" class="headerlink" title="规则系统"></a>规则系统</h4><p><img src="http://psbdjnqe8.bkt.clouddn.com/WechatIMG254.jpeg" width="49%"><br>车道识别，保证车辆运行在车道内，保证完成第一项。</p>
+<h4 id="规则系统"><a href="#规则系统" class="headerlink" title="规则系统"></a>规则系统</h4><p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG254.jpeg" width="49%"><br>车道识别，保证车辆运行在车道内，保证完成第一项。</p>
 <p>发送启动命令，车辆在直行的过程中得到车前方障碍物的距离信息，在一定阈值范围内开始通过视觉判断障碍物类型，如果提取到白色色块（障碍物），需要重新规划路线绕开该障碍物。如果是一定规则的April Tag（跟车，在单个车道方向），保持速度，（横向如何保证？）</p>
 <p>在行驶的过程中，从图像边缘提取红绿灯信息。遵循红绿灯交通规则。</p>
 <p>如果从图像中提取到倒车入库的April tag 信息，执行倒车入库。</p>
