@@ -1,0 +1,138 @@
+<html>
+<head>
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Jetson Nano 性能探索</title>
+	<meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+	   <link href="/css/main.css?v=4.3" rel="stylesheet" type="text/css" />
+    
+        <script src="/js/util.js"></script>
+        <script>
+            if(isMobile()) {
+                loadjscssfile('../css/mobile.css', 'css');
+            } else {
+                loadjscssfile('../css/desktop.css', 'css');
+            }
+        </script> 
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+
+    
+	   <link rel="shortcut icon" type="image/x-icon" href="/rocket_128px_1215034_easyicon.net.ico?v=4.3"/><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><h2 class="title">Jetson Nano 性能探索</h2>
+<!---
+<div style="text-align:center;margin-top: -10px;">
+<div class="article-category">
+发表于2019年10月14日
+
+
+
+
+ </div>
+--->
+</div>
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Jetson-Nano-是什么？"><span class="toc-text"><a href="#Jetson-Nano-&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="Jetson Nano &#x662F;&#x4EC0;&#x4E48;&#xFF1F;"></a>Jetson Nano &#x662F;&#x4EC0;&#x4E48;&#xFF1F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用"><span class="toc-text"><a href="#&#x5E94;&#x7528;" class="headerlink" title="&#x5E94;&#x7528;"></a>&#x5E94;&#x7528;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件部分"><span class="toc-text"><a href="#&#x8F6F;&#x4EF6;&#x90E8;&#x5206;" class="headerlink" title="&#x8F6F;&#x4EF6;&#x90E8;&#x5206;"></a>&#x8F6F;&#x4EF6;&#x90E8;&#x5206;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优化1-运行日志与标准输出"><span class="toc-text"><a href="#&#x4F18;&#x5316;1-&#x8FD0;&#x884C;&#x65E5;&#x5FD7;&#x4E0E;&#x6807;&#x51C6;&#x8F93;&#x51FA;" class="headerlink" title="&#x4F18;&#x5316;1 &#x8FD0;&#x884C;&#x65E5;&#x5FD7;&#x4E0E;&#x6807;&#x51C6;&#x8F93;&#x51FA;"></a>&#x4F18;&#x5316;1 &#x8FD0;&#x884C;&#x65E5;&#x5FD7;&#x4E0E;&#x6807;&#x51C6;&#x8F93;&#x51FA;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化2-设置线程CPU亲和性"><span class="toc-text"><a href="#&#x4F18;&#x5316;2-&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;CPU&#x4EB2;&#x548C;&#x6027;" class="headerlink" title="&#x4F18;&#x5316;2 &#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;CPU&#x4EB2;&#x548C;&#x6027;"></a>&#x4F18;&#x5316;2 &#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;CPU&#x4EB2;&#x548C;&#x6027;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择合适的场景，优化适配CUDA"><span class="toc-text"><a href="#&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x4F18;&#x5316;&#x9002;&#x914D;CUDA" class="headerlink" title="&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x4F18;&#x5316;&#x9002;&#x914D;CUDA"></a>&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x4F18;&#x5316;&#x9002;&#x914D;CUDA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol>
+<h2 id="Jetson-Nano-是什么？"><a href="#Jetson-Nano-是什么？" class="headerlink" title="Jetson Nano 是什么？"></a>Jetson Nano 是什么？</h2><p>一般地，当我们讲到Jetson Nano时，一般指英伟达公司出品的一款计算平台，详细信息可以在这里看到，<a href="https://developer.nvidia.com/embedded/jetson-nano-developer-kit。" target="_blank" rel="noopener">https://developer.nvidia.com/embedded/jetson-nano-developer-kit。</a></p>
+<p>GPU 128核 Maxwell架构， CPU Quad-core ARM A57 @ 1.43 GHz 四核，支持的SM(Stream Multipleprocessor)计算能力5.3，与Jetson TX1一致。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>当跟手掌一样的，精致的计算平台呈现在你面前的时候，不觉得为硬件能力的迭代感到惊叹，这应该是我们接触到最小的计算平台了。</p>
+<p>在这样的计算平台我们可以做什么？借助于GPU的资源，当然人工智能，深度学习的应用更为受到欢迎。我们今天所在的时代就是这样一个硬软件对AI都相对友好的时代，从软件到硬件总有强大的影子。</p>
+<p>我介绍的场景基于Nano一款自动驾驶教育平台，选用的传感器有英特尔的RealSense多种类型。</p>
+<h2 id="软件部分"><a href="#软件部分" class="headerlink" title="软件部分"></a>软件部分</h2><p>我们使用到了Apollo Cyber RT 框架，作为数据承载和模块之间的数据流依托。更多的信息可以在Cyber RT的<a href="https://github.com/ApolloAuto/apollo/tree/master/cyber" target="_blank" rel="noopener">GitHub</a>获得。</p>
+<h3 id="优化1-运行日志与标准输出"><a href="#优化1-运行日志与标准输出" class="headerlink" title="优化1 运行日志与标准输出"></a>优化1 运行日志与标准输出</h3><h3 id="优化2-设置线程CPU亲和性"><a href="#优化2-设置线程CPU亲和性" class="headerlink" title="优化2 设置线程CPU亲和性"></a>优化2 设置线程CPU亲和性</h3><p>当我们的应用运行时，也许你通过System Monitor之类的工具遇到过这样的资源或者使用率分布情况：</p>
+<p><img src="https://fzb-image-1300061917.cos.ap-beijing.myqcloud.com/WechatIMG557.png" width="99%"></p>
+<p>任务在CPU上的占用时间相对较短，跳跃的过程中意味着增加了额外的负载，所以我们想个办法需要将运行的任务，即线程与CPU做一个简单的绑定关系。</p>
+<p>简单地说，CPU 亲和性（affinity） 就是进程要在某个给定的 CPU 上尽量长时间地运行而不被迁移到其他处理器的倾向性。Linux 内核进程调度器天生就具有被称为<code>软 CPU 亲和性（affinity）</code>的特性，这意味着进程通常不会在处理器之间频繁迁移。这种状态正是我们希望的，因为进程迁移的频率小就意味着产生的负载小。</p>
+<p>Linux 内核 API 提供了一些方法，让用户可以修改位掩码或查看当前的位掩码：</p>
+<ul>
+<li><code>sched_set_affinity()</code>（用来修改位掩码）</li>
+<li><code>sched_get_affinity()</code> （用来查看当前的位掩码）<br>注意，<code>cpu_affinity</code> 会被传递给子线程，因此应该适当地调用<code>sched_set_affinity</code>。</li>
+</ul>
+<p>Cyber RT已经提供了基于配置封装的版本，我们只需要在自己的Component组件对应的启动文件中，这个组件可以是硬件数据解析发布，也可以是软件模块，比如优先级更高的控制、规划、感知等模块。指定调度配置文件即可：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mainboard -d realsense.dag -p sensor_sched</span><br></pre></td></tr></table></figure></p>
+<p>sensor_sched调度配置文件内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scheduler_conf &#123;</span><br><span class="line">  policy: &quot;classic&quot;</span><br><span class="line">  classic_conf &#123;</span><br><span class="line">    groups: [</span><br><span class="line">      &#123;</span><br><span class="line">        name: &quot;sensors&quot;</span><br><span class="line">        processor_num: 1</span><br><span class="line">        affinity: &quot;1to1&quot;</span><br><span class="line">        cpuset: &quot;1&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果：<br>图；</p>
+<h3 id="选择合适的场景，优化适配CUDA"><a href="#选择合适的场景，优化适配CUDA" class="headerlink" title="选择合适的场景，优化适配CUDA"></a>选择合适的场景，优化适配CUDA</h3><p>Cuda在矩阵计算中，非常适用，而图像的原始数据，就是一种矩阵，所以非常合适。再来重复下我们的场景，我们需要将传感器的图做分别的处理，最后将处理结果发布出来，供其他模块使用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>管理处理器的亲和性（affinity）：<a href="https://www.ibm.com/developerworks/cn/linux/l-affinity.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-affinity.html</a></li>
+</ul>
+
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">如果你有不同看法？</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+  
+
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=1254090228&web_id=1254090228" language="JavaScript"></script>script>
+</div>
+
+
+
+
+    
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+
+
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.href, 
+            owner: 'mickeyouyou',
+            repo: 'blog_comment',
+            
+            lang: "en" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '27804beebc0d0aa2ae7271191fd5adac6d1b8cb7',
+            
+                client_id: '57e78fbfba943c338437'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+          function showGitment(){
+            document.getElementById("gitment-display-button").style.display = "none";
+            document.getElementById("gitment-container").style.display = "block";
+            renderGitment();
+          }
+      
+      </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+
+
+
+</body>
+</html>
