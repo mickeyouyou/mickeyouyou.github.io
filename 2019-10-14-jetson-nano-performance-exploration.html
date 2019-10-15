@@ -89,8 +89,15 @@
 <p>继续回到代码部分。我们将c++代码进行如下的修改：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">div</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">float</span> b)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">float</span> f = a * (<span class="number">180</span> / <span class="number">3.14f</span>);</span><br><span class="line">  <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>汇编代码为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">_Z3divif:</span><br><span class="line">.LFB30:</span><br><span class="line">        .cfi_startproc</span><br><span class="line">        cvtsi2ss        %edi, %xmm0</span><br><span class="line">        mulss   .LC0(%rip), %xmm0</span><br><span class="line">        ret</span><br></pre></td></tr></table></figure></p>
 <p>可以看到只有一个乘法运算了。括号中的除法运算在编译期间计算出来了结果。</p>
-<h3 id="选择合适的场景，优化适配CUDA"><a href="#选择合适的场景，优化适配CUDA" class="headerlink" title="选择合适的场景，优化适配CUDA"></a>选择合适的场景，优化适配CUDA</h3><p>Cuda在矩阵计算中，非常适用，而图像的原始数据，就是一种矩阵，所以非常合适。再来重复下我们的场景，我们需要将传感器的图做分别的处理，最后将处理结果发布出来，供其他模块使用。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<h3 id="选择合适的场景，优化适配CUDA"><a href="#选择合适的场景，优化适配CUDA" class="headerlink" title="选择合适的场景，优化适配CUDA"></a>选择合适的场景，优化适配CUDA</h3><p>Cuda在并行计算上的优势，对于比如矩阵一类的数据类型，非常适用，而图像的原始数据，就是一种矩阵，所以非常合适。再来重复下我们的场景，我们需要将传感器的图做分别的处理，最后将处理结果发布出来，供其他模块使用。</p>
+<p>关于图像的处理其实有主要有两个部分，1、传感器生成图像；2、应用模块将发布的结果处理的过程。<br>所以我们想如果在生成图像的过程针对CUDA做支持，将这部分的计算挪一部分在GPU上，可以留给更多的效能在软件应用模块。</p>
+<p>此外，下游软件模块的处理，比如感知的车道线识别，模型识别，视觉定位等都需要视觉图像的地方，也可以考虑CUDA资源的适配，但因为资源要在主机和GPU之间拷贝，所以如果将CPU上的处理逻辑转移到GPU上之后，发现提升不够明显，这样的迁移其实就是没有必要的。</p>
+<p>1、编译RealSense SDK，让其在内部成图、生成深度图，点云计算的过程中，支持CUDA。<br>可以使用JetsonHacksNano提供的一个类库，安装便捷。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/JetsonHacksNano/installLibrealsense</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认使用CUDA编译，即WITH_CUDA=ON</span></span><br><span class="line">$ ./installLibrealsense.sh</span><br></pre></td></tr></table></figure></p>
+<p>支持CUDA之后的效果对比：<br><img src="https://user-images.githubusercontent.com/3821311/66801153-a9fc1880-ef4a-11e9-9ffe-99d1964aebae.png" width="99%"></p>
+<p>2、在深度使用图像处理的地方，转换到GPU处理。</p>
+<p>OPENCV后续的版本中已经支持GPUMat,支持在CUDA上的处理格式。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于性能的探索，怎么都不为过，所以还有很多探索的地方。大家互相学习，共同提高。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://www.ibm.com/developerworks/cn/linux/l-affinity.html" target="_blank" rel="noopener">管理处理器的亲和性（affinity）</a></li>
 <li><a href="https://blog.csdn.net/guotianqing/article/details/80958281" target="_blank" rel="noopener">linux下把进程/线程绑定到特定cpu核上运行</a></li>
 </ul>
